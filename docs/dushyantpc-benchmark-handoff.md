@@ -54,11 +54,20 @@ Do not commit private keys, tokens, raw private transcripts, Telegram chat IDs, 
 
 ## Remote Paths
 
-Repo on DushyantPC:
+Source of truth:
+
+```text
+Mac/Git repo: /Users/dushyantgarg/Documents/Projects/ssd-native-inference
+GitHub remote: https://github.com/fraction12/ssd-native-inference.git
+```
+
+DushyantPC benchmark working tree:
 
 ```text
 C:\Users\Dushyant\Projects\ssd-native-inference
 ```
+
+As of 2026-06-02, the DushyantPC folder is a copied working tree, not a git clone. It is safe for running benchmarks, but `git pull` will not work there unless the folder is replaced with a clone. Treat generated PC results as benchmark artifacts to copy back into the Mac/Git repo deliberately.
 
 Portable llama.cpp used for `gpt-oss-20b` GGUF:
 
@@ -97,15 +106,16 @@ Then in PowerShell on DushyantPC:
 
 ```powershell
 cd C:\Users\Dushyant\Projects\ssd-native-inference
-git pull
 python --version
 ollama list
 ```
 
+If the PC folder has been replaced with a real git clone, run `git pull` before benchmarks. Otherwise refresh it by copying the changed source files from the Mac/Git repo before running new harness code.
+
 If continuing from a non-interactive Mac shell, wrap commands like this:
 
 ```bash
-ssh dushyantpc "powershell -NoProfile -Command \"cd C:\Users\Dushyant\Projects\ssd-native-inference; git pull; python --version\""
+ssh dushyantpc "powershell -NoProfile -Command \"cd C:\Users\Dushyant\Projects\ssd-native-inference; python --version\""
 ```
 
 ## How This Dataset Was Built
