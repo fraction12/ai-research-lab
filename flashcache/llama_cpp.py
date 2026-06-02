@@ -55,6 +55,7 @@ class LlamaServerConfig:
     model_path: Path
     slot_cache_dir: Path
     log_dir: Path
+    hf_repo: str | None = None
     host: str = "127.0.0.1"
     port: int = 0
     ctx_size: int = 4096
@@ -146,10 +147,8 @@ def llama_server_version(server_bin: str) -> str:
 
 
 def server_command(config: LlamaServerConfig) -> list[str]:
-    return [
+    command = [
         config.server_bin,
-        "--model",
-        str(config.model_path),
         "--host",
         config.host,
         "--port",
@@ -166,6 +165,11 @@ def server_command(config: LlamaServerConfig) -> list[str]:
         "--no-warmup",
         "--log-disable",
     ]
+    if config.hf_repo:
+        command[1:1] = ["-hf", config.hf_repo]
+    else:
+        command[1:1] = ["--model", str(config.model_path)]
+    return command
 
 
 class ManagedLlamaServer:
@@ -185,7 +189,7 @@ class ManagedLlamaServer:
             return self.client
         if self.config.port == 0:
             self.config.port = free_port(self.config.host)
-        if not self.config.model_path.exists():
+        if not self.config.hf_repo and not self.config.model_path.exists():
             raise LlamaCppError(f"Model file not found: {self.config.model_path}")
         timestamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
         self.log_path = self.config.log_dir / f"{timestamp}-{self.label}.log"

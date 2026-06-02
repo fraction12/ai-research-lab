@@ -1,0 +1,1121 @@
+{
+  "metadata": {
+    "started_at": "2026-06-02T21:56:45.571310+00:00",
+    "server_bin": "C:\\\\Users\\\\Dushyant\\\\Tools\\\\llama-b9482-vulkan\\\\llama-server.exe",
+    "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "server_command": [
+      "C:\\\\Users\\\\Dushyant\\\\Tools\\\\llama-b9482-vulkan\\\\llama-server.exe",
+      "--model",
+      "benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "57747",
+      "--ctx-size",
+      "4096",
+      "--parallel",
+      "1",
+      "--slot-save-path",
+      "benchmarks\\gpt-oss-slot-cache",
+      "--cache-prompt",
+      "--slots",
+      "--no-ui",
+      "--no-warmup",
+      "--log-disable"
+    ],
+    "model": "benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+    "model_bytes": 12109566560,
+    "fixture": "benchmarks\\fixtures\\printtestbot_printing_press_workflow.json",
+    "fixture_hash": "425f7ef0481e15f076c5d681533bfc0afb6cd19e6f31d3634576eb9a5ba91297",
+    "ctx_size": 4096,
+    "predict": 8,
+    "temperature": 0.0,
+    "slot_id": 0,
+    "slot_cache_dir": "benchmarks\\gpt-oss-slot-cache",
+    "prompt_paths": [
+      "benchmarks\\gpt-oss-prompts\\llama-cpp-reusable-prefix.txt",
+      "benchmarks\\gpt-oss-prompts\\llama-cpp-turn-01-intake.txt",
+      "benchmarks\\gpt-oss-prompts\\llama-cpp-turn-02-inspect.txt",
+      "benchmarks\\gpt-oss-prompts\\llama-cpp-turn-03-verify-failure.txt",
+      "benchmarks\\gpt-oss-prompts\\llama-cpp-turn-04-patch-state.txt",
+      "benchmarks\\gpt-oss-prompts\\llama-cpp-turn-05-test-and-vet-failure.txt",
+      "benchmarks\\gpt-oss-prompts\\llama-cpp-turn-06-review-feedback.txt",
+      "benchmarks\\gpt-oss-prompts\\llama-cpp-turn-07-final-handoff.txt"
+    ],
+    "dry_run": false,
+    "finished_at": "2026-06-02T22:01:57.229454+00:00"
+  },
+  "prompt_set": {
+    "fixture_name": "printtestbot-printing-press-workflow",
+    "prefix_block_names": [
+      "printy-bot-identity",
+      "print-a-bot-runtime-contract",
+      "model-routing-and-cache-rules",
+      "tool-schema-summary",
+      "operating-guardrails",
+      "printing-press-workflow-rules",
+      "repo-and-task-context",
+      "benchmark-instructions"
+    ],
+    "prefix_prompt_bytes": 5487,
+    "prefix_prompt_sha256": "8e7efd062fd6a0ea6ab75ad20d8b43277abfb27df78928c635cd8db9c4078280",
+    "prefix_manifest": [
+      {
+        "name": "printy-bot-identity",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 586,
+        "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+      },
+      {
+        "name": "print-a-bot-runtime-contract",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 729,
+        "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+      },
+      {
+        "name": "model-routing-and-cache-rules",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 718,
+        "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+      },
+      {
+        "name": "tool-schema-summary",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 570,
+        "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+      },
+      {
+        "name": "operating-guardrails",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 494,
+        "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+      },
+      {
+        "name": "printing-press-workflow-rules",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 575,
+        "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+      },
+      {
+        "name": "repo-and-task-context",
+        "tier": "semi-stable",
+        "cache_policy": "prefix-cache-candidate",
+        "bytes": 592,
+        "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+      },
+      {
+        "name": "benchmark-instructions",
+        "tier": "semi-stable",
+        "cache_policy": "prefix-cache-candidate",
+        "bytes": 460,
+        "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "turn-01-intake",
+        "description": "Initial user request and repo status for the CLI polish workflow.",
+        "prompt_bytes": 6028,
+        "prompt_sha256": "bddcac82c872ff7a92b9b1cbaaeeceef8ee029e08218dbddc2e0b85d4439ffb0",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-01-user-request",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 314,
+            "sha256": "46a7e50f0618949ca9753ebe4f119ed963673fde61cabdfff67a0d51e05df0db"
+          }
+        ]
+      },
+      {
+        "name": "turn-02-inspect",
+        "description": "Inspection output shows likely CLI polish issues without test failure yet.",
+        "prompt_bytes": 6085,
+        "prompt_sha256": "3af28acc40366667e44c7fb955a711a482652768bba4879f4f855a7de33db8e4",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-02-inspect-and-plan",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 381,
+            "sha256": "56591ebfaa9ad41ce0f24f4df1a2e06acb06c6250b412f7ae85fd969b2e4132c"
+          }
+        ]
+      },
+      {
+        "name": "turn-03-verify-failure",
+        "description": "Verify fails from ranking and README/example mismatch.",
+        "prompt_bytes": 6063,
+        "prompt_sha256": "be78a37a5e364906bec752f6ee4caad62c51998079d375bf9bcd39cf65ac2902",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-03-verify-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 343,
+            "sha256": "72397c639ff15017f7ee90e61c3192be8ddf53e0630e4c853ae76dd19cc119d4"
+          }
+        ]
+      },
+      {
+        "name": "turn-04-patch-state",
+        "description": "Patch has been applied and needs validation.",
+        "prompt_bytes": 6161,
+        "prompt_sha256": "a12ca105b7ef8418e0ad298110fb0a1d6d6be97927fe8546e0f4e50aa64cd111",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-04-patch-applied",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 446,
+            "sha256": "c335a72855ada71bb8c10097c8712bfc80d5daa22e1e7e8f623d1398880aca7b"
+          }
+        ]
+      },
+      {
+        "name": "turn-05-test-and-vet-failure",
+        "description": "Tests and vet fail after the first patch.",
+        "prompt_bytes": 6039,
+        "prompt_sha256": "c3bf3e76251960e117b39609a9622a214c45bd1f09f613e5b44d9deca7ee3b8b",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-05-second-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 315,
+            "sha256": "56dea3bc596d5ab2aeb63bbc1fe23f2305b60e65a34defb420e4cef697799ffe"
+          }
+        ]
+      },
+      {
+        "name": "turn-06-review-feedback",
+        "description": "Review comments and CI state require a second fix loop.",
+        "prompt_bytes": 6124,
+        "prompt_sha256": "8a7cb6cb153afe413aa81b71c1a904ff0672a5895347c6943a317b3df04da0ea",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-06-review-comments",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 410,
+            "sha256": "772a0b311277897c785f7c44c57f20edab955a3f54b990352773a62035ddb76a"
+          }
+        ]
+      },
+      {
+        "name": "turn-07-final-handoff",
+        "description": "Final validation passes and the workflow needs a handoff decision.",
+        "prompt_bytes": 6126,
+        "prompt_sha256": "1052f89ff05771cbd887d4ddb0ff2e3f10e2c2295d0a9bcbd83813d151214c13",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-07-final-validation",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 400,
+            "sha256": "4833bf9b4aa161498c84f0ef11264e71450b8ed50d3463c7805e97356e92774a"
+          }
+        ]
+      }
+    ]
+  },
+  "slot_cache": {
+    "filename": "8e7efd062fd6a0ea-slot.bin",
+    "path": "benchmarks\\gpt-oss-slot-cache\\8e7efd062fd6a0ea-slot.bin",
+    "exists": true,
+    "file_bytes": 31108988,
+    "save_response": {
+      "id_slot": 0,
+      "filename": "8e7efd062fd6a0ea-slot.bin",
+      "n_saved": 1137,
+      "n_written": 31108988,
+      "timings": {
+        "save_ms": 27.786
+      },
+      "_wall_ms": 41.977599961683154
+    }
+  },
+  "baseline_full": [
+    {
+      "server_startup_ms": 18272.246500011533,
+      "server_shutdown_ms": 1284.2077999957837,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T215709Z-baseline-turn-01-intake.log",
+      "completion": {
+        "wall_ms": 1326.4490999863483,
+        "prompt_ms": 1181.87,
+        "prompt_n": 1257,
+        "prompt_per_token_ms": 0.9402307080350039,
+        "predicted_ms": 134.174,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.77175,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1257,
+          "prompt_ms": 1181.87,
+          "prompt_per_token_ms": 0.9402307080350039,
+          "prompt_per_second": 1063.5687512162929,
+          "predicted_n": 8,
+          "predicted_ms": 134.174,
+          "predicted_per_token_ms": 16.77175,
+          "predicted_per_second": 59.62407023715474
+        },
+        "content_excerpt": " We need to produce next action. We"
+      },
+      "scenario": "turn-01-intake"
+    },
+    {
+      "server_startup_ms": 18329.53320001252,
+      "server_shutdown_ms": 1281.5391999902204,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T215730Z-baseline-turn-02-inspect.log",
+      "completion": {
+        "wall_ms": 1427.580300020054,
+        "prompt_ms": 1286.526,
+        "prompt_n": 1287,
+        "prompt_per_token_ms": 0.9996317016317017,
+        "predicted_ms": 130.868,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.3585,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1287,
+          "prompt_ms": 1286.526,
+          "prompt_per_token_ms": 0.9996317016317017,
+          "prompt_per_second": 1000.3684340619621,
+          "predicted_n": 8,
+          "predicted_ms": 130.868,
+          "predicted_per_token_ms": 16.3585,
+          "predicted_per_second": 61.13029923281475
+        },
+        "content_excerpt": " We need to produce next action after inspection"
+      },
+      "scenario": "turn-02-inspect"
+    },
+    {
+      "server_startup_ms": 21265.754199994262,
+      "server_shutdown_ms": 1297.8849000064656,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T215751Z-baseline-turn-03-verify-failure.log",
+      "completion": {
+        "wall_ms": 1346.7849000007845,
+        "prompt_ms": 1191.523,
+        "prompt_n": 1269,
+        "prompt_per_token_ms": 0.9389464144996059,
+        "predicted_ms": 131.187,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.398375,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1269,
+          "prompt_ms": 1191.523,
+          "prompt_per_token_ms": 0.9389464144996059,
+          "prompt_per_second": 1065.0235035328735,
+          "predicted_n": 8,
+          "predicted_ms": 131.187,
+          "predicted_per_token_ms": 16.398375,
+          "predicted_per_second": 60.98165214541074
+        },
+        "content_excerpt": " We need to propose next action. We"
+      },
+      "scenario": "turn-03-verify-failure"
+    },
+    {
+      "server_startup_ms": 17736.266900028568,
+      "server_shutdown_ms": 1261.6051000077277,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T215815Z-baseline-turn-04-patch-state.log",
+      "completion": {
+        "wall_ms": 1341.010499978438,
+        "prompt_ms": 1202.918,
+        "prompt_n": 1280,
+        "prompt_per_token_ms": 0.9397796875,
+        "predicted_ms": 129.974,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.24675,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1280,
+          "prompt_ms": 1202.918,
+          "prompt_per_token_ms": 0.9397796875,
+          "prompt_per_second": 1064.079180792041,
+          "predicted_n": 8,
+          "predicted_ms": 129.974,
+          "predicted_per_token_ms": 16.24675,
+          "predicted_per_second": 61.550771692800105
+        },
+        "content_excerpt": " We need to produce next validation action after"
+      },
+      "scenario": "turn-04-patch-state"
+    },
+    {
+      "server_startup_ms": 17191.21909997193,
+      "server_shutdown_ms": 1274.3092000018805,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T215835Z-baseline-turn-05-test-and-vet-failure.log",
+      "completion": {
+        "wall_ms": 1325.959799985867,
+        "prompt_ms": 1177.941,
+        "prompt_n": 1268,
+        "prompt_per_token_ms": 0.9289755520504732,
+        "predicted_ms": 138.112,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 17.264,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1268,
+          "prompt_ms": 1177.941,
+          "prompt_per_token_ms": 0.9289755520504732,
+          "prompt_per_second": 1076.4545932266556,
+          "predicted_n": 8,
+          "predicted_ms": 138.112,
+          "predicted_per_token_ms": 17.264,
+          "predicted_per_second": 57.92400370713624
+        },
+        "content_excerpt": " We need to produce next action. The"
+      },
+      "scenario": "turn-05-test-and-vet-failure"
+    },
+    {
+      "server_startup_ms": 17194.95289999759,
+      "server_shutdown_ms": 1281.9538000039756,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T215855Z-baseline-turn-06-review-feedback.log",
+      "completion": {
+        "wall_ms": 1312.9961000522599,
+        "prompt_ms": 1170.012,
+        "prompt_n": 1267,
+        "prompt_per_token_ms": 0.9234506708760852,
+        "predicted_ms": 136.551,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 17.068875,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1267,
+          "prompt_ms": 1170.012,
+          "prompt_per_token_ms": 0.9234506708760852,
+          "prompt_per_second": 1082.8948762918671,
+          "predicted_n": 8,
+          "predicted_ms": 136.551,
+          "predicted_per_token_ms": 17.068875,
+          "predicted_per_second": 58.58616927008957
+        },
+        "content_excerpt": " We need to produce next action. We"
+      },
+      "scenario": "turn-06-review-feedback"
+    },
+    {
+      "server_startup_ms": 17836.804199963808,
+      "server_shutdown_ms": 1271.80489996681,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T215915Z-baseline-turn-07-final-handoff.log",
+      "completion": {
+        "wall_ms": 1343.9525999710895,
+        "prompt_ms": 1201.905,
+        "prompt_n": 1288,
+        "prompt_per_token_ms": 0.9331560559006211,
+        "predicted_ms": 131.915,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.489375,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1288,
+          "prompt_ms": 1201.905,
+          "prompt_per_token_ms": 0.9331560559006211,
+          "prompt_per_second": 1071.6321173470449,
+          "predicted_n": 8,
+          "predicted_ms": 131.915,
+          "predicted_per_token_ms": 16.489375,
+          "predicted_per_second": 60.64511238297389
+        },
+        "content_excerpt": " We need to produce final handoff action"
+      },
+      "scenario": "turn-07-final-handoff"
+    }
+  ],
+  "restored_prefix": [
+    {
+      "scenario": "turn-01-intake",
+      "server_startup_ms": 17764.334000006784,
+      "server_shutdown_ms": 1265.3646999970078,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T215935Z-restore-turn-01-intake.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1137,
+        "n_read": 31108988,
+        "timings": {
+          "restore_ms": 21.855
+        },
+        "_wall_ms": 22.880900010932237
+      },
+      "completion": {
+        "wall_ms": 1334.7354999859817,
+        "prompt_ms": 1171.175,
+        "prompt_n": 1257,
+        "prompt_per_token_ms": 0.9317223548130469,
+        "predicted_ms": 132.788,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.5985,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1257,
+          "prompt_ms": 1171.175,
+          "prompt_per_token_ms": 0.9317223548130469,
+          "prompt_per_second": 1073.2811065809979,
+          "predicted_n": 8,
+          "predicted_ms": 132.788,
+          "predicted_per_token_ms": 16.5985,
+          "predicted_per_second": 60.246407807934446
+        },
+        "content_excerpt": " We need to produce next action. We"
+      }
+    },
+    {
+      "scenario": "turn-02-inspect",
+      "server_startup_ms": 17774.692600010894,
+      "server_shutdown_ms": 1268.1300999829546,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T215956Z-restore-turn-02-inspect.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1137,
+        "n_read": 31108988,
+        "timings": {
+          "restore_ms": 18.867
+        },
+        "_wall_ms": 20.07440000306815
+      },
+      "completion": {
+        "wall_ms": 1334.75040004123,
+        "prompt_ms": 1191.294,
+        "prompt_n": 1287,
+        "prompt_per_token_ms": 0.9256363636363637,
+        "predicted_ms": 133.008,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.626,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1287,
+          "prompt_ms": 1191.294,
+          "prompt_per_token_ms": 0.9256363636363637,
+          "prompt_per_second": 1080.3378511098015,
+          "predicted_n": 8,
+          "predicted_ms": 133.008,
+          "predicted_per_token_ms": 16.626,
+          "predicted_per_second": 60.14675808973896
+        },
+        "content_excerpt": " We need to produce next action after inspection"
+      }
+    },
+    {
+      "scenario": "turn-03-verify-failure",
+      "server_startup_ms": 17449.105800013058,
+      "server_shutdown_ms": 1778.6087999702431,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T220016Z-restore-turn-03-verify-failure.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1137,
+        "n_read": 31108988,
+        "timings": {
+          "restore_ms": 14.545
+        },
+        "_wall_ms": 15.661099983844906
+      },
+      "completion": {
+        "wall_ms": 1324.464800010901,
+        "prompt_ms": 1181.467,
+        "prompt_n": 1269,
+        "prompt_per_token_ms": 0.9310220646178093,
+        "predicted_ms": 132.877,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.609625,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1269,
+          "prompt_ms": 1181.467,
+          "prompt_per_token_ms": 0.9310220646178093,
+          "prompt_per_second": 1074.0884002684795,
+          "predicted_n": 8,
+          "predicted_ms": 132.877,
+          "predicted_per_token_ms": 16.609625,
+          "predicted_per_second": 60.20605522400415
+        },
+        "content_excerpt": " We need to propose next action. We"
+      }
+    },
+    {
+      "scenario": "turn-04-patch-state",
+      "server_startup_ms": 17348.70209998917,
+      "server_shutdown_ms": 1269.6706000133418,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T220037Z-restore-turn-04-patch-state.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1137,
+        "n_read": 31108988,
+        "timings": {
+          "restore_ms": 17.055
+        },
+        "_wall_ms": 18.159199971705675
+      },
+      "completion": {
+        "wall_ms": 1337.4548999709077,
+        "prompt_ms": 1193.784,
+        "prompt_n": 1280,
+        "prompt_per_token_ms": 0.9326437500000001,
+        "predicted_ms": 132.977,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.622125,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1280,
+          "prompt_ms": 1193.784,
+          "prompt_per_token_ms": 0.9326437500000001,
+          "prompt_per_second": 1072.2207702565956,
+          "predicted_n": 8,
+          "predicted_ms": 132.977,
+          "predicted_per_token_ms": 16.622125,
+          "predicted_per_second": 60.160779683704696
+        },
+        "content_excerpt": " We need to produce next validation action after"
+      }
+    },
+    {
+      "scenario": "turn-05-test-and-vet-failure",
+      "server_startup_ms": 17200.062400021125,
+      "server_shutdown_ms": 1269.71850002883,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T220057Z-restore-turn-05-test-and-vet-failure.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1137,
+        "n_read": 31108988,
+        "timings": {
+          "restore_ms": 20.944
+        },
+        "_wall_ms": 22.06390001811087
+      },
+      "completion": {
+        "wall_ms": 1477.074199996423,
+        "prompt_ms": 1334.426,
+        "prompt_n": 1268,
+        "prompt_per_token_ms": 1.0523864353312302,
+        "predicted_ms": 132.488,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.561,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1268,
+          "prompt_ms": 1334.426,
+          "prompt_per_token_ms": 1.0523864353312302,
+          "prompt_per_second": 950.2212936498539,
+          "predicted_n": 8,
+          "predicted_ms": 132.488,
+          "predicted_per_token_ms": 16.561,
+          "predicted_per_second": 60.382827123965946
+        },
+        "content_excerpt": " We need to produce next action. The"
+      }
+    },
+    {
+      "scenario": "turn-06-review-feedback",
+      "server_startup_ms": 17474.207899998873,
+      "server_shutdown_ms": 1266.1607000045478,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T220117Z-restore-turn-06-review-feedback.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1137,
+        "n_read": 31108988,
+        "timings": {
+          "restore_ms": 12.665
+        },
+        "_wall_ms": 13.664100028108805
+      },
+      "completion": {
+        "wall_ms": 1320.314300013706,
+        "prompt_ms": 1170.509,
+        "prompt_n": 1267,
+        "prompt_per_token_ms": 0.9238429360694554,
+        "predicted_ms": 131.125,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.390625,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1267,
+          "prompt_ms": 1170.509,
+          "prompt_per_token_ms": 0.9238429360694554,
+          "prompt_per_second": 1082.4350773894093,
+          "predicted_n": 8,
+          "predicted_ms": 131.125,
+          "predicted_per_token_ms": 16.390625,
+          "predicted_per_second": 61.010486177311726
+        },
+        "content_excerpt": " We need to produce next action. We"
+      }
+    },
+    {
+      "scenario": "turn-07-final-handoff",
+      "server_startup_ms": 17506.95710000582,
+      "server_shutdown_ms": 1267.9267000057735,
+      "server_log": "benchmarks\\gpt-oss-logs\\20260602T220137Z-restore-turn-07-final-handoff.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1137,
+        "n_read": 31108988,
+        "timings": {
+          "restore_ms": 17.293
+        },
+        "_wall_ms": 18.448200018610805
+      },
+      "completion": {
+        "wall_ms": 1343.415500014089,
+        "prompt_ms": 1199.72,
+        "prompt_n": 1288,
+        "prompt_per_token_ms": 0.9314596273291925,
+        "predicted_ms": 132.382,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 16.54775,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1288,
+          "prompt_ms": 1199.72,
+          "prompt_per_token_ms": 0.9314596273291925,
+          "prompt_per_second": 1073.5838362284533,
+          "predicted_n": 8,
+          "predicted_ms": 132.382,
+          "predicted_per_token_ms": 16.54775,
+          "predicted_per_second": 60.43117644392742
+        },
+        "content_excerpt": " We need to produce final handoff action"
+      }
+    }
+  ],
+  "prime_prefix": {
+    "server_startup_ms": 17780.553699994925,
+    "server_shutdown_ms": 1292.0785999740474,
+    "server_log": "benchmarks\\gpt-oss-logs\\20260602T215649Z-prime-prefix.log",
+    "completion": {
+      "wall_ms": 1279.5638999668881,
+      "prompt_ms": 1123.289,
+      "prompt_n": 1130,
+      "prompt_per_token_ms": 0.9940610619469027,
+      "predicted_ms": 132.027,
+      "predicted_n": 8,
+      "predicted_per_token_ms": 16.503375,
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 1130,
+        "prompt_ms": 1123.289,
+        "prompt_per_token_ms": 0.9940610619469027,
+        "prompt_per_second": 1005.9744197619669,
+        "predicted_n": 8,
+        "predicted_ms": 132.027,
+        "predicted_per_token_ms": 16.503375,
+        "predicted_per_second": 60.593666447014634
+      },
+      "content_excerpt": "We need to produce JSON with keys:"
+    }
+  },
+  "comparison": {
+    "baseline_prompt_ms_sum": 8412.695,
+    "restored_prompt_ms_sum": 8442.375,
+    "baseline_minus_restored_prompt_ms": -29.68000000000029,
+    "baseline_minus_restored_prompt_ratio": -0.0035280014311704264,
+    "interpretation": "Positive delta means slot restore reduced prompt processing time."
+  }
+}

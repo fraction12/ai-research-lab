@@ -32,6 +32,7 @@ class UnsupportedRequestError(Exception):
 @dataclasses.dataclass
 class FlashcacheConfig:
     model_path: Path = ROOT / "benchmarks" / "models" / "gemma-3-270m-it-Q8_0.gguf"
+    hf_repo: str | None = None
     server_bin: str = "llama-server"
     host: str = "127.0.0.1"
     port: int = 0
@@ -66,12 +67,16 @@ class FlashcacheConfig:
             "prime_n_predict": self.prime_n_predict,
         }
 
+    def model_identity(self) -> str:
+        return self.hf_repo or str(self.model_path)
+
     def server_config(self) -> LlamaServerConfig:
         return LlamaServerConfig(
             server_bin=self.server_bin,
             model_path=self.model_path,
             slot_cache_dir=self.slot_cache_dir,
             log_dir=self.log_dir,
+            hf_repo=self.hf_repo,
             host=self.host,
             port=self.port,
             ctx_size=self.ctx_size,
@@ -187,7 +192,7 @@ class FlashcacheWrapper:
     ) -> tuple[dict[str, Any], dict[str, Any]]:
         cache_key, key_material = build_cache_key(
             namespace=parsed.namespace,
-            model_identity=str(self.config.model_path),
+            model_identity=self.config.model_identity(),
             server_version=server_version,
             ctx_size=self.config.ctx_size,
             llama_settings=self.config.llama_settings(),
@@ -209,7 +214,7 @@ class FlashcacheWrapper:
             cache_key_material=key_material,
             namespace=parsed.namespace,
             slot_filename=slot_filename,
-            model_identity=str(self.config.model_path),
+            model_identity=self.config.model_identity(),
             server_version=server_version,
             stable_prefix_prompt=parsed.stable_prefix_prompt,
             block_hashes=parsed.block_hashes,

@@ -31,6 +31,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Compare direct llama.cpp prompts with Flashcache wrapper calls.")
     parser.add_argument("--server-bin", default="llama-server", help="llama.cpp server binary.")
     parser.add_argument("--model", type=Path, default=DEFAULT_MODEL, help="Path to a GGUF model.")
+    parser.add_argument("--hf-repo", help="Hugging Face GGUF repo for llama.cpp -hf loading.")
     parser.add_argument("--fixture", type=Path, default=owb.DEFAULT_FIXTURE, help="Workflow fixture JSON path.")
     parser.add_argument("--scenario", action="append", help="Use only the named scenario. Can be repeated.")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR, help="Directory for result JSON.")
@@ -56,6 +57,7 @@ def direct_baseline(args: argparse.Namespace, prompt_set: dict[str, Any]) -> lis
     runs = []
     config = FlashcacheConfig(
         model_path=args.model,
+        hf_repo=args.hf_repo,
         server_bin=args.server_bin,
         ctx_size=args.ctx_size,
         timeout=args.timeout,
@@ -84,6 +86,7 @@ def direct_baseline(args: argparse.Namespace, prompt_set: dict[str, Any]) -> lis
 def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[dict[str, Any]]:
     config = FlashcacheConfig(
         model_path=args.model,
+        hf_repo=args.hf_repo,
         server_bin=args.server_bin,
         ctx_size=args.ctx_size,
         timeout=args.timeout,
@@ -97,7 +100,7 @@ def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[d
     for scenario in prompt_set["scenarios"]:
         tail_prompt = scenario["prompt"][len(prompt_set["prefix_prompt"]) :].strip()
         payload = {
-            "model": str(args.model),
+            "model": args.hf_repo or str(args.model),
             "messages": [{"role": "user", "content": tail_prompt}],
             "max_tokens": args.predict,
             "temperature": args.temperature,
@@ -126,6 +129,7 @@ def write_result(result: dict[str, Any], output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     timestamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     model_slug = Path(str(result["metadata"]["model"])).stem
+    model_slug = model_slug.replace("/", "-").replace(":", "-")
     fixture_slug = Path(str(result["metadata"]["fixture"])).stem
     path = output_dir / f"{timestamp}-{model_slug}-{fixture_slug}-flashcache-wrapper.json"
     with path.open("w", encoding="utf-8") as handle:
@@ -136,7 +140,7 @@ def write_result(result: dict[str, Any], output_dir: Path) -> Path:
 
 def main() -> int:
     args = parse_args()
-    if not args.model.exists():
+    if not args.hf_repo and not args.model.exists():
         print(f"Model file not found: {args.model}")
         return 2
     prompt_set = lcb.build_prompt_set(SimpleNamespace(fixture=args.fixture, scenario=args.scenario))
@@ -164,8 +168,8 @@ def main() -> int:
             "finished_at": dt.datetime.now(dt.timezone.utc).isoformat(),
             "server_bin": args.server_bin,
             "server_version": llama_server_version(args.server_bin),
-            "model": str(args.model),
-            "model_bytes": args.model.stat().st_size,
+            "model": args.hf_repo or str(args.model),
+            "model_bytes": None if args.hf_repo else args.model.stat().st_size,
             "fixture": str(args.fixture),
             "fixture_hash": prompt_set["fixture_hash"],
             "ctx_size": args.ctx_size,
