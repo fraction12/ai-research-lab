@@ -9,10 +9,16 @@ Inference is a memory hierarchy problem:
 3. Moving data is often more expensive than doing math.
 4. SSDs are useful only when access is predictable, chunked, compressed, and reusable.
 
+## Research Positioning
+
+The base ideas are established: prefix caching, KV-cache reuse, and SSD or multi-tier KV storage already appear in papers and production-shaped systems. The project's useful wedge is local agent workloads: stable prefixes with changed tails, warm-vs-restarted persistence gaps, and cache policies that understand system prompts, tool schemas, repo context, attention-sink candidates, rolling tails, and volatile state.
+
+See `docs/research-positioning.md` for the prior-art summary and public-claim guidance.
+
 ## Memory Tiers
 
 - GPU / accelerator / unified memory: hot weights, current layer activations, hot KV
-- RAM: warm KV, prompt blocks, routing metadata, staging buffers
+- RAM: attention-sink KV, current rolling-tail KV, warm KV, prompt blocks, routing metadata, staging buffers
 - SSD: persistent prefix cache, cold KV blocks, cold experts, prompt block store
 - Network: optional remote cache later, not part of the first local prototype
 
@@ -30,6 +36,17 @@ Stable prompt prefixes:
 
 This is the best first target because agent prompts repeat.
 
+### Attention Sinks
+
+Initial tokens can act as stabilizing attention anchors. StreamingLLM shows that a rolling KV cache can collapse if it blindly drops the first tokens, and that keeping a few initial-token KVs plus recent-token KVs can preserve streaming behavior.
+
+Design implication:
+
+- keep attention-sink candidates hot
+- do not evict or offload the first prompt anchors blindly
+- separate sink blocks from ordinary stable prefix blocks
+- treat rolling recent context differently from cold reusable context
+
 ### KV Cache
 
 Attention keys and values from prior context.
@@ -41,6 +58,7 @@ This can avoid prefill cost, but it needs careful compatibility:
 - same quantization mode
 - same prompt bytes or stable block hashing
 - compatible position encoding assumptions
+- compatible attention-sink and rolling-window assumptions
 
 ### MoE Experts
 
@@ -88,4 +106,3 @@ Track:
 - memory pressure
 - watts if easy to capture
 - quality drift against baseline
-

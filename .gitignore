@@ -7,4 +7,13 @@ dist/
 build/
 .env
 .env.*
-
+benchmarks/results/*.json
+benchmarks/prefix-manifests/*.json
+benchmarks/prefix-store/
+benchmarks/models/
+benchmarks/llama-cpp-results/
+benchmarks/llama-cpp-slot-cache/
+benchmarks/llama-cpp-prompts/
+benchmarks/llama-cpp-logs/
+benchmarks/flashcache/
+benchmarks/flashcache-results/
