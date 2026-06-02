@@ -27,6 +27,10 @@ DEFAULT_OUTPUT_DIR = ROOT / "benchmarks" / "flashcache-results"
 DEFAULT_CACHE_DIR = ROOT / "benchmarks" / "flashcache"
 
 
+def progress(message: str) -> None:
+    print(f"[flashcache-wrapper-benchmark] {message}", flush=True)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Compare direct llama.cpp prompts with Flashcache wrapper calls.")
     parser.add_argument("--server-bin", default="llama-server", help="llama.cpp server binary.")
@@ -65,6 +69,7 @@ def direct_baseline(args: argparse.Namespace, prompt_set: dict[str, Any]) -> lis
         prime_n_predict=args.prime_n_predict,
     )
     for scenario in prompt_set["scenarios"]:
+        progress(f"direct-full: {scenario['name']}")
         with ManagedLlamaServer(config.server_config(), label=f"flashcache-direct-{scenario['name']}") as client:
             response = client.completion(
                 scenario["prompt"],
@@ -98,6 +103,7 @@ def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[d
     block_hashes = [block["sha256"] for block in prompt_set["prefix_manifest"]]
     namespace = f"{prompt_set['fixture_name']}:{prompt_set['prefix_prompt_sha256'][:16]}"
     for scenario in prompt_set["scenarios"]:
+        progress(f"cache-aware: {scenario['name']}")
         tail_prompt = scenario["prompt"][len(prompt_set["prefix_prompt"]) :].strip()
         payload = {
             "model": args.hf_repo or str(args.model),

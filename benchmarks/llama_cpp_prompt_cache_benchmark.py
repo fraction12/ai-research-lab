@@ -29,6 +29,10 @@ class LlamaBenchmarkError(Exception):
     """Raised for expected benchmark failures."""
 
 
+def progress(message: str) -> None:
+    print(f"[llama-cpp-benchmark] {message}", flush=True)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Measure llama.cpp prompt cache save/restore for changed-tail workflow prompts."
@@ -390,7 +394,7 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
         result["metadata"]["finished_at"] = dt.datetime.now(dt.timezone.utc).isoformat()
         return result
 
-    print("Creating reusable prefix slot cache")
+    progress("prime-prefix: creating reusable prefix slot cache")
     process, log_path, startup_ms = start_server(args, "prime-prefix", port)
     base_url = f"http://{args.host}:{port}"
     try:
@@ -416,13 +420,13 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
     )
 
     for scenario in prompt_set["scenarios"]:
-        print(f"Baseline full prompt: {scenario['name']}")
+        progress(f"baseline-full: {scenario['name']}")
         run = run_single_completion_server(args, f"baseline-{scenario['name']}", scenario["prompt"], port)
         run["scenario"] = scenario["name"]
         result["baseline_full"].append(run)
 
     for scenario in prompt_set["scenarios"]:
-        print(f"Restored prefix prompt: {scenario['name']}")
+        progress(f"restored-prefix: {scenario['name']}")
         process, log_path, startup_ms = start_server(args, f"restore-{scenario['name']}", port)
         base_url = f"http://{args.host}:{port}"
         try:
