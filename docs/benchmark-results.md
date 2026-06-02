@@ -1,5 +1,257 @@
 # Benchmark Results
 
+## 2026-06-02: Printtestbot Printing Press Workflow on DushyantPC
+
+Fixture: `benchmarks/fixtures/printtestbot_printing_press_workflow.json`
+
+Recorded dataset: `benchmarks/datasets/printtestbot-printing-press-2026-06-02/`
+
+Source shape: sanitized Printy/printtestbot-style workflow distilled from Print-A-Bot prompt assembly and a Printing Press CLI fix/retry loop. The fixture is not a raw transcript and contains no secrets, tokens, private chat IDs, private keys, or personal context.
+
+### Fixture Shape
+
+| Block role | Blocks | Bytes | Notes |
+| --- | ---: | ---: | --- |
+| Stable prefix | 7 | 4,138 | Printy identity, runtime contract, model routing, tool schema, guardrails, workflow rules. |
+| Semi-stable context | 1 | 586 | Current repo/task/test-plan context. |
+| Volatile tails | 7 | 2,609 | User request, command output, failures, patch state, review notes, final validation. |
+
+The reusable prefix boundary is before the volatile tail:
+
+```text
+stable bot/runtime/tool/policy prefix + semi-stable repo/task context -> save or reuse
+volatile command-output tail per turn -> do not blindly cache
+```
+
+### Ollama Full Prompt Baseline
+
+Command run on DushyantPC:
+
+```bash
+python benchmarks/ollama_workflow_benchmark.py --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json --model gpt-oss:20b --host http://localhost:11434 --strategy full --runs 1 --num-predict 8 --temperature 0 --timeout 900
+```
+
+Result JSON:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/ollama-full-gpt-oss-20b.json
+```
+
+| Scenario | Prompt tokens | Total | Load | Prompt eval |
+| --- | ---: | ---: | ---: | ---: |
+| `turn-01-intake` | 1,324 | 2,404.5 ms | 291.9 ms | 1,658.0 ms |
+| `turn-02-inspect` | 1,354 | 1,090.7 ms | 203.6 ms | 439.8 ms |
+| `turn-03-verify-failure` | 1,336 | 1,185.1 ms | 261.6 ms | 457.0 ms |
+| `turn-04-patch-state` | 1,347 | 1,202.7 ms | 270.3 ms | 454.6 ms |
+| `turn-05-test-and-vet-failure` | 1,335 | 1,170.6 ms | 257.1 ms | 428.4 ms |
+| `turn-06-review-feedback` | 1,334 | 1,137.9 ms | 258.4 ms | 424.0 ms |
+| `turn-07-final-handoff` | 1,355 | 1,157.8 ms | 257.7 ms | 454.4 ms |
+
+### Exact Repeat Control
+
+Command:
+
+```bash
+python benchmarks/ollama_workflow_benchmark.py --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json --model gpt-oss:20b --host http://localhost:11434 --scenario turn-03-verify-failure --strategy full --runs 2 --num-predict 8 --temperature 0 --timeout 900
+```
+
+Result JSON:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/ollama-exact-repeat-gpt-oss-20b.json
+```
+
+| Run | Prompt tokens | Total | Load | Prompt eval |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 1,336 | 1,189.9 ms | 280.6 ms | 461.6 ms |
+| 2 | 1,336 | 778.5 ms | 266.1 ms | 74.0 ms |
+
+This proves exact replay gets cheap, but exact replay is not the target workload.
+
+### Ollama Context Proxy
+
+Command:
+
+```bash
+python benchmarks/ollama_workflow_benchmark.py --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json --model gpt-oss:20b --host http://localhost:11434 --strategy compare --runs 1 --num-predict 8 --prime-num-predict 1 --temperature 0 --timeout 900
+```
+
+Result JSON:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/ollama-prefix-context-compare-gpt-oss-20b.json
+```
+
+| Strategy | Prompt eval sum | Notes |
+| --- | ---: | --- |
+| Full prompt | 3,252.7 ms | Aligned full prompts stayed warm inside Ollama. |
+| Prefix-context proxy | 4,826.2 ms | Includes 1,489.8 ms prime cost. |
+| Full minus prefix-context | -1,573.6 ms | Negative means the proxy was slower by 48.4%. |
+
+Interpretation: Ollama's deprecated `context` proxy is not the layer to build around. Aligned full prompts already benefit while the model is warm.
+
+### Warm vs Restarted Persistence Gap
+
+Command:
+
+```bash
+python benchmarks/ollama_workflow_benchmark.py --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json --model gpt-oss:20b --host http://localhost:11434 --strategy restart-compare --runs 1 --num-predict 8 --temperature 0 --timeout 900 --write-prefix-manifest
+```
+
+Result JSON:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/ollama-restart-compare-gpt-oss-20b.json
+```
+
+Prefix manifest:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/prefix-manifest-gpt-oss-20b.json
+```
+
+| Sequence | Prompt eval sum | Total duration sum | Load duration sum |
+| --- | ---: | ---: | ---: |
+| Warm sequence | 4,428.6 ms | 15,458.2 ms | 7,806.6 ms |
+| Restarted sequence | 10,456.5 ms | 48,107.0 ms | 33,831.4 ms |
+| Restarted minus warm | 6,027.9 ms | 32,648.9 ms | 26,024.8 ms |
+
+Restarted prompt eval was `2.36x` the warm sequence. This is the strongest signal for SSD-native prefix/KV persistence: changed-tail workflows get warm-prefix benefit while the model remains loaded, and lose much of it when the model is restarted between turns.
+
+### llama.cpp Slot Save/Restore
+
+Command run on DushyantPC after installing `ggml.llamacpp` with winget and downloading `gemma-3-270m-it-Q8_0.gguf`:
+
+```bash
+python benchmarks/llama_cpp_prompt_cache_benchmark.py --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json --predict 8 --temperature 0 --timeout 240
+```
+
+Result JSON:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/llama-cpp-slot-cache-gemma-3-270m-it-q8.json
+```
+
+Server:
+
+```text
+llama-server version: 9469 (d178a1181)
+```
+
+| Metric | Value |
+| --- | ---: |
+| Reusable prefix bytes | 5,487 |
+| Slot cache file bytes | 19,567,436 |
+| Baseline prompt ms sum | 466.950 ms |
+| Restored prompt ms sum | 216.115 ms |
+| Baseline minus restored | 250.835 ms |
+| Reduction ratio | 53.7% |
+
+This validates the slot save/restore boundary on the same fixture. It uses a small model for cache mechanics, not quality.
+
+### Flashcache Wrapper
+
+Command:
+
+```bash
+python benchmarks/flashcache_wrapper_benchmark.py --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json --predict 8 --temperature 0 --timeout 240
+```
+
+Result JSON:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/flashcache-wrapper-gemma-3-270m-it-q8.json
+```
+
+| Metric | Value |
+| --- | ---: |
+| Direct prompt ms sum | 484.884 ms |
+| Wrapper prompt ms sum | 192.692 ms |
+| Direct minus wrapper | 292.192 ms |
+| Reduction ratio | 60.3% |
+| Wrapper cache hit rate | 85.7% |
+
+The wrapper had one expected miss while priming the prefix and six hits afterward.
+
+### OpenAI OSS / gpt-oss-20b GGUF Follow-Up
+
+Command run on DushyantPC after installing portable llama.cpp `b9482` and downloading `ggml-org/gpt-oss-20b-GGUF`:
+
+```bash
+python benchmarks/llama_cpp_prompt_cache_benchmark.py --server-bin C:\Users\Dushyant\Tools\llama-b9482-vulkan\llama-server.exe --model benchmarks\models\gpt-oss-20b-mxfp4.gguf --fixture benchmarks\fixtures\printtestbot_printing_press_workflow.json --predict 8 --temperature 0 --timeout 900 --ctx-size 4096
+```
+
+Result JSON:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/20260602T220157Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-llama-cpp-prompt-cache.json
+```
+
+| Metric | Value |
+| --- | ---: |
+| Model bytes | 12,109,566,560 |
+| Reusable prefix bytes | 5,487 |
+| Slot cache file bytes | 31,108,988 |
+| Baseline prompt ms sum | 8,412.695 ms |
+| Restored prompt ms sum | 8,442.375 ms |
+| Baseline minus restored | -29.680 ms |
+| Reduction ratio | -0.35% |
+
+The one-turn smoke was also recorded:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/20260602T215635Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-llama-cpp-prompt-cache.json
+```
+
+Smoke result: baseline `1,300.479 ms`, restored `1,243.571 ms`, restore `17.093 ms`, slot file `31,108,988` bytes. The full seven-turn run is the better signal: slot restore itself is cheap, but with this model/build/prefix size, direct restored full-prompt evaluation did not beat direct cold full-prompt evaluation.
+
+Flashcache wrapper comparison with the same `gpt-oss-20b` GGUF:
+
+```bash
+python benchmarks/flashcache_wrapper_benchmark.py --server-bin C:\Users\Dushyant\Tools\llama-b9482-vulkan\llama-server.exe --model benchmarks\models\gpt-oss-20b-mxfp4.gguf --fixture benchmarks\fixtures\printtestbot_printing_press_workflow.json --predict 8 --temperature 0 --timeout 900 --ctx-size 4096
+```
+
+Result JSON:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/20260602T220711Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-flashcache-wrapper.json
+```
+
+| Metric | Value |
+| --- | ---: |
+| Direct prompt ms sum | 8,452.938 ms |
+| Wrapper prompt ms sum | 7,374.758 ms |
+| Direct minus wrapper | 1,078.180 ms |
+| Reduction ratio | 12.8% |
+| Wrapper cache hit rate | 85.7% |
+
+Important backend notes:
+
+- Winget `ggml.llamacpp` version `9469` could not load either the Ollama `gpt-oss:20b` blob or the official GGUF: `unknown model architecture: 'gptoss'`.
+- Portable llama.cpp `b9482` could load the official `gpt-oss-20b-mxfp4.gguf`.
+- The Ollama `gpt-oss:20b` blob still failed under `b9482`, so the llama.cpp benchmark uses the official `ggml-org` GGUF, not the Ollama blob.
+
+### Interpretation
+
+The Printy fixture supports the core hypothesis: real changed-tail agent workflows have a stable-prefix persistence gap.
+
+What worked:
+
+- Aligned prompt layout matters.
+- Warm Ollama runs reuse enough prefix work to make later changed-tail turns cheaper.
+- Restarting the model removes much of that benefit.
+- llama.cpp slot save/restore and the Flashcache wrapper reduce prompt processing on the same boundary.
+- For `gpt-oss-20b`, the wrapper produced a measurable win, but direct slot restore did not. The larger model/backend changes the shape of the result.
+
+What did not work:
+
+- Exact replay is too easy and not meaningful for the product claim.
+- Ollama `context` proxy was slower than aligned full prompts.
+- The small llama.cpp model does not tell us whether a larger local model remains correct; it only tests cache mechanics.
+- Direct restored full-prompt evaluation on `gpt-oss-20b` was effectively flat/slightly worse on this small prefix. This points to prompt layout/prefix size/backend behavior, not a blanket win for slot restore.
+
+Next benchmark step: keep this fixture, raise generation length, and add a quality rubric so speedup is measured alongside whether the local model chooses the same next action after restore.
+
 ## 2026-06-02: Ollama Codex/DeepClean Workflow Baseline
 
 Command:

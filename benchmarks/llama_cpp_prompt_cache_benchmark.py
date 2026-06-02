@@ -35,6 +35,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--server-bin", default="llama-server", help="llama.cpp server binary.")
     parser.add_argument("--model", type=Path, default=DEFAULT_MODEL, help="Path to a GGUF model.")
+    parser.add_argument("--hf-repo", help="Hugging Face GGUF repo for llama.cpp -hf loading.")
     parser.add_argument("--fixture", type=Path, default=owb.DEFAULT_FIXTURE, help="Workflow fixture JSON path.")
     parser.add_argument("--scenario", action="append", help="Use only the named scenario. Can be repeated.")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR, help="Directory for JSON results.")
@@ -100,10 +101,8 @@ def wait_for_health(base_url: str, timeout: float) -> None:
 
 
 def server_command(args: argparse.Namespace, port: int) -> list[str]:
-    return [
+    command = [
         args.server_bin,
-        "--model",
-        str(args.model),
         "--host",
         args.host,
         "--port",
@@ -120,6 +119,21 @@ def server_command(args: argparse.Namespace, port: int) -> list[str]:
         "--no-warmup",
         "--log-disable",
     ]
+    if args.hf_repo:
+        command[1:1] = ["-hf", args.hf_repo]
+    else:
+        command[1:1] = ["--model", str(args.model)]
+    return command
+
+
+def model_identity(args: argparse.Namespace) -> str:
+    return args.hf_repo or str(args.model)
+
+
+def model_bytes(args: argparse.Namespace) -> int | None:
+    if args.hf_repo:
+        return None
+    return args.model.stat().st_size
 
 
 def llama_server_version(server_bin: str) -> str:
@@ -323,7 +337,7 @@ def sum_prompt_ms(runs: list[dict[str, Any]]) -> float | None:
 
 
 def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
-    if not args.model.exists():
+    if not args.hf_repo and not args.model.exists():
         raise LlamaBenchmarkError(f"Model file not found: {args.model}")
     prompt_set = build_prompt_set(args)
     prompt_paths = write_prompts(args, prompt_set)
@@ -338,8 +352,8 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
             "server_bin": args.server_bin,
             "server_version": version,
             "server_command": server_command(args, port),
-            "model": str(args.model),
-            "model_bytes": args.model.stat().st_size,
+            "model": model_identity(args),
+            "model_bytes": model_bytes(args),
             "fixture": str(args.fixture),
             "fixture_hash": prompt_set["fixture_hash"],
             "ctx_size": args.ctx_size,
@@ -449,6 +463,7 @@ def write_result(result: dict[str, Any], output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     timestamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     model_slug = Path(str(result["metadata"]["model"])).stem
+    model_slug = model_slug.replace("/", "-").replace(":", "-")
     fixture_slug = Path(str(result["metadata"]["fixture"])).stem
     path = output_dir / f"{timestamp}-{model_slug}-{fixture_slug}-llama-cpp-prompt-cache.json"
     with path.open("w", encoding="utf-8") as handle:

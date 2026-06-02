@@ -1,0 +1,1121 @@
+{
+  "metadata": {
+    "started_at": "2026-06-02T20:48:45.139220+00:00",
+    "server_bin": "llama-server",
+    "server_version": "version: 9469 (d178a1181)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "server_command": [
+      "llama-server",
+      "--model",
+      "benchmarks\\models\\gemma-3-270m-it-Q8_0.gguf",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "56809",
+      "--ctx-size",
+      "4096",
+      "--parallel",
+      "1",
+      "--slot-save-path",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-slot-cache",
+      "--cache-prompt",
+      "--slots",
+      "--no-ui",
+      "--no-warmup",
+      "--log-disable"
+    ],
+    "model": "benchmarks\\models\\gemma-3-270m-it-Q8_0.gguf",
+    "model_bytes": 291545600,
+    "fixture": "benchmarks\\fixtures\\printtestbot_printing_press_workflow.json",
+    "fixture_hash": "425f7ef0481e15f076c5d681533bfc0afb6cd19e6f31d3634576eb9a5ba91297",
+    "ctx_size": 4096,
+    "predict": 8,
+    "temperature": 0.0,
+    "slot_id": 0,
+    "slot_cache_dir": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-slot-cache",
+    "prompt_paths": [
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-reusable-prefix.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-01-intake.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-02-inspect.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-03-verify-failure.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-04-patch-state.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-05-test-and-vet-failure.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-06-review-feedback.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-07-final-handoff.txt"
+    ],
+    "dry_run": false,
+    "finished_at": "2026-06-02T20:50:17.364036+00:00"
+  },
+  "prompt_set": {
+    "fixture_name": "printtestbot-printing-press-workflow",
+    "prefix_block_names": [
+      "printy-bot-identity",
+      "print-a-bot-runtime-contract",
+      "model-routing-and-cache-rules",
+      "tool-schema-summary",
+      "operating-guardrails",
+      "printing-press-workflow-rules",
+      "repo-and-task-context",
+      "benchmark-instructions"
+    ],
+    "prefix_prompt_bytes": 5487,
+    "prefix_prompt_sha256": "8e7efd062fd6a0ea6ab75ad20d8b43277abfb27df78928c635cd8db9c4078280",
+    "prefix_manifest": [
+      {
+        "name": "printy-bot-identity",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 586,
+        "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+      },
+      {
+        "name": "print-a-bot-runtime-contract",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 729,
+        "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+      },
+      {
+        "name": "model-routing-and-cache-rules",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 718,
+        "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+      },
+      {
+        "name": "tool-schema-summary",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 570,
+        "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+      },
+      {
+        "name": "operating-guardrails",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 494,
+        "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+      },
+      {
+        "name": "printing-press-workflow-rules",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 575,
+        "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+      },
+      {
+        "name": "repo-and-task-context",
+        "tier": "semi-stable",
+        "cache_policy": "prefix-cache-candidate",
+        "bytes": 592,
+        "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+      },
+      {
+        "name": "benchmark-instructions",
+        "tier": "semi-stable",
+        "cache_policy": "prefix-cache-candidate",
+        "bytes": 460,
+        "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "turn-01-intake",
+        "description": "Initial user request and repo status for the CLI polish workflow.",
+        "prompt_bytes": 6028,
+        "prompt_sha256": "bddcac82c872ff7a92b9b1cbaaeeceef8ee029e08218dbddc2e0b85d4439ffb0",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-01-user-request",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 314,
+            "sha256": "46a7e50f0618949ca9753ebe4f119ed963673fde61cabdfff67a0d51e05df0db"
+          }
+        ]
+      },
+      {
+        "name": "turn-02-inspect",
+        "description": "Inspection output shows likely CLI polish issues without test failure yet.",
+        "prompt_bytes": 6085,
+        "prompt_sha256": "3af28acc40366667e44c7fb955a711a482652768bba4879f4f855a7de33db8e4",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-02-inspect-and-plan",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 381,
+            "sha256": "56591ebfaa9ad41ce0f24f4df1a2e06acb06c6250b412f7ae85fd969b2e4132c"
+          }
+        ]
+      },
+      {
+        "name": "turn-03-verify-failure",
+        "description": "Verify fails from ranking and README/example mismatch.",
+        "prompt_bytes": 6063,
+        "prompt_sha256": "be78a37a5e364906bec752f6ee4caad62c51998079d375bf9bcd39cf65ac2902",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-03-verify-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 343,
+            "sha256": "72397c639ff15017f7ee90e61c3192be8ddf53e0630e4c853ae76dd19cc119d4"
+          }
+        ]
+      },
+      {
+        "name": "turn-04-patch-state",
+        "description": "Patch has been applied and needs validation.",
+        "prompt_bytes": 6161,
+        "prompt_sha256": "a12ca105b7ef8418e0ad298110fb0a1d6d6be97927fe8546e0f4e50aa64cd111",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-04-patch-applied",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 446,
+            "sha256": "c335a72855ada71bb8c10097c8712bfc80d5daa22e1e7e8f623d1398880aca7b"
+          }
+        ]
+      },
+      {
+        "name": "turn-05-test-and-vet-failure",
+        "description": "Tests and vet fail after the first patch.",
+        "prompt_bytes": 6039,
+        "prompt_sha256": "c3bf3e76251960e117b39609a9622a214c45bd1f09f613e5b44d9deca7ee3b8b",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-05-second-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 315,
+            "sha256": "56dea3bc596d5ab2aeb63bbc1fe23f2305b60e65a34defb420e4cef697799ffe"
+          }
+        ]
+      },
+      {
+        "name": "turn-06-review-feedback",
+        "description": "Review comments and CI state require a second fix loop.",
+        "prompt_bytes": 6124,
+        "prompt_sha256": "8a7cb6cb153afe413aa81b71c1a904ff0672a5895347c6943a317b3df04da0ea",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-06-review-comments",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 410,
+            "sha256": "772a0b311277897c785f7c44c57f20edab955a3f54b990352773a62035ddb76a"
+          }
+        ]
+      },
+      {
+        "name": "turn-07-final-handoff",
+        "description": "Final validation passes and the workflow needs a handoff decision.",
+        "prompt_bytes": 6126,
+        "prompt_sha256": "1052f89ff05771cbd887d4ddb0ff2e3f10e2c2295d0a9bcbd83813d151214c13",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-07-final-validation",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 400,
+            "sha256": "4833bf9b4aa161498c84f0ef11264e71450b8ed50d3463c7805e97356e92774a"
+          }
+        ]
+      }
+    ]
+  },
+  "slot_cache": {
+    "filename": "8e7efd062fd6a0ea-slot.bin",
+    "path": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-slot-cache\\8e7efd062fd6a0ea-slot.bin",
+    "exists": true,
+    "file_bytes": 19567436,
+    "save_response": {
+      "id_slot": 0,
+      "filename": "8e7efd062fd6a0ea-slot.bin",
+      "n_saved": 1239,
+      "n_written": 19567436,
+      "timings": {
+        "save_ms": 24.485
+      },
+      "_wall_ms": 45.887399988714606
+    }
+  },
+  "baseline_full": [
+    {
+      "server_startup_ms": 4586.211100046057,
+      "server_shutdown_ms": 56.17050000000745,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204910Z-baseline-turn-01-intake.log",
+      "completion": {
+        "wall_ms": 94.41419999348,
+        "prompt_ms": 66.658,
+        "prompt_n": 1378,
+        "prompt_per_token_ms": 0.04837300435413643,
+        "predicted_ms": 20.43,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.55375,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1378,
+          "prompt_ms": 66.658,
+          "prompt_per_token_ms": 0.04837300435413643,
+          "prompt_per_second": 20672.68744936842,
+          "predicted_n": 8,
+          "predicted_ms": 20.43,
+          "predicted_per_token_ms": 2.55375,
+          "predicted_per_second": 391.5810083210964
+        },
+        "content_excerpt": "\n```\njson\n{\n  "
+      },
+      "scenario": "turn-01-intake"
+    },
+    {
+      "server_startup_ms": 4609.833700000308,
+      "server_shutdown_ms": 58.05240001063794,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204915Z-baseline-turn-02-inspect.log",
+      "completion": {
+        "wall_ms": 95.28920002048835,
+        "prompt_ms": 66.792,
+        "prompt_n": 1426,
+        "prompt_per_token_ms": 0.046838709677419356,
+        "predicted_ms": 21.005,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.625625,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1426,
+          "prompt_ms": 66.792,
+          "prompt_per_token_ms": 0.046838709677419356,
+          "prompt_per_second": 21349.862258953166,
+          "predicted_n": 8,
+          "predicted_ms": 21.005,
+          "predicted_per_token_ms": 2.625625,
+          "predicted_per_second": 380.86169959533447
+        },
+        "content_excerpt": "\n\n```\n{\n  \"action"
+      },
+      "scenario": "turn-02-inspect"
+    },
+    {
+      "server_startup_ms": 4613.470700045582,
+      "server_shutdown_ms": 64.3912999657914,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204919Z-baseline-turn-03-verify-failure.log",
+      "completion": {
+        "wall_ms": 92.36629999941215,
+        "prompt_ms": 65.049,
+        "prompt_n": 1383,
+        "prompt_per_token_ms": 0.04703470715835142,
+        "predicted_ms": 20.184,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.523,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1383,
+          "prompt_ms": 65.049,
+          "prompt_per_token_ms": 0.04703470715835142,
+          "prompt_per_second": 21260.895632523174,
+          "predicted_n": 8,
+          "predicted_ms": 20.184,
+          "predicted_per_token_ms": 2.523,
+          "predicted_per_second": 396.35354736424887
+        },
+        "content_excerpt": "\n\n```json\n{\n  \""
+      },
+      "scenario": "turn-03-verify-failure"
+    },
+    {
+      "server_startup_ms": 4585.780000023078,
+      "server_shutdown_ms": 58.355199988000095,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204924Z-baseline-turn-04-patch-state.log",
+      "completion": {
+        "wall_ms": 96.2199000059627,
+        "prompt_ms": 68.28,
+        "prompt_n": 1415,
+        "prompt_per_token_ms": 0.048254416961130746,
+        "predicted_ms": 20.454,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.55675,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1415,
+          "prompt_ms": 68.28,
+          "prompt_per_token_ms": 0.048254416961130746,
+          "prompt_per_second": 20723.49150556532,
+          "predicted_n": 8,
+          "predicted_ms": 20.454,
+          "predicted_per_token_ms": 2.55675,
+          "predicted_per_second": 391.1215410188716
+        },
+        "content_excerpt": "\nThe task is to clean up the"
+      },
+      "scenario": "turn-04-patch-state"
+    },
+    {
+      "server_startup_ms": 4599.144699983299,
+      "server_shutdown_ms": 59.442800004035234,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204929Z-baseline-turn-05-test-and-vet-failure.log",
+      "completion": {
+        "wall_ms": 92.88229997036979,
+        "prompt_ms": 65.635,
+        "prompt_n": 1396,
+        "prompt_per_token_ms": 0.04701647564469914,
+        "predicted_ms": 19.967,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.495875,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1396,
+          "prompt_ms": 65.635,
+          "prompt_per_token_ms": 0.04701647564469914,
+          "prompt_per_second": 21269.139940580484,
+          "predicted_n": 8,
+          "predicted_ms": 19.967,
+          "predicted_per_token_ms": 2.495875,
+          "predicted_per_second": 400.6610907998197
+        },
+        "content_excerpt": "\n\n```\n{\n  \"action"
+      },
+      "scenario": "turn-05-test-and-vet-failure"
+    },
+    {
+      "server_startup_ms": 4813.8359999866225,
+      "server_shutdown_ms": 58.39479999849573,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204934Z-baseline-turn-06-review-feedback.log",
+      "completion": {
+        "wall_ms": 93.70919998036698,
+        "prompt_ms": 66.031,
+        "prompt_n": 1386,
+        "prompt_per_token_ms": 0.047641414141414144,
+        "predicted_ms": 20.351,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.543875,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1386,
+          "prompt_ms": 66.031,
+          "prompt_per_token_ms": 0.047641414141414144,
+          "prompt_per_second": 20990.140994381425,
+          "predicted_n": 8,
+          "predicted_ms": 20.351,
+          "predicted_per_token_ms": 2.543875,
+          "predicted_per_second": 393.1010761141959
+        },
+        "content_excerpt": "\n\n```json\n{\n  \""
+      },
+      "scenario": "turn-06-review-feedback"
+    },
+    {
+      "server_startup_ms": 4571.536700008437,
+      "server_shutdown_ms": 59.06110000796616,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204939Z-baseline-turn-07-final-handoff.log",
+      "completion": {
+        "wall_ms": 97.85560000455007,
+        "prompt_ms": 68.505,
+        "prompt_n": 1425,
+        "prompt_per_token_ms": 0.04807368421052631,
+        "predicted_ms": 22.093,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.761625,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1425,
+          "prompt_ms": 68.505,
+          "prompt_per_token_ms": 0.04807368421052631,
+          "prompt_per_second": 20801.40135756514,
+          "predicted_n": 8,
+          "predicted_ms": 22.093,
+          "predicted_per_token_ms": 2.761625,
+          "predicted_per_second": 362.1056443217309
+        },
+        "content_excerpt": "\n\n```json\n{\n  \""
+      },
+      "scenario": "turn-07-final-handoff"
+    }
+  ],
+  "restored_prefix": [
+    {
+      "scenario": "turn-01-intake",
+      "server_startup_ms": 4566.639800032135,
+      "server_shutdown_ms": 57.71780002396554,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204943Z-restore-turn-01-intake.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1239,
+        "n_read": 19567436,
+        "timings": {
+          "restore_ms": 14.869
+        },
+        "_wall_ms": 15.835800033528358
+      },
+      "completion": {
+        "wall_ms": 56.44310003845021,
+        "prompt_ms": 29.08,
+        "prompt_n": 147,
+        "prompt_per_token_ms": 0.19782312925170067,
+        "predicted_ms": 20.231,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.528875,
+        "timings": {
+          "cache_n": 1231,
+          "prompt_n": 147,
+          "prompt_ms": 29.08,
+          "prompt_per_token_ms": 0.19782312925170067,
+          "prompt_per_second": 5055.020632737277,
+          "predicted_n": 8,
+          "predicted_ms": 20.231,
+          "predicted_per_token_ms": 2.528875,
+          "predicted_per_second": 395.432751717661
+        },
+        "content_excerpt": "\n```\njson\n{\n  "
+      }
+    },
+    {
+      "scenario": "turn-02-inspect",
+      "server_startup_ms": 4600.41650000494,
+      "server_shutdown_ms": 58.659100031945854,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204948Z-restore-turn-02-inspect.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1239,
+        "n_read": 19567436,
+        "timings": {
+          "restore_ms": 19.803
+        },
+        "_wall_ms": 39.6519000059925
+      },
+      "completion": {
+        "wall_ms": 75.1833000103943,
+        "prompt_ms": 29.235,
+        "prompt_n": 195,
+        "prompt_per_token_ms": 0.1499230769230769,
+        "predicted_ms": 20.179,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.522375,
+        "timings": {
+          "cache_n": 1231,
+          "prompt_n": 195,
+          "prompt_ms": 29.235,
+          "prompt_per_token_ms": 0.1499230769230769,
+          "prompt_per_second": 6670.087224217548,
+          "predicted_n": 8,
+          "predicted_ms": 20.179,
+          "predicted_per_token_ms": 2.522375,
+          "predicted_per_second": 396.4517567768472
+        },
+        "content_excerpt": "\nThe task is to improve the descriptions"
+      }
+    },
+    {
+      "scenario": "turn-03-verify-failure",
+      "server_startup_ms": 4824.260100023821,
+      "server_shutdown_ms": 56.7851000232622,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204953Z-restore-turn-03-verify-failure.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1239,
+        "n_read": 19567436,
+        "timings": {
+          "restore_ms": 19.041
+        },
+        "_wall_ms": 20.06819995585829
+      },
+      "completion": {
+        "wall_ms": 56.029099971055984,
+        "prompt_ms": 28.717,
+        "prompt_n": 152,
+        "prompt_per_token_ms": 0.18892763157894735,
+        "predicted_ms": 20.071,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.508875,
+        "timings": {
+          "cache_n": 1231,
+          "prompt_n": 152,
+          "prompt_ms": 28.717,
+          "prompt_per_token_ms": 0.18892763157894735,
+          "prompt_per_second": 5293.032001950065,
+          "predicted_n": 8,
+          "predicted_ms": 20.071,
+          "predicted_per_token_ms": 2.508875,
+          "predicted_per_second": 398.58502316775446
+        },
+        "content_excerpt": "\n\n```json\n{\n  \""
+      }
+    },
+    {
+      "scenario": "turn-04-patch-state",
+      "server_startup_ms": 4569.178899982944,
+      "server_shutdown_ms": 59.86709997523576,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204958Z-restore-turn-04-patch-state.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1239,
+        "n_read": 19567436,
+        "timings": {
+          "restore_ms": 18.105
+        },
+        "_wall_ms": 19.116799987386912
+      },
+      "completion": {
+        "wall_ms": 57.510800019372255,
+        "prompt_ms": 29.602,
+        "prompt_n": 184,
+        "prompt_per_token_ms": 0.1608804347826087,
+        "predicted_ms": 20.512,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.564,
+        "timings": {
+          "cache_n": 1231,
+          "prompt_n": 184,
+          "prompt_ms": 29.602,
+          "prompt_per_token_ms": 0.1608804347826087,
+          "prompt_per_second": 6215.79622998446,
+          "predicted_n": 8,
+          "predicted_ms": 20.512,
+          "predicted_per_token_ms": 2.564,
+          "predicted_per_second": 390.01560062402496
+        },
+        "content_excerpt": "\nThe task is to clean up the"
+      }
+    },
+    {
+      "scenario": "turn-05-test-and-vet-failure",
+      "server_startup_ms": 4581.835400022101,
+      "server_shutdown_ms": 57.88650002796203,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T205002Z-restore-turn-05-test-and-vet-failure.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1239,
+        "n_read": 19567436,
+        "timings": {
+          "restore_ms": 17.779
+        },
+        "_wall_ms": 18.75549997203052
+      },
+      "completion": {
+        "wall_ms": 74.5640000095591,
+        "prompt_ms": 31.203,
+        "prompt_n": 165,
+        "prompt_per_token_ms": 0.1891090909090909,
+        "predicted_ms": 20.587,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.573375,
+        "timings": {
+          "cache_n": 1231,
+          "prompt_n": 165,
+          "prompt_ms": 31.203,
+          "prompt_per_token_ms": 0.1891090909090909,
+          "prompt_per_second": 5287.953081434478,
+          "predicted_n": 8,
+          "predicted_ms": 20.587,
+          "predicted_per_token_ms": 2.573375,
+          "predicted_per_second": 388.5947442560839
+        },
+        "content_excerpt": "\n\n```\n{\n  \"action"
+      }
+    },
+    {
+      "scenario": "turn-06-review-feedback",
+      "server_startup_ms": 4815.55080000544,
+      "server_shutdown_ms": 71.76140003139153,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T205007Z-restore-turn-06-review-feedback.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1239,
+        "n_read": 19567436,
+        "timings": {
+          "restore_ms": 20.196
+        },
+        "_wall_ms": 37.425999995321035
+      },
+      "completion": {
+        "wall_ms": 89.44499999051914,
+        "prompt_ms": 38.136,
+        "prompt_n": 155,
+        "prompt_per_token_ms": 0.24603870967741936,
+        "predicted_ms": 24.738,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 3.09225,
+        "timings": {
+          "cache_n": 1231,
+          "prompt_n": 155,
+          "prompt_ms": 38.136,
+          "prompt_per_token_ms": 0.24603870967741936,
+          "prompt_per_second": 4064.4010908328087,
+          "predicted_n": 8,
+          "predicted_ms": 24.738,
+          "predicted_per_token_ms": 3.09225,
+          "predicted_per_second": 323.38911795618077
+        },
+        "content_excerpt": "\n\n```json\n{\n  \""
+      }
+    },
+    {
+      "scenario": "turn-07-final-handoff",
+      "server_startup_ms": 4596.2203000090085,
+      "server_shutdown_ms": 54.52700000023469,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T205012Z-restore-turn-07-final-handoff.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "8e7efd062fd6a0ea-slot.bin",
+        "n_restored": 1239,
+        "n_read": 19567436,
+        "timings": {
+          "restore_ms": 18.345
+        },
+        "_wall_ms": 19.421599979978055
+      },
+      "completion": {
+        "wall_ms": 72.2241000039503,
+        "prompt_ms": 30.142,
+        "prompt_n": 194,
+        "prompt_per_token_ms": 0.15537113402061856,
+        "predicted_ms": 20.175,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 2.521875,
+        "timings": {
+          "cache_n": 1231,
+          "prompt_n": 194,
+          "prompt_ms": 30.142,
+          "prompt_per_token_ms": 0.15537113402061856,
+          "prompt_per_second": 6436.201977307412,
+          "predicted_n": 8,
+          "predicted_ms": 20.175,
+          "predicted_per_token_ms": 2.521875,
+          "predicted_per_second": 396.53035935563815
+        },
+        "content_excerpt": "\n\n```json\n{\n  \""
+      }
+    }
+  ],
+  "prime_prefix": {
+    "server_startup_ms": 7214.714100002311,
+    "server_shutdown_ms": 79.25829995656386,
+    "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260602T204848Z-prime-prefix.log",
+    "completion": {
+      "wall_ms": 14267.357899982017,
+      "prompt_ms": 14236.546,
+      "prompt_n": 1232,
+      "prompt_per_token_ms": 11.555637987012988,
+      "predicted_ms": 20.422,
+      "predicted_n": 8,
+      "predicted_per_token_ms": 2.55275,
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 1232,
+        "prompt_ms": 14236.546,
+        "prompt_per_token_ms": 11.555637987012988,
+        "prompt_per_second": 86.53784422148462,
+        "predicted_n": 8,
+        "predicted_ms": 20.422,
+        "predicted_per_token_ms": 2.55275,
+        "predicted_per_second": 391.7344040740378
+      },
+      "content_excerpt": "The benchmark should be a single, well"
+    }
+  },
+  "comparison": {
+    "baseline_prompt_ms_sum": 466.95000000000005,
+    "restored_prompt_ms_sum": 216.115,
+    "baseline_minus_restored_prompt_ms": 250.83500000000004,
+    "baseline_minus_restored_prompt_ratio": 0.5371774279901489,
+    "interpretation": "Positive delta means slot restore reduced prompt processing time."
+  }
+}

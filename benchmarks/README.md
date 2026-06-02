@@ -68,6 +68,17 @@ python3 benchmarks/llama_cpp_prompt_cache_benchmark.py \
 
 This starts `llama-server`, primes the reusable prefix, saves the slot cache, restarts for cold full-prompt baselines, then restarts again and restores the saved slot before changed-tail prompts.
 
+Use `--hf-repo` with a current llama.cpp build when the model should be pulled by llama.cpp instead of supplied as a local GGUF path:
+
+```bash
+python3 benchmarks/llama_cpp_prompt_cache_benchmark.py \
+  --server-bin /path/to/llama-server \
+  --hf-repo ggml-org/gpt-oss-20b-GGUF \
+  --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json \
+  --predict 8 \
+  --temperature 0
+```
+
 llama.cpp artifacts are written under `benchmarks/llama-cpp-*` and ignored.
 
 Run the Flashcache wrapper service:
@@ -115,6 +126,12 @@ Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `ben
 
 - `codex_deepclean_workflow.json`: small synthetic Codex/DeepClean workflow used as the first controlled baseline.
 - `lightningitb_deepclean_campaign.json`: sanitized real workflow prompt distilled from the LightningITB DeepClean P1/P2 campaign archive. The fixture records source artifact paths and notes that the raw chat transcript is not stored verbatim.
+- `printtestbot_printing_press_workflow.json`: sanitized Printy/printtestbot-style Printing Press CLI workflow with stable bot/runtime/tool rules and seven changed command-output tails.
+
+## Recorded Datasets
+
+- `benchmarks/datasets/printtestbot-printing-press-2026-06-02/`: DushyantPC runs for the Printy fixture, including raw Ollama, llama.cpp slot-cache, and Flashcache wrapper result JSON.
+  - Includes `gpt-oss:20b` Ollama baseline data plus official `gpt-oss-20b-mxfp4.gguf` llama.cpp/Flashcache follow-up data.
 
 ## What To Look At
 
