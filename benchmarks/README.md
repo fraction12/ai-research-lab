@@ -1,0 +1,160 @@
+# Ollama Workflow Benchmark
+
+This benchmark measures local prompt evaluation cost for repeated agent workflows. It is a baseline for future prefix-cache and KV-cache work; it does not implement SSD-backed KV reuse yet.
+
+## Run
+
+```bash
+python3 benchmarks/ollama_workflow_benchmark.py --model gemma4:latest --runs 1 --num-predict 16
+```
+
+Compare full-prompt baseline against the Ollama context proxy:
+
+```bash
+python3 benchmarks/ollama_workflow_benchmark.py \
+  --strategy compare \
+  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \
+  --model gemma4:latest \
+  --runs 1 \
+  --num-predict 8 \
+  --prime-num-predict 1 \
+  --temperature 0
+```
+
+Use `--vary-runs` when `--runs` is greater than 1 and you want repeated samples to avoid exact prompt replay.
+
+Compare warm in-session reuse against restarting the model before each prompt:
+
+```bash
+python3 benchmarks/ollama_workflow_benchmark.py \
+  --strategy restart-compare \
+  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \
+  --model gemma4:latest \
+  --runs 1 \
+  --num-predict 8 \
+  --temperature 0 \
+  --write-prefix-manifest
+```
+
+Use `--dry-run` to verify prompt assembly without calling Ollama:
+
+```bash
+python3 benchmarks/ollama_workflow_benchmark.py --dry-run
+```
+
+Results are written to `benchmarks/results/*.json`.
+
+Prefix manifests are written to `benchmarks/prefix-manifests/*.json` when `--write-prefix-manifest` is set.
+
+Build a metadata-only prefix block store:
+
+```bash
+python3 benchmarks/prefix_block_store.py \
+  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \
+  --model gemma4:latest
+```
+
+Prefix store artifacts are written to `benchmarks/prefix-store/`.
+
+Run the llama.cpp prompt-cache feasibility benchmark:
+
+```bash
+python3 benchmarks/llama_cpp_prompt_cache_benchmark.py \
+  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \
+  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \
+  --predict 8 \
+  --temperature 0
+```
+
+This starts `llama-server`, primes the reusable prefix, saves the slot cache, restarts for cold full-prompt baselines, then restarts again and restores the saved slot before changed-tail prompts.
+
+llama.cpp artifacts are written under `benchmarks/llama-cpp-*` and ignored.
+
+Run the Flashcache wrapper service:
+
+```bash
+python3 -m flashcache.cli \
+  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \
+  serve \
+  --port 8099
+```
+
+Send a cache-aware local chat request:
+
+```bash
+curl http://127.0.0.1:8099/v1/chat/completions \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "local-gemma",
+    "messages": [{"role": "user", "content": "Changed tail for this agent turn"}],
+    "max_tokens": 8,
+    "temperature": 0,
+    "ssd_cache": {
+      "namespace": "demo-agent-workflow",
+      "stable_prefix_text": "Reusable agent instructions and tool schema go here.",
+      "debug": true
+    }
+  }'
+```
+
+The response includes `X-Flashcache-*` headers. With `debug: true`, the response body also includes a `flashcache` object with cache state, prompt timing, slot save/restore timing, and fallback reason when applicable.
+
+Compare direct llama.cpp calls against the Flashcache wrapper:
+
+```bash
+python3 benchmarks/flashcache_wrapper_benchmark.py \
+  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \
+  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \
+  --predict 8 \
+  --temperature 0
+```
+
+Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `benchmarks/flashcache-results/`, both ignored.
+
+## Fixtures
+
+- `codex_deepclean_workflow.json`: small synthetic Codex/DeepClean workflow used as the first controlled baseline.
+- `lightningitb_deepclean_campaign.json`: sanitized real workflow prompt distilled from the LightningITB DeepClean P1/P2 campaign archive. The fixture records source artifact paths and notes that the raw chat transcript is not stored verbatim.
+
+## What To Look At
+
+- `prompt_eval_duration`: local time spent evaluating the input prompt.
+- `prompt_eval_count`: prompt tokens processed by Ollama.
+- `load_duration`: model loading time, which should be considered separately from prompt cost.
+- `reusable_prefix_bytes`: stable or semi-stable prompt bytes that would be candidates for future prefix/KV caching.
+- `comparison.baseline_minus_prefix_context_prompt_eval_duration`: positive means the context proxy reduced prompt eval; negative means it was slower.
+- `restart_comparison.restarted_minus_warm_prompt_eval_duration`: positive means model restarts removed warm-prefix benefit and created a persistence gap.
+- `prefix_manifest.cache_key_sha256`: metadata-only cache key scaffold for future prefix/KV cache work.
+- `comparison.baseline_minus_restored_prompt_ms`: positive means llama.cpp slot restore reduced prompt processing time versus fresh full-prompt baselines.
+
+## Strategy Modes
+
+- `full`: send the full scenario prompt every time.
+- `prefix-context`: prime Ollama once with the common stable/semi-stable prefix, then send each changed tail with Ollama's returned `context`.
+- `compare`: run both strategies and report the delta.
+- `restart-compare`: run aligned full prompts in a warm sequence, then stop the Ollama model before each prompt and compare the prompt evaluation cost.
+
+The `prefix-context` strategy is a proxy experiment. Ollama's generate API documents `context` as conversational memory and marks it deprecated, so this is not proof of SSD-backed KV persistence.
+
+## Prefix Block Store
+
+The prefix block store is Phase 1 scaffolding. It writes content-addressed metadata for prompt blocks and classifies them as:
+
+- `attention-sink-candidate`: earliest reusable prefix blocks that should stay hot in later KV experiments.
+- `stable-prefix`: reusable workflow context that is a candidate for SSD persistence.
+- `rolling-tail-candidate`: semi-stable tail state that may be warm but not universal.
+- `volatile-tail`: current findings, CI output, review comments, or other state that should not be blindly persisted.
+
+If repeated Codex-style workflows spend meaningful time in `prompt_eval_duration`, then an SSD-backed prefix/KV cache has a real target to beat.
+
+## llama.cpp Prompt Cache
+
+The llama.cpp benchmark is the first close backend baseline for persistence. It saves the reusable prefix slot cache to disk, starts fresh server processes, restores the slot, and measures changed-tail prompt processing cost.
+
+Use it to decide whether the next prototype should wrap llama.cpp slot persistence, compare against it, or move lower-level into custom KV storage.
+
+## Flashcache Wrapper
+
+The Flashcache wrapper is the first product-shaped layer. It accepts an OpenAI-style chat request plus optional `ssd_cache` metadata, manages llama.cpp slot save/restore, and returns cache telemetry to the caller.
+
+Treat the wrapper as an experimental local API subset: non-streaming text responses only, cache-aware requests opt in explicitly, and volatile tail text is not persisted unless debug behavior asks for it.

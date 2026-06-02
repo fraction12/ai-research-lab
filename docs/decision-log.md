@@ -24,3 +24,26 @@ Decision: start by wrapping an existing backend rather than writing a transforme
 
 Reason: the invention should be in storage-aware inference state, not reimplementing matrix kernels.
 
+## 2026-06-02: Persistence Gap
+
+Decision: treat cross-session stable-prefix persistence as the next prototype target.
+
+Reason: aligned prompts get cheaper while Ollama stays warm, but restarting the model before each changed-tail prompt increased prompt evaluation from 7,985.0 ms to 21,065.1 ms on the LightningITB DeepClean campaign fixture. That 13,080.1 ms gap is the first concrete target for persistent prefix/KV cache work.
+
+## 2026-06-02: Attention Sinks
+
+Decision: distinguish attention-sink candidates from ordinary reusable prefix blocks.
+
+Reason: StreamingLLM shows that initial-token KV can stabilize rolling cache behavior. The prefix store should therefore mark sink candidates and avoid treating all old prompt state as equally evictable or offloadable.
+
+## 2026-06-02: Research Positioning
+
+Decision: position the project as a local-agent persistence wedge, not as the invention of KV caching or SSD-backed inference.
+
+Reason: online prior-art review found established work in prefix caching, prompt-state reuse, hierarchical KV storage, and SSD-backed KV systems. The remaining defensible question is whether persistent, storage-aware prefix/KV reuse can make realistic local agent loops fast across changed-tail prompts and cold or restarted sessions.
+
+## 2026-06-02: llama.cpp Baseline
+
+Decision: treat llama.cpp slot save/restore as the first close backend baseline and likely first wrapper target.
+
+Reason: a local run against the LightningITB fixture showed that saving a 672-token reusable prefix slot and restoring it across fresh `llama-server` processes reduced prompt evaluation from 310.686 ms to 172.911 ms on `gemma-3-270m-it-Q8_0.gguf`. Custom SSD-native work now has to beat this baseline or add useful indexing, policy, and ergonomics around it.
