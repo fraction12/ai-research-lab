@@ -1,0 +1,185 @@
+{
+  "name": "lightningitb-deepclean-campaign",
+  "description": "Sanitized real DeepClean cleanup campaign prompt distilled from the LightningITB OpenSpec archive.",
+  "provenance": {
+    "source_repo": "/Users/dushyantgarg/Documents/Projects/LightningITB",
+    "source_artifacts": [
+      {
+        "path": "openspec/changes/archive/2026-06-02-deepclean-p1-p2-campaign/design.md",
+        "notes": "Primary source. Lines 27-59 capture scoped synthesis, safe/fix-ready first, tests before refactors, PRs as unit of progress, and ledger over raw .deepclean state."
+      },
+      {
+        "path": "openspec/changes/archive/2026-06-02-deepclean-p1-p2-campaign/proposal.md",
+        "notes": "Campaign motivation and protected-risk surfaces."
+      },
+      {
+        "path": "openspec/changes/archive/2026-06-02-deepclean-p1-p2-campaign/specs/testing/spec.md",
+        "notes": "Testing delta. Line 3 starts the Deepclean cleanup campaign verification requirement."
+      }
+    ],
+    "raw_chat_transcript": "not-stored",
+    "fixture_type": "sanitized-distilled-prompt"
+  },
+  "blocks": [
+    {
+      "name": "codex-agent-contract",
+      "tier": "stable",
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "You are Codex working in this repo.",
+        "Use DeepClean as an evidence-backed cleanup queue, not as a blind auto-refactor tool.",
+        "First, read the repo instructions and relevant OpenSpec specs.",
+        "Run `deepclean help` or the current DeepClean help command so you understand the tool behavior.",
+        "Then run bounded DeepClean scans by path/category scope instead of relying on one whole-repo synthesis."
+      ]
+    },
+    {
+      "name": "campaign-goal",
+      "tier": "stable",
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Goal:",
+        "Land safe, reviewable cleanup PRs for high-priority DeepClean findings while preserving product behavior, auth/tenant boundaries, public APIs, deployment behavior, and tests."
+      ]
+    },
+    {
+      "name": "campaign-workflow",
+      "tier": "stable",
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Workflow:",
+        "1. Run a scoped DeepClean scan and record the run id, scope, candidate count, synthesized count, diagnostics, and next action.",
+        "2. Pick safe or fix-ready findings before broad architecture findings.",
+        "3. Convert design-needed, split-needed, risky, or broad findings into an OpenSpec design checkpoint before touching code.",
+        "4. For behavior-affecting cleanup, write characterization or failing tests first.",
+        "5. Implement one PR-sized cleanup chunk at a time.",
+        "6. Each PR must include DeepClean evidence, candidate ids, local verification, CI status, OctoCheck review status, residual risk, and merge criteria.",
+        "7. Merge good PRs after CI passes and actionable review comments are resolved.",
+        "8. After each merge, sync main, rerun the relevant DeepClean scope, update the campaign ledger, and choose the next PR-sized target.",
+        "9. Stop opening new cleanup branches when remaining findings are design debt, bad targets, or require product/security/architecture decisions."
+      ]
+    },
+    {
+      "name": "campaign-do-not-rules",
+      "tier": "stable",
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Do not:",
+        "- Make one broad cleanup PR.",
+        "- Chase metric reductions without a real maintainability win.",
+        "- Touch auth, tenancy, deployment, schema, public API, secrets, or production behavior without an explicit design checkpoint.",
+        "- Claim completion from stale DeepClean artifacts."
+      ]
+    },
+    {
+      "name": "source-campaign-decisions",
+      "tier": "semi-stable",
+      "cache_policy": "prefix-cache-candidate",
+      "lines": [
+        "Campaign source decisions:",
+        "- Scoped synthesis is the primary queue because whole-repo synthesis timed out before returning schema-valid JSON.",
+        "- Safe or fix-ready candidates go first because they produce smaller reviewable PRs and improve the verification net.",
+        "- Behavior-affecting cleanup starts with a failing or characterization test.",
+        "- PRs are the unit of progress, with DeepClean evidence, tests, local verification, CI, OctoCheck status, and residual risk.",
+        "- The campaign ledger is tracked, while raw `.deepclean` state remains ignored and regenerable.",
+        "- Risky surfaces pause for OpenSpec design checkpoints."
+      ]
+    },
+    {
+      "name": "scan-matrix-context",
+      "tier": "semi-stable",
+      "cache_policy": "prefix-cache-candidate",
+      "lines": [
+        "Initial scan matrix:",
+        "- admin/src with complexity,testability,duplication,architecture",
+        "- frontend/src/app with complexity,testability,duplication,architecture",
+        "- frontend/src/components with complexity,testability,duplication,architecture",
+        "- frontend/src/lib,frontend/src/contexts,frontend/src/hooks,frontend/src/types with complexity,testability,duplication,architecture",
+        "- backend/routers with complexity,testability,duplication,architecture",
+        "- backend/services with complexity,testability,duplication,architecture",
+        "- backend,core with complexity,testability,duplication,architecture",
+        "- tests,frontend/src/test,test-data with complexity,testability,duplication,architecture",
+        "- estimator_agent_service,estimator_runtime with complexity,testability,duplication,architecture"
+      ]
+    },
+    {
+      "name": "current-scope-run",
+      "tier": "volatile",
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Current scoped run:",
+        "Scope: frontend/src/lib,frontend/src/contexts,frontend/src/hooks,frontend/src/types",
+        "Categories: complexity,testability,duplication,architecture",
+        "Run id: run-2026-06-02-frontend-lib",
+        "Candidate count: 18",
+        "Synthesized count: 4",
+        "Diagnostics: one hotspot is safe/fix-ready, two require design checkpoints, one is metric-only churn.",
+        "Next action: select the safe/fix-ready API type-boundary chunk if tests can pin behavior."
+      ]
+    },
+    {
+      "name": "current-pr-state",
+      "tier": "volatile",
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Current PR state:",
+        "Branch: deepclean/frontend-api-type-boundaries",
+        "PR: draft, waiting on CI.",
+        "Local verification: focused tests pass, typecheck passes, lint pending.",
+        "OctoCheck: one actionable comment asks for compatibility type re-exports.",
+        "Residual risk: avoid endpoint path, payload, response shape, auth/session, backend route, DB/schema, deployment, and public API behavior changes."
+      ]
+    },
+    {
+      "name": "campaign-ledger-update",
+      "tier": "volatile",
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Ledger update needed:",
+        "Record run id, candidate ids, selected PR slice, verification commands, CI state, OctoCheck status, merge status, residual risk, and remaining P1/P2 counts before choosing the next scope."
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "scoped-run-next-action",
+      "description": "Use the stable campaign instructions and a fresh scoped run to choose the next PR-sized cleanup target.",
+      "blocks": [
+        "codex-agent-contract",
+        "campaign-goal",
+        "campaign-workflow",
+        "campaign-do-not-rules",
+        "source-campaign-decisions",
+        "scan-matrix-context",
+        "current-scope-run"
+      ],
+      "task": "Return compact JSON with keys action, evidence_to_record, design_checkpoint_needed, first_verification_command, and cacheable_prefix_summary."
+    },
+    {
+      "name": "pr-review-ci-loop",
+      "description": "Use the same campaign prefix with current PR/CI/review state.",
+      "blocks": [
+        "codex-agent-contract",
+        "campaign-goal",
+        "campaign-workflow",
+        "campaign-do-not-rules",
+        "source-campaign-decisions",
+        "current-pr-state"
+      ],
+      "task": "Return compact JSON with keys action, review_fix, local_checks, merge_blockers, and cacheable_prefix_summary."
+    },
+    {
+      "name": "ledger-after-merge",
+      "description": "Use the same campaign prefix with a volatile ledger update requirement.",
+      "blocks": [
+        "codex-agent-contract",
+        "campaign-goal",
+        "campaign-workflow",
+        "campaign-do-not-rules",
+        "source-campaign-decisions",
+        "campaign-ledger-update"
+      ],
+      "task": "Return compact JSON with keys action, ledger_fields, next_scope_rule, stop_condition, and cacheable_prefix_summary."
+    }
+  ]
+}

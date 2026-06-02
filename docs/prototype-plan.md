@@ -33,6 +33,8 @@ Build a content-addressed prompt block store:
 - split stable prompt sections into named blocks
 - hash exact bytes plus tokenizer/model metadata
 - persist block metadata on SSD
+- mark attention-sink candidates at the start of the reusable prefix
+- mark stable prefix, rolling-tail, and volatile-tail roles separately
 - expose cache hit/miss telemetry
 
 First version can cache prompt assembly and metadata before attempting raw KV reuse.
@@ -43,6 +45,7 @@ Add KV persistence for exact-prefix reuse:
 
 - only exact model/tokenizer/config matches
 - start with full-prefix reuse, not arbitrary partial reuse
+- keep attention-sink KV hot while experimenting with rolling or offloaded KV
 - store blocks in large contiguous files
 - implement LRU and size caps
 - validate output equality against uncached baseline where possible
@@ -51,8 +54,8 @@ Add KV persistence for exact-prefix reuse:
 
 Wrap one local backend first:
 
-- MLX if Apple Silicon is the primary target
-- llama.cpp if portability matters more
+- llama.cpp first, because slot save/restore already reduced cold changed-tail prefill in the feasibility benchmark
+- compare MLX or oMLX next if Apple Silicon-specific performance becomes the primary target
 
 Expose an OpenAI-compatible local API:
 
@@ -90,4 +93,3 @@ Suggested target:
 - 2x faster repeated long-context prefill
 - no material decode slowdown
 - cache telemetry explains the win
-

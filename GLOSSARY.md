@@ -16,6 +16,18 @@ The phase where a model generates new tokens one at a time after prefill.
 
 A cache of reusable prompt prefixes or their derived inference state.
 
+## Attention Sink
+
+An initial token or small group of initial tokens that a model attends to strongly as an attention anchor, even when the token content is not semantically important.
+
+## Rolling KV Cache
+
+A bounded KV cache that keeps recent tokens while older tokens roll out of the active cache.
+
+## Prefix Block Store
+
+A content-addressed store for reusable prompt blocks and cache-key metadata.
+
 ## PagedAttention
 
 A KV cache layout strategy that stores attention state in paged blocks to reduce fragmentation and improve serving efficiency.
@@ -39,4 +51,3 @@ An inference run that benefits from previously populated caches.
 ## Cold Run
 
 An inference run with no relevant cache already available.
-
