@@ -2,6 +2,8 @@
 
 This benchmark measures local prompt evaluation cost for repeated agent workflows. It is a baseline for future prefix-cache and KV-cache work; it does not implement SSD-backed KV reuse yet.
 
+For the current system-level interpretation of the Flashcache/SSD-backed local-agent approach, see [Flashcache System Report](../docs/flashcache-system-report.md).
+
 ## Run
 
 ```bash
