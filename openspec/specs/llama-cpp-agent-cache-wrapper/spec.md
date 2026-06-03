@@ -34,6 +34,7 @@ The wrapper SHALL derive deterministic exact-match cache keys for reusable prefi
 #### Scenario: Build cache key
 - **WHEN** the wrapper prepares a cache-aware request
 - **THEN** the cache key includes cache namespace, model identity, llama.cpp server version, context size, relevant llama.cpp settings, stable prefix bytes or block hashes, and cache policy version
+- **AND** the wrapper may reuse a previously observed server-version identity within the same wrapper instance
 
 #### Scenario: Compatibility input changes
 - **WHEN** any cache-key input differs from an existing manifest
@@ -79,7 +80,7 @@ The wrapper SHALL expose cache behavior and timing telemetry to callers.
 #### Scenario: Completion returns telemetry
 - **WHEN** the wrapper returns a completion response
 - **THEN** the response includes cache state, cache key, prompt processing timing, save or restore timing where applicable, and fallback reason where applicable
-- **AND** the response telemetry includes wrapper-visible boundary timings for request parsing or prompt assembly, cache lookup, server context enter and exit, prefix priming, slot save, slot restore, direct or tail completion, and total wrapper time where each phase is applicable
+- **AND** the response telemetry includes wrapper-visible boundary timings for request parsing or prompt assembly, server-version lookup or reuse, cache lookup, server context enter and exit, prefix priming, slot save, slot restore, direct or tail completion, and total wrapper time where each phase is applicable
 
 #### Scenario: Debug telemetry requested
 - **WHEN** a request enables debug telemetry
@@ -126,4 +127,3 @@ The Flashcache wrapper benchmark SHALL emit progress output before long-running 
 #### Scenario: Progress before cache-aware scenario
 - **WHEN** the wrapper benchmark is about to run a cache-aware scenario through the wrapper
 - **THEN** it prints a progress line identifying the cache-aware phase and scenario name
-

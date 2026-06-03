@@ -1,5 +1,7 @@
 # Benchmark Results
 
+For visual summaries of the current results, see [Benchmark Graphs](benchmark-graphs.md).
+
 ## 2026-06-02: Printtestbot Printing Press Workflow on DushyantPC
 
 Fixture: `benchmarks/fixtures/printtestbot_printing_press_workflow.json`

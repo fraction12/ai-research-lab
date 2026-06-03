@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from unittest.mock import patch
 
 from flashcache.cache import CacheError
 from flashcache.wrapper import (
@@ -75,6 +76,24 @@ class FlashcacheApiTests(unittest.TestCase):
 
         self.assertEqual(result["cache_lookup_ms"], 2.0)
         self.assertGreaterEqual(result["total_wrapper_ms"], 0)
+
+    def test_server_version_lookup_is_cached_per_wrapper_instance(self) -> None:
+        wrapper = FlashcacheWrapper(FlashcacheConfig(server_bin="llama-server"))
+        seen_versions = []
+
+        def fake_direct_completion(parsed, server_version, cache_state, fallback_reason=None, boundary=None):
+            seen_versions.append(server_version)
+            return {"choices": [{"message": {"content": "ok"}}]}, {"cache_state": cache_state}
+
+        wrapper._direct_completion = fake_direct_completion  # type: ignore[method-assign]
+        payload = {"model": "local", "messages": [{"role": "user", "content": "hello"}]}
+
+        with patch("flashcache.wrapper.llama_server_version", side_effect=["version-1", "version-2"]) as lookup:
+            wrapper.complete(payload)
+            wrapper.complete(payload)
+
+        self.assertEqual(lookup.call_count, 1)
+        self.assertEqual(seen_versions, ["version-1", "version-1"])
 
 
 if __name__ == "__main__":

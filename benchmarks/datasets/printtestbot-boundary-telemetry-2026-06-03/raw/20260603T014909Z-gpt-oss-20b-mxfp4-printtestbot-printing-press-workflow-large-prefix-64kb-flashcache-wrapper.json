@@ -1,0 +1,518 @@
+{
+  "comparison": {
+    "direct_minus_wrapper_prompt_ms": 11391.318,
+    "direct_minus_wrapper_prompt_ratio": 0.13901619141342275,
+    "direct_prompt_ms_sum": 81942.383,
+    "interpretation": "Positive delta means Flashcache wrapper reduced prompt processing time versus direct full-prompt llama.cpp calls.",
+    "wrapper_cache_hit_rate": 0.8571428571428571,
+    "wrapper_prompt_ms_sum": 70551.065
+  },
+  "direct_full_prompt": [
+    {
+      "boundary_timings": {
+        "direct_completion_ms": 11915.788999991491
+      },
+      "content_excerpt": " \nWe need to produce next action JSON",
+      "prompt_bytes": 66095,
+      "prompt_sha256": "717ead65bce569f21e4afa487865ccf28c6804db088b776075bf0864595f2553",
+      "scenario": "turn-01-intake",
+      "timings": {
+        "predicted_ms": 166.411,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 20.801375,
+        "prompt_ms": 11645.307,
+        "prompt_n": 14673,
+        "prompt_per_token_ms": 0.7936554896749132,
+        "wall_ms": 11915.788999991491
+      }
+    },
+    {
+      "boundary_timings": {
+        "direct_completion_ms": 11988.632699998561
+      },
+      "content_excerpt": " The **?** is **?**",
+      "prompt_bytes": 66152,
+      "prompt_sha256": "ce111fe809675c085d989f3bbf3fc63e52e13e57a0035b8cc9890b0d0c0ac9be",
+      "scenario": "turn-02-inspect",
+      "timings": {
+        "predicted_ms": 155.875,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 19.484375,
+        "prompt_ms": 11742.468,
+        "prompt_n": 14703,
+        "prompt_per_token_ms": 0.7986443582942258,
+        "wall_ms": 11988.632699998561
+      }
+    },
+    {
+      "boundary_timings": {
+        "direct_completion_ms": 11918.693000043277
+      },
+      "content_excerpt": " The **?**..??..??",
+      "prompt_bytes": 66130,
+      "prompt_sha256": "4d666508de0dde29324273f3f45c090b55a819b6461fe8cd7a98c55bc69711af",
+      "scenario": "turn-03-verify-failure",
+      "timings": {
+        "predicted_ms": 156.107,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 19.513375,
+        "prompt_ms": 11671.881,
+        "prompt_n": 14685,
+        "prompt_per_token_ms": 0.7948165474974463,
+        "wall_ms": 11918.693000043277
+      }
+    },
+    {
+      "boundary_timings": {
+        "direct_completion_ms": 11906.22559998883
+      },
+      "content_excerpt": " The **?** is **?**",
+      "prompt_bytes": 66228,
+      "prompt_sha256": "ef291dd7a9ffec3febff52999d874774e579a9bce0ec767a904ae33e4641065c",
+      "scenario": "turn-04-patch-state",
+      "timings": {
+        "predicted_ms": 158.266,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 19.78325,
+        "prompt_ms": 11666.438,
+        "prompt_n": 14696,
+        "prompt_per_token_ms": 0.7938512520413719,
+        "wall_ms": 11906.22559998883
+      }
+    },
+    {
+      "boundary_timings": {
+        "direct_completion_ms": 11960.1136999554
+      },
+      "content_excerpt": "We need to produce next action. We",
+      "prompt_bytes": 66106,
+      "prompt_sha256": "64b756c8fdd769878da2bb8865cd1a7377b1ee5ca69163408c585f558d8338ab",
+      "scenario": "turn-05-test-and-vet-failure",
+      "timings": {
+        "predicted_ms": 164.802,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 20.60025,
+        "prompt_ms": 11729.434,
+        "prompt_n": 14684,
+        "prompt_per_token_ms": 0.798790111686189,
+        "wall_ms": 11960.1136999554
+      }
+    },
+    {
+      "boundary_timings": {
+        "direct_completion_ms": 12058.604999969248
+      },
+      "content_excerpt": " The **?** is **?**",
+      "prompt_bytes": 66191,
+      "prompt_sha256": "6deed56dcdd77b07d9f86d7902e5471cd277b189d7d3e601e7308e8941a7e264",
+      "scenario": "turn-06-review-feedback",
+      "timings": {
+        "predicted_ms": 156.808,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 19.601,
+        "prompt_ms": 11811.766,
+        "prompt_n": 14683,
+        "prompt_per_token_ms": 0.8044518150241776,
+        "wall_ms": 12058.604999969248
+      }
+    },
+    {
+      "boundary_timings": {
+        "direct_completion_ms": 11911.77730000345
+      },
+      "content_excerpt": " We have a large context. The user",
+      "prompt_bytes": 66193,
+      "prompt_sha256": "ce2a0a8196536153ab1d3385096dcf983ee6a98f4fffd2954569c8249b71056e",
+      "scenario": "turn-07-final-handoff",
+      "timings": {
+        "predicted_ms": 166.065,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 20.758125,
+        "prompt_ms": 11675.089,
+        "prompt_n": 14704,
+        "prompt_per_token_ms": 0.7940076849836779,
+        "wall_ms": 11911.77730000345
+      }
+    }
+  ],
+  "metadata": {
+    "cache_dir": "benchmarks\\flashcache\\boundary-telemetry-2026-06-03",
+    "ctx_size": 32768,
+    "finished_at": "2026-06-03T01:49:05.973680+00:00",
+    "fixture": "benchmarks\\fixtures\\printtestbot-printing-press-workflow-large-prefix-64kb.json",
+    "fixture_hash": "b2a73ffce91ce8fd7b60ebd7e3a9a9216904e352399c83308ad295e4c04d1782",
+    "model": "benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+    "model_bytes": 12109566560,
+    "predict": 8,
+    "prime_n_predict": 1,
+    "server_bin": "C:\\\\Users\\\\Dushyant\\\\Tools\\\\llama-b9482-vulkan\\\\llama-server.exe",
+    "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "started_at": "2026-06-03T01:41:37.658112+00:00",
+    "temperature": 0.0
+  },
+  "prompt_set": {
+    "fixture_name": "printtestbot-printing-press-workflow-large-prefix-64kb",
+    "prefix_block_names": [
+      "printy-bot-identity",
+      "print-a-bot-runtime-contract",
+      "model-routing-and-cache-rules",
+      "tool-schema-summary",
+      "operating-guardrails",
+      "printing-press-workflow-rules",
+      "repo-and-task-context",
+      "benchmark-instructions",
+      "large-agent-context-64kb"
+    ],
+    "prefix_prompt_bytes": 65554,
+    "prefix_prompt_sha256": "2407660eea5483e6fc2fcb93751971eab26c998466762f27270e01bfc6a85fef"
+  },
+  "wrapper_cache_aware": [
+    {
+      "assistant_excerpt": " \nWe need to produce next action.",
+      "boundary_timings": {
+        "cache_key_ms": 0.13880000915378332,
+        "cache_lookup_ms": 0.09919999865815043,
+        "prefix_prime_ms": 11663.709999993443,
+        "request_parse_ms": 0.04299997817724943,
+        "server_version_ms": 3573.3637000084855,
+        "slot_save_ms": 236.58650001743808,
+        "tail_completion_ms": 602.684399986174,
+        "total_wrapper_ms": 34313.98109998554
+      },
+      "cache_state": "miss",
+      "headers": {
+        "X-Flashcache-Cache": "miss",
+        "X-Flashcache-Key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "X-Flashcache-Prompt-Ms": "338.869"
+      },
+      "scenario": "turn-01-intake",
+      "telemetry": {
+        "boundary_timings": {
+          "cache_key_ms": 0.13880000915378332,
+          "cache_lookup_ms": 0.09919999865815043,
+          "prefix_prime_ms": 11663.709999993443,
+          "request_parse_ms": 0.04299997817724943,
+          "server_version_ms": 3573.3637000084855,
+          "slot_save_ms": 236.58650001743808,
+          "tail_completion_ms": 602.684399986174,
+          "total_wrapper_ms": 34313.98109998554
+        },
+        "cache_key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "cache_state": "miss",
+        "fallback_reason": null,
+        "prime": {
+          "predicted_ms": 0.001,
+          "predicted_n": 1,
+          "predicted_per_token_ms": 0.001,
+          "prompt_ms": 11593.096,
+          "prompt_n": 14546,
+          "prompt_per_token_ms": 0.7969954626701499,
+          "wall_ms": 11663.702399993781
+        },
+        "prompt_ms": 338.869,
+        "prompt_n": 133,
+        "save_ms": 235.467,
+        "saved_tokens": 14546,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 360863116,
+        "timings": {
+          "predicted_ms": 164.791,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 20.598875,
+          "prompt_ms": 338.869,
+          "prompt_n": 133,
+          "prompt_per_token_ms": 2.547887218045113,
+          "wall_ms": 602.6791000040248
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " The **?** is **?**",
+      "boundary_timings": {
+        "cache_key_ms": 0.14319998444989324,
+        "cache_lookup_ms": 7.6293000020086765,
+        "request_parse_ms": 0.029999995604157448,
+        "server_version_ms": 3538.9727000147104,
+        "slot_restore_ms": 181.46300001535565,
+        "tail_completion_ms": 11956.380999996327,
+        "total_wrapper_ms": 33652.97380002448
+      },
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "X-Flashcache-Prompt-Ms": "11722.955"
+      },
+      "scenario": "turn-02-inspect",
+      "telemetry": {
+        "boundary_timings": {
+          "cache_key_ms": 0.14319998444989324,
+          "cache_lookup_ms": 7.6293000020086765,
+          "request_parse_ms": 0.029999995604157448,
+          "server_version_ms": 3538.9727000147104,
+          "slot_restore_ms": 181.46300001535565,
+          "tail_completion_ms": 11956.380999996327,
+          "total_wrapper_ms": 33652.97380002448
+        },
+        "cache_key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 11722.955,
+        "prompt_n": 14708,
+        "restore_ms": 180.326,
+        "restored_tokens": 14546,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 360863116,
+        "timings": {
+          "predicted_ms": 153.932,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 19.2415,
+          "prompt_ms": 11722.955,
+          "prompt_n": 14708,
+          "prompt_per_token_ms": 0.7970461653521893,
+          "wall_ms": 11956.374800007325
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " \nWe need to produce next action.",
+      "boundary_timings": {
+        "cache_key_ms": 0.1115999766625464,
+        "cache_lookup_ms": 7.255600008647889,
+        "request_parse_ms": 0.026100024115294218,
+        "server_version_ms": 3411.020799947437,
+        "slot_restore_ms": 140.7685999874957,
+        "tail_completion_ms": 11934.261100017466,
+        "total_wrapper_ms": 33377.657300035935
+      },
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "X-Flashcache-Prompt-Ms": "11674.797"
+      },
+      "scenario": "turn-03-verify-failure",
+      "telemetry": {
+        "boundary_timings": {
+          "cache_key_ms": 0.1115999766625464,
+          "cache_lookup_ms": 7.255600008647889,
+          "request_parse_ms": 0.026100024115294218,
+          "server_version_ms": 3411.020799947437,
+          "slot_restore_ms": 140.7685999874957,
+          "tail_completion_ms": 11934.261100017466,
+          "total_wrapper_ms": 33377.657300035935
+        },
+        "cache_key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 11674.797,
+        "prompt_n": 14690,
+        "restore_ms": 139.912,
+        "restored_tokens": 14546,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 360863116,
+        "timings": {
+          "predicted_ms": 163.227,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 20.403375,
+          "prompt_ms": 11674.797,
+          "prompt_n": 14690,
+          "prompt_per_token_ms": 0.7947445200816883,
+          "wall_ms": 11934.253499959596
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " \nWe need to produce next validation action",
+      "boundary_timings": {
+        "cache_key_ms": 0.11570000788196921,
+        "cache_lookup_ms": 8.494400011841208,
+        "request_parse_ms": 0.026300025638192892,
+        "server_version_ms": 3536.076200020034,
+        "slot_restore_ms": 156.0318999690935,
+        "tail_completion_ms": 11885.887100012042,
+        "total_wrapper_ms": 34636.80380000733
+      },
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "X-Flashcache-Prompt-Ms": "11673.632"
+      },
+      "scenario": "turn-04-patch-state",
+      "telemetry": {
+        "boundary_timings": {
+          "cache_key_ms": 0.11570000788196921,
+          "cache_lookup_ms": 8.494400011841208,
+          "request_parse_ms": 0.026300025638192892,
+          "server_version_ms": 3536.076200020034,
+          "slot_restore_ms": 156.0318999690935,
+          "tail_completion_ms": 11885.887100012042,
+          "total_wrapper_ms": 34636.80380000733
+        },
+        "cache_key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 11673.632,
+        "prompt_n": 14701,
+        "restore_ms": 154.904,
+        "restored_tokens": 14546,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 360863116,
+        "timings": {
+          "predicted_ms": 162.369,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 20.296125,
+          "prompt_ms": 11673.632,
+          "prompt_n": 14701,
+          "prompt_per_token_ms": 0.7940706074416706,
+          "wall_ms": 11885.882399976254
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " We need to read file? We have",
+      "boundary_timings": {
+        "cache_key_ms": 0.09350001346319914,
+        "cache_lookup_ms": 5.325599981006235,
+        "request_parse_ms": 0.029999995604157448,
+        "server_version_ms": 3498.846800008323,
+        "slot_restore_ms": 170.22840003482997,
+        "tail_completion_ms": 11856.361899990588,
+        "total_wrapper_ms": 33997.29649996152
+      },
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "X-Flashcache-Prompt-Ms": "11641.724"
+      },
+      "scenario": "turn-05-test-and-vet-failure",
+      "telemetry": {
+        "boundary_timings": {
+          "cache_key_ms": 0.09350001346319914,
+          "cache_lookup_ms": 5.325599981006235,
+          "request_parse_ms": 0.029999995604157448,
+          "server_version_ms": 3498.846800008323,
+          "slot_restore_ms": 170.22840003482997,
+          "tail_completion_ms": 11856.361899990588,
+          "total_wrapper_ms": 33997.29649996152
+        },
+        "cache_key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 11641.724,
+        "prompt_n": 14689,
+        "restore_ms": 153.979,
+        "restored_tokens": 14546,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 360863116,
+        "timings": {
+          "predicted_ms": 164.297,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 20.537125,
+          "prompt_ms": 11641.724,
+          "prompt_n": 14689,
+          "prompt_per_token_ms": 0.7925470760432978,
+          "wall_ms": 11856.357200013008
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " The **?** is **?**",
+      "boundary_timings": {
+        "cache_key_ms": 0.12079998850822449,
+        "cache_lookup_ms": 5.807499983347952,
+        "request_parse_ms": 0.02269999822601676,
+        "server_version_ms": 3522.945799981244,
+        "slot_restore_ms": 151.51820000028238,
+        "tail_completion_ms": 11948.235400021076,
+        "total_wrapper_ms": 33994.39219996566
+      },
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "X-Flashcache-Prompt-Ms": "11740.22"
+      },
+      "scenario": "turn-06-review-feedback",
+      "telemetry": {
+        "boundary_timings": {
+          "cache_key_ms": 0.12079998850822449,
+          "cache_lookup_ms": 5.807499983347952,
+          "request_parse_ms": 0.02269999822601676,
+          "server_version_ms": 3522.945799981244,
+          "slot_restore_ms": 151.51820000028238,
+          "tail_completion_ms": 11948.235400021076,
+          "total_wrapper_ms": 33994.39219996566
+        },
+        "cache_key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 11740.22,
+        "prompt_n": 14688,
+        "restore_ms": 150.478,
+        "restored_tokens": 14546,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 360863116,
+        "timings": {
+          "predicted_ms": 157.5,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 19.6875,
+          "prompt_ms": 11740.22,
+          "prompt_n": 14688,
+          "prompt_per_token_ms": 0.799306917211329,
+          "wall_ms": 11948.231099988334
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " We need to produce a test? Wait",
+      "boundary_timings": {
+        "cache_key_ms": 0.09929999941959977,
+        "cache_lookup_ms": 6.858100008685142,
+        "request_parse_ms": 0.024900014977902174,
+        "server_version_ms": 3505.079400027171,
+        "slot_restore_ms": 158.43040001345798,
+        "tail_completion_ms": 11971.867899992503,
+        "total_wrapper_ms": 33867.749299970455
+      },
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "X-Flashcache-Prompt-Ms": "11758.868"
+      },
+      "scenario": "turn-07-final-handoff",
+      "telemetry": {
+        "boundary_timings": {
+          "cache_key_ms": 0.09929999941959977,
+          "cache_lookup_ms": 6.858100008685142,
+          "request_parse_ms": 0.024900014977902174,
+          "server_version_ms": 3505.079400027171,
+          "slot_restore_ms": 158.43040001345798,
+          "tail_completion_ms": 11971.867899992503,
+          "total_wrapper_ms": 33867.749299970455
+        },
+        "cache_key": "fa680af6e3db59adcddbf9fa80013e4fa75458ab23f0aac95955cdee5779844c",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 11758.868,
+        "prompt_n": 14709,
+        "restore_ms": 157.46,
+        "restored_tokens": 14546,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 360863116,
+        "timings": {
+          "predicted_ms": 162.788,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 20.3485,
+          "prompt_ms": 11758.868,
+          "prompt_n": 14709,
+          "prompt_per_token_ms": 0.7994335440886532,
+          "wall_ms": 11971.862800011877
+        }
+      }
+    }
+  ]
+}

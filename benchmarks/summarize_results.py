@@ -28,6 +28,7 @@ class SummaryRow:
     slot_file_bytes: Any = None
     boundary_direct_ms: Any = None
     boundary_wrapper_ms: Any = None
+    boundary_server_version_ms: Any = None
     boundary_save_ms: Any = None
     boundary_restore_ms: Any = None
     boundary_tail_ms: Any = None
@@ -98,6 +99,7 @@ def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
             cache_states=",".join(states) if states else None,
             boundary_direct_ms=sum_boundary(direct_runs, "direct_completion_ms"),
             boundary_wrapper_ms=sum_boundary(wrapper_runs, "total_wrapper_ms"),
+            boundary_server_version_ms=sum_boundary(wrapper_runs, "server_version_ms"),
             boundary_save_ms=sum_boundary(wrapper_runs, "slot_save_ms"),
             boundary_restore_ms=sum_boundary(wrapper_runs, "slot_restore_ms"),
             boundary_tail_ms=sum_boundary(wrapper_runs, "tail_completion_ms"),
@@ -176,6 +178,7 @@ def render(rows: list[SummaryRow]) -> str:
         "slot_bytes",
         "boundary_direct_ms",
         "boundary_wrapper_ms",
+        "boundary_server_version_ms",
         "boundary_save_ms",
         "boundary_restore_ms",
         "boundary_tail_ms",
@@ -203,6 +206,7 @@ def render(rows: list[SummaryRow]) -> str:
                     format_value(row.slot_file_bytes),
                     format_value(row.boundary_direct_ms),
                     format_value(row.boundary_wrapper_ms),
+                    format_value(row.boundary_server_version_ms),
                     format_value(row.boundary_save_ms),
                     format_value(row.boundary_restore_ms),
                     format_value(row.boundary_tail_ms),

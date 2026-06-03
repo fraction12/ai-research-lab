@@ -174,6 +174,12 @@ class FlashcacheWrapper:
     def __init__(self, config: FlashcacheConfig) -> None:
         self.config = config
         self.store = CacheStore(config.manifest_dir, config.slot_cache_dir, config.max_cache_bytes)
+        self._server_version: str | None = None
+
+    def server_version(self) -> str:
+        if self._server_version is None:
+            self._server_version = llama_server_version(self.config.server_bin)
+        return self._server_version
 
     @contextmanager
     def _managed_client(self, label: str, boundary: BoundaryTimings) -> Iterator[Any]:
@@ -193,7 +199,7 @@ class FlashcacheWrapper:
         if parsed.stream:
             raise UnsupportedRequestError("streaming chat completions are not supported by this wrapper yet")
         with boundary.phase("server_version_ms"):
-            server_version = llama_server_version(self.config.server_bin)
+            server_version = self.server_version()
         if not parsed.has_cache_metadata or not parsed.stable_prefix_prompt:
             response, telemetry = self._direct_completion(parsed, server_version, "bypass", boundary=boundary)
             return response, telemetry_headers(telemetry)

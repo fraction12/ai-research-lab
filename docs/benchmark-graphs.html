@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flashcache Benchmark Graphs</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f7f6f1;
+        --surface: #fffdf7;
+        --ink: #172026;
+        --muted: #5c666f;
+        --line: #d8d6cb;
+        --green: #2f7d6e;
+        --blue: #5267c7;
+        --coral: #d65f43;
+        --gold: #b1842a;
+        --soft-blue: #e8ecff;
+        --soft-green: #e4f2ee;
+        --soft-coral: #f7e5de;
+        --shadow: 0 18px 48px rgba(23, 32, 38, 0.11);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(90deg, rgba(23, 32, 38, 0.04) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(23, 32, 38, 0.04) 1px, transparent 1px),
+          var(--paper);
+        background-size: 28px 28px;
+        color: var(--ink);
+        font-family: Charter, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1180px, calc(100vw - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(23, 32, 38, 0.14);
+        background: rgba(247, 246, 241, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 64px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 210px;
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .brand-mark {
+        width: 26px;
+        height: 26px;
+        border: 2px solid var(--ink);
+        background:
+          linear-gradient(90deg, transparent 46%, var(--ink) 46% 54%, transparent 54%),
+          linear-gradient(180deg, transparent 46%, var(--ink) 46% 54%, transparent 54%),
+          var(--soft-green);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 6px;
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+      }
+
+      nav a {
+        border: 1px solid rgba(23, 32, 38, 0.15);
+        border-radius: 999px;
+        padding: 7px 10px;
+        background: rgba(255, 253, 247, 0.68);
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        border-color: var(--ink);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        gap: 40px;
+        align-items: end;
+        min-height: min(720px, calc(100vh - 64px));
+        padding: 72px 0 52px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 24px;
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 38px;
+        height: 2px;
+        background: var(--coral);
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(3rem, 8vw, 7.8rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+        font-weight: 800;
+      }
+
+      .lead {
+        max-width: 680px;
+        margin: 28px 0 0;
+        font-size: clamp(1.2rem, 2.2vw, 1.72rem);
+        line-height: 1.3;
+        color: #2c363d;
+      }
+
+      .hero-panel {
+        border: 1px solid rgba(23, 32, 38, 0.18);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .panel-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-bottom: 1px solid var(--line);
+        padding: 13px 16px;
+        background: #f0efe7;
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 0 4px rgba(47, 125, 110, 0.16);
+      }
+
+      .signal-list {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .signal-list li {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 18px;
+        border-bottom: 1px solid var(--line);
+        padding: 18px 18px 17px;
+      }
+
+      .signal-list li:last-child {
+        border-bottom: 0;
+      }
+
+      .metric {
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: clamp(1.35rem, 3vw, 2rem);
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .metric-label {
+        font-size: 0.98rem;
+        color: var(--muted);
+      }
+
+      .section {
+        border-top: 1px solid rgba(23, 32, 38, 0.2);
+        padding: 64px 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+        gap: 40px;
+        align-items: start;
+        margin-bottom: 28px;
+      }
+
+      .kicker {
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4.8vw, 4.6rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .section-copy {
+        max-width: 780px;
+        margin: 0;
+        font-size: clamp(1.06rem, 1.8vw, 1.32rem);
+        color: #2c363d;
+      }
+
+      .chart-frame {
+        border: 1px solid rgba(23, 32, 38, 0.18);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .chart-frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: var(--surface);
+      }
+
+      .notes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .note {
+        border: 1px solid rgba(23, 32, 38, 0.16);
+        border-radius: 8px;
+        padding: 16px;
+        background: rgba(255, 253, 247, 0.74);
+      }
+
+      .note strong {
+        display: block;
+        margin-bottom: 6px;
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .note p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(23, 32, 38, 0.16);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .data-table th,
+      .data-table td {
+        border-bottom: 1px solid var(--line);
+        padding: 12px 14px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .data-table th {
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: #f0efe7;
+      }
+
+      .data-table td:not(:first-child),
+      .data-table th:not(:first-child) {
+        text-align: right;
+      }
+
+      .data-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .callout {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 22px;
+        align-items: center;
+        margin: 64px 0;
+        border: 2px solid var(--ink);
+        border-radius: 8px;
+        padding: 22px;
+        background: var(--soft-green);
+      }
+
+      .callout p {
+        margin: 0;
+        font-size: clamp(1.18rem, 2vw, 1.58rem);
+        line-height: 1.28;
+        font-weight: 700;
+      }
+
+      .callout code,
+      code {
+        border: 1px solid rgba(23, 32, 38, 0.16);
+        border-radius: 6px;
+        padding: 2px 5px;
+        background: rgba(255, 253, 247, 0.75);
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 0.92em;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        border: 1px solid rgba(23, 32, 38, 0.18);
+        border-radius: 999px;
+        padding: 6px 12px;
+        background: var(--surface);
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .next-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .next-item {
+        min-height: 142px;
+        border: 1px solid rgba(23, 32, 38, 0.16);
+        border-radius: 8px;
+        padding: 16px;
+        background: var(--surface);
+      }
+
+      .next-item span {
+        display: block;
+        margin-bottom: 18px;
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--coral);
+      }
+
+      .next-item p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      footer {
+        border-top: 1px solid rgba(23, 32, 38, 0.2);
+        padding: 34px 0 52px;
+        color: var(--muted);
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+      }
+
+      @media (max-width: 860px) {
+        .topbar {
+          position: static;
+        }
+
+        .topbar-inner,
+        .hero,
+        .section-head,
+        .callout {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar-inner {
+          align-items: flex-start;
+          padding: 14px 0;
+        }
+
+        nav {
+          justify-content: flex-start;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 46px 0 36px;
+        }
+
+        .notes,
+        .next-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .signal-list li {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .data-table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+      }
+
+      @media print {
+        body {
+          background: var(--paper);
+        }
+
+        .topbar {
+          position: static;
+        }
+
+        .chart-frame,
+        .hero-panel,
+        .note,
+        .next-item,
+        .callout {
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <a class="brand" href="#top" aria-label="Flashcache benchmark report home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          Flashcache Evidence
+        </a>
+        <nav aria-label="Report sections">
+          <a href="#warm-gap">Warm Gap</a>
+          <a href="#replay">Exact Replay</a>
+          <a href="#small-prefix">Small Prefix</a>
+          <a href="#large-prefix">Large Prefix</a>
+          <a href="#ssd-cost">SSD Cost</a>
+          <a href="#projection">Projection</a>
+          <a href="#next">Next</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="shell hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">2026-06-03 / DushyantPC benchmark brief</p>
+          <h1 id="page-title">Flashcache is becoming an evidence machine.</h1>
+          <p class="lead">
+            These graphs show what we have learned so far about SSD-backed prompt and KV state for local agent workloads. The short version: warm-state reuse matters, exact replay is boring, whole-slot blobs are too blunt, and larger stable prefixes make the Flashcache path more interesting.
+          </p>
+        </div>
+
+        <aside class="hero-panel" aria-label="Key results">
+          <div class="panel-top">
+            <span>Current signal</span>
+            <span class="status-dot" aria-hidden="true"></span>
+          </div>
+          <ul class="signal-list">
+            <li>
+              <span class="metric">2.36x</span>
+              <span class="metric-label">Restarted Ollama prompt eval versus warm sequence on the Printy changed-tail workflow.</span>
+            </li>
+            <li>
+              <span class="metric">12.2%</span>
+              <span class="metric-label">Average small-prefix `gpt-oss-20b` Flashcache wrapper prompt-eval savings.</span>
+            </li>
+            <li>
+              <span class="metric">11.4s</span>
+              <span class="metric-label">Saved across seven turns with the 64KB stable-prefix ladder.</span>
+            </li>
+            <li>
+              <span class="metric">361MB</span>
+              <span class="metric-label">Whole-slot file size for the 64KB reusable prefix, which points us toward partial restore and better layout.</span>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <div class="shell callout" role="note">
+        <p>
+          The project claim is not <code>prompt caching works</code>. The claim we are testing is whether persistent SSD-backed inference state can become a practical memory tier for ordinary local-agent machines.
+        </p>
+        <span class="pill">source: raw benchmark JSON</span>
+      </div>
+
+      <section class="section" id="warm-gap">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <div class="kicker">01 / persistence gap</div>
+              <h2>Warm state is the first real opening.</h2>
+            </div>
+            <p class="section-copy">
+              Ollama already gets cheaper when the model remains warm. Restarting loses that benefit. Flashcache should aim to preserve the useful part of this state across cold sessions and changed-tail turns.
+            </p>
+          </div>
+          <figure class="chart-frame">
+            <img src="assets/benchmark-graphs/ollama-warm-vs-restarted.svg" alt="Bar chart comparing warm and restarted Ollama prompt evaluation, model load, and total request time.">
+          </figure>
+          <div class="notes">
+            <div class="note">
+              <strong>Prompt eval</strong>
+              <p>Warm sequence: 4.43s. Restarted sequence: 10.46s.</p>
+            </div>
+            <div class="note">
+              <strong>Total time</strong>
+              <p>Warm total: 15.46s. Restarted total: 48.11s.</p>
+            </div>
+            <div class="note">
+              <strong>Interpretation</strong>
+              <p>There is a real persistence gap worth targeting with SSD-backed state.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="replay">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <div class="kicker">02 / control</div>
+              <h2>Exact replay is cheap, but not enough.</h2>
+            </div>
+            <p class="section-copy">
+              The second identical Ollama prompt dropped from about 462ms prompt eval to 74ms. That proves the known primitive. Our target is harder: repeated stable prefix, changing volatile tail.
+            </p>
+          </div>
+          <figure class="chart-frame">
+            <img src="assets/benchmark-graphs/ollama-exact-repeat-control.svg" alt="Bar chart showing prompt evaluation time for two identical Ollama prompt runs.">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="small-prefix">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <div class="kicker">03 / small prefix</div>
+              <h2>The first fixture is mixed, which is useful.</h2>
+            </div>
+            <p class="section-copy">
+              With a 5.5KB reusable prefix, the tiny model shows a big cache win. The larger `gpt-oss-20b` direct slot restore is basically flat, while the Flashcache wrapper gives a repeatable mean win around 12%.
+            </p>
+          </div>
+          <figure class="chart-frame">
+            <img src="assets/benchmark-graphs/small-prefix-cache-outcomes.svg" alt="Horizontal bar chart showing cache savings for Gemma and gpt-oss small-prefix benchmarks.">
+          </figure>
+          <div class="notes">
+            <div class="note">
+              <strong>Gemma</strong>
+              <p>Slot restore saved 53.7%. Flashcache saved 60.3%.</p>
+            </div>
+            <div class="note">
+              <strong>gpt-oss slot</strong>
+              <p>Direct whole-slot restore averaged only 0.8% savings.</p>
+            </div>
+            <div class="note">
+              <strong>gpt-oss wrapper</strong>
+              <p>Flashcache averaged 12.2% savings across repeated runs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="large-prefix">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <div class="kicker">04 / large prefix ladder</div>
+              <h2>Bigger reusable context makes the direction clearer.</h2>
+            </div>
+            <p class="section-copy">
+              The percentage win stays near 13%, but the absolute saved time grows as the stable prefix gets larger. This looks more like real local coding-agent context: repo state, tools, instructions, memory, and a small changing tail.
+            </p>
+          </div>
+          <figure class="chart-frame">
+            <img src="assets/benchmark-graphs/large-prefix-flashcache-ladder.svg" alt="Line chart comparing direct full prompt evaluation with Flashcache wrapper evaluation for 16KB, 32KB, and 64KB prefixes.">
+          </figure>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Reusable prefix</th>
+                <th>Direct prompt eval</th>
+                <th>Flashcache prompt eval</th>
+                <th>Saved</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>16KB</td>
+                <td>19.81s</td>
+                <td>17.09s</td>
+                <td>2.71s</td>
+              </tr>
+              <tr>
+                <td>32KB</td>
+                <td>38.62s</td>
+                <td>33.68s</td>
+                <td>4.94s</td>
+              </tr>
+              <tr>
+                <td>64KB</td>
+                <td>81.95s</td>
+                <td>70.56s</td>
+                <td>11.39s</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="ssd-cost">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <div class="kicker">05 / storage cost</div>
+              <h2>Whole-slot blobs are too blunt for the final system.</h2>
+            </div>
+            <p class="section-copy">
+              Slot files grow quickly. That does not kill the idea, but it tells us where the next layer needs to go: block layout, partial restore, cache eviction, and I/O telemetry.
+            </p>
+          </div>
+          <figure class="chart-frame">
+            <img src="assets/benchmark-graphs/slot-file-size-ladder.svg" alt="Line chart showing llama.cpp slot file size growth from 5.4KB to 64KB reusable prefixes.">
+          </figure>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Reusable prefix</th>
+                <th>Slot file</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>5.4KB</td>
+                <td>31.1MB</td>
+              </tr>
+              <tr>
+                <td>16.0KB</td>
+                <td>94.5MB</td>
+              </tr>
+              <tr>
+                <td>32.0KB</td>
+                <td>184.8MB</td>
+              </tr>
+              <tr>
+                <td>64.0KB</td>
+                <td>361.0MB</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="projection">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <div class="kicker">06 / projection</div>
+              <h2>The next target is lower than the wrapper line.</h2>
+            </div>
+            <p class="section-copy">
+              This figure combines measured 16KB, 32KB, and 64KB results with a directional 128KB trend projection. The metal target is intentionally separate: it is the experiment we want to earn with partial KV restore, prefetch, and better layout.
+            </p>
+          </div>
+          <figure class="chart-frame">
+            <img src="assets/benchmark-graphs/flashcache-gains-projection.svg" alt="Projection chart showing measured Flashcache gains, a 128KB trend projection, and the next metal target.">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="next">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <div class="kicker">07 / next measurement layer</div>
+              <h2>Now measure the boundary, not just the outcome.</h2>
+            </div>
+            <p class="section-copy">
+              The current charts justify going deeper. The next charts should break time apart so we can see whether the bottleneck is prefill compute, save/restore, SSD throughput, memory copy, GPU upload, or tail processing.
+            </p>
+          </div>
+          <div class="next-grid" aria-label="Next graphs to add">
+            <div class="next-item">
+              <span>01</span>
+              <p>Prefill versus restore versus save time.</p>
+            </div>
+            <div class="next-item">
+              <span>02</span>
+              <p>SSD read/write bytes and throughput.</p>
+            </div>
+            <div class="next-item">
+              <span>03</span>
+              <p>GPU or accelerator upload time, if observable.</p>
+            </div>
+            <div class="next-item">
+              <span>04</span>
+              <p>Tail-only prefill time after restored prefix.</p>
+            </div>
+            <div class="next-item">
+              <span>05</span>
+              <p>Quality or next-action agreement against uncached baseline.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell">
+        Generated with Matplotlib from <code>benchmarks/plot_benchmark_graphs.py</code> and the raw benchmark JSON files. Markdown companion: <a href="benchmark-graphs.md">benchmark-graphs.md</a>.
+      </div>
+    </footer>
+  </body>
+</html>
