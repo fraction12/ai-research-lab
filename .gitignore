@@ -17,3 +17,18 @@ benchmarks/llama-cpp-prompts/
 benchmarks/llama-cpp-logs/
 benchmarks/flashcache/
 benchmarks/flashcache-results/
+
+# Local/private SSH and machine-access artifacts
+.ssh/
+**/.ssh/
+authorized_keys
+known_hosts
+known_hosts.old
+id_rsa*
+id_ed25519*
+*.pem
+*.ppk
+*.key
+docs/*ssh*.md
+docs/*tailscale*.md
+docs/*benchmark-handoff*.md

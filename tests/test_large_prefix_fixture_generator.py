@@ -47,6 +47,22 @@ class LargePrefixFixtureGeneratorTests(unittest.TestCase):
 
         self.assertTrue(matches)
 
+    def test_context_sanitizer_removes_private_connection_handoff_lines(self) -> None:
+        sanitized = gen.sanitize_context_text(
+            "\n".join(
+                [
+                    "Safe benchmark note",
+                    "Continuation handoff: docs/private-benchmark-handoff.md",
+                    "ssh user@example",
+                    f"ssh-ed25519 {'A' * 80} label",
+                    "HostName 100.64.0.1",
+                    "IdentityFile REDACTED",
+                ]
+            )
+        )
+
+        self.assertEqual(sanitized, "Safe benchmark note")
+
     def test_context_budget_failure_is_actionable(self) -> None:
         source = gen.read_fixture(gen.DEFAULT_SOURCE)
         context_entries = gen.collect_context()

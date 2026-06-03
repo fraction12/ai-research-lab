@@ -48,6 +48,7 @@ SAFE_CONTEXT_FILES = [
 
 SECRET_PATTERNS = [
     re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----"),
+    re.compile(r"\bssh-(?:rsa|ed25519|ecdsa-[^\s]+)\s+[A-Za-z0-9+/]{40,}={0,2}"),
     re.compile(r"\bgh[pousr]_[A-Za-z0-9_]{20,}\b"),
     re.compile(r"\bsk-[A-Za-z0-9_-]{20,}\b"),
     re.compile(r"\bxox[abprs]-[A-Za-z0-9-]{20,}\b"),
@@ -55,6 +56,15 @@ SECRET_PATTERNS = [
     re.compile(r'"chat_id"\s*:\s*-?\d{5,}'),
     re.compile(r"\b[A-Za-z0-9+/]{80,}={0,2}\b"),
 ]
+TAILSCALE_IPV4_PATTERN = re.compile(r"\b100\.(?:6[4-9]|[7-9]\d|1[01]\d|12[0-7])\.\d{1,3}\.\d{1,3}\b")
+PRIVATE_CONNECTION_MARKERS = (
+    "authorized_keys",
+    "benchmark-handoff",
+    "continuation handoff:",
+    "identityfile",
+    "known_hosts",
+    "tailscale",
+)
 
 
 class FixtureGenerationError(Exception):
@@ -162,10 +172,20 @@ def sanitize_context_text(text: str) -> str:
         if not stripped:
             lines.append("")
             continue
-        if stripped.startswith("ssh ") or "tailscale" in stripped.lower():
+        if is_private_connection_context_line(stripped):
             continue
         lines.append(stripped)
     return "\n".join(lines).strip()
+
+
+def is_private_connection_context_line(stripped: str) -> bool:
+    lower = stripped.lower()
+    return (
+        stripped.startswith("ssh ")
+        or stripped.startswith("ssh-")
+        or TAILSCALE_IPV4_PATTERN.search(stripped) is not None
+        or any(marker in lower for marker in PRIVATE_CONNECTION_MARKERS)
+    )
 
 
 def context_stream(entries: list[dict[str, str]]) -> list[str]:
