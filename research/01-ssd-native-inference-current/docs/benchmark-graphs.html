@@ -179,8 +179,8 @@
         text-transform: uppercase;
       }
 
-      td:not(:first-child),
-      th:not(:first-child) {
+      .numeric-table td:not(:first-child),
+      .numeric-table th:not(:first-child) {
         text-align: right;
       }
 
@@ -452,7 +452,7 @@
           These are the numeric claims used by the figures. Projection values are marked separately from measured values.
         </p>
 
-        <table>
+        <table class="numeric-table">
           <thead>
             <tr>
               <th>Claim</th>
