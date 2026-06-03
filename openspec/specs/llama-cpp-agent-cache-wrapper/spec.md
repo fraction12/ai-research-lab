@@ -79,7 +79,7 @@ The wrapper SHALL expose cache behavior and timing telemetry to callers.
 #### Scenario: Completion returns telemetry
 - **WHEN** the wrapper returns a completion response
 - **THEN** the response includes cache state, cache key, prompt processing timing, save or restore timing where applicable, and fallback reason where applicable
-- **AND** the response telemetry includes wrapper-visible boundary timings for request parsing or prompt assembly, cache lookup, prefix priming, slot save, slot restore, direct or tail completion, and total wrapper time where each phase is applicable
+- **AND** the response telemetry includes wrapper-visible boundary timings for request parsing or prompt assembly, cache lookup, server context enter and exit, prefix priming, slot save, slot restore, direct or tail completion, and total wrapper time where each phase is applicable
 
 #### Scenario: Debug telemetry requested
 - **WHEN** a request enables debug telemetry
@@ -108,7 +108,13 @@ The system SHALL provide a smoke benchmark for the wrapper cache path.
 #### Scenario: Run wrapper smoke benchmark
 - **WHEN** the user runs the wrapper benchmark against a workflow fixture
 - **THEN** the benchmark compares direct llama.cpp full-prompt calls with wrapper cache-aware calls
-- **AND** writes a result JSON that reports cache hit rate, prompt timing, save/restore overhead, net delta, and boundary timing telemetry where available
+- **AND** writes a result JSON that reports cache hit rate, prompt timing, save/restore overhead, net delta, boundary timing telemetry where available, and selected server mode
+
+#### Scenario: Run wrapper benchmark with persistent server mode
+- **WHEN** the user runs the wrapper benchmark with persistent server mode
+- **THEN** the benchmark keeps a llama.cpp server alive across direct full-prompt scenarios
+- **AND** keeps a separate llama.cpp server alive across wrapper cache-aware scenarios
+- **AND** records the selected server mode in result metadata
 
 ### Requirement: Emit wrapper benchmark progress
 The Flashcache wrapper benchmark SHALL emit progress output before long-running direct and cache-aware model phases.

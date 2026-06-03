@@ -175,6 +175,17 @@ class FlashcacheWrapper:
         self.config = config
         self.store = CacheStore(config.manifest_dir, config.slot_cache_dir, config.max_cache_bytes)
 
+    @contextmanager
+    def _managed_client(self, label: str, boundary: BoundaryTimings) -> Iterator[Any]:
+        server = ManagedLlamaServer(self.config.server_config(), label=label)
+        with boundary.phase("server_enter_ms"):
+            client = server.__enter__()
+        try:
+            yield client
+        finally:
+            with boundary.phase("server_exit_ms"):
+                server.stop()
+
     def complete(self, payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, str]]:
         boundary = BoundaryTimings()
         with boundary.phase("request_parse_ms"):
@@ -198,7 +209,7 @@ class FlashcacheWrapper:
         boundary: BoundaryTimings | None = None,
     ) -> tuple[dict[str, Any], dict[str, Any]]:
         boundary = boundary or BoundaryTimings()
-        with ManagedLlamaServer(self.config.server_config(), label="direct") as client:
+        with self._managed_client("direct", boundary) as client:
             with boundary.phase("direct_completion_ms"):
                 llama_response = client.completion(
                     parsed.full_prompt,
@@ -274,7 +285,7 @@ class FlashcacheWrapper:
         server_version: str,
         boundary: BoundaryTimings,
     ) -> tuple[dict[str, Any], dict[str, Any]]:
-        with ManagedLlamaServer(self.config.server_config(), label=f"miss-{cache_key[:8]}") as client:
+        with self._managed_client(f"miss-{cache_key[:8]}", boundary) as client:
             with boundary.phase("prefix_prime_ms"):
                 prime_response = client.completion(
                     parsed.stable_prefix_prompt,
@@ -323,7 +334,7 @@ class FlashcacheWrapper:
         server_version: str,
         boundary: BoundaryTimings,
     ) -> tuple[dict[str, Any], dict[str, Any]]:
-        with ManagedLlamaServer(self.config.server_config(), label=f"hit-{cache_key[:8]}") as client:
+        with self._managed_client(f"hit-{cache_key[:8]}", boundary) as client:
             with boundary.phase("slot_restore_ms"):
                 restore_response = client.restore_slot(manifest.slot_filename)
             with boundary.phase("tail_completion_ms"):

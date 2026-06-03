@@ -17,6 +17,7 @@ class SummaryRow:
     model: str
     fixture: str
     started_at: str
+    server_mode: str | None = None
     prefix_bytes: Any = None
     before_ms: Any = None
     after_ms: Any = None
@@ -30,6 +31,8 @@ class SummaryRow:
     boundary_save_ms: Any = None
     boundary_restore_ms: Any = None
     boundary_tail_ms: Any = None
+    boundary_server_enter_ms: Any = None
+    boundary_server_exit_ms: Any = None
     unsupported_reason: str | None = None
 
 
@@ -66,6 +69,7 @@ def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
         "model": str(metadata.get("model", "n/a")),
         "fixture": str(metadata.get("fixture", "n/a")),
         "started_at": str(metadata.get("started_at", "n/a")),
+        "server_mode": metadata.get("server_mode"),
         "prefix_bytes": prompt_set.get("prefix_prompt_bytes"),
     }
 
@@ -97,6 +101,8 @@ def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
             boundary_save_ms=sum_boundary(wrapper_runs, "slot_save_ms"),
             boundary_restore_ms=sum_boundary(wrapper_runs, "slot_restore_ms"),
             boundary_tail_ms=sum_boundary(wrapper_runs, "tail_completion_ms"),
+            boundary_server_enter_ms=sum_boundary(wrapper_runs, "server_enter_ms"),
+            boundary_server_exit_ms=sum_boundary(wrapper_runs, "server_exit_ms"),
             **common,
         )
 
@@ -160,6 +166,7 @@ def render(rows: list[SummaryRow]) -> str:
         "started",
         "model",
         "fixture",
+        "server_mode",
         "prefix_bytes",
         "before_ms",
         "after_ms",
@@ -172,6 +179,8 @@ def render(rows: list[SummaryRow]) -> str:
         "boundary_save_ms",
         "boundary_restore_ms",
         "boundary_tail_ms",
+        "boundary_server_enter_ms",
+        "boundary_server_exit_ms",
         "cache_states",
         "path",
     ]
@@ -184,6 +193,7 @@ def render(rows: list[SummaryRow]) -> str:
                     row.started_at,
                     row.model,
                     row.fixture,
+                    row.server_mode or "n/a",
                     format_value(row.prefix_bytes),
                     format_value(row.before_ms),
                     format_value(row.after_ms),
@@ -196,6 +206,8 @@ def render(rows: list[SummaryRow]) -> str:
                     format_value(row.boundary_save_ms),
                     format_value(row.boundary_restore_ms),
                     format_value(row.boundary_tail_ms),
+                    format_value(row.boundary_server_enter_ms),
+                    format_value(row.boundary_server_exit_ms),
                     row.cache_states or "n/a",
                     str(row.path),
                 ]

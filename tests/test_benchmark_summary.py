@@ -23,7 +23,12 @@ class BenchmarkSummaryTests(unittest.TestCase):
     def test_summarizes_direct_prompt_cache_result(self) -> None:
         path = self.write_json(
             {
-                "metadata": {"model": "model.gguf", "fixture": "fixture.json", "started_at": "2026-06-02T00:00:00Z"},
+                "metadata": {
+                    "model": "model.gguf",
+                    "fixture": "fixture.json",
+                    "started_at": "2026-06-02T00:00:00Z",
+                    "server_mode": "persistent",
+                },
                 "prompt_set": {"prefix_prompt_bytes": 5487},
                 "slot_cache": {"file_bytes": 31_108_988},
                 "comparison": {
@@ -45,7 +50,12 @@ class BenchmarkSummaryTests(unittest.TestCase):
     def test_summarizes_flashcache_wrapper_result(self) -> None:
         path = self.write_json(
             {
-                "metadata": {"model": "model.gguf", "fixture": "fixture.json", "started_at": "2026-06-02T00:00:00Z"},
+                "metadata": {
+                    "model": "model.gguf",
+                    "fixture": "fixture.json",
+                    "started_at": "2026-06-02T00:00:00Z",
+                    "server_mode": "persistent",
+                },
                 "prompt_set": {"prefix_prompt_bytes": 5487},
                 "direct_full_prompt": [
                     {"boundary_timings": {"direct_completion_ms": 10.0}},
@@ -56,6 +66,8 @@ class BenchmarkSummaryTests(unittest.TestCase):
                         "cache_state": "miss",
                         "boundary_timings": {
                             "total_wrapper_ms": 8.0,
+                            "server_enter_ms": 3.0,
+                            "server_exit_ms": 0.25,
                             "slot_save_ms": 1.5,
                             "tail_completion_ms": 6.0,
                         },
@@ -65,6 +77,8 @@ class BenchmarkSummaryTests(unittest.TestCase):
                         "telemetry": {
                             "boundary_timings": {
                                 "total_wrapper_ms": 7.0,
+                                "server_enter_ms": 0.5,
+                                "server_exit_ms": 0.0,
                                 "slot_restore_ms": 2.5,
                                 "tail_completion_ms": 4.0,
                             }
@@ -84,6 +98,7 @@ class BenchmarkSummaryTests(unittest.TestCase):
         row = summary.summarize_path(path)
 
         self.assertEqual(row.kind, "flashcache-wrapper")
+        self.assertEqual(row.server_mode, "persistent")
         self.assertEqual(row.before_ms, 8320.438)
         self.assertEqual(row.after_ms, 7374.344)
         self.assertEqual(row.cache_states, "miss,hit")
@@ -93,9 +108,12 @@ class BenchmarkSummaryTests(unittest.TestCase):
         self.assertEqual(row.boundary_save_ms, 1.5)
         self.assertEqual(row.boundary_restore_ms, 2.5)
         self.assertEqual(row.boundary_tail_ms, 10.0)
+        self.assertEqual(row.boundary_server_enter_ms, 3.5)
+        self.assertEqual(row.boundary_server_exit_ms, 0.25)
 
         rendered = summary.render([row])
         self.assertIn("boundary_wrapper_ms", rendered)
+        self.assertIn("boundary_server_enter_ms", rendered)
         self.assertIn("15.000", rendered)
 
     def test_unsupported_json_continues_as_row(self) -> None:

@@ -45,6 +45,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature.")
     parser.add_argument("--timeout", type=float, default=120.0, help="HTTP/server timeout in seconds.")
     parser.add_argument("--prime-n-predict", type=int, default=1, help="Generated tokens while priming prefix slot.")
+    parser.add_argument(
+        "--server-mode",
+        choices=["per-request", "persistent"],
+        default="per-request",
+        help="Run each request with a fresh llama.cpp server or keep a server alive for each benchmark phase.",
+    )
     return parser.parse_args()
 
 
@@ -63,9 +69,8 @@ def direct_boundary_timings(response: dict[str, Any]) -> dict[str, float]:
     return {"direct_completion_ms": float(wall_ms)} if isinstance(wall_ms, (int, float)) else {}
 
 
-def direct_baseline(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[dict[str, Any]]:
-    runs = []
-    config = FlashcacheConfig(
+def config_from_args(args: argparse.Namespace, *, existing_base_url: str | None = None) -> FlashcacheConfig:
+    return FlashcacheConfig(
         model_path=args.model,
         hf_repo=args.hf_repo,
         server_bin=args.server_bin,
@@ -73,39 +78,45 @@ def direct_baseline(args: argparse.Namespace, prompt_set: dict[str, Any]) -> lis
         timeout=args.timeout,
         cache_dir=args.cache_dir,
         prime_n_predict=args.prime_n_predict,
+        existing_base_url=existing_base_url,
     )
+
+
+def direct_run(args: argparse.Namespace, scenario: dict[str, Any], client: Any) -> dict[str, Any]:
+    response = client.completion(
+        scenario["prompt"],
+        n_predict=args.predict,
+        temperature=args.temperature,
+    )
+    return {
+        "scenario": scenario["name"],
+        "prompt_bytes": scenario["prompt_bytes"],
+        "prompt_sha256": scenario["prompt_sha256"],
+        "timings": timing_record(response),
+        "boundary_timings": direct_boundary_timings(response),
+        "content_excerpt": str(response.get("content", ""))[:300],
+    }
+
+
+def direct_baseline(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[dict[str, Any]]:
+    runs = []
+    config = config_from_args(args)
+    if args.server_mode == "persistent":
+        server_config = config.server_config()
+        with ManagedLlamaServer(server_config, label="flashcache-direct-persistent") as client:
+            for scenario in prompt_set["scenarios"]:
+                progress(f"direct-full: {scenario['name']}")
+                runs.append(direct_run(args, scenario, client))
+        return runs
+
     for scenario in prompt_set["scenarios"]:
         progress(f"direct-full: {scenario['name']}")
         with ManagedLlamaServer(config.server_config(), label=f"flashcache-direct-{scenario['name']}") as client:
-            response = client.completion(
-                scenario["prompt"],
-                n_predict=args.predict,
-                temperature=args.temperature,
-            )
-        runs.append(
-            {
-                "scenario": scenario["name"],
-                "prompt_bytes": scenario["prompt_bytes"],
-                "prompt_sha256": scenario["prompt_sha256"],
-                "timings": timing_record(response),
-                "boundary_timings": direct_boundary_timings(response),
-                "content_excerpt": str(response.get("content", ""))[:300],
-            }
-        )
+            runs.append(direct_run(args, scenario, client))
     return runs
 
 
-def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[dict[str, Any]]:
-    config = FlashcacheConfig(
-        model_path=args.model,
-        hf_repo=args.hf_repo,
-        server_bin=args.server_bin,
-        ctx_size=args.ctx_size,
-        timeout=args.timeout,
-        cache_dir=args.cache_dir,
-        prime_n_predict=args.prime_n_predict,
-    )
-    wrapper = FlashcacheWrapper(config)
+def wrapper_runs_with_client(args: argparse.Namespace, prompt_set: dict[str, Any], wrapper: FlashcacheWrapper) -> list[dict[str, Any]]:
     runs = []
     block_hashes = [block["sha256"] for block in prompt_set["prefix_manifest"]]
     namespace = f"{prompt_set['fixture_name']}:{prompt_set['prefix_prompt_sha256'][:16]}"
@@ -137,6 +148,18 @@ def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[d
             }
         )
     return runs
+
+
+def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[dict[str, Any]]:
+    config = config_from_args(args)
+    if args.server_mode == "persistent":
+        server_config = config.server_config()
+        with ManagedLlamaServer(server_config, label="flashcache-wrapper-persistent"):
+            wrapper = FlashcacheWrapper(config_from_args(args, existing_base_url=server_config.base_url))
+            return wrapper_runs_with_client(args, prompt_set, wrapper)
+
+    wrapper = FlashcacheWrapper(config)
+    return wrapper_runs_with_client(args, prompt_set, wrapper)
 
 
 def write_result(result: dict[str, Any], output_dir: Path) -> Path:
@@ -190,6 +213,7 @@ def main() -> int:
             "predict": args.predict,
             "temperature": args.temperature,
             "prime_n_predict": args.prime_n_predict,
+            "server_mode": args.server_mode,
             "cache_dir": str(args.cache_dir),
         },
         "prompt_set": {
