@@ -692,7 +692,7 @@ def score_response_pairs(cases: list[dict[str, Any]], responses: list[dict[str, 
 def selected_run_modes(raw_mode: str) -> list[str]:
     if raw_mode == "both":
         return ["full", "session-tail"]
-    if raw_mode in {"full", "session-tail"}:
+    if raw_mode in {"full", "session-tail", "live-tail"}:
         return [raw_mode]
     raise CorrectnessEvalError(f"Unsupported run mode: {raw_mode}")
 
@@ -1068,6 +1068,45 @@ def run_session_tail_case(args: argparse.Namespace, case: dict[str, Any]) -> dic
         return build_error_record(args, case, "session-tail", tail_prompt, exc, started_at=started)
 
 
+def run_live_tail_case(args: argparse.Namespace, case: dict[str, Any]) -> dict[str, Any]:
+    stable_prefix, tail_prompt, _full_prompt = protocol_case_parts(case, args.answer_protocol)
+    started = time.perf_counter()
+    try:
+        with ManagedLlamaServer(llama_config_from_args(args), label=f"correctness-live-tail-{case_slug(case)}") as client:
+            setup_started = time.perf_counter()
+            prime_response = client.completion(
+                stable_prefix,
+                n_predict=args.prime_n_predict,
+                temperature=args.temperature,
+                cache_prompt=False,
+            )
+            session_setup = {
+                "prime_n_predict": args.prime_n_predict,
+                "prime_timings": timing_record(prime_response),
+                "setup_wall_ms": (time.perf_counter() - setup_started) * 1000,
+                "save_response": None,
+                "restore_response": None,
+            }
+            response = client.completion(
+                tail_prompt,
+                n_predict=args.predict,
+                temperature=args.temperature,
+                cache_prompt=True,
+                json_schema=json_schema_for_protocol(args.answer_protocol),
+            )
+        return build_response_record(
+            args,
+            case,
+            "live-tail",
+            tail_prompt,
+            response,
+            started_at=started,
+            session_setup=session_setup,
+        )
+    except Exception as exc:
+        return build_error_record(args, case, "live-tail", tail_prompt, exc, started_at=started)
+
+
 def run_case(args: argparse.Namespace, case: dict[str, Any], mode: str) -> dict[str, Any]:
     if args.dry_run:
         return build_dry_run_record(args, case, mode)
@@ -1075,6 +1114,8 @@ def run_case(args: argparse.Namespace, case: dict[str, Any], mode: str) -> dict[
         return run_full_case(args, case)
     if mode == "session-tail":
         return run_session_tail_case(args, case)
+    if mode == "live-tail":
+        return run_live_tail_case(args, case)
     raise CorrectnessEvalError(f"Unsupported run mode: {mode}")
 
 
@@ -1281,9 +1322,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     run_parser.add_argument("--cases", type=Path, required=True, help="Eval case JSONL path.")
     run_parser.add_argument(
         "--mode",
-        choices=["full", "session-tail", "both"],
+        choices=["full", "session-tail", "live-tail", "both"],
         default="both",
-        help="Which response mode to generate.",
+        help="Which response mode to generate. live-tail primes and continues without slot save/restore.",
     )
     run_parser.add_argument(
         "--answer-protocol",

@@ -174,6 +174,7 @@ class FlashcacheCorrectnessEvalTests(unittest.TestCase):
     def test_selected_run_modes_expands_both(self) -> None:
         self.assertEqual(correctness.selected_run_modes("full"), ["full"])
         self.assertEqual(correctness.selected_run_modes("session-tail"), ["session-tail"])
+        self.assertEqual(correctness.selected_run_modes("live-tail"), ["live-tail"])
         self.assertEqual(correctness.selected_run_modes("both"), ["full", "session-tail"])
 
     def test_parse_candidate_mix(self) -> None:
@@ -397,6 +398,76 @@ class FlashcacheCorrectnessEvalTests(unittest.TestCase):
             self.assertEqual([record["mode"] for record in responses], ["full", "session-tail"])
             score = json.loads(score_path.read_text(encoding="utf-8"))
             self.assertEqual(score["metadata"]["response_count"], 2)
+
+    def test_live_tail_case_primes_without_slot_save_or_restore(self) -> None:
+        case = correctness.build_case(
+            "graphwalks",
+            {
+                "prompt": "Graph\nOperation:\nFind nodes.",
+                "answer_nodes": ["a"],
+            },
+        )
+        args = correctness.parse_args(
+            [
+                "run",
+                "--cases",
+                "cases.jsonl",
+                "--mode",
+                "live-tail",
+                "--answer-protocol",
+                "json-answer",
+            ]
+        )
+        calls = []
+
+        class FakeClient:
+            def completion(self, prompt, *, n_predict, temperature, cache_prompt=True, json_schema=None):
+                calls.append(
+                    {
+                        "prompt": prompt,
+                        "n_predict": n_predict,
+                        "temperature": temperature,
+                        "cache_prompt": cache_prompt,
+                        "json_schema": json_schema,
+                    }
+                )
+                if json_schema is None:
+                    return {"content": "", "timings": {"prompt_ms": 1.0}}
+                return {"content": '{"answer":"[\\"a\\"]"}', "timings": {"prompt_ms": 2.0}}
+
+            def save_slot(self, filename):
+                raise AssertionError(f"live-tail should not save slot {filename}")
+
+            def restore_slot(self, filename):
+                raise AssertionError(f"live-tail should not restore slot {filename}")
+
+        class FakeManagedServer:
+            def __init__(self, config, label="flashcache"):
+                self.config = config
+                self.label = label
+
+            def __enter__(self):
+                return FakeClient()
+
+            def __exit__(self, exc_type, exc, tb):
+                return None
+
+        old_server = correctness.ManagedLlamaServer
+        try:
+            correctness.ManagedLlamaServer = FakeManagedServer  # type: ignore[assignment]
+            record = correctness.run_live_tail_case(args, case)
+        finally:
+            correctness.ManagedLlamaServer = old_server  # type: ignore[assignment]
+
+        self.assertEqual(record["mode"], "live-tail")
+        self.assertEqual(record["response"], '["a"]')
+        self.assertEqual(len(calls), 2)
+        self.assertFalse(calls[0]["cache_prompt"])
+        self.assertTrue(calls[1]["cache_prompt"])
+        self.assertIsNone(calls[0]["json_schema"])
+        self.assertEqual(calls[1]["json_schema"], correctness.ANSWER_JSON_SCHEMA)
+        self.assertIsNone(record["session_setup"]["save_response"])
+        self.assertIsNone(record["session_setup"]["restore_response"])
 
     def test_selects_cases_by_full_score_threshold(self) -> None:
         score_result = {
