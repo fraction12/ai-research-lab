@@ -1,0 +1,345 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 90,
+      "db_response_time_ms": 45,
+      "page": 1,
+      "per_page": 6,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Jiayi Yao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hanchen Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yuhan Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Siddhant Ray"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yihua Cheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qizheng Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kuntai Du"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shan L\u00fc"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junchen Jiang"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2405.16444",
+        "id": "https://openalex.org/W4399115642",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2405.16444"
+        },
+        "publication_date": "2024-05-26",
+        "publication_year": 2024,
+        "title": "CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Jiayi Yao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hanchen Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yuhan Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Siddhant Ray"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yihua Cheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qizheng Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kuntai Du"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shan Lu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junchen Jiang"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/3790254",
+        "id": "https://openalex.org/W7140127569",
+        "open_access": {
+          "oa_url": "https://doi.org/10.1145/3790254"
+        },
+        "publication_date": "2026-03-23",
+        "publication_year": 2026,
+        "title": "CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Wenqi Jiang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Suvinay Subramanian"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Catherine E. Graves"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Gustavo Alonso"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Amir Yazdanbakhsh"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Vidushi Dadu"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/3695053.3731093",
+        "id": "https://openalex.org/W4411486143",
+        "open_access": {
+          "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3695053.3731093"
+        },
+        "publication_date": "2025-06-20",
+        "publication_year": 2025,
+        "title": "RAGO: Systematic Performance Optimization for Retrieval-Augmented Generation Serving"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Junhao Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wenrui Huang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wang, Weidong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wang, Haoyi"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tiancheng Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qin Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Feng Hao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xusheng Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yizhou Shan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tao Xie"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2410.15332",
+        "id": "https://openalex.org/W4404088579",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2410.15332"
+        },
+        "publication_date": "2024-10-20",
+        "publication_year": 2024,
+        "title": "EPIC: Efficient Position-Independent Caching for Serving Large Language Models"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Shenglian Lu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hua Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yutian Rong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhi Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yaohua Tang"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.18653/v1/2025.emnlp-main.334",
+        "id": "https://openalex.org/W4416037017",
+        "open_access": {
+          "oa_url": "https://aclanthology.org/2025.emnlp-main.334.pdf"
+        },
+        "publication_date": "2025-01-01",
+        "publication_year": 2025,
+        "title": "TurboRAG: Accelerating Retrieval-Augmented Generation with Precomputed KV Caches for Chunked Text"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Yuhan Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Huang, Yuyang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yao, Jiayi"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Feng, Shaoting"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Gu, Zhuohan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Du, Kuntai"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Li, Hanchen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Cheng, Yihua"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiang, Junchen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Lu, Shan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Musuvathi, Madan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Choukse, Esha"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2411.02820",
+        "id": "https://openalex.org/W4404432441",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2411.02820"
+        },
+        "publication_date": "2024-11-05",
+        "publication_year": 2024,
+        "title": "DroidSpeak: KV Cache Sharing for Cross-LLM Communication and Multi-LLM Serving"
+      }
+    ]
+  }
+}

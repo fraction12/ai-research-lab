@@ -1,0 +1,973 @@
+{
+  "abstract_inverted_index": {
+    "\"attention": [
+      122
+    ],
+    "(KV)": [
+      34
+    ],
+    "(LLMs)": [
+      3
+    ],
+    "(PIC)": [
+      85
+    ],
+    "(TTFT)": [
+      146
+    ],
+    "(e.g.,": [
+      71
+    ],
+    "(prompts)": [
+      22
+    ],
+    "7x": [
+      148
+    ],
+    "8x": [
+      142
+    ],
+    "Caching": [
+      84
+    ],
+    "Context": [
+      26
+    ],
+    "EPIC": [
+      138
+    ],
+    "EPIC,": [
+      109
+    ],
+    "Experiments": [
+      135
+    ],
+    "However,": [
+      46
+    ],
+    "KV": [
+      95
+    ],
+    "Key-Value": [
+      33
+    ],
+    "Language": [
+      1
+    ],
+    "Large": [
+      0
+    ],
+    "LegoLink": [
+      116
+    ],
+    "Models": [
+      2
+    ],
+    "PIC": [
+      102
+    ],
+    "Position-Independent": [
+      83
+    ],
+    "Time-To-First-Token": [
+      145
+    ],
+    "We": [
+      100
+    ],
+    "a": [
+      8,
+      110
+    ],
+    "accuracy": [
+      131,
+      158
+    ],
+    "achieves": [
+      139
+    ],
+    "across": [
+      44,
+      54,
+      75
+    ],
+    "addresses": [
+      86
+    ],
+    "advance": [
+      104
+    ],
+    "algorithm,": [
+      117
+    ],
+    "and": [
+      65,
+      103,
+      147
+    ],
+    "applications,": [
+      12
+    ],
+    "are": [
+      42
+    ],
+    "as": [
+      20,
+      62
+    ],
+    "at": [
+      125
+    ],
+    "become": [
+      23
+    ],
+    "becomes": [
+      17
+    ],
+    "beginning,": [
+      128
+    ],
+    "but": [
+      13,
+      77
+    ],
+    "by": [
+      31,
+      80,
+      89,
+      107
+    ],
+    "caching": [
+      27,
+      49
+    ],
+    "capabilities": [
+      6
+    ],
+    "cases": [
+      58
+    ],
+    "challenging": [
+      19
+    ],
+    "complex.": [
+      25
+    ],
+    "computation.": [
+      134
+    ],
+    "content": [
+      70
+    ],
+    "context": [
+      48
+    ],
+    "document": [
+      127
+    ],
+    "documents)": [
+      72
+    ],
+    "effect": [
+      124
+    ],
+    "efficiently": [
+      16
+    ],
+    "enabling": [
+      90
+    ],
+    "every": [
+      126
+    ],
+    "exact": [
+      51
+    ],
+    "existing": [
+      47,
+      152
+    ],
+    "few-shot": [
+      63
+    ],
+    "formalize": [
+      101
+    ],
+    "gains": [
+      150
+    ],
+    "generation,": [
+      67
+    ],
+    "great": [
+      5
+    ],
+    "immutable": [
+      69
+    ],
+    "improvements": [
+      143
+    ],
+    "improves": [
+      28
+    ],
+    "in": [
+      7,
+      59,
+      144
+    ],
+    "inappropriate": [
+      121
+    ],
+    "incorporating": [
+      113
+    ],
+    "increasingly": [
+      18
+    ],
+    "intermediate": [
+      37
+    ],
+    "introducing": [
+      108
+    ],
+    "is": [
+      78
+    ],
+    "issue": [
+      88
+    ],
+    "learning": [
+      64
+    ],
+    "limiting": [
+      56
+    ],
+    "loss.": [
+      159
+    ],
+    "maintain": [
+      130
+    ],
+    "matches": [
+      53
+    ],
+    "minimal": [
+      133
+    ],
+    "mitigates": [
+      119
+    ],
+    "modular": [
+      91
+    ],
+    "more": [
+      24
+    ],
+    "negligible": [
+      155
+    ],
+    "new": [
+      115
+    ],
+    "no": [
+      157
+    ],
+    "of": [
+      11,
+      39,
+      93,
+      98
+    ],
+    "or": [
+      156
+    ],
+    "our": [
+      114
+    ],
+    "over": [
+      151
+    ],
+    "performance": [
+      30
+    ],
+    "preceded": [
+      79
+    ],
+    "prefix": [
+      52
+    ],
+    "prefixes.": [
+      82,
+      99
+    ],
+    "prior": [
+      105
+    ],
+    "range": [
+      10
+    ],
+    "regardless": [
+      97
+    ],
+    "remains": [
+      73
+    ],
+    "repeated": [
+      43
+    ],
+    "representations": [
+      38
+    ],
+    "requests": [
+      21,
+      76
+    ],
+    "requests,": [
+      55
+    ],
+    "requests.": [
+      45
+    ],
+    "requires": [
+      50
+    ],
+    "retrieval-augmented": [
+      66
+    ],
+    "reuse": [
+      57,
+      92
+    ],
+    "reusing": [
+      32
+    ],
+    "serving": [
+      14,
+      29,
+      111
+    ],
+    "settings": [
+      60
+    ],
+    "show": [
+      4,
+      136
+    ],
+    "sink\"": [
+      123
+    ],
+    "such": [
+      61
+    ],
+    "system": [
+      112
+    ],
+    "systems,": [
+      153
+    ],
+    "that": [
+      41,
+      137
+    ],
+    "the": [
+      36,
+      94,
+      120
+    ],
+    "them": [
+      15
+    ],
+    "this": [
+      87
+    ],
+    "throughput": [
+      149
+    ],
+    "to": [
+      129,
+      141
+    ],
+    "tokens": [
+      40
+    ],
+    "unchanged": [
+      74
+    ],
+    "up": [
+      140
+    ],
+    "varying": [
+      81
+    ],
+    "vectors": [
+      96
+    ],
+    "vectors,": [
+      35
+    ],
+    "where": [
+      68
+    ],
+    "which": [
+      118
+    ],
+    "wide": [
+      9
+    ],
+    "with": [
+      132,
+      154
+    ],
+    "work": [
+      106
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Junhao Hu",
+        "id": "https://openalex.org/A5029468076",
+        "orcid": "https://orcid.org/0000-0003-3538-2785"
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Hu, Junhao",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Wenrui Huang",
+        "id": "https://openalex.org/A5102800569",
+        "orcid": "https://orcid.org/0000-0002-9837-1525"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Huang, Wenrui",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Wang, Weidong",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Wang, Weidong",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Wang, Haoyi",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Wang, Haoyi",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Tiancheng Hu",
+        "id": "https://openalex.org/A5006591088",
+        "orcid": "https://orcid.org/0009-0006-7354-1088"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Hu, Tiancheng",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Qin Zhang",
+        "id": "https://openalex.org/A5100418229",
+        "orcid": "https://orcid.org/0000-0002-8732-8118"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Zhang, Qin",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Feng Hao",
+        "id": "https://openalex.org/A5100611635",
+        "orcid": "https://orcid.org/0000-0002-8664-5074"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Feng, Hao",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Xusheng Chen",
+        "id": "https://openalex.org/A5101527007",
+        "orcid": "https://orcid.org/0000-0002-2807-9780"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Chen, Xusheng",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yizhou Shan",
+        "id": "https://openalex.org/A5060703788",
+        "orcid": "https://orcid.org/0009-0007-9519-0546"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Shan, Yizhou",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Tao Xie",
+        "id": "https://openalex.org/A5063855097",
+        "orcid": "https://orcid.org/0000-0001-7658-6587"
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Xie, Tao",
+      "raw_orcid": null
+    }
+  ],
+  "awards": [
+    {
+      "display_name": null,
+      "funder_award_id": "92464301",
+      "funder_display_name": "National Natural Science Foundation of China",
+      "funder_id": "https://openalex.org/F4320321001",
+      "id": "https://openalex.org/G6317451256"
+    }
+  ],
+  "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2410.15332",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2410.15332",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2410.15332",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 2,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "EPIC",
+      "id": "https://openalex.org/C115519274",
+      "level": 2,
+      "score": 0.7876237630844116,
+      "wikidata": "https://www.wikidata.org/wiki/Q267903"
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/C2779343474",
+      "level": 2,
+      "score": 0.6984041929244995,
+      "wikidata": "https://www.wikidata.org/wiki/Q3109175"
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.6942095160484314,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Position (finance)",
+      "id": "https://openalex.org/C198082294",
+      "level": 2,
+      "score": 0.6490732431411743,
+      "wikidata": "https://www.wikidata.org/wiki/Q3399648"
+    },
+    {
+      "display_name": "Business",
+      "id": "https://openalex.org/C144133560",
+      "level": 0,
+      "score": 0.22875696420669556,
+      "wikidata": "https://www.wikidata.org/wiki/Q4830453"
+    },
+    {
+      "display_name": "History",
+      "id": "https://openalex.org/C95457728",
+      "level": 0,
+      "score": 0.12767556309700012,
+      "wikidata": "https://www.wikidata.org/wiki/Q309"
+    },
+    {
+      "display_name": "Finance",
+      "id": "https://openalex.org/C10138342",
+      "level": 1,
+      "score": 0.08416107296943665,
+      "wikidata": "https://www.wikidata.org/wiki/Q43015"
+    },
+    {
+      "display_name": "Art",
+      "id": "https://openalex.org/C142362112",
+      "level": 0,
+      "score": 0.06491413712501526,
+      "wikidata": "https://www.wikidata.org/wiki/Q735"
+    },
+    {
+      "display_name": "Archaeology",
+      "id": "https://openalex.org/C166957645",
+      "level": 1,
+      "score": 0,
+      "wikidata": "https://www.wikidata.org/wiki/Q23498"
+    },
+    {
+      "display_name": "Literature",
+      "id": "https://openalex.org/C124952713",
+      "level": 1,
+      "score": 0,
+      "wikidata": "https://www.wikidata.org/wiki/Q8242"
+    }
+  ],
+  "content_urls": {
+    "pdf": "https://content.openalex.org/works/W4404088579.pdf"
+  },
+  "corresponding_author_ids": [
+    "https://openalex.org/A5029468076"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [
+    {
+      "cited_by_count": 2,
+      "year": 2025
+    }
+  ],
+  "created_date": "2024-11-06T00:00:00",
+  "display_name": "EPIC: Efficient Position-Independent Caching for Serving Large Language Models",
+  "doi": "https://doi.org/10.48550/arxiv.2410.15332",
+  "funders": [
+    {
+      "display_name": "National Natural Science Foundation of China",
+      "id": "https://openalex.org/F4320321001",
+      "ror": "https://ror.org/01h0zpd94"
+    }
+  ],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": true
+  },
+  "has_fulltext": true,
+  "id": "https://openalex.org/W4404088579",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2410.15332",
+    "openalex": "https://openalex.org/W4404088579"
+  },
+  "indexed_in": [
+    "arxiv",
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 10,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "EPIC",
+      "id": "https://openalex.org/keywords/epic",
+      "score": 0.7876237630844116
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/keywords/context",
+      "score": 0.6984041929244995
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/keywords/computer-science",
+      "score": 0.6942095160484314
+    },
+    {
+      "display_name": "Position (finance)",
+      "id": "https://openalex.org/keywords/position",
+      "score": 0.6490732431411743
+    },
+    {
+      "display_name": "Business",
+      "id": "https://openalex.org/keywords/business",
+      "score": 0.22875696420669556
+    },
+    {
+      "display_name": "History",
+      "id": "https://openalex.org/keywords/history",
+      "score": 0.12767556309700012
+    },
+    {
+      "display_name": "Finance",
+      "id": "https://openalex.org/keywords/finance",
+      "score": 0.08416107296943665
+    },
+    {
+      "display_name": "Art",
+      "id": "https://openalex.org/keywords/art",
+      "score": 0.06491413712501526
+    }
+  ],
+  "language": "en",
+  "locations": [
+    {
+      "id": "pmh:oai:arXiv.org:2410.15332",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "http://arxiv.org/abs/2410.15332",
+      "license": null,
+      "license_id": null,
+      "pdf_url": "https://arxiv.org/pdf/2410.15332",
+      "raw_source_name": null,
+      "raw_type": "text",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2410.15332",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2410.15332",
+      "license": null,
+      "license_id": null,
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 2,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2410.15332"
+  },
+  "primary_location": {
+    "id": "pmh:oai:arXiv.org:2410.15332",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2410.15332",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2410.15332",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Topic Modeling",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10028",
+    "score": 0.9871000051498413,
+    "subfield": {
+      "display_name": "Artificial Intelligence",
+      "id": "https://openalex.org/subfields/1702"
+    }
+  },
+  "publication_date": "2024-10-20",
+  "publication_year": 2024,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [
+    "https://openalex.org/W4391375266",
+    "https://openalex.org/W2899084033",
+    "https://openalex.org/W2748952813",
+    "https://openalex.org/W2151979312",
+    "https://openalex.org/W1480231236",
+    "https://openalex.org/W1488337530",
+    "https://openalex.org/W2169393985",
+    "https://openalex.org/W2606632758",
+    "https://openalex.org/W3094193311",
+    "https://openalex.org/W4200333915"
+  ],
+  "sustainable_development_goals": [],
+  "title": "EPIC: Efficient Position-Independent Caching for Serving Large Language Models",
+  "topics": [
+    {
+      "display_name": "Topic Modeling",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10028",
+      "score": 0.9871000051498413,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    },
+    {
+      "display_name": "Recommender Systems and Techniques",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10203",
+      "score": 0.9758999943733215,
+      "subfield": {
+        "display_name": "Information Systems",
+        "id": "https://openalex.org/subfields/1710"
+      }
+    },
+    {
+      "display_name": "Speech and dialogue systems",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T12031",
+      "score": 0.9441999793052673,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-05-04T08:30:34.212998"
+}

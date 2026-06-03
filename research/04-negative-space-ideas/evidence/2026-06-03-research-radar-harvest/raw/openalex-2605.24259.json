@@ -1,0 +1,852 @@
+{
+  "abstract_inverted_index": {
+    "60-block": [
+      75
+    ],
+    "70-block": [
+      80
+    ],
+    "80-block": [
+      85
+    ],
+    "A": [
+      113,
+      161
+    ],
+    "In": [
+      69
+    ],
+    "It": [
+      147
+    ],
+    "KV": [
+      37,
+      41,
+      48,
+      87
+    ],
+    "KV-cache": [
+      0
+    ],
+    "MicroRuntime": [
+      163
+    ],
+    "The": [
+      135
+    ],
+    "These": [
+      15
+    ],
+    "We": [
+      45
+    ],
+    "Write": [
+      89
+    ],
+    "a": [
+      28,
+      50,
+      58,
+      74,
+      79,
+      139,
+      143,
+      149
+    ],
+    "accepted": [
+      32,
+      175
+    ],
+    "active": [
+      39,
+      81,
+      93,
+      104,
+      129,
+      182
+    ],
+    "active/resident": [
+      63,
+      159
+    ],
+    "algorithm.": [
+      146
+    ],
+    "allocation": [
+      105
+    ],
+    "allocator": [
+      72
+    ],
+    "allows": [
+      103
+    ],
+    "an": [
+      84
+    ],
+    "and": [
+      12,
+      38,
+      66,
+      78,
+      164,
+      184
+    ],
+    "arbitration.": [
+      160
+    ],
+    "attribution.": [
+      134
+    ],
+    "becoming": [
+      96
+    ],
+    "binds": [
+      54
+    ],
+    "blocking-claim": [
+      133
+    ],
+    "both": [
+      43
+    ],
+    "but": [
+      21,
+      100
+    ],
+    "by": [
+      25
+    ],
+    "cache-replacement": [
+      145
+    ],
+    "cannot": [
+      42
+    ],
+    "claim": [
+      77
+    ],
+    "claim-level": [
+      67
+    ],
+    "claims": [
+      122
+    ],
+    "claims,": [
+      49,
+      177
+    ],
+    "companion": [
+      162
+    ],
+    "conformance": [
+      51
+    ],
+    "contract": [
+      30,
+      52,
+      151
+    ],
+    "controlled": [
+      70
+    ],
+    "convert": [
+      123
+    ],
+    "define": [
+      27
+    ],
+    "demotion,": [
+      180
+    ],
+    "direct": [
+      132
+    ],
+    "distinguish": [
+      168
+    ],
+    "do": [
+      23
+    ],
+    "duration,": [
+      6
+    ],
+    "event": [
+      13
+    ],
+    "evict": [
+      107
+    ],
+    "eviction,": [
+      170
+    ],
+    "exceed": [
+      83
+    ],
+    "expiry,": [
+      181
+    ],
+    "expose": [
+      4
+    ],
+    "failure": [
+      125
+    ],
+    "failure,": [
+      179
+    ],
+    "feasibility": [
+      64
+    ],
+    "fit.": [
+      44
+    ],
+    "for": [
+      31
+    ],
+    "from": [
+      95,
+      109
+    ],
+    "future": [
+      97
+    ],
+    "future-reuse": [
+      33,
+      55
+    ],
+    "hard": [
+      119,
+      176
+    ],
+    "help": [
+      17
+    ],
+    "hints,": [
+      9
+    ],
+    "increasingly": [
+      3
+    ],
+    "intent": [
+      56
+    ],
+    "into": [
+      127,
+      157
+    ],
+    "introduce": [
+      46
+    ],
+    "is": [
+      137,
+      148
+    ],
+    "it": [
+      101
+    ],
+    "lifecycle": [
+      61
+    ],
+    "litmus": [
+      166
+    ],
+    "live": [
+      40
+    ],
+    "loss": [
+      156
+    ],
+    "materialization": [
+      59,
+      178
+    ],
+    "mechanisms": [
+      2,
+      16
+    ],
+    "minimal": [
+      114
+    ],
+    "mode": [
+      126
+    ],
+    "modes,": [
+      11
+    ],
+    "new": [
+      144
+    ],
+    "no-admit": [
+      90
+    ],
+    "no-admit,": [
+      174
+    ],
+    "not": [
+      24,
+      138
+    ],
+    "offload,": [
+      7
+    ],
+    "or": [
+      142
+    ],
+    "ordinary": [
+      169
+    ],
+    "outcome": [
+      186
+    ],
+    "outcome,": [
+      65
+    ],
+    "pool.": [
+      88,
+      112
+    ],
+    "portable": [
+      29
+    ],
+    "predicate,": [
+      60
+    ],
+    "prefill": [
+      82
+    ],
+    "prefixes,": [
+      20
+    ],
+    "preserve": [
+      18
+    ],
+    "prevents": [
+      91
+    ],
+    "priority,": [
+      5,
+      172
+    ],
+    "probes,": [
+      73
+    ],
+    "production": [
+      140
+    ],
+    "protected": [
+      120
+    ],
+    "prototype": [
+      116
+    ],
+    "reconstructable": [
+      158
+    ],
+    "reconstruction.": [
+      187
+    ],
+    "refusal": [
+      130
+    ],
+    "refusal,": [
+      183
+    ],
+    "request": [
+      94
+    ],
+    "resident": [
+      36,
+      47,
+      76,
+      121,
+      155
+    ],
+    "residents": [
+      108
+    ],
+    "result": [
+      136
+    ],
+    "reusable": [
+      19,
+      98
+    ],
+    "reuse": [
+      1
+    ],
+    "routing": [
+      8
+    ],
+    "runtime": [
+      150
+    ],
+    "scheduler": [
+      10
+    ],
+    "scheduler-visible": [
+      128
+    ],
+    "shared": [
+      111
+    ],
+    "shows": [
+      117
+    ],
+    "soft": [
+      171
+    ],
+    "speedup": [
+      141
+    ],
+    "state": [
+      34
+    ],
+    "state,": [
+      62,
+      99
+    ],
+    "still": [
+      102
+    ],
+    "streams.": [
+      14
+    ],
+    "suite": [
+      167
+    ],
+    "telemetry.": [
+      68
+    ],
+    "that": [
+      53,
+      118,
+      152
+    ],
+    "the": [
+      92,
+      110
+    ],
+    "themselves": [
+      26
+    ],
+    "they": [
+      22
+    ],
+    "this": [
+      124
+    ],
+    "to": [
+      57,
+      106
+    ],
+    "trace-level": [
+      185
+    ],
+    "turns": [
+      153
+    ],
+    "unreported": [
+      154
+    ],
+    "usable": [
+      86
+    ],
+    "vLLM": [
+      71,
+      115,
+      165
+    ],
+    "when": [
+      35
+    ],
+    "with": [
+      131
+    ],
+    "write": [
+      173
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Lukas Stepanek",
+        "id": "https://openalex.org/A5137062301",
+        "orcid": null
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Stepanek, Lukas",
+      "raw_orcid": null
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "doi:10.48550/arxiv.2605.24259",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "https://doi.org/10.48550/arxiv.2605.24259",
+    "license": null,
+    "license_id": null,
+    "pdf_url": null,
+    "raw_source_name": null,
+    "raw_type": "article",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": null
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 0,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "USable",
+      "id": "https://openalex.org/C2780615836",
+      "level": 2,
+      "score": 0.6796000003814697,
+      "wikidata": "https://www.wikidata.org/wiki/Q2471869"
+    },
+    {
+      "display_name": "Reuse",
+      "id": "https://openalex.org/C206588197",
+      "level": 2,
+      "score": 0.679099977016449,
+      "wikidata": "https://www.wikidata.org/wiki/Q846574"
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.6159999966621399,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Event (particle physics)",
+      "id": "https://openalex.org/C2779662365",
+      "level": 2,
+      "score": 0.6075000166893005,
+      "wikidata": "https://www.wikidata.org/wiki/Q5416694"
+    },
+    {
+      "display_name": "Active database",
+      "id": "https://openalex.org/C2778744189",
+      "level": 2,
+      "score": 0.4002000093460083,
+      "wikidata": "https://www.wikidata.org/wiki/Q4677551"
+    },
+    {
+      "display_name": "Security token",
+      "id": "https://openalex.org/C48145219",
+      "level": 2,
+      "score": 0.34360000491142273,
+      "wikidata": "https://www.wikidata.org/wiki/Q1335365"
+    },
+    {
+      "display_name": "Computer security",
+      "id": "https://openalex.org/C38652104",
+      "level": 1,
+      "score": 0.33250001072883606,
+      "wikidata": "https://www.wikidata.org/wiki/Q3510521"
+    },
+    {
+      "display_name": "Allocator",
+      "id": "https://openalex.org/C162262903",
+      "level": 2,
+      "score": 0.3278000056743622,
+      "wikidata": "https://www.wikidata.org/wiki/Q343527"
+    },
+    {
+      "display_name": "Contingency",
+      "id": "https://openalex.org/C97508593",
+      "level": 2,
+      "score": 0.32589998841285706,
+      "wikidata": "https://www.wikidata.org/wiki/Q1359069"
+    },
+    {
+      "display_name": "Overhead (engineering)",
+      "id": "https://openalex.org/C2779960059",
+      "level": 2,
+      "score": 0.3224000036716461,
+      "wikidata": "https://www.wikidata.org/wiki/Q7113681"
+    },
+    {
+      "display_name": "Suite",
+      "id": "https://openalex.org/C79581498",
+      "level": 2,
+      "score": 0.31790000200271606,
+      "wikidata": "https://www.wikidata.org/wiki/Q1367530"
+    },
+    {
+      "display_name": "Concurrency",
+      "id": "https://openalex.org/C193702766",
+      "level": 2,
+      "score": 0.28600001335144043,
+      "wikidata": "https://www.wikidata.org/wiki/Q1414548"
+    },
+    {
+      "display_name": "Software engineering",
+      "id": "https://openalex.org/C115903868",
+      "level": 1,
+      "score": 0.2773999869823456,
+      "wikidata": "https://www.wikidata.org/wiki/Q80993"
+    },
+    {
+      "display_name": "Routing (electronic design automation)",
+      "id": "https://openalex.org/C74172769",
+      "level": 2,
+      "score": 0.274399995803833,
+      "wikidata": "https://www.wikidata.org/wiki/Q1446839"
+    },
+    {
+      "display_name": "Tying",
+      "id": "https://openalex.org/C2780938662",
+      "level": 2,
+      "score": 0.2711000144481659,
+      "wikidata": "https://www.wikidata.org/wiki/Q973710"
+    },
+    {
+      "display_name": "Engineering",
+      "id": "https://openalex.org/C127413603",
+      "level": 0,
+      "score": 0.25189998745918274,
+      "wikidata": "https://www.wikidata.org/wiki/Q11023"
+    }
+  ],
+  "content_urls": null,
+  "corresponding_author_ids": [
+    "https://openalex.org/A5137062301"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [],
+  "created_date": "2026-05-27T00:00:00",
+  "display_name": "Resident KV Claims: A Conformance Contract for Future Reuse under Active KV Pressure",
+  "doi": "https://doi.org/10.48550/arxiv.2605.24259",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": false
+  },
+  "has_fulltext": false,
+  "id": "https://openalex.org/W7162431789",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2605.24259",
+    "openalex": "https://openalex.org/W7162431789"
+  },
+  "indexed_in": [
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 1,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "USable",
+      "id": "https://openalex.org/keywords/usable",
+      "score": 0.6796000003814697
+    },
+    {
+      "display_name": "Reuse",
+      "id": "https://openalex.org/keywords/reuse",
+      "score": 0.679099977016449
+    },
+    {
+      "display_name": "Event (particle physics)",
+      "id": "https://openalex.org/keywords/event",
+      "score": 0.6075000166893005
+    },
+    {
+      "display_name": "Active database",
+      "id": "https://openalex.org/keywords/active-database",
+      "score": 0.4002000093460083
+    },
+    {
+      "display_name": "Security token",
+      "id": "https://openalex.org/keywords/security-token",
+      "score": 0.34360000491142273
+    },
+    {
+      "display_name": "Allocator",
+      "id": "https://openalex.org/keywords/allocator",
+      "score": 0.3278000056743622
+    }
+  ],
+  "language": null,
+  "locations": [
+    {
+      "id": "doi:10.48550/arxiv.2605.24259",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2605.24259",
+      "license": null,
+      "license_id": null,
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 1,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://doi.org/10.48550/arxiv.2605.24259"
+  },
+  "primary_location": {
+    "id": "doi:10.48550/arxiv.2605.24259",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "https://doi.org/10.48550/arxiv.2605.24259",
+    "license": null,
+    "license_id": null,
+    "pdf_url": null,
+    "raw_source_name": null,
+    "raw_type": "article",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": null
+  },
+  "primary_topic": {
+    "display_name": "Advanced Data Storage Technologies",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T11181",
+    "score": 0.32260000705718994,
+    "subfield": {
+      "display_name": "Computer Networks and Communications",
+      "id": "https://openalex.org/subfields/1705"
+    }
+  },
+  "publication_date": "2026-05-22",
+  "publication_year": 2026,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [],
+  "sustainable_development_goals": [],
+  "title": "Resident KV Claims: A Conformance Contract for Future Reuse under Active KV Pressure",
+  "topics": [
+    {
+      "display_name": "Advanced Data Storage Technologies",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T11181",
+      "score": 0.32260000705718994,
+      "subfield": {
+        "display_name": "Computer Networks and Communications",
+        "id": "https://openalex.org/subfields/1705"
+      }
+    },
+    {
+      "display_name": "Distributed systems and fault tolerance",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10772",
+      "score": 0.22599999606609344,
+      "subfield": {
+        "display_name": "Computer Networks and Communications",
+        "id": "https://openalex.org/subfields/1705"
+      }
+    },
+    {
+      "display_name": "Caching and Content Delivery",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T11478",
+      "score": 0.19269999861717224,
+      "subfield": {
+        "display_name": "Computer Networks and Communications",
+        "id": "https://openalex.org/subfields/1705"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-05-27T06:22:25.060010"
+}

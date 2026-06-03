@@ -1,0 +1,975 @@
+{
+  "abstract_inverted_index": {
+    "(time": [
+      206
+    ],
+    "3.1x": [
+      203
+    ],
+    "4x": [
+      198
+    ],
+    "AI": [
+      1
+    ],
+    "Although": [
+      41
+    ],
+    "Compound": [
+      0
+    ],
+    "DroidSpeak": [
+      194
+    ],
+    "DroidSpeak,": [
+      84,
+      143
+    ],
+    "Experiments": [
+      185
+    ],
+    "F1": [
+      216
+    ],
+    "In": [
+      27
+    ],
+    "Inspired": [
+      137
+    ],
+    "KV": [
+      55,
+      72,
+      93,
+      126,
+      152,
+      178
+    ],
+    "LLM": [
+      88,
+      157
+    ],
+    "LLMs": [
+      17,
+      108
+    ],
+    "LLMs,": [
+      103,
+      130
+    ],
+    "Moreover,": [
+      167
+    ],
+    "Rouge-L": [
+      218
+    ],
+    "We": [
+      82,
+      113
+    ],
+    "a": [
+      60,
+      75,
+      147
+    ],
+    "about": [
+      202
+    ],
+    "achieves": [
+      195
+    ],
+    "across": [
+      57,
+      96,
+      128,
+      233
+    ],
+    "affects": [
+      135
+    ],
+    "agentic": [
+      5
+    ],
+    "aims": [
+      119
+    ],
+    "allow": [
+      230
+    ],
+    "an": [
+      8,
+      79
+    ],
+    "and": [
+      131,
+      158,
+      173,
+      189,
+      201
+    ],
+    "and/or": [
+      23
+    ],
+    "another": [
+      156
+    ],
+    "any": [
+      231
+    ],
+    "architecture.": [
+      112
+    ],
+    "are": [
+      7
+    ],
+    "as": [
+      4,
+      106
+    ],
+    "at": [
+      120
+    ],
+    "baseline": [
+      226
+    ],
+    "by": [
+      138,
+      155
+    ],
+    "cache": [
+      94,
+      153,
+      179
+    ],
+    "caches": [
+      56,
+      73,
+      127
+    ],
+    "carefully": [
+      168
+    ],
+    "code": [
+      220
+    ],
+    "compared": [
+      223
+    ],
+    "context": [
+      39
+    ],
+    "datasets": [
+      188
+    ],
+    "demonstrate": [
+      192
+    ],
+    "different": [
+      20,
+      30,
+      76,
+      102,
+      129
+    ],
+    "distributed": [
+      87,
+      97
+    ],
+    "diverse": [
+      187
+    ],
+    "does": [
+      228
+    ],
+    "done": [
+      45
+    ],
+    "emerging": [
+      9
+    ],
+    "enable": [
+      50,
+      65
+    ],
+    "enables": [
+      92
+    ],
+    "enterprise": [
+      13
+    ],
+    "faster": [
+      204
+    ],
+    "few": [
+      148
+    ],
+    "findings,": [
+      140
+    ],
+    "first": [
+      86,
+      116,
+      208
+    ],
+    "for": [
+      19,
+      59
+    ],
+    "further": [
+      180
+    ],
+    "have": [
+      109
+    ],
+    "how": [
+      63
+    ],
+    "if/when": [
+      132
+    ],
+    "impact": [
+      123
+    ],
+    "improvement": [
+      200
+    ],
+    "improves": [
+      181
+    ],
+    "in": [
+      11,
+      46,
+      215
+    ],
+    "inference": [
+      89,
+      100,
+      183
+    ],
+    "inputs": [
+      34,
+      58
+    ],
+    "introduce": [
+      83
+    ],
+    "large-scale": [
+      12
+    ],
+    "layer-wise": [
+      171
+    ],
+    "layers": [
+      149
+    ],
+    "layers,": [
+      162
+    ],
+    "loading": [
+      175
+    ],
+    "long": [
+      105
+    ],
+    "loss": [
+      212
+    ],
+    "loss.": [
+      166
+    ],
+    "model": [
+      67,
+      77,
+      190
+    ],
+    "model,": [
+      62
+    ],
+    "models": [
+      31
+    ],
+    "models.": [
+      234
+    ],
+    "much": [
+      42
+    ],
+    "multiple": [
+      16
+    ],
+    "negligible": [
+      164,
+      211
+    ],
+    "nodes": [
+      98
+    ],
+    "not": [
+      229
+    ],
+    "of": [
+      53,
+      74,
+      101,
+      124,
+      150,
+      176,
+      213
+    ],
+    "often": [
+      32
+    ],
+    "on": [
+      186
+    ],
+    "one": [
+      66
+    ],
+    "open": [
+      80
+    ],
+    "or": [
+      219
+    ],
+    "pairs": [
+      191
+    ],
+    "past": [
+      48
+    ],
+    "performance.": [
+      184
+    ],
+    "pipelining": [
+      169
+    ],
+    "prefill": [
+      205
+    ],
+    "prefix": [
+      54,
+      71
+    ],
+    "prefix.": [
+      40
+    ],
+    "present": [
+      114,
+      142
+    ],
+    "process": [
+      33
+    ],
+    "produced": [
+      154
+    ],
+    "quality": [
+      165,
+      214
+    ],
+    "quality.": [
+      136
+    ],
+    "question.": [
+      81
+    ],
+    "re-computation": [
+      172
+    ],
+    "recomputes": [
+      146
+    ],
+    "remaining": [
+      161
+    ],
+    "remains": [
+      78
+    ],
+    "reuse": [
+      52,
+      69,
+      95
+    ],
+    "reused": [
+      177
+    ],
+    "reuses": [
+      159
+    ],
+    "roles": [
+      24
+    ],
+    "running": [
+      99
+    ],
+    "same": [
+      38,
+      111
+    ],
+    "scenarios,": [
+      29
+    ],
+    "score,": [
+      222
+    ],
+    "scores,": [
+      217
+    ],
+    "selectively": [
+      145
+    ],
+    "settings,": [
+      14
+    ],
+    "share": [
+      36
+    ],
+    "sharing": [
+      125,
+      134,
+      232
+    ],
+    "similarity": [
+      221
+    ],
+    "single": [
+      61
+    ],
+    "so": [
+      104
+    ],
+    "specialized": [
+      18
+    ],
+    "study": [
+      117
+    ],
+    "such": [
+      3,
+      133
+    ],
+    "system": [
+      90
+    ],
+    "systems,": [
+      2,
+      6
+    ],
+    "tasks,": [
+      22
+    ],
+    "that": [
+      35,
+      91,
+      118,
+      193
+    ],
+    "the": [
+      37,
+      47,
+      51,
+      70,
+      85,
+      107,
+      110,
+      115,
+      122,
+      139,
+      151,
+      160,
+      170,
+      174,
+      182,
+      225
+    ],
+    "these": [
+      28
+    ],
+    "throughput": [
+      199
+    ],
+    "to": [
+      49,
+      64,
+      68,
+      197,
+      207,
+      224
+    ],
+    "together.": [
+      26
+    ],
+    "token),": [
+      209
+    ],
+    "trend": [
+      10
+    ],
+    "understanding": [
+      121
+    ],
+    "up": [
+      196
+    ],
+    "users,": [
+      21
+    ],
+    "was": [
+      44
+    ],
+    "we": [
+      141
+    ],
+    "which": [
+      144,
+      227
+    ],
+    "with": [
+      15,
+      163,
+      210
+    ],
+    "work": [
+      43
+    ],
+    "working": [
+      25
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yuhan Liu",
+        "id": "https://openalex.org/A5100350541",
+        "orcid": "https://orcid.org/0009-0005-1530-612X"
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Liu, Yuhan"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Huang, Yuyang",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Huang, Yuyang"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yao, Jiayi",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Yao, Jiayi"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Feng, Shaoting",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Feng, Shaoting"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Gu, Zhuohan",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Gu, Zhuohan"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Du, Kuntai",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Du, Kuntai"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Li, Hanchen",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Li, Hanchen"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Cheng, Yihua",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Cheng, Yihua"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Jiang, Junchen",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Jiang, Junchen"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Lu, Shan",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Lu, Shan"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Musuvathi, Madan",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Musuvathi, Madan"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Choukse, Esha",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Choukse, Esha"
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2411.02820",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2411.02820",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": "https://arxiv.org/pdf/2411.02820",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 2,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.3092162013053894,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    }
+  ],
+  "content_urls": {
+    "pdf": "https://content.openalex.org/works/W4404432441.pdf"
+  },
+  "corresponding_author_ids": [
+    "https://openalex.org/A5100350541"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [
+    {
+      "cited_by_count": 2,
+      "year": 2025
+    }
+  ],
+  "created_date": "2024-11-16T00:00:00",
+  "display_name": "DroidSpeak: KV Cache Sharing for Cross-LLM Communication and Multi-LLM Serving",
+  "doi": "https://doi.org/10.48550/arxiv.2411.02820",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": true
+  },
+  "has_fulltext": true,
+  "id": "https://openalex.org/W4404432441",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2411.02820",
+    "openalex": "https://openalex.org/W4404432441"
+  },
+  "indexed_in": [
+    "arxiv",
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 12,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/keywords/computer-science",
+      "score": 0.3092162013053894
+    }
+  ],
+  "language": "en",
+  "locations": [
+    {
+      "id": "pmh:oai:arXiv.org:2411.02820",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "http://arxiv.org/abs/2411.02820",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": "https://arxiv.org/pdf/2411.02820",
+      "raw_source_name": null,
+      "raw_type": "text",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2411.02820",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2411.02820",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 2,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2411.02820"
+  },
+  "primary_location": {
+    "id": "pmh:oai:arXiv.org:2411.02820",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2411.02820",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": "https://arxiv.org/pdf/2411.02820",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Service-Oriented Architecture and Web Services",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10679",
+    "score": 0.9284999966621399,
+    "subfield": {
+      "display_name": "Information Systems",
+      "id": "https://openalex.org/subfields/1710"
+    }
+  },
+  "publication_date": "2024-11-05",
+  "publication_year": 2024,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [
+    "https://openalex.org/W4391375266",
+    "https://openalex.org/W2899084033",
+    "https://openalex.org/W2748952813",
+    "https://openalex.org/W2390279801",
+    "https://openalex.org/W4391913857",
+    "https://openalex.org/W2358668433",
+    "https://openalex.org/W4396701345",
+    "https://openalex.org/W2376932109",
+    "https://openalex.org/W2001405890",
+    "https://openalex.org/W4396696052"
+  ],
+  "sustainable_development_goals": [],
+  "title": "DroidSpeak: KV Cache Sharing for Cross-LLM Communication and Multi-LLM Serving",
+  "topics": [
+    {
+      "display_name": "Service-Oriented Architecture and Web Services",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10679",
+      "score": 0.9284999966621399,
+      "subfield": {
+        "display_name": "Information Systems",
+        "id": "https://openalex.org/subfields/1710"
+      }
+    },
+    {
+      "display_name": "Network Security and Intrusion Detection",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10400",
+      "score": 0.9175999760627747,
+      "subfield": {
+        "display_name": "Computer Networks and Communications",
+        "id": "https://openalex.org/subfields/1705"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-03-25T23:56:10.502304"
+}

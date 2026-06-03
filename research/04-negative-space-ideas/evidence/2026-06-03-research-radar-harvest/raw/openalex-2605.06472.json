@@ -1,0 +1,992 @@
+{
+  "abstract_inverted_index": {
+    "$1.26\\times$": [
+      180
+    ],
+    "$1.85\\times$": [
+      170
+    ],
+    "(\\textbf{P}rediction-\\textbf{B}ased": [
+      94
+    ],
+    "Based": [
+      122
+    ],
+    "Existing": [
+      22
+    ],
+    "Experiments": [
+      159
+    ],
+    "For": [
+      97
+    ],
+    "GPU": [
+      140
+    ],
+    "However,": [
+      57
+    ],
+    "KV-Cache": [
+      17,
+      26
+    ],
+    "KVFlow": [
+      186
+    ],
+    "LLM-based": [
+      0
+    ],
+    "LRU": [
+      173
+    ],
+    "Management).": [
+      96
+    ],
+    "PBKV": [
+      93,
+      100,
+      126,
+      148,
+      166
+    ],
+    "SOTA": [
+      184
+    ],
+    "To": [
+      82,
+      142
+    ],
+    "\\textbf{KV}-Cache": [
+      95
+    ],
+    "a": [
+      52,
+      90
+    ],
+    "achieves": [
+      167
+    ],
+    "agent": [
+      28,
+      103
+    ],
+    "agents": [
+      4,
+      11,
+      68
+    ],
+    "agents.": [
+      56
+    ],
+    "allowing": [
+      16
+    ],
+    "and": [
+      9,
+      30,
+      69,
+      116,
+      134,
+      157,
+      177
+    ],
+    "approaches": [
+      23
+    ],
+    "are": [
+      60
+    ],
+    "assume": [
+      47
+    ],
+    "at": [
+      27,
+      42
+    ],
+    "baseline": [
+      185
+    ],
+    "be": [
+      143
+    ],
+    "benchmarks": [
+      163
+    ],
+    "both": [
+      154
+    ],
+    "build": [
+      89
+    ],
+    "but": [
+      46
+    ],
+    "by": [
+      109
+    ],
+    "cache": [
+      41,
+      72,
+      132,
+      155
+    ],
+    "calls": [
+      51
+    ],
+    "complex": [
+      7
+    ],
+    "compose": [
+      2
+    ],
+    "computation.": [
+      21
+    ],
+    "conservatively": [
+      152
+    ],
+    "context": [
+      78,
+      117
+    ],
+    "context,": [
+      15
+    ],
+    "depend": [
+      75
+    ],
+    "dubbed": [
+      92
+    ],
+    "during": [
+      153
+    ],
+    "dynamic": [
+      85,
+      175
+    ],
+    "dynamic,": [
+      62
+    ],
+    "each": [
+      49,
+      80,
+      98
+    ],
+    "efficiently,": [
+      87
+    ],
+    "either": [
+      24
+    ],
+    "entries": [
+      133,
+      138
+    ],
+    "errors,": [
+      147
+    ],
+    "estimates": [
+      127
+    ],
+    "eviction": [
+      156
+    ],
+    "execute": [
+      6
+    ],
+    "exploit": [
+      33
+    ],
+    "fail": [
+      31
+    ],
+    "from": [
+      113
+    ],
+    "fusing": [
+      110
+    ],
+    "future": [
+      107
+    ],
+    "guidance": [
+      112
+    ],
+    "high-potential": [
+      137
+    ],
+    "historical": [
+      114
+    ],
+    "in": [
+      105,
+      139
+    ],
+    "induced": [
+      71
+    ],
+    "invocations": [
+      104
+    ],
+    "invoked": [
+      67
+    ],
+    "keeps": [
+      135
+    ],
+    "level": [
+      29,
+      45
+    ],
+    "manage": [
+      25,
+      40
+    ],
+    "memory.": [
+      141
+    ],
+    "of": [
+      55,
+      66,
+      79,
+      118,
+      131
+    ],
+    "on": [
+      76,
+      123,
+      160,
+      174,
+      187
+    ],
+    "opportunities": [
+      36,
+      74
+    ],
+    "or": [
+      39
+    ],
+    "over": [
+      172,
+      182
+    ],
+    "potential": [
+      130
+    ],
+    "practical": [
+      58
+    ],
+    "prediction": [
+      146
+    ],
+    "predictions": [
+      151
+    ],
+    "predictions,": [
+      125
+    ],
+    "predicts": [
+      101
+    ],
+    "prefetching.": [
+      158
+    ],
+    "reuse": [
+      18,
+      35,
+      73,
+      129
+    ],
+    "robust": [
+      144
+    ],
+    "save": [
+      20
+    ],
+    "sequence": [
+      54,
+      65
+    ],
+    "serve": [
+      83
+    ],
+    "several": [
+      106
+    ],
+    "share": [
+      13
+    ],
+    "show": [
+      164
+    ],
+    "specialized": [
+      3
+    ],
+    "speedup": [
+      171,
+      181
+    ],
+    "static": [
+      53,
+      189
+    ],
+    "steps": [
+      108
+    ],
+    "substantial": [
+      14
+    ],
+    "such": [
+      84
+    ],
+    "system": [
+      91
+    ],
+    "target": [
+      120
+    ],
+    "task.": [
+      81
+    ],
+    "tasks,": [
+      8
+    ],
+    "that": [
+      48,
+      165
+    ],
+    "the": [
+      34,
+      43,
+      64,
+      77,
+      102,
+      111,
+      119,
+      124,
+      128,
+      136,
+      150,
+      183,
+      188
+    ],
+    "these": [
+      10
+    ],
+    "three": [
+      161
+    ],
+    "thus": [
+      70
+    ],
+    "to": [
+      5,
+      19,
+      32,
+      145,
+      169,
+      179
+    ],
+    "typically": [
+      61
+    ],
+    "up": [
+      168,
+      178
+    ],
+    "usually": [
+      12
+    ],
+    "utilizes": [
+      149
+    ],
+    "we": [
+      88
+    ],
+    "where": [
+      63
+    ],
+    "within": [
+      37
+    ],
+    "workflow": [
+      44,
+      50,
+      162
+    ],
+    "workflow,": [
+      99
+    ],
+    "workflow.": [
+      121,
+      190
+    ],
+    "workflows": [
+      1,
+      59,
+      86,
+      115
+    ],
+    "workflows,": [
+      38,
+      176
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Haoyu Zheng",
+        "id": "https://openalex.org/A5076114242",
+        "orcid": "https://orcid.org/0009-0002-3059-2089"
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Zheng, Haoyu",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Fangcheng Fu",
+        "id": "https://openalex.org/A5135693890",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Fu, Fangcheng",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Jia Wu",
+        "id": "https://openalex.org/A5135720555",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Wu, Jia",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Binhang Yuan",
+        "id": "https://openalex.org/A5135704103",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Yuan, Binhang",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yongqiang Zhang",
+        "id": "https://openalex.org/A5135728444",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Zhang, Yongqiang",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Hao Wang",
+        "id": "https://openalex.org/A5135639224",
+        "orcid": "https://orcid.org/0000-0001-8666-6900"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Wang, Hao",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yuanyuan Zhu",
+        "id": "https://openalex.org/A5135646896",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Zhu, Yuanyuan",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Xiao Yan",
+        "id": "https://openalex.org/A5135659927",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Yan, Xiao",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Jiawei Jiang",
+        "id": "https://openalex.org/A5135721784",
+        "orcid": null
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Jiang, Jiawei",
+      "raw_orcid": null
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "doi:10.48550/arxiv.2605.06472",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "https://doi.org/10.48550/arxiv.2605.06472",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": null,
+    "raw_source_name": null,
+    "raw_type": "article",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": null
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 0,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.8622000217437744,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Workflow",
+      "id": "https://openalex.org/C177212765",
+      "level": 2,
+      "score": 0.8586999773979187,
+      "wikidata": "https://www.wikidata.org/wiki/Q627335"
+    },
+    {
+      "display_name": "Reuse",
+      "id": "https://openalex.org/C206588197",
+      "level": 2,
+      "score": 0.7473000288009644,
+      "wikidata": "https://www.wikidata.org/wiki/Q846574"
+    },
+    {
+      "display_name": "Speedup",
+      "id": "https://openalex.org/C68339613",
+      "level": 2,
+      "score": 0.7131999731063843,
+      "wikidata": "https://www.wikidata.org/wiki/Q1549489"
+    },
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/C115537543",
+      "level": 2,
+      "score": 0.696399986743927,
+      "wikidata": "https://www.wikidata.org/wiki/Q165596"
+    },
+    {
+      "display_name": "Exploit",
+      "id": "https://openalex.org/C165696696",
+      "level": 2,
+      "score": 0.641700029373169,
+      "wikidata": "https://www.wikidata.org/wiki/Q11287"
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/C2779343474",
+      "level": 2,
+      "score": 0.604200005531311,
+      "wikidata": "https://www.wikidata.org/wiki/Q3109175"
+    },
+    {
+      "display_name": "Distributed computing",
+      "id": "https://openalex.org/C120314980",
+      "level": 1,
+      "score": 0.5928000211715698,
+      "wikidata": "https://www.wikidata.org/wiki/Q180634"
+    },
+    {
+      "display_name": "Cache algorithms",
+      "id": "https://openalex.org/C38556500",
+      "level": 4,
+      "score": 0.4909999966621399,
+      "wikidata": "https://www.wikidata.org/wiki/Q13404475"
+    },
+    {
+      "display_name": "Process (computing)",
+      "id": "https://openalex.org/C98045186",
+      "level": 2,
+      "score": 0.4341000020503998,
+      "wikidata": "https://www.wikidata.org/wiki/Q205663"
+    },
+    {
+      "display_name": "Callback",
+      "id": "https://openalex.org/C204495577",
+      "level": 2,
+      "score": 0.3296999931335449,
+      "wikidata": "https://www.wikidata.org/wiki/Q1205349"
+    },
+    {
+      "display_name": "Database",
+      "id": "https://openalex.org/C77088390",
+      "level": 1,
+      "score": 0.328900009393692,
+      "wikidata": "https://www.wikidata.org/wiki/Q8513"
+    },
+    {
+      "display_name": "Software engineering",
+      "id": "https://openalex.org/C115903868",
+      "level": 1,
+      "score": 0.32269999384880066,
+      "wikidata": "https://www.wikidata.org/wiki/Q80993"
+    },
+    {
+      "display_name": "Workflow management system",
+      "id": "https://openalex.org/C140824633",
+      "level": 3,
+      "score": 0.3203999996185303,
+      "wikidata": "https://www.wikidata.org/wiki/Q2808660"
+    },
+    {
+      "display_name": "Sequence (biology)",
+      "id": "https://openalex.org/C2778112365",
+      "level": 2,
+      "score": 0.3091000020503998,
+      "wikidata": "https://www.wikidata.org/wiki/Q3511065"
+    },
+    {
+      "display_name": "Workflow technology",
+      "id": "https://openalex.org/C19612761",
+      "level": 3,
+      "score": 0.2863999903202057,
+      "wikidata": "https://www.wikidata.org/wiki/Q8034836"
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/C173608175",
+      "level": 1,
+      "score": 0.2791999876499176,
+      "wikidata": "https://www.wikidata.org/wiki/Q232661"
+    },
+    {
+      "display_name": "Real-time computing",
+      "id": "https://openalex.org/C79403827",
+      "level": 1,
+      "score": 0.2786000072956085,
+      "wikidata": "https://www.wikidata.org/wiki/Q3988"
+    },
+    {
+      "display_name": "Baseline (sea)",
+      "id": "https://openalex.org/C12725497",
+      "level": 2,
+      "score": 0.2766000032424927,
+      "wikidata": "https://www.wikidata.org/wiki/Q810247"
+    },
+    {
+      "display_name": "Operating system",
+      "id": "https://openalex.org/C111919701",
+      "level": 1,
+      "score": 0.2587999999523163,
+      "wikidata": "https://www.wikidata.org/wiki/Q9135"
+    },
+    {
+      "display_name": "Protocol (science)",
+      "id": "https://openalex.org/C2780385302",
+      "level": 3,
+      "score": 0.25760000944137573,
+      "wikidata": "https://www.wikidata.org/wiki/Q367158"
+    },
+    {
+      "display_name": "Workflow engine",
+      "id": "https://openalex.org/C188220564",
+      "level": 3,
+      "score": 0.25290000438690186,
+      "wikidata": "https://www.wikidata.org/wiki/Q3325097"
+    }
+  ],
+  "content_urls": null,
+  "corresponding_author_ids": [
+    "https://openalex.org/A5076114242"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [],
+  "created_date": "2026-05-09T00:00:00",
+  "display_name": "Efficient Serving for Dynamic Agent Workflows with Prediction-based KV-Cache Management",
+  "doi": "https://doi.org/10.48550/arxiv.2605.06472",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": false
+  },
+  "has_fulltext": false,
+  "id": "https://openalex.org/W7160648549",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2605.06472",
+    "openalex": "https://openalex.org/W7160648549"
+  },
+  "indexed_in": [
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 9,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Workflow",
+      "id": "https://openalex.org/keywords/workflow",
+      "score": 0.8586999773979187
+    },
+    {
+      "display_name": "Reuse",
+      "id": "https://openalex.org/keywords/reuse",
+      "score": 0.7473000288009644
+    },
+    {
+      "display_name": "Speedup",
+      "id": "https://openalex.org/keywords/speedup",
+      "score": 0.7131999731063843
+    },
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/keywords/cache",
+      "score": 0.696399986743927
+    },
+    {
+      "display_name": "Exploit",
+      "id": "https://openalex.org/keywords/exploit",
+      "score": 0.641700029373169
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/keywords/context",
+      "score": 0.604200005531311
+    },
+    {
+      "display_name": "Cache algorithms",
+      "id": "https://openalex.org/keywords/cache-algorithms",
+      "score": 0.4909999966621399
+    }
+  ],
+  "language": null,
+  "locations": [
+    {
+      "id": "doi:10.48550/arxiv.2605.06472",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2605.06472",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 1,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://doi.org/10.48550/arxiv.2605.06472"
+  },
+  "primary_location": {
+    "id": "doi:10.48550/arxiv.2605.06472",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "https://doi.org/10.48550/arxiv.2605.06472",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": null,
+    "raw_source_name": null,
+    "raw_type": "article",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": null
+  },
+  "primary_topic": {
+    "display_name": "Cloud Computing and Resource Management",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10101",
+    "score": 0.24690000712871552,
+    "subfield": {
+      "display_name": "Information Systems",
+      "id": "https://openalex.org/subfields/1710"
+    }
+  },
+  "publication_date": "2026-05-07",
+  "publication_year": 2026,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [],
+  "sustainable_development_goals": [
+    {
+      "display_name": "Decent work and economic growth",
+      "id": "https://metadata.un.org/sdg/8",
+      "score": 0.41736850142478943
+    }
+  ],
+  "title": "Efficient Serving for Dynamic Agent Workflows with Prediction-based KV-Cache Management",
+  "topics": [
+    {
+      "display_name": "Cloud Computing and Resource Management",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10101",
+      "score": 0.24690000712871552,
+      "subfield": {
+        "display_name": "Information Systems",
+        "id": "https://openalex.org/subfields/1710"
+      }
+    },
+    {
+      "display_name": "Scientific Computing and Data Management",
+      "domain": {
+        "display_name": "Social Sciences",
+        "id": "https://openalex.org/domains/2"
+      },
+      "field": {
+        "display_name": "Decision Sciences",
+        "id": "https://openalex.org/fields/18"
+      },
+      "id": "https://openalex.org/T11986",
+      "score": 0.19509999454021454,
+      "subfield": {
+        "display_name": "Information Systems and Management",
+        "id": "https://openalex.org/subfields/1802"
+      }
+    },
+    {
+      "display_name": "Distributed and Parallel Computing Systems",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10715",
+      "score": 0.10199999809265137,
+      "subfield": {
+        "display_name": "Computer Networks and Communications",
+        "id": "https://openalex.org/subfields/1705"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-05-09T06:16:02.287421"
+}

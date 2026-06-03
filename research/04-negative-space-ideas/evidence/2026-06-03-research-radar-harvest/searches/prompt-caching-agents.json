@@ -1,0 +1,889 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 4735,
+      "db_response_time_ms": 287,
+      "page": 1,
+      "per_page": 8,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Wayne Xin Zhao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kun Zhou"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junyi Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tianyi Tang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiaolei Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yupeng Hou"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yingqian Min"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Beichen Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junjie Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zican Dong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yifan Du"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yang Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yushuo Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhipeng Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jinhao Jiang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ruiyang Ren"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yifan Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xinyu Tang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zikang Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Peiyu Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jian\u2010Yun Nie"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ji-Rong Wen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ji-Rong Wen"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1007/s11704-026-60308-3",
+        "id": "https://openalex.org/W4362515116",
+        "open_access": {
+          "oa_url": "https://link.springer.com/content/pdf/10.1007/s11704-026-60308-3.pdf"
+        },
+        "publication_date": "2026-05-09",
+        "publication_year": 2026,
+        "title": "A Survey of Large Language Models"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Keihan Haqiq"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Majid Vafaei Jahan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Saeede Anbaee Farimani"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Seyed Mahmood Fattahi Masoom"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1016/j.future.2025.107822",
+        "id": "https://openalex.org/W4408912849",
+        "open_access": {
+          "oa_url": null
+        },
+        "publication_date": "2025-03-27",
+        "publication_year": 2025,
+        "title": "MinCache: A hybrid cache system for efficient chatbots with hierarchical embedding matching and LLM"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Jiawei Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Arief Koesdwiady"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sisong Bei"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yan Han"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Baixiang Huang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Dakuo Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yutong Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zheshen Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Peihao Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Pan Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ying Ding"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2601.12307",
+        "id": "https://openalex.org/W7125201773",
+        "open_access": {
+          "oa_url": "https://doi.org/10.48550/arxiv.2601.12307"
+        },
+        "publication_date": "2026-01-18",
+        "publication_year": 2026,
+        "title": "Rethinking the Value of Multi-Agent Workflow: A Strong Single Agent Baseline"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Muehlburger, Herbert"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wotawa, Franz"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.4230/lipics.giscience.2025.3",
+        "id": "https://openalex.org/W4401306886",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2407.21783"
+        },
+        "publication_date": "2024-01-01",
+        "publication_year": 2024,
+        "title": "Enriching Location Representation with Detailed Semantic Information"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Log\u00e9, Fr\u00e9d\u00e9ric"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Le Pennec, Erwann"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Amadou-Boubacar, Habiboulaye"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+        "id": "https://openalex.org/W2966329817",
+        "open_access": {
+          "oa_url": "https://hal.science/hal-05598986"
+        },
+        "publication_date": "2021-05-12",
+        "publication_year": 2021,
+        "title": "Cerise: Program Verification on a Capability Machine in the Presence of Untrusted Code"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Humza Naveed"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Asad Ullah Khan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shi Qiu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Muhammad Saqib"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Saeed Anwar"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Muhammad Usman"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Akhtar, Naveed"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Nick Barnes"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ajmal Mian"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2307.06435",
+        "id": "https://openalex.org/W4384389802",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2307.06435"
+        },
+        "publication_date": "2023-07-12",
+        "publication_year": 2023,
+        "title": "A Comprehensive Overview of Large Language Models"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Philipp Hacker"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Andreas Engel"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Marco Mauer"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/3593013.3594067",
+        "id": "https://openalex.org/W4380319827",
+        "open_access": {
+          "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3593013.3594067"
+        },
+        "publication_date": "2023-06-12",
+        "publication_year": 2023,
+        "title": "Regulating ChatGPT and other Large Generative AI Models"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Graham Mcdougal"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Caron"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shashank Srivastava"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Siyu Yuan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiangjie Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xuyang Ge"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yanghua Xiao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Deqing Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jianfeng Wu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Mengting Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yike Wu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Bingzhe Wu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yalan Xie"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Mingming Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Renhong Cheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "; Gpt"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yixuan Weng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Minjun Zhu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Fei Xia"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Bin Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shizhu He"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shengping Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Bin Sun"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kang Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jun Zhao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Michail Mersinias"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kyle Mahowald"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Michal Yarom"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ashish Thapliyal ; Daejin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Daniel Jo"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Nam"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Weixiang Yan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yuchen Tian"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yunzhe Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qian Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wen Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Doctrack ; Hao Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qingxuan Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yue Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Changqing Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Chenhui Chu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Rui Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "; Jinsung Yoon"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sayna Ebrahimi"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tomas Sercan O Arik"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Somesh Pfister"
+            }
+          },
+          {
+            "author": {
+              "display_name": "; Shoujie Jha"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Heming Tong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Damai Xia"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Runxin Dai"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tianyu Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Binghuai Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yunbo Lin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhifang Cao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sui"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Karina Vida"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Judith Simon"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Anne Lauscher"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Luis Fernando"
+            }
+          },
+          {
+            "author": {
+              "display_name": "D' Haro"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Chengguang Tang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ke Shi"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Guohua Tang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Haizhou Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yuxiang Lu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yu Hong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhipang Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Guodong Zhou"
+            }
+          },
+          {
+            "author": {
+              "display_name": "; Jiang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Rui Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhihua Wei"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yu Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xinpeng Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "; Muru Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sewon Min"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ludwig Schmidt"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Noah Smith"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Mike Lewis"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Guoqing Luo"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yu Tong Han"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Lili Mou"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Mauajama Firdaus"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Fida Alvi Aveen Khan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Nuzhat Kamal"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tasnim Nower"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sabbir Ahmed"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tareque Ahmed"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Chowdhury Mohmud"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hao Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yanan Cao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yubing Ren"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Fang Fang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Lanxue Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yingjie Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shi Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "; Ruqing Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiafeng Guo"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Maarten De Rijke ; Chieh Lin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Akari Asai"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Minghan Li"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.18653/v1/2023.findings-emnlp",
+        "id": "https://openalex.org/W4389519153",
+        "open_access": {
+          "oa_url": null
+        },
+        "publication_date": "2023-01-01",
+        "publication_year": 2023,
+        "title": "Findings of the Association for Computational Linguistics: EMNLP 2023"
+      }
+    ]
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 18,
+      "db_response_time_ms": 156,
+      "page": 1,
+      "per_page": 8,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Shi Qiu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yifan Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "X. Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wenhao Zhu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jianqin Yan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hao Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kaiqiang Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kai Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yiming Zhang"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7160565745",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2605.03375"
+        },
+        "publication_date": "2026-05-05",
+        "publication_year": 2026,
+        "title": "Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Shi Qiu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yifan Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "X. Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wenhao Zhu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jianqin Yan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hao Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kaiqiang Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kai Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yiming Zhang"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2605.03375",
+        "id": "https://openalex.org/W7160414708",
+        "open_access": {
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.03375"
+        },
+        "publication_date": "2026-05-05",
+        "publication_year": 2026,
+        "title": "Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Shuowei Jin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xueshen Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Q Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zesen Mao"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2410.03065",
+        "id": "https://openalex.org/W4403885583",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2410.03065"
+        },
+        "publication_date": "2024-10-04",
+        "publication_year": 2024,
+        "title": "Compute Or Load KV Cache? Why Not Both?"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Jiayi Yao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hanchen Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yuhan Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Siddhant Ray"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yihua Cheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qizheng Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kuntai Du"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shan L\u00fc"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junchen Jiang"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2405.16444",
+        "id": "https://openalex.org/W4399115642",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2405.16444"
+        },
+        "publication_date": "2024-05-26",
+        "publication_year": 2024,
+        "title": "CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Yihua Cheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kuntai Du"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiayi Yao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junchen Jiang"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2409.13761",
+        "id": "https://openalex.org/W4403752360",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2409.13761"
+        },
+        "publication_date": "2024-09-16",
+        "publication_year": 2024,
+        "title": "Do Large Language Models Need a Content Delivery Network?"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Yanfei Tian"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Desen Sun"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yi Ding"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sihang Liu"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/3801489.3806850",
+        "id": "https://openalex.org/W4414855954",
+        "open_access": {
+          "oa_url": "https://doi.org/10.1145/3801489.3806850"
+        },
+        "publication_date": "2026-05-26",
+        "publication_year": 2026,
+        "title": "Cache Your Prompt When It's Green - Carbon-aware Caching for Large Language Model Serving"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Weiye Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Chen Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junxue Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhusheng Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hui Yuan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zixuan Guan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiaolong Zheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qizhen Weng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yin Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Minyi Guo"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7140346206",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2603.21257"
+        },
+        "publication_date": "2026-03-22",
+        "publication_year": 2026,
+        "title": "CALVO: Improve Serving Efficiency for LLM Inferences with Intense Network Demands"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Bodon Jeong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hongsu Byun"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Youngjae Kim"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Weikuan Yu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "KyungKeun Lee"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jihoon Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sungyong Park"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7159734508",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2604.26557"
+        },
+        "publication_date": "2026-04-29",
+        "publication_year": 2026,
+        "title": "DUAL-BLADE: Dual-Path NVMe-Direct KV-Cache Offloading for Edge LLM Inference"
+      }
+    ]
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 16,
+      "db_response_time_ms": 55,
+      "page": 1,
+      "per_page": 6,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Haoyang Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yiming Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tian, Anxin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tianhao Tang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhao\u2010Dong Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "X Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ning Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wei Dong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qing Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Lei Chen"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2412.19442",
+        "id": "https://openalex.org/W4405902850",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2412.19442"
+        },
+        "publication_date": "2024-12-27",
+        "publication_year": 2024,
+        "title": "A Survey on Large Language Model Acceleration based on KV Cache Management"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Yucheng Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Huiqiang Jiang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qianhui Wu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xufang Luo"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Surin Ahn"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Chengruidong Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Amir H. Abdi"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Dongsheng Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jianfeng Gao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yuqing Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Lili Qiu"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2412.10319",
+        "id": "https://openalex.org/W4405434119",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2412.10319"
+        },
+        "publication_date": "2024-12-13",
+        "publication_year": 2024,
+        "title": "SCBench: A KV Cache-Centric Analysis of Long-Context Methods"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Jiyu Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shuang Peng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Daxiong Luo"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Fan Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ruihong Wu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Fangyuan Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiaoxin Chen"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.18653/v1/2025.acl-industry.40",
+        "id": "https://openalex.org/W4412886911",
+        "open_access": {
+          "oa_url": "https://aclanthology.org/2025.acl-industry.40.pdf"
+        },
+        "publication_date": "2025-01-01",
+        "publication_year": 2025,
+        "title": "EdgeInfinite: A Memory-Efficient Infinite-Context Transformer for Edge Devices"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Piotr Nawrot"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Robert K.Y. Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Huang, Renjie"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sebastian Ruder"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kelly Marchisio"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Edoardo Maria Ponti"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2504.17768",
+        "id": "https://openalex.org/W4415308159",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2504.17768"
+        },
+        "publication_date": "2025-04-24",
+        "publication_year": 2025,
+        "title": "The Sparse Frontier: Sparse Attention Trade-offs in Transformer LLMs"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Junjie Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiong Lou"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jie Li"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7161915961",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2605.16360"
+        },
+        "publication_date": "2026-05-09",
+        "publication_year": 2026,
+        "title": "ProxyKV: Cross-Model Proxy Pruning for Efficient Long-Context LLM Inference"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Dongfang Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zixuan Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Gang Lin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Baotian Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Min Zhang"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7134860038",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2603.08453"
+        },
+        "publication_date": "2026-03-09",
+        "publication_year": 2026,
+        "title": "LycheeCluster: Efficient Long-Context Inference with Structure-Aware Chunking and Hierarchical KV Indexing"
+      }
+    ]
+  }
+}

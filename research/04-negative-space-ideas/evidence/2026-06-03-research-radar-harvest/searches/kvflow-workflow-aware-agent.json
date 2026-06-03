@@ -1,0 +1,274 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 31,
+      "db_response_time_ms": 83,
+      "page": 1,
+      "per_page": 8,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Pan, Zaifeng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Patel, Ajjkumar"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhengyong Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yipeng Shen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yue Guan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wan\u2010Lu Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qin, Lianhui"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yida Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ding, Yufei"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2507.07400",
+        "id": "https://openalex.org/W4416284532",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2507.07400"
+        },
+        "publication_date": "2025-07-10",
+        "publication_year": 2025,
+        "title": "KVFlow: Efficient Prefix Caching for Accelerating LLM-Based Multi-Agent Workflows"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Zirui Huang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yi-Xiang Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Feng Wu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiangyang Li"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7160968086",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2605.07238"
+        },
+        "publication_date": "2026-05-08",
+        "publication_year": 2026,
+        "title": "FATE: Future-State-Aware Scheduling for Heterogeneous LLM Workflows"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Lukas Stepanek"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7162605347",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2605.24259"
+        },
+        "publication_date": "2026-05-22",
+        "publication_year": 2026,
+        "title": "Resident KV Claims: A Conformance Contract for Future Reuse under Active KV Pressure"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Ishan Patel"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Joshi, Ishan"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.5281/zenodo.19686729",
+        "id": "https://openalex.org/W7155063074",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2604.24971"
+        },
+        "publication_date": "2026-04-21",
+        "publication_year": 2026,
+        "title": "PolyKV: Shared Asymmetric TurboQuant-Compressed KV Memory for Multi-Agent LLMs"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Noppanat Wadlom"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junyi Shen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yao lu"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7139146867",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2603.16104"
+        },
+        "publication_date": "2026-03-17",
+        "publication_year": 2026,
+        "title": "Efficient LLM Serving for Agentic Workflows: A Data Systems Perspective"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Rui Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Chae-Eun Kim"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Liting Hu"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7162817556",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2605.27744"
+        },
+        "publication_date": "2026-05-26",
+        "publication_year": 2026,
+        "title": "A Policy-Driven Runtime Layer for Agentic LLM Serving"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Haoyu Zheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Fangcheng Fu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jia Wu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Binhang Yuan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yongqiang Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hao Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yuanyuan Zhu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiao Yan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiawei Jiang"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7160726313",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2605.06472"
+        },
+        "publication_date": "2026-05-07",
+        "publication_year": 2026,
+        "title": "Efficient Serving for Dynamic Agent Workflows with Prediction-based KV-Cache Management"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Yakov Pyotr Shkolnikov"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7134094159",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2603.04428"
+        },
+        "publication_date": "2026-02-17",
+        "publication_year": 2026,
+        "title": "Agent Memory Below the Prompt: Persistent Q4 KV Cache for Multi-Agent LLM Inference on Edge Devices"
+      }
+    ]
+  }
+}

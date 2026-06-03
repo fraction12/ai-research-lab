@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 38,
+      "db_response_time_ms": 377,
+      "page": 1,
+      "per_page": 8,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Muehlburger, Herbert"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wotawa, Franz"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.4230/lipics.giscience.2025.3",
+        "id": "https://openalex.org/W4401306886",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2407.21783"
+        },
+        "publication_date": "2024-01-01",
+        "publication_year": 2024,
+        "title": "Enriching Location Representation with Detailed Semantic Information"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Log\u00e9, Fr\u00e9d\u00e9ric"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Le Pennec, Erwann"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Amadou-Boubacar, Habiboulaye"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+        "id": "https://openalex.org/W2966329817",
+        "open_access": {
+          "oa_url": "https://hal.science/hal-05598986"
+        },
+        "publication_date": "2021-05-12",
+        "publication_year": 2021,
+        "title": "Cerise: Program Verification on a Capability Machine in the Presence of Untrusted Code"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Emma Yann Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Adrian David Cheok"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhigeng Pan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jun Cai"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ying Yan"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.3390/sci5040046",
+        "id": "https://openalex.org/W4389783325",
+        "open_access": {
+          "oa_url": "https://www.mdpi.com/2413-4155/5/4/46/pdf?version=1702628551"
+        },
+        "publication_date": "2023-12-15",
+        "publication_year": 2023,
+        "title": "From Turing to Transformers: A Comprehensive Review and Tutorial on the Evolution and Applications of Generative Transformer Models"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Xiuyuan Zhao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tiejiang Sun"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shaochen Ren"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jingyun Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yang Liu"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.71465/fair456",
+        "id": "https://openalex.org/W7118784573",
+        "open_access": {
+          "oa_url": "https://sprcopen.org/index.php/FAIR/article/download/456/461"
+        },
+        "publication_date": "2025-12-02",
+        "publication_year": 2025,
+        "title": "RAG-Based AI Agents for Enterprise Software Development: Implementation Patterns and Production Deployment"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Tao Feng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Chuanyang Jin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jingyu Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kunlun Zhu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Haoqin Tu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zirui Cheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Guanyu Lin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiaxuan You"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2405.10313",
+        "id": "https://openalex.org/W4397028872",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2405.10313"
+        },
+        "publication_date": "2024-05-16",
+        "publication_year": 2024,
+        "title": "How Far Are We From AGI: Are LLMs All We Need?"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Yuvraj Agrawal"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7133571147",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2603.03018"
+        },
+        "publication_date": "2026-03-03",
+        "publication_year": 2026,
+        "title": "REGAL: A Registry-Driven Architecture for Deterministic Grounding of Agentic AI in Enterprise Telemetry"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Yang Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zining Zhong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jindong Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiemin Wu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kaishen Yuan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wenshuo Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Menglin Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yutao Yue"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7155451950",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2604.18607"
+        },
+        "publication_date": "2026-04-12",
+        "publication_year": 2026,
+        "title": "TurboEvolve: Towards Fast and Robust LLM-Driven Program Evolution"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Qianru Meng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiao Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhaochun Ren"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Joost Visser"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7162700309",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2605.27238"
+        },
+        "publication_date": "2026-05-26",
+        "publication_year": 2026,
+        "title": "EviACT: An Evidence-to-Action Framework for Agentic Program Repair"
+      }
+    ]
+  }
+}

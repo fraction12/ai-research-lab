@@ -1,0 +1,1246 @@
+{
+  "generated_at": "2026-06-03T18:14:51Z",
+  "output_dir": "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest",
+  "pdfs_downloaded": false,
+  "papers": [
+    {
+      "arxiv_id": "2405.16444",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2405.16444",
+      "arxiv_abs_url": "https://arxiv.org/abs/2405.16444",
+      "openalex": {
+        "authors": [
+          "Jiayi Yao",
+          "Hanchen Li",
+          "Yuhan Liu",
+          "Siddhant Ray",
+          "Yihua Cheng",
+          "Qizheng Zhang",
+          "Kuntai Du",
+          "Shan Lü",
+          "Junchen Jiang"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2405.16444",
+          "landing_page_url": "http://arxiv.org/abs/2405.16444",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2405.16444",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 2,
+        "display_name": "CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion",
+        "doi": "https://doi.org/10.48550/arxiv.2405.16444",
+        "id": "https://openalex.org/W4399115642",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2405.16444"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2405.16444",
+          "landing_page_url": "http://arxiv.org/abs/2405.16444",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2405.16444",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-05-26",
+        "publication_year": 2024,
+        "title": "CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2405.16444",
+        "authors": [
+          "Yao, Jiayi",
+          "Li, Hanchen",
+          "Liu, Yuhan",
+          "Ray, Siddhant",
+          "Cheng, Yihua",
+          "Zhang, Qizheng",
+          "Du, Kuntai",
+          "Lu, Shan",
+          "Jiang, Junchen"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2405.16444",
+        "title": "CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2405.16444.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2405.16444.html"
+      ]
+    },
+    {
+      "arxiv_id": "2410.15332",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2410.15332",
+      "arxiv_abs_url": "https://arxiv.org/abs/2410.15332",
+      "openalex": {
+        "authors": [
+          "Junhao Hu",
+          "Wenrui Huang",
+          "Wang, Weidong",
+          "Wang, Haoyi",
+          "Tiancheng Hu",
+          "Qin Zhang",
+          "Feng Hao",
+          "Xusheng Chen",
+          "Yizhou Shan",
+          "Tao Xie"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2410.15332",
+          "landing_page_url": "http://arxiv.org/abs/2410.15332",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2410.15332",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 2,
+        "display_name": "EPIC: Efficient Position-Independent Caching for Serving Large Language Models",
+        "doi": "https://doi.org/10.48550/arxiv.2410.15332",
+        "id": "https://openalex.org/W4404088579",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2410.15332"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2410.15332",
+          "landing_page_url": "http://arxiv.org/abs/2410.15332",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2410.15332",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-10-20",
+        "publication_year": 2024,
+        "title": "EPIC: Efficient Position-Independent Caching for Serving Large Language Models",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2410.15332",
+        "authors": [
+          "Hu, Junhao",
+          "Huang, Wenrui",
+          "Wang, Weidong",
+          "Wang, Haoyi",
+          "Hu, Tiancheng",
+          "Zhang, Qin",
+          "Feng, Hao",
+          "Chen, Xusheng",
+          "Shan, Yizhou",
+          "Xie, Tao"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2410.15332",
+        "title": "EPIC: Efficient Position-Independent Caching for Serving Large Language Models"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2410.15332.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2410.15332.html"
+      ]
+    },
+    {
+      "arxiv_id": "2411.02820",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2411.02820",
+      "arxiv_abs_url": "https://arxiv.org/abs/2411.02820",
+      "openalex": {
+        "authors": [
+          "Yuhan Liu",
+          "Huang, Yuyang",
+          "Yao, Jiayi",
+          "Feng, Shaoting",
+          "Gu, Zhuohan",
+          "Du, Kuntai",
+          "Li, Hanchen",
+          "Cheng, Yihua",
+          "Jiang, Junchen",
+          "Lu, Shan",
+          "Musuvathi, Madan",
+          "Choukse, Esha"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2411.02820",
+          "landing_page_url": "http://arxiv.org/abs/2411.02820",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2411.02820",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 2,
+        "display_name": "DroidSpeak: KV Cache Sharing for Cross-LLM Communication and Multi-LLM Serving",
+        "doi": "https://doi.org/10.48550/arxiv.2411.02820",
+        "id": "https://openalex.org/W4404432441",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2411.02820"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2411.02820",
+          "landing_page_url": "http://arxiv.org/abs/2411.02820",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2411.02820",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-11-05",
+        "publication_year": 2024,
+        "title": "DroidSpeak: KV Cache Sharing for Cross-LLM Communication and Multi-LLM Serving",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2411.02820",
+        "authors": [
+          "Liu, Yuhan",
+          "Huang, Yuyang",
+          "Yao, Jiayi",
+          "Feng, Shaoting",
+          "Gu, Zhuohan",
+          "Du, Kuntai",
+          "Li, Hanchen",
+          "Cheng, Yihua",
+          "Jiang, Junchen",
+          "Lu, Shan",
+          "Musuvathi, Madan",
+          "Choukse, Esha"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2411.02820",
+        "title": "DroidSpeak: KV Cache Sharing for Cross-LLM Communication and Multi-LLM Serving"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2411.02820.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2411.02820.html"
+      ]
+    },
+    {
+      "arxiv_id": "2412.19442",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2412.19442",
+      "arxiv_abs_url": "https://arxiv.org/abs/2412.19442",
+      "openalex": {
+        "authors": [
+          "Haoyang Li",
+          "Yiming Li",
+          "Tian, Anxin",
+          "Tianhao Tang",
+          "Zhao‐Dong Xu",
+          "X Chen",
+          "Ning Hu",
+          "Wei Dong",
+          "Qing Li",
+          "Lei Chen"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2412.19442",
+          "landing_page_url": "http://arxiv.org/abs/2412.19442",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2412.19442",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 3,
+        "display_name": "A Survey on Large Language Model Acceleration based on KV Cache Management",
+        "doi": "https://doi.org/10.48550/arxiv.2412.19442",
+        "id": "https://openalex.org/W4405902850",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2412.19442"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2412.19442",
+          "landing_page_url": "http://arxiv.org/abs/2412.19442",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2412.19442",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-12-27",
+        "publication_year": 2024,
+        "title": "A Survey on Large Language Model Acceleration based on KV Cache Management",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2412.19442",
+        "authors": [
+          "Li, Haoyang",
+          "Li, Yiming",
+          "Tian, Anxin",
+          "Tang, Tianhao",
+          "Xu, Zhanchao",
+          "Chen, Xuejia",
+          "Hu, Nicole",
+          "Dong, Wei",
+          "Li, Qing",
+          "Chen, Lei"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2412.19442",
+        "title": "A Survey on Large Language Model Acceleration based on KV Cache Management"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2412.19442.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2412.19442.html"
+      ]
+    },
+    {
+      "arxiv_id": "2412.10319",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2412.10319",
+      "arxiv_abs_url": "https://arxiv.org/abs/2412.10319",
+      "openalex": {
+        "authors": [
+          "Yucheng Li",
+          "Huiqiang Jiang",
+          "Qianhui Wu",
+          "Xufang Luo",
+          "Surin Ahn",
+          "Chengruidong Zhang",
+          "Amir H. Abdi",
+          "Dongsheng Li",
+          "Jianfeng Gao",
+          "Yuqing Yang",
+          "Lili Qiu"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2412.10319",
+          "landing_page_url": "http://arxiv.org/abs/2412.10319",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2412.10319",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 1,
+        "display_name": "SCBench: A KV Cache-Centric Analysis of Long-Context Methods",
+        "doi": "https://doi.org/10.48550/arxiv.2412.10319",
+        "id": "https://openalex.org/W4405434119",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2412.10319"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2412.10319",
+          "landing_page_url": "http://arxiv.org/abs/2412.10319",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2412.10319",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-12-13",
+        "publication_year": 2024,
+        "title": "SCBench: A KV Cache-Centric Analysis of Long-Context Methods",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2412.10319",
+        "authors": [
+          "Li, Yucheng",
+          "Jiang, Huiqiang",
+          "Wu, Qianhui",
+          "Luo, Xufang",
+          "Ahn, Surin",
+          "Zhang, Chengruidong",
+          "Abdi, Amir H.",
+          "Li, Dongsheng",
+          "Gao, Jianfeng",
+          "Yang, Yuqing",
+          "Qiu, Lili"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2412.10319",
+        "title": "SCBench: A KV Cache-Centric Analysis of Long-Context Methods"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2412.10319.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2412.10319.html"
+      ]
+    },
+    {
+      "arxiv_id": "2403.19708",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2403.19708",
+      "arxiv_abs_url": "https://arxiv.org/abs/2403.19708",
+      "openalex": {
+        "authors": [
+          "Bin Gao",
+          "Zhuomin He",
+          "Puru Sharma",
+          "Qingxuan Kang",
+          "Djordje Jevdjic",
+          "Junbo Deng",
+          "Xingkun Yang",
+          "Zhou Yu",
+          "Pengfei Zuo"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2403.19708",
+          "landing_page_url": "http://arxiv.org/abs/2403.19708",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2403.19708",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 1,
+        "display_name": "Cost-Efficient Large Language Model Serving for Multi-turn Conversations with CachedAttention",
+        "doi": "https://doi.org/10.48550/arxiv.2403.19708",
+        "id": "https://openalex.org/W4393853379",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2403.19708"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2403.19708",
+          "landing_page_url": "http://arxiv.org/abs/2403.19708",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2403.19708",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-03-23",
+        "publication_year": 2024,
+        "title": "Cost-Efficient Large Language Model Serving for Multi-turn Conversations with CachedAttention",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2403.19708",
+        "authors": [
+          "Gao, Bin",
+          "He, Zhuomin",
+          "Sharma, Puru",
+          "Kang, Qingxuan",
+          "Jevdjic, Djordje",
+          "Deng, Junbo",
+          "Yang, Xingkun",
+          "Yu, Zhou",
+          "Zuo, Pengfei"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2403.19708",
+        "title": "Cost-Efficient Large Language Model Serving for Multi-turn Conversations with CachedAttention"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2403.19708.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2403.19708.html"
+      ]
+    },
+    {
+      "arxiv_id": "2405.12981",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2405.12981",
+      "arxiv_abs_url": "https://arxiv.org/abs/2405.12981",
+      "openalex": {
+        "authors": [
+          "William T. Brandon",
+          "Mayank Mishra",
+          "Aniruddha Nrusimha",
+          "Rameswar Panda",
+          "Jonathan Ragan Kelly"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2405.12981",
+          "landing_page_url": "http://arxiv.org/abs/2405.12981",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2405.12981",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 2,
+        "display_name": "Reducing Transformer Key-Value Cache Size with Cross-Layer Attention",
+        "doi": "https://doi.org/10.48550/arxiv.2405.12981",
+        "id": "https://openalex.org/W4398230666",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2405.12981"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2405.12981",
+          "landing_page_url": "http://arxiv.org/abs/2405.12981",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2405.12981",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-05-21",
+        "publication_year": 2024,
+        "title": "Reducing Transformer Key-Value Cache Size with Cross-Layer Attention",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2405.12981",
+        "authors": [
+          "Brandon, William",
+          "Mishra, Mayank",
+          "Nrusimha, Aniruddha",
+          "Panda, Rameswar",
+          "Kelly, Jonathan Ragan"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2405.12981",
+        "title": "Reducing Transformer Key-Value Cache Size with Cross-Layer Attention"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2405.12981.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2405.12981.html"
+      ]
+    },
+    {
+      "arxiv_id": "2407.12391",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2407.12391",
+      "arxiv_abs_url": "https://arxiv.org/abs/2407.12391",
+      "openalex": {
+        "authors": [
+          "Baolin Li",
+          "Yankai Jiang",
+          "Vijay Gadepally",
+          "Devesh Tiwari"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2407.12391",
+          "landing_page_url": "http://arxiv.org/abs/2407.12391",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2407.12391",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 2,
+        "display_name": "LLM Inference Serving: Survey of Recent Advances and Opportunities",
+        "doi": "https://doi.org/10.48550/arxiv.2407.12391",
+        "id": "https://openalex.org/W4403749815",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2407.12391"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2407.12391",
+          "landing_page_url": "http://arxiv.org/abs/2407.12391",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2407.12391",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-07-17",
+        "publication_year": 2024,
+        "title": "LLM Inference Serving: Survey of Recent Advances and Opportunities",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2407.12391",
+        "authors": [
+          "Li, Baolin",
+          "Jiang, Yankai",
+          "Gadepally, Vijay",
+          "Tiwari, Devesh"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2407.12391",
+        "title": "LLM Inference Serving: Survey of Recent Advances and Opportunities"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2407.12391.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2407.12391.html"
+      ]
+    },
+    {
+      "arxiv_id": "2410.03065",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2410.03065",
+      "arxiv_abs_url": "https://arxiv.org/abs/2410.03065",
+      "openalex": {
+        "authors": [
+          "Shuowei Jin",
+          "Xueshen Liu",
+          "Q Zhang",
+          "Zesen Mao"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2410.03065",
+          "landing_page_url": "http://arxiv.org/abs/2410.03065",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2410.03065",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 1,
+        "display_name": "Compute Or Load KV Cache? Why Not Both?",
+        "doi": "https://doi.org/10.48550/arxiv.2410.03065",
+        "id": "https://openalex.org/W4403885583",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2410.03065"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2410.03065",
+          "landing_page_url": "http://arxiv.org/abs/2410.03065",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2410.03065",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-10-04",
+        "publication_year": 2024,
+        "title": "Compute Or Load KV Cache? Why Not Both?",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2410.03065",
+        "authors": [
+          "Jin, Shuowei",
+          "Liu, Xueshen",
+          "Zhang, Qingzhao",
+          "Mao, Z. Morley"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2410.03065",
+        "title": "Compute Or Load KV Cache? Why Not Both?"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2410.03065.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2410.03065.html"
+      ]
+    },
+    {
+      "arxiv_id": "2409.13761",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2409.13761",
+      "arxiv_abs_url": "https://arxiv.org/abs/2409.13761",
+      "openalex": {
+        "authors": [
+          "Yihua Cheng",
+          "Kuntai Du",
+          "Jiayi Yao",
+          "Junchen Jiang"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2409.13761",
+          "landing_page_url": "http://arxiv.org/abs/2409.13761",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2409.13761",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 1,
+        "display_name": "Do Large Language Models Need a Content Delivery Network?",
+        "doi": "https://doi.org/10.48550/arxiv.2409.13761",
+        "id": "https://openalex.org/W4403752360",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2409.13761"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2409.13761",
+          "landing_page_url": "http://arxiv.org/abs/2409.13761",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2409.13761",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2024-09-16",
+        "publication_year": 2024,
+        "title": "Do Large Language Models Need a Content Delivery Network?",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2409.13761",
+        "authors": [
+          "Cheng, Yihua",
+          "Du, Kuntai",
+          "Yao, Jiayi",
+          "Jiang, Junchen"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2409.13761",
+        "title": "Do Large Language Models Need a Content Delivery Network?"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2409.13761.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2409.13761.html"
+      ]
+    },
+    {
+      "arxiv_id": "2507.07400",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2507.07400",
+      "arxiv_abs_url": "https://arxiv.org/abs/2507.07400",
+      "openalex": {
+        "authors": [
+          "Pan, Zaifeng",
+          "Patel, Ajjkumar",
+          "Zhengyong Hu",
+          "Yipeng Shen",
+          "Yue Guan",
+          "Wan‐Lu Li",
+          "Qin, Lianhui",
+          "Yida Wang",
+          "Ding, Yufei"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2507.07400",
+          "landing_page_url": "http://arxiv.org/abs/2507.07400",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2507.07400",
+          "source": "ArXiv.org",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 0,
+        "display_name": "KVFlow: Efficient Prefix Caching for Accelerating LLM-Based Multi-Agent Workflows",
+        "doi": "https://doi.org/10.48550/arxiv.2507.07400",
+        "id": "https://openalex.org/W4416284532",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2507.07400"
+        },
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2507.07400",
+          "landing_page_url": "http://arxiv.org/abs/2507.07400",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2507.07400",
+          "source": "ArXiv.org",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2025-07-10",
+        "publication_year": 2025,
+        "title": "KVFlow: Efficient Prefix Caching for Accelerating LLM-Based Multi-Agent Workflows",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2507.07400",
+        "authors": [
+          "Pan, Zaifeng",
+          "Patel, Ajjkumar",
+          "Hu, Zhengding",
+          "Shen, Yipeng",
+          "Guan, Yue",
+          "Li, Wan-Lu",
+          "Qin, Lianhui",
+          "Wang, Yida",
+          "Ding, Yufei"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2507.07400",
+        "title": "KVFlow: Efficient Prefix Caching for Accelerating LLM-Based Multi-Agent Workflows"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2507.07400.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2507.07400.html"
+      ]
+    },
+    {
+      "arxiv_id": "2605.24259",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2605.24259",
+      "arxiv_abs_url": "https://arxiv.org/abs/2605.24259",
+      "openalex": {
+        "authors": [
+          "Lukas Stepanek"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2605.24259",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.24259",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "cited_by_count": 0,
+        "display_name": "Resident KV Claims: A Conformance Contract for Future Reuse under Active KV Pressure",
+        "doi": "https://doi.org/10.48550/arxiv.2605.24259",
+        "id": "https://openalex.org/W7162431789",
+        "indexed_in": [
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.24259"
+        },
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2605.24259",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.24259",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "publication_date": "2026-05-22",
+        "publication_year": 2026,
+        "title": "Resident KV Claims: A Conformance Contract for Future Reuse under Active KV Pressure",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2605.24259",
+        "authors": [
+          "Stepanek, Lukas"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2605.24259",
+        "title": "Resident KV Claims: A Conformance Contract for Future Reuse under Active KV Pressure"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2605.24259.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2605.24259.html"
+      ]
+    },
+    {
+      "arxiv_id": "2603.16104",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2603.16104",
+      "arxiv_abs_url": "https://arxiv.org/abs/2603.16104",
+      "openalex": {
+        "authors": [
+          "Noppanat Wadlom",
+          "Junyi Shen",
+          "Yao lu"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2603.16104",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2603.16104",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "cited_by_count": 0,
+        "display_name": "Efficient LLM Serving for Agentic Workflows: A Data Systems Perspective",
+        "doi": "https://doi.org/10.48550/arxiv.2603.16104",
+        "id": "https://openalex.org/W7138980487",
+        "indexed_in": [
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2603.16104"
+        },
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2603.16104",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2603.16104",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "publication_date": "2026-03-17",
+        "publication_year": 2026,
+        "title": "Efficient LLM Serving for Agentic Workflows: A Data Systems Perspective",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2603.16104",
+        "authors": [
+          "Wadlom, Noppanat",
+          "Shen, Junyi",
+          "Lu, Yao"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.16104",
+        "title": "Efficient LLM Serving for Agentic Workflows: A Data Systems Perspective"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2603.16104.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2603.16104.html"
+      ]
+    },
+    {
+      "arxiv_id": "2603.04428",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2603.04428",
+      "arxiv_abs_url": "https://arxiv.org/abs/2603.04428",
+      "openalex": {
+        "authors": [
+          "Yakov Pyotr Shkolnikov"
+        ],
+        "best_oa_location": {
+          "id": "pmh:doi:10.48550/arxiv.2603.04428",
+          "landing_page_url": null,
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "Open MIND",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "cited_by_count": 0,
+        "display_name": "Agent Memory Below the Prompt: Persistent Q4 KV Cache for Multi-Agent LLM Inference on Edge Devices",
+        "doi": "https://doi.org/10.48550/arxiv.2603.04428",
+        "id": "https://openalex.org/W7134067181",
+        "indexed_in": [
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": null
+        },
+        "primary_location": {
+          "id": "pmh:doi:10.48550/arxiv.2603.04428",
+          "landing_page_url": null,
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "Open MIND",
+          "source_type": "repository",
+          "version": "submittedVersion"
+        },
+        "publication_date": "2026-02-17",
+        "publication_year": 2026,
+        "title": "Agent Memory Below the Prompt: Persistent Q4 KV Cache for Multi-Agent LLM Inference on Edge Devices",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2603.04428",
+        "authors": [
+          "Shkolnikov, Yakov Pyotr"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.04428",
+        "title": "Agent Memory Below the Prompt: Persistent Q4 KV Cache for Multi-Agent LLM Inference on Edge Devices"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2603.04428.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2603.04428.html"
+      ]
+    },
+    {
+      "arxiv_id": "2605.06472",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2605.06472",
+      "arxiv_abs_url": "https://arxiv.org/abs/2605.06472",
+      "openalex": {
+        "authors": [
+          "Haoyu Zheng",
+          "Fangcheng Fu",
+          "Jia Wu",
+          "Binhang Yuan",
+          "Yongqiang Zhang",
+          "Hao Wang",
+          "Yuanyuan Zhu",
+          "Xiao Yan",
+          "Jiawei Jiang"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2605.06472",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.06472",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "cited_by_count": 0,
+        "display_name": "Efficient Serving for Dynamic Agent Workflows with Prediction-based KV-Cache Management",
+        "doi": "https://doi.org/10.48550/arxiv.2605.06472",
+        "id": "https://openalex.org/W7160648549",
+        "indexed_in": [
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.06472"
+        },
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2605.06472",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.06472",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "publication_date": "2026-05-07",
+        "publication_year": 2026,
+        "title": "Efficient Serving for Dynamic Agent Workflows with Prediction-based KV-Cache Management",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2605.06472",
+        "authors": [
+          "Zheng, Haoyu",
+          "Fu, Fangcheng",
+          "Wu, Jia",
+          "Yuan, Binhang",
+          "Zhang, Yongqiang",
+          "Wang, Hao",
+          "Zhu, Yuanyuan",
+          "Yan, Xiao",
+          "Jiang, Jiawei"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2605.06472",
+        "title": "Efficient Serving for Dynamic Agent Workflows with Prediction-based KV-Cache Management"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2605.06472.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2605.06472.html"
+      ]
+    },
+    {
+      "arxiv_id": "2605.07238",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2605.07238",
+      "arxiv_abs_url": "https://arxiv.org/abs/2605.07238",
+      "openalex": {
+        "authors": [
+          "Zirui Huang",
+          "Yi-Xiang Hu",
+          "Feng Wu",
+          "Xiangyang Li"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2605.07238",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.07238",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "cited_by_count": 0,
+        "display_name": "FATE: Future-State-Aware Scheduling for Heterogeneous LLM Workflows",
+        "doi": "https://doi.org/10.48550/arxiv.2605.07238",
+        "id": "https://openalex.org/W7160875794",
+        "indexed_in": [
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.07238"
+        },
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2605.07238",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.07238",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "publication_date": "2026-05-08",
+        "publication_year": 2026,
+        "title": "FATE: Future-State-Aware Scheduling for Heterogeneous LLM Workflows",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2605.07238",
+        "authors": [
+          "Huang, Zirui",
+          "Hu, Yi-Xiang",
+          "Wu, Feng",
+          "Li, Xiangyang"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2605.07238",
+        "title": "FATE: Future-State-Aware Scheduling for Heterogeneous LLM Workflows"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2605.07238.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2605.07238.html"
+      ]
+    },
+    {
+      "arxiv_id": "2604.24971",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2604.24971",
+      "arxiv_abs_url": "https://arxiv.org/abs/2604.24971",
+      "openalex": {
+        "authors": [
+          "Ishan Patel",
+          "Ishan Joshi"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2604.24971",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2604.24971",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "cited_by_count": 0,
+        "display_name": "PolyKV: A Shared Asymmetrically-Compressed KV Cache Pool for Multi-Agent LLM Inference",
+        "doi": "https://doi.org/10.48550/arxiv.2604.24971",
+        "id": "https://openalex.org/W7158004876",
+        "indexed_in": [
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2604.24971"
+        },
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2604.24971",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2604.24971",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "publication_date": "2026-04-27",
+        "publication_year": 2026,
+        "title": "PolyKV: A Shared Asymmetrically-Compressed KV Cache Pool for Multi-Agent LLM Inference",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2604.24971",
+        "authors": [
+          "Patel, Ishan",
+          "Joshi, Ishan"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.24971",
+        "title": "PolyKV: A Shared Asymmetrically-Compressed KV Cache Pool for Multi-Agent LLM Inference"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2604.24971.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2604.24971.html"
+      ]
+    },
+    {
+      "arxiv_id": "2605.27744",
+      "status": "ok",
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2605.27744",
+      "arxiv_abs_url": "https://arxiv.org/abs/2605.27744",
+      "openalex": {
+        "authors": [
+          "Rui Zhang",
+          "Chae-Eun Kim",
+          "Liting Hu"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2605.27744",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.27744",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "cited_by_count": 0,
+        "display_name": "A Policy-Driven Runtime Layer for Agentic LLM Serving",
+        "doi": "https://doi.org/10.48550/arxiv.2605.27744",
+        "id": "https://openalex.org/W7162686460",
+        "indexed_in": [
+          "datacite"
+        ],
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.27744"
+        },
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2605.27744",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.27744",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository",
+          "version": null
+        },
+        "publication_date": "2026-05-26",
+        "publication_year": 2026,
+        "title": "A Policy-Driven Runtime Layer for Agentic LLM Serving",
+        "type": "preprint"
+      },
+      "arxiv_html_metadata": {
+        "arxiv_id": "2605.27744",
+        "authors": [
+          "Zhang, Rui",
+          "Kim, Chaeeun",
+          "Hu, Liting"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2605.27744",
+        "title": "A Policy-Driven Runtime Layer for Agentic LLM Serving"
+      },
+      "raw_outputs": [
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/openalex-2605.27744.json",
+        "research/04-negative-space-ideas/evidence/2026-06-03-research-radar-harvest/raw/arxiv-html-2605.27744.html"
+      ]
+    }
+  ]
+}

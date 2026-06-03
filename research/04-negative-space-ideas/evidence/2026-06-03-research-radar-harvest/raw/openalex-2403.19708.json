@@ -1,0 +1,1062 @@
+{
+  "abstract_inverted_index": {
+    "(KV)": [
+      34
+    ],
+    "(LLMs).": [
+      14
+    ],
+    "(TTFT)": [
+      204
+    ],
+    "7.8$\\times$": [
+      217
+    ],
+    "70%.": [
+      230
+    ],
+    "87%,": [
+      208
+    ],
+    "CachedAttention": [
+      70,
+      98,
+      131,
+      170,
+      195
+    ],
+    "CachedAttention,": [
+      50
+    ],
+    "Extensive": [
+      190
+    ],
+    "GPU": [
+      114
+    ],
+    "However,": [
+      15
+    ],
+    "Interacting": [
+      0
+    ],
+    "KV": [
+      59,
+      74,
+      84,
+      91,
+      109,
+      120,
+      142,
+      163,
+      174,
+      188
+    ],
+    "LLM": [
+      17
+    ],
+    "To": [
+      43,
+      89,
+      116,
+      156
+    ],
+    "a": [
+      7,
+      51,
+      72
+    ],
+    "access": [
+      93,
+      111
+    ],
+    "accessed": [
+      124
+    ],
+    "across": [
+      61
+    ],
+    "address": [
+      44
+    ],
+    "all": [
+      87
+    ],
+    "and": [
+      102,
+      135,
+      184,
+      221
+    ],
+    "are": [
+      23,
+      125
+    ],
+    "asynchronous": [
+      103
+    ],
+    "attention": [
+      53
+    ],
+    "avoid": [
+      157
+    ],
+    "based": [
+      147
+    ],
+    "be": [
+      123
+    ],
+    "by": [
+      166,
+      205,
+      214,
+      227
+    ],
+    "cache": [
+      92,
+      110
+    ],
+    "caches": [
+      35,
+      60,
+      85,
+      121,
+      143,
+      164,
+      175
+    ],
+    "caches.": [
+      189
+    ],
+    "caching": [
+      75
+    ],
+    "computation": [
+      68
+    ],
+    "computation.": [
+      115
+    ],
+    "compute": [
+      31
+    ],
+    "consciously": [
+      139
+    ],
+    "context": [
+      167
+    ],
+    "conversations": [
+      5,
+      22
+    ],
+    "conversations,": [
+      63,
+      220
+    ],
+    "cost": [
+      226
+    ],
+    "cost-effective": [
+      79
+    ],
+    "costs.": [
+      42
+    ],
+    "decoupling": [
+      180
+    ],
+    "decreases": [
+      197
+    ],
+    "demonstrate": [
+      193
+    ],
+    "different": [
+      145
+    ],
+    "due": [
+      25
+    ],
+    "effectively": [
+      185
+    ],
+    "employs": [
+      99,
+      132
+    ],
+    "enables": [
+      56,
+      171
+    ],
+    "encoding": [
+      183
+    ],
+    "end-to-end": [
+      224
+    ],
+    "engines": [
+      19
+    ],
+    "ensure": [
+      117
+    ],
+    "eviction": [
+      136
+    ],
+    "executing": [
+      20
+    ],
+    "existing": [
+      16
+    ],
+    "experimental": [
+      191
+    ],
+    "fastest": [
+      129
+    ],
+    "feature": [
+      9
+    ],
+    "fetching": [
+      134
+    ],
+    "first": [
+      202
+    ],
+    "for": [
+      86,
+      218
+    ],
+    "from": [
+      95,
+      151
+    ],
+    "fundamental": [
+      8
+    ],
+    "hierarchical": [
+      73
+    ],
+    "hierarchy,": [
+      130
+    ],
+    "high": [
+      40
+    ],
+    "hints": [
+      150
+    ],
+    "historical": [
+      37
+    ],
+    "humans": [
+      2
+    ],
+    "improves": [
+      209
+    ],
+    "in": [
+      127,
+      144
+    ],
+    "incurred": [
+      165
+    ],
+    "incurring": [
+      39
+    ],
+    "inefficient": [
+      24
+    ],
+    "inference": [
+      153,
+      225
+    ],
+    "invalidation": [
+      159
+    ],
+    "is": [
+      6
+    ],
+    "job": [
+      154
+    ],
+    "key-value": [
+      33
+    ],
+    "language": [
+      12
+    ],
+    "large": [
+      11
+    ],
+    "layer-wise": [
+      100
+    ],
+    "layers": [
+      146
+    ],
+    "leverages": [
+      78
+    ],
+    "maintains": [
+      71
+    ],
+    "mechanism": [
+      54
+    ],
+    "mediums": [
+      81
+    ],
+    "mediums,": [
+      97
+    ],
+    "memory/storage": [
+      80
+    ],
+    "models": [
+      13
+    ],
+    "multi-turn": [
+      4,
+      21,
+      62,
+      219
+    ],
+    "need": [
+      28
+    ],
+    "new": [
+      52
+    ],
+    "of": [
+      10,
+      36,
+      58,
+      160
+    ],
+    "on": [
+      148
+    ],
+    "overflow,": [
+      169
+    ],
+    "overheads": [
+      94
+    ],
+    "overheads.": [
+      69
+    ],
+    "overlap": [
+      107
+    ],
+    "paper": [
+      48
+    ],
+    "place": [
+      140
+    ],
+    "placed": [
+      126
+    ],
+    "positional": [
+      182
+    ],
+    "pre-loading": [
+      101
+    ],
+    "prefilling": [
+      212
+    ],
+    "problem,": [
+      46
+    ],
+    "prompt": [
+      211
+    ],
+    "proposes": [
+      49
+    ],
+    "reduce": [
+      90
+    ],
+    "reduces": [
+      222
+    ],
+    "reducing": [
+      65
+    ],
+    "remain": [
+      177
+    ],
+    "repeatedly": [
+      30
+    ],
+    "repetitive": [
+      67
+    ],
+    "requests.": [
+      88
+    ],
+    "results": [
+      192
+    ],
+    "reuse": [
+      57
+    ],
+    "save": [
+      83
+    ],
+    "saved": [
+      162,
+      173
+    ],
+    "saving": [
+      104
+    ],
+    "scheduler-aware": [
+      133
+    ],
+    "scheduler.": [
+      155
+    ],
+    "schemes": [
+      105,
+      137
+    ],
+    "serving": [
+      18,
+      41
+    ],
+    "significantly": [
+      64,
+      196
+    ],
+    "slow": [
+      96
+    ],
+    "system": [
+      76
+    ],
+    "that": [
+      55,
+      77,
+      118,
+      194
+    ],
+    "the": [
+      27,
+      32,
+      45,
+      66,
+      108,
+      113,
+      119,
+      128,
+      141,
+      149,
+      152,
+      158,
+      161,
+      172,
+      181,
+      187,
+      198,
+      201,
+      210,
+      223
+    ],
+    "this": [
+      47
+    ],
+    "through": [
+      3
+    ],
+    "throughput": [
+      213
+    ],
+    "time": [
+      199
+    ],
+    "to": [
+      26,
+      29,
+      82,
+      106,
+      122,
+      138,
+      176,
+      200,
+      207,
+      216,
+      229
+    ],
+    "token": [
+      203
+    ],
+    "tokens,": [
+      38
+    ],
+    "truncating": [
+      186
+    ],
+    "up": [
+      206,
+      215,
+      228
+    ],
+    "valid": [
+      178
+    ],
+    "via": [
+      179
+    ],
+    "window": [
+      168
+    ],
+    "with": [
+      1,
+      112
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Bin Gao",
+        "id": "https://openalex.org/A5102310660",
+        "orcid": null
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Gao, Bin"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Zhuomin He",
+        "id": "https://openalex.org/A5108914540",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "He, Zhuomin"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Puru Sharma",
+        "id": "https://openalex.org/A5053518180",
+        "orcid": "https://orcid.org/0009-0000-5854-1086"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Sharma, Puru"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Qingxuan Kang",
+        "id": "https://openalex.org/A5087825345",
+        "orcid": "https://orcid.org/0009-0005-5272-0231"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Kang, Qingxuan"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Djordje Jevdjic",
+        "id": "https://openalex.org/A5025453962",
+        "orcid": "https://orcid.org/0000-0002-3341-9364"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Jevdjic, Djordje"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Junbo Deng",
+        "id": "https://openalex.org/A5101327547",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Deng, Junbo"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Xingkun Yang",
+        "id": "https://openalex.org/A5111160883",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Yang, Xingkun"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Zhou Yu",
+        "id": "https://openalex.org/A5102639668",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Yu, Zhou"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Pengfei Zuo",
+        "id": "https://openalex.org/A5094354028",
+        "orcid": null
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Zuo, Pengfei"
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2403.19708",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2403.19708",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": "https://arxiv.org/pdf/2403.19708",
+    "raw_source_name": "",
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 1,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Reuse",
+      "id": "https://openalex.org/C206588197",
+      "level": 2,
+      "score": 0.818962812423706,
+      "wikidata": "https://www.wikidata.org/wiki/Q846574"
+    },
+    {
+      "display_name": "Turn-taking",
+      "id": "https://openalex.org/C2776352735",
+      "level": 3,
+      "score": 0.5523387789726257,
+      "wikidata": "https://www.wikidata.org/wiki/Q2313343"
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.4678025543689728,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Turn (biochemistry)",
+      "id": "https://openalex.org/C85641259",
+      "level": 2,
+      "score": 0.4590967297554016,
+      "wikidata": "https://www.wikidata.org/wiki/Q290042"
+    },
+    {
+      "display_name": "Psychology",
+      "id": "https://openalex.org/C15744967",
+      "level": 0,
+      "score": 0.22258177399635315,
+      "wikidata": "https://www.wikidata.org/wiki/Q9418"
+    },
+    {
+      "display_name": "Communication",
+      "id": "https://openalex.org/C46312422",
+      "level": 1,
+      "score": 0.1648692488670349,
+      "wikidata": "https://www.wikidata.org/wiki/Q11024"
+    },
+    {
+      "display_name": "Engineering",
+      "id": "https://openalex.org/C127413603",
+      "level": 0,
+      "score": 0.1437908411026001,
+      "wikidata": "https://www.wikidata.org/wiki/Q11023"
+    },
+    {
+      "display_name": "Conversation",
+      "id": "https://openalex.org/C2777200299",
+      "level": 2,
+      "score": 0.12769606709480286,
+      "wikidata": "https://www.wikidata.org/wiki/Q52943"
+    },
+    {
+      "display_name": "Waste management",
+      "id": "https://openalex.org/C548081761",
+      "level": 1,
+      "score": 0.07416126132011414,
+      "wikidata": "https://www.wikidata.org/wiki/Q180388"
+    },
+    {
+      "display_name": "Chemistry",
+      "id": "https://openalex.org/C185592680",
+      "level": 0,
+      "score": 0.06527099013328552,
+      "wikidata": "https://www.wikidata.org/wiki/Q2329"
+    },
+    {
+      "display_name": "Biochemistry",
+      "id": "https://openalex.org/C55493867",
+      "level": 1,
+      "score": 0,
+      "wikidata": "https://www.wikidata.org/wiki/Q7094"
+    }
+  ],
+  "content_urls": {
+    "pdf": "https://content.openalex.org/works/W4393853379.pdf"
+  },
+  "corresponding_author_ids": [
+    "https://openalex.org/A5102310660"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [
+    {
+      "cited_by_count": 1,
+      "year": 2025
+    }
+  ],
+  "created_date": "2024-04-04T00:00:00",
+  "display_name": "Cost-Efficient Large Language Model Serving for Multi-turn Conversations with CachedAttention",
+  "doi": "https://doi.org/10.48550/arxiv.2403.19708",
+  "funders": [
+    {
+      "display_name": "National University of Singapore",
+      "id": "https://openalex.org/F4320320698",
+      "ror": "https://ror.org/01tgyzw49"
+    },
+    {
+      "display_name": "Fundação para a Ciência e a Tecnologia",
+      "id": "https://openalex.org/F4320334779",
+      "ror": "https://ror.org/00snfqn58"
+    }
+  ],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": true
+  },
+  "has_fulltext": true,
+  "id": "https://openalex.org/W4393853379",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2403.19708",
+    "openalex": "https://openalex.org/W4393853379"
+  },
+  "indexed_in": [
+    "arxiv",
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 9,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Reuse",
+      "id": "https://openalex.org/keywords/reuse",
+      "score": 0.818962812423706
+    },
+    {
+      "display_name": "Turn-taking",
+      "id": "https://openalex.org/keywords/turn-taking",
+      "score": 0.5523387789726257
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/keywords/computer-science",
+      "score": 0.4678025543689728
+    },
+    {
+      "display_name": "Turn (biochemistry)",
+      "id": "https://openalex.org/keywords/turn",
+      "score": 0.4590967297554016
+    },
+    {
+      "display_name": "Psychology",
+      "id": "https://openalex.org/keywords/psychology",
+      "score": 0.22258177399635315
+    },
+    {
+      "display_name": "Communication",
+      "id": "https://openalex.org/keywords/communication",
+      "score": 0.1648692488670349
+    },
+    {
+      "display_name": "Engineering",
+      "id": "https://openalex.org/keywords/engineering",
+      "score": 0.1437908411026001
+    },
+    {
+      "display_name": "Conversation",
+      "id": "https://openalex.org/keywords/conversation",
+      "score": 0.12769606709480286
+    },
+    {
+      "display_name": "Waste management",
+      "id": "https://openalex.org/keywords/waste-management",
+      "score": 0.07416126132011414
+    },
+    {
+      "display_name": "Chemistry",
+      "id": "https://openalex.org/keywords/chemistry",
+      "score": 0.06527099013328552
+    }
+  ],
+  "language": "en",
+  "locations": [
+    {
+      "id": "pmh:oai:arXiv.org:2403.19708",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "http://arxiv.org/abs/2403.19708",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": "https://arxiv.org/pdf/2403.19708",
+      "raw_source_name": "",
+      "raw_type": "text",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2403.19708",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2403.19708",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 2,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2403.19708"
+  },
+  "primary_location": {
+    "id": "pmh:oai:arXiv.org:2403.19708",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2403.19708",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": "https://arxiv.org/pdf/2403.19708",
+    "raw_source_name": "",
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Topic Modeling",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10028",
+    "score": 0.9976999759674072,
+    "subfield": {
+      "display_name": "Artificial Intelligence",
+      "id": "https://openalex.org/subfields/1702"
+    }
+  },
+  "publication_date": "2024-03-23",
+  "publication_year": 2024,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [
+    "https://openalex.org/W2900127165",
+    "https://openalex.org/W320957374",
+    "https://openalex.org/W2379107843",
+    "https://openalex.org/W3120641923",
+    "https://openalex.org/W2909654650",
+    "https://openalex.org/W3161619631",
+    "https://openalex.org/W4242512034",
+    "https://openalex.org/W3003178987",
+    "https://openalex.org/W4376475259",
+    "https://openalex.org/W2804368879"
+  ],
+  "sustainable_development_goals": [],
+  "title": "Cost-Efficient Large Language Model Serving for Multi-turn Conversations with CachedAttention",
+  "topics": [
+    {
+      "display_name": "Topic Modeling",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10028",
+      "score": 0.9976999759674072,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    },
+    {
+      "display_name": "Natural Language Processing Techniques",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10181",
+      "score": 0.9940999746322632,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    },
+    {
+      "display_name": "Advanced Graph Neural Networks",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T11273",
+      "score": 0.934499979019165,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-04-21T08:09:41.155169"
+}

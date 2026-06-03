@@ -1,0 +1,989 @@
+{
+  "abstract_inverted_index": {
+    "(600-7,194": [
+      100
+    ],
+    "(FWHT)": [
+      76
+    ],
+    "(SmolLM2-1.7B-Instruct": [
+      94
+    ],
+    "(q8_0)": [
+      59
+    ],
+    "+0.57%": [
+      146
+    ],
+    "--": [
+      28,
+      32,
+      71,
+      138,
+      142
+    ],
+    "-0.26%": [
+      172
+    ],
+    "0.45": [
+      136
+    ],
+    "0.928.": [
+      155
+    ],
+    "1,851": [
+      174
+    ],
+    "15": [
+      105,
+      121
+    ],
+    "19.8": [
+      133
+    ],
+    "2.91x": [
+      112
+    ],
+    "3-bit": [
+      80
+    ],
+    "4K-token": [
+      125
+    ],
+    "97.7%": [
+      140
+    ],
+    "BERTScore": [
+      152
+    ],
+    "Compression": [
+      51
+    ],
+    "DynamicCache": [
+      49
+    ],
+    "F1": [
+      153
+    ],
+    "Fast": [
+      73
+    ],
+    "GB": [
+      134,
+      137
+    ],
+    "HuggingFace": [
+      48
+    ],
+    "KV": [
+      16,
+      24,
+      129,
+      188
+    ],
+    "Keys": [
+      54
+    ],
+    "Llama-3-8B": [
+      119
+    ],
+    "Llama-3-8B-Instruct),": [
+      96
+    ],
+    "Lloyd-Max": [
+      81
+    ],
+    "MSE": [
+      70
+    ],
+    "N": [
+      43
+    ],
+    "N(0,1).": [
+      87
+    ],
+    "On": [
+      118
+    ],
+    "PPL": [
+      156
+    ],
+    "PolyKV": [
+      33,
+      108,
+      127
+    ],
+    "PolyKV,": [
+      2
+    ],
+    "Rather": [
+      19
+    ],
+    "To": [
+      177
+    ],
+    "Transform": [
+      75
+    ],
+    "TurboQuant": [
+      69
+    ],
+    "Values": [
+      65
+    ],
+    "Walsh-Hadamard": [
+      74
+    ],
+    "We": [
+      0,
+      88
+    ],
+    "a": [
+      3,
+      12,
+      22,
+      35,
+      72,
+      110,
+      124,
+      139,
+      150,
+      184
+    ],
+    "access.": [
+      194
+    ],
+    "achieves": [
+      109
+    ],
+    "across": [
+      90,
+      115
+    ],
+    "agent": [
+      27,
+      45,
+      162,
+      193
+    ],
+    "agents": [
+      10,
+      122
+    ],
+    "agents.": [
+      107
+    ],
+    "all": [
+      116
+    ],
+    "allocating": [
+      21
+    ],
+    "and": [
+      39,
+      95,
+      102,
+      149,
+      164
+    ],
+    "are": [
+      55,
+      66
+    ],
+    "as": [
+      166
+    ],
+    "asymmetric:": [
+      53
+    ],
+    "asymmetrically": [
+      14
+    ],
+    "at": [
+      57,
+      173
+    ],
+    "by": [
+      79
+    ],
+    "cache": [
+      17,
+      25,
+      37,
+      130
+    ],
+    "centroids": [
+      84
+    ],
+    "coherent": [
+      175
+    ],
+    "combines": [
+      183
+    ],
+    "compressed": [
+      15,
+      36,
+      67
+    ],
+    "compression": [
+      113
+    ],
+    "concurrent": [
+      8,
+      106,
+      192
+    ],
+    "configurations.": [
+      117
+    ],
+    "context": [
+      98,
+      167
+    ],
+    "context,": [
+      126
+    ],
+    "contexts": [
+      46
+    ],
+    "count": [
+      163
+    ],
+    "degradation": [
+      148
+    ],
+    "delta": [
+      157
+    ],
+    "does": [
+      158
+    ],
+    "evaluate": [
+      89
+    ],
+    "followed": [
+      78
+    ],
+    "from": [
+      132
+    ],
+    "grow": [
+      160
+    ],
+    "improves": [
+      165
+    ],
+    "in": [
+      5
+    ],
+    "increases,": [
+      169
+    ],
+    "independent": [
+      44
+    ],
+    "inference": [
+      9
+    ],
+    "injects": [
+      40
+    ],
+    "int8": [
+      58
+    ],
+    "into": [
+      42
+    ],
+    "inverting": [
+      170
+    ],
+    "is": [
+      52
+    ],
+    "it": [
+      41
+    ],
+    "knowledge,": [
+      179
+    ],
+    "length": [
+      168
+    ],
+    "lengths": [
+      99
+    ],
+    "lossy-compressed": [
+      187
+    ],
+    "maintaining": [
+      144
+    ],
+    "mean": [
+      151
+    ],
+    "memory": [
+      131
+    ],
+    "model": [
+      92
+    ],
+    "multi-reader": [
+      191
+    ],
+    "multiple": [
+      7
+    ],
+    "no": [
+      180
+    ],
+    "not": [
+      159
+    ],
+    "objects.": [
+      50
+    ],
+    "of": [
+      154
+    ],
+    "once": [
+      38
+    ],
+    "only": [
+      145
+    ],
+    "our": [
+      178
+    ],
+    "paradigm": [
+      31
+    ],
+    "per": [
+      26
+    ],
+    "perplexity": [
+      147
+    ],
+    "pool": [
+      189
+    ],
+    "pool.": [
+      18
+    ],
+    "present": [
+      1
+    ],
+    "preserve": [
+      61
+    ],
+    "prior": [
+      181
+    ],
+    "quantization": [
+      82
+    ],
+    "quantized": [
+      56
+    ],
+    "ratio": [
+      114
+    ],
+    "reduces": [
+      128
+    ],
+    "reduction": [
+      141
+    ],
+    "rotation": [
+      77
+    ],
+    "scales": [
+      93
+    ],
+    "separate": [
+      23
+    ],
+    "share": [
+      11
+    ],
+    "shared,": [
+      186
+    ],
+    "sharing": [
+      123
+    ],
+    "single": [
+      185
+    ],
+    "single,": [
+      13
+    ],
+    "softmax": [
+      62
+    ],
+    "stability,": [
+      63
+    ],
+    "stable": [
+      111
+    ],
+    "standard": [
+      30
+    ],
+    "system": [
+      4
+    ],
+    "than": [
+      20
+    ],
+    "the": [
+      29
+    ],
+    "three": [
+      97
+    ],
+    "to": [
+      60,
+      86,
+      104,
+      135,
+      171
+    ],
+    "tokens),": [
+      101
+    ],
+    "tokens.": [
+      176
+    ],
+    "tuned": [
+      85
+    ],
+    "two": [
+      91
+    ],
+    "up": [
+      103
+    ],
+    "using": [
+      68
+    ],
+    "via": [
+      47
+    ],
+    "which": [
+      6
+    ],
+    "while": [
+      64,
+      143
+    ],
+    "with": [
+      83,
+      120,
+      161,
+      190
+    ],
+    "work": [
+      182
+    ],
+    "writes": [
+      34
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Ishan Patel",
+        "id": "https://openalex.org/A5060243661",
+        "orcid": "https://orcid.org/0000-0001-5537-9386"
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Patel, Ishan",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Ishan Joshi",
+        "id": "https://openalex.org/A5046617350",
+        "orcid": null
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Joshi, Ishan",
+      "raw_orcid": null
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "doi:10.48550/arxiv.2604.24971",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "https://doi.org/10.48550/arxiv.2604.24971",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": null,
+    "raw_source_name": null,
+    "raw_type": "article",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": null
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 0,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/C115537543",
+      "level": 2,
+      "score": 0.8138999938964844,
+      "wikidata": "https://www.wikidata.org/wiki/Q165596"
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.7563999891281128,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Cache algorithms",
+      "id": "https://openalex.org/C38556500",
+      "level": 4,
+      "score": 0.5938000082969666,
+      "wikidata": "https://www.wikidata.org/wiki/Q13404475"
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/C2779343474",
+      "level": 2,
+      "score": 0.5051000118255615,
+      "wikidata": "https://www.wikidata.org/wiki/Q3109175"
+    },
+    {
+      "display_name": "CPU cache",
+      "id": "https://openalex.org/C189783530",
+      "level": 3,
+      "score": 0.5011000037193298,
+      "wikidata": "https://www.wikidata.org/wiki/Q352090"
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/C173608175",
+      "level": 1,
+      "score": 0.4887999892234802,
+      "wikidata": "https://www.wikidata.org/wiki/Q232661"
+    },
+    {
+      "display_name": "Softmax function",
+      "id": "https://openalex.org/C188441871",
+      "level": 3,
+      "score": 0.4731000065803528,
+      "wikidata": "https://www.wikidata.org/wiki/Q7554146"
+    },
+    {
+      "display_name": "Perplexity",
+      "id": "https://openalex.org/C100279451",
+      "level": 3,
+      "score": 0.4575999975204468,
+      "wikidata": "https://www.wikidata.org/wiki/Q372193"
+    },
+    {
+      "display_name": "Reduction (mathematics)",
+      "id": "https://openalex.org/C111335779",
+      "level": 2,
+      "score": 0.45419999957084656,
+      "wikidata": "https://www.wikidata.org/wiki/Q3454686"
+    },
+    {
+      "display_name": "Inference",
+      "id": "https://openalex.org/C2776214188",
+      "level": 2,
+      "score": 0.4537999927997589,
+      "wikidata": "https://www.wikidata.org/wiki/Q408386"
+    },
+    {
+      "display_name": "Cache invalidation",
+      "id": "https://openalex.org/C25536678",
+      "level": 5,
+      "score": 0.44780001044273376,
+      "wikidata": "https://www.wikidata.org/wiki/Q5015977"
+    },
+    {
+      "display_name": "Algorithm",
+      "id": "https://openalex.org/C11413529",
+      "level": 1,
+      "score": 0.39750000834465027,
+      "wikidata": "https://www.wikidata.org/wiki/Q8366"
+    },
+    {
+      "display_name": "Smart Cache",
+      "id": "https://openalex.org/C167713795",
+      "level": 5,
+      "score": 0.392300009727478,
+      "wikidata": "https://www.wikidata.org/wiki/Q352090"
+    },
+    {
+      "display_name": "Hash function",
+      "id": "https://openalex.org/C99138194",
+      "level": 2,
+      "score": 0.36230000853538513,
+      "wikidata": "https://www.wikidata.org/wiki/Q183427"
+    },
+    {
+      "display_name": "Quantization (signal processing)",
+      "id": "https://openalex.org/C28855332",
+      "level": 2,
+      "score": 0.362199991941452,
+      "wikidata": "https://www.wikidata.org/wiki/Q198099"
+    },
+    {
+      "display_name": "Compression (physics)",
+      "id": "https://openalex.org/C180016635",
+      "level": 2,
+      "score": 0.35839998722076416,
+      "wikidata": "https://www.wikidata.org/wiki/Q2712821"
+    },
+    {
+      "display_name": "Cache coloring",
+      "id": "https://openalex.org/C201148951",
+      "level": 4,
+      "score": 0.3488999903202057,
+      "wikidata": "https://www.wikidata.org/wiki/Q5015976"
+    },
+    {
+      "display_name": "Compression ratio",
+      "id": "https://openalex.org/C25797200",
+      "level": 3,
+      "score": 0.3481999933719635,
+      "wikidata": "https://www.wikidata.org/wiki/Q828137"
+    },
+    {
+      "display_name": "Centroid",
+      "id": "https://openalex.org/C146599234",
+      "level": 2,
+      "score": 0.3458000123500824,
+      "wikidata": "https://www.wikidata.org/wiki/Q511093"
+    },
+    {
+      "display_name": "Cache-oblivious algorithm",
+      "id": "https://openalex.org/C59687516",
+      "level": 5,
+      "score": 0.3418999910354614,
+      "wikidata": "https://www.wikidata.org/wiki/Q5015938"
+    },
+    {
+      "display_name": "Cache pollution",
+      "id": "https://openalex.org/C113166858",
+      "level": 5,
+      "score": 0.33379998803138733,
+      "wikidata": "https://www.wikidata.org/wiki/Q5015981"
+    },
+    {
+      "display_name": "Coding (social sciences)",
+      "id": "https://openalex.org/C179518139",
+      "level": 2,
+      "score": 0.30309998989105225,
+      "wikidata": "https://www.wikidata.org/wiki/Q5140297"
+    },
+    {
+      "display_name": "Context model",
+      "id": "https://openalex.org/C183322885",
+      "level": 3,
+      "score": 0.2897999882698059,
+      "wikidata": "https://www.wikidata.org/wiki/Q17007702"
+    },
+    {
+      "display_name": "Probabilistic logic",
+      "id": "https://openalex.org/C49937458",
+      "level": 2,
+      "score": 0.27639999985694885,
+      "wikidata": "https://www.wikidata.org/wiki/Q2599292"
+    },
+    {
+      "display_name": "Context switch",
+      "id": "https://openalex.org/C53833338",
+      "level": 2,
+      "score": 0.26649999618530273,
+      "wikidata": "https://www.wikidata.org/wiki/Q1061424"
+    },
+    {
+      "display_name": "Data compression",
+      "id": "https://openalex.org/C78548338",
+      "level": 2,
+      "score": 0.2639999985694885,
+      "wikidata": "https://www.wikidata.org/wiki/Q2493"
+    },
+    {
+      "display_name": "Cache coherence",
+      "id": "https://openalex.org/C141917322",
+      "level": 5,
+      "score": 0.262800008058548,
+      "wikidata": "https://www.wikidata.org/wiki/Q1025017"
+    },
+    {
+      "display_name": "Rotation (mathematics)",
+      "id": "https://openalex.org/C74050887",
+      "level": 2,
+      "score": 0.25270000100135803,
+      "wikidata": "https://www.wikidata.org/wiki/Q848368"
+    }
+  ],
+  "content_urls": null,
+  "corresponding_author_ids": [
+    "https://openalex.org/A5060243661"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [],
+  "created_date": "2026-04-30T00:00:00",
+  "display_name": "PolyKV: A Shared Asymmetrically-Compressed KV Cache Pool for Multi-Agent LLM Inference",
+  "doi": "https://doi.org/10.48550/arxiv.2604.24971",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": false
+  },
+  "has_fulltext": false,
+  "id": "https://openalex.org/W7158004876",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2604.24971",
+    "openalex": "https://openalex.org/W7158004876"
+  },
+  "indexed_in": [
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 2,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/keywords/cache",
+      "score": 0.8138999938964844
+    },
+    {
+      "display_name": "Cache algorithms",
+      "id": "https://openalex.org/keywords/cache-algorithms",
+      "score": 0.5938000082969666
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/keywords/context",
+      "score": 0.5051000118255615
+    },
+    {
+      "display_name": "CPU cache",
+      "id": "https://openalex.org/keywords/cpu-cache",
+      "score": 0.5011000037193298
+    },
+    {
+      "display_name": "Softmax function",
+      "id": "https://openalex.org/keywords/softmax-function",
+      "score": 0.4731000065803528
+    },
+    {
+      "display_name": "Perplexity",
+      "id": "https://openalex.org/keywords/perplexity",
+      "score": 0.4575999975204468
+    },
+    {
+      "display_name": "Reduction (mathematics)",
+      "id": "https://openalex.org/keywords/reduction",
+      "score": 0.45419999957084656
+    },
+    {
+      "display_name": "Inference",
+      "id": "https://openalex.org/keywords/inference",
+      "score": 0.4537999927997589
+    },
+    {
+      "display_name": "Cache invalidation",
+      "id": "https://openalex.org/keywords/cache-invalidation",
+      "score": 0.44780001044273376
+    }
+  ],
+  "language": null,
+  "locations": [
+    {
+      "id": "doi:10.48550/arxiv.2604.24971",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2604.24971",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 1,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://doi.org/10.48550/arxiv.2604.24971"
+  },
+  "primary_location": {
+    "id": "doi:10.48550/arxiv.2604.24971",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "https://doi.org/10.48550/arxiv.2604.24971",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": null,
+    "raw_source_name": null,
+    "raw_type": "article",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": null
+  },
+  "primary_topic": {
+    "display_name": "Parallel Computing and Optimization Techniques",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10054",
+    "score": 0.8801000118255615,
+    "subfield": {
+      "display_name": "Hardware and Architecture",
+      "id": "https://openalex.org/subfields/1708"
+    }
+  },
+  "publication_date": "2026-04-27",
+  "publication_year": 2026,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [],
+  "sustainable_development_goals": [],
+  "title": "PolyKV: A Shared Asymmetrically-Compressed KV Cache Pool for Multi-Agent LLM Inference",
+  "topics": [
+    {
+      "display_name": "Parallel Computing and Optimization Techniques",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10054",
+      "score": 0.8801000118255615,
+      "subfield": {
+        "display_name": "Hardware and Architecture",
+        "id": "https://openalex.org/subfields/1708"
+      }
+    },
+    {
+      "display_name": "Advanced Data Storage Technologies",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T11181",
+      "score": 0.015300000086426735,
+      "subfield": {
+        "display_name": "Computer Networks and Communications",
+        "id": "https://openalex.org/subfields/1705"
+      }
+    },
+    {
+      "display_name": "Big Data and Digital Economy",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T14347",
+      "score": 0.010900000110268593,
+      "subfield": {
+        "display_name": "Information Systems",
+        "id": "https://openalex.org/subfields/1710"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-04-30T06:11:10.768123"
+}

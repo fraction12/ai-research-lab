@@ -1,0 +1,1145 @@
+{
+  "abstract_inverted_index": {
+    "(KV)": [
+      34
+    ],
+    "(LLM)": [
+      3
+    ],
+    "(LRU)": [
+      60
+    ],
+    "1.83$\\times$": [
+      204
+    ],
+    "2.19$\\times$": [
+      215
+    ],
+    "Agent": [
+      111
+    ],
+    "CPU": [
+      173
+    ],
+    "Compared": [
+      193
+    ],
+    "GPU": [
+      175
+    ],
+    "Graph": [
+      113
+    ],
+    "However,": [
+      48
+    ],
+    "KV": [
+      53,
+      72,
+      95,
+      138,
+      164
+    ],
+    "KVFlow": [
+      103,
+      142,
+      159,
+      200
+    ],
+    "KVFlow,": [
+      92
+    ],
+    "LLM": [
+      26
+    ],
+    "Large": [
+      0
+    ],
+    "Least": [
+      57
+    ],
+    "Moreover,": [
+      158
+    ],
+    "Recently": [
+      58
+    ],
+    "SGLang": [
+      195
+    ],
+    "Step": [
+      112
+    ],
+    "These": [
+      129
+    ],
+    "This": [
+      78
+    ],
+    "To": [
+      21
+    ],
+    "Used": [
+      59
+    ],
+    "We": [
+      90
+    ],
+    "a": [
+      9,
+      56,
+      93,
+      118,
+      132,
+      161
+    ],
+    "abstracts": [
+      104
+    ],
+    "achieves": [
+      201
+    ],
+    "across": [
+      45
+    ],
+    "activation.": [
+      128
+    ],
+    "agent": [
+      67,
+      106,
+      117
+    ],
+    "agentic": [
+      5,
+      101
+    ],
+    "agents": [
+      16,
+      180
+    ],
+    "agents'": [
+      38
+    ],
+    "allowing": [
+      141
+    ],
+    "an": [
+      110
+    ],
+    "and": [
+      69,
+      84,
+      114,
+      150,
+      212
+    ],
+    "anticipate": [
+      65
+    ],
+    "as": [
+      109
+    ],
+    "assigns": [
+      115
+    ],
+    "at": [
+      136
+    ],
+    "avoiding": [
+      42,
+      187
+    ],
+    "background": [
+      177
+    ],
+    "based": [
+      4
+    ],
+    "be": [
+      148
+    ],
+    "become": [
+      8
+    ],
+    "before": [
+      75
+    ],
+    "cache": [
+      82,
+      96,
+      188
+    ],
+    "cache,": [
+      199
+    ],
+    "caches": [
+      54,
+      73
+    ],
+    "caches.": [
+      157
+    ],
+    "caching": [
+      30
+    ],
+    "complex": [
+      19
+    ],
+    "computation": [
+      44
+    ],
+    "concurrent": [
+      221
+    ],
+    "coordinating": [
+      13
+    ],
+    "corresponding": [
+      36
+    ],
+    "current": [
+      49
+    ],
+    "discards": [
+      71
+    ],
+    "during": [
+      191
+    ],
+    "each": [
+      116
+    ],
+    "efficiency,": [
+      24
+    ],
+    "efficiently": [
+      151
+    ],
+    "employ": [
+      28
+    ],
+    "entries": [
+      145
+    ],
+    "estimates": [
+      122
+    ],
+    "evict": [
+      52
+    ],
+    "eviction": [
+      134
+    ],
+    "execution": [
+      107
+    ],
+    "existing": [
+      25
+    ],
+    "fails": [
+      63
+    ],
+    "fine-grained": [
+      133
+    ],
+    "fixed": [
+      39
+    ],
+    "for": [
+      12,
+      100,
+      179,
+      206,
+      217
+    ],
+    "framework": [
+      98
+    ],
+    "frequent": [
+      81
+    ],
+    "from": [
+      172
+    ],
+    "fully": [
+      162
+    ],
+    "future": [
+      66,
+      127
+    ],
+    "generation.": [
+      192
+    ],
+    "guide": [
+      131
+    ],
+    "have": [
+      7
+    ],
+    "hierarchical": [
+      197
+    ],
+    "improve": [
+      22
+    ],
+    "in": [
+      155,
+      176,
+      182
+    ],
+    "introduces": [
+      160
+    ],
+    "invocations.": [
+      47
+    ],
+    "its": [
+      123
+    ],
+    "key-value": [
+      33
+    ],
+    "language": [
+      1
+    ],
+    "large": [
+      210
+    ],
+    "leads": [
+      79
+    ],
+    "level,": [
+      140
+    ],
+    "likely": [
+      146
+    ],
+    "loads": [
+      169
+    ],
+    "manage": [
+      152
+    ],
+    "management": [
+      97
+    ],
+    "many": [
+      220
+    ],
+    "mechanism,": [
+      166
+    ],
+    "miss": [
+      189
+    ],
+    "misses": [
+      83
+    ],
+    "model": [
+      2
+    ],
+    "multiple": [
+      14
+    ],
+    "next": [
+      184
+    ],
+    "node": [
+      139
+    ],
+    "often": [
+      70
+    ],
+    "or": [
+      87
+    ],
+    "overhead.": [
+      89
+    ],
+    "overlapped": [
+      163
+    ],
+    "paradigm": [
+      11
+    ],
+    "policy": [
+      135
+    ],
+    "policy,": [
+      61
+    ],
+    "popular": [
+      10
+    ],
+    "prefetching": [
+      165
+    ],
+    "prefix": [
+      29
+    ],
+    "prefixes": [
+      154
+    ],
+    "present": [
+      91
+    ],
+    "preserve": [
+      144
+    ],
+    "proactively": [
+      168
+    ],
+    "prompts,": [
+      40,
+      211
+    ],
+    "proximity": [
+      125
+    ],
+    "radix": [
+      198
+    ],
+    "recomputation": [
+      86
+    ],
+    "redundant": [
+      43
+    ],
+    "repeated": [
+      46
+    ],
+    "required": [
+      170
+    ],
+    "reuse": [
+      32
+    ],
+    "reuse.": [
+      77
+    ],
+    "reused": [
+      149
+    ],
+    "scenarios": [
+      218
+    ],
+    "schedule": [
+      108
+    ],
+    "scheduled": [
+      181
+    ],
+    "serving": [
+      23
+    ],
+    "shared": [
+      153
+    ],
+    "shortly": [
+      74
+    ],
+    "single": [
+      207
+    ],
+    "solve": [
+      18
+    ],
+    "specialized": [
+      15
+    ],
+    "speedup": [
+      205,
+      216
+    ],
+    "stalls": [
+      190
+    ],
+    "step,": [
+      185
+    ],
+    "steps-to-execution": [
+      119
+    ],
+    "substantial": [
+      85
+    ],
+    "swapping": [
+      88
+    ],
+    "systems": [
+      27,
+      50
+    ],
+    "tailored": [
+      99
+    ],
+    "tasks.": [
+      20
+    ],
+    "temporal": [
+      124
+    ],
+    "tensors": [
+      35,
+      171
+    ],
+    "that": [
+      121
+    ],
+    "the": [
+      105,
+      137,
+      183
+    ],
+    "their": [
+      76
+    ],
+    "thereby": [
+      41,
+      186
+    ],
+    "threads": [
+      178
+    ],
+    "to": [
+      17,
+      31,
+      37,
+      64,
+      80,
+      126,
+      143,
+      147,
+      174,
+      194,
+      203,
+      214
+    ],
+    "tree-structured": [
+      156
+    ],
+    "typically": [
+      51
+    ],
+    "up": [
+      202,
+      213
+    ],
+    "usage": [
+      68
+    ],
+    "using": [
+      55
+    ],
+    "value": [
+      120
+    ],
+    "values": [
+      130
+    ],
+    "which": [
+      62,
+      167
+    ],
+    "with": [
+      196,
+      209,
+      219
+    ],
+    "workflow-aware": [
+      94
+    ],
+    "workflows": [
+      6,
+      208
+    ],
+    "workflows.": [
+      222
+    ],
+    "workloads.": [
+      102
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Pan, Zaifeng",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Pan, Zaifeng"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Patel, Ajjkumar",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Patel, Ajjkumar"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Zhengyong Hu",
+        "id": "https://openalex.org/A5000004912",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Hu, Zhengding"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yipeng Shen",
+        "id": "https://openalex.org/A5054587935",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Shen, Yipeng"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yue Guan",
+        "id": "https://openalex.org/A5091217469",
+        "orcid": "https://orcid.org/0009-0005-7433-2627"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Guan, Yue"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Wan‐Lu Li",
+        "id": "https://openalex.org/A5020721427",
+        "orcid": "https://orcid.org/0000-0003-0098-0670"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Li, Wan-Lu"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Qin, Lianhui",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Qin, Lianhui"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yida Wang",
+        "id": "https://openalex.org/A5115003466",
+        "orcid": "https://orcid.org/0009-0002-8404-2082"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Wang, Yida"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Ding, Yufei",
+        "id": null,
+        "orcid": null
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Ding, Yufei"
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2507.07400",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2507.07400",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2507.07400",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "ArXiv.org",
+      "host_organization": null,
+      "host_organization_lineage": [],
+      "host_organization_lineage_names": [],
+      "host_organization_name": null,
+      "id": "https://openalex.org/S4393918464",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": [
+        "2331-8422"
+      ],
+      "issn_l": "2331-8422",
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 0,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.8928999900817871,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Speedup",
+      "id": "https://openalex.org/C68339613",
+      "level": 2,
+      "score": 0.7757999897003174,
+      "wikidata": "https://www.wikidata.org/wiki/Q1549489"
+    },
+    {
+      "display_name": "Workflow",
+      "id": "https://openalex.org/C177212765",
+      "level": 2,
+      "score": 0.6808000206947327,
+      "wikidata": "https://www.wikidata.org/wiki/Q627335"
+    },
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/C115537543",
+      "level": 2,
+      "score": 0.6747999787330627,
+      "wikidata": "https://www.wikidata.org/wiki/Q165596"
+    },
+    {
+      "display_name": "Distributed computing",
+      "id": "https://openalex.org/C120314980",
+      "level": 1,
+      "score": 0.5698999762535095,
+      "wikidata": "https://www.wikidata.org/wiki/Q180634"
+    },
+    {
+      "display_name": "Prefix",
+      "id": "https://openalex.org/C141603448",
+      "level": 2,
+      "score": 0.5529999732971191,
+      "wikidata": "https://www.wikidata.org/wiki/Q134830"
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/C173608175",
+      "level": 1,
+      "score": 0.532800018787384,
+      "wikidata": "https://www.wikidata.org/wiki/Q232661"
+    },
+    {
+      "display_name": "Reuse",
+      "id": "https://openalex.org/C206588197",
+      "level": 2,
+      "score": 0.524399995803833,
+      "wikidata": "https://www.wikidata.org/wiki/Q846574"
+    },
+    {
+      "display_name": "Schedule",
+      "id": "https://openalex.org/C68387754",
+      "level": 2,
+      "score": 0.41370001435279846,
+      "wikidata": "https://www.wikidata.org/wiki/Q7271585"
+    },
+    {
+      "display_name": "Trie",
+      "id": "https://openalex.org/C190290938",
+      "level": 3,
+      "score": 0.3955000042915344,
+      "wikidata": "https://www.wikidata.org/wiki/Q387015"
+    },
+    {
+      "display_name": "Protocol (science)",
+      "id": "https://openalex.org/C2780385302",
+      "level": 3,
+      "score": 0.364300012588501,
+      "wikidata": "https://www.wikidata.org/wiki/Q367158"
+    },
+    {
+      "display_name": "Computation",
+      "id": "https://openalex.org/C45374587",
+      "level": 2,
+      "score": 0.3564000129699707,
+      "wikidata": "https://www.wikidata.org/wiki/Q12525525"
+    },
+    {
+      "display_name": "Node (physics)",
+      "id": "https://openalex.org/C62611344",
+      "level": 2,
+      "score": 0.35190001130104065,
+      "wikidata": "https://www.wikidata.org/wiki/Q1062658"
+    },
+    {
+      "display_name": "Cache algorithms",
+      "id": "https://openalex.org/C38556500",
+      "level": 4,
+      "score": 0.34310001134872437,
+      "wikidata": "https://www.wikidata.org/wiki/Q13404475"
+    },
+    {
+      "display_name": "Scheduling (production processes)",
+      "id": "https://openalex.org/C206729178",
+      "level": 2,
+      "score": 0.337799996137619,
+      "wikidata": "https://www.wikidata.org/wiki/Q2271896"
+    },
+    {
+      "display_name": "Computer network",
+      "id": "https://openalex.org/C31258907",
+      "level": 1,
+      "score": 0.32339999079704285,
+      "wikidata": "https://www.wikidata.org/wiki/Q1301371"
+    },
+    {
+      "display_name": "CPU cache",
+      "id": "https://openalex.org/C189783530",
+      "level": 3,
+      "score": 0.3100000023841858,
+      "wikidata": "https://www.wikidata.org/wiki/Q352090"
+    },
+    {
+      "display_name": "Server",
+      "id": "https://openalex.org/C93996380",
+      "level": 2,
+      "score": 0.2946999967098236,
+      "wikidata": "https://www.wikidata.org/wiki/Q44127"
+    },
+    {
+      "display_name": "Commit",
+      "id": "https://openalex.org/C153180980",
+      "level": 2,
+      "score": 0.2838999927043915,
+      "wikidata": "https://www.wikidata.org/wiki/Q19776675"
+    },
+    {
+      "display_name": "Real-time computing",
+      "id": "https://openalex.org/C79403827",
+      "level": 1,
+      "score": 0.2831999957561493,
+      "wikidata": "https://www.wikidata.org/wiki/Q3988"
+    },
+    {
+      "display_name": "Cache coherence",
+      "id": "https://openalex.org/C141917322",
+      "level": 5,
+      "score": 0.2745000123977661,
+      "wikidata": "https://www.wikidata.org/wiki/Q1025017"
+    },
+    {
+      "display_name": "Locality",
+      "id": "https://openalex.org/C2779808786",
+      "level": 2,
+      "score": 0.27149999141693115,
+      "wikidata": "https://www.wikidata.org/wiki/Q6664603"
+    },
+    {
+      "display_name": "Graph",
+      "id": "https://openalex.org/C132525143",
+      "level": 2,
+      "score": 0.25290000438690186,
+      "wikidata": "https://www.wikidata.org/wiki/Q141488"
+    }
+  ],
+  "content_urls": null,
+  "corresponding_author_ids": [],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [],
+  "created_date": "2025-10-10T00:00:00",
+  "display_name": "KVFlow: Efficient Prefix Caching for Accelerating LLM-Based Multi-Agent Workflows",
+  "doi": "https://doi.org/10.48550/arxiv.2507.07400",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": false
+  },
+  "has_fulltext": false,
+  "id": "https://openalex.org/W4416284532",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2507.07400",
+    "openalex": "https://openalex.org/W4416284532"
+  },
+  "indexed_in": [
+    "arxiv",
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 9,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Speedup",
+      "id": "https://openalex.org/keywords/speedup",
+      "score": 0.7757999897003174
+    },
+    {
+      "display_name": "Workflow",
+      "id": "https://openalex.org/keywords/workflow",
+      "score": 0.6808000206947327
+    },
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/keywords/cache",
+      "score": 0.6747999787330627
+    },
+    {
+      "display_name": "Prefix",
+      "id": "https://openalex.org/keywords/prefix",
+      "score": 0.5529999732971191
+    },
+    {
+      "display_name": "Reuse",
+      "id": "https://openalex.org/keywords/reuse",
+      "score": 0.524399995803833
+    },
+    {
+      "display_name": "Schedule",
+      "id": "https://openalex.org/keywords/schedule",
+      "score": 0.41370001435279846
+    },
+    {
+      "display_name": "Trie",
+      "id": "https://openalex.org/keywords/trie",
+      "score": 0.3955000042915344
+    },
+    {
+      "display_name": "Protocol (science)",
+      "id": "https://openalex.org/keywords/protocol",
+      "score": 0.364300012588501
+    }
+  ],
+  "language": "en",
+  "locations": [
+    {
+      "id": "pmh:oai:arXiv.org:2507.07400",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "http://arxiv.org/abs/2507.07400",
+      "license": null,
+      "license_id": null,
+      "pdf_url": "https://arxiv.org/pdf/2507.07400",
+      "raw_source_name": null,
+      "raw_type": "text",
+      "source": {
+        "display_name": "ArXiv.org",
+        "host_organization": null,
+        "host_organization_lineage": [],
+        "host_organization_lineage_names": [],
+        "host_organization_name": null,
+        "id": "https://openalex.org/S4393918464",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": [
+          "2331-8422"
+        ],
+        "issn_l": "2331-8422",
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2507.07400",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2507.07400",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 2,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2507.07400"
+  },
+  "primary_location": {
+    "id": "pmh:oai:arXiv.org:2507.07400",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2507.07400",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2507.07400",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "ArXiv.org",
+      "host_organization": null,
+      "host_organization_lineage": [],
+      "host_organization_lineage_names": [],
+      "host_organization_name": null,
+      "id": "https://openalex.org/S4393918464",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": [
+        "2331-8422"
+      ],
+      "issn_l": "2331-8422",
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Big Data and Digital Economy",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T14347",
+    "score": 0.10729999840259552,
+    "subfield": {
+      "display_name": "Information Systems",
+      "id": "https://openalex.org/subfields/1710"
+    }
+  },
+  "publication_date": "2025-07-10",
+  "publication_year": 2025,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [],
+  "sustainable_development_goals": [],
+  "title": "KVFlow: Efficient Prefix Caching for Accelerating LLM-Based Multi-Agent Workflows",
+  "topics": [
+    {
+      "display_name": "Big Data and Digital Economy",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T14347",
+      "score": 0.10729999840259552,
+      "subfield": {
+        "display_name": "Information Systems",
+        "id": "https://openalex.org/subfields/1710"
+      }
+    },
+    {
+      "display_name": "Scientific Computing and Data Management",
+      "domain": {
+        "display_name": "Social Sciences",
+        "id": "https://openalex.org/domains/2"
+      },
+      "field": {
+        "display_name": "Decision Sciences",
+        "id": "https://openalex.org/fields/18"
+      },
+      "id": "https://openalex.org/T11986",
+      "score": 0.10419999808073044,
+      "subfield": {
+        "display_name": "Information Systems and Management",
+        "id": "https://openalex.org/subfields/1802"
+      }
+    },
+    {
+      "display_name": "Multi-Agent Systems and Negotiation",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10456",
+      "score": 0.07750000059604645,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-04-21T08:09:41.155169"
+}

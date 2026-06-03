@@ -1,0 +1,840 @@
+{
+  "abstract_inverted_index": {
+    "(CDNs),": [
+      162
+    ],
+    "(KDN),": [
+      126
+    ],
+    "(LLMs)": [
+      7
+    ],
+    "(i)": [
+      40
+    ],
+    "(i.e.,": [
+      47,
+      60
+    ],
+    "(ii)": [
+      49
+    ],
+    "(iii)": [
+      64
+    ],
+    "Akamai,": [
+      165
+    ],
+    "As": [
+      0
+    ],
+    "Delivery": [
+      124
+    ],
+    "Internet": [
+      171
+    ],
+    "KDN": [
+      197
+    ],
+    "KDNs": [
+      178
+    ],
+    "KV": [
+      67,
+      89,
+      143
+    ],
+    "Knowledge": [
+      123
+    ],
+    "LLM": [
+      20,
+      32,
+      74,
+      108,
+      132,
+      146,
+      186
+    ],
+    "LLM's": [
+      45,
+      57
+    ],
+    "Network": [
+      125
+    ],
+    "This": [
+      77
+    ],
+    "Three": [
+      36
+    ],
+    "Thus,": [
+      22
+    ],
+    "To": [
+      116
+    ],
+    "We": [
+      154,
+      193
+    ],
+    "a": [
+      54,
+      122,
+      127,
+      196
+    ],
+    "across": [
+      145
+    ],
+    "although": [
+      81
+    ],
+    "and": [
+      25,
+      83,
+      105,
+      113,
+      140,
+      148,
+      151
+    ],
+    "applications": [
+      187
+    ],
+    "are": [
+      86
+    ],
+    "argues": [
+      79
+    ],
+    "as": [
+      53,
+      91,
+      164
+    ],
+    "at": [
+      199
+    ],
+    "be": [
+      180
+    ],
+    "believe": [
+      155
+    ],
+    "benefits,": [
+      119
+    ],
+    "cache": [
+      144
+    ],
+    "caches": [
+      68,
+      90
+    ],
+    "component": [
+      130
+    ],
+    "composition": [
+      141
+    ],
+    "compute": [
+      150
+    ],
+    "content": [
+      159
+    ],
+    "cost": [
+      112
+    ],
+    "could": [
+      96
+    ],
+    "critical": [
+      181
+    ],
+    "critical.": [
+      35
+    ],
+    "data": [
+      176
+    ],
+    "delivery": [
+      160
+    ],
+    "delivery,": [
+      177
+    ],
+    "delivery.": [
+      192
+    ],
+    "does": [
+      11
+    ],
+    "during": [
+      75
+    ],
+    "dynamically": [
+      135
+    ],
+    "ecosystem": [
+      172
+    ],
+    "efficient": [
+      26,
+      107,
+      175,
+      190
+    ],
+    "embedding": [
+      41
+    ],
+    "enable": [
+      98
+    ],
+    "enabled": [
+      166
+    ],
+    "enabling": [
+      23
+    ],
+    "engines": [
+      147
+    ],
+    "envision": [
+      121
+    ],
+    "exist:": [
+      39
+    ],
+    "expands": [
+      8
+    ],
+    "fast": [
+      114
+    ],
+    "fine-tuning": [
+      82
+    ],
+    "fine-tuning),": [
+      48
+    ],
+    "flexible": [
+      24
+    ],
+    "have": [
+      194
+    ],
+    "high-level": [
+      37
+    ],
+    "https://github.com/LMCache/LMCache.": [
+      200
+    ],
+    "in": [
+      31,
+      44,
+      131
+    ],
+    "in-context": [
+      61,
+      84
+    ],
+    "including": [
+      50
+    ],
+    "inference": [
+      33
+    ],
+    "injecting": [
+      65
+    ],
+    "injection": [
+      27,
+      104
+    ],
+    "input": [
+      59
+    ],
+    "is": [
+      34
+    ],
+    "just": [
+      157
+    ],
+    "knowledge": [
+      15,
+      30,
+      43,
+      52,
+      72,
+      95,
+      103,
+      191
+    ],
+    "language": [
+      5
+    ],
+    "large": [
+      4
+    ],
+    "learning": [
+      85
+    ],
+    "learning),": [
+      62
+    ],
+    "like": [
+      158
+    ],
+    "low": [
+      111
+    ],
+    "management": [
+      101
+    ],
+    "medium": [
+      93
+    ],
+    "models": [
+      6
+    ],
+    "modular": [
+      100
+    ],
+    "more": [
+      99,
+      106
+    ],
+    "needed": [
+      16
+    ],
+    "networks": [
+      161
+    ],
+    "new": [
+      29,
+      71,
+      128
+    ],
+    "of": [
+      3,
+      14,
+      28,
+      56,
+      69,
+      94,
+      102,
+      142,
+      169,
+      185
+    ],
+    "open-sourced": [
+      195
+    ],
+    "optimizes": [
+      136
+    ],
+    "options": [
+      38
+    ],
+    "or": [
+      63
+    ],
+    "other": [
+      149
+    ],
+    "paper": [
+      78
+    ],
+    "part": [
+      55
+    ],
+    "popular,": [
+      87
+    ],
+    "prefill.": [
+      76
+    ],
+    "prototype": [
+      198
+    ],
+    "queries.": [
+      21
+    ],
+    "range": [
+      13
+    ],
+    "rapidly,": [
+      9
+    ],
+    "realize": [
+      117
+    ],
+    "resources.": [
+      153
+    ],
+    "response.": [
+      115
+    ],
+    "services": [
+      133
+    ],
+    "serving": [
+      109
+    ],
+    "simultaneously": [
+      97
+    ],
+    "so": [
+      10
+    ],
+    "storage": [
+      152
+    ],
+    "storage,": [
+      138
+    ],
+    "success": [
+      168,
+      184
+    ],
+    "such": [
+      163
+    ],
+    "supplement": [
+      18
+    ],
+    "system": [
+      129
+    ],
+    "text": [
+      58
+    ],
+    "that": [
+      134
+    ],
+    "that,": [
+      80,
+      156
+    ],
+    "the": [
+      1,
+      12,
+      42,
+      51,
+      66,
+      70,
+      92,
+      137,
+      167,
+      170,
+      183
+    ],
+    "their": [
+      174,
+      189
+    ],
+    "these": [
+      118
+    ],
+    "through": [
+      173,
+      188
+    ],
+    "to": [
+      17,
+      73,
+      182
+    ],
+    "transfer,": [
+      139
+    ],
+    "use": [
+      2
+    ],
+    "using": [
+      88
+    ],
+    "various": [
+      19
+    ],
+    "we": [
+      120
+    ],
+    "weights": [
+      46
+    ],
+    "will": [
+      179
+    ],
+    "with": [
+      110
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yihua Cheng",
+        "id": "https://openalex.org/A5004850046",
+        "orcid": "https://orcid.org/0009-0006-3924-6886"
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Cheng, Yihua"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Kuntai Du",
+        "id": "https://openalex.org/A5036272233",
+        "orcid": "https://orcid.org/0000-0002-3964-4079"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Du, Kuntai"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Jiayi Yao",
+        "id": "https://openalex.org/A5033013487",
+        "orcid": "https://orcid.org/0000-0002-9594-6928"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Yao, Jiayi"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Junchen Jiang",
+        "id": "https://openalex.org/A5103258769",
+        "orcid": "https://orcid.org/0000-0002-6877-1683"
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Jiang, Junchen"
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2409.13761",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2409.13761",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2409.13761",
+    "raw_source_name": "",
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 1,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.6138958930969238,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Content delivery",
+      "id": "https://openalex.org/C2986847828",
+      "level": 2,
+      "score": 0.6083927750587463,
+      "wikidata": "https://www.wikidata.org/wiki/Q269415"
+    },
+    {
+      "display_name": "Content (measure theory)",
+      "id": "https://openalex.org/C2778152352",
+      "level": 2,
+      "score": 0.5074471831321716,
+      "wikidata": "https://www.wikidata.org/wiki/Q5165061"
+    },
+    {
+      "display_name": "Computer network",
+      "id": "https://openalex.org/C31258907",
+      "level": 1,
+      "score": 0.180442214012146,
+      "wikidata": "https://www.wikidata.org/wiki/Q1301371"
+    },
+    {
+      "display_name": "Mathematics",
+      "id": "https://openalex.org/C33923547",
+      "level": 0,
+      "score": 0.07924020290374756,
+      "wikidata": "https://www.wikidata.org/wiki/Q395"
+    },
+    {
+      "display_name": "Mathematical analysis",
+      "id": "https://openalex.org/C134306372",
+      "level": 1,
+      "score": 0,
+      "wikidata": "https://www.wikidata.org/wiki/Q7754"
+    }
+  ],
+  "content_urls": {
+    "grobid_xml": "https://content.openalex.org/works/W4403752360.grobid-xml",
+    "pdf": "https://content.openalex.org/works/W4403752360.pdf"
+  },
+  "corresponding_author_ids": [
+    "https://openalex.org/A5004850046"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [
+    {
+      "cited_by_count": 1,
+      "year": 2025
+    }
+  ],
+  "created_date": "2025-10-10T00:00:00",
+  "display_name": "Do Large Language Models Need a Content Delivery Network?",
+  "doi": "https://doi.org/10.48550/arxiv.2409.13761",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": true,
+    "pdf": true
+  },
+  "has_fulltext": true,
+  "id": "https://openalex.org/W4403752360",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2409.13761",
+    "openalex": "https://openalex.org/W4403752360"
+  },
+  "indexed_in": [
+    "arxiv",
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 4,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/keywords/computer-science",
+      "score": 0.6138958930969238
+    },
+    {
+      "display_name": "Content delivery",
+      "id": "https://openalex.org/keywords/content-delivery",
+      "score": 0.6083927750587463
+    },
+    {
+      "display_name": "Content (measure theory)",
+      "id": "https://openalex.org/keywords/content",
+      "score": 0.5074471831321716
+    },
+    {
+      "display_name": "Computer network",
+      "id": "https://openalex.org/keywords/computer-network",
+      "score": 0.180442214012146
+    },
+    {
+      "display_name": "Mathematics",
+      "id": "https://openalex.org/keywords/mathematics",
+      "score": 0.07924020290374756
+    }
+  ],
+  "language": "en",
+  "locations": [
+    {
+      "id": "pmh:oai:arXiv.org:2409.13761",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "http://arxiv.org/abs/2409.13761",
+      "license": null,
+      "license_id": null,
+      "pdf_url": "https://arxiv.org/pdf/2409.13761",
+      "raw_source_name": "",
+      "raw_type": "text",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2409.13761",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2409.13761",
+      "license": null,
+      "license_id": null,
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 2,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2409.13761"
+  },
+  "primary_location": {
+    "id": "pmh:oai:arXiv.org:2409.13761",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2409.13761",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2409.13761",
+    "raw_source_name": "",
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Topic Modeling",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10028",
+    "score": 0.9641000032424927,
+    "subfield": {
+      "display_name": "Artificial Intelligence",
+      "id": "https://openalex.org/subfields/1702"
+    }
+  },
+  "publication_date": "2024-09-16",
+  "publication_year": 2024,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [
+    "https://openalex.org/W4391375266",
+    "https://openalex.org/W2899084033",
+    "https://openalex.org/W2748952813",
+    "https://openalex.org/W2390279801",
+    "https://openalex.org/W4391913857",
+    "https://openalex.org/W2358668433",
+    "https://openalex.org/W4396701345",
+    "https://openalex.org/W2376932109",
+    "https://openalex.org/W2001405890",
+    "https://openalex.org/W4396696052"
+  ],
+  "sustainable_development_goals": [],
+  "title": "Do Large Language Models Need a Content Delivery Network?",
+  "topics": [
+    {
+      "display_name": "Topic Modeling",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10028",
+      "score": 0.9641000032424927,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-03-12T08:34:05.389933"
+}

@@ -1,0 +1,1045 @@
+{
+  "abstract_inverted_index": {
+    "(Gemma": [
+      146
+    ],
+    "(Gemma:": [
+      174
+    ],
+    "+2.8%": [
+      213
+    ],
+    "+3.0%": [
+      217
+    ],
+    "--": [
+      62
+    ],
+    "-0.7%": [
+      210
+    ],
+    "10-agent": [
+      43
+    ],
+    "10.2": [
+      28
+    ],
+    "11--76x": [
+      179
+    ],
+    "12B,": [
+      148
+    ],
+    "136x": [
+      173
+    ],
+    "15.7": [
+      63
+    ],
+    "16B,": [
+      154
+    ],
+    "1K).": [
+      188
+    ],
+    "22--136x": [
+      175
+    ],
+    "24--111x": [
+      183
+    ],
+    "27": [
+      157
+    ],
+    "3": [
+      34,
+      147
+    ],
+    "3--10x": [
+      186
+    ],
+    "3.1": [
+      160
+    ],
+    "32": [
+      164
+    ],
+    "4-bit": [
+      82
+    ],
+    "48": [
+      151
+    ],
+    "4K": [
+      68
+    ],
+    "4K--16K;": [
+      185
+    ],
+    "4K--32K;": [
+      177,
+      181
+    ],
+    "4x": [
+      192
+    ],
+    "8B,": [
+      161
+    ],
+    "8K": [
+      38
+    ],
+    "A": [
+      42
+    ],
+    "Apple": [
+      24
+    ],
+    "BatchQuantizedKVCache": [
+      120
+    ],
+    "DeepSeek-Coder-V2-Lite": [
+      153
+    ],
+    "DeepSeek.": [
+      219
+    ],
+    "DeepSeek:": [
+      178
+    ],
+    "Evaluated": [
+      142
+    ],
+    "FP16.": [
+      41,
+      201
+    ],
+    "GB": [
+      29
+    ],
+    "GQA,": [
+      150,
+      163
+    ],
+    "Gemma,": [
+      212
+    ],
+    "KV": [
+      20,
+      77,
+      114,
+      207
+    ],
+    "LLM": [
+      1
+    ],
+    "Llama": [
+      159
+    ],
+    "Llama,": [
+      215
+    ],
+    "Llama:": [
+      182
+    ],
+    "M4": [
+      25
+    ],
+    "MLA,": [
+      156
+    ],
+    "MoE": [
+      155
+    ],
+    "Multi-agent": [
+      0
+    ],
+    "O(n)": [
+      95
+    ],
+    "On": [
+      23
+    ],
+    "Open-source": [
+      220
+    ],
+    "Perplexity": [
+      202
+    ],
+    "Pro": [
+      26
+    ],
+    "Q4": [
+      113,
+      189,
+      206
+    ],
+    "RAM": [
+      12
+    ],
+    "The": [
+      102
+    ],
+    "We": [
+      70
+    ],
+    "Without": [
+      51
+    ],
+    "a": [
+      7,
+      56,
+      107,
+      119
+    ],
+    "accumulates": [
+      134
+    ],
+    "across": [
+      137
+    ],
+    "actual": [
+      205
+    ],
+    "address": [
+      71
+    ],
+    "agent": [
+      66,
+      194
+    ],
+    "agent's": [
+      19,
+      76
+    ],
+    "agents": [
+      35
+    ],
+    "agents'": [
+      126
+    ],
+    "and": [
+      48,
+      85,
+      129,
+      216
+    ],
+    "architectures": [
+      145
+    ],
+    "at": [
+      37,
+      67,
+      176,
+      180,
+      184,
+      187,
+      221
+    ],
+    "attention": [
+      91,
+      135
+    ],
+    "block": [
+      108
+    ],
+    "budget,": [
+      32
+    ],
+    "by": [
+      73,
+      170
+    ],
+    "cache": [
+      21,
+      31,
+      78,
+      100,
+      166
+    ],
+    "caches": [
+      115,
+      208
+    ],
+    "caches,": [
+      128
+    ],
+    "caches.": [
+      50
+    ],
+    "components:": [
+      106
+    ],
+    "comprises": [
+      104
+    ],
+    "computation": [
+      97
+    ],
+    "concurrent": [
+      122
+    ],
+    "constantly": [
+      46
+    ],
+    "context": [
+      39,
+      131
+    ],
+    "context.": [
+      69
+    ],
+    "contexts": [
+      195
+    ],
+    "conversation": [
+      138
+    ],
+    "cross-phase": [
+      130
+    ],
+    "dense": [
+      149,
+      162
+    ],
+    "device": [
+      11,
+      198
+    ],
+    "devices": [
+      5
+    ],
+    "direct": [
+      99
+    ],
+    "directly": [
+      88
+    ],
+    "disk": [
+      80
+    ],
+    "each": [
+      75
+    ],
+    "edge": [
+      4
+    ],
+    "eliminating": [
+      93
+    ],
+    "every": [
+      18,
+      53
+    ],
+    "evict": [
+      47
+    ],
+    "eviction": [
+      54
+    ],
+    "face": [
+      6
+    ],
+    "fit": [
+      36
+    ],
+    "fits": [
+      191
+    ],
+    "fixed": [
+      197
+    ],
+    "for": [
+      121,
+      211,
+      214,
+      218
+    ],
+    "forces": [
+      55
+    ],
+    "format": [
+      84
+    ],
+    "format,": [
+      118
+    ],
+    "full": [
+      57
+    ],
+    "hold": [
+      17
+    ],
+    "https://github.com/yshk-mxim/agent-memory": [
+      222
+    ],
+    "in": [
+      40,
+      81,
+      116
+    ],
+    "inference": [
+      123
+    ],
+    "injection": [
+      132
+    ],
+    "into": [
+      89,
+      196
+    ],
+    "is": [
+      13
+    ],
+    "isolated": [
+      112
+    ],
+    "it": [
+      87
+    ],
+    "layer,": [
+      92
+    ],
+    "layers),": [
+      165
+    ],
+    "layers;": [
+      152,
+      158
+    ],
+    "management": [
+      9
+    ],
+    "measured": [
+      203
+    ],
+    "memory": [
+      8,
+      199
+    ],
+    "model": [
+      61
+    ],
+    "more": [
+      193
+    ],
+    "multiple": [
+      125
+    ],
+    "must": [
+      45
+    ],
+    "of": [
+      30
+    ],
+    "on": [
+      3,
+      143
+    ],
+    "only": [
+      33
+    ],
+    "over": [
+      124
+    ],
+    "per": [
+      65
+    ],
+    "per-agent": [
+      111
+    ],
+    "persistence,": [
+      52
+    ],
+    "persisting": [
+      74
+    ],
+    "phases": [
+      139
+    ],
+    "pool": [
+      109
+    ],
+    "prefill": [
+      96
+    ],
+    "problem:": [
+      10
+    ],
+    "providing": [
+      110
+    ],
+    "quantization": [
+      190
+    ],
+    "quantized": [
+      83,
+      127
+    ],
+    "re-computation.": [
+      141
+    ],
+    "re-prefill": [
+      58
+    ],
+    "reduces": [
+      168
+    ],
+    "redundant": [
+      94
+    ],
+    "reload": [
+      49
+    ],
+    "reloading": [
+      86
+    ],
+    "restoration": [
+      167
+    ],
+    "restoration.": [
+      101
+    ],
+    "safetensors": [
+      117
+    ],
+    "seconds": [
+      64
+    ],
+    "shows": [
+      209
+    ],
+    "simultaneously.": [
+      22
+    ],
+    "small": [
+      15
+    ],
+    "state": [
+      136
+    ],
+    "system": [
+      103
+    ],
+    "systems": [
+      2
+    ],
+    "than": [
+      200
+    ],
+    "that": [
+      133
+    ],
+    "the": [
+      60,
+      90
+    ],
+    "this": [
+      72
+    ],
+    "three": [
+      105,
+      144
+    ],
+    "through": [
+      59
+    ],
+    "time-to-first-token": [
+      169
+    ],
+    "to": [
+      16,
+      79,
+      172
+    ],
+    "too": [
+      14
+    ],
+    "up": [
+      171
+    ],
+    "via": [
+      98
+    ],
+    "with": [
+      27,
+      204
+    ],
+    "without": [
+      140
+    ],
+    "workflow": [
+      44
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yakov Pyotr Shkolnikov",
+        "id": "https://openalex.org/A5128270676",
+        "orcid": null
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Shkolnikov, Yakov Pyotr"
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "pmh:doi:10.48550/arxiv.2603.04428",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": null,
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": null,
+    "raw_source_name": null,
+    "raw_type": "Article",
+    "source": {
+      "display_name": "Open MIND",
+      "host_organization": null,
+      "host_organization_lineage": [],
+      "host_organization_lineage_names": [],
+      "host_organization_name": null,
+      "id": "https://openalex.org/S4406922384",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": false,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 0,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/C115537543",
+      "level": 2,
+      "score": 0.8007000088691711,
+      "wikidata": "https://www.wikidata.org/wiki/Q165596"
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.7900999784469604,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/C173608175",
+      "level": 1,
+      "score": 0.5534999966621399,
+      "wikidata": "https://www.wikidata.org/wiki/Q232661"
+    },
+    {
+      "display_name": "Cache algorithms",
+      "id": "https://openalex.org/C38556500",
+      "level": 4,
+      "score": 0.4674000144004822,
+      "wikidata": "https://www.wikidata.org/wiki/Q13404475"
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/C2779343474",
+      "level": 2,
+      "score": 0.4546000063419342,
+      "wikidata": "https://www.wikidata.org/wiki/Q3109175"
+    },
+    {
+      "display_name": "CPU cache",
+      "id": "https://openalex.org/C189783530",
+      "level": 3,
+      "score": 0.4327000081539154,
+      "wikidata": "https://www.wikidata.org/wiki/Q352090"
+    },
+    {
+      "display_name": "Cache pollution",
+      "id": "https://openalex.org/C113166858",
+      "level": 5,
+      "score": 0.4246000051498413,
+      "wikidata": "https://www.wikidata.org/wiki/Q5015981"
+    },
+    {
+      "display_name": "Cache coloring",
+      "id": "https://openalex.org/C201148951",
+      "level": 4,
+      "score": 0.42329999804496765,
+      "wikidata": "https://www.wikidata.org/wiki/Q5015976"
+    },
+    {
+      "display_name": "Computer hardware",
+      "id": "https://openalex.org/C9390403",
+      "level": 1,
+      "score": 0.3824999928474426,
+      "wikidata": "https://www.wikidata.org/wiki/Q3966"
+    },
+    {
+      "display_name": "Operating system",
+      "id": "https://openalex.org/C111919701",
+      "level": 1,
+      "score": 0.3441999852657318,
+      "wikidata": "https://www.wikidata.org/wiki/Q9135"
+    },
+    {
+      "display_name": "Embedded system",
+      "id": "https://openalex.org/C149635348",
+      "level": 1,
+      "score": 0.3391000032424927,
+      "wikidata": "https://www.wikidata.org/wiki/Q193040"
+    },
+    {
+      "display_name": "Cache invalidation",
+      "id": "https://openalex.org/C25536678",
+      "level": 5,
+      "score": 0.33090001344680786,
+      "wikidata": "https://www.wikidata.org/wiki/Q5015977"
+    },
+    {
+      "display_name": "State (computer science)",
+      "id": "https://openalex.org/C48103436",
+      "level": 2,
+      "score": 0.3257000148296356,
+      "wikidata": "https://www.wikidata.org/wiki/Q599031"
+    },
+    {
+      "display_name": "Edge device",
+      "id": "https://openalex.org/C138236772",
+      "level": 3,
+      "score": 0.3230000138282776,
+      "wikidata": "https://www.wikidata.org/wiki/Q25098575"
+    },
+    {
+      "display_name": "Page cache",
+      "id": "https://openalex.org/C36340418",
+      "level": 5,
+      "score": 0.321399986743927,
+      "wikidata": "https://www.wikidata.org/wiki/Q7124288"
+    },
+    {
+      "display_name": "Enhanced Data Rates for GSM Evolution",
+      "id": "https://openalex.org/C162307627",
+      "level": 2,
+      "score": 0.30790001153945923,
+      "wikidata": "https://www.wikidata.org/wiki/Q204833"
+    },
+    {
+      "display_name": "Reset (finance)",
+      "id": "https://openalex.org/C2779795794",
+      "level": 2,
+      "score": 0.2973000109195709,
+      "wikidata": "https://www.wikidata.org/wiki/Q7315343"
+    },
+    {
+      "display_name": "Context switch",
+      "id": "https://openalex.org/C53833338",
+      "level": 2,
+      "score": 0.2962999939918518,
+      "wikidata": "https://www.wikidata.org/wiki/Q1061424"
+    },
+    {
+      "display_name": "Quantization (signal processing)",
+      "id": "https://openalex.org/C28855332",
+      "level": 2,
+      "score": 0.2921999990940094,
+      "wikidata": "https://www.wikidata.org/wiki/Q198099"
+    },
+    {
+      "display_name": "Bus sniffing",
+      "id": "https://openalex.org/C51185590",
+      "level": 5,
+      "score": 0.29159998893737793,
+      "wikidata": "https://www.wikidata.org/wiki/Q1017228"
+    },
+    {
+      "display_name": "Inference",
+      "id": "https://openalex.org/C2776214188",
+      "level": 2,
+      "score": 0.28369998931884766,
+      "wikidata": "https://www.wikidata.org/wiki/Q408386"
+    },
+    {
+      "display_name": "Computation",
+      "id": "https://openalex.org/C45374587",
+      "level": 2,
+      "score": 0.27549999952316284,
+      "wikidata": "https://www.wikidata.org/wiki/Q12525525"
+    },
+    {
+      "display_name": "MESI protocol",
+      "id": "https://openalex.org/C120936851",
+      "level": 5,
+      "score": 0.2678999900817871,
+      "wikidata": "https://www.wikidata.org/wiki/Q1408065"
+    },
+    {
+      "display_name": "Cache-only memory architecture",
+      "id": "https://openalex.org/C3720319",
+      "level": 5,
+      "score": 0.2590000033378601,
+      "wikidata": "https://www.wikidata.org/wiki/Q5015937"
+    }
+  ],
+  "content_urls": null,
+  "corresponding_author_ids": [
+    "https://openalex.org/A5128270676"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [],
+  "created_date": "2026-03-07T00:00:00",
+  "display_name": "Agent Memory Below the Prompt: Persistent Q4 KV Cache for Multi-Agent LLM Inference on Edge Devices",
+  "doi": "https://doi.org/10.48550/arxiv.2603.04428",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": false
+  },
+  "has_fulltext": false,
+  "id": "https://openalex.org/W7134067181",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2603.04428",
+    "openalex": "https://openalex.org/W7134067181"
+  },
+  "indexed_in": [
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 1,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/keywords/cache",
+      "score": 0.8007000088691711
+    },
+    {
+      "display_name": "Cache algorithms",
+      "id": "https://openalex.org/keywords/cache-algorithms",
+      "score": 0.4674000144004822
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/keywords/context",
+      "score": 0.4546000063419342
+    },
+    {
+      "display_name": "CPU cache",
+      "id": "https://openalex.org/keywords/cpu-cache",
+      "score": 0.4327000081539154
+    },
+    {
+      "display_name": "Cache pollution",
+      "id": "https://openalex.org/keywords/cache-pollution",
+      "score": 0.4246000051498413
+    },
+    {
+      "display_name": "Cache coloring",
+      "id": "https://openalex.org/keywords/cache-coloring",
+      "score": 0.42329999804496765
+    },
+    {
+      "display_name": "Cache invalidation",
+      "id": "https://openalex.org/keywords/cache-invalidation",
+      "score": 0.33090001344680786
+    },
+    {
+      "display_name": "State (computer science)",
+      "id": "https://openalex.org/keywords/state",
+      "score": 0.3257000148296356
+    }
+  ],
+  "language": null,
+  "locations": [
+    {
+      "id": "pmh:doi:10.48550/arxiv.2603.04428",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": null,
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "Article",
+      "source": {
+        "display_name": "Open MIND",
+        "host_organization": null,
+        "host_organization_lineage": [],
+        "host_organization_lineage_names": [],
+        "host_organization_name": null,
+        "id": "https://openalex.org/S4406922384",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": false,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2603.04428",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2603.04428",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 2,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": null
+  },
+  "primary_location": {
+    "id": "pmh:doi:10.48550/arxiv.2603.04428",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": null,
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": null,
+    "raw_source_name": null,
+    "raw_type": "Article",
+    "source": {
+      "display_name": "Open MIND",
+      "host_organization": null,
+      "host_organization_lineage": [],
+      "host_organization_lineage_names": [],
+      "host_organization_name": null,
+      "id": "https://openalex.org/S4406922384",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": false,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Parallel Computing and Optimization Techniques",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10054",
+    "score": 0.592199981212616,
+    "subfield": {
+      "display_name": "Hardware and Architecture",
+      "id": "https://openalex.org/subfields/1708"
+    }
+  },
+  "publication_date": "2026-02-17",
+  "publication_year": 2026,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [],
+  "sustainable_development_goals": [],
+  "title": "Agent Memory Below the Prompt: Persistent Q4 KV Cache for Multi-Agent LLM Inference on Edge Devices",
+  "topics": [
+    {
+      "display_name": "Parallel Computing and Optimization Techniques",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10054",
+      "score": 0.592199981212616,
+      "subfield": {
+        "display_name": "Hardware and Architecture",
+        "id": "https://openalex.org/subfields/1708"
+      }
+    },
+    {
+      "display_name": "Big Data and Digital Economy",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T14347",
+      "score": 0.06710000336170197,
+      "subfield": {
+        "display_name": "Information Systems",
+        "id": "https://openalex.org/subfields/1710"
+      }
+    },
+    {
+      "display_name": "Advanced Data Storage Technologies",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T11181",
+      "score": 0.041600000113248825,
+      "subfield": {
+        "display_name": "Computer Networks and Communications",
+        "id": "https://openalex.org/subfields/1705"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-04-04T16:13:02.066488"
+}

@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 1,
+      "db_response_time_ms": 216,
+      "page": 1,
+      "per_page": 8,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Shi Qiu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yifan Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "X. Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wenhao Zhu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jianqin Yan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hao Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kaiqiang Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kai Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yiming Zhang"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7160565745",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2605.03375"
+        },
+        "publication_date": "2026-05-05",
+        "publication_year": 2026,
+        "title": "Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving"
+      }
+    ]
+  }
+}

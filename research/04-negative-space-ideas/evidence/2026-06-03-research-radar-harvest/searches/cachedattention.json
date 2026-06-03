@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 73,
+      "db_response_time_ms": 63,
+      "page": 1,
+      "per_page": 6,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Bin Gao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhuomin He"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Puru Sharma"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qingxuan Kang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Djordje Jevdjic"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junbo Deng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xingkun Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhou Yu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Pengfei Zuo"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2403.19708",
+        "id": "https://openalex.org/W4393853379",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2403.19708"
+        },
+        "publication_date": "2024-03-23",
+        "publication_year": 2024,
+        "title": "Cost-Efficient Large Language Model Serving for Multi-turn Conversations with CachedAttention"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Xupeng Miao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Gabriele Oliaro"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhihao Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "X. G. Cheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hongyi Jin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tianqi Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhihao Jia"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2312.15234",
+        "id": "https://openalex.org/W4390306161",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2312.15234"
+        },
+        "publication_date": "2023-12-23",
+        "publication_year": 2023,
+        "title": "Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "William T. Brandon"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Mayank Mishra"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Aniruddha Nrusimha"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Rameswar Panda"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jonathan Ragan Kelly"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2405.12981",
+        "id": "https://openalex.org/W4398230666",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2405.12981"
+        },
+        "publication_date": "2024-05-21",
+        "publication_year": 2024,
+        "title": "Reducing Transformer Key-Value Cache Size with Cross-Layer Attention"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Haoyang Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yiming Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tian, Anxin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tianhao Tang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhao\u2010Dong Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "X Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ning Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wei Dong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qing Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Lei Chen"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2412.19442",
+        "id": "https://openalex.org/W4405902850",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2412.19442"
+        },
+        "publication_date": "2024-12-27",
+        "publication_year": 2024,
+        "title": "A Survey on Large Language Model Acceleration based on KV Cache Management"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Baolin Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yankai Jiang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Vijay Gadepally"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Devesh Tiwari"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2407.12391",
+        "id": "https://openalex.org/W4403749815",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2407.12391"
+        },
+        "publication_date": "2024-07-17",
+        "publication_year": 2024,
+        "title": "LLM Inference Serving: Survey of Recent Advances and Opportunities"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Mu Yuan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Lan Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Liekang Zeng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Siyang Jiang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Bufang Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Di Duan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Guoliang Xing"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/3718958.3750509",
+        "id": "https://openalex.org/W4413756979",
+        "open_access": {
+          "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3718958.3750509"
+        },
+        "publication_date": "2025-08-27",
+        "publication_year": 2025,
+        "title": "SCX: Stateless KV-Cache Encoding for Cloud-Scale Confidential Transformer Serving"
+      }
+    ]
+  }
+}

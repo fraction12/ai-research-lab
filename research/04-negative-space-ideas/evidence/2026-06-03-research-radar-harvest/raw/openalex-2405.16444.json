@@ -1,0 +1,1197 @@
+{
+  "abstract_inverted_index": {
+    "(LLMs)": [
+      3
+    ],
+    "(RAG)": [
+      139
+    ],
+    "(TTFT)": [
+      262
+    ],
+    "(i.e.,": [
+      127
+    ],
+    "2.2-3.3x": [
+      264
+    ],
+    "2.8-5x": [
+      271
+    ],
+    "By": [
+      231
+    ],
+    "CacheBlend": [
+      211,
+      233,
+      259
+    ],
+    "CacheBlend,": [
+      154
+    ],
+    "However,": [
+      53
+    ],
+    "In": [
+      186
+    ],
+    "KV": [
+      31,
+      39,
+      67,
+      87,
+      112,
+      130,
+      161,
+      171,
+      184,
+      204,
+      214,
+      237,
+      274
+    ],
+    "LLM": [
+      25,
+      51,
+      100
+    ],
+    "LLMs": [
+      244
+    ],
+    "Large": [
+      0
+    ],
+    "The": [
+      280
+    ],
+    "This": [
+      92,
+      132
+    ],
+    "Thus,": [
+      82
+    ],
+    "To": [
+      17
+    ],
+    "We": [
+      152
+    ],
+    "a": [
+      34,
+      155,
+      174
+    ],
+    "achieve": [
+      117
+    ],
+    "allowing": [
+      210
+    ],
+    "always": [
+      60
+    ],
+    "an": [
+      99
+    ],
+    "and": [
+      36,
+      167,
+      248,
+      265
+    ],
+    "another": [
+      50
+    ],
+    "are": [
+      58
+    ],
+    "arises": [
+      135
+    ],
+    "as": [
+      46,
+      122,
+      149
+    ],
+    "at": [
+      284
+    ],
+    "available": [
+      283
+    ],
+    "be": [
+      198
+    ],
+    "benchmark": [
+      251
+    ],
+    "benefits": [
+      84
+    ],
+    "by": [
+      263,
+      270
+    ],
+    "cache": [
+      32,
+      40,
+      238
+    ],
+    "cache)?": [
+      131
+    ],
+    "cache.": [
+      185
+    ],
+    "caches": [
+      68,
+      88,
+      113,
+      205,
+      215
+    ],
+    "caches,": [
+      162
+    ],
+    "can": [
+      28,
+      197
+    ],
+    "capacity": [
+      222
+    ],
+    "challenge": [
+      133
+    ],
+    "challenge:": [
+      97
+    ],
+    "chunks": [
+      8,
+      57
+    ],
+    "chunks,": [
+      105
+    ],
+    "code": [
+      281
+    ],
+    "combine": [
+      109
+    ],
+    "comparing": [
+      232
+    ],
+    "compromising": [
+      277
+    ],
+    "contains": [
+      102
+    ],
+    "context": [
+      43
+    ],
+    "context.": [
+      151
+    ],
+    "contexts.": [
+      16
+    ],
+    "cross-attention": [
+      77
+    ],
+    "datasets": [
+      252
+    ],
+    "delay": [
+      192
+    ],
+    "delay.": [
+      230
+    ],
+    "devices": [
+      218
+    ],
+    "different": [
+      254
+    ],
+    "directly": [
+      70
+    ],
+    "each": [
+      182
+    ],
+    "expensive": [
+      124
+    ],
+    "extra": [
+      191
+    ],
+    "for": [
+      193
+    ],
+    "four": [
+      249
+    ],
+    "from": [
+      272
+    ],
+    "full": [
+      125,
+      273
+    ],
+    "generation": [
+      120,
+      138,
+      278
+    ],
+    "how": [
+      106
+    ],
+    "https://github.com/LMCache/LMCache.": [
+      285
+    ],
+    "ignore": [
+      74
+    ],
+    "in": [
+      9,
+      114,
+      136,
+      216
+    ],
+    "incorporate": [
+      5
+    ],
+    "increases": [
+      266
+    ],
+    "increasing": [
+      227
+    ],
+    "inference": [
+      229,
+      268
+    ],
+    "input": [
+      62,
+      101,
+      142
+    ],
+    "input.": [
+      52
+    ],
+    "inputs": [
+      11
+    ],
+    "inputs,": [
+      26
+    ],
+    "is": [
+      44,
+      143,
+      282
+    ],
+    "job,": [
+      209
+    ],
+    "just": [
+      95
+    ],
+    "language": [
+      1
+    ],
+    "largely": [
+      90
+    ],
+    "long": [
+      24
+    ],
+    "makes": [
+      65
+    ],
+    "meantime,": [
+      188
+    ],
+    "models": [
+      2
+    ],
+    "more": [
+      220
+    ],
+    "multiple": [
+      6,
+      103,
+      146
+    ],
+    "naturally": [
+      134
+    ],
+    "necessary": [
+      15
+    ],
+    "not": [
+      59,
+      69
+    ],
+    "not,": [
+      166
+    ],
+    "of": [
+      22,
+      33,
+      49,
+      85,
+      173,
+      177,
+      203,
+      245,
+      253
+    ],
+    "often": [
+      4
+    ],
+    "on": [
+      241
+    ],
+    "one": [
+      27,
+      96
+    ],
+    "open-source": [
+      243
+    ],
+    "or": [
+      165
+    ],
+    "order": [
+      115
+    ],
+    "paper": [
+      93
+    ],
+    "partially": [
+      180
+    ],
+    "pipelined": [
+      199
+    ],
+    "popular": [
+      250
+    ],
+    "pre-compute": [
+      29
+    ],
+    "preceding": [
+      80
+    ],
+    "precomputed": [
+      66,
+      111,
+      160
+    ],
+    "prefill": [
+      21,
+      126
+    ],
+    "prefix": [
+      48,
+      164
+    ],
+    "prefix,": [
+      63
+    ],
+    "present": [
+      153
+    ],
+    "provide": [
+      13
+    ],
+    "quality": [
+      121
+    ],
+    "quality.": [
+      279
+    ],
+    "quickly": [
+      108
+    ],
+    "re-use": [
+      37
+    ],
+    "recompute": [
+      275
+    ],
+    "recomputes": [
+      169
+    ],
+    "recomputing": [
+      194
+    ],
+    "reduces": [
+      260
+    ],
+    "regardless": [
+      163
+    ],
+    "remain": [
+      89
+    ],
+    "retrieval": [
+      202
+    ],
+    "retrieval-augmented": [
+      137
+    ],
+    "retrieved": [
+      147
+    ],
+    "retrieving": [
+      224
+    ],
+    "reused": [
+      45,
+      55,
+      183
+    ],
+    "reuses": [
+      158
+    ],
+    "reusing": [
+      86,
+      129,
+      239
+    ],
+    "same": [
+      119,
+      208
+    ],
+    "scheme": [
+      156
+    ],
+    "schemes": [
+      240
+    ],
+    "selectively": [
+      168
+    ],
+    "show": [
+      257
+    ],
+    "since": [
+      72
+    ],
+    "sizes": [
+      247
+    ],
+    "slower": [
+      217
+    ],
+    "small": [
+      175,
+      190
+    ],
+    "some": [
+      195
+    ],
+    "speed": [
+      18
+    ],
+    "state-of-the-art": [
+      236
+    ],
+    "storage": [
+      221
+    ],
+    "store": [
+      213
+    ],
+    "subset": [
+      176
+    ],
+    "supplemented": [
+      144
+    ],
+    "tackles": [
+      94
+    ],
+    "tasks,": [
+      255
+    ],
+    "text": [
+      7,
+      35,
+      56,
+      104
+    ],
+    "text's": [
+      76
+    ],
+    "texts": [
+      148
+    ],
+    "texts.": [
+      81
+    ],
+    "that": [
+      157,
+      258
+    ],
+    "the": [
+      14,
+      20,
+      23,
+      30,
+      38,
+      42,
+      47,
+      54,
+      61,
+      75,
+      79,
+      83,
+      118,
+      123,
+      141,
+      150,
+      159,
+      170,
+      187,
+      189,
+      201,
+      207,
+      228,
+      235,
+      267
+    ],
+    "their": [
+      10,
+      110
+    ],
+    "them": [
+      225
+    ],
+    "they": [
+      73
+    ],
+    "three": [
+      242
+    ],
+    "throughput": [
+      269
+    ],
+    "time-to-first-token": [
+      261
+    ],
+    "to": [
+      12,
+      107,
+      116,
+      179,
+      212
+    ],
+    "tokens": [
+      178,
+      196
+    ],
+    "unrealized.": [
+      91
+    ],
+    "up": [
+      19
+    ],
+    "update": [
+      181
+    ],
+    "usable": [
+      71
+    ],
+    "values": [
+      172
+    ],
+    "various": [
+      246
+    ],
+    "we": [
+      256
+    ],
+    "when": [
+      41,
+      98
+    ],
+    "where": [
+      140
+    ],
+    "which": [
+      64
+    ],
+    "while": [
+      223
+    ],
+    "with": [
+      78,
+      145,
+      200,
+      219,
+      234
+    ],
+    "within": [
+      206
+    ],
+    "without": [
+      128,
+      226,
+      276
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Jiayi Yao",
+        "id": "https://openalex.org/A5033013487",
+        "orcid": "https://orcid.org/0000-0002-9594-6928"
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Yao, Jiayi"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Hanchen Li",
+        "id": "https://openalex.org/A5003455316",
+        "orcid": "https://orcid.org/0009-0005-9980-028X"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Li, Hanchen"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yuhan Liu",
+        "id": "https://openalex.org/A5100350532",
+        "orcid": "https://orcid.org/0000-0003-2912-750X"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Liu, Yuhan"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Siddhant Ray",
+        "id": "https://openalex.org/A5022254723",
+        "orcid": "https://orcid.org/0000-0003-0265-2144"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Ray, Siddhant"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yihua Cheng",
+        "id": "https://openalex.org/A5004850046",
+        "orcid": "https://orcid.org/0009-0006-3924-6886"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Cheng, Yihua"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Qizheng Zhang",
+        "id": "https://openalex.org/A5103250112",
+        "orcid": "https://orcid.org/0009-0009-3208-4601"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Zhang, Qizheng"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Kuntai Du",
+        "id": "https://openalex.org/A5036272233",
+        "orcid": "https://orcid.org/0000-0002-3964-4079"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Du, Kuntai"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Shan Lü",
+        "id": "https://openalex.org/A5101424241",
+        "orcid": "https://orcid.org/0000-0001-8582-3206"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Lu, Shan"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Junchen Jiang",
+        "id": "https://openalex.org/A5103258769",
+        "orcid": "https://orcid.org/0000-0002-6877-1683"
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Jiang, Junchen"
+    }
+  ],
+  "awards": [
+    {
+      "display_name": "CNS Core: Medium: Accurate Anytime Learning for Energy andTimeliness in Software Systems",
+      "funder_award_id": "1956180",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G1412639289"
+    },
+    {
+      "display_name": null,
+      "funder_award_id": "CNS-1901466",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G1692647576"
+    },
+    {
+      "display_name": null,
+      "funder_award_id": "CCF-2119184",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G3118918149"
+    },
+    {
+      "display_name": "CNS Core:Medium:Systems Challenges in Scaling Distributed Intelligent Applications",
+      "funder_award_id": "1901466",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G337251858"
+    },
+    {
+      "display_name": null,
+      "funder_award_id": "NS-2313190",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G3620354760"
+    },
+    {
+      "display_name": "CSR: Medium: Improving the Interface between Machine Learning and Software Systems",
+      "funder_award_id": "2313190",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G3736266085"
+    },
+    {
+      "display_name": "CNS Core: Small: Closing the Reality Gap for Learning-Augmented Network Systems",
+      "funder_award_id": "2131826",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G4190001885"
+    },
+    {
+      "display_name": "CAREER: Enabling Perception-Driven Optimization for Online Videos",
+      "funder_award_id": "2146496",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G5064054989"
+    },
+    {
+      "display_name": null,
+      "funder_award_id": "2119184",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G7593491178"
+    },
+    {
+      "display_name": null,
+      "funder_award_id": "CNS-1956180",
+      "funder_display_name": "National Science Foundation",
+      "funder_id": "https://openalex.org/F4320306076",
+      "id": "https://openalex.org/G8347821259"
+    }
+  ],
+  "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2405.16444",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2405.16444",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": "https://arxiv.org/pdf/2405.16444",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 2,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/C115537543",
+      "level": 2,
+      "score": 0.651210367679596,
+      "wikidata": "https://www.wikidata.org/wiki/Q165596"
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.6376806497573853,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Fusion",
+      "id": "https://openalex.org/C158525013",
+      "level": 2,
+      "score": 0.5305334329605103,
+      "wikidata": "https://www.wikidata.org/wiki/Q2593739"
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/C173608175",
+      "level": 1,
+      "score": 0.2843945026397705,
+      "wikidata": "https://www.wikidata.org/wiki/Q232661"
+    },
+    {
+      "display_name": "Linguistics",
+      "id": "https://openalex.org/C41895202",
+      "level": 1,
+      "score": 0.13694122433662415,
+      "wikidata": "https://www.wikidata.org/wiki/Q8162"
+    },
+    {
+      "display_name": "Philosophy",
+      "id": "https://openalex.org/C138885662",
+      "level": 0,
+      "score": 0.04991158843040466,
+      "wikidata": "https://www.wikidata.org/wiki/Q5891"
+    }
+  ],
+  "content_urls": {
+    "grobid_xml": "https://content.openalex.org/works/W4399115642.grobid-xml",
+    "pdf": "https://content.openalex.org/works/W4399115642.pdf"
+  },
+  "corresponding_author_ids": [
+    "https://openalex.org/A5033013487"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [
+    {
+      "cited_by_count": 2,
+      "year": 2025
+    }
+  ],
+  "created_date": "2024-05-29T00:00:00",
+  "display_name": "CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion",
+  "doi": "https://doi.org/10.48550/arxiv.2405.16444",
+  "funders": [
+    {
+      "display_name": "National Science Foundation",
+      "id": "https://openalex.org/F4320306076",
+      "ror": "https://ror.org/021nxhr62"
+    }
+  ],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": true,
+    "pdf": true
+  },
+  "has_fulltext": true,
+  "id": "https://openalex.org/W4399115642",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2405.16444",
+    "openalex": "https://openalex.org/W4399115642"
+  },
+  "indexed_in": [
+    "arxiv",
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 9,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/keywords/cache",
+      "score": 0.651210367679596
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/keywords/computer-science",
+      "score": 0.6376806497573853
+    },
+    {
+      "display_name": "Fusion",
+      "id": "https://openalex.org/keywords/fusion",
+      "score": 0.5305334329605103
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/keywords/parallel-computing",
+      "score": 0.2843945026397705
+    },
+    {
+      "display_name": "Linguistics",
+      "id": "https://openalex.org/keywords/linguistics",
+      "score": 0.13694122433662415
+    },
+    {
+      "display_name": "Philosophy",
+      "id": "https://openalex.org/keywords/philosophy",
+      "score": 0.04991158843040466
+    }
+  ],
+  "language": "en",
+  "locations": [
+    {
+      "id": "pmh:oai:arXiv.org:2405.16444",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "http://arxiv.org/abs/2405.16444",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": "https://arxiv.org/pdf/2405.16444",
+      "raw_source_name": null,
+      "raw_type": "text",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2405.16444",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2405.16444",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 2,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2405.16444"
+  },
+  "primary_location": {
+    "id": "pmh:oai:arXiv.org:2405.16444",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2405.16444",
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "pdf_url": "https://arxiv.org/pdf/2405.16444",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Natural Language Processing Techniques",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10181",
+    "score": 0.9901000261306763,
+    "subfield": {
+      "display_name": "Artificial Intelligence",
+      "id": "https://openalex.org/subfields/1702"
+    }
+  },
+  "publication_date": "2024-05-26",
+  "publication_year": 2024,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [
+    "https://openalex.org/W4391375266",
+    "https://openalex.org/W2748952813",
+    "https://openalex.org/W2390279801",
+    "https://openalex.org/W2358668433",
+    "https://openalex.org/W4396701345",
+    "https://openalex.org/W2376932109",
+    "https://openalex.org/W2001405890",
+    "https://openalex.org/W4396696052",
+    "https://openalex.org/W2382290278",
+    "https://openalex.org/W4395014643"
+  ],
+  "sustainable_development_goals": [],
+  "title": "CacheBlend: Fast Large Language Model Serving for RAG with Cached Knowledge Fusion",
+  "topics": [
+    {
+      "display_name": "Natural Language Processing Techniques",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10181",
+      "score": 0.9901000261306763,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    },
+    {
+      "display_name": "Topic Modeling",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10028",
+      "score": 0.9887999892234802,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    },
+    {
+      "display_name": "Speech and dialogue systems",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T12031",
+      "score": 0.9059000015258789,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-04-21T08:09:41.155169"
+}

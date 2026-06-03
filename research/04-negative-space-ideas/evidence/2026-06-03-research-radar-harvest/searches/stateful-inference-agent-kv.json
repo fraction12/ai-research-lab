@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 48,
+      "db_response_time_ms": 310,
+      "page": 1,
+      "per_page": 8,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Log\u00e9, Fr\u00e9d\u00e9ric"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Le Pennec, Erwann"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Amadou-Boubacar, Habiboulaye"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+        "id": "https://openalex.org/W2966329817",
+        "open_access": {
+          "oa_url": "https://hal.science/hal-05598986"
+        },
+        "publication_date": "2021-05-12",
+        "publication_year": 2021,
+        "title": "Cerise: Program Verification on a Capability Machine in the Presence of Untrusted Code"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Victor Norgren"
+            }
+          }
+        ],
+        "doi": null,
+        "id": "https://openalex.org/W7162700371",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2605.26289"
+        },
+        "publication_date": "2026-05-25",
+        "publication_year": 2026,
+        "title": "Stateful Inference for Low-Latency Multi-Agent Tool Calling"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Victor Norgren"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2605.26289",
+        "id": "https://openalex.org/W7162526718",
+        "open_access": {
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.26289"
+        },
+        "publication_date": "2026-05-25",
+        "publication_year": 2026,
+        "title": "Stateful Inference for Low-Latency Multi-Agent Tool Calling"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Subhabrata Mukherjee"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Paul Gamble"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Markel Sanz Ausin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Neel Kant"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kriti Aggarwal"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Neha Manjunath"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Debajyoti Datta"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhengliang Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiayuan Ding"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sophia Busacca"
+            }
+          },
+          {
+            "author": {
+              "display_name": "C. Bianco"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Swapnil Sharma"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Rae Lasko"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Michelle Voisard"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sanchay Harneja"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Darya Filippova"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Gerry Meixiong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kevin Cha"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Amir Youssefi"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Meyhaa Buvanesh"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Howard Weingram"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Sebastian Bierman-Lytle"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Harpreet Singh Mangat"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kim Parikh"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Saad Godil"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Alex Miller"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2403.13313",
+        "id": "https://openalex.org/W4393063231",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2403.13313"
+        },
+        "publication_date": "2024-03-20",
+        "publication_year": 2024,
+        "title": "Polaris: A Safety-focused LLM Constellation Architecture for Healthcare"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "In Gim"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Seung-seob Lee"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Lin Zhong"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2412.07017",
+        "id": "https://openalex.org/W4405255057",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2412.07017"
+        },
+        "publication_date": "2024-12-09",
+        "publication_year": 2024,
+        "title": "Asynchronous LLM Function Calling"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Siddhant Ray"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Rui Pan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhaoquan Gu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kuntai Du"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Feng, Shaoting"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ganesh Ananthanarayanan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ravi Netravali"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junchen Jiang"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2412.10543",
+        "id": "https://openalex.org/W4405468136",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2412.10543"
+        },
+        "publication_date": "2024-12-13",
+        "publication_year": 2024,
+        "title": "METIS: Fast Quality-Aware RAG Systems with Configuration Adaptation"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Jiajun Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhiyuan Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wei Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qun Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xin Gao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qi Cai"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ziyuan Ling"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2409.00088",
+        "id": "https://openalex.org/W4403665780",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2409.00088"
+        },
+        "publication_date": "2024-08-26",
+        "publication_year": 2024,
+        "title": "On-Device Language Models: A Comprehensive Review"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Yiwei Yang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hu, Aibo"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yusheng Zheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhao, Brian"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xinqi Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiang, Dawei"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Chu, Kexin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhang, Wei"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Quinn, Andi"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2410.15894",
+        "id": "https://openalex.org/W4404089084",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2410.15894"
+        },
+        "publication_date": "2024-10-21",
+        "publication_year": 2024,
+        "title": "MVVM: Deploy Your AI Agents-Securely, Efficiently, Everywhere"
+      }
+    ]
+  }
+}

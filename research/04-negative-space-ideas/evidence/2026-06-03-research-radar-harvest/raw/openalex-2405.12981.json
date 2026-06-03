@@ -1,0 +1,970 @@
+{
+  "abstract_inverted_index": {
+    "(CLA).": [
+      144
+    ],
+    "(GQA).": [
+      70
+    ],
+    "(KV)": [
+      1
+    ],
+    "(LLMs).": [
+      16
+    ],
+    "(MQA)": [
+      64
+    ],
+    "1B-": [
+      176
+    ],
+    "2x": [
+      163
+    ],
+    "3B-parameter": [
+      178
+    ],
+    "Attention": [
+      63,
+      69,
+      121,
+      143
+    ],
+    "CLA": [
+      185
+    ],
+    "CLA,": [
+      146
+    ],
+    "Cross-Layer": [
+      142
+    ],
+    "GQA": [
+      73
+    ],
+    "Grouped-Query": [
+      68
+    ],
+    "However,": [
+      17
+    ],
+    "In": [
+      109,
+      173
+    ],
+    "KV": [
+      26,
+      58,
+      159
+    ],
+    "Key-value": [
+      0
+    ],
+    "MQA": [
+      71
+    ],
+    "MQA,": [
+      199
+    ],
+    "MQA.": [
+      172
+    ],
+    "Multi-Query": [
+      62,
+      120
+    ],
+    "Pareto": [
+      188
+    ],
+    "Since": [
+      39
+    ],
+    "With": [
+      145
+    ],
+    "a": [
+      89,
+      101,
+      122,
+      136,
+      187
+    ],
+    "accelerating": [
+      8
+    ],
+    "accuracy": [
+      169
+    ],
+    "accuracy.": [
+      108
+    ],
+    "adjacent": [
+      133
+    ],
+    "also": [
+      126
+    ],
+    "amount": [
+      19
+    ],
+    "an": [
+      4
+    ],
+    "and": [
+      35,
+      65,
+      72,
+      129,
+      177,
+      206
+    ],
+    "another": [
+      162
+    ],
+    "are": [
+      195
+    ],
+    "as": [
+      170
+    ],
+    "at": [
+      31
+    ],
+    "attention": [
+      80,
+      138
+    ],
+    "autoregressive": [
+      12
+    ],
+    "batch": [
+      37,
+      208
+    ],
+    "be": [
+      213
+    ],
+    "become": [
+      29
+    ],
+    "been": [
+      61
+    ],
+    "between": [
+      132
+    ],
+    "block": [
+      81
+    ],
+    "both": [
+      74
+    ],
+    "by": [
+      100,
+      125,
+      161
+    ],
+    "cache": [
+      27,
+      59,
+      160
+    ],
+    "caching": [
+      2
+    ],
+    "call": [
+      141
+    ],
+    "can": [
+      28,
+      87
+    ],
+    "decoding": [
+      9
+    ],
+    "degrading": [
+      107
+    ],
+    "demonstrate": [
+      183
+    ],
+    "design": [
+      77,
+      139
+    ],
+    "discovered": [
+      51
+    ],
+    "distinct": [
+      97
+    ],
+    "effective": [
+      49
+    ],
+    "enabling": [
+      200
+    ],
+    "essential": [
+      5
+    ],
+    "experiments": [
+      174
+    ],
+    "factor": [
+      103
+    ],
+    "find": [
+      148
+    ],
+    "for": [
+      10,
+      52
+    ],
+    "from": [
+      180
+    ],
+    "further": [
+      124
+    ],
+    "generalization,": [
+      67
+    ],
+    "have": [
+      60
+    ],
+    "head,": [
+      92
+    ],
+    "heads": [
+      86,
+      99,
+      131
+    ],
+    "improvement": [
+      189
+    ],
+    "in": [
+      7
+    ],
+    "inference": [
+      201
+    ],
+    "interventions": [
+      50
+    ],
+    "invention": [
+      41
+    ],
+    "is": [
+      116,
+      151
+    ],
+    "it": [
+      115,
+      150
+    ],
+    "its": [
+      66
+    ],
+    "key": [
+      128
+    ],
+    "key/value": [
+      91,
+      98
+    ],
+    "language": [
+      14
+    ],
+    "large": [
+      13,
+      36,
+      102
+    ],
+    "larger": [
+      207
+    ],
+    "layers,": [
+      134
+    ],
+    "lengths": [
+      34,
+      205
+    ],
+    "long": [
+      32
+    ],
+    "longer": [
+      203
+    ],
+    "maintaining": [
+      165
+    ],
+    "memory": [
+      21
+    ],
+    "memory/accuracy": [
+      192
+    ],
+    "minimally": [
+      106
+    ],
+    "models": [
+      15,
+      179
+    ],
+    "modify": [
+      75
+    ],
+    "most": [
+      48
+    ],
+    "multiple": [
+      84
+    ],
+    "nearly": [
+      166
+    ],
+    "new": [
+      137
+    ],
+    "number": [
+      95
+    ],
+    "of": [
+      20,
+      42,
+      46,
+      56,
+      78,
+      96,
+      157
+    ],
+    "only": [
+      105
+    ],
+    "otherwise": [
+      212
+    ],
+    "over": [
+      190
+    ],
+    "paper,": [
+      111
+    ],
+    "plays": [
+      3
+    ],
+    "possible": [
+      117,
+      152,
+      196,
+      214
+    ],
+    "prohibitive": [
+      30
+    ],
+    "provides": [
+      186
+    ],
+    "query": [
+      85
+    ],
+    "reduce": [
+      154
+    ],
+    "reducing": [
+      53,
+      93
+    ],
+    "required": [
+      22
+    ],
+    "role": [
+      6
+    ],
+    "same": [
+      168
+    ],
+    "scratch,": [
+      181
+    ],
+    "sequence": [
+      33,
+      204
+    ],
+    "share": [
+      88
+    ],
+    "sharing": [
+      127
+    ],
+    "show": [
+      113
+    ],
+    "single": [
+      90
+    ],
+    "size": [
+      55,
+      156
+    ],
+    "sizes": [
+      209
+    ],
+    "sizes.": [
+      38
+    ],
+    "so": [
+      82
+    ],
+    "step": [
+      123
+    ],
+    "store": [
+      24
+    ],
+    "take": [
+      119
+    ],
+    "than": [
+      210
+    ],
+    "that": [
+      83,
+      114,
+      149,
+      184
+    ],
+    "the": [
+      18,
+      25,
+      40,
+      43,
+      47,
+      54,
+      57,
+      76,
+      79,
+      94,
+      155,
+      158,
+      167,
+      191
+    ],
+    "this": [
+      110
+    ],
+    "to": [
+      23,
+      118,
+      153
+    ],
+    "tradeoffs": [
+      193
+    ],
+    "traditional": [
+      198
+    ],
+    "training": [
+      175
+    ],
+    "transformer,": [
+      44
+    ],
+    "transformer-based": [
+      11
+    ],
+    "two": [
+      45
+    ],
+    "unmodified": [
+      171
+    ],
+    "value": [
+      130
+    ],
+    "we": [
+      112,
+      140,
+      147,
+      182
+    ],
+    "which": [
+      194
+    ],
+    "while": [
+      104,
+      164
+    ],
+    "with": [
+      197,
+      202
+    ],
+    "would": [
+      211
+    ],
+    "yielding": [
+      135
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "William T. Brandon",
+        "id": "https://openalex.org/A5019475895",
+        "orcid": "https://orcid.org/0009-0007-9478-8757"
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Brandon, William",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Mayank Mishra",
+        "id": "https://openalex.org/A5101772090",
+        "orcid": "https://orcid.org/0000-0001-5034-6964"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Mishra, Mayank",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Aniruddha Nrusimha",
+        "id": "https://openalex.org/A5079711996",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Nrusimha, Aniruddha",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Rameswar Panda",
+        "id": "https://openalex.org/A5049734237",
+        "orcid": "https://orcid.org/0000-0003-4359-2475"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Panda, Rameswar",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Jonathan Ragan Kelly",
+        "id": "https://openalex.org/A5109722944",
+        "orcid": null
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Kelly, Jonathan Ragan",
+      "raw_orcid": null
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2405.12981",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2405.12981",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2405.12981",
+    "raw_source_name": "",
+    "raw_type": null,
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 2,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/C115537543",
+      "level": 2,
+      "score": 0.5044320821762085,
+      "wikidata": "https://www.wikidata.org/wiki/Q165596"
+    },
+    {
+      "display_name": "Value (mathematics)",
+      "id": "https://openalex.org/C2776291640",
+      "level": 2,
+      "score": 0.4346846342086792,
+      "wikidata": "https://www.wikidata.org/wiki/Q2912517"
+    },
+    {
+      "display_name": "Key (lock)",
+      "id": "https://openalex.org/C26517878",
+      "level": 2,
+      "score": 0.42357420921325684,
+      "wikidata": "https://www.wikidata.org/wiki/Q228039"
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.4138835668563843,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Computer network",
+      "id": "https://openalex.org/C31258907",
+      "level": 1,
+      "score": 0.1769053041934967,
+      "wikidata": "https://www.wikidata.org/wiki/Q1301371"
+    },
+    {
+      "display_name": "Computer security",
+      "id": "https://openalex.org/C38652104",
+      "level": 1,
+      "score": 0.08410155773162842,
+      "wikidata": "https://www.wikidata.org/wiki/Q3510521"
+    },
+    {
+      "display_name": "Machine learning",
+      "id": "https://openalex.org/C119857082",
+      "level": 1,
+      "score": 0.061239421367645264,
+      "wikidata": "https://www.wikidata.org/wiki/Q2539"
+    }
+  ],
+  "content_urls": null,
+  "corresponding_author_ids": [
+    "https://openalex.org/A5019475895"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [
+    {
+      "cited_by_count": 2,
+      "year": 2025
+    }
+  ],
+  "created_date": "2025-10-10T00:00:00",
+  "display_name": "Reducing Transformer Key-Value Cache Size with Cross-Layer Attention",
+  "doi": "https://doi.org/10.48550/arxiv.2405.12981",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": false
+  },
+  "has_fulltext": true,
+  "id": "https://openalex.org/W4398230666",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2405.12981",
+    "openalex": "https://openalex.org/W4398230666"
+  },
+  "indexed_in": [
+    "arxiv",
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 5,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/keywords/cache",
+      "score": 0.5044320821762085
+    },
+    {
+      "display_name": "Value (mathematics)",
+      "id": "https://openalex.org/keywords/value",
+      "score": 0.4346846342086792
+    },
+    {
+      "display_name": "Key (lock)",
+      "id": "https://openalex.org/keywords/key",
+      "score": 0.42357420921325684
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/keywords/computer-science",
+      "score": 0.4138835668563843
+    },
+    {
+      "display_name": "Computer network",
+      "id": "https://openalex.org/keywords/computer-network",
+      "score": 0.1769053041934967
+    },
+    {
+      "display_name": "Computer security",
+      "id": "https://openalex.org/keywords/computer-security",
+      "score": 0.08410155773162842
+    },
+    {
+      "display_name": "Machine learning",
+      "id": "https://openalex.org/keywords/machine-learning",
+      "score": 0.061239421367645264
+    }
+  ],
+  "language": "en",
+  "locations": [
+    {
+      "id": "pmh:oai:arXiv.org:2405.12981",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "http://arxiv.org/abs/2405.12981",
+      "license": null,
+      "license_id": null,
+      "pdf_url": "https://arxiv.org/pdf/2405.12981",
+      "raw_source_name": "",
+      "raw_type": null,
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "pmh:oai:dspace.mit.edu:1721.1/158929",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "https://hdl.handle.net/1721.1/158929",
+      "license": "cc-by-nc",
+      "license_id": "https://openalex.org/licenses/cc-by-nc",
+      "pdf_url": "https://dspace.mit.edu/bitstream/1721.1/158929/1/brandon-wbrandon-sm-eecs-2025-thesis.pdf",
+      "raw_source_name": null,
+      "raw_type": "Thesis",
+      "source": {
+        "display_name": "DSpace@MIT (Massachusetts Institute of Technology)",
+        "host_organization": "https://openalex.org/I63966007",
+        "host_organization_lineage": [
+          "https://openalex.org/I63966007"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Massachusetts Institute of Technology",
+        "id": "https://openalex.org/S4306400425",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": false,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2405.12981",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2405.12981",
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 3,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2405.12981"
+  },
+  "primary_location": {
+    "id": "pmh:oai:arXiv.org:2405.12981",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2405.12981",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2405.12981",
+    "raw_source_name": "",
+    "raw_type": null,
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Low-power high-performance VLSI design",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Engineering",
+      "id": "https://openalex.org/fields/22"
+    },
+    "id": "https://openalex.org/T10363",
+    "score": 0.9930999875068665,
+    "subfield": {
+      "display_name": "Electrical and Electronic Engineering",
+      "id": "https://openalex.org/subfields/2208"
+    }
+  },
+  "publication_date": "2024-05-21",
+  "publication_year": 2024,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [
+    "https://openalex.org/W4391375266",
+    "https://openalex.org/W2748952813",
+    "https://openalex.org/W2390279801",
+    "https://openalex.org/W2358668433",
+    "https://openalex.org/W4396701345",
+    "https://openalex.org/W2376932109",
+    "https://openalex.org/W2001405890",
+    "https://openalex.org/W4396696052",
+    "https://openalex.org/W2382290278",
+    "https://openalex.org/W4395014643"
+  ],
+  "sustainable_development_goals": [],
+  "title": "Reducing Transformer Key-Value Cache Size with Cross-Layer Attention",
+  "topics": [
+    {
+      "display_name": "Low-power high-performance VLSI design",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Engineering",
+        "id": "https://openalex.org/fields/22"
+      },
+      "id": "https://openalex.org/T10363",
+      "score": 0.9930999875068665,
+      "subfield": {
+        "display_name": "Electrical and Electronic Engineering",
+        "id": "https://openalex.org/subfields/2208"
+      }
+    },
+    {
+      "display_name": "Parallel Computing and Optimization Techniques",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10054",
+      "score": 0.9914000034332275,
+      "subfield": {
+        "display_name": "Hardware and Architecture",
+        "id": "https://openalex.org/subfields/1708"
+      }
+    },
+    {
+      "display_name": "Network Packet Processing and Optimization",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T12326",
+      "score": 0.9850000143051147,
+      "subfield": {
+        "display_name": "Hardware and Architecture",
+        "id": "https://openalex.org/subfields/1708"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-06-03T09:05:47.796612"
+}

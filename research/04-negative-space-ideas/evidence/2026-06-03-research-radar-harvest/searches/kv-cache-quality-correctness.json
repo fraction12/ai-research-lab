@@ -1,0 +1,609 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "group_by": [],
+    "meta": {
+      "count": 535,
+      "db_response_time_ms": 448,
+      "page": 1,
+      "per_page": 8,
+      "groups_count": null,
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Wayne Xin Zhao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Kun Zhou"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junyi Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tianyi Tang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiaolei Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yupeng Hou"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yingqian Min"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Beichen Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junjie Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zican Dong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yifan Du"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yang Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yushuo Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhipeng Chen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jinhao Jiang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ruiyang Ren"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yifan Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xinyu Tang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zikang Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Peiyu Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jian\u2010Yun Nie"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ji-Rong Wen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ji-Rong Wen"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1007/s11704-026-60308-3",
+        "id": "https://openalex.org/W4362515116",
+        "open_access": {
+          "oa_url": "https://link.springer.com/content/pdf/10.1007/s11704-026-60308-3.pdf"
+        },
+        "publication_date": "2026-05-09",
+        "publication_year": 2026,
+        "title": "A Survey of Large Language Models"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Log\u00e9, Fr\u00e9d\u00e9ric"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Le Pennec, Erwann"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Amadou-Boubacar, Habiboulaye"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+        "id": "https://openalex.org/W2966329817",
+        "open_access": {
+          "oa_url": "https://hal.science/hal-05598986"
+        },
+        "publication_date": "2021-05-12",
+        "publication_year": 2021,
+        "title": "Cerise: Program Verification on a Capability Machine in the Presence of Untrusted Code"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Zhisheng Ye"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wei Gao"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Qinghao Hu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Peng Sun"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiaolin Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yingwei Luo"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tianwei Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yonggang Wen"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.1145/3638757",
+        "id": "https://openalex.org/W4390263770",
+        "open_access": {
+          "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3638757"
+        },
+        "publication_date": "2023-12-27",
+        "publication_year": 2023,
+        "title": "Deep Learning Workload Scheduling in GPU Datacenters: A Survey"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Yuanchun Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hao Wen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Weijun Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiangyu Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yi-Zhen Yuan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Guohong Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiacheng Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Wenxing Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiang Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yi Sun"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Rui Kong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yile Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Hanfei Geng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jian Luan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xuefeng Jin"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zilong Ye"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Guanjing Xiong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Fan Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiang Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Mengwei Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhijun Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Peng Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yang Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ya-Qin Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yunxin Liu"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2401.05459",
+        "id": "https://openalex.org/W4390832893",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2401.05459"
+        },
+        "publication_date": "2024-01-10",
+        "publication_year": 2024,
+        "title": "Personal LLM Agents: Insights and Survey about the Capability, Efficiency and Security"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Zhongwei Wan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xin Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Liu Che"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Samiul Alam"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yu Zheng"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Liu, Jiachen"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhongnan Qu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shen Yan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yi Zhu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Quanlu Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Mosharaf Chowdhury"
+            }
+          },
+          {
+            "author": {
+              "display_name": "M. Zhang"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2312.03863",
+        "id": "https://openalex.org/W4389500833",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2312.03863"
+        },
+        "publication_date": "2023-12-06",
+        "publication_year": 2023,
+        "title": "Efficient Large Language Models: A Survey"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Songyue Han"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Mingyu Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jialong Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Dongdong Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Junhong Duan"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.3390/electronics13245040",
+        "id": "https://openalex.org/W4405706082",
+        "open_access": {
+          "oa_url": "https://www.mdpi.com/2079-9292/13/24/5040/pdf?version=1734793652"
+        },
+        "publication_date": "2024-12-21",
+        "publication_year": 2024,
+        "title": "A Review of Large Language Models: Fundamental Architectures, Key Technological Evolutions, Interdisciplinary Technologies Integration, Optimization and Compression Techniques, Applications, and Challenges"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Zixuan Zhou"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xuefei Ning"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Ke Hong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Tianyu Fu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Jiaming Xu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shiyao Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yuming Lou"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Luning Wang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Zhihang Yuan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiuhong Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Shengen Yan"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Guohao Dai"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiaoping Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yuhan Dong"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Yu Wang"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2404.14294",
+        "id": "https://openalex.org/W4395065783",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2404.14294"
+        },
+        "publication_date": "2024-04-22",
+        "publication_year": 2024,
+        "title": "A Survey on Efficient Inference for Large Language Models"
+      },
+      {
+        "authorships": [
+          {
+            "author": {
+              "display_name": "Zhichun Lu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiang Li"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Cai, Dongqi"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Runduan Yi"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Fangming Liu"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Xiwen Zhang"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Nicholas D. Lane"
+            }
+          },
+          {
+            "author": {
+              "display_name": "Mengwei Xu"
+            }
+          }
+        ],
+        "doi": "https://doi.org/10.48550/arxiv.2409.15790",
+        "id": "https://openalex.org/W4403786771",
+        "open_access": {
+          "oa_url": "https://arxiv.org/pdf/2409.15790"
+        },
+        "publication_date": "2024-09-24",
+        "publication_year": 2024,
+        "title": "Small Language Models: Survey, Measurements, and Insights"
+      }
+    ]
+  }
+}

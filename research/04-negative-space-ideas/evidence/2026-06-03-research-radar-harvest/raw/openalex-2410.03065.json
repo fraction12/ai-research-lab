@@ -1,0 +1,834 @@
+{
+  "abstract_inverted_index": {
+    "(KV)": [
+      21
+    ],
+    "(LLMs)": [
+      3
+    ],
+    "(TTFT)": [
+      156
+    ],
+    "2.6x": [
+      149
+    ],
+    "AI": [
+      188
+    ],
+    "Additionally,": [
+      111
+    ],
+    "Cake": [
+      93,
+      112,
+      145,
+      166
+    ],
+    "Cake,": [
+      76
+    ],
+    "Despite": [
+      49
+    ],
+    "First": [
+      154
+    ],
+    "However,": [
+      14
+    ],
+    "I/O": [
+      62,
+      89,
+      184
+    ],
+    "I/O-only": [
+      161
+    ],
+    "KV": [
+      42,
+      79,
+      102
+    ],
+    "LLM": [
+      176
+    ],
+    "Language": [
+      1
+    ],
+    "Large": [
+      0
+    ],
+    "Models": [
+      2
+    ],
+    "Our": [
+      163
+    ],
+    "Prefix": [
+      35
+    ],
+    "Through": [
+      134
+    ],
+    "Time": [
+      152
+    ],
+    "To": [
+      70
+    ],
+    "Token": [
+      155
+    ],
+    "a": [
+      28,
+      77,
+      95
+    ],
+    "achieves": [
+      146
+    ],
+    "across": [
+      137
+    ],
+    "adapting": [
+      129
+    ],
+    "adaptive": [
+      115
+    ],
+    "address": [
+      71
+    ],
+    "advantages,": [
+      51
+    ],
+    "an": [
+      114,
+      168
+    ],
+    "and": [
+      88,
+      105,
+      128,
+      142,
+      160,
+      170,
+      183
+    ],
+    "applications.": [
+      13
+    ],
+    "are": [
+      4
+    ],
+    "as": [
+      167
+    ],
+    "availabilty.": [
+      133
+    ],
+    "average": [
+      148
+    ],
+    "balances": [
+      101
+    ],
+    "bandwidth": [
+      63
+    ],
+    "between": [
+      181
+    ],
+    "bidirectional": [
+      96
+    ],
+    "both": [
+      86
+    ],
+    "bottleneck,": [
+      30
+    ],
+    "bridging": [
+      178
+    ],
+    "by": [
+      40
+    ],
+    "cache": [
+      80,
+      103
+    ],
+    "caches": [
+      22,
+      43
+    ],
+    "caching": [
+      36,
+      53,
+      123
+    ],
+    "challenge,": [
+      73
+    ],
+    "compared": [
+      157
+    ],
+    "computation": [
+      104,
+      182
+    ],
+    "computation.": [
+      48
+    ],
+    "computational": [
+      16,
+      87
+    ],
+    "compute-only": [
+      159
+    ],
+    "conditions,": [
+      144
+    ],
+    "configurations,": [
+      140
+    ],
+    "constraining": [
+      67
+    ],
+    "datasets,": [
+      141
+    ],
+    "deployed": [
+      6
+    ],
+    "deployments.": [
+      189
+    ],
+    "devices,": [
+      66
+    ],
+    "due": [
+      58
+    ],
+    "dynamically": [
+      100
+    ],
+    "effective": [
+      169
+    ],
+    "efficiency": [
+      185
+    ],
+    "efficiency.": [
+      69
+    ],
+    "efficient": [
+      108
+    ],
+    "employs": [
+      94
+    ],
+    "enabling": [
+      11
+    ],
+    "ensuring": [
+      107
+    ],
+    "evaluations": [
+      136
+    ],
+    "extensive": [
+      135
+    ],
+    "findings": [
+      164
+    ],
+    "fluctuating": [
+      131
+    ],
+    "for": [
+      32,
+      44,
+      173
+    ],
+    "from": [
+      55
+    ],
+    "gap": [
+      180
+    ],
+    "generating": [
+      19
+    ],
+    "hardware": [
+      139
+    ],
+    "high": [
+      56
+    ],
+    "highlight": [
+      165
+    ],
+    "improving": [
+      125
+    ],
+    "in": [
+      7,
+      23,
+      91,
+      151,
+      186
+    ],
+    "incorporates": [
+      113
+    ],
+    "increasingly": [
+      5
+    ],
+    "inference": [
+      68
+    ],
+    "inference,": [
+      177
+    ],
+    "inputs.": [
+      34
+    ],
+    "integrates": [
+      120
+    ],
+    "introduce": [
+      75
+    ],
+    "issue": [
+      39
+    ],
+    "its": [
+      50
+    ],
+    "key-value": [
+      20
+    ],
+    "large-scale": [
+      8,
+      187
+    ],
+    "latency": [
+      57
+    ],
+    "limited": [
+      61
+    ],
+    "loading": [
+      81
+    ],
+    "loading,": [
+      106
+    ],
+    "long-context": [
+      33,
+      175
+    ],
+    "major": [
+      29
+    ],
+    "mechanism": [
+      117
+    ],
+    "methods.": [
+      162
+    ],
+    "mitigates": [
+      37
+    ],
+    "non-prefix": [
+      122
+    ],
+    "novel": [
+      78
+    ],
+    "of": [
+      18,
+      64
+    ],
+    "on": [
+      147
+    ],
+    "online": [
+      9
+    ],
+    "optimally": [
+      84
+    ],
+    "optimizing": [
+      174
+    ],
+    "overhead": [
+      17
+    ],
+    "parallel.": [
+      92
+    ],
+    "particularly": [
+      31
+    ],
+    "practical": [
+      171
+    ],
+    "prefill": [
+      25
+    ],
+    "prefix": [
+      52
+    ],
+    "presents": [
+      27
+    ],
+    "reducing": [
+      46
+    ],
+    "reduction": [
+      150
+    ],
+    "redundant": [
+      47
+    ],
+    "requests,": [
+      124
+    ],
+    "resource": [
+      109,
+      132
+    ],
+    "resources": [
+      90
+    ],
+    "reuse,": [
+      45
+    ],
+    "scheduling": [
+      97,
+      116
+    ],
+    "seamlessly": [
+      119
+    ],
+    "services,": [
+      10
+    ],
+    "solution": [
+      172
+    ],
+    "sophisticated": [
+      12
+    ],
+    "stage": [
+      26
+    ],
+    "storage": [
+      65,
+      143
+    ],
+    "storing": [
+      41
+    ],
+    "strategy": [
+      98
+    ],
+    "suffers": [
+      54
+    ],
+    "system": [
+      82,
+      126
+    ],
+    "that": [
+      83,
+      99,
+      118
+    ],
+    "the": [
+      15,
+      24,
+      60,
+      179
+    ],
+    "this": [
+      38,
+      72
+    ],
+    "throughput": [
+      127
+    ],
+    "to": [
+      59,
+      130,
+      153,
+      158
+    ],
+    "utilization.": [
+      110
+    ],
+    "utilizes": [
+      85
+    ],
+    "various": [
+      138
+    ],
+    "we": [
+      74
+    ],
+    "with": [
+      121
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Shuowei Jin",
+        "id": "https://openalex.org/A5101061266",
+        "orcid": null
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Jin, Shuowei"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Xueshen Liu",
+        "id": "https://openalex.org/A5030906708",
+        "orcid": "https://orcid.org/0009-0001-0227-7463"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Liu, Xueshen"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Q Zhang",
+        "id": "https://openalex.org/A5084372517",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Zhang, Qingzhao"
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Zesen Mao",
+        "id": "https://openalex.org/A5089456961",
+        "orcid": null
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Mao, Z. Morley"
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2410.03065",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2410.03065",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2410.03065",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 1,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/C115537543",
+      "level": 2,
+      "score": 0.7844501733779907,
+      "wikidata": "https://www.wikidata.org/wiki/Q165596"
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.5572354793548584,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/C173608175",
+      "level": 1,
+      "score": 0.4158933162689209,
+      "wikidata": "https://www.wikidata.org/wiki/Q232661"
+    }
+  ],
+  "content_urls": {
+    "pdf": "https://content.openalex.org/works/W4403885583.pdf"
+  },
+  "corresponding_author_ids": [
+    "https://openalex.org/A5101061266"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [
+    {
+      "cited_by_count": 1,
+      "year": 2025
+    }
+  ],
+  "created_date": "2025-10-10T00:00:00",
+  "display_name": "Compute Or Load KV Cache? Why Not Both?",
+  "doi": "https://doi.org/10.48550/arxiv.2410.03065",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": true
+  },
+  "has_fulltext": true,
+  "id": "https://openalex.org/W4403885583",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2410.03065",
+    "openalex": "https://openalex.org/W4403885583"
+  },
+  "indexed_in": [
+    "arxiv",
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 4,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/keywords/cache",
+      "score": 0.7844501733779907
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/keywords/computer-science",
+      "score": 0.5572354793548584
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/keywords/parallel-computing",
+      "score": 0.4158933162689209
+    }
+  ],
+  "language": "en",
+  "locations": [
+    {
+      "id": "pmh:oai:arXiv.org:2410.03065",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "http://arxiv.org/abs/2410.03065",
+      "license": null,
+      "license_id": null,
+      "pdf_url": "https://arxiv.org/pdf/2410.03065",
+      "raw_source_name": null,
+      "raw_type": "text",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2410.03065",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2410.03065",
+      "license": null,
+      "license_id": null,
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 2,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2410.03065"
+  },
+  "primary_location": {
+    "id": "pmh:oai:arXiv.org:2410.03065",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2410.03065",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2410.03065",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Parallel Computing and Optimization Techniques",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10054",
+    "score": 0.9703999757766724,
+    "subfield": {
+      "display_name": "Hardware and Architecture",
+      "id": "https://openalex.org/subfields/1708"
+    }
+  },
+  "publication_date": "2024-10-04",
+  "publication_year": 2024,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [
+    "https://openalex.org/W4391375266",
+    "https://openalex.org/W2899084033",
+    "https://openalex.org/W2748952813",
+    "https://openalex.org/W2390279801",
+    "https://openalex.org/W4391913857",
+    "https://openalex.org/W2358668433",
+    "https://openalex.org/W4396701345",
+    "https://openalex.org/W2376932109",
+    "https://openalex.org/W2001405890",
+    "https://openalex.org/W4396696052"
+  ],
+  "sustainable_development_goals": [],
+  "title": "Compute Or Load KV Cache? Why Not Both?",
+  "topics": [
+    {
+      "display_name": "Parallel Computing and Optimization Techniques",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10054",
+      "score": 0.9703999757766724,
+      "subfield": {
+        "display_name": "Hardware and Architecture",
+        "id": "https://openalex.org/subfields/1708"
+      }
+    },
+    {
+      "display_name": "Algorithms and Data Compression",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T11269",
+      "score": 0.9420999884605408,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-03-11T14:59:36.786465"
+}

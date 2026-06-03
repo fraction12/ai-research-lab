@@ -1,0 +1,1133 @@
+{
+  "abstract_inverted_index": {
+    "1)": [
+      105
+    ],
+    "12": [
+      130
+    ],
+    "2)": [
+      109
+    ],
+    "3)": [
+      113
+    ],
+    "4)": [
+      117
+    ],
+    "8": [
+      192
+    ],
+    "Additionally,": [
+      240
+    ],
+    "Anthropic.": [
+      85
+    ],
+    "Dynamic": [
+      218
+    ],
+    "Gated": [
+      166
+    ],
+    "Google,": [
+      83
+    ],
+    "However,": [
+      34
+    ],
+    "KV": [
+      32,
+      47,
+      58,
+      102,
+      106,
+      110,
+      114,
+      118,
+      157,
+      178,
+      223
+    ],
+    "LLM": [
+      78
+    ],
+    "LLMs": [
+      1,
+      66
+    ],
+    "LLMs.": [
+      194
+    ],
+    "Linear": [
+      167
+    ],
+    "Long-context": [
+      0
+    ],
+    "Mamba-Attention": [
+      169
+    ],
+    "Microsoft,": [
+      82
+    ],
+    "O(n)": [
+      210
+    ],
+    "OpenAI,": [
+      81
+    ],
+    "Our": [
+      195
+    ],
+    "RNNs,": [
+      168
+    ],
+    "SCBench": [
+      122
+    ],
+    "SCBench(SharedContextBench),": [
+      92
+    ],
+    "SGLang,": [
+      73
+    ],
+    "Specifically,": [
+      121
+    ],
+    "The": [
+      187
+    ],
+    "This": [
+      52
+    ],
+    "To": [
+      18,
+      86
+    ],
+    "With": [
+      151
+    ],
+    "a": [
+      93,
+      101
+    ],
+    "address": [
+      19,
+      87
+    ],
+    "adopted": [
+      64
+    ],
+    "also": [
+      8
+    ],
+    "an": [
+      155
+    ],
+    "analysis": [
+      159
+    ],
+    "and": [
+      15,
+      72,
+      84,
+      149,
+      171,
+      184,
+      212,
+      228
+    ],
+    "applications": [
+      6
+    ],
+    "architectures": [
+      233
+    ],
+    "around": [
+      30
+    ],
+    "as": [
+      57,
+      70,
+      74,
+      76,
+      175
+    ],
+    "attention": [
+      243
+    ],
+    "attention,": [
+      177
+    ],
+    "become": [
+      62
+    ],
+    "been": [
+      27
+    ],
+    "benchmark": [
+      95
+    ],
+    "benchmarks": [
+      36
+    ],
+    "but": [
+      7
+    ],
+    "by": [
+      77
+    ],
+    "cache": [
+      48,
+      59,
+      107,
+      111,
+      115,
+      119,
+      179
+    ],
+    "cache-centric": [
+      158
+    ],
+    "cache.": [
+      33
+    ],
+    "cachecentric": [
+      103
+    ],
+    "caches": [
+      224
+    ],
+    "capabilities:": [
+      142
+    ],
+    "categories": [
+      139,
+      162
+    ],
+    "centered": [
+      29
+    ],
+    "challenges": [
+      11
+    ],
+    "challenges,": [
+      21
+    ],
+    "comprehensive": [
+      94
+    ],
+    "compression,": [
+      112
+    ],
+    "compression.": [
+      186
+    ],
+    "computation": [
+      215
+    ],
+    "computational": [
+      14
+    ],
+    "conducted": [
+      190
+    ],
+    "context": [
+      135
+    ],
+    "context,": [
+      128
+    ],
+    "covering": [
+      137
+    ],
+    "critical,": [
+      56
+    ],
+    "developed,": [
+      28
+    ],
+    "distribution": [
+      244
+    ],
+    "downstream": [
+      5
+    ],
+    "dropping,": [
+      180
+    ],
+    "efficiency.": [
+      17
+    ],
+    "efficient": [
+      172
+    ],
+    "eight": [
+      161
+    ],
+    "enabled": [
+      3
+    ],
+    "encoding": [
+      208
+    ],
+    "evaluate": [
+      38
+    ],
+    "evaluating": [
+      97
+    ],
+    "evaluation": [
+      188
+    ],
+    "examples": [
+      125
+    ],
+    "existing": [
+      35
+    ],
+    "expressive": [
+      222
+    ],
+    "extensive": [
+      156
+    ],
+    "findings": [
+      196
+    ],
+    "for": [
+      23,
+      96
+    ],
+    "four": [
+      138
+    ],
+    "frameworks,": [
+      68
+    ],
+    "from": [
+      100
+    ],
+    "full": [
+      43
+    ],
+    "gap,": [
+      89
+    ],
+    "generation,": [
+      108
+    ],
+    "global": [
+      147
+    ],
+    "has": [
+      61
+    ],
+    "have": [
+      2,
+      26
+    ],
+    "https://aka.ms/SCBench.": [
+      250
+    ],
+    "hybrid": [
+      232
+    ],
+    "hybrids,": [
+      170
+    ],
+    "identify": [
+      242
+    ],
+    "in": [
+      39,
+      49,
+      65,
+      203,
+      231,
+      247
+    ],
+    "including": [
+      80,
+      165
+    ],
+    "inference": [
+      25,
+      67
+    ],
+    "information,": [
+      148
+    ],
+    "introduce": [
+      91
+    ],
+    "introduced": [
+      9
+    ],
+    "is": [
+      54,
+      189
+    ],
+    "issues": [
+      246
+    ],
+    "it,": [
+      152
+    ],
+    "layer-level": [
+      229
+    ],
+    "lifecycle": [
+      44
+    ],
+    "loading,": [
+      183
+    ],
+    "loading.": [
+      120
+    ],
+    "long-context": [
+      24,
+      98,
+      141,
+      163,
+      193
+    ],
+    "long-generation": [
+      248
+    ],
+    "memory": [
+      16,
+      200,
+      211,
+      235
+    ],
+    "methods": [
+      99,
+      173,
+      201
+    ],
+    "modes,": [
+      136
+    ],
+    "more": [
+      221
+    ],
+    "multi-task.": [
+      150
+    ],
+    "multi-turn": [
+      204
+    ],
+    "neglecting": [
+      41
+    ],
+    "numerous": [
+      4
+    ],
+    "of": [
+      45,
+      140,
+      160
+    ],
+    "often": [
+      37
+    ],
+    "on": [
+      191
+    ],
+    "optimizations": [
+      22
+    ],
+    "oversight": [
+      53
+    ],
+    "particularly": [
+      55
+    ],
+    "patterns,": [
+      227
+    ],
+    "perform": [
+      216
+    ],
+    "performance.": [
+      239
+    ],
+    "perspective:": [
+      104
+    ],
+    "pre-filling": [
+      214
+    ],
+    "prompt": [
+      185
+    ],
+    "provide": [
+      154
+    ],
+    "providers,": [
+      79
+    ],
+    "quantization,": [
+      181
+    ],
+    "ranging": [
+      129
+    ],
+    "real-world": [
+      50
+    ],
+    "reduces": [
+      234
+    ],
+    "related": [
+      12
+    ],
+    "retrieval,": [
+      116,
+      144,
+      146,
+      182
+    ],
+    "reuse": [
+      60
+    ],
+    "robustly.": [
+      217
+    ],
+    "scenarios,": [
+      205
+    ],
+    "scenarios.": [
+      249
+    ],
+    "semantic": [
+      145
+    ],
+    "shared": [
+      127,
+      134
+    ],
+    "shift": [
+      245
+    ],
+    "show": [
+      197
+    ],
+    "significant": [
+      10
+    ],
+    "single-request,": [
+      40
+    ],
+    "solutions,": [
+      164
+    ],
+    "sparse": [
+      176,
+      207
+    ],
+    "sparsity": [
+      219,
+      230
+    ],
+    "static": [
+      226
+    ],
+    "string": [
+      143
+    ],
+    "strong": [
+      238
+    ],
+    "sub-O(n)": [
+      199
+    ],
+    "sub-O(n^2)": [
+      213
+    ],
+    "such": [
+      69,
+      174
+    ],
+    "suffer": [
+      202
+    ],
+    "tasks": [
+      131
+    ],
+    "test": [
+      124
+    ],
+    "than": [
+      225
+    ],
+    "that": [
+      198
+    ],
+    "the": [
+      31,
+      42,
+      46
+    ],
+    "these": [
+      20
+    ],
+    "this": [
+      88
+    ],
+    "to": [
+      13
+    ],
+    "two": [
+      133
+    ],
+    "usage": [
+      236
+    ],
+    "use.": [
+      51
+    ],
+    "uses": [
+      123
+    ],
+    "vLLM": [
+      71
+    ],
+    "we": [
+      90,
+      153,
+      241
+    ],
+    "well": [
+      75
+    ],
+    "while": [
+      206
+    ],
+    "widely": [
+      63
+    ],
+    "with": [
+      126,
+      132,
+      209,
+      237
+    ],
+    "yields": [
+      220
+    ]
+  },
+  "apc_list": null,
+  "apc_paid": null,
+  "authorships": [
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yucheng Li",
+        "id": "https://openalex.org/A5100381401",
+        "orcid": "https://orcid.org/0000-0003-3473-3176"
+      },
+      "author_position": "first",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": true,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Li, Yucheng",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Huiqiang Jiang",
+        "id": "https://openalex.org/A5070156365",
+        "orcid": "https://orcid.org/0000-0002-1327-4882"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Jiang, Huiqiang",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Qianhui Wu",
+        "id": "https://openalex.org/A5024011052",
+        "orcid": "https://orcid.org/0000-0001-9146-0675"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Wu, Qianhui",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Xufang Luo",
+        "id": "https://openalex.org/A5100929082",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Luo, Xufang",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Surin Ahn",
+        "id": "https://openalex.org/A5083787197",
+        "orcid": "https://orcid.org/0000-0001-5615-4859"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Ahn, Surin",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Chengruidong Zhang",
+        "id": "https://openalex.org/A5040430995",
+        "orcid": "https://orcid.org/0009-0002-4939-0436"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Zhang, Chengruidong",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Amir H. Abdi",
+        "id": "https://openalex.org/A5020751192",
+        "orcid": "https://orcid.org/0000-0002-3169-4477"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Abdi, Amir H.",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Dongsheng Li",
+        "id": "https://openalex.org/A5100440904",
+        "orcid": "https://orcid.org/0000-0001-9962-1373"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Li, Dongsheng",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Jianfeng Gao",
+        "id": "https://openalex.org/A5091035881",
+        "orcid": "https://orcid.org/0000-0001-5540-7228"
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Gao, Jianfeng",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Yuqing Yang",
+        "id": "https://openalex.org/A5102783854",
+        "orcid": null
+      },
+      "author_position": "middle",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Yang, Yuqing",
+      "raw_orcid": null
+    },
+    {
+      "affiliations": [],
+      "author": {
+        "display_name": "Lili Qiu",
+        "id": "https://openalex.org/A5032760128",
+        "orcid": "https://orcid.org/0000-0002-1590-9749"
+      },
+      "author_position": "last",
+      "countries": [],
+      "institutions": [],
+      "is_corresponding": false,
+      "raw_affiliation_strings": [],
+      "raw_author_name": "Qiu, Lili",
+      "raw_orcid": null
+    }
+  ],
+  "awards": [],
+  "best_oa_location": {
+    "id": "pmh:oai:arXiv.org:2412.10319",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2412.10319",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2412.10319",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "biblio": {
+    "first_page": null,
+    "issue": null,
+    "last_page": null,
+    "volume": null
+  },
+  "citation_normalized_percentile": null,
+  "cited_by_count": 1,
+  "cited_by_percentile_year": null,
+  "concepts": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/C115537543",
+      "level": 2,
+      "score": 0.704076886177063,
+      "wikidata": "https://www.wikidata.org/wiki/Q165596"
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/C41008148",
+      "level": 0,
+      "score": 0.5935595631599426,
+      "wikidata": "https://www.wikidata.org/wiki/Q21198"
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/C2779343474",
+      "level": 2,
+      "score": 0.5368427038192749,
+      "wikidata": "https://www.wikidata.org/wiki/Q3109175"
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/C173608175",
+      "level": 1,
+      "score": 0.21713271737098694,
+      "wikidata": "https://www.wikidata.org/wiki/Q232661"
+    },
+    {
+      "display_name": "History",
+      "id": "https://openalex.org/C95457728",
+      "level": 0,
+      "score": 0.1843096911907196,
+      "wikidata": "https://www.wikidata.org/wiki/Q309"
+    },
+    {
+      "display_name": "Archaeology",
+      "id": "https://openalex.org/C166957645",
+      "level": 1,
+      "score": 0.04625174403190613,
+      "wikidata": "https://www.wikidata.org/wiki/Q23498"
+    }
+  ],
+  "content_urls": {
+    "pdf": "https://content.openalex.org/works/W4405434119.pdf"
+  },
+  "corresponding_author_ids": [
+    "https://openalex.org/A5100381401"
+  ],
+  "corresponding_institution_ids": [],
+  "countries_distinct_count": 0,
+  "counts_by_year": [
+    {
+      "cited_by_count": 1,
+      "year": 2026
+    }
+  ],
+  "created_date": "2025-10-10T00:00:00",
+  "display_name": "SCBench: A KV Cache-Centric Analysis of Long-Context Methods",
+  "doi": "https://doi.org/10.48550/arxiv.2412.10319",
+  "funders": [],
+  "fwci": null,
+  "has_content": {
+    "grobid_xml": false,
+    "pdf": true
+  },
+  "has_fulltext": true,
+  "id": "https://openalex.org/W4405434119",
+  "ids": {
+    "doi": "https://doi.org/10.48550/arxiv.2412.10319",
+    "openalex": "https://openalex.org/W4405434119"
+  },
+  "indexed_in": [
+    "arxiv",
+    "datacite"
+  ],
+  "institutions": [],
+  "institutions_distinct_count": 11,
+  "is_paratext": false,
+  "is_retracted": false,
+  "is_xpac": false,
+  "keywords": [
+    {
+      "display_name": "Cache",
+      "id": "https://openalex.org/keywords/cache",
+      "score": 0.704076886177063
+    },
+    {
+      "display_name": "Computer science",
+      "id": "https://openalex.org/keywords/computer-science",
+      "score": 0.5935595631599426
+    },
+    {
+      "display_name": "Context (archaeology)",
+      "id": "https://openalex.org/keywords/context",
+      "score": 0.5368427038192749
+    },
+    {
+      "display_name": "Parallel computing",
+      "id": "https://openalex.org/keywords/parallel-computing",
+      "score": 0.21713271737098694
+    },
+    {
+      "display_name": "History",
+      "id": "https://openalex.org/keywords/history",
+      "score": 0.1843096911907196
+    },
+    {
+      "display_name": "Archaeology",
+      "id": "https://openalex.org/keywords/archaeology",
+      "score": 0.04625174403190613
+    }
+  ],
+  "language": "en",
+  "locations": [
+    {
+      "id": "pmh:oai:arXiv.org:2412.10319",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": false,
+      "landing_page_url": "http://arxiv.org/abs/2412.10319",
+      "license": null,
+      "license_id": null,
+      "pdf_url": "https://arxiv.org/pdf/2412.10319",
+      "raw_source_name": null,
+      "raw_type": "text",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": "submittedVersion"
+    },
+    {
+      "id": "doi:10.48550/arxiv.2412.10319",
+      "is_accepted": false,
+      "is_oa": true,
+      "is_published": null,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2412.10319",
+      "license": null,
+      "license_id": null,
+      "pdf_url": null,
+      "raw_source_name": null,
+      "raw_type": "article",
+      "source": {
+        "display_name": "arXiv (Cornell University)",
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "host_organization_name": "Cornell University",
+        "id": "https://openalex.org/S4306400194",
+        "is_core": false,
+        "is_in_doaj": false,
+        "is_oa": true,
+        "issn": null,
+        "issn_l": null,
+        "type": "repository"
+      },
+      "version": null
+    }
+  ],
+  "locations_count": 2,
+  "mesh": [],
+  "open_access": {
+    "any_repository_has_fulltext": true,
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://arxiv.org/pdf/2412.10319"
+  },
+  "primary_location": {
+    "id": "pmh:oai:arXiv.org:2412.10319",
+    "is_accepted": false,
+    "is_oa": true,
+    "is_published": false,
+    "landing_page_url": "http://arxiv.org/abs/2412.10319",
+    "license": null,
+    "license_id": null,
+    "pdf_url": "https://arxiv.org/pdf/2412.10319",
+    "raw_source_name": null,
+    "raw_type": "text",
+    "source": {
+      "display_name": "arXiv (Cornell University)",
+      "host_organization": "https://openalex.org/I205783295",
+      "host_organization_lineage": [
+        "https://openalex.org/I205783295"
+      ],
+      "host_organization_lineage_names": [],
+      "host_organization_name": "Cornell University",
+      "id": "https://openalex.org/S4306400194",
+      "is_core": false,
+      "is_in_doaj": false,
+      "is_oa": true,
+      "issn": null,
+      "issn_l": null,
+      "type": "repository"
+    },
+    "version": "submittedVersion"
+  },
+  "primary_topic": {
+    "display_name": "Context-Aware Activity Recognition Systems",
+    "domain": {
+      "display_name": "Physical Sciences",
+      "id": "https://openalex.org/domains/3"
+    },
+    "field": {
+      "display_name": "Computer Science",
+      "id": "https://openalex.org/fields/17"
+    },
+    "id": "https://openalex.org/T10444",
+    "score": 0.16030000150203705,
+    "subfield": {
+      "display_name": "Computer Vision and Pattern Recognition",
+      "id": "https://openalex.org/subfields/1707"
+    }
+  },
+  "publication_date": "2024-12-13",
+  "publication_year": 2024,
+  "referenced_works": [],
+  "referenced_works_count": 0,
+  "related_works": [
+    "https://openalex.org/W4391375266",
+    "https://openalex.org/W2899084033",
+    "https://openalex.org/W2748952813",
+    "https://openalex.org/W2390279801",
+    "https://openalex.org/W4391913857",
+    "https://openalex.org/W2358668433",
+    "https://openalex.org/W4396701345",
+    "https://openalex.org/W2376932109",
+    "https://openalex.org/W2001405890",
+    "https://openalex.org/W4396696052"
+  ],
+  "sustainable_development_goals": [],
+  "title": "SCBench: A KV Cache-Centric Analysis of Long-Context Methods",
+  "topics": [
+    {
+      "display_name": "Context-Aware Activity Recognition Systems",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T10444",
+      "score": 0.16030000150203705,
+      "subfield": {
+        "display_name": "Computer Vision and Pattern Recognition",
+        "id": "https://openalex.org/subfields/1707"
+      }
+    },
+    {
+      "display_name": "Graph Theory and Algorithms",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T12292",
+      "score": 0.15369999408721924,
+      "subfield": {
+        "display_name": "Computer Vision and Pattern Recognition",
+        "id": "https://openalex.org/subfields/1707"
+      }
+    },
+    {
+      "display_name": "Anomaly Detection Techniques and Applications",
+      "domain": {
+        "display_name": "Physical Sciences",
+        "id": "https://openalex.org/domains/3"
+      },
+      "field": {
+        "display_name": "Computer Science",
+        "id": "https://openalex.org/fields/17"
+      },
+      "id": "https://openalex.org/T11512",
+      "score": 0.15209999680519104,
+      "subfield": {
+        "display_name": "Artificial Intelligence",
+        "id": "https://openalex.org/subfields/1702"
+      }
+    }
+  ],
+  "type": "preprint",
+  "updated_date": "2026-04-30T09:15:22.047038"
+}
