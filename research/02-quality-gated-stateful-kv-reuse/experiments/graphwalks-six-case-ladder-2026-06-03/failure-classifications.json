@@ -1,0 +1,232 @@
+{
+  "classifications": [
+    {
+      "case_id": "graphwalks-6",
+      "classification_rationale": "Original full prompt passed, but the visible-prefix/session-formatted control also degraded, showing prompt-format sensitivity. Session-tail still failed more completely and repeatedly, so cache/session semantics remain a secondary concern.",
+      "confidence": "medium",
+      "fallback_recommendation": "Use full-prompt fallback for GraphWalks-style reasoning-over-prefix tasks until a cache/session repair control passes.",
+      "observed_failure": "Full-prompt replay passed in all three runs; session-tail failed in all three runs with score 0.0.",
+      "open_questions": [
+        "No stronger GGUF model was available in the llama.cpp harness for a same-protocol stronger-model control.",
+        "A lower-level position/compatibility probe may be needed if session-tail repair work proceeds."
+      ],
+      "primary_class": "prompt_protocol_issue",
+      "scores": {
+        "full_replay_scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "session_tail_scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "stronger_tail_hints_score": 0.0,
+        "visible_prefix_session_formatted_score": 0.0
+      },
+      "secondary_classes": [
+        "session_cache_semantic_issue"
+      ],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-scores.json"
+      ]
+    },
+    {
+      "case_id": "graphwalks-9",
+      "classification_rationale": "Original full prompt passed, but the visible-prefix/session-formatted control also degraded, showing prompt-format sensitivity. Session-tail still failed more completely and repeatedly, so cache/session semantics remain a secondary concern.",
+      "confidence": "medium",
+      "fallback_recommendation": "Use full-prompt fallback for GraphWalks-style reasoning-over-prefix tasks until a cache/session repair control passes.",
+      "observed_failure": "Full-prompt replay passed in all three runs; session-tail failed in all three runs with score 0.0.",
+      "open_questions": [
+        "No stronger GGUF model was available in the llama.cpp harness for a same-protocol stronger-model control.",
+        "A lower-level position/compatibility probe may be needed if session-tail repair work proceeds."
+      ],
+      "primary_class": "prompt_protocol_issue",
+      "scores": {
+        "full_replay_scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "session_tail_scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "stronger_tail_hints_score": 0.0,
+        "visible_prefix_session_formatted_score": 0.5714285714285715
+      },
+      "secondary_classes": [
+        "session_cache_semantic_issue"
+      ],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-scores.json"
+      ]
+    },
+    {
+      "case_id": "graphwalks-11",
+      "classification_rationale": "Original full prompt passed, but the visible-prefix/session-formatted control also degraded, showing prompt-format sensitivity. Session-tail still failed more completely and repeatedly, so cache/session semantics remain a secondary concern.",
+      "confidence": "medium",
+      "fallback_recommendation": "Use full-prompt fallback for GraphWalks-style reasoning-over-prefix tasks until a cache/session repair control passes.",
+      "observed_failure": "Full-prompt replay passed in all three runs; session-tail failed in all three runs with score 0.0.",
+      "open_questions": [
+        "No stronger GGUF model was available in the llama.cpp harness for a same-protocol stronger-model control.",
+        "A lower-level position/compatibility probe may be needed if session-tail repair work proceeds."
+      ],
+      "primary_class": "prompt_protocol_issue",
+      "scores": {
+        "full_replay_scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "session_tail_scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "stronger_tail_hints_score": 0.0,
+        "visible_prefix_session_formatted_score": 0.0
+      },
+      "secondary_classes": [
+        "session_cache_semantic_issue"
+      ],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-scores.json"
+      ]
+    },
+    {
+      "case_id": "graphwalks-13",
+      "classification_rationale": "Original full prompt and visible-prefix/session-formatted control both passed, while restored-prefix session-tail failed repeatedly with stable save/restore telemetry.",
+      "confidence": "high",
+      "fallback_recommendation": "Use full-prompt fallback for GraphWalks-style reasoning-over-prefix tasks until a cache/session repair control passes.",
+      "observed_failure": "Full-prompt replay passed in all three runs; session-tail failed in all three runs with score 0.0.",
+      "open_questions": [
+        "No stronger GGUF model was available in the llama.cpp harness for a same-protocol stronger-model control.",
+        "A lower-level position/compatibility probe may be needed if session-tail repair work proceeds."
+      ],
+      "primary_class": "session_cache_semantic_issue",
+      "scores": {
+        "full_replay_scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "session_tail_scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "stronger_tail_hints_score": 0.0,
+        "visible_prefix_session_formatted_score": 1.0
+      },
+      "secondary_classes": [],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-scores.json"
+      ]
+    },
+    {
+      "case_id": "graphwalks-16",
+      "classification_rationale": "Original full prompt and visible-prefix/session-formatted control both passed, while restored-prefix session-tail failed repeatedly with stable save/restore telemetry.",
+      "confidence": "high",
+      "fallback_recommendation": "Use full-prompt fallback for GraphWalks-style reasoning-over-prefix tasks until a cache/session repair control passes.",
+      "observed_failure": "Full-prompt replay passed in all three runs; session-tail failed in all three runs with score 0.0.",
+      "open_questions": [
+        "No stronger GGUF model was available in the llama.cpp harness for a same-protocol stronger-model control.",
+        "A lower-level position/compatibility probe may be needed if session-tail repair work proceeds."
+      ],
+      "primary_class": "session_cache_semantic_issue",
+      "scores": {
+        "full_replay_scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "session_tail_scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "stronger_tail_hints_score": 0.0,
+        "visible_prefix_session_formatted_score": 1.0
+      },
+      "secondary_classes": [],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-scores.json"
+      ]
+    },
+    {
+      "case_id": "graphwalks-19",
+      "classification_rationale": "Original full prompt and visible-prefix/session-formatted control both passed, while restored-prefix session-tail failed repeatedly with stable save/restore telemetry.",
+      "confidence": "high",
+      "fallback_recommendation": "Use full-prompt fallback for GraphWalks-style reasoning-over-prefix tasks until a cache/session repair control passes.",
+      "observed_failure": "Full-prompt replay passed in all three runs; session-tail failed in all three runs with score 0.0.",
+      "open_questions": [
+        "No stronger GGUF model was available in the llama.cpp harness for a same-protocol stronger-model control.",
+        "A lower-level position/compatibility probe may be needed if session-tail repair work proceeds."
+      ],
+      "primary_class": "session_cache_semantic_issue",
+      "scores": {
+        "full_replay_scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "session_tail_scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "stronger_tail_hints_score": 0.0,
+        "visible_prefix_session_formatted_score": 1.0
+      },
+      "secondary_classes": [],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-scores.json"
+      ]
+    }
+  ]
+}

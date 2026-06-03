@@ -115,3 +115,43 @@ done
 ```
 
 Visible-prefix/session-formatted and stronger-tail-hint commands should use derived local case JSONL files. See `control-feasibility.md` before creating those derived files.
+
+## Live Commands Run
+
+All live commands were run on DushyantPC from:
+
+```text
+C:\Users\Dushyant\Projects\ai-research-lab\research\01-ssd-native-inference-current
+```
+
+Backend and model:
+
+```text
+--server-bin C:\Users\Dushyant\Tools\llama-b9482-vulkan\llama-server.exe
+--model benchmarks\models\gpt-oss-20b-mxfp4.gguf
+--ctx-size 32768
+--predict 192
+--temperature 0.0
+--timeout 240
+```
+
+Controls executed:
+
+```text
+full-replay-01, full-replay-02, full-replay-03
+session-tail-01, session-tail-02, session-tail-03
+visible-prefix-session-formatted
+stronger-tail-hints-session-tail
+```
+
+Raw outputs were written under:
+
+```text
+research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/
+```
+
+Prompt-bearing derived inputs were written under:
+
+```text
+research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/
+```

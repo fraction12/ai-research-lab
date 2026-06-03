@@ -1,36 +1,29 @@
-# GraphWalks Six-Case Ladder Setup
+# GraphWalks Six-Case Ladder
 
 Date: 2026-06-03
 
-This directory records the setup and control-coverage preflight for the focused Track 02 GraphWalks ladder. No live model experiments have been run in this phase.
+This directory records the focused Track 02 correctness ladder for the six GraphWalks cases where the prior full-prompt gate passed and session-tail failed.
 
 ## Scope
 
-The fixed case set is:
+Fixed case set: `graphwalks-6`, `graphwalks-9`, `graphwalks-11`, `graphwalks-13`, `graphwalks-16`, and `graphwalks-19`.
 
-- `graphwalks-6`
-- `graphwalks-9`
-- `graphwalks-11`
-- `graphwalks-13`
-- `graphwalks-16`
-- `graphwalks-19`
+## Result
 
-These are the six selected GraphWalks cases from the 2026-06-03 correctness parity evidence where full prompt passed and session-tail failed.
+- Full-prompt replay variance: 3 runs, 18/18 case attempts passed.
+- Session-tail replay/reset-restore sanity: 3 runs, 0/18 case attempts passed.
+- Visible-prefix/session-formatted control: 3/6 cases passed.
+- Stronger tail hints: 0/6 cases passed; all produced malformed JSON/prose outputs.
+- Stronger-model control: not practical in the same llama.cpp/GGUF harness.
 
-## Setup Result
+## Main Finding
 
-Prompt-bearing inputs were re-materialized locally under the ignored Track 01 benchmark input directory:
+The six-case GraphWalks collapse reproduces on DushyantPC in the proper checkout. Full-prompt variance is not the cause. Basic save/restore telemetry does not show a runtime/storage failure. The likely interpretation is split: `graphwalks-13`, `graphwalks-16`, and `graphwalks-19` point strongly at restored-prefix/session-tail semantic non-equivalence, while `graphwalks-6`, `graphwalks-9`, and `graphwalks-11` also show prompt-format sensitivity.
 
-```text
-research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/
-```
+## Artifacts
 
-A no-model `--dry-run` checked command plumbing for `run --mode both --answer-protocol json-answer` and wrote ignored skeleton response/score files under:
-
-```text
-research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/
-```
-
-## Current Boundary
-
-This setup phase does not classify failures yet. The next approved phase should run the focused controls in order: full-prompt replay variance, visible-prefix/session-formatted control, stronger tail hints, reset/restore sanity, scorer/parser brittleness, and stronger-model control if practical.
+- `summary.json`: aggregate control results, timings, artifact hashes, and findings.
+- `model-info.json`: machine, backend, model, and run parameters.
+- `failure-taxonomy.md`: taxonomy used for interpretation.
+- `failure-classifications.json`: one classification row per case.
+- `commands.md`: setup and live commands.

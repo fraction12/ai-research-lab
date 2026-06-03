@@ -1,161 +1,296 @@
 {
-  "experiment_id": "graphwalks-six-case-ladder-2026-06-03",
-  "phase": "setup-control-coverage",
-  "status": "setup_complete_no_live_model_runs",
-  "source_evidence": {
-    "summary_path": "research/01-ssd-native-inference-current/benchmarks/datasets/flashcache-correctness-parity-2026-06-03/summary.json",
-    "run_id": "easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints",
-    "source_result": "Full prompt passed selected GraphWalks cases; session-tail scored 0.0 on all six."
-  },
-  "local_prompt_bearing_artifacts": [
+  "cases": [
     {
-      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-20-candidates.jsonl",
-      "git_tracking": "ignored",
-      "prompt_bearing": true,
-      "line_count": 20,
-      "sha256": "fdda437f945329e242f240478bbeb32957f425ce6002ee3491e973c64cac380a"
+      "answer_nodes": [
+        "c81e728d9d",
+        "d3d9446802",
+        "eccbc87e4b"
+      ],
+      "case_full_prompt_sha256": "07058d7dfc708d7241dbbfa3e5c94039d77f47024fe939ed085d22659572833b",
+      "case_id": "graphwalks-6",
+      "dataset_id": "graphwalks",
+      "json_answer_full_completion_bytes": 3036,
+      "json_answer_full_completion_sha256": "e58137f41fbf7f26de1cebdc3a0f444439a155bef3ec261546523a24c09d9f29",
+      "json_answer_stable_prefix_sha256": "91e70c8330c19999fa5f3b6b873f47ae119b36075e460ec275a2d80e3c9863ff",
+      "json_answer_tail_completion_bytes": 472,
+      "json_answer_tail_completion_sha256": "ed0d03be718134c898f72445b7e40a33e072fdba8dcaf5e19d28be1eb6800ed7",
+      "problem_type": "parents",
+      "raw_stable_prefix_bytes": 2234,
+      "raw_stable_prefix_sha256": "603bd4c94386df61dfa590ef02b694b24ec0796c0ffc1635e96600bac438e42b",
+      "raw_tail_prompt_bytes": 472,
+      "raw_tail_prompt_sha256": "ed0d03be718134c898f72445b7e40a33e072fdba8dcaf5e19d28be1eb6800ed7",
+      "source_dataset": "openai/graphwalks",
+      "source_id": 6
     },
     {
-      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-selected-cases.jsonl",
-      "git_tracking": "ignored",
-      "prompt_bearing": true,
-      "line_count": 6,
-      "sha256": "3c12fc4a16cc80a87612d118c86cf15b773b799682c439af319381758bf4087c"
+      "answer_nodes": [
+        "c81e728d9d",
+        "eccbc87e4b"
+      ],
+      "case_full_prompt_sha256": "f81d00d2bd3ecca3f9839ea825f4c96abc496a81f4711726fe4cd5f6ef8da713",
+      "case_id": "graphwalks-9",
+      "dataset_id": "graphwalks",
+      "json_answer_full_completion_bytes": 3061,
+      "json_answer_full_completion_sha256": "0c122978470bde278fa65ae4122191160bff8c7a617f48ce7ec0aaf46c3a0962",
+      "json_answer_stable_prefix_sha256": "0597b337fec2eb8e5fcdcedcdd6f7bbccd74278b44c00fcef59ca4ff57eeeb9a",
+      "json_answer_tail_completion_bytes": 472,
+      "json_answer_tail_completion_sha256": "a137725c243b2dd4b64faa775b30eb199b94f5461987878ef6e2e8c1aee5bd36",
+      "problem_type": "parents",
+      "raw_stable_prefix_bytes": 2259,
+      "raw_stable_prefix_sha256": "53ed23e02a34633f783e54c628611890eaf426ce68239248cfd8dc4e83a95bdf",
+      "raw_tail_prompt_bytes": 472,
+      "raw_tail_prompt_sha256": "a137725c243b2dd4b64faa775b30eb199b94f5461987878ef6e2e8c1aee5bd36",
+      "source_dataset": "openai/graphwalks",
+      "source_id": 9
+    },
+    {
+      "answer_nodes": [
+        "d3d9446802"
+      ],
+      "case_full_prompt_sha256": "7155792ea7694b59be14ebbc3c5e7095c8a254124739bbeb1be7c8860e38800a",
+      "case_id": "graphwalks-11",
+      "dataset_id": "graphwalks",
+      "json_answer_full_completion_bytes": 3036,
+      "json_answer_full_completion_sha256": "83f52d871d61eee7fc657d9eae04caf07d6f368de86ccdcf2602fa5d1c09e681",
+      "json_answer_stable_prefix_sha256": "f652b0c98887ebb74df717cdfb83a248467cd03418fd3b24b1d4df1b528fec1e",
+      "json_answer_tail_completion_bytes": 472,
+      "json_answer_tail_completion_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
+      "problem_type": "parents",
+      "raw_stable_prefix_bytes": 2234,
+      "raw_stable_prefix_sha256": "d52a6a513604b2f3706090dcea190dded33c909327124d495525c0f38e2d9cbf",
+      "raw_tail_prompt_bytes": 472,
+      "raw_tail_prompt_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
+      "source_dataset": "openai/graphwalks",
+      "source_id": 11
+    },
+    {
+      "answer_nodes": [
+        "1679091c5a"
+      ],
+      "case_full_prompt_sha256": "2c65b9f4ef849c9d485ffc2440f74032d6cd0658b3d09fad409163d58b36384b",
+      "case_id": "graphwalks-13",
+      "dataset_id": "graphwalks",
+      "json_answer_full_completion_bytes": 3061,
+      "json_answer_full_completion_sha256": "b54b9672d289d024ed508a3d6f11427dad9b92b22721ab2293ed58aa89648087",
+      "json_answer_stable_prefix_sha256": "0cf7e790fbb795c5eade1bf0f5259dedf85039d7da0756b7319d147630908930",
+      "json_answer_tail_completion_bytes": 472,
+      "json_answer_tail_completion_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
+      "problem_type": "parents",
+      "raw_stable_prefix_bytes": 2259,
+      "raw_stable_prefix_sha256": "8536bba891e4a777800a3dacb52fc6a70f40a4b448c77cf19a02ff26069f8ee1",
+      "raw_tail_prompt_bytes": 472,
+      "raw_tail_prompt_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
+      "source_dataset": "openai/graphwalks",
+      "source_id": 13
+    },
+    {
+      "answer_nodes": [
+        "c81e728d9d",
+        "cfcd208495",
+        "e4da3b7fbb",
+        "1679091c5a",
+        "8f14e45fce"
+      ],
+      "case_full_prompt_sha256": "1fa63cba2ee618f3612aa5a85b0afe57889eca4966f93e9ef6ec5abb886aaf21",
+      "case_id": "graphwalks-16",
+      "dataset_id": "graphwalks",
+      "json_answer_full_completion_bytes": 3061,
+      "json_answer_full_completion_sha256": "7274ad671ec29a8b3b736ae530344667be1a5374e6a2e44ca1826da7b25cfc32",
+      "json_answer_stable_prefix_sha256": "0743554557e450a757007f87021c91ab80b894e3bcd7cb925534fb848ece4e73",
+      "json_answer_tail_completion_bytes": 472,
+      "json_answer_tail_completion_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
+      "problem_type": "parents",
+      "raw_stable_prefix_bytes": 2259,
+      "raw_stable_prefix_sha256": "9807c67980d7285e22c641b6e38259ea3d4cef094e6ba5d5f259bbb1773a7cf1",
+      "raw_tail_prompt_bytes": 472,
+      "raw_tail_prompt_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
+      "source_dataset": "openai/graphwalks",
+      "source_id": 16
+    },
+    {
+      "answer_nodes": [
+        "1679091c5a",
+        "eccbc87e4b",
+        "a87ff679a2"
+      ],
+      "case_full_prompt_sha256": "9a70fe859c9c0ff18a0044643e4504790d28088348e5db82f9c93e00317cc317",
+      "case_id": "graphwalks-19",
+      "dataset_id": "graphwalks",
+      "json_answer_full_completion_bytes": 3061,
+      "json_answer_full_completion_sha256": "5c018661c29af9d158f6bc70e9a9eadc3a7d5bef9b0caa3d22f6a4719e03153d",
+      "json_answer_stable_prefix_sha256": "35f08aa3658106b7e0514209db29e27a633a0792742b984355cd491375e4a8f3",
+      "json_answer_tail_completion_bytes": 472,
+      "json_answer_tail_completion_sha256": "a157aca4f8b83c192bbce92952fa0a3b515f983b59b10d1dc27fa12e1a5f13eb",
+      "problem_type": "parents",
+      "raw_stable_prefix_bytes": 2259,
+      "raw_stable_prefix_sha256": "c3d0f7aca61d0b7a8089250f1ced477464825f0e37ff67cc7b5256cc8477c7f9",
+      "raw_tail_prompt_bytes": 472,
+      "raw_tail_prompt_sha256": "a157aca4f8b83c192bbce92952fa0a3b515f983b59b10d1dc27fa12e1a5f13eb",
+      "source_dataset": "openai/graphwalks",
+      "source_id": 19
     }
   ],
   "dry_run_artifacts": [
     {
-      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/dry-run-both-responses.jsonl",
       "git_tracking": "ignored",
       "line_count": 12,
-      "sha256": "e4e86d444748e82f6d9e809dad445076e4581f3a41e1ec6de44ce9e6ed5449b6",
-      "notes": "Generated with --dry-run; no model server was started and no model answer was generated."
+      "notes": "Generated with --dry-run; no model server was started and no model answer was generated.",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/dry-run-both-responses.jsonl",
+      "sha256": "e4e86d444748e82f6d9e809dad445076e4581f3a41e1ec6de44ce9e6ed5449b6"
     },
     {
-      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/dry-run-both-scores.json",
       "git_tracking": "ignored",
-      "sha256": "80a670fcbd269cd6c0f5480580184b915b766828acbf981bfb9ad4e753de90fc",
-      "notes": "Scores dry-run skeleton responses; expected to contain parse-error failures only."
+      "notes": "Scores dry-run skeleton responses; expected to contain parse-error failures only.",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/dry-run-both-scores.json",
+      "sha256": "80a670fcbd269cd6c0f5480580184b915b766828acbf981bfb9ad4e753de90fc"
     }
   ],
   "environment_observations": {
-    "python": "/usr/bin/python3 3.9.6",
     "llama_server": "/opt/homebrew/bin/llama-server",
     "models_dir_observation": "No files found under research/01-ssd-native-inference-current/benchmarks/models in this worktree.",
+    "python": "/usr/bin/python3 3.9.6",
     "sample_warnings": [
       "urllib3 NotOpenSSLWarning for LibreSSL 2.8.3",
       "HF Hub unauthenticated request warning",
       "multiprocessing resource_tracker leaked semaphore warning at shutdown"
     ]
   },
-  "cases": [
+  "experiment_id": "graphwalks-six-case-ladder-2026-06-03",
+  "failure_classifications_path": "research/02-quality-gated-stateful-kv-reuse/experiments/graphwalks-six-case-ladder-2026-06-03/failure-classifications.json",
+  "local_prompt_bearing_artifacts": [
     {
-      "case_id": "graphwalks-6",
-      "dataset_id": "graphwalks",
-      "source_dataset": "openai/graphwalks",
-      "source_id": 6,
-      "problem_type": "parents",
-      "answer_nodes": ["c81e728d9d", "d3d9446802", "eccbc87e4b"],
-      "raw_stable_prefix_bytes": 2234,
-      "raw_tail_prompt_bytes": 472,
-      "raw_stable_prefix_sha256": "603bd4c94386df61dfa590ef02b694b24ec0796c0ffc1635e96600bac438e42b",
-      "raw_tail_prompt_sha256": "ed0d03be718134c898f72445b7e40a33e072fdba8dcaf5e19d28be1eb6800ed7",
-      "case_full_prompt_sha256": "07058d7dfc708d7241dbbfa3e5c94039d77f47024fe939ed085d22659572833b",
-      "json_answer_stable_prefix_sha256": "91e70c8330c19999fa5f3b6b873f47ae119b36075e460ec275a2d80e3c9863ff",
-      "json_answer_full_completion_bytes": 3036,
-      "json_answer_full_completion_sha256": "e58137f41fbf7f26de1cebdc3a0f444439a155bef3ec261546523a24c09d9f29",
-      "json_answer_tail_completion_bytes": 472,
-      "json_answer_tail_completion_sha256": "ed0d03be718134c898f72445b7e40a33e072fdba8dcaf5e19d28be1eb6800ed7"
+      "git_tracking": "ignored",
+      "line_count": 20,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-20-candidates.jsonl",
+      "sha256": "fdda437f945329e242f240478bbeb32957f425ce6002ee3491e973c64cac380a"
     },
     {
-      "case_id": "graphwalks-9",
-      "dataset_id": "graphwalks",
-      "source_dataset": "openai/graphwalks",
-      "source_id": 9,
-      "problem_type": "parents",
-      "answer_nodes": ["c81e728d9d", "eccbc87e4b"],
-      "raw_stable_prefix_bytes": 2259,
-      "raw_tail_prompt_bytes": 472,
-      "raw_stable_prefix_sha256": "53ed23e02a34633f783e54c628611890eaf426ce68239248cfd8dc4e83a95bdf",
-      "raw_tail_prompt_sha256": "a137725c243b2dd4b64faa775b30eb199b94f5461987878ef6e2e8c1aee5bd36",
-      "case_full_prompt_sha256": "f81d00d2bd3ecca3f9839ea825f4c96abc496a81f4711726fe4cd5f6ef8da713",
-      "json_answer_stable_prefix_sha256": "0597b337fec2eb8e5fcdcedcdd6f7bbccd74278b44c00fcef59ca4ff57eeeb9a",
-      "json_answer_full_completion_bytes": 3061,
-      "json_answer_full_completion_sha256": "0c122978470bde278fa65ae4122191160bff8c7a617f48ce7ec0aaf46c3a0962",
-      "json_answer_tail_completion_bytes": 472,
-      "json_answer_tail_completion_sha256": "a137725c243b2dd4b64faa775b30eb199b94f5461987878ef6e2e8c1aee5bd36"
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-selected-cases.jsonl",
+      "sha256": "3c12fc4a16cc80a87612d118c86cf15b773b799682c439af319381758bf4087c"
     },
     {
-      "case_id": "graphwalks-11",
-      "dataset_id": "graphwalks",
-      "source_dataset": "openai/graphwalks",
-      "source_id": 11,
-      "problem_type": "parents",
-      "answer_nodes": ["d3d9446802"],
-      "raw_stable_prefix_bytes": 2234,
-      "raw_tail_prompt_bytes": 472,
-      "raw_stable_prefix_sha256": "d52a6a513604b2f3706090dcea190dded33c909327124d495525c0f38e2d9cbf",
-      "raw_tail_prompt_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
-      "case_full_prompt_sha256": "7155792ea7694b59be14ebbc3c5e7095c8a254124739bbeb1be7c8860e38800a",
-      "json_answer_stable_prefix_sha256": "f652b0c98887ebb74df717cdfb83a248467cd03418fd3b24b1d4df1b528fec1e",
-      "json_answer_full_completion_bytes": 3036,
-      "json_answer_full_completion_sha256": "83f52d871d61eee7fc657d9eae04caf07d6f368de86ccdcf2602fa5d1c09e681",
-      "json_answer_tail_completion_bytes": 472,
-      "json_answer_tail_completion_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef"
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-stronger-tail-hints-cases.jsonl",
+      "sha256": "19abc904d28890e438362307f0ac67f530053dc3a579d125cf69e2c989b38412"
     },
     {
-      "case_id": "graphwalks-13",
-      "dataset_id": "graphwalks",
-      "source_dataset": "openai/graphwalks",
-      "source_id": 13,
-      "problem_type": "parents",
-      "answer_nodes": ["1679091c5a"],
-      "raw_stable_prefix_bytes": 2259,
-      "raw_tail_prompt_bytes": 472,
-      "raw_stable_prefix_sha256": "8536bba891e4a777800a3dacb52fc6a70f40a4b448c77cf19a02ff26069f8ee1",
-      "raw_tail_prompt_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
-      "case_full_prompt_sha256": "2c65b9f4ef849c9d485ffc2440f74032d6cd0658b3d09fad409163d58b36384b",
-      "json_answer_stable_prefix_sha256": "0cf7e790fbb795c5eade1bf0f5259dedf85039d7da0756b7319d147630908930",
-      "json_answer_full_completion_bytes": 3061,
-      "json_answer_full_completion_sha256": "b54b9672d289d024ed508a3d6f11427dad9b92b22721ab2293ed58aa89648087",
-      "json_answer_tail_completion_bytes": 472,
-      "json_answer_tail_completion_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef"
-    },
-    {
-      "case_id": "graphwalks-16",
-      "dataset_id": "graphwalks",
-      "source_dataset": "openai/graphwalks",
-      "source_id": 16,
-      "problem_type": "parents",
-      "answer_nodes": ["c81e728d9d", "cfcd208495", "e4da3b7fbb", "1679091c5a", "8f14e45fce"],
-      "raw_stable_prefix_bytes": 2259,
-      "raw_tail_prompt_bytes": 472,
-      "raw_stable_prefix_sha256": "9807c67980d7285e22c641b6e38259ea3d4cef094e6ba5d5f259bbb1773a7cf1",
-      "raw_tail_prompt_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
-      "case_full_prompt_sha256": "1fa63cba2ee618f3612aa5a85b0afe57889eca4966f93e9ef6ec5abb886aaf21",
-      "json_answer_stable_prefix_sha256": "0743554557e450a757007f87021c91ab80b894e3bcd7cb925534fb848ece4e73",
-      "json_answer_full_completion_bytes": 3061,
-      "json_answer_full_completion_sha256": "7274ad671ec29a8b3b736ae530344667be1a5374e6a2e44ca1826da7b25cfc32",
-      "json_answer_tail_completion_bytes": 472,
-      "json_answer_tail_completion_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef"
-    },
-    {
-      "case_id": "graphwalks-19",
-      "dataset_id": "graphwalks",
-      "source_dataset": "openai/graphwalks",
-      "source_id": 19,
-      "problem_type": "parents",
-      "answer_nodes": ["1679091c5a", "eccbc87e4b", "a87ff679a2"],
-      "raw_stable_prefix_bytes": 2259,
-      "raw_tail_prompt_bytes": 472,
-      "raw_stable_prefix_sha256": "c3d0f7aca61d0b7a8089250f1ced477464825f0e37ff67cc7b5256cc8477c7f9",
-      "raw_tail_prompt_sha256": "a157aca4f8b83c192bbce92952fa0a3b515f983b59b10d1dc27fa12e1a5f13eb",
-      "case_full_prompt_sha256": "9a70fe859c9c0ff18a0044643e4504790d28088348e5db82f9c93e00317cc317",
-      "json_answer_stable_prefix_sha256": "35f08aa3658106b7e0514209db29e27a633a0792742b984355cd491375e4a8f3",
-      "json_answer_full_completion_bytes": 3061,
-      "json_answer_full_completion_sha256": "5c018661c29af9d158f6bc70e9a9eadc3a7d5bef9b0caa3d22f6a4719e03153d",
-      "json_answer_tail_completion_bytes": 472,
-      "json_answer_tail_completion_sha256": "a157aca4f8b83c192bbce92952fa0a3b515f983b59b10d1dc27fa12e1a5f13eb"
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-visible-prefix-session-formatted-cases.jsonl",
+      "sha256": "a24de107216410ed29967a6afabbbb21eae8370472fbb20a7e411d7e27a3a1ec"
     }
-  ]
+  ],
+  "phase": "completed-focused-controls",
+  "raw_result_artifacts": [
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/dry-run-both-responses.jsonl",
+      "sha256": "e4e86d444748e82f6d9e809dad445076e4581f3a41e1ec6de44ce9e6ed5449b6"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/dry-run-both-scores.json",
+      "sha256": "80a670fcbd269cd6c0f5480580184b915b766828acbf981bfb9ad4e753de90fc"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-responses.jsonl",
+      "sha256": "5e178fc119039542ab94236f3da0cea91e49e49f395ac0a223ca9c6840e2ad27"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-scores.json",
+      "sha256": "57b626cc08ffe20a085ef651a4f65c2ae3fde62c08a44dcf13c185efa2097e32"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-responses.jsonl",
+      "sha256": "3730018439194115fc664f2924ceaefc356b23487152ab13c6149cc9f6205401"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-scores.json",
+      "sha256": "7e206a88d5b28a6ad13726d0232ec4d788f7229140bed1ff826e484a74c5439b"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-responses.jsonl",
+      "sha256": "c9beeeaf903b93c2fad4a4bdedad9b12327b0093ad9d2afb767700bf4127f5d0"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-scores.json",
+      "sha256": "a085a2b1ae2876d5c9814300012688da391657027845ab43aca2d534175f5861"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/preflight-dry-run-responses.jsonl",
+      "sha256": "111463325550ab573ad6ed6716871a037ec4a13b20e297dce33da50f63ac958f"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/preflight-dry-run-scores.json",
+      "sha256": "768cb5aa854d009d220b43720fb8947b329b1cedab6a4d05cc2717f3ce43b025"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-responses.jsonl",
+      "sha256": "df6093f45f328c6522a8a13a912cb1b9c19b09386dd1ba2a3cdf8d37b68fa6bf"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-scores.json",
+      "sha256": "bec17615f6c4f470a8f77e9fa8729d85289bbf3d8bbd039bdc08201411bcf1f1"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-responses.jsonl",
+      "sha256": "64e87975a159dbdce5dfa02a9d09cc2a28c1d61701a609615bf03e85f0656a7a"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-scores.json",
+      "sha256": "bafd4f31a3247dbf3661f7a9ae1778dc223fde0dc7fb1d96fe00e727d060bff9"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-responses.jsonl",
+      "sha256": "b9c3e2c35c7ba07db819c293b9bf386689d156c9218467cda565cbfc24ef3fa9"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-scores.json",
+      "sha256": "0aa049a68d9d9dda2c96bf32147683033f054736364b615d696428db819c51ec"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-responses.jsonl",
+      "sha256": "eb09685b718d972cf08228d309fc537541dc02a70d82bad73b017d9c1a0e0f6a"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-scores.json",
+      "sha256": "d1dc0dd72e95b5387fdcfbf753f308b6fbcfaeb91a370eb0310f25f49f8dcf73"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-responses.jsonl",
+      "sha256": "f3dfb45db68a74146e0e9ea2da86e7be4aabb7136ff50d4bff4ac4e68761c53d"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-scores.json",
+      "sha256": "0d73be272bee1a8f1b6ffff678bdadb81e36ceef1b19b205f618cb7d50d41381"
+    }
+  ],
+  "result_summary_path": "research/02-quality-gated-stateful-kv-reuse/experiments/graphwalks-six-case-ladder-2026-06-03/summary.json",
+  "source_evidence": {
+    "run_id": "easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints",
+    "source_result": "Full prompt passed selected GraphWalks cases; session-tail scored 0.0 on all six.",
+    "summary_path": "research/01-ssd-native-inference-current/benchmarks/datasets/flashcache-correctness-parity-2026-06-03/summary.json"
+  },
+  "status": "completed_focused_controls"
 }
