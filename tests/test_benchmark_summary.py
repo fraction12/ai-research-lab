@@ -28,6 +28,7 @@ class BenchmarkSummaryTests(unittest.TestCase):
                     "fixture": "fixture.json",
                     "started_at": "2026-06-02T00:00:00Z",
                     "server_mode": "persistent",
+                    "cache_mode": "hot",
                 },
                 "prompt_set": {"prefix_prompt_bytes": 5487},
                 "slot_cache": {"file_bytes": 31_108_988},
@@ -55,6 +56,7 @@ class BenchmarkSummaryTests(unittest.TestCase):
                     "fixture": "fixture.json",
                     "started_at": "2026-06-02T00:00:00Z",
                     "server_mode": "persistent",
+                    "cache_mode": "hot",
                 },
                 "prompt_set": {"prefix_prompt_bytes": 5487},
                 "direct_full_prompt": [
@@ -101,6 +103,7 @@ class BenchmarkSummaryTests(unittest.TestCase):
 
         self.assertEqual(row.kind, "flashcache-wrapper")
         self.assertEqual(row.server_mode, "persistent")
+        self.assertEqual(row.cache_mode, "hot")
         self.assertEqual(row.before_ms, 8320.438)
         self.assertEqual(row.after_ms, 7374.344)
         self.assertEqual(row.cache_states, "miss,hit")
@@ -115,6 +118,7 @@ class BenchmarkSummaryTests(unittest.TestCase):
         self.assertEqual(row.boundary_server_exit_ms, 0.25)
 
         rendered = summary.render([row])
+        self.assertIn("cache_mode", rendered)
         self.assertIn("boundary_wrapper_ms", rendered)
         self.assertIn("boundary_server_version_ms", rendered)
         self.assertIn("boundary_server_enter_ms", rendered)

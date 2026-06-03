@@ -18,6 +18,7 @@ class SummaryRow:
     fixture: str
     started_at: str
     server_mode: str | None = None
+    cache_mode: str | None = None
     prefix_bytes: Any = None
     before_ms: Any = None
     after_ms: Any = None
@@ -71,6 +72,7 @@ def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
         "fixture": str(metadata.get("fixture", "n/a")),
         "started_at": str(metadata.get("started_at", "n/a")),
         "server_mode": metadata.get("server_mode"),
+        "cache_mode": metadata.get("cache_mode"),
         "prefix_bytes": prompt_set.get("prefix_prompt_bytes"),
     }
 
@@ -169,6 +171,7 @@ def render(rows: list[SummaryRow]) -> str:
         "model",
         "fixture",
         "server_mode",
+        "cache_mode",
         "prefix_bytes",
         "before_ms",
         "after_ms",
@@ -197,6 +200,7 @@ def render(rows: list[SummaryRow]) -> str:
                     row.model,
                     row.fixture,
                     row.server_mode or "n/a",
+                    row.cache_mode or "n/a",
                     format_value(row.prefix_bytes),
                     format_value(row.before_ms),
                     format_value(row.after_ms),

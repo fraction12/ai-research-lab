@@ -46,6 +46,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--timeout", type=float, default=120.0, help="HTTP/server timeout in seconds.")
     parser.add_argument("--prime-n-predict", type=int, default=1, help="Generated tokens while priming prefix slot.")
     parser.add_argument(
+        "--cache-mode",
+        choices=["cold", "hot"],
+        default="cold",
+        help="Measure the current miss-plus-hit flow or prewarm the cache before measured wrapper turns.",
+    )
+    parser.add_argument(
         "--server-mode",
         choices=["per-request", "persistent"],
         default="per-request",
@@ -116,41 +122,69 @@ def direct_baseline(args: argparse.Namespace, prompt_set: dict[str, Any]) -> lis
     return runs
 
 
-def wrapper_runs_with_client(args: argparse.Namespace, prompt_set: dict[str, Any], wrapper: FlashcacheWrapper) -> list[dict[str, Any]]:
-    runs = []
+def wrapper_payload(args: argparse.Namespace, prompt_set: dict[str, Any], scenario: dict[str, Any]) -> dict[str, Any]:
     block_hashes = [block["sha256"] for block in prompt_set["prefix_manifest"]]
     namespace = f"{prompt_set['fixture_name']}:{prompt_set['prefix_prompt_sha256'][:16]}"
-    for scenario in prompt_set["scenarios"]:
-        progress(f"cache-aware: {scenario['name']}")
-        tail_prompt = scenario["prompt"][len(prompt_set["prefix_prompt"]) :].strip()
-        payload = {
-            "model": args.hf_repo or str(args.model),
-            "messages": [{"role": "user", "content": tail_prompt}],
-            "max_tokens": args.predict,
-            "temperature": args.temperature,
-            "ssd_cache": {
-                "namespace": namespace,
-                "stable_prefix_text": prompt_set["prefix_prompt"],
-                "block_hashes": block_hashes,
-                "debug": True,
-            },
-        }
-        response, headers = wrapper.complete(payload)
-        telemetry = response.get("flashcache", {})
-        runs.append(
-            {
-                "scenario": scenario["name"],
-                "cache_state": telemetry.get("cache_state"),
-                "headers": headers,
-                "telemetry": telemetry,
-                "boundary_timings": telemetry.get("boundary_timings", {}),
-                "assistant_excerpt": response["choices"][0]["message"]["content"][:300],
-            }
+    tail_prompt = scenario["prompt"][len(prompt_set["prefix_prompt"]) :].strip()
+    return {
+        "model": args.hf_repo or str(args.model),
+        "messages": [{"role": "user", "content": tail_prompt}],
+        "max_tokens": args.predict,
+        "temperature": args.temperature,
+        "ssd_cache": {
+            "namespace": namespace,
+            "stable_prefix_text": prompt_set["prefix_prompt"],
+            "block_hashes": block_hashes,
+            "debug": True,
+        },
+    }
+
+
+def wrapper_run_scenario(
+    args: argparse.Namespace,
+    prompt_set: dict[str, Any],
+    wrapper: FlashcacheWrapper,
+    scenario: dict[str, Any],
+    *,
+    progress_label: str,
+) -> dict[str, Any]:
+    progress(f"{progress_label}: {scenario['name']}")
+    response, headers = wrapper.complete(wrapper_payload(args, prompt_set, scenario))
+    telemetry = response.get("flashcache", {})
+    return {
+        "scenario": scenario["name"],
+        "cache_state": telemetry.get("cache_state"),
+        "headers": headers,
+        "telemetry": telemetry,
+        "boundary_timings": telemetry.get("boundary_timings", {}),
+        "assistant_excerpt": response["choices"][0]["message"]["content"][:300],
+    }
+
+
+def wrapper_runs_with_client(
+    args: argparse.Namespace,
+    prompt_set: dict[str, Any],
+    wrapper: FlashcacheWrapper,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    prewarm = []
+    if args.cache_mode == "hot" and prompt_set["scenarios"]:
+        prewarm.append(
+            wrapper_run_scenario(
+                args,
+                prompt_set,
+                wrapper,
+                prompt_set["scenarios"][0],
+                progress_label="cache-prewarm",
+            )
         )
-    return runs
+
+    runs = []
+    for scenario in prompt_set["scenarios"]:
+        runs.append(wrapper_run_scenario(args, prompt_set, wrapper, scenario, progress_label="cache-aware"))
+    return prewarm, runs
 
 
-def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[dict[str, Any]]:
+def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     config = config_from_args(args)
     if args.server_mode == "persistent":
         server_config = config.server_config()
@@ -183,7 +217,7 @@ def main() -> int:
     prompt_set = lcb.build_prompt_set(SimpleNamespace(fixture=args.fixture, scenario=args.scenario))
     started_at = dt.datetime.now(dt.timezone.utc).isoformat()
     direct = direct_baseline(args, prompt_set)
-    cached = wrapper_runs(args, prompt_set)
+    prewarm, cached = wrapper_runs(args, prompt_set)
 
     direct_sum = sum_prompt_ms(direct)
     wrapper_values = []
@@ -214,6 +248,7 @@ def main() -> int:
             "temperature": args.temperature,
             "prime_n_predict": args.prime_n_predict,
             "server_mode": args.server_mode,
+            "cache_mode": args.cache_mode,
             "cache_dir": str(args.cache_dir),
         },
         "prompt_set": {
@@ -223,6 +258,7 @@ def main() -> int:
             "prefix_prompt_sha256": prompt_set["prefix_prompt_sha256"],
         },
         "direct_full_prompt": direct,
+        "wrapper_prewarm": prewarm,
         "wrapper_cache_aware": cached,
         "comparison": {
             "direct_prompt_ms_sum": direct_sum,
