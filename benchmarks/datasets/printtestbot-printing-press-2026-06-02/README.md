@@ -24,6 +24,10 @@ The fixture is sanitized and hand-curated. It is not a raw Telegram transcript a
 - `raw/20260602T215635Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-llama-cpp-prompt-cache.json`: one-scenario `gpt-oss-20b` slot save/restore smoke.
 - `raw/20260602T220157Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-llama-cpp-prompt-cache.json`: full seven-turn `gpt-oss-20b` slot save/restore result.
 - `raw/20260602T220711Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-flashcache-wrapper.json`: full seven-turn `gpt-oss-20b` Flashcache wrapper versus direct llama.cpp result.
+- `raw/20260603T001246Z-gpt-oss-20b-printtestbot_printing_press_workflow.json`: normal Ollama `gpt-oss:20b` no-custom-cache timing simulation, 3 runs per scenario, 64 generated tokens.
+- `raw/20260603T001326Z-gpt-5.5-printtestbot-printing-press-workflow-codex-frontier.json`: Codex `gpt-5.5` frontier simulation, 2 runs per scenario.
+- `raw/20260603T001826Z-gpt-oss-20b-printtestbot_printing_press_workflow.json`: normal Ollama `gpt-oss:20b` no-custom-cache quality-cap probe, 1 run per scenario, 256 generated tokens.
+- `raw/20260603T002322Z-gpt-oss-20b-printtestbot_printing_press_workflow.json`: normal Ollama `gpt-oss:20b` no-custom-cache `think=false` probe, 2 runs per scenario, 128 generated tokens.
 
 ## Environment
 
@@ -107,6 +111,41 @@ delta:                 1,078.180 ms
 cache hit rate:          0.8571428571
 ```
 
+Codex `gpt-5.5` frontier simulation:
+
+```text
+runs:                     14
+mean wall time:            13,680.5 ms
+mean input tokens:         15,087.9
+mean cached input tokens:   3,090.3
+mean uncached input tokens: 11,997.6
+mean output tokens:           588.6
+mean reasoning tokens:         475.9
+```
+
+Normal Ollama `gpt-oss:20b` no-custom-cache simulation, 64 generated tokens:
+
+```text
+runs:                       21
+mean wall time:              7,650.9 ms
+mean prompt tokens:          1,360.7
+mean generated tokens:          64.0
+mean prompt eval:              471.4 ms
+non-empty final responses:        0 / 21
+```
+
+Normal Ollama `gpt-oss:20b` no-custom-cache probe with `think=false`, 128 generated tokens:
+
+```text
+runs:                       14
+mean wall time:             16,071.8 ms
+mean prompt tokens:          1,335.7
+mean generated tokens:         128.0
+mean prompt eval:            1,016.9 ms
+non-empty final responses:        0 / 14
+non-empty thinking fields:       14 / 14
+```
+
 ## Interpretation
 
 The useful signal is not exact replay. The exact repeat control drops prompt eval sharply, but that is not the product workload.
@@ -117,10 +156,17 @@ The llama.cpp and Flashcache runs show the same cache boundary can reduce prompt
 
 The `gpt-oss-20b` follow-up is mixed. Direct slot restore is flat to slightly worse on the full seven-turn fixture, while the Flashcache wrapper still reduces prompt processing by about 12.8%. That means the useful path is not "slot restore always wins"; it is wrapper-level prompt layout and cache policy, with larger-prefix tests needed before claiming a large-model persistence win.
 
+The frontier-versus-local simulation says local Ollama is materially more prompt-token efficient for this fixture, but the current `gpt-oss:20b` route is not yet an adequate Print-A-Bot replacement for Codex. Codex `gpt-5.5` used about 11.1x more reported input tokens per turn than Ollama reported prompt tokens, or about 8.8x more when only uncached Codex input is counted. That reflects Codex runtime overhead plus different tokenizers, so treat it as a workload-level comparison rather than a tokenizer-pure number.
+
+Cost effectiveness depends on the definition of cost. Codex CLI reports token usage but not a per-run dollar charge, so the dataset does not claim exact Codex dollars. For bulk simulations on owned hardware, local Ollama has no marginal API bill and far lower prompt-token accounting. For useful Print-A-Bot replies today, the current local route often fails because Ollama returns thinking-channel content without final `response` text; Print-A-Bot's current local runner reads only `response`, so those runs would fall back to Codex.
+
 ## Caveats
 
 - Ollama `context` is a deprecated API proxy and was slower than aligned full prompts on this fixture.
 - The llama.cpp/Flashcache tests use a small model because they test slot save/restore mechanics.
 - Direct `gpt-oss-20b` slot restore was tested later and did not beat direct full prompts on this fixture.
 - Generation was capped at 8 tokens to keep prompt evaluation dominant.
+- Later local/frontier comparisons used larger caps, but they are still task simulations, not a scored answer-quality benchmark.
+- Codex `gpt-5.5` usage is Codex agent-runtime usage, not raw OpenAI API usage.
+- The current Print-A-Bot local Ollama path streams the `response` field; it does not consume the `thinking` field observed in the `gpt-oss:20b` probe.
 - Output quality was not scored beyond response excerpts. A later benchmark should add a quality rubric with larger `n_predict`.

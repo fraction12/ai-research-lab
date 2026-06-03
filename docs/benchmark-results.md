@@ -23,6 +23,65 @@ stable bot/runtime/tool/policy prefix + semi-stable repo/task context -> save or
 volatile command-output tail per turn -> do not blindly cache
 ```
 
+### Frontier vs Local No-Custom-Cache Simulation
+
+User intent: compare the normal Print-A-Bot local model route against frontier Codex. For frontier, this uses Codex `gpt-5.5`, not a generic OpenAI API model. For local, this uses normal Ollama `gpt-oss:20b` on DushyantPC, with no Flashcache, no llama.cpp slot restore, and no custom KV persistence.
+
+Codex command:
+
+```bash
+python3 benchmarks/codex_frontier_workflow_benchmark.py --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json --model gpt-5.5 --reasoning-effort xhigh --runs 2 --sandbox read-only --timeout 900 --output-dir benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw
+```
+
+Codex result:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/20260603T001326Z-gpt-5.5-printtestbot-printing-press-workflow-codex-frontier.json
+```
+
+Ollama timing command:
+
+```powershell
+python benchmarks\ollama_workflow_benchmark.py --fixture benchmarks\fixtures\printtestbot_printing_press_workflow.json --model gpt-oss:20b --host http://localhost:11434 --strategy full --runs 3 --vary-runs --num-predict 64 --temperature 0 --timeout 900 --output-dir benchmarks\datasets\printtestbot-printing-press-2026-06-02\raw
+```
+
+Ollama timing result:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/20260603T001246Z-gpt-oss-20b-printtestbot_printing_press_workflow.json
+```
+
+Ollama `think=false` probe:
+
+```powershell
+python benchmarks\ollama_workflow_benchmark.py --fixture benchmarks\fixtures\printtestbot_printing_press_workflow.json --model gpt-oss:20b --host http://localhost:11434 --strategy full --runs 2 --num-predict 128 --think false --temperature 0 --timeout 900 --output-dir benchmarks\datasets\printtestbot-printing-press-2026-06-02\raw
+```
+
+Ollama `think=false` result:
+
+```text
+benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/20260603T002322Z-gpt-oss-20b-printtestbot_printing_press_workflow.json
+```
+
+| Runner | Runs | Mean wall | Mean prompt/input tokens | Mean uncached input | Mean output/gen tokens | Final response success |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Codex `gpt-5.5` | 14 | 13,680.5 ms | 15,087.9 input | 11,997.6 | 588.6 output, 475.9 reasoning | 14 / 14 |
+| Ollama `gpt-oss:20b`, 64-token cap | 21 | 7,650.9 ms | 1,360.7 prompt | n/a | 64.0 generated | 0 / 21 |
+| Ollama `gpt-oss:20b`, `think=false`, 128-token cap | 14 | 16,071.8 ms | 1,335.7 prompt | n/a | 128.0 generated | 0 / 14 |
+
+Token-efficiency read:
+
+- Codex used about `11.1x` more reported input tokens per turn than Ollama reported prompt tokens.
+- Counting only uncached Codex input, Codex still used about `8.8x` more input tokens per turn.
+- This is not a tokenizer-pure measurement; it captures real Codex agent runtime overhead, project instructions, and the benchmark prompt.
+
+Cost-effectiveness read:
+
+- Codex CLI exposes token usage but not an exact per-run dollar charge, so this dataset does not claim precise Codex dollars.
+- Local Ollama has no marginal API bill on owned hardware and is much cheaper for bulk prompt-cost simulation.
+- The current local `gpt-oss:20b` route is not yet a good Print-A-Bot replacement for Codex because the Ollama API returned thinking-channel content without final `response` text in the local probes. Print-A-Bot's current local runner reads `response`, so these local runs would be treated as empty and fall back to Codex.
+- Practical result: local is more token-frugal, but Codex remains the reliable answer path until the local runner/model pairing can produce final response text consistently.
+
 ### Ollama Full Prompt Baseline
 
 Command run on DushyantPC:
