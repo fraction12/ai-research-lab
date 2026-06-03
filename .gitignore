@@ -22,6 +22,10 @@ build/
 **/benchmarks/correctness-eval-cache/
 **/benchmarks/session-continuation-litmus-results/
 **/benchmarks/session-continuation-litmus-cache/
+**/benchmarks/restored-prefix-full-resend-results/
+**/benchmarks/restored-prefix-full-resend-cache/
+**/benchmarks/rpfr-results/
+**/benchmarks/rpfr-cache/
 
 # Local/private SSH and machine-access artifacts
 .ssh/
