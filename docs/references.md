@@ -73,8 +73,26 @@
 - AdaptCache: https://arxiv.org/abs/2509.00105
   KV-cache-native DRAM/SSD storage hierarchy with compression and placement decisions.
 
+- SCBench: https://arxiv.org/abs/2412.10319
+  Shared-context benchmark for evaluating the lifecycle of KV cache generation, compression, retrieval, and loading.
+
+- CacheBlend: https://arxiv.org/abs/2405.16444
+  KV cache reuse for RAG with selective recomputation to preserve generation quality.
+
+- Semantic Integrity Matters: https://arxiv.org/abs/2502.01941
+  Quality-focused KV cache compression benchmark showing that reasoning content can be fragile under compression.
+
+- CacheClip: https://arxiv.org/abs/2510.10129
+  RAG-oriented KV reuse work that explicitly frames the speed-quality tradeoff for cross-chunk reasoning.
+
 - Tutti: https://arxiv.org/abs/2605.03375
   Recent SSD-backed KV cache work focused on making NVMe restoration practical for long-context serving.
+
+- DUAL-BLADE: https://arxiv.org/abs/2604.26557
+  Dual-path NVMe-direct KV-cache offloading for edge LLM inference.
+
+- Swarm: https://arxiv.org/abs/2603.17803
+  Multi-SSD KVCache offloading based on co-activation-aware placement.
 
 - Don't Break the Cache: https://arxiv.org/abs/2601.06007
   Evaluation of prompt caching strategies for long-horizon agentic tasks across hosted providers.

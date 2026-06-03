@@ -18,10 +18,11 @@ Agent workloads are the wedge because they repeat system prompts, tool schemas, 
 ## Start Here
 
 1. Read [docs/idea-brief.md](docs/idea-brief.md).
-2. Do the [6-hour learning plan](docs/learning-plan-6-hours.md).
-3. Use [docs/technical-map.md](docs/technical-map.md) as the system map.
-4. Start with [docs/prototype-plan.md](docs/prototype-plan.md).
-5. Keep sources in [docs/references.md](docs/references.md).
+2. Read the paper-oriented plan in [docs/research-paper-roadmap.md](docs/research-paper-roadmap.md).
+3. Do the [6-hour learning plan](docs/learning-plan-6-hours.md).
+4. Use [docs/technical-map.md](docs/technical-map.md) as the system map.
+5. Start with [docs/prototype-plan.md](docs/prototype-plan.md).
+6. Keep sources in [docs/references.md](docs/references.md).
 
 ## Installed Skills
 
@@ -30,4 +31,3 @@ Matt Pocock's `teach` skill is installed repo-locally at:
 `/.codex/skills/teach`
 
 Source: `mattpocock/skills`, path `skills/in-progress/teach`.
-

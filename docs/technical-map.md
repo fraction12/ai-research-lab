@@ -14,6 +14,7 @@ Inference is a memory hierarchy problem:
 The base ideas are established: prefix caching, KV-cache reuse, and SSD or multi-tier KV storage already appear in papers and production-shaped systems. The project's useful wedge is local agent workloads: stable prefixes with changed tails, warm-vs-restarted persistence gaps, and cache policies that understand system prompts, tool schemas, repo context, attention-sink candidates, rolling tails, and volatile state.
 
 See `docs/research-positioning.md` for the prior-art summary and public-claim guidance.
+See `docs/research-paper-roadmap.md` for the paper-oriented research questions, baselines, controls, and publication path.
 
 ## Memory Tiers
 

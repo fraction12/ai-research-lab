@@ -47,3 +47,9 @@ Reason: online prior-art review found established work in prefix caching, prompt
 Decision: treat llama.cpp slot save/restore as the first close backend baseline and likely first wrapper target.
 
 Reason: a local run against the LightningITB fixture showed that saving a 672-token reusable prefix slot and restoring it across fresh `llama-server` processes reduced prompt evaluation from 310.686 ms to 172.911 ms on `gemma-3-270m-it-Q8_0.gguf`. Custom SSD-native work now has to beat this baseline or add useful indexing, policy, and ergonomics around it.
+
+## 2026-06-03: Paper Direction
+
+Decision: frame the publishable research topic around quality-gated persistent/session KV reuse for local agent loops.
+
+Reason: the online prior-art scan found that prefix caching, prompt-state reuse, multi-tier KV storage, SSD/NVMe KV offload, and agentic prompt caching are already active research areas. The remaining wedge is the correctness contract: when restored-prefix or session-tail execution on local non-frontier models is equivalent enough to full-prompt execution, how failures should be attributed, and when the system should fall back to full-prompt mode.
