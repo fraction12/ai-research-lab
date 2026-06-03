@@ -41,12 +41,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--prime-num-predict", type=int, default=1, help="Generated tokens for prefix priming.")
     parser.add_argument("--temperature", type=float, default=0.0, help="Generation temperature.")
     parser.add_argument("--num-ctx", type=int, default=None, help="Optional Ollama context window.")
-    parser.add_argument(
-        "--think",
-        choices=["omit", "true", "false"],
-        default="omit",
-        help="Optional Ollama thinking-mode control for models that support it.",
-    )
     parser.add_argument("--scenario", action="append", help="Run only the named scenario. Can be repeated.")
     parser.add_argument(
         "--strategy",
@@ -347,7 +341,6 @@ def call_ollama(
     num_predict: int,
     temperature: float,
     num_ctx: int | None,
-    think: str,
     timeout: float,
     context: list[int] | None = None,
 ) -> dict[str, Any]:
@@ -366,8 +359,6 @@ def call_ollama(
     }
     if context is not None:
         payload["context"] = context
-    if think != "omit":
-        payload["think"] = think == "true"
     data = json.dumps(payload).encode("utf-8")
     request = urllib.request.Request(
         host.rstrip("/") + "/api/generate",
@@ -466,8 +457,6 @@ def make_run_record(run_index: int, wall_duration: float, ollama_result: dict[st
             ollama_result.get("eval_duration"),
         ),
         "response_excerpt": str(ollama_result.get("response", ""))[:400],
-        "thinking_excerpt": str(ollama_result.get("thinking", ""))[:400],
-        "thinking_length": len(str(ollama_result.get("thinking", ""))) if ollama_result.get("thinking") is not None else 0,
         "context_length": len(ollama_result.get("context", [])) if isinstance(ollama_result.get("context"), list) else None,
     }
 
@@ -674,7 +663,6 @@ def run_full_strategy(
                     num_predict=args.num_predict,
                     temperature=args.temperature,
                     num_ctx=args.num_ctx,
-                    think=args.think,
                     timeout=args.timeout,
                 )
             wall_duration = time.perf_counter() - wall_start
@@ -747,7 +735,6 @@ def run_full_sequence(
                     num_predict=args.num_predict,
                     temperature=args.temperature,
                     num_ctx=args.num_ctx,
-                    think=args.think,
                     timeout=args.timeout,
                 )
             wall_duration = time.perf_counter() - wall_start
@@ -837,7 +824,6 @@ def run_prefix_context_strategy(
             num_predict=args.prime_num_predict,
             temperature=args.temperature,
             num_ctx=args.num_ctx,
-            think=args.think,
             timeout=args.timeout,
         )
         context_value = prime_result.get("context")
@@ -879,7 +865,6 @@ def run_prefix_context_strategy(
                     num_predict=args.num_predict,
                     temperature=args.temperature,
                     num_ctx=args.num_ctx,
-                    think=args.think,
                     timeout=args.timeout,
                     context=prime_context,
                 )
