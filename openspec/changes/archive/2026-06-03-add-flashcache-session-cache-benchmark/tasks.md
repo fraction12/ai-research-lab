@@ -1,0 +1,5 @@
+- [x] Add `session` cache mode CLI validation and result metadata.
+- [x] Implement session prewarm plus one-time restore setup telemetry.
+- [x] Implement measured session-resident changed-tail runs without per-turn slot restore.
+- [x] Extend summary output/tests for session setup timing.
+- [x] Validate with unit tests, compile checks, OpenSpec strict validation, and benchmark help.

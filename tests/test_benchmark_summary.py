@@ -89,6 +89,13 @@ class BenchmarkSummaryTests(unittest.TestCase):
                         },
                     },
                 ],
+                "wrapper_session_setup": {
+                    "slot_file_bytes": 42_000,
+                    "boundary_timings": {
+                        "total_wrapper_ms": 11.0,
+                        "slot_restore_ms": 3.5,
+                    }
+                },
                 "comparison": {
                     "direct_prompt_ms_sum": 8320.438,
                     "wrapper_prompt_ms_sum": 7374.344,
@@ -116,10 +123,15 @@ class BenchmarkSummaryTests(unittest.TestCase):
         self.assertEqual(row.boundary_tail_ms, 10.0)
         self.assertEqual(row.boundary_server_enter_ms, 3.5)
         self.assertEqual(row.boundary_server_exit_ms, 0.25)
+        self.assertEqual(row.boundary_session_setup_ms, 11.0)
+        self.assertEqual(row.boundary_session_restore_ms, 3.5)
+        self.assertEqual(row.slot_file_bytes, 42_000)
 
         rendered = summary.render([row])
         self.assertIn("cache_mode", rendered)
         self.assertIn("boundary_wrapper_ms", rendered)
+        self.assertIn("boundary_session_setup_ms", rendered)
+        self.assertIn("boundary_session_restore_ms", rendered)
         self.assertIn("boundary_server_version_ms", rendered)
         self.assertIn("boundary_server_enter_ms", rendered)
         self.assertIn("15.000", rendered)

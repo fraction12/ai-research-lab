@@ -289,21 +289,21 @@
       <div class="abstract" aria-labelledby="abstract-title">
         <h2 id="abstract-title">Abstract</h2>
         <p>
-          These figures summarize the current Flashcache benchmark evidence. The results do not merely show that prompt caching exists; they show where SSD-backed inference state may become useful for ordinary local-agent machines. Warm sessions are much cheaper than restarted sessions, exact replay is only a control, small-prefix gains depend on backend behavior, larger stable prefixes produce larger absolute savings, and whole-slot files grow quickly enough that the next layer must measure and optimize partial restore, layout, and I/O.
+          These figures summarize the current Flashcache benchmark evidence. The results do not merely show that prompt caching exists; they show where SSD-backed inference state may become useful for ordinary local-agent machines. Warm sessions are much cheaper than restarted sessions, exact replay is only a control, small-prefix gains depend on backend behavior, and the new persistent/hot-cache runs show that reusable-prefix savings become much clearer once process startup and cold cache-fill noise are separated. Whole-slot files still grow quickly enough that the next layer must measure restore-once session residency, layout, and I/O.
         </p>
       </div>
 
       <section aria-labelledby="figures-title">
         <h2 id="figures-title">Primary Figures</h2>
         <p>
-          Figure 1 combines the current evidence into a single paper-style panel. Solid lines and bars are measured data; dashed or target lines mark projection and intended future work.
+          Figure 1 combines the current evidence into a single paper-style panel. Solid lines and bars are measured data; dashed lines mark directional projection.
         </p>
 
         <figure class="paper-figure">
           <img src="assets/benchmark-graphs/fig1-flashcache-evidence.svg" alt="Four-panel figure showing warm versus restarted Ollama runs, small-prefix cache outcomes, large-prefix Flashcache savings with projection, and slot file size growth.">
           <figcaption>
             <span class="figure-label">Figure 1. Current evidence for SSD-backed prompt-state reuse.</span>
-            Panel (a) shows that restarted local runs lose warm-state benefit, increasing prompt evaluation from 4.43s to 10.46s across seven turns. Panel (b) shows that small-prefix savings are backend-dependent: Gemma benefits strongly, while gpt-oss-20b whole-slot restore is nearly flat and the Flashcache wrapper averages 12.2% savings. Panel (c) shows that larger stable prefixes increase absolute savings, with the 128KB point shown only as a linear projection from measured 16KB, 32KB, and 64KB runs. Panel (d) shows the cost side: whole-slot files reach 361MB at a 64KB reusable prefix.
+            Panel (a) shows that restarted local runs lose warm-state benefit, increasing prompt evaluation from 4.43s to 10.46s across seven turns. Panel (b) shows that small-prefix savings are backend-dependent: Gemma benefits strongly, while gpt-oss-20b whole-slot restore is nearly flat and the Flashcache wrapper averages 12.2% savings. Panel (c) uses the new hot-cache large-prefix data: the 64KB fixture saves 11.29s of prompt evaluation across seven changed-tail turns, and the 128KB point is only a linear projection. Panel (d) shows the cost side: whole-slot files reach 361MB at a 64KB reusable prefix.
           </figcaption>
           <div class="downloads" aria-label="Figure 1 downloads">
             <a href="assets/benchmark-graphs/fig1-flashcache-evidence.svg">SVG</a>
@@ -316,12 +316,25 @@
           <img src="assets/benchmark-graphs/flashcache-gains-projection.svg" alt="Line chart showing direct prompt evaluation, Flashcache wrapper evaluation, a 128KB linear projection, and a metal target.">
           <figcaption>
             <span class="figure-label">Figure 2. Projection target for the next implementation layer.</span>
-            The 64KB measurement saves 11.39s of prompt-eval time across seven turns. A simple linear fit over the measured 16KB, 32KB, and 64KB ladder projects 23.0s saved at 128KB. The target line is not a measured result; it marks the next research goal for partial KV restore, prefetch, and lower-overhead SSD layout.
+            The 64KB hot-cache measurement saves 11.29s of prompt-eval time across seven turns, reducing prompt evaluation from 13.77s to 2.48s. A simple linear fit over the measured 16KB, 32KB, and 64KB hot-cache ladder projects 23.1s saved at 128KB. The next research step is not another prompt-cache proof; it is a session-resident benchmark that restores once and measures whether the prefix can stay useful across many changed-tail turns.
           </figcaption>
           <div class="downloads" aria-label="Figure 2 downloads">
             <a href="assets/benchmark-graphs/flashcache-gains-projection.svg">SVG</a>
             <a href="assets/benchmark-graphs/flashcache-gains-projection.pdf">PDF</a>
             <a href="assets/benchmark-graphs/flashcache-gains-projection.png">PNG</a>
+          </div>
+        </figure>
+
+        <figure class="paper-figure">
+          <img src="assets/benchmark-graphs/large-prefix-cache-mode-comparison.svg" alt="Line chart comparing prompt-eval reduction across per-request cold, boundary telemetry, persistent cold, version-cached cold, and hot-cache benchmark modes.">
+          <figcaption>
+            <span class="figure-label">Figure 3. Server and cache mode change the visible gain.</span>
+            The original per-request cold ladder showed only about 13.9% prompt-eval reduction at 64KB because process and cold-cache effects obscured the reusable-prefix value. Persistent server mode, server-version caching, and hot-cache mode expose the actual steady-state shape: the 64KB hot-cache run saves 82.0% of prompt-eval time with a 100% measured cache-hit rate.
+          </figcaption>
+          <div class="downloads" aria-label="Figure 3 downloads">
+            <a href="assets/benchmark-graphs/large-prefix-cache-mode-comparison.svg">SVG</a>
+            <a href="assets/benchmark-graphs/large-prefix-cache-mode-comparison.pdf">PDF</a>
+            <a href="assets/benchmark-graphs/large-prefix-cache-mode-comparison.png">PNG</a>
           </div>
         </figure>
       </section>
@@ -361,16 +374,22 @@
               <td>12.2% saved</td>
             </tr>
             <tr>
-              <td>64KB large-prefix Flashcache</td>
+              <td>64KB per-request cold Flashcache</td>
               <td>81.95s</td>
               <td>70.56s</td>
-              <td>11.39s saved</td>
+              <td>13.9% saved</td>
             </tr>
             <tr>
-              <td>128KB large-prefix projection</td>
-              <td>164.9s projected</td>
-              <td>141.9s projected</td>
-              <td>23.0s projected saved</td>
+              <td>64KB hot-cache Flashcache</td>
+              <td>13.77s</td>
+              <td>2.48s</td>
+              <td>82.0% saved</td>
+            </tr>
+            <tr>
+              <td>128KB hot-cache projection</td>
+              <td>26.4s projected</td>
+              <td>3.27s projected</td>
+              <td>23.1s projected saved</td>
             </tr>
             <tr>
               <td>64KB whole-slot SSD cost</td>
@@ -403,7 +422,7 @@
           </figure>
           <figure>
             <img src="assets/benchmark-graphs/large-prefix-flashcache-ladder.svg" alt="Supplementary line chart showing large-prefix Flashcache ladder results.">
-            <figcaption><span class="figure-label">Figure S4.</span> Measured large-prefix Flashcache ladder.</figcaption>
+            <figcaption><span class="figure-label">Figure S4.</span> Measured hot-cache large-prefix Flashcache ladder.</figcaption>
           </figure>
           <figure>
             <img src="assets/benchmark-graphs/slot-file-size-ladder.svg" alt="Supplementary line chart showing slot file size growth.">
@@ -422,7 +441,7 @@
 python3 benchmarks/plot_benchmark_graphs.py</code></pre>
 
         <p>
-          Source inputs are under <code>benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/</code> and <code>benchmarks/datasets/printtestbot-large-prefix-2026-06-02/raw/</code>. The next measurement round should split prefill, restore, save, SSD read/write bytes, memory copy, accelerator upload, and changed-tail evaluation.
+          Source inputs are under <code>benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/</code>, <code>benchmarks/datasets/printtestbot-large-prefix-2026-06-02/raw/</code>, <code>benchmarks/datasets/printtestbot-boundary-telemetry-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-persistent-server-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-server-version-cache-2026-06-03/raw/</code>, and <code>benchmarks/datasets/printtestbot-hot-cache-2026-06-03/raw/</code>. The next measurement round should split prefill, restore, save, SSD read/write bytes, memory copy, accelerator upload, and changed-tail evaluation inside a restore-once session benchmark.
         </p>
       </section>
     </main>

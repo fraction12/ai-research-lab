@@ -27,6 +27,10 @@ except ModuleNotFoundError as exc:  # pragma: no cover - exercised by missing en
 ROOT = Path(__file__).resolve().parents[1]
 PRINTY_RAW = ROOT / "benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw"
 LARGE_RAW = ROOT / "benchmarks/datasets/printtestbot-large-prefix-2026-06-02/raw"
+BOUNDARY_RAW = ROOT / "benchmarks/datasets/printtestbot-boundary-telemetry-2026-06-03/raw"
+PERSISTENT_RAW = ROOT / "benchmarks/datasets/printtestbot-persistent-server-2026-06-03/raw"
+VERSION_CACHE_RAW = ROOT / "benchmarks/datasets/printtestbot-server-version-cache-2026-06-03/raw"
+HOT_CACHE_RAW = ROOT / "benchmarks/datasets/printtestbot-hot-cache-2026-06-03/raw"
 OUT_DIR = ROOT / "docs/assets/benchmark-graphs"
 
 COLORS = {
@@ -42,6 +46,8 @@ COLORS = {
     "slot": "#E69F00",
     "target": "#D55E00",
     "accent": "#CC79A7",
+    "gray": "#666666",
+    "light_gray": "#999999",
 }
 
 
@@ -52,6 +58,17 @@ class CacheSummary:
     after_ms: float
     saved_ms: float
     saved_ratio: float
+
+
+@dataclass(frozen=True)
+class LargePrefixPoint:
+    mode: str
+    prefix_kb: float
+    direct_s: float
+    wrapper_s: float
+    saved_s: float
+    saved_ratio: float
+    hit_rate: float
 
 
 def configure_style() -> None:
@@ -213,20 +230,24 @@ def small_prefix_rows() -> list[CacheSummary]:
     return [gemma_slot, gemma_wrapper, gpt_slot, gpt_wrapper]
 
 
-def large_prefix_file(prefix_kb: int, suffix: str) -> Path:
-    matches = sorted(LARGE_RAW.glob(f"*large-prefix-{prefix_kb}kb-{suffix}.json"))
+def large_prefix_file_in(raw_dir: Path, prefix_kb: int, suffix: str) -> Path:
+    matches = sorted(raw_dir.glob(f"*large-prefix-{prefix_kb}kb-{suffix}.json"))
     if len(matches) != 1:
-        raise FileNotFoundError(f"expected one {prefix_kb}kb {suffix} file, found {matches}")
+        raise FileNotFoundError(f"expected one {prefix_kb}kb {suffix} file in {raw_dir}, found {matches}")
     return matches[0]
 
 
-def wrapper_ladder() -> tuple[list[float], list[float], list[float], list[float]]:
+def large_prefix_file(prefix_kb: int, suffix: str) -> Path:
+    return large_prefix_file_in(LARGE_RAW, prefix_kb, suffix)
+
+
+def wrapper_ladder_from(raw_dir: Path) -> tuple[list[float], list[float], list[float], list[float]]:
     prefix_kb: list[float] = []
     direct_s: list[float] = []
     cache_s: list[float] = []
     saved_s: list[float] = []
     for size in [16, 32, 64]:
-        data = load_json(large_prefix_file(size, "flashcache-wrapper"))
+        data = load_json(large_prefix_file_in(raw_dir, size, "flashcache-wrapper"))
         prefix_kb.append(data["prompt_set"]["prefix_prompt_bytes"] / 1024.0)
         comparison = data["comparison"]
         direct = ms_to_s(float(comparison["direct_prompt_ms_sum"]))
@@ -235,6 +256,43 @@ def wrapper_ladder() -> tuple[list[float], list[float], list[float], list[float]
         cache_s.append(cached)
         saved_s.append(direct - cached)
     return prefix_kb, direct_s, cache_s, saved_s
+
+
+def wrapper_ladder() -> tuple[list[float], list[float], list[float], list[float]]:
+    return wrapper_ladder_from(LARGE_RAW)
+
+
+def hot_cache_ladder() -> tuple[list[float], list[float], list[float], list[float]]:
+    return wrapper_ladder_from(HOT_CACHE_RAW)
+
+
+def large_prefix_mode_rows() -> list[LargePrefixPoint]:
+    rows: list[LargePrefixPoint] = []
+    mode_sources = [
+        ("per-request cold", LARGE_RAW),
+        ("boundary telemetry", BOUNDARY_RAW),
+        ("persistent cold", PERSISTENT_RAW),
+        ("version-cached cold", VERSION_CACHE_RAW),
+        ("hot cache", HOT_CACHE_RAW),
+    ]
+    for mode, raw_dir in mode_sources:
+        for size in [16, 32, 64]:
+            data = load_json(large_prefix_file_in(raw_dir, size, "flashcache-wrapper"))
+            comparison = data["comparison"]
+            direct_s = ms_to_s(float(comparison["direct_prompt_ms_sum"]))
+            wrapper_s = ms_to_s(float(comparison["wrapper_prompt_ms_sum"]))
+            rows.append(
+                LargePrefixPoint(
+                    mode=mode,
+                    prefix_kb=data["prompt_set"]["prefix_prompt_bytes"] / 1024.0,
+                    direct_s=direct_s,
+                    wrapper_s=wrapper_s,
+                    saved_s=direct_s - wrapper_s,
+                    saved_ratio=float(comparison["direct_minus_wrapper_prompt_ratio"]),
+                    hit_rate=float(comparison["wrapper_cache_hit_rate"]),
+                )
+            )
+    return rows
 
 
 def slot_size_ladder() -> tuple[list[float], list[float]]:
@@ -265,13 +323,25 @@ def linear_projection(xs: list[float], ys: list[float], target_x: float) -> floa
 
 
 def write_chart_data() -> None:
-    prefix_kb, direct_s, cache_s, saved_s = wrapper_ladder()
+    old_prefix_kb, old_direct_s, old_cache_s, old_saved_s = wrapper_ladder()
+    prefix_kb, direct_s, cache_s, saved_s = hot_cache_ladder()
     slot_prefix_kb, slot_mb = slot_size_ladder()
     rows = small_prefix_rows()
+    mode_rows = large_prefix_mode_rows()
     projected_direct_s = linear_projection(prefix_kb, direct_s, 128.0)
     projected_cache_s = linear_projection(prefix_kb, cache_s, 128.0)
     payload = {
         "small_prefix_cache_outcomes": [asdict(row) for row in rows],
+        "per_request_large_prefix_ladder": [
+            {
+                "prefix_kb": old_prefix_kb[idx],
+                "direct_prompt_eval_s": old_direct_s[idx],
+                "flashcache_prompt_eval_s": old_cache_s[idx],
+                "saved_s": old_saved_s[idx],
+                "saved_ratio": old_saved_s[idx] / old_direct_s[idx],
+            }
+            for idx in range(len(old_prefix_kb))
+        ],
         "large_prefix_flashcache_ladder": [
             {
                 "prefix_kb": prefix_kb[idx],
@@ -279,9 +349,11 @@ def write_chart_data() -> None:
                 "flashcache_prompt_eval_s": cache_s[idx],
                 "saved_s": saved_s[idx],
                 "saved_ratio": saved_s[idx] / direct_s[idx],
+                "cache_mode": "hot",
             }
             for idx in range(len(prefix_kb))
         ],
+        "large_prefix_mode_comparison": [asdict(row) for row in mode_rows],
         "slot_file_size_ladder": [
             {"prefix_kb": slot_prefix_kb[idx], "slot_file_mb": slot_mb[idx]}
             for idx in range(len(slot_prefix_kb))
@@ -291,8 +363,7 @@ def write_chart_data() -> None:
             "direct_prompt_eval_s": projected_direct_s,
             "flashcache_prompt_eval_s": projected_cache_s,
             "saved_s": projected_direct_s - projected_cache_s,
-            "metal_target_prompt_eval_s": projected_direct_s * 0.75,
-            "method": "linear fit from measured 16KB, 32KB, and 64KB large-prefix ladder",
+            "method": "linear fit from measured 16KB, 32KB, and 64KB hot-cache ladder",
         },
     }
     (OUT_DIR / "chart-data.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
@@ -315,11 +386,10 @@ def paper_evidence_chart() -> list[Path]:
     ]
 
     small_rows = small_prefix_rows()
-    prefix_kb, direct_s, cache_s, _saved_s = wrapper_ladder()
+    prefix_kb, direct_s, cache_s, saved_s = hot_cache_ladder()
     slot_prefix_kb, slot_mb = slot_size_ladder()
     projected_direct_s = linear_projection(prefix_kb, direct_s, 128.0)
     projected_cache_s = linear_projection(prefix_kb, cache_s, 128.0)
-    projected_target_s = projected_direct_s * 0.75
 
     fig, axes = plt.subplots(2, 2, figsize=(10.8, 5.6), constrained_layout=False)
     fig.subplots_adjust(left=0.07, right=0.99, bottom=0.105, top=0.82, wspace=0.28, hspace=0.48)
@@ -330,14 +400,13 @@ def paper_evidence_chart() -> list[Path]:
         Line2D([0], [0], color=COLORS["restart"], marker="o", linewidth=1.7, label="Restarted sequence"),
         Patch(facecolor=COLORS["slot"], label="Slot restore"),
         Patch(facecolor=COLORS["cache"], label="Flashcache wrapper"),
-        Line2D([0], [0], color=COLORS["direct"], marker="o", linewidth=1.7, label="Direct full prompt"),
-        Line2D([0], [0], color=COLORS["target"], marker="o", linewidth=1.6, linestyle=(0, (2, 3)), label="Metal target"),
+        Line2D([0], [0], color=COLORS["direct"], marker="o", linewidth=1.7, label="Direct prompt eval"),
         Line2D([0], [0], color=COLORS["accent"], marker="o", linewidth=1.7, label="Slot file size"),
     ]
     fig.legend(
         handles=legend_handles,
         loc="upper center",
-        ncol=4,
+        ncol=3,
         frameon=False,
         bbox_to_anchor=(0.5, 0.985),
         columnspacing=1.45,
@@ -378,27 +447,34 @@ def paper_evidence_chart() -> list[Path]:
         label = f"{value:.1f}%"
         ax_b.text(idx, value + 1.4, label, ha="center", va="bottom", fontsize=7.5)
 
-    # (c) Large-prefix ladder plus projection.
+    # (c) Hot-cache large-prefix ladder plus projection.
     projected_x = [prefix_kb[-1], 128.0]
     ax_c.axvspan(prefix_kb[-1], 128.0, color="#F2F2F2", zorder=0)
     ax_c.plot(prefix_kb, direct_s, color=COLORS["direct"], marker="o", linewidth=1.9)
     ax_c.plot(prefix_kb, cache_s, color=COLORS["cache"], marker="o", linewidth=1.9)
     ax_c.plot(projected_x, [direct_s[-1], projected_direct_s], color=COLORS["direct"], marker="o", linewidth=1.7, linestyle=(0, (4, 3)))
     ax_c.plot(projected_x, [cache_s[-1], projected_cache_s], color=COLORS["cache"], marker="o", linewidth=1.7, linestyle=(0, (4, 3)))
-    ax_c.plot(projected_x, [cache_s[-1], projected_target_s], color=COLORS["target"], marker="o", linewidth=1.5, linestyle=(0, (2, 3)))
     ax_c.axvline(prefix_kb[-1], color=COLORS["muted"], linestyle="--", linewidth=0.8)
-    ax_c.text(prefix_kb[-1] + 2.0, 174, "Projection\nboundary", rotation=90, va="top", ha="left", fontsize=7, color=COLORS["muted"])
-    ax_c.set_title("(c) Larger stable prefixes increase absolute savings", pad=3)
+    ax_c.text(prefix_kb[-1] + 2.0, 28, "Projection\nboundary", rotation=90, va="top", ha="left", fontsize=7, color=COLORS["muted"])
+    ax_c.set_title("(c) Hot-cache savings scale with prefix size", pad=3)
     ax_c.set_xticks([16, 32, 64, 128], ["16K", "32K", "64K", "128K"])
     ax_c.set_ylabel("Prompt-eval seconds")
     ax_c.set_xlabel("Reusable prefix bytes")
     ax_c.set_xlim(10, 132)
-    ax_c.set_ylim(0, 185)
+    ax_c.set_ylim(0, 31)
     finish_axes(ax_c, FuncFormatter(seconds_label))
     ax_c.annotate(
-        "23.0s projected saved",
+        f"{projected_direct_s - projected_cache_s:.1f}s projected saved",
         xy=(128.0, projected_cache_s),
-        xytext=(82, 142),
+        xytext=(75, 22.5),
+        arrowprops={"arrowstyle": "-", "color": COLORS["muted"], "lw": 0.8},
+        fontsize=7.5,
+        color=COLORS["muted"],
+    )
+    ax_c.annotate(
+        f"{saved_s[-1]:.1f}s saved at 64K",
+        xy=(prefix_kb[-1], cache_s[-1]),
+        xytext=(33, 11.0),
         arrowprops={"arrowstyle": "-", "color": COLORS["muted"], "lw": 0.8},
         fontsize=7.5,
         color=COLORS["muted"],
@@ -515,12 +591,12 @@ def small_prefix_chart() -> list[Path]:
 
 
 def large_prefix_chart() -> list[Path]:
-    prefix_kb, direct_s, cache_s, _saved_s = wrapper_ladder()
+    prefix_kb, direct_s, cache_s, _saved_s = hot_cache_ladder()
     fig, ax = plt.subplots(figsize=(8.9, 5.35), constrained_layout=False)
-    annotate_title(fig, "Flashcache savings grow as reusable context grows", "gpt-oss-20b GGUF, seven Printy turns, synthetic stable-prefix ladder")
+    annotate_title(fig, "Hot-cache Flashcache savings grow with reusable context", "gpt-oss-20b GGUF, persistent server, prewarmed stable-prefix slots")
     apply_standard_layout(fig)
-    ax.plot(prefix_kb, direct_s, color=COLORS["direct"], marker="o", linewidth=2.4, label="Direct full prompt")
-    ax.plot(prefix_kb, cache_s, color=COLORS["cache"], marker="o", linewidth=2.4, label="Flashcache wrapper")
+    ax.plot(prefix_kb, direct_s, color=COLORS["direct"], marker="o", linewidth=2.4, label="Direct prompt eval")
+    ax.plot(prefix_kb, cache_s, color=COLORS["cache"], marker="o", linewidth=2.4, label="Hot Flashcache wrapper")
     ax.set_xticks(prefix_kb, [f"{value:.0f}KB" for value in prefix_kb])
     ax.set_ylabel("Prompt-eval seconds across seven turns")
     ax.set_xlabel("Reusable stable prefix")
@@ -551,63 +627,103 @@ def slot_size_chart() -> list[Path]:
 
 
 def gains_projection_chart() -> list[Path]:
-    prefix_kb, direct_s, cache_s, _saved_s = wrapper_ladder()
+    prefix_kb, direct_s, cache_s, _saved_s = hot_cache_ladder()
     target_x = 128.0
     direct_projection = linear_projection(prefix_kb, direct_s, target_x)
     cache_projection = linear_projection(prefix_kb, cache_s, target_x)
-    metal_target = direct_projection * 0.75
 
     fig, ax = plt.subplots(figsize=(7.2, 4.1), constrained_layout=False)
     fig.subplots_adjust(left=0.105, right=0.985, bottom=0.165, top=0.765)
     annotate_title(
         fig,
         "Flashcache gains and projection target",
-        "Measured gpt-oss-20b prompt-eval time over seven Printy turns; 128KB is a linear projection.",
+        "Measured hot-cache gpt-oss-20b prompt-eval time over seven Printy turns; 128KB is a linear projection.",
     )
 
     measured_x = prefix_kb
     projected_x = [prefix_kb[-1], target_x]
     ax.axvspan(prefix_kb[-1], target_x, color="#f5f5f5", zorder=0)
     ax.axvline(prefix_kb[-1], color=COLORS["muted"], linestyle="--", linewidth=0.8)
-    ax.text(prefix_kb[-1] + 2.0, 181, "Projection boundary", rotation=90, va="top", ha="left", fontsize=7.5, color=COLORS["muted"])
-    ax.plot(measured_x, direct_s, color=COLORS["direct"], marker="o", linewidth=1.9, label="Direct full prompt")
-    ax.plot(measured_x, cache_s, color=COLORS["cache"], marker="o", linewidth=1.9, label="Flashcache wrapper")
+    ax.text(prefix_kb[-1] + 2.0, 30, "Projection boundary", rotation=90, va="top", ha="left", fontsize=7.5, color=COLORS["muted"])
+    ax.plot(measured_x, direct_s, color=COLORS["direct"], marker="o", linewidth=1.9, label="Direct prompt eval")
+    ax.plot(measured_x, cache_s, color=COLORS["cache"], marker="o", linewidth=1.9, label="Hot Flashcache")
     ax.plot(projected_x, [direct_s[-1], direct_projection], color=COLORS["direct"], marker="o", linewidth=1.7, linestyle=(0, (4, 3)), label="Linear projection")
     ax.plot(projected_x, [cache_s[-1], cache_projection], color=COLORS["cache"], marker="o", linewidth=1.7, linestyle=(0, (4, 3)))
-    ax.plot(projected_x, [cache_s[-1], metal_target], color=COLORS["target"], marker="o", linewidth=1.5, linestyle=(0, (2, 3)), label="Metal target")
     ax.set_xticks([16, 32, 64, 128], ["16KB", "32KB", "64KB", "128KB"])
     ax.set_xlim(10, 134)
-    ax.set_ylim(0, 190)
+    ax.set_ylim(0, 32)
     ax.set_ylabel("Prompt-eval seconds across seven turns")
     ax.set_xlabel("Reusable stable prefix")
     finish_axes(ax, FuncFormatter(seconds_label))
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.19), ncols=4, columnspacing=1.0, handlelength=1.8)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.19), ncols=3, columnspacing=1.0, handlelength=1.8)
     ax.annotate(
         f"{direct_projection - cache_projection:.1f}s projected saved",
         xy=(128, cache_projection),
-        xytext=(78, 136),
+        xytext=(72, 23.0),
         arrowprops={"arrowstyle": "-", "color": COLORS["muted"], "lw": 0.8},
         fontsize=7.5,
         color=COLORS["muted"],
     )
-    ax.annotate(
-        "target from partial restore + prefetch",
-        xy=(128, metal_target),
-        xytext=(72, 98),
-        arrowprops={"arrowstyle": "-", "color": COLORS["muted"], "lw": 0.8},
-        fontsize=7.5,
-        color=COLORS["muted"],
-    )
-
     fig.text(
         0.02,
         0.025,
-        "Source: docs/assets/benchmark-graphs/chart-data.json. Projection is directional and should be replaced by measured 128KB data when available.",
+        "Source: docs/assets/benchmark-graphs/chart-data.json. Projection is directional and should be replaced by measured 128KB hot-cache data when available.",
         fontsize=7.5,
         color=COLORS["muted"],
         family="monospace",
     )
     return save_figure(fig, "flashcache-gains-projection")
+
+
+def cache_mode_comparison_chart() -> list[Path]:
+    rows = large_prefix_mode_rows()
+    mode_order = [
+        "per-request cold",
+        "boundary telemetry",
+        "persistent cold",
+        "version-cached cold",
+        "hot cache",
+    ]
+    styles = {
+        "per-request cold": (COLORS["gray"], (0, (1.5, 2.2)), "Per-request cold"),
+        "boundary telemetry": (COLORS["light_gray"], (0, (4, 2)), "Boundary telemetry"),
+        "persistent cold": (COLORS["direct"], "-", "Persistent cold"),
+        "version-cached cold": (COLORS["cache"], "-", "Version cached"),
+        "hot cache": (COLORS["target"], "-", "Hot cache"),
+    }
+
+    fig, ax = plt.subplots(figsize=(8.4, 4.8), constrained_layout=False)
+    annotate_title(
+        fig,
+        "Server and cache mode expose the real Flashcache gain",
+        "Prompt-eval reduction across seven gpt-oss-20b Printy turns; larger is better.",
+    )
+    apply_standard_layout(fig, left=0.11, right=0.985, top=0.74, bottom=0.16)
+
+    for mode in mode_order:
+        mode_rows = [row for row in rows if row.mode == mode]
+        xs = [row.prefix_kb for row in mode_rows]
+        ys = [row.saved_ratio * 100 for row in mode_rows]
+        color, linestyle, label = styles[mode]
+        ax.plot(xs, ys, color=color, linestyle=linestyle, marker="o", linewidth=2.0, label=label)
+
+    ax.set_xticks([16, 32, 64], ["16KB", "32KB", "64KB"])
+    ax.set_xlim(11, 69)
+    ax.set_ylim(0, 90)
+    ax.set_xlabel("Reusable stable prefix")
+    ax.set_ylabel("Prompt-eval reduction")
+    finish_axes(ax, FuncFormatter(percent_label))
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.28), ncols=3, columnspacing=1.0, handlelength=2.2)
+    hot_64 = next(row for row in rows if row.mode == "hot cache" and row.prefix_kb > 60)
+    ax.annotate(
+        f"{hot_64.saved_ratio * 100:.1f}% hot-cache reduction",
+        xy=(hot_64.prefix_kb, hot_64.saved_ratio * 100),
+        xytext=(33, 79),
+        arrowprops={"arrowstyle": "-", "color": COLORS["muted"], "lw": 0.8},
+        fontsize=8,
+        color=COLORS["muted"],
+    )
+    return save_figure(fig, "large-prefix-cache-mode-comparison")
 
 
 def main() -> int:
@@ -623,6 +739,7 @@ def main() -> int:
         large_prefix_chart,
         slot_size_chart,
         gains_projection_chart,
+        cache_mode_comparison_chart,
     ]:
         written.extend(chart())
     written.append(OUT_DIR / "chart-data.json")

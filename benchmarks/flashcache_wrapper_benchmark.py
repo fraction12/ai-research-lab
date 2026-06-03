@@ -7,6 +7,7 @@ import argparse
 import datetime as dt
 import json
 import sys
+from contextlib import nullcontext
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
@@ -18,8 +19,9 @@ sys.path.insert(0, str(ROOT / "benchmarks"))
 
 import llama_cpp_prompt_cache_benchmark as lcb  # noqa: E402
 import ollama_workflow_benchmark as owb  # noqa: E402
+from flashcache.cache import build_cache_key, parse_chat_request  # noqa: E402
 from flashcache.llama_cpp import ManagedLlamaServer, llama_server_version  # noqa: E402
-from flashcache.wrapper import FlashcacheConfig, FlashcacheWrapper, timing_record  # noqa: E402
+from flashcache.wrapper import BoundaryTimings, FlashcacheConfig, FlashcacheWrapper, timing_record  # noqa: E402
 
 
 DEFAULT_MODEL = ROOT / "benchmarks" / "models" / "gemma-3-270m-it-Q8_0.gguf"
@@ -47,9 +49,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--prime-n-predict", type=int, default=1, help="Generated tokens while priming prefix slot.")
     parser.add_argument(
         "--cache-mode",
-        choices=["cold", "hot"],
+        choices=["cold", "hot", "session"],
         default="cold",
-        help="Measure the current miss-plus-hit flow or prewarm the cache before measured wrapper turns.",
+        help="Measure miss-plus-hit, restore-every-turn hot cache, or restore-once session-resident cache behavior.",
     )
     parser.add_argument(
         "--server-mode",
@@ -57,7 +59,14 @@ def parse_args() -> argparse.Namespace:
         default="per-request",
         help="Run each request with a fresh llama.cpp server or keep a server alive for each benchmark phase.",
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+    validate_args(args)
+    return args
+
+
+def validate_args(args: argparse.Namespace) -> None:
+    if args.cache_mode == "session" and args.server_mode != "persistent":
+        raise SystemExit("--cache-mode session requires --server-mode persistent")
 
 
 def sum_prompt_ms(runs: list[dict[str, Any]], timing_key: str = "timings") -> float | None:
@@ -184,16 +193,155 @@ def wrapper_runs_with_client(
     return prewarm, runs
 
 
-def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def cache_hit_count(runs: list[dict[str, Any]]) -> int:
+    return sum(1 for run in runs if run.get("cache_state") in {"hit", "session-hit"})
+
+
+def cache_key_for_payload(
+    wrapper: FlashcacheWrapper,
+    payload: dict[str, Any],
+    boundary: BoundaryTimings | None = None,
+) -> tuple[str, Any, Any]:
+    with (boundary.phase("request_parse_ms") if boundary else nullcontext()):
+        parsed = parse_chat_request(payload)
+    with (boundary.phase("server_version_ms") if boundary else nullcontext()):
+        server_version = wrapper.server_version()
+    with (boundary.phase("cache_key_ms") if boundary else nullcontext()):
+        cache_key, _key_material = build_cache_key(
+            namespace=parsed.namespace,
+            model_identity=wrapper.config.model_identity(),
+            server_version=server_version,
+            ctx_size=wrapper.config.ctx_size,
+            llama_settings=wrapper.config.llama_settings(),
+            stable_prefix_prompt=parsed.stable_prefix_prompt,
+            block_hashes=parsed.block_hashes,
+        )
+    return cache_key, parsed, server_version
+
+
+def session_run_scenario(
+    args: argparse.Namespace,
+    prompt_set: dict[str, Any],
+    wrapper: FlashcacheWrapper,
+    client: Any,
+    scenario: dict[str, Any],
+    cache_key: str,
+    server_version: str,
+    slot_file_bytes: int | None,
+) -> dict[str, Any]:
+    progress(f"cache-session: {scenario['name']}")
+    boundary = BoundaryTimings()
+    with boundary.phase("request_parse_ms"):
+        parsed = parse_chat_request(wrapper_payload(args, prompt_set, scenario))
+    with boundary.phase("tail_completion_ms"):
+        llama_response = client.completion(
+            parsed.full_prompt,
+            n_predict=parsed.max_tokens,
+            temperature=parsed.temperature,
+        )
+    timings = timing_record(llama_response)
+    telemetry = {
+        "cache_state": "session-hit",
+        "cache_key": cache_key,
+        "fallback_reason": None,
+        "server_version": server_version,
+        "slot_file_bytes": slot_file_bytes,
+        "prompt_ms": timings.get("prompt_ms"),
+        "prompt_n": timings.get("prompt_n"),
+        "timings": timings,
+        "boundary_timings": boundary.finish(),
+    }
+    return {
+        "scenario": scenario["name"],
+        "cache_state": "session-hit",
+        "headers": {
+            "X-Flashcache-Cache": "session-hit",
+            "X-Flashcache-Key": cache_key,
+        },
+        "telemetry": telemetry,
+        "boundary_timings": telemetry["boundary_timings"],
+        "assistant_excerpt": str(llama_response.get("content", ""))[:300],
+    }
+
+
+def session_wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, Any], list[dict[str, Any]]]:
+    if not prompt_set["scenarios"]:
+        return [], {}, []
+
+    prewarm_config = config_from_args(args)
+    prewarm_wrapper = FlashcacheWrapper(prewarm_config)
+    prewarm = [
+        wrapper_run_scenario(
+            args,
+            prompt_set,
+            prewarm_wrapper,
+            prompt_set["scenarios"][0],
+            progress_label="cache-prewarm",
+        )
+    ]
+
+    server_config = config_from_args(args).server_config()
+    server = ManagedLlamaServer(server_config, label="flashcache-wrapper-session")
+    setup_boundary = BoundaryTimings()
+    with setup_boundary.phase("server_enter_ms"):
+        client = server.__enter__()
+    try:
+        wrapper = FlashcacheWrapper(config_from_args(args, existing_base_url=server_config.base_url))
+        cache_key, _parsed, server_version = cache_key_for_payload(
+            wrapper,
+            wrapper_payload(args, prompt_set, prompt_set["scenarios"][0]),
+            setup_boundary,
+        )
+        with setup_boundary.phase("cache_lookup_ms"):
+            manifest = wrapper.store.load(cache_key)
+        if manifest is None or not wrapper.store.slot_path(manifest.slot_filename).exists():
+            raise SystemExit(f"Session cache prewarm did not create a restorable slot for cache key {cache_key}")
+
+        with setup_boundary.phase("slot_restore_ms"):
+            restore_response = client.restore_slot(manifest.slot_filename)
+        restore_ms = restore_response.get("timings", {}).get("restore_ms") or restore_response.get("_wall_ms")
+        setup = {
+            "cache_state": "session-restored",
+            "cache_key": cache_key,
+            "slot_filename": manifest.slot_filename,
+            "slot_file_bytes": manifest.slot_file_bytes,
+            "restored_tokens": restore_response.get("n_restored"),
+            "restore_ms": restore_ms,
+            "boundary_timings": setup_boundary.finish(),
+        }
+        runs = [
+            session_run_scenario(
+                args,
+                prompt_set,
+                wrapper,
+                client,
+                scenario,
+                cache_key,
+                server_version,
+                manifest.slot_file_bytes,
+            )
+            for scenario in prompt_set["scenarios"]
+        ]
+        return prewarm, setup, runs
+    finally:
+        server.stop()
+
+
+def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, Any] | None, list[dict[str, Any]]]:
+    if args.cache_mode == "session":
+        return session_wrapper_runs(args, prompt_set)
+
     config = config_from_args(args)
     if args.server_mode == "persistent":
         server_config = config.server_config()
         with ManagedLlamaServer(server_config, label="flashcache-wrapper-persistent"):
             wrapper = FlashcacheWrapper(config_from_args(args, existing_base_url=server_config.base_url))
-            return wrapper_runs_with_client(args, prompt_set, wrapper)
+            prewarm, runs = wrapper_runs_with_client(args, prompt_set, wrapper)
+            return prewarm, None, runs
 
     wrapper = FlashcacheWrapper(config)
-    return wrapper_runs_with_client(args, prompt_set, wrapper)
+    prewarm, runs = wrapper_runs_with_client(args, prompt_set, wrapper)
+    return prewarm, None, runs
 
 
 def write_result(result: dict[str, Any], output_dir: Path) -> Path:
@@ -217,7 +365,7 @@ def main() -> int:
     prompt_set = lcb.build_prompt_set(SimpleNamespace(fixture=args.fixture, scenario=args.scenario))
     started_at = dt.datetime.now(dt.timezone.utc).isoformat()
     direct = direct_baseline(args, prompt_set)
-    prewarm, cached = wrapper_runs(args, prompt_set)
+    prewarm, session_setup, cached = wrapper_runs(args, prompt_set)
 
     direct_sum = sum_prompt_ms(direct)
     wrapper_values = []
@@ -231,7 +379,7 @@ def main() -> int:
     if direct_sum is not None and wrapper_sum is not None:
         delta = direct_sum - wrapper_sum
         ratio = delta / direct_sum if direct_sum else None
-    hits = sum(1 for run in cached if run.get("cache_state") == "hit")
+    hits = cache_hit_count(cached)
 
     result = {
         "metadata": {
@@ -259,6 +407,7 @@ def main() -> int:
         },
         "direct_full_prompt": direct,
         "wrapper_prewarm": prewarm,
+        "wrapper_session_setup": session_setup,
         "wrapper_cache_aware": cached,
         "comparison": {
             "direct_prompt_ms_sum": direct_sum,

@@ -29,7 +29,7 @@
       "saved_ratio": 0.12175097071931656
     }
   ],
-  "large_prefix_flashcache_ladder": [
+  "per_request_large_prefix_ladder": [
     {
       "prefix_kb": 16.017578125,
       "direct_prompt_eval_s": 19.808889999999998,
@@ -52,6 +52,169 @@
       "saved_ratio": 0.13896027514724563
     }
   ],
+  "large_prefix_flashcache_ladder": [
+    {
+      "prefix_kb": 16.017578125,
+      "direct_prompt_eval_s": 4.317695,
+      "flashcache_prompt_eval_s": 1.8911310000000001,
+      "saved_s": 2.4265639999999995,
+      "saved_ratio": 0.5620044954541716,
+      "cache_mode": "hot"
+    },
+    {
+      "prefix_kb": 32.017578125,
+      "direct_prompt_eval_s": 7.250831,
+      "flashcache_prompt_eval_s": 2.0909560000000003,
+      "saved_s": 5.1598749999999995,
+      "saved_ratio": 0.7116253295656731,
+      "cache_mode": "hot"
+    },
+    {
+      "prefix_kb": 64.017578125,
+      "direct_prompt_eval_s": 13.774331,
+      "flashcache_prompt_eval_s": 2.482388,
+      "saved_s": 11.291943,
+      "saved_ratio": 0.8197815922965696,
+      "cache_mode": "hot"
+    }
+  ],
+  "large_prefix_mode_comparison": [
+    {
+      "mode": "per-request cold",
+      "prefix_kb": 16.017578125,
+      "direct_s": 19.808889999999998,
+      "wrapper_s": 17.094063000000002,
+      "saved_s": 2.714826999999996,
+      "saved_ratio": 0.13705094025965098,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "per-request cold",
+      "prefix_kb": 32.017578125,
+      "direct_s": 38.62491000000001,
+      "wrapper_s": 33.680994,
+      "saved_s": 4.943916000000009,
+      "saved_ratio": 0.1279981234907733,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "per-request cold",
+      "prefix_kb": 64.017578125,
+      "direct_s": 81.952047,
+      "wrapper_s": 70.56396799999999,
+      "saved_s": 11.388079000000005,
+      "saved_ratio": 0.13896027514724554,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "boundary telemetry",
+      "prefix_kb": 16.017578125,
+      "direct_s": 19.389149,
+      "wrapper_s": 17.079528999999997,
+      "saved_s": 2.3096200000000024,
+      "saved_ratio": 0.1191192042518216,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "boundary telemetry",
+      "prefix_kb": 32.017578125,
+      "direct_s": 38.883669000000005,
+      "wrapper_s": 33.711434000000004,
+      "saved_s": 5.172235000000001,
+      "saved_ratio": 0.13301818303205903,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "boundary telemetry",
+      "prefix_kb": 64.017578125,
+      "direct_s": 81.942383,
+      "wrapper_s": 70.55106500000001,
+      "saved_s": 11.391317999999998,
+      "saved_ratio": 0.13901619141342275,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "persistent cold",
+      "prefix_kb": 16.017578125,
+      "direct_s": 4.324078,
+      "wrapper_s": 1.9662680000000001,
+      "saved_s": 2.3578099999999997,
+      "saved_ratio": 0.5452746227056959,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "persistent cold",
+      "prefix_kb": 32.017578125,
+      "direct_s": 7.295224,
+      "wrapper_s": 2.181403,
+      "saved_s": 5.113821,
+      "saved_ratio": 0.7009820397564215,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "persistent cold",
+      "prefix_kb": 64.017578125,
+      "direct_s": 13.790788999999998,
+      "wrapper_s": 2.555625,
+      "saved_s": 11.235163999999997,
+      "saved_ratio": 0.8146860922895709,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "version-cached cold",
+      "prefix_kb": 16.017578125,
+      "direct_s": 4.308069,
+      "wrapper_s": 1.8756689999999998,
+      "saved_s": 2.4324,
+      "saved_ratio": 0.5646149121566995,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "version-cached cold",
+      "prefix_kb": 32.017578125,
+      "direct_s": 7.217568999999999,
+      "wrapper_s": 2.0964180000000003,
+      "saved_s": 5.121150999999999,
+      "saved_ratio": 0.7095395970582339,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "version-cached cold",
+      "prefix_kb": 64.017578125,
+      "direct_s": 13.782102,
+      "wrapper_s": 2.4754120000000004,
+      "saved_s": 11.30669,
+      "saved_ratio": 0.8203893716647866,
+      "hit_rate": 0.8571428571428571
+    },
+    {
+      "mode": "hot cache",
+      "prefix_kb": 16.017578125,
+      "direct_s": 4.317695,
+      "wrapper_s": 1.8911310000000001,
+      "saved_s": 2.4265639999999995,
+      "saved_ratio": 0.5620044954541716,
+      "hit_rate": 1.0
+    },
+    {
+      "mode": "hot cache",
+      "prefix_kb": 32.017578125,
+      "direct_s": 7.250831,
+      "wrapper_s": 2.0909560000000003,
+      "saved_s": 5.1598749999999995,
+      "saved_ratio": 0.7116253295656733,
+      "hit_rate": 1.0
+    },
+    {
+      "mode": "hot cache",
+      "prefix_kb": 64.017578125,
+      "direct_s": 13.774331,
+      "wrapper_s": 2.482388,
+      "saved_s": 11.291943,
+      "saved_ratio": 0.8197815922965696,
+      "hit_rate": 1.0
+    }
+  ],
   "slot_file_size_ladder": [
     {
       "prefix_kb": 5.3583984375,
@@ -72,10 +235,9 @@
   ],
   "projection": {
     "prefix_kb": 128.0,
-    "direct_prompt_eval_s": 164.92228073858638,
-    "flashcache_prompt_eval_s": 141.92580857043453,
-    "saved_s": 22.996472168151854,
-    "metal_target_prompt_eval_s": 123.69171055393979,
-    "method": "linear fit from measured 16KB, 32KB, and 64KB large-prefix ladder"
+    "direct_prompt_eval_s": 26.395346970458995,
+    "flashcache_prompt_eval_s": 3.2703186901855457,
+    "saved_s": 23.125028280273447,
+    "method": "linear fit from measured 16KB, 32KB, and 64KB hot-cache ladder"
   }
 }

@@ -10,6 +10,10 @@ The charts are generated with Matplotlib from the raw JSON files under:
 
 - `benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/`
 - `benchmarks/datasets/printtestbot-large-prefix-2026-06-02/raw/`
+- `benchmarks/datasets/printtestbot-boundary-telemetry-2026-06-03/raw/`
+- `benchmarks/datasets/printtestbot-persistent-server-2026-06-03/raw/`
+- `benchmarks/datasets/printtestbot-server-version-cache-2026-06-03/raw/`
+- `benchmarks/datasets/printtestbot-hot-cache-2026-06-03/raw/`
 
 Regenerate them with:
 
@@ -28,7 +32,7 @@ Figure 1 is the best artifact to use when explaining the research claim. It comb
 
 - warm-state loss after restart,
 - backend-dependent small-prefix savings,
-- larger absolute savings as reusable prefixes grow,
+- hot-cache savings as reusable prefixes grow,
 - and the SSD cost of whole-slot blobs.
 
 The figure marks the 128KB point as a projection, not a measured result.
@@ -39,8 +43,8 @@ The figure marks the 128KB point as a projection, not a measured result.
 2. Exact prompt replay is already easy; it is not the interesting product claim.
 3. On the small 5.5KB reusable prefix, the tiny Gemma model shows a big cache win, but `gpt-oss-20b` direct slot restore is basically flat.
 4. The Flashcache wrapper gives a repeatable `gpt-oss-20b` win around 12% on the small Printy prefix.
-5. With larger stable prefixes, Flashcache wrapper savings stay around 13%, but the absolute saved time grows from about 2.7s to 11.4s across seven turns.
-6. Saved slot files get large quickly, so the next layer needs partial restore, better layout, and I/O instrumentation instead of whole-slot blobs forever.
+5. The older per-request cold large-prefix run showed about 13.9% savings at 64KB, but the newer persistent/hot-cache runs expose the steady-state value: the 64KB hot-cache run saves 82.0% of prompt-eval time.
+6. Saved slot files get large quickly, so the next layer needs restore-once session residency, partial restore, better layout, and I/O instrumentation instead of whole-slot blobs forever.
 
 ## Warm vs Restarted
 
@@ -78,21 +82,34 @@ On the original Printy fixture with a 5.5KB reusable prefix:
 
 Interpretation: cache mechanics work, but the bigger model/backend does not automatically turn whole-slot restore into a large win at this prefix size. The wrapper path is better, but the result says we need deeper timing around restore, prefill, copy/upload, and tail handling.
 
-## Large Prefix Ladder
+## Large Prefix Hot-Cache Ladder
 
 ![Large prefix Flashcache ladder](assets/benchmark-graphs/large-prefix-flashcache-ladder.svg)
 
-The large-prefix ladder is closer to the future local-agent problem: long stable repo/tool/session context plus small changing tails.
+The hot-cache large-prefix ladder is closer to the future local-agent problem: long stable repo/tool/session context already persisted on disk plus small changing tails.
 
 For `gpt-oss-20b` over seven turns:
 
 | Reusable prefix | Direct prompt eval | Flashcache prompt eval | Saved |
 | --- | ---: | ---: | ---: |
-| 16KB | 19.81s | 17.09s | 2.71s |
-| 32KB | 38.62s | 33.68s | 4.94s |
-| 64KB | 81.95s | 70.56s | 11.39s |
+| 16KB | 4.32s | 1.89s | 2.43s |
+| 32KB | 7.25s | 2.09s | 5.16s |
+| 64KB | 13.77s | 2.48s | 11.29s |
 
-The percentage win is steady around 13%, but the absolute win grows with prefix size. That supports the direction: local agent workloads get interesting when reusable context becomes large and persistent.
+The percentage win grows from 56.2% to 82.0% as prefix size grows. That supports the direction: local agent workloads get interesting when reusable context becomes large, persistent, and already warm on disk.
+
+## Cache Mode Comparison
+
+![Large prefix cache mode comparison](assets/benchmark-graphs/large-prefix-cache-mode-comparison.svg)
+
+The new benchmark data shows why measurement mode matters:
+
+- per-request cold at 64KB: `13.9%` prompt-eval reduction
+- persistent cold at 64KB: `81.5%` prompt-eval reduction
+- server-version cached cold at 64KB: `82.0%` prompt-eval reduction
+- hot cache at 64KB: `82.0%` prompt-eval reduction with `100%` measured cache hits
+
+Interpretation: process startup and repeated wrapper overhead were obscuring the steady-state local-agent shape. Hot cache is the best current approximation of a regular session after stable context has already been persisted.
 
 ## SSD Cost
 
@@ -113,13 +130,13 @@ This is why the next Flashcache layer should not stop at whole-slot blobs. We ne
 
 ![Flashcache gains projection](assets/benchmark-graphs/flashcache-gains-projection.svg)
 
-The projection figure combines the measured large-prefix ladder with the next research target. The 128KB point is a directional linear projection from the measured 16KB, 32KB, and 64KB results, not a measured benchmark result.
+The projection figure combines the measured hot-cache large-prefix ladder with the next research target. The 128KB point is a directional linear projection from the measured 16KB, 32KB, and 64KB hot-cache results, not a measured benchmark result.
 
 The current projection is:
 
-- measured 64KB savings: `11.4s` across seven turns
-- projected 128KB savings: `23.0s` across seven turns
-- next metal target: about `25%` savings from partial KV restore, prefetch, and better layout
+- measured 64KB hot-cache savings: `11.3s` across seven turns
+- projected 128KB hot-cache savings: `23.1s` across seven turns
+- next target: a restore-once session benchmark that avoids per-turn whole-slot restore where possible
 
 ## Next Graphs To Add
 

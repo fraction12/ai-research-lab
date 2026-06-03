@@ -35,6 +35,8 @@ class SummaryRow:
     boundary_tail_ms: Any = None
     boundary_server_enter_ms: Any = None
     boundary_server_exit_ms: Any = None
+    boundary_session_setup_ms: Any = None
+    boundary_session_restore_ms: Any = None
     unsupported_reason: str | None = None
 
 
@@ -60,6 +62,28 @@ def sum_boundary(runs: list[dict[str, Any]], phase: str) -> float | None:
         if isinstance(phase_value, (int, float)):
             values.append(float(phase_value))
     return sum(values) if values else None
+
+
+def setup_boundary(data: dict[str, Any], phase: str) -> float | None:
+    setup = data.get("wrapper_session_setup")
+    if not isinstance(setup, dict):
+        return None
+    boundary = setup.get("boundary_timings")
+    if not isinstance(boundary, dict):
+        return None
+    phase_value = boundary.get(phase)
+    return float(phase_value) if isinstance(phase_value, (int, float)) else None
+
+
+def wrapper_slot_file_bytes(data: dict[str, Any]) -> Any:
+    setup_bytes = value(data, "wrapper_session_setup", "slot_file_bytes")
+    if setup_bytes is not None:
+        return setup_bytes
+    for run in data.get("wrapper_cache_aware", []):
+        telemetry = run.get("telemetry", {}) if isinstance(run, dict) else {}
+        if isinstance(telemetry, dict) and telemetry.get("slot_file_bytes") is not None:
+            return telemetry["slot_file_bytes"]
+    return None
 
 
 def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
@@ -99,6 +123,7 @@ def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
             ratio=comparison.get("direct_minus_wrapper_prompt_ratio"),
             hit_rate=comparison.get("wrapper_cache_hit_rate"),
             cache_states=",".join(states) if states else None,
+            slot_file_bytes=wrapper_slot_file_bytes(data),
             boundary_direct_ms=sum_boundary(direct_runs, "direct_completion_ms"),
             boundary_wrapper_ms=sum_boundary(wrapper_runs, "total_wrapper_ms"),
             boundary_server_version_ms=sum_boundary(wrapper_runs, "server_version_ms"),
@@ -107,6 +132,8 @@ def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
             boundary_tail_ms=sum_boundary(wrapper_runs, "tail_completion_ms"),
             boundary_server_enter_ms=sum_boundary(wrapper_runs, "server_enter_ms"),
             boundary_server_exit_ms=sum_boundary(wrapper_runs, "server_exit_ms"),
+            boundary_session_setup_ms=setup_boundary(data, "total_wrapper_ms"),
+            boundary_session_restore_ms=setup_boundary(data, "slot_restore_ms"),
             **common,
         )
 
@@ -187,6 +214,8 @@ def render(rows: list[SummaryRow]) -> str:
         "boundary_tail_ms",
         "boundary_server_enter_ms",
         "boundary_server_exit_ms",
+        "boundary_session_setup_ms",
+        "boundary_session_restore_ms",
         "cache_states",
         "path",
     ]
@@ -216,6 +245,8 @@ def render(rows: list[SummaryRow]) -> str:
                     format_value(row.boundary_tail_ms),
                     format_value(row.boundary_server_enter_ms),
                     format_value(row.boundary_server_exit_ms),
+                    format_value(row.boundary_session_setup_ms),
+                    format_value(row.boundary_session_restore_ms),
                     row.cache_states or "n/a",
                     str(row.path),
                 ]

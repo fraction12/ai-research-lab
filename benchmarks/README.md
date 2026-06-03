@@ -120,6 +120,8 @@ python3 benchmarks/flashcache_wrapper_benchmark.py \
   --temperature 0
 ```
 
+Use `--cache-mode hot` to prewarm the prefix before measured turns, or `--cache-mode session --server-mode persistent` to restore the prefix once into a persistent server and measure later changed-tail turns without per-turn restore.
+
 Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `benchmarks/flashcache-results/`, both ignored.
 
 ## Fixtures
@@ -134,6 +136,8 @@ Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `ben
 - `benchmarks/datasets/printtestbot-printing-press-2026-06-02/`: DushyantPC runs for the Printy fixture, including raw Ollama, llama.cpp slot-cache, and Flashcache wrapper result JSON.
   - Includes `gpt-oss:20b` Ollama baseline data plus official `gpt-oss-20b-mxfp4.gguf` llama.cpp/Flashcache follow-up data.
 - `benchmarks/datasets/printtestbot-large-prefix-2026-06-02/`: DushyantPC runs for generated larger-prefix Printy fixtures.
+- `benchmarks/datasets/printtestbot-hot-cache-2026-06-03/`: DushyantPC hot-cache large-prefix runs where measured turns restore the prefix slot before every changed-tail prompt.
+- `benchmarks/datasets/printtestbot-session-cache-2026-06-03/`: DushyantPC session-cache large-prefix runs where the prefix slot is restored once into a persistent server before measured turns.
 
 ## What To Look At
 
@@ -145,6 +149,7 @@ Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `ben
 - `restart_comparison.restarted_minus_warm_prompt_eval_duration`: positive means model restarts removed warm-prefix benefit and created a persistence gap.
 - `prefix_manifest.cache_key_sha256`: metadata-only cache key scaffold for future prefix/KV cache work.
 - `comparison.baseline_minus_restored_prompt_ms`: positive means llama.cpp slot restore reduced prompt processing time versus fresh full-prompt baselines.
+- `comparison.direct_minus_wrapper_prompt_ms`: positive means the Flashcache wrapper reduced prompt processing time versus direct full-prompt llama.cpp calls.
 
 Generate large-prefix fixture variants:
 

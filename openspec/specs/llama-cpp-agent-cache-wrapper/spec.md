@@ -123,6 +123,14 @@ The system SHALL provide a smoke benchmark for the wrapper cache path.
 - **AND** stores prewarm telemetry separately from measured wrapper runs
 - **AND** reports measured wrapper cache states from cache-hit runs
 
+#### Scenario: Run wrapper benchmark with session cache mode
+- **WHEN** the user runs the wrapper benchmark with session cache mode
+- **THEN** the benchmark prewarms the reusable prefix slot before measured wrapper runs
+- **AND** restores the slot once into a persistent wrapper server session before measured wrapper runs
+- **AND** sends changed-tail prompts without restoring the slot before each measured turn
+- **AND** records session setup telemetry separately from measured wrapper runs
+- **AND** records the selected cache mode in result metadata
+
 ### Requirement: Emit wrapper benchmark progress
 The Flashcache wrapper benchmark SHALL emit progress output before long-running direct and cache-aware model phases.
 
