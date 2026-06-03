@@ -58,6 +58,8 @@ RQ4: Can a quality-aware routing policy keep most of the speed benefit while rec
 
 RQ5: Which storage and session boundaries matter most: whole-slot restore, prefix blocks, tail-only turns, partial recompute, SSD tiering, or compression?
 
+RQ6: Are there against-the-grain reuse strategies that sacrifice some cache efficiency to recover enough quality to beat obvious full-cache or no-cache baselines?
+
 ## Hypotheses
 
 H1: Large stable-prefix agent loops can recover meaningful prompt-processing savings from persisted reusable state.
@@ -109,6 +111,26 @@ Do not average IFEval-style instruction following and GraphWalks-style reasoning
 6. Add close systems baselines and report comparable metrics.
 7. Implement a simple quality-aware fallback policy.
 8. Measure end-to-end local-agent task success, not only prompt eval.
+
+## Discovery Lane
+
+The roadmap should leave room for deliberately non-obvious experiments. See `docs/discovery-research-playbook.md`.
+
+High-risk experiments are welcome when they satisfy four conditions:
+
+1. They challenge a named mainstream assumption.
+2. They make a measurable prediction.
+3. They define a smallest falsifying test.
+4. They preserve enough controls to distinguish discovery from artifact.
+
+Promising directions:
+
+- deliberately recomputing small anchor spans to recover reasoning quality
+- role-aware context compilation before prompt assembly
+- task-family-specific reuse and fallback policy
+- failure-first cache design from GraphWalks-style collapses
+- local-model-specific safe-reuse envelopes
+- SSD-backed research loops for exact failed-case replay
 
 ## Failure Taxonomy
 
@@ -162,6 +184,7 @@ A stronger systems paper would also need:
 - Treat model weakness as a first-class confounder.
 - Keep `docs/references.md` current with every paper or system used for positioning.
 - Prefer one clean, reproducible figure over five vague benchmark claims.
+- For discovery work, prefer one uncomfortable hypothesis with a kill test over five safe optimizations.
 
 ## Publication Path
 

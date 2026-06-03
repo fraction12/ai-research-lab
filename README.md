@@ -19,10 +19,11 @@ Agent workloads are the wedge because they repeat system prompts, tool schemas, 
 
 1. Read [docs/idea-brief.md](docs/idea-brief.md).
 2. Read the paper-oriented plan in [docs/research-paper-roadmap.md](docs/research-paper-roadmap.md).
-3. Do the [6-hour learning plan](docs/learning-plan-6-hours.md).
-4. Use [docs/technical-map.md](docs/technical-map.md) as the system map.
-5. Start with [docs/prototype-plan.md](docs/prototype-plan.md).
-6. Keep sources in [docs/references.md](docs/references.md).
+3. Use the discovery posture in [docs/discovery-research-playbook.md](docs/discovery-research-playbook.md).
+4. Do the [6-hour learning plan](docs/learning-plan-6-hours.md).
+5. Use [docs/technical-map.md](docs/technical-map.md) as the system map.
+6. Start with [docs/prototype-plan.md](docs/prototype-plan.md).
+7. Keep sources in [docs/references.md](docs/references.md).
 
 ## Installed Skills
 

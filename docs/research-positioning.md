@@ -98,4 +98,4 @@ The work becomes paper-worthy only if it shows something beyond existing prefix/
 - a correctness-parity protocol that identifies unsafe reuse cases before they become user-visible failures
 - an evidence-backed fallback policy that preserves most speed benefit while recovering full-prompt quality on risky tasks
 
-Until then, treat this as a rigorous prototype and positioning investigation, not a novelty claim. See `docs/research-paper-roadmap.md` for the paper-oriented plan.
+Until then, treat this as a rigorous prototype and positioning investigation, not a novelty claim. See `docs/research-paper-roadmap.md` for the paper-oriented plan and `docs/discovery-research-playbook.md` for controlled contrarian experiment design.

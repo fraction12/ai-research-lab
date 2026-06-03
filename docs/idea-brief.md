@@ -27,6 +27,8 @@ Good taste:
 - use SSD for prefix/KV cache, local block store, and cold expert paging
 - compress before offloading
 - prefetch large aligned chunks instead of doing tiny random reads
+- challenge obvious cache assumptions with small falsifying experiments
+- treat failed correctness cases as design material
 
 Bad taste:
 
@@ -35,6 +37,8 @@ Bad taste:
 - optimizing a demo path that only works once
 - ignoring latency, read amplification, and quality drift
 - benchmarking only warm happy paths
+- calling an idea novel before checking prior art
+- pursuing strange ideas without controls, confounders, and stop rules
 
 ## Initial Product Shape
 
@@ -54,4 +58,3 @@ An OpenAI-compatible local server that wraps MLX or llama.cpp and adds:
 - General cloud serving
 - Supporting every model format on day one
 - Building a new transformer runtime from scratch before proving the cache layer
-

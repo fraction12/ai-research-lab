@@ -24,6 +24,16 @@ This repo explores SSD-native inference for local agent workloads.
 - Separate model weakness, prompt-protocol weakness, scorer brittleness, and cache/session semantics when interpreting failures.
 - Update `docs/references.md` whenever a new paper, system, benchmark, or official doc is used to support project direction.
 
+## Discovery Research Mode
+
+- Read `docs/discovery-research-playbook.md` before proposing unconventional experiments.
+- Do not only optimize the obvious path. Surface at least one non-obvious hypothesis when the user is asking for net-new research direction.
+- For every strange idea, name the mainstream assumption it challenges, why it might work, why it might fail, the smallest falsifying test, and the stop rule.
+- Prefer experiments that can expose mechanisms, not just better numbers.
+- Treat failed cases as design material. Start from collapses like GraphWalks failures when they reveal hidden assumptions.
+- Use recompute, fallback, prompt visibility, and quality checks as active design tools, not merely baselines.
+- Stay disciplined: an against-the-grain idea is not progress until it survives controls and a prior-art refresh.
+
 ## Repo-Local Skills
 
 Matt Pocock's `teach` skill is installed at `.codex/skills/teach`.

@@ -15,6 +15,7 @@ The base ideas are established: prefix caching, KV-cache reuse, and SSD or multi
 
 See `docs/research-positioning.md` for the prior-art summary and public-claim guidance.
 See `docs/research-paper-roadmap.md` for the paper-oriented research questions, baselines, controls, and publication path.
+See `docs/discovery-research-playbook.md` for controlled contrarian experiment design.
 
 ## Memory Tiers
 

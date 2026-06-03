@@ -53,3 +53,9 @@ Reason: a local run against the LightningITB fixture showed that saving a 672-to
 Decision: frame the publishable research topic around quality-gated persistent/session KV reuse for local agent loops.
 
 Reason: the online prior-art scan found that prefix caching, prompt-state reuse, multi-tier KV storage, SSD/NVMe KV offload, and agentic prompt caching are already active research areas. The remaining wedge is the correctness contract: when restored-prefix or session-tail execution on local non-frontier models is equivalent enough to full-prompt execution, how failures should be attributed, and when the system should fall back to full-prompt mode.
+
+## 2026-06-03: Discovery Research Posture
+
+Decision: make controlled contrarian experiments a first-class part of the repo.
+
+Reason: a publishable result is unlikely to come from only optimizing known cache paths. The project should deliberately challenge mainstream assumptions, such as exact-prefix reuse, all-or-nothing equivalence, and recompute-as-failure, while requiring each strange idea to define a measurable prediction, controls, confounders, and a stop rule.
