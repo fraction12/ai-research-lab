@@ -1,0 +1,1047 @@
+{
+  "default_delay_seconds": 5.0,
+  "generated_at": "2026-06-03T17:13:35Z",
+  "papers": [
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2605.26289",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2605.26289",
+        "authors": [
+          "Norgren, Victor"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2605.26289",
+        "publication_date": null,
+        "title": "Stateful Inference for Low-Latency Multi-Agent Tool Calling"
+      },
+      "arxiv_id": "2605.26289",
+      "input_title": "Stateful Inference for Low-Latency Multi-Agent Tool Calling",
+      "openalex": {
+        "authors": [
+          "Victor Norgren"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2605.26289",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.26289",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2026-05-28T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2605.26289",
+        "indexed_in": [
+          "datacite"
+        ],
+        "locations_count": 1,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.26289"
+        },
+        "openalex_id": "https://openalex.org/W7162526718",
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2605.26289",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.26289",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2026-05-25",
+        "publication_year": 2026,
+        "title": "Stateful Inference for Low-Latency Multi-Agent Tool Calling",
+        "type": "preprint",
+        "updated_date": "2026-05-28T06:19:16.900634"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2605.26289",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2605.26289.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2605.26289"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2605.26289 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2605.26289",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2605.26289.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2605.26289.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2605.26289.json",
+        "raw/arxiv-html-2605.26289.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2605.03375",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2605.03375",
+        "authors": [
+          "Qiu, Shi",
+          "Hu, Yifan",
+          "Wang, Xintao",
+          "Zhu, Wenhao",
+          "Yan, Jianqin",
+          "Chen, Hao",
+          "Xu, Kaiqiang",
+          "Chen, Kai",
+          "Zhang, Yiming"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2605.03375",
+        "publication_date": null,
+        "title": "Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving"
+      },
+      "arxiv_id": "2605.03375",
+      "input_title": "Tutti",
+      "openalex": {
+        "authors": [
+          "Shi Qiu",
+          "Yifan Hu",
+          "X. Wang",
+          "Wenhao Zhu",
+          "Jianqin Yan",
+          "Hao Chen",
+          "Kaiqiang Xu",
+          "Kai Chen",
+          "Yiming Zhang"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2605.03375",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.03375",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2026-05-07T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2605.03375",
+        "indexed_in": [
+          "datacite"
+        ],
+        "locations_count": 1,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.03375"
+        },
+        "openalex_id": "https://openalex.org/W7160414708",
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2605.03375",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.03375",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2026-05-05",
+        "publication_year": 2026,
+        "title": "Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving",
+        "type": "preprint",
+        "updated_date": "2026-05-07T06:12:12.454206"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2605.03375",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2605.03375.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2605.03375"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2605.03375 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2605.03375",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2605.03375.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2605.03375.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2605.03375.json",
+        "raw/arxiv-html-2605.03375.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2605.18071",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2605.18071",
+        "authors": [
+          "Lin, Jian",
+          "Mi, Jiazhi",
+          "Hong, Zicong",
+          "Wang, Haodong",
+          "Liu, Qianli",
+          "Zhang, Haodyue",
+          "Li, Peng",
+          "Guo, Song"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2605.18071",
+        "publication_date": null,
+        "title": "KVDrive: A Holistic Multi-Tier KV Cache Management System for Long-Context LLM Inference"
+      },
+      "arxiv_id": "2605.18071",
+      "input_title": "KVDrive",
+      "openalex": {
+        "authors": [
+          "Jian Lin",
+          "Jiazhi Mi",
+          "Zicong Hong",
+          "Haodong Wang",
+          "Qianli Liu",
+          "Haodyue Zhang",
+          "Peng Li",
+          "Song Guo"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2605.18071",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.18071",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2026-05-20T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2605.18071",
+        "indexed_in": [
+          "datacite"
+        ],
+        "locations_count": 1,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.18071"
+        },
+        "openalex_id": "https://openalex.org/W7161694267",
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2605.18071",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.18071",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2026-05-18",
+        "publication_year": 2026,
+        "title": "KVDrive: A Holistic Multi-Tier KV Cache Management System for Long-Context LLM Inference",
+        "type": "preprint",
+        "updated_date": "2026-05-20T06:17:55.931218"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2605.18071",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2605.18071.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2605.18071"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2605.18071 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2605.18071",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2605.18071.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2605.18071.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2605.18071.json",
+        "raw/arxiv-html-2605.18071.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2604.26557",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2604.26557",
+        "authors": [
+          "Jeong, Bodon",
+          "Byun, Hongsu",
+          "Kim, Youngjae",
+          "Yu, Weikuan",
+          "Lee, Kyungkeun",
+          "Yang, Jihoon",
+          "Park, Sungyong"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.26557",
+        "publication_date": null,
+        "title": "DUAL-BLADE: Dual-Path NVMe-Direct KV-Cache Offloading for Edge LLM Inference"
+      },
+      "arxiv_id": "2604.26557",
+      "input_title": "DUAL-BLADE",
+      "openalex": {
+        "authors": [
+          "Bodon Jeong",
+          "Hongsu Byun",
+          "Youngjae Kim",
+          "Weikuan Yu",
+          "KyungKeun Lee",
+          "Jihoon Yang",
+          "Sungyong Park"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2604.26557",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2604.26557",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2026-05-01T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2604.26557",
+        "indexed_in": [
+          "datacite"
+        ],
+        "locations_count": 1,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2604.26557"
+        },
+        "openalex_id": "https://openalex.org/W7159080302",
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2604.26557",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2604.26557",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2026-04-29",
+        "publication_year": 2026,
+        "title": "DUAL-BLADE: Dual-Path NVMe-Direct KV-Cache Offloading for Edge LLM Inference",
+        "type": "preprint",
+        "updated_date": "2026-05-01T06:10:29.291645"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2604.26557",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2604.26557.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2604.26557"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2604.26557 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2604.26557",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2604.26557.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2604.26557.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2604.26557.json",
+        "raw/arxiv-html-2604.26557.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2603.17803",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2603.17803",
+        "authors": [
+          "Wang, Tuowei",
+          "Chu, Liyun",
+          "Fan, Ruwen",
+          "Ren, Ju"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.17803",
+        "publication_date": null,
+        "title": "Swarm: Co-Activation Aware KVCache Offloading Across Multiple SSDs"
+      },
+      "arxiv_id": "2603.17803",
+      "input_title": "Swarm",
+      "openalex": {
+        "authors": [
+          "Tuowei Wang",
+          "Liyun Chu",
+          "Ruwen Fan",
+          "Ju Ren"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2603.17803",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2603.17803",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2026-03-20T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2603.17803",
+        "indexed_in": [
+          "datacite"
+        ],
+        "locations_count": 1,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2603.17803"
+        },
+        "openalex_id": "https://openalex.org/W7138845497",
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2603.17803",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2603.17803",
+          "license": "cc-by",
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2026-03-18",
+        "publication_year": 2026,
+        "title": "Swarm: Co-Activation Aware KVCache Offloading Across Multiple SSDs",
+        "type": "preprint",
+        "updated_date": "2026-03-20T20:54:20.808490"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2603.17803",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2603.17803.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2603.17803"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2603.17803 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2603.17803",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2603.17803.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2603.17803.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2603.17803.json",
+        "raw/arxiv-html-2603.17803.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2605.18421",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2605.18421",
+        "authors": [
+          "Wang, Yuyao",
+          "Zhang, Zhongjian",
+          "Chi, Mo",
+          "Yu, Kaichi",
+          "Li, Yuhan",
+          "Peng, Miao",
+          "Tong, Bing",
+          "Zhang, Chen",
+          "Zhou, Yan",
+          "Li, Jia"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2605.18421",
+        "publication_date": null,
+        "title": "EvoMemBench: Benchmarking Agent Memory from a Self-Evolving Perspective"
+      },
+      "arxiv_id": "2605.18421",
+      "input_title": "EvoMemBench",
+      "openalex": {
+        "authors": [
+          "Yuyao Wang",
+          "Zhongjian Zhang",
+          "Mo Chi",
+          "Kai-Chi Yu",
+          "Yuhan Li",
+          "Miao Peng",
+          "Bing Tong",
+          "Chen Zhang",
+          "Yan Zhou",
+          "Jia Yi Li"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2605.18421",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.18421",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2026-05-20T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2605.18421",
+        "indexed_in": [
+          "datacite"
+        ],
+        "locations_count": 1,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2605.18421"
+        },
+        "openalex_id": "https://openalex.org/W7161724420",
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2605.18421",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2605.18421",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2026-05-18",
+        "publication_year": 2026,
+        "title": "EvoMemBench: Benchmarking Agent Memory from a Self-Evolving Perspective",
+        "type": "preprint",
+        "updated_date": "2026-05-20T06:17:55.931218"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2605.18421",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2605.18421.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2605.18421"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2605.18421 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2605.18421",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2605.18421.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2605.18421.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2605.18421.json",
+        "raw/arxiv-html-2605.18421.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2604.15774",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2604.15774",
+        "authors": [
+          "Xie, Weiwei",
+          "Guo, Shaoxiong",
+          "Zhang, Fan",
+          "Xia, Tian",
+          "Yang, Xue",
+          "Ma, Lizhuang",
+          "Yan, Junchi",
+          "Ren, Qibing"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.15774",
+        "publication_date": null,
+        "title": "MemEvoBench: Benchmarking Safety Risks from Memory Misevolution in LLM Agents"
+      },
+      "arxiv_id": "2604.15774",
+      "input_title": "MemEvoBench",
+      "openalex": {
+        "authors": [
+          "Weiwei Xie",
+          "Shaoxiong Guo",
+          "\u5f20\u74a0 Zhang Fan",
+          "Tian Xia",
+          "Xue Yang",
+          "Lizhuang Ma",
+          "Junchi Yan",
+          "Qibing Ren"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2604.15774",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2604.15774",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2026-04-21T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2604.15774",
+        "indexed_in": [
+          "datacite"
+        ],
+        "locations_count": 1,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2604.15774"
+        },
+        "openalex_id": "https://openalex.org/W7155011363",
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2604.15774",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2604.15774",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2026-04-17",
+        "publication_year": 2026,
+        "title": "MemEvoBench: Benchmarking Safety Risks from Memory Misevolution in LLM Agents",
+        "type": "preprint",
+        "updated_date": "2026-05-23T06:10:36.450269"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2604.15774",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2604.15774.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2604.15774"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2604.15774 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2604.15774",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2604.15774.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2604.15774.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2604.15774.json",
+        "raw/arxiv-html-2604.15774.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2508.09442",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2508.09442",
+        "authors": [
+          "Luo, Zhifan",
+          "Shao, Shuo",
+          "Zhang, Su",
+          "Zhou, Lijing",
+          "Hu, Yuke",
+          "Zhao, Chenxu",
+          "Liu, Zhihao",
+          "Qin, Zhan"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2508.09442",
+        "publication_date": null,
+        "title": "Shadow in the Cache: Unveiling and Mitigating Privacy Risks of KV-cache in LLM Inference"
+      },
+      "arxiv_id": "2508.09442",
+      "input_title": "Shadow in the Cache",
+      "openalex": {
+        "authors": [
+          "Luo, Zhifan",
+          "Shao, Shuo",
+          "Zhang, Su",
+          "Zhou, Lijing",
+          "Hu, Yuke",
+          "Zhao, Chenxu",
+          "Liu, Zhihao",
+          "Qin, Zhan"
+        ],
+        "best_oa_location": {
+          "id": "doi:10.48550/arxiv.2508.09442",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2508.09442",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2025-10-10T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2508.09442",
+        "indexed_in": [
+          "datacite"
+        ],
+        "locations_count": 1,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://doi.org/10.48550/arxiv.2508.09442"
+        },
+        "openalex_id": "https://openalex.org/W6966631114",
+        "primary_location": {
+          "id": "doi:10.48550/arxiv.2508.09442",
+          "landing_page_url": "https://doi.org/10.48550/arxiv.2508.09442",
+          "license": null,
+          "pdf_url": null,
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2025-08-13",
+        "publication_year": 2025,
+        "title": "Shadow in the Cache: Unveiling and Mitigating Privacy Risks of KV-cache in LLM Inference",
+        "type": "preprint",
+        "updated_date": "2025-11-06T06:51:31.235846"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2508.09442",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2508.09442.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2508.09442"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2508.09442 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2508.09442",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2508.09442.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2508.09442.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2508.09442.json",
+        "raw/arxiv-html-2508.09442.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2508.08438",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2508.08438",
+        "authors": [
+          "Chu, Kexin",
+          "Lin, Zecheng",
+          "Xiang, Dawei",
+          "Shen, Zixu",
+          "Su, Jianchang",
+          "Chu, Cheng",
+          "Yang, Yiwei",
+          "Zhang, Wenhui",
+          "Wu, Wenfei",
+          "Zhang, Wei"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2508.08438",
+        "publication_date": null,
+        "title": "Selective KV-Cache Sharing to Mitigate Timing Side-Channels in LLM Inference"
+      },
+      "arxiv_id": "2508.08438",
+      "input_title": "SafeKV",
+      "openalex": {
+        "authors": [
+          "Chu, Kexin",
+          "Lin, Zecheng",
+          "Dawei Xiang",
+          "Zixu Shen",
+          "Jianchang Su",
+          "Cheng Chu",
+          "Yiwei Yang",
+          "Wenhui Zhang",
+          "Wenfei Wu",
+          "Wei Zhang"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2508.08438",
+          "landing_page_url": "http://arxiv.org/abs/2508.08438",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2508.08438",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2025-10-10T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2508.08438",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "locations_count": 3,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2508.08438"
+        },
+        "openalex_id": "https://openalex.org/W4416858267",
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2508.08438",
+          "landing_page_url": "http://arxiv.org/abs/2508.08438",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2508.08438",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2025-08-11",
+        "publication_year": 2025,
+        "title": "Selective KV-Cache Sharing to Mitigate Timing Side-Channels in LLM Inference",
+        "type": "preprint",
+        "updated_date": "2026-04-21T08:09:41.155169"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2508.08438",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2508.08438.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2508.08438"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2508.08438 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2508.08438",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2508.08438.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2508.08438.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2508.08438.json",
+        "raw/arxiv-html-2508.08438.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2511.16682",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2511.16682",
+        "authors": [
+          "Stuhlmann, Linus",
+          "Argerich, Mauricio Fadel",
+          "F\u00fcrst, Jonathan"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2511.16682",
+        "publication_date": null,
+        "title": "Bench360: Benchmarking Local LLM Inference from 360 Degrees"
+      },
+      "arxiv_id": "2511.16682",
+      "input_title": "Bench360",
+      "openalex": {
+        "authors": [
+          "Linus Stuhlmann",
+          "Mauricio Fadel Argerich",
+          "Jonathan F\u00fcrst"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2511.16682",
+          "landing_page_url": "http://arxiv.org/abs/2511.16682",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2511.16682",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2025-11-25T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2511.16682",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "locations_count": 2,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2511.16682"
+        },
+        "openalex_id": "https://openalex.org/W4416591545",
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2511.16682",
+          "landing_page_url": "http://arxiv.org/abs/2511.16682",
+          "license": null,
+          "pdf_url": "https://arxiv.org/pdf/2511.16682",
+          "source": "arXiv (Cornell University)",
+          "source_type": "repository"
+        },
+        "publication_date": "2025-11-12",
+        "publication_year": 2025,
+        "title": "Bench360: Benchmarking Local LLM Inference from 360 Degrees",
+        "type": "preprint",
+        "updated_date": "2026-06-03T09:05:47.796612"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2511.16682",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2511.16682.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2511.16682"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2511.16682 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2511.16682",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2511.16682.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2511.16682.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2511.16682.json",
+        "raw/arxiv-html-2511.16682.html"
+      ],
+      "status": "ok"
+    },
+    {
+      "arxiv_abs_url": "https://arxiv.org/abs/2511.07885",
+      "arxiv_html_metadata": {
+        "arxiv_id": "2511.07885",
+        "authors": [
+          "Saad-Falcon, Jon",
+          "Narayan, Avanika",
+          "Akengin, Hakki Orhun",
+          "Griffin, J. Wes",
+          "Shandilya, Herumb",
+          "Lafuente, Adrian Gamarra",
+          "Goel, Medhya",
+          "Joseph, Rebecca",
+          "Natarajan, Shlok",
+          "Guha, Etash Kumar",
+          "Zhu, Shang",
+          "Athiwaratkun, Ben",
+          "Hennessy, John",
+          "Mirhoseini, Azalia",
+          "R\u00e9, Christopher"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2511.07885",
+        "publication_date": null,
+        "title": "Intelligence per Watt: Measuring Intelligence Efficiency of Local AI"
+      },
+      "arxiv_id": "2511.07885",
+      "input_title": "Intelligence per Watt",
+      "openalex": {
+        "authors": [
+          "Jon Saad-Falcon",
+          "Avanika Narayan",
+          "Hakki Orhun Akengin",
+          "James Griffin",
+          "Herumb Shandilya",
+          "Lafuente, Adrian Gamarra",
+          "Goel, Medhya",
+          "Romano Joseph",
+          "Shlok Natarajan",
+          "Etash Kumar Guha",
+          "Shang Zhu",
+          "Ben Athiwaratkun"
+        ],
+        "best_oa_location": {
+          "id": "pmh:oai:arXiv.org:2511.07885",
+          "landing_page_url": "https://arxiv.org/abs/2511.07885",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2511.07885",
+          "source": "ArXiv.org",
+          "source_type": "repository"
+        },
+        "cited_by_count": 0,
+        "created_date": "2025-11-13T00:00:00",
+        "doi": "https://doi.org/10.48550/arxiv.2511.07885",
+        "indexed_in": [
+          "arxiv",
+          "datacite"
+        ],
+        "locations_count": 3,
+        "open_access": {
+          "any_repository_has_fulltext": true,
+          "is_oa": true,
+          "oa_status": "green",
+          "oa_url": "https://arxiv.org/pdf/2511.07885"
+        },
+        "openalex_id": "https://openalex.org/W4416330682",
+        "primary_location": {
+          "id": "pmh:oai:arXiv.org:2511.07885",
+          "landing_page_url": "https://arxiv.org/abs/2511.07885",
+          "license": "cc-by",
+          "pdf_url": "https://arxiv.org/pdf/2511.07885",
+          "source": "ArXiv.org",
+          "source_type": "repository"
+        },
+        "publication_date": "2025-11-11",
+        "publication_year": 2025,
+        "title": "Intelligence per Watt: Measuring Intelligence Efficiency of Local AI",
+        "type": "preprint",
+        "updated_date": "2026-05-23T06:10:36.450269"
+      },
+      "openalex_doi_lookup": "https://doi.org/10.48550/arxiv.2511.07885",
+      "provenance": {
+        "arxiv_html": {
+          "http_status": 200,
+          "path": "HTML fallback",
+          "provider": "arXiv",
+          "raw_output": "raw/arxiv-html-2511.07885.html",
+          "status": "ok",
+          "url": "https://arxiv.org/abs/2511.07885"
+        },
+        "openalex_cli": {
+          "command": "openalex-pp-cli works get https://doi.org/10.48550/arxiv.2511.07885 --json --no-input --no-color --yes --timeout 45s",
+          "exit_code": 0,
+          "lookup_id": "https://doi.org/10.48550/arxiv.2511.07885",
+          "path": "openalex-pp-cli works get",
+          "provider": "OpenAlex",
+          "raw_output": "raw/openalex-cli-2511.07885.json",
+          "status": "ok",
+          "stderr_output": "raw/openalex-cli-2511.07885.stderr.txt"
+        },
+        "openalex_rest_fallback": null
+      },
+      "raw_outputs": [
+        "raw/openalex-cli-2511.07885.json",
+        "raw/arxiv-html-2511.07885.html"
+      ],
+      "status": "ok"
+    }
+  ],
+  "pdfs_downloaded": false,
+  "purpose": "Negative-space scan source-anchor metadata harvest",
+  "tool_versions": {
+    "openalex-pp-cli": "openalex-pp-cli 1.0.0",
+    "python": "3.9.6"
+  }
+}

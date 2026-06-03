@@ -1,0 +1,1196 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "id": "https://openalex.org/W7160414708",
+    "doi": "https://doi.org/10.48550/arxiv.2605.03375",
+    "title": "Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving",
+    "display_name": "Tutti: Making SSD-Backed KV Cache Practical for Long-Context LLM Serving",
+    "publication_year": 2026,
+    "publication_date": "2026-05-05",
+    "ids": {
+      "openalex": "https://openalex.org/W7160414708",
+      "doi": "https://doi.org/10.48550/arxiv.2605.03375"
+    },
+    "language": null,
+    "primary_location": {
+      "id": "doi:10.48550/arxiv.2605.03375",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2605.03375",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": null,
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "article"
+    },
+    "type": "preprint",
+    "indexed_in": [
+      "datacite"
+    ],
+    "open_access": {
+      "is_oa": true,
+      "oa_status": "green",
+      "oa_url": "https://doi.org/10.48550/arxiv.2605.03375",
+      "any_repository_has_fulltext": true
+    },
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5135483608",
+          "display_name": "Shi Qiu",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": true,
+        "raw_author_name": "Qiu, Shi",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5135515980",
+          "display_name": "Yifan Hu",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Hu, Yifan",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5072725991",
+          "display_name": "X. Wang",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Wang, Xintao",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5036943629",
+          "display_name": "Wenhao Zhu",
+          "orcid": "https://orcid.org/0000-0002-9656-9781"
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Zhu, Wenhao",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5115480781",
+          "display_name": "Jianqin Yan",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Yan, Jianqin",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5135460472",
+          "display_name": "Hao Chen",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Chen, Hao",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5135515520",
+          "display_name": "Kaiqiang Xu",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Xu, Kaiqiang",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5135513827",
+          "display_name": "Kai Chen",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Chen, Kai",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5135435154",
+          "display_name": "Yiming Zhang",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Zhang, Yiming",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      }
+    ],
+    "institutions": [],
+    "countries_distinct_count": 0,
+    "institutions_distinct_count": 9,
+    "corresponding_author_ids": [
+      "https://openalex.org/A5135483608"
+    ],
+    "corresponding_institution_ids": [],
+    "apc_list": null,
+    "apc_paid": null,
+    "fwci": null,
+    "has_fulltext": false,
+    "cited_by_count": 0,
+    "citation_normalized_percentile": null,
+    "cited_by_percentile_year": null,
+    "biblio": {
+      "volume": null,
+      "issue": null,
+      "first_page": null,
+      "last_page": null
+    },
+    "is_retracted": false,
+    "is_paratext": false,
+    "is_xpac": false,
+    "primary_topic": {
+      "id": "https://openalex.org/T11181",
+      "display_name": "Advanced Data Storage Technologies",
+      "score": 0.9477999806404114,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1705",
+        "display_name": "Computer Networks and Communications"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/17",
+        "display_name": "Computer Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    "topics": [
+      {
+        "id": "https://openalex.org/T11181",
+        "display_name": "Advanced Data Storage Technologies",
+        "score": 0.9477999806404114,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1705",
+          "display_name": "Computer Networks and Communications"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T10054",
+        "display_name": "Parallel Computing and Optimization Techniques",
+        "score": 0.041200000792741776,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1708",
+          "display_name": "Hardware and Architecture"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T10101",
+        "display_name": "Cloud Computing and Resource Management",
+        "score": 0.002400000113993883,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1710",
+          "display_name": "Information Systems"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      }
+    ],
+    "keywords": [
+      {
+        "id": "https://openalex.org/keywords/cache",
+        "display_name": "Cache",
+        "score": 0.7975000143051147
+      },
+      {
+        "id": "https://openalex.org/keywords/smart-cache",
+        "display_name": "Smart Cache",
+        "score": 0.5763999819755554
+      },
+      {
+        "id": "https://openalex.org/keywords/cpu-cache",
+        "display_name": "CPU cache",
+        "score": 0.43970000743865967
+      },
+      {
+        "id": "https://openalex.org/keywords/central-processing-unit",
+        "display_name": "Central processing unit",
+        "score": 0.4065000116825104
+      },
+      {
+        "id": "https://openalex.org/keywords/scheduling",
+        "display_name": "Scheduling (production processes)",
+        "score": 0.3637999892234802
+      },
+      {
+        "id": "https://openalex.org/keywords/page-cache",
+        "display_name": "Page cache",
+        "score": 0.3504999876022339
+      },
+      {
+        "id": "https://openalex.org/keywords/cache-coloring",
+        "display_name": "Cache coloring",
+        "score": 0.32839998602867126
+      },
+      {
+        "id": "https://openalex.org/keywords/cache-algorithms",
+        "display_name": "Cache algorithms",
+        "score": 0.3190000057220459
+      }
+    ],
+    "concepts": [
+      {
+        "id": "https://openalex.org/C41008148",
+        "wikidata": "https://www.wikidata.org/wiki/Q21198",
+        "display_name": "Computer science",
+        "level": 0,
+        "score": 0.8403000235557556
+      },
+      {
+        "id": "https://openalex.org/C115537543",
+        "wikidata": "https://www.wikidata.org/wiki/Q165596",
+        "display_name": "Cache",
+        "level": 2,
+        "score": 0.7975000143051147
+      },
+      {
+        "id": "https://openalex.org/C173608175",
+        "wikidata": "https://www.wikidata.org/wiki/Q232661",
+        "display_name": "Parallel computing",
+        "level": 1,
+        "score": 0.6240000128746033
+      },
+      {
+        "id": "https://openalex.org/C111919701",
+        "wikidata": "https://www.wikidata.org/wiki/Q9135",
+        "display_name": "Operating system",
+        "level": 1,
+        "score": 0.609000027179718
+      },
+      {
+        "id": "https://openalex.org/C167713795",
+        "wikidata": "https://www.wikidata.org/wiki/Q352090",
+        "display_name": "Smart Cache",
+        "level": 5,
+        "score": 0.5763999819755554
+      },
+      {
+        "id": "https://openalex.org/C189783530",
+        "wikidata": "https://www.wikidata.org/wiki/Q352090",
+        "display_name": "CPU cache",
+        "level": 3,
+        "score": 0.43970000743865967
+      },
+      {
+        "id": "https://openalex.org/C49154492",
+        "wikidata": "https://www.wikidata.org/wiki/Q5300",
+        "display_name": "Central processing unit",
+        "level": 2,
+        "score": 0.4065000116825104
+      },
+      {
+        "id": "https://openalex.org/C206729178",
+        "wikidata": "https://www.wikidata.org/wiki/Q2271896",
+        "display_name": "Scheduling (production processes)",
+        "level": 2,
+        "score": 0.3637999892234802
+      },
+      {
+        "id": "https://openalex.org/C149635348",
+        "wikidata": "https://www.wikidata.org/wiki/Q193040",
+        "display_name": "Embedded system",
+        "level": 1,
+        "score": 0.36329999566078186
+      },
+      {
+        "id": "https://openalex.org/C36340418",
+        "wikidata": "https://www.wikidata.org/wiki/Q7124288",
+        "display_name": "Page cache",
+        "level": 5,
+        "score": 0.3504999876022339
+      },
+      {
+        "id": "https://openalex.org/C201148951",
+        "wikidata": "https://www.wikidata.org/wiki/Q5015976",
+        "display_name": "Cache coloring",
+        "level": 4,
+        "score": 0.32839998602867126
+      },
+      {
+        "id": "https://openalex.org/C38556500",
+        "wikidata": "https://www.wikidata.org/wiki/Q13404475",
+        "display_name": "Cache algorithms",
+        "level": 4,
+        "score": 0.3190000057220459
+      },
+      {
+        "id": "https://openalex.org/C50630238",
+        "wikidata": "https://www.wikidata.org/wiki/Q971505",
+        "display_name": "General-purpose computing on graphics processing units",
+        "level": 3,
+        "score": 0.3167000114917755
+      },
+      {
+        "id": "https://openalex.org/C2780513914",
+        "wikidata": "https://www.wikidata.org/wiki/Q18210350",
+        "display_name": "Bottleneck",
+        "level": 2,
+        "score": 0.3061000108718872
+      },
+      {
+        "id": "https://openalex.org/C205711294",
+        "wikidata": "https://www.wikidata.org/wiki/Q176953",
+        "display_name": "Rendering (computer graphics)",
+        "level": 2,
+        "score": 0.29100000858306885
+      },
+      {
+        "id": "https://openalex.org/C151319957",
+        "wikidata": "https://www.wikidata.org/wiki/Q752739",
+        "display_name": "Asynchronous communication",
+        "level": 2,
+        "score": 0.28769999742507935
+      },
+      {
+        "id": "https://openalex.org/C9390403",
+        "wikidata": "https://www.wikidata.org/wiki/Q3966",
+        "display_name": "Computer hardware",
+        "level": 1,
+        "score": 0.2865999937057495
+      },
+      {
+        "id": "https://openalex.org/C78766204",
+        "wikidata": "https://www.wikidata.org/wiki/Q555032",
+        "display_name": "Multi-core processor",
+        "level": 2,
+        "score": 0.27390000224113464
+      },
+      {
+        "id": "https://openalex.org/C25536678",
+        "wikidata": "https://www.wikidata.org/wiki/Q5015977",
+        "display_name": "Cache invalidation",
+        "level": 5,
+        "score": 0.2639999985694885
+      },
+      {
+        "id": "https://openalex.org/C25344961",
+        "wikidata": "https://www.wikidata.org/wiki/Q192726",
+        "display_name": "Virtual machine",
+        "level": 2,
+        "score": 0.2619999945163727
+      },
+      {
+        "id": "https://openalex.org/C93996380",
+        "wikidata": "https://www.wikidata.org/wiki/Q44127",
+        "display_name": "Server",
+        "level": 2,
+        "score": 0.26159998774528503
+      },
+      {
+        "id": "https://openalex.org/C7366592",
+        "wikidata": "https://www.wikidata.org/wiki/Q1255620",
+        "display_name": "Dram",
+        "level": 2,
+        "score": 0.2572000026702881
+      }
+    ],
+    "mesh": [],
+    "locations_count": 1,
+    "locations": [
+      {
+        "id": "doi:10.48550/arxiv.2605.03375",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.48550/arxiv.2605.03375",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306400194",
+          "display_name": "arXiv (Cornell University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I205783295",
+          "host_organization_name": "Cornell University",
+          "host_organization_lineage": [
+            "https://openalex.org/I205783295"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": null,
+        "is_accepted": false,
+        "is_published": null,
+        "raw_source_name": null,
+        "raw_type": "article"
+      }
+    ],
+    "best_oa_location": {
+      "id": "doi:10.48550/arxiv.2605.03375",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2605.03375",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": null,
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "article"
+    },
+    "sustainable_development_goals": [],
+    "awards": [],
+    "funders": [],
+    "has_content": {
+      "pdf": false,
+      "grobid_xml": false
+    },
+    "content_urls": null,
+    "referenced_works_count": 0,
+    "referenced_works": [],
+    "related_works": [],
+    "abstract_inverted_index": {
+      "LLM": [
+        0
+      ],
+      "serving": [
+        1,
+        250
+      ],
+      "relies": [
+        2,
+        83
+      ],
+      "on": [
+        3,
+        84
+      ],
+      "prefix": [
+        4
+      ],
+      "caching": [
+        5,
+        103
+      ],
+      "to": [
+        6,
+        31,
+        87,
+        148,
+        160,
+        193,
+        207,
+        219,
+        226
+      ],
+      "improve": [
+        7
+      ],
+      "inference": [
+        8,
+        261
+      ],
+      "performance.": [
+        9
+      ],
+      "As": [
+        10
+      ],
+      "growing": [
+        11
+      ],
+      "contexts": [
+        12
+      ],
+      "push": [
+        13
+      ],
+      "key-value": [
+        14
+      ],
+      "(KV)": [
+        15
+      ],
+      "cache": [
+        16,
+        27,
+        37,
+        130,
+        178
+      ],
+      "footprint": [
+        17
+      ],
+      "far": [
+        18
+      ],
+      "beyond": [
+        19
+      ],
+      "GPU": [
+        20,
+        48,
+        56,
+        77,
+        158,
+        186,
+        191,
+        196,
+        209
+      ],
+      "HBM": [
+        21,
+        118
+      ],
+      "and": [
+        22,
+        45,
+        91,
+        113,
+        119,
+        156,
+        180,
+        200,
+        216,
+        241
+      ],
+      "CPU": [
+        23,
+        71,
+        85,
+        107,
+        136
+      ],
+      "DRAM": [
+        24
+      ],
+      "capacity,": [
+        25
+      ],
+      "KV": [
+        26,
+        36,
+        102,
+        129,
+        177
+      ],
+      "is": [
+        28,
+        51,
+        126,
+        137,
+        252
+      ],
+      "increasingly": [
+        29
+      ],
+      "offloaded": [
+        30
+      ],
+      "NVMe": [
+        32,
+        153
+      ],
+      "SSDs.": [
+        33,
+        120
+      ],
+      "Unfortunately,": [
+        34
+      ],
+      "restoring": [
+        35
+      ],
+      "from": [
+        38,
+        41,
+        109
+      ],
+      "SSDs": [
+        39
+      ],
+      "suffers": [
+        40
+      ],
+      "poor": [
+        42
+      ],
+      "I/O": [
+        43,
+        90,
+        114,
+        143,
+        205
+      ],
+      "performance": [
+        44,
+        262
+      ],
+      "incurs": [
+        46
+      ],
+      "significant": [
+        47
+      ],
+      "stalls.": [
+        49
+      ],
+      "This": [
+        50,
+        95
+      ],
+      "primarily": [
+        52
+      ],
+      "because": [
+        53
+      ],
+      "the": [
+        54,
+        69,
+        110,
+        122,
+        135,
+        149,
+        164,
+        185,
+        227,
+        243,
+        259
+      ],
+      "fragmented": [
+        55
+      ],
+      "memory": [
+        57
+      ],
+      "layout": [
+        58
+      ],
+      "results": [
+        59
+      ],
+      "in": [
+        60,
+        133
+      ],
+      "a": [
+        61,
+        72,
+        127,
+        170
+      ],
+      "massive": [
+        62
+      ],
+      "number": [
+        63
+      ],
+      "of": [
+        64,
+        124
+      ],
+      "tiny": [
+        65
+      ],
+      "random": [
+        66
+      ],
+      "I/Os,": [
+        67
+      ],
+      "rendering": [
+        68
+      ],
+      "low-parallelism": [
+        70
+      ],
+      "severe": [
+        73
+      ],
+      "bottleneck": [
+        74
+      ],
+      "even": [
+        75
+      ],
+      "with": [
+        76
+      ],
+      "Direct": [
+        78
+      ],
+      "Storage": [
+        79
+      ],
+      "(GDS),": [
+        80
+      ],
+      "which": [
+        81,
+        134
+      ],
+      "still": [
+        82
+      ],
+      "intervention": [
+        86,
+        108
+      ],
+      "initiate": [
+        88
+      ],
+      "each": [
+        89
+      ],
+      "thus": [
+        92
+      ],
+      "remains": [
+        93
+      ],
+      "CPU-centric.": [
+        94
+      ],
+      "paper": [
+        96
+      ],
+      "presents": [
+        97
+      ],
+      "Tutti,": [
+        98
+      ],
+      "an": [
+        99
+      ],
+      "efficient": [
+        100
+      ],
+      "SSD-backed": [
+        101,
+        230
+      ],
+      "solution": [
+        104
+      ],
+      "that": [
+        105,
+        174,
+        224
+      ],
+      "eliminates": [
+        106
+      ],
+      "critical": [
+        111
+      ],
+      "data": [
+        112
+      ],
+      "control": [
+        115
+      ],
+      "paths": [
+        116
+      ],
+      "between": [
+        117
+      ],
+      "At": [
+        121
+      ],
+      "core": [
+        123
+      ],
+      "Tutti": [
+        125,
+        151,
+        215,
+        232,
+        256
+      ],
+      "GPU-centric": [
+        128
+      ],
+      "object": [
+        131,
+        172,
+        198
+      ],
+      "store,": [
+        132
+      ],
+      "only": [
+        138
+      ],
+      "responsible": [
+        139
+      ],
+      "for": [
+        140
+      ],
+      "asynchronously": [
+        141
+      ],
+      "loading": [
+        142
+      ],
+      "kernels": [
+        144
+      ],
+      "once": [
+        145
+      ],
+      "per": [
+        146
+      ],
+      "layer": [
+        147
+      ],
+      "GPU.": [
+        150
+      ],
+      "saturates": [
+        152
+      ],
+      "SSD": [
+        154
+      ],
+      "bandwidth": [
+        155
+      ],
+      "reduces": [
+        157,
+        233
+      ],
+      "stalls": [
+        159
+      ],
+      "near": [
+        161
+      ],
+      "zero": [
+        162
+      ],
+      "through": [
+        163
+      ],
+      "following": [
+        165
+      ],
+      "designs:": [
+        166
+      ],
+      "(i)": [
+        167
+      ],
+      "we": [
+        168,
+        183,
+        202
+      ],
+      "provide": [
+        169
+      ],
+      "GPU-native": [
+        171
+      ],
+      "abstraction": [
+        173
+      ],
+      "enables": [
+        175
+      ],
+      "bulk": [
+        176
+      ],
+      "transfers": [
+        179
+      ],
+      "management;": [
+        181
+      ],
+      "(ii)": [
+        182
+      ],
+      "re-architect": [
+        184
+      ],
+      "storage": [
+        187
+      ],
+      "stack": [
+        188
+      ],
+      "by": [
+        189,
+        235,
+        247,
+        254
+      ],
+      "introducing": [
+        190
+      ],
+      "io_uring": [
+        192
+      ],
+      "support": [
+        194
+      ],
+      "asynchronous": [
+        195
+      ],
+      "direct": [
+        197
+      ],
+      "I/O;": [
+        199
+      ],
+      "(iii)": [
+        201
+      ],
+      "propose": [
+        203
+      ],
+      "slack-aware": [
+        204
+      ],
+      "scheduling": [
+        206
+      ],
+      "avoid": [
+        208
+      ],
+      "resource": [
+        210
+      ],
+      "contention.": [
+        211
+      ],
+      "We": [
+        212
+      ],
+      "have": [
+        213
+      ],
+      "implemented": [
+        214
+      ],
+      "integrated": [
+        217
+      ],
+      "it": [
+        218
+      ],
+      "vLLM.": [
+        220
+      ],
+      "Extensive": [
+        221
+      ],
+      "evaluation": [
+        222
+      ],
+      "shows": [
+        223
+      ],
+      "compared": [
+        225
+      ],
+      "state-of-the-art": [
+        228
+      ],
+      "GDS-enabled,": [
+        229
+      ],
+      "LMCache,": [
+        231,
+        265
+      ],
+      "TTFT": [
+        234
+      ],
+      "78.3%": [
+        236
+      ],
+      "under": [
+        237
+      ],
+      "strict": [
+        238
+      ],
+      "SLO": [
+        239
+      ],
+      "constraints": [
+        240
+      ],
+      "improves": [
+        242
+      ],
+      "achievable": [
+        244
+      ],
+      "request": [
+        245
+      ],
+      "rate": [
+        246
+      ],
+      "2x.": [
+        248
+      ],
+      "The": [
+        249
+      ],
+      "cost": [
+        251
+      ],
+      "reduced": [
+        253
+      ],
+      "27%.": [
+        255
+      ],
+      "achieves": [
+        257
+      ],
+      "nearly": [
+        258
+      ],
+      "same": [
+        260
+      ],
+      "as": [
+        263
+      ],
+      "DRAM-backed": [
+        264
+      ],
+      "while": [
+        266
+      ],
+      "providing": [
+        267
+      ],
+      "almost": [
+        268
+      ],
+      "infinite": [
+        269
+      ],
+      "capacity.": [
+        270
+      ]
+    },
+    "counts_by_year": [],
+    "updated_date": "2026-05-07T06:12:12.454206",
+    "created_date": "2026-05-07T00:00:00"
+  }
+}

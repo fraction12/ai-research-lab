@@ -1,0 +1,989 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "id": "https://openalex.org/W6966631114",
+    "doi": "https://doi.org/10.48550/arxiv.2508.09442",
+    "title": "Shadow in the Cache: Unveiling and Mitigating Privacy Risks of KV-cache in LLM Inference",
+    "display_name": "Shadow in the Cache: Unveiling and Mitigating Privacy Risks of KV-cache in LLM Inference",
+    "publication_year": 2025,
+    "publication_date": "2025-08-13",
+    "ids": {
+      "openalex": "https://openalex.org/W6966631114",
+      "doi": "https://doi.org/10.48550/arxiv.2508.09442"
+    },
+    "language": "en",
+    "primary_location": {
+      "id": "doi:10.48550/arxiv.2508.09442",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2508.09442",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": null,
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "article"
+    },
+    "type": "preprint",
+    "indexed_in": [
+      "datacite"
+    ],
+    "open_access": {
+      "is_oa": true,
+      "oa_status": "green",
+      "oa_url": "https://doi.org/10.48550/arxiv.2508.09442",
+      "any_repository_has_fulltext": true
+    },
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": null,
+          "display_name": "Luo, Zhifan",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": true,
+        "raw_author_name": "Luo, Zhifan",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": null,
+          "display_name": "Shao, Shuo",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Shao, Shuo",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": null,
+          "display_name": "Zhang, Su",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Zhang, Su",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": null,
+          "display_name": "Zhou, Lijing",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Zhou, Lijing",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": null,
+          "display_name": "Hu, Yuke",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Hu, Yuke",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": null,
+          "display_name": "Zhao, Chenxu",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Zhao, Chenxu",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": null,
+          "display_name": "Liu, Zhihao",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Liu, Zhihao",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": null,
+          "display_name": "Qin, Zhan",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Qin, Zhan",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      }
+    ],
+    "institutions": [],
+    "countries_distinct_count": 0,
+    "institutions_distinct_count": 8,
+    "corresponding_author_ids": [],
+    "corresponding_institution_ids": [],
+    "apc_list": null,
+    "apc_paid": null,
+    "fwci": null,
+    "has_fulltext": false,
+    "cited_by_count": 0,
+    "citation_normalized_percentile": null,
+    "cited_by_percentile_year": null,
+    "biblio": {
+      "volume": null,
+      "issue": null,
+      "first_page": null,
+      "last_page": null
+    },
+    "is_retracted": false,
+    "is_paratext": false,
+    "is_xpac": true,
+    "primary_topic": {
+      "id": "https://openalex.org/T11689",
+      "display_name": "Adversarial Robustness in Machine Learning",
+      "score": 0.335999995470047,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1702",
+        "display_name": "Artificial Intelligence"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/17",
+        "display_name": "Computer Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    "topics": [
+      {
+        "id": "https://openalex.org/T11689",
+        "display_name": "Adversarial Robustness in Machine Learning",
+        "score": 0.335999995470047,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1702",
+          "display_name": "Artificial Intelligence"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T11424",
+        "display_name": "Security and Verification in Computing",
+        "score": 0.147599995136261,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1702",
+          "display_name": "Artificial Intelligence"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T12026",
+        "display_name": "Explainable Artificial Intelligence (XAI)",
+        "score": 0.04520000144839287,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1702",
+          "display_name": "Artificial Intelligence"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      }
+    ],
+    "keywords": [
+      {
+        "id": "https://openalex.org/keywords/obfuscation",
+        "display_name": "Obfuscation",
+        "score": 0.6998000144958496
+      },
+      {
+        "id": "https://openalex.org/keywords/inference",
+        "display_name": "Inference",
+        "score": 0.6121000051498413
+      },
+      {
+        "id": "https://openalex.org/keywords/trustworthiness",
+        "display_name": "Trustworthiness",
+        "score": 0.5063999891281128
+      },
+      {
+        "id": "https://openalex.org/keywords/computation",
+        "display_name": "Computation",
+        "score": 0.4271000027656555
+      },
+      {
+        "id": "https://openalex.org/keywords/information-privacy",
+        "display_name": "Information privacy",
+        "score": 0.37619999051094055
+      },
+      {
+        "id": "https://openalex.org/keywords/shadow",
+        "display_name": "Shadow (psychology)",
+        "score": 0.36079999804496765
+      },
+      {
+        "id": "https://openalex.org/keywords/quality",
+        "display_name": "Quality (philosophy)",
+        "score": 0.34369999170303345
+      },
+      {
+        "id": "https://openalex.org/keywords/differential-privacy",
+        "display_name": "Differential privacy",
+        "score": 0.3230000138282776
+      }
+    ],
+    "concepts": [
+      {
+        "id": "https://openalex.org/C41008148",
+        "wikidata": "https://www.wikidata.org/wiki/Q21198",
+        "display_name": "Computer science",
+        "level": 0,
+        "score": 0.7347999811172485
+      },
+      {
+        "id": "https://openalex.org/C40305131",
+        "wikidata": "https://www.wikidata.org/wiki/Q2616305",
+        "display_name": "Obfuscation",
+        "level": 2,
+        "score": 0.6998000144958496
+      },
+      {
+        "id": "https://openalex.org/C2776214188",
+        "wikidata": "https://www.wikidata.org/wiki/Q408386",
+        "display_name": "Inference",
+        "level": 2,
+        "score": 0.6121000051498413
+      },
+      {
+        "id": "https://openalex.org/C38652104",
+        "wikidata": "https://www.wikidata.org/wiki/Q3510521",
+        "display_name": "Computer security",
+        "level": 1,
+        "score": 0.5863999724388123
+      },
+      {
+        "id": "https://openalex.org/C153701036",
+        "wikidata": "https://www.wikidata.org/wiki/Q659974",
+        "display_name": "Trustworthiness",
+        "level": 2,
+        "score": 0.5063999891281128
+      },
+      {
+        "id": "https://openalex.org/C45374587",
+        "wikidata": "https://www.wikidata.org/wiki/Q12525525",
+        "display_name": "Computation",
+        "level": 2,
+        "score": 0.4271000027656555
+      },
+      {
+        "id": "https://openalex.org/C123201435",
+        "wikidata": "https://www.wikidata.org/wiki/Q456632",
+        "display_name": "Information privacy",
+        "level": 2,
+        "score": 0.37619999051094055
+      },
+      {
+        "id": "https://openalex.org/C117797892",
+        "wikidata": "https://www.wikidata.org/wiki/Q286363",
+        "display_name": "Shadow (psychology)",
+        "level": 2,
+        "score": 0.36079999804496765
+      },
+      {
+        "id": "https://openalex.org/C2779530757",
+        "wikidata": "https://www.wikidata.org/wiki/Q1207505",
+        "display_name": "Quality (philosophy)",
+        "level": 2,
+        "score": 0.34369999170303345
+      },
+      {
+        "id": "https://openalex.org/C124101348",
+        "wikidata": "https://www.wikidata.org/wiki/Q172491",
+        "display_name": "Data mining",
+        "level": 1,
+        "score": 0.33480000495910645
+      },
+      {
+        "id": "https://openalex.org/C23130292",
+        "wikidata": "https://www.wikidata.org/wiki/Q5275358",
+        "display_name": "Differential privacy",
+        "level": 2,
+        "score": 0.3230000138282776
+      },
+      {
+        "id": "https://openalex.org/C3017597292",
+        "wikidata": "https://www.wikidata.org/wiki/Q25052250",
+        "display_name": "Privacy protection",
+        "level": 2,
+        "score": 0.3228999972343445
+      },
+      {
+        "id": "https://openalex.org/C1893757",
+        "wikidata": "https://www.wikidata.org/wiki/Q3653001",
+        "display_name": "Inversion (geology)",
+        "level": 3,
+        "score": 0.3206999897956848
+      },
+      {
+        "id": "https://openalex.org/C148730421",
+        "wikidata": "https://www.wikidata.org/wiki/Q141090",
+        "display_name": "Encryption",
+        "level": 2,
+        "score": 0.3118000030517578
+      },
+      {
+        "id": "https://openalex.org/C140547941",
+        "wikidata": "https://www.wikidata.org/wiki/Q7797194",
+        "display_name": "Threat model",
+        "level": 2,
+        "score": 0.30880001187324524
+      },
+      {
+        "id": "https://openalex.org/C158338273",
+        "wikidata": "https://www.wikidata.org/wiki/Q2154943",
+        "display_name": "Homomorphic encryption",
+        "level": 3,
+        "score": 0.28619998693466187
+      },
+      {
+        "id": "https://openalex.org/C112930515",
+        "wikidata": "https://www.wikidata.org/wiki/Q4389547",
+        "display_name": "Risk analysis (engineering)",
+        "level": 1,
+        "score": 0.27619999647140503
+      },
+      {
+        "id": "https://openalex.org/C2777042071",
+        "wikidata": "https://www.wikidata.org/wiki/Q6509304",
+        "display_name": "Leakage (economics)",
+        "level": 2,
+        "score": 0.2703999876976013
+      },
+      {
+        "id": "https://openalex.org/C17020691",
+        "wikidata": "https://www.wikidata.org/wiki/Q139677",
+        "display_name": "Operator (biology)",
+        "level": 5,
+        "score": 0.2669000029563904
+      },
+      {
+        "id": "https://openalex.org/C153517567",
+        "wikidata": "https://www.wikidata.org/wiki/Q26090",
+        "display_name": "Mechanism design",
+        "level": 2,
+        "score": 0.2624000012874603
+      },
+      {
+        "id": "https://openalex.org/C89611455",
+        "wikidata": "https://www.wikidata.org/wiki/Q6804646",
+        "display_name": "Mechanism (biology)",
+        "level": 2,
+        "score": 0.2556000053882599
+      }
+    ],
+    "mesh": [],
+    "locations_count": 1,
+    "locations": [
+      {
+        "id": "doi:10.48550/arxiv.2508.09442",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.48550/arxiv.2508.09442",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306400194",
+          "display_name": "arXiv (Cornell University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I205783295",
+          "host_organization_name": "Cornell University",
+          "host_organization_lineage": [
+            "https://openalex.org/I205783295"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": null,
+        "is_accepted": false,
+        "is_published": null,
+        "raw_source_name": null,
+        "raw_type": "article"
+      }
+    ],
+    "best_oa_location": {
+      "id": "doi:10.48550/arxiv.2508.09442",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2508.09442",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": null,
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "article"
+    },
+    "sustainable_development_goals": [
+      {
+        "score": 0.695953905582428,
+        "display_name": "Peace, Justice and strong institutions",
+        "id": "https://metadata.un.org/sdg/16"
+      }
+    ],
+    "awards": [],
+    "funders": [],
+    "has_content": {
+      "pdf": false,
+      "grobid_xml": false
+    },
+    "content_urls": null,
+    "referenced_works_count": 0,
+    "referenced_works": [],
+    "related_works": [],
+    "abstract_inverted_index": {
+      "The": [
+        0
+      ],
+      "Key-Value": [
+        1
+      ],
+      "(KV)": [
+        2
+      ],
+      "cache,": [
+        3
+      ],
+      "which": [
+        4
+      ],
+      "stores": [
+        5
+      ],
+      "intermediate": [
+        6
+      ],
+      "attention": [
+        7
+      ],
+      "computations": [
+        8
+      ],
+      "(Key": [
+        9
+      ],
+      "and": [
+        10,
+        63,
+        77,
+        81,
+        91,
+        107,
+        156
+      ],
+      "Value": [
+        11
+      ],
+      "pairs)": [
+        12
+      ],
+      "to": [
+        13,
+        122,
+        140
+      ],
+      "avoid": [
+        14
+      ],
+      "redundant": [
+        15
+      ],
+      "calculations,": [
+        16
+      ],
+      "is": [
+        17
+      ],
+      "a": [
+        18,
+        69,
+        73,
+        82,
+        104,
+        113,
+        161
+      ],
+      "fundamental": [
+        19
+      ],
+      "mechanism": [
+        20
+      ],
+      "for": [
+        21,
+        164
+      ],
+      "accelerating": [
+        22
+      ],
+      "Large": [
+        23
+      ],
+      "Language": [
+        24
+      ],
+      "Model": [
+        25
+      ],
+      "(LLM)": [
+        26
+      ],
+      "inference.": [
+        27
+      ],
+      "However,": [
+        28
+      ],
+      "this": [
+        29,
+        146
+      ],
+      "efficiency": [
+        30
+      ],
+      "optimization": [
+        31
+      ],
+      "introduces": [
+        32
+      ],
+      "significant": [
+        33
+      ],
+      "yet": [
+        34
+      ],
+      "underexplored": [
+        35
+      ],
+      "privacy": [
+        36,
+        95
+      ],
+      "risks.": [
+        37
+      ],
+      "This": [
+        38
+      ],
+      "paper": [
+        39
+      ],
+      "provides": [
+        40
+      ],
+      "the": [
+        41,
+        59,
+        89,
+        124
+      ],
+      "first": [
+        42
+      ],
+      "comprehensive": [
+        43
+      ],
+      "analysis": [
+        44
+      ],
+      "of": [
+        45,
+        93
+      ],
+      "these": [
+        46
+      ],
+      "vulnerabilities,": [
+        47
+      ],
+      "demonstrating": [
+        48
+      ],
+      "that": [
+        49,
+        130
+      ],
+      "an": [
+        50
+      ],
+      "attacker": [
+        51
+      ],
+      "can": [
+        52
+      ],
+      "reconstruct": [
+        53
+      ],
+      "sensitive": [
+        54
+      ],
+      "user": [
+        55
+      ],
+      "inputs": [
+        56
+      ],
+      "directly": [
+        57
+      ],
+      "from": [
+        58
+      ],
+      "KV-cache.": [
+        60,
+        125
+      ],
+      "We": [
+        61
+      ],
+      "design": [
+        62
+      ],
+      "implement": [
+        64
+      ],
+      "three": [
+        65
+      ],
+      "distinct": [
+        66
+      ],
+      "attack": [
+        67
+      ],
+      "vectors:": [
+        68
+      ],
+      "direct": [
+        70
+      ],
+      "Inversion": [
+        71
+      ],
+      "Attack,": [
+        72,
+        80
+      ],
+      "more": [
+        74
+      ],
+      "broadly": [
+        75
+      ],
+      "applicable": [
+        76
+      ],
+      "potent": [
+        78
+      ],
+      "Collision": [
+        79
+      ],
+      "semantic-based": [
+        83
+      ],
+      "Injection": [
+        84
+      ],
+      "Attack.": [
+        85
+      ],
+      "These": [
+        86
+      ],
+      "methods": [
+        87
+      ],
+      "demonstrate": [
+        88
+      ],
+      "practicality": [
+        90
+      ],
+      "severity": [
+        92
+      ],
+      "KV-cache": [
+        94
+      ],
+      "leakage": [
+        96
+      ],
+      "issues.": [
+        97
+      ],
+      "To": [
+        98
+      ],
+      "mitigate": [
+        99
+      ],
+      "this,": [
+        100
+      ],
+      "we": [
+        101
+      ],
+      "propose": [
+        102
+      ],
+      "KV-Cloak,": [
+        103
+      ],
+      "novel,": [
+        105
+      ],
+      "lightweight,": [
+        106
+      ],
+      "efficient": [
+        108
+      ],
+      "defense": [
+        109
+      ],
+      "mechanism.": [
+        110
+      ],
+      "KV-Cloak": [
+        111,
+        131
+      ],
+      "uses": [
+        112
+      ],
+      "reversible": [
+        114
+      ],
+      "matrix-based": [
+        115
+      ],
+      "obfuscation": [
+        116
+      ],
+      "scheme,": [
+        117
+      ],
+      "combined": [
+        118
+      ],
+      "with": [
+        119,
+        149
+      ],
+      "operator": [
+        120
+      ],
+      "fusion,": [
+        121
+      ],
+      "secure": [
+        123
+      ],
+      "Our": [
+        126
+      ],
+      "extensive": [
+        127
+      ],
+      "experiments": [
+        128
+      ],
+      "show": [
+        129
+      ],
+      "effectively": [
+        132
+      ],
+      "thwarts": [
+        133
+      ],
+      "all": [
+        134
+      ],
+      "proposed": [
+        135
+      ],
+      "attacks,": [
+        136
+      ],
+      "reducing": [
+        137
+      ],
+      "reconstruction": [
+        138
+      ],
+      "quality": [
+        139
+      ],
+      "random": [
+        141
+      ],
+      "noise.": [
+        142
+      ],
+      "Crucially,": [
+        143
+      ],
+      "it": [
+        144
+      ],
+      "achieves": [
+        145
+      ],
+      "robust": [
+        147
+      ],
+      "security": [
+        148
+      ],
+      "virtually": [
+        150
+      ],
+      "no": [
+        151
+      ],
+      "degradation": [
+        152
+      ],
+      "in": [
+        153
+      ],
+      "model": [
+        154
+      ],
+      "accuracy": [
+        155
+      ],
+      "minimal": [
+        157
+      ],
+      "performance": [
+        158
+      ],
+      "overhead,": [
+        159
+      ],
+      "offering": [
+        160
+      ],
+      "practical": [
+        162
+      ],
+      "solution": [
+        163
+      ],
+      "trustworthy": [
+        165
+      ],
+      "LLM": [
+        166
+      ],
+      "deployment.": [
+        167
+      ]
+    },
+    "counts_by_year": [],
+    "updated_date": "2025-11-06T06:51:31.235846",
+    "created_date": "2025-10-10T00:00:00"
+  }
+}

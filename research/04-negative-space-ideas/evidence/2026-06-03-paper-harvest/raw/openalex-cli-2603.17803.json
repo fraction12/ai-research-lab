@@ -1,0 +1,953 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "id": "https://openalex.org/W7138845497",
+    "doi": "https://doi.org/10.48550/arxiv.2603.17803",
+    "title": "Swarm: Co-Activation Aware KVCache Offloading Across Multiple SSDs",
+    "display_name": "Swarm: Co-Activation Aware KVCache Offloading Across Multiple SSDs",
+    "publication_year": 2026,
+    "publication_date": "2026-03-18",
+    "ids": {
+      "openalex": "https://openalex.org/W7138845497",
+      "doi": "https://doi.org/10.48550/arxiv.2603.17803"
+    },
+    "language": null,
+    "primary_location": {
+      "id": "doi:10.48550/arxiv.2603.17803",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2603.17803",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "version": null,
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "article"
+    },
+    "type": "preprint",
+    "indexed_in": [
+      "datacite"
+    ],
+    "open_access": {
+      "is_oa": true,
+      "oa_status": "green",
+      "oa_url": "https://doi.org/10.48550/arxiv.2603.17803",
+      "any_repository_has_fulltext": true
+    },
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5067496010",
+          "display_name": "Tuowei Wang",
+          "orcid": "https://orcid.org/0009-0006-8272-8151"
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": true,
+        "raw_author_name": "Wang, Tuowei",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5074865115",
+          "display_name": "Liyun Chu",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Chu, Liyun",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5129998826",
+          "display_name": "Ruwen Fan",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Fan, Ruwen",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5129795486",
+          "display_name": "Ju Ren",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Ren, Ju",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      }
+    ],
+    "institutions": [],
+    "countries_distinct_count": 0,
+    "institutions_distinct_count": 4,
+    "corresponding_author_ids": [
+      "https://openalex.org/A5067496010"
+    ],
+    "corresponding_institution_ids": [],
+    "apc_list": null,
+    "apc_paid": null,
+    "fwci": null,
+    "has_fulltext": false,
+    "cited_by_count": 0,
+    "citation_normalized_percentile": null,
+    "cited_by_percentile_year": null,
+    "biblio": {
+      "volume": null,
+      "issue": null,
+      "first_page": null,
+      "last_page": null
+    },
+    "is_retracted": false,
+    "is_paratext": false,
+    "is_xpac": false,
+    "primary_topic": {
+      "id": "https://openalex.org/T11181",
+      "display_name": "Advanced Data Storage Technologies",
+      "score": 0.972000002861023,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1705",
+        "display_name": "Computer Networks and Communications"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/17",
+        "display_name": "Computer Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    "topics": [
+      {
+        "id": "https://openalex.org/T11181",
+        "display_name": "Advanced Data Storage Technologies",
+        "score": 0.972000002861023,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1705",
+          "display_name": "Computer Networks and Communications"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T10054",
+        "display_name": "Parallel Computing and Optimization Techniques",
+        "score": 0.021199999377131462,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1708",
+          "display_name": "Hardware and Architecture"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T10101",
+        "display_name": "Cloud Computing and Resource Management",
+        "score": 0.00139999995008111,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1710",
+          "display_name": "Information Systems"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      }
+    ],
+    "keywords": [
+      {
+        "id": "https://openalex.org/keywords/dram",
+        "display_name": "Dram",
+        "score": 0.6923999786376953
+      },
+      {
+        "id": "https://openalex.org/keywords/cache",
+        "display_name": "Cache",
+        "score": 0.5095000267028809
+      },
+      {
+        "id": "https://openalex.org/keywords/paging",
+        "display_name": "Paging",
+        "score": 0.4952000081539154
+      },
+      {
+        "id": "https://openalex.org/keywords/bandwidth",
+        "display_name": "Bandwidth (computing)",
+        "score": 0.4943000078201294
+      },
+      {
+        "id": "https://openalex.org/keywords/throughput",
+        "display_name": "Throughput",
+        "score": 0.4832000136375427
+      },
+      {
+        "id": "https://openalex.org/keywords/cluster-analysis",
+        "display_name": "Cluster analysis",
+        "score": 0.4650000035762787
+      },
+      {
+        "id": "https://openalex.org/keywords/swarm-behaviour",
+        "display_name": "Swarm behaviour",
+        "score": 0.38659998774528503
+      }
+    ],
+    "concepts": [
+      {
+        "id": "https://openalex.org/C41008148",
+        "wikidata": "https://www.wikidata.org/wiki/Q21198",
+        "display_name": "Computer science",
+        "level": 0,
+        "score": 0.8574000000953674
+      },
+      {
+        "id": "https://openalex.org/C7366592",
+        "wikidata": "https://www.wikidata.org/wiki/Q1255620",
+        "display_name": "Dram",
+        "level": 2,
+        "score": 0.6923999786376953
+      },
+      {
+        "id": "https://openalex.org/C115537543",
+        "wikidata": "https://www.wikidata.org/wiki/Q165596",
+        "display_name": "Cache",
+        "level": 2,
+        "score": 0.5095000267028809
+      },
+      {
+        "id": "https://openalex.org/C50954386",
+        "wikidata": "https://www.wikidata.org/wiki/Q656083",
+        "display_name": "Paging",
+        "level": 2,
+        "score": 0.4952000081539154
+      },
+      {
+        "id": "https://openalex.org/C2776257435",
+        "wikidata": "https://www.wikidata.org/wiki/Q1576430",
+        "display_name": "Bandwidth (computing)",
+        "level": 2,
+        "score": 0.4943000078201294
+      },
+      {
+        "id": "https://openalex.org/C157764524",
+        "wikidata": "https://www.wikidata.org/wiki/Q1383412",
+        "display_name": "Throughput",
+        "level": 3,
+        "score": 0.4832000136375427
+      },
+      {
+        "id": "https://openalex.org/C73555534",
+        "wikidata": "https://www.wikidata.org/wiki/Q622825",
+        "display_name": "Cluster analysis",
+        "level": 2,
+        "score": 0.4650000035762787
+      },
+      {
+        "id": "https://openalex.org/C120314980",
+        "wikidata": "https://www.wikidata.org/wiki/Q180634",
+        "display_name": "Distributed computing",
+        "level": 1,
+        "score": 0.41670000553131104
+      },
+      {
+        "id": "https://openalex.org/C31258907",
+        "wikidata": "https://www.wikidata.org/wiki/Q1301371",
+        "display_name": "Computer network",
+        "level": 1,
+        "score": 0.40369999408721924
+      },
+      {
+        "id": "https://openalex.org/C149635348",
+        "wikidata": "https://www.wikidata.org/wiki/Q193040",
+        "display_name": "Embedded system",
+        "level": 1,
+        "score": 0.39160001277923584
+      },
+      {
+        "id": "https://openalex.org/C181335050",
+        "wikidata": "https://www.wikidata.org/wiki/Q14915018",
+        "display_name": "Swarm behaviour",
+        "level": 2,
+        "score": 0.38659998774528503
+      },
+      {
+        "id": "https://openalex.org/C177264268",
+        "wikidata": "https://www.wikidata.org/wiki/Q1514741",
+        "display_name": "Set (abstract data type)",
+        "level": 2,
+        "score": 0.3862999975681305
+      },
+      {
+        "id": "https://openalex.org/C2779960059",
+        "wikidata": "https://www.wikidata.org/wiki/Q7113681",
+        "display_name": "Overhead (engineering)",
+        "level": 2,
+        "score": 0.38199999928474426
+      },
+      {
+        "id": "https://openalex.org/C111919701",
+        "wikidata": "https://www.wikidata.org/wiki/Q9135",
+        "display_name": "Operating system",
+        "level": 1,
+        "score": 0.37459999322891235
+      },
+      {
+        "id": "https://openalex.org/C173608175",
+        "wikidata": "https://www.wikidata.org/wiki/Q232661",
+        "display_name": "Parallel computing",
+        "level": 1,
+        "score": 0.3407999873161316
+      },
+      {
+        "id": "https://openalex.org/C47487241",
+        "wikidata": "https://www.wikidata.org/wiki/Q5227230",
+        "display_name": "Data access",
+        "level": 2,
+        "score": 0.2935999929904938
+      },
+      {
+        "id": "https://openalex.org/C130795937",
+        "wikidata": "https://www.wikidata.org/wiki/Q2561570",
+        "display_name": "Remote direct memory access",
+        "level": 2,
+        "score": 0.28459998965263367
+      },
+      {
+        "id": "https://openalex.org/C186967261",
+        "wikidata": "https://www.wikidata.org/wiki/Q5082128",
+        "display_name": "Mobile device",
+        "level": 2,
+        "score": 0.2784000039100647
+      },
+      {
+        "id": "https://openalex.org/C2780165032",
+        "wikidata": "https://www.wikidata.org/wiki/Q16869822",
+        "display_name": "Energy consumption",
+        "level": 2,
+        "score": 0.27790001034736633
+      },
+      {
+        "id": "https://openalex.org/C88196245",
+        "wikidata": "https://www.wikidata.org/wiki/Q8034984",
+        "display_name": "Working set",
+        "level": 2,
+        "score": 0.27570000290870667
+      },
+      {
+        "id": "https://openalex.org/C164866538",
+        "wikidata": "https://www.wikidata.org/wiki/Q367351",
+        "display_name": "Cluster (spacecraft)",
+        "level": 2,
+        "score": 0.26440000534057617
+      }
+    ],
+    "mesh": [],
+    "locations_count": 1,
+    "locations": [
+      {
+        "id": "doi:10.48550/arxiv.2603.17803",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.48550/arxiv.2603.17803",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306400194",
+          "display_name": "arXiv (Cornell University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I205783295",
+          "host_organization_name": "Cornell University",
+          "host_organization_lineage": [
+            "https://openalex.org/I205783295"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": null,
+        "is_accepted": false,
+        "is_published": null,
+        "raw_source_name": null,
+        "raw_type": "article"
+      }
+    ],
+    "best_oa_location": {
+      "id": "doi:10.48550/arxiv.2603.17803",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2603.17803",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": "cc-by",
+      "license_id": "https://openalex.org/licenses/cc-by",
+      "version": null,
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "article"
+    },
+    "sustainable_development_goals": [],
+    "awards": [],
+    "funders": [],
+    "has_content": {
+      "pdf": false,
+      "grobid_xml": false
+    },
+    "content_urls": null,
+    "referenced_works_count": 0,
+    "referenced_works": [],
+    "related_works": [],
+    "abstract_inverted_index": {
+      "The": [
+        0
+      ],
+      "key-value": [
+        1
+      ],
+      "(KV)": [
+        2
+      ],
+      "cache": [
+        3
+      ],
+      "has": [
+        4
+      ],
+      "become": [
+        5
+      ],
+      "the": [
+        6,
+        136
+      ],
+      "dominant": [
+        7
+      ],
+      "contributor": [
+        8
+      ],
+      "to": [
+        9,
+        26,
+        57,
+        147,
+        166
+      ],
+      "memory": [
+        10,
+        24,
+        31
+      ],
+      "consumption": [
+        11
+      ],
+      "in": [
+        12,
+        73
+      ],
+      "large": [
+        13
+      ],
+      "language": [
+        14
+      ],
+      "model": [
+        15
+      ],
+      "(LLM)": [
+        16
+      ],
+      "inference.": [
+        17
+      ],
+      "Although": [
+        18
+      ],
+      "offloading": [
+        19,
+        114
+      ],
+      "KVCache": [
+        20,
+        71,
+        85,
+        113
+      ],
+      "from": [
+        21
+      ],
+      "GPU": [
+        22
+      ],
+      "high-bandwidth": [
+        23
+      ],
+      "(HBM)": [
+        25
+      ],
+      "CPU": [
+        27
+      ],
+      "DRAM": [
+        28,
+        33
+      ],
+      "alleviates": [
+        29
+      ],
+      "device": [
+        30
+      ],
+      "pressure,": [
+        32
+      ],
+      "remains": [
+        34
+      ],
+      "capacity-limited": [
+        35
+      ],
+      "and": [
+        36,
+        61,
+        78,
+        98,
+        134,
+        159,
+        163,
+        184
+      ],
+      "costly": [
+        37
+      ],
+      "for": [
+        38
+      ],
+      "large,": [
+        39
+      ],
+      "persistent": [
+        40
+      ],
+      "workloads.": [
+        41
+      ],
+      "Solid-state": [
+        42
+      ],
+      "drives": [
+        43
+      ],
+      "(SSDs)": [
+        44
+      ],
+      "provide": [
+        45
+      ],
+      "a": [
+        46,
+        89,
+        96
+      ],
+      "cost-effective": [
+        47
+      ],
+      "alternative,": [
+        48
+      ],
+      "but": [
+        49
+      ],
+      "naive": [
+        50
+      ],
+      "SSD-based": [
+        51,
+        112
+      ],
+      "paging": [
+        52
+      ],
+      "is": [
+        53,
+        92
+      ],
+      "fundamentally": [
+        54
+      ],
+      "bandwidth-bound": [
+        55,
+        118
+      ],
+      "due": [
+        56
+      ],
+      "limited": [
+        58
+      ],
+      "PCIe": [
+        59
+      ],
+      "throughput": [
+        60
+      ],
+      "per-device": [
+        62
+      ],
+      "bandwidth": [
+        63,
+        169,
+        187
+      ],
+      "constraints.": [
+        64
+      ],
+      "In": [
+        65
+      ],
+      "this": [
+        66,
+        83,
+        106
+      ],
+      "paper,": [
+        67
+      ],
+      "we": [
+        68,
+        108
+      ],
+      "observe": [
+        69
+      ],
+      "that": [
+        70,
+        116,
+        177
+      ],
+      "activations": [
+        72
+      ],
+      "real-world": [
+        74
+      ],
+      "workloads": [
+        75
+      ],
+      "exhibit": [
+        76
+      ],
+      "strong": [
+        77
+      ],
+      "stable": [
+        79,
+        97
+      ],
+      "correlations.": [
+        80
+      ],
+      "We": [
+        81
+      ],
+      "term": [
+        82
+      ],
+      "phenomenon": [
+        84
+      ],
+      "Co-Activation,": [
+        86
+      ],
+      "where": [
+        87
+      ],
+      "accessing": [
+        88
+      ],
+      "KV": [
+        90,
+        103,
+        131
+      ],
+      "entry": [
+        91
+      ],
+      "often": [
+        93
+      ],
+      "accompanied": [
+        94
+      ],
+      "by": [
+        95,
+        182,
+        189
+      ],
+      "recurring": [
+        99
+      ],
+      "set": [
+        100
+      ],
+      "of": [
+        101
+      ],
+      "other": [
+        102
+      ],
+      "entries.": [
+        104
+      ],
+      "Leveraging": [
+        105
+      ],
+      "property,": [
+        107
+      ],
+      "present": [
+        109
+      ],
+      "Swarm,": [
+        110
+      ],
+      "an": [
+        111
+      ],
+      "system": [
+        115
+      ],
+      "converts": [
+        117
+      ],
+      "single-device": [
+        119
+      ],
+      "access": [
+        120,
+        173
+      ],
+      "into": [
+        121
+      ],
+      "parallel": [
+        122,
+        149
+      ],
+      "I/O": [
+        123,
+        150,
+        180
+      ],
+      "across": [
+        124,
+        139
+      ],
+      "multiple": [
+        125
+      ],
+      "SSDs.": [
+        126
+      ],
+      "Specifically,": [
+        127
+      ],
+      "Swarm": [
+        128,
+        154,
+        178
+      ],
+      "clusters": [
+        129,
+        138
+      ],
+      "co-activated": [
+        130
+      ],
+      "entries": [
+        132
+      ],
+      "offline": [
+        133
+      ],
+      "distributes": [
+        135
+      ],
+      "resulting": [
+        137
+      ],
+      "SSDs": [
+        140
+      ],
+      "using": [
+        141
+      ],
+      "graph-based": [
+        142
+      ],
+      "placement": [
+        143
+      ],
+      "with": [
+        144
+      ],
+      "selective": [
+        145
+      ],
+      "replication": [
+        146
+      ],
+      "maximize": [
+        148
+      ],
+      "bandwidth.": [
+        151
+      ],
+      "At": [
+        152
+      ],
+      "runtime,": [
+        153
+      ],
+      "performs": [
+        155
+      ],
+      "load-balanced": [
+        156
+      ],
+      "cluster": [
+        157
+      ],
+      "retrieval": [
+        158
+      ],
+      "dynamically": [
+        160
+      ],
+      "adapts": [
+        161
+      ],
+      "clustering": [
+        162
+      ],
+      "caching": [
+        164
+      ],
+      "decisions": [
+        165
+      ],
+      "sustain": [
+        167
+      ],
+      "high": [
+        168
+      ],
+      "utilization": [
+        170,
+        188
+      ],
+      "under": [
+        171
+      ],
+      "evolving": [
+        172
+      ],
+      "patterns.": [
+        174
+      ],
+      "Evaluations": [
+        175
+      ],
+      "show": [
+        176
+      ],
+      "reduces": [
+        179
+      ],
+      "time": [
+        181
+      ],
+      "2.41x": [
+        183
+      ],
+      "improves": [
+        185
+      ],
+      "effective": [
+        186
+      ],
+      "2.72x.": [
+        190
+      ]
+    },
+    "counts_by_year": [],
+    "updated_date": "2026-03-20T20:54:20.808490",
+    "created_date": "2026-03-20T00:00:00"
+  }
+}

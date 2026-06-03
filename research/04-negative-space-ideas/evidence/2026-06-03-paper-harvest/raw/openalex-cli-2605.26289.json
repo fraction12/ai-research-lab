@@ -1,0 +1,785 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "id": "https://openalex.org/W7162526718",
+    "doi": "https://doi.org/10.48550/arxiv.2605.26289",
+    "title": "Stateful Inference for Low-Latency Multi-Agent Tool Calling",
+    "display_name": "Stateful Inference for Low-Latency Multi-Agent Tool Calling",
+    "publication_year": 2026,
+    "publication_date": "2026-05-25",
+    "ids": {
+      "openalex": "https://openalex.org/W7162526718",
+      "doi": "https://doi.org/10.48550/arxiv.2605.26289"
+    },
+    "language": null,
+    "primary_location": {
+      "id": "doi:10.48550/arxiv.2605.26289",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2605.26289",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": null,
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "article"
+    },
+    "type": "preprint",
+    "indexed_in": [
+      "datacite"
+    ],
+    "open_access": {
+      "is_oa": true,
+      "oa_status": "green",
+      "oa_url": "https://doi.org/10.48550/arxiv.2605.26289",
+      "any_repository_has_fulltext": true
+    },
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": "https://openalex.org/A5061915980",
+          "display_name": "Victor Norgren",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": true,
+        "raw_author_name": "Norgren, Victor",
+        "raw_affiliation_strings": [],
+        "raw_orcid": null,
+        "affiliations": []
+      }
+    ],
+    "institutions": [],
+    "countries_distinct_count": 0,
+    "institutions_distinct_count": 1,
+    "corresponding_author_ids": [
+      "https://openalex.org/A5061915980"
+    ],
+    "corresponding_institution_ids": [],
+    "apc_list": null,
+    "apc_paid": null,
+    "fwci": null,
+    "has_fulltext": false,
+    "cited_by_count": 0,
+    "citation_normalized_percentile": null,
+    "cited_by_percentile_year": null,
+    "biblio": {
+      "volume": null,
+      "issue": null,
+      "first_page": null,
+      "last_page": null
+    },
+    "is_retracted": false,
+    "is_paratext": false,
+    "is_xpac": false,
+    "primary_topic": {
+      "id": "https://openalex.org/T10054",
+      "display_name": "Parallel Computing and Optimization Techniques",
+      "score": 0.2443999946117401,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1708",
+        "display_name": "Hardware and Architecture"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/17",
+        "display_name": "Computer Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    "topics": [
+      {
+        "id": "https://openalex.org/T10054",
+        "display_name": "Parallel Computing and Optimization Techniques",
+        "score": 0.2443999946117401,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1708",
+          "display_name": "Hardware and Architecture"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T10126",
+        "display_name": "Logic, programming, and type systems",
+        "score": 0.15940000116825104,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1702",
+          "display_name": "Artificial Intelligence"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T12127",
+        "display_name": "Software System Performance and Reliability",
+        "score": 0.06880000233650208,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1705",
+          "display_name": "Computer Networks and Communications"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      }
+    ],
+    "keywords": [
+      {
+        "id": "https://openalex.org/keywords/stateful-firewall",
+        "display_name": "Stateful firewall",
+        "score": 0.9025999903678894
+      },
+      {
+        "id": "https://openalex.org/keywords/inference",
+        "display_name": "Inference",
+        "score": 0.6481000185012817
+      },
+      {
+        "id": "https://openalex.org/keywords/cache",
+        "display_name": "Cache",
+        "score": 0.6283000111579895
+      },
+      {
+        "id": "https://openalex.org/keywords/reuse",
+        "display_name": "Reuse",
+        "score": 0.5580000281333923
+      },
+      {
+        "id": "https://openalex.org/keywords/callback",
+        "display_name": "Callback",
+        "score": 0.5300999879837036
+      },
+      {
+        "id": "https://openalex.org/keywords/prefix",
+        "display_name": "Prefix",
+        "score": 0.48820000886917114
+      },
+      {
+        "id": "https://openalex.org/keywords/workflow",
+        "display_name": "Workflow",
+        "score": 0.477400004863739
+      }
+    ],
+    "concepts": [
+      {
+        "id": "https://openalex.org/C22927095",
+        "wikidata": "https://www.wikidata.org/wiki/Q1784206",
+        "display_name": "Stateful firewall",
+        "level": 3,
+        "score": 0.9025999903678894
+      },
+      {
+        "id": "https://openalex.org/C41008148",
+        "wikidata": "https://www.wikidata.org/wiki/Q21198",
+        "display_name": "Computer science",
+        "level": 0,
+        "score": 0.8080000281333923
+      },
+      {
+        "id": "https://openalex.org/C2776214188",
+        "wikidata": "https://www.wikidata.org/wiki/Q408386",
+        "display_name": "Inference",
+        "level": 2,
+        "score": 0.6481000185012817
+      },
+      {
+        "id": "https://openalex.org/C115537543",
+        "wikidata": "https://www.wikidata.org/wiki/Q165596",
+        "display_name": "Cache",
+        "level": 2,
+        "score": 0.6283000111579895
+      },
+      {
+        "id": "https://openalex.org/C206588197",
+        "wikidata": "https://www.wikidata.org/wiki/Q846574",
+        "display_name": "Reuse",
+        "level": 2,
+        "score": 0.5580000281333923
+      },
+      {
+        "id": "https://openalex.org/C204495577",
+        "wikidata": "https://www.wikidata.org/wiki/Q1205349",
+        "display_name": "Callback",
+        "level": 2,
+        "score": 0.5300999879837036
+      },
+      {
+        "id": "https://openalex.org/C141603448",
+        "wikidata": "https://www.wikidata.org/wiki/Q134830",
+        "display_name": "Prefix",
+        "level": 2,
+        "score": 0.48820000886917114
+      },
+      {
+        "id": "https://openalex.org/C177212765",
+        "wikidata": "https://www.wikidata.org/wiki/Q627335",
+        "display_name": "Workflow",
+        "level": 2,
+        "score": 0.477400004863739
+      },
+      {
+        "id": "https://openalex.org/C184337299",
+        "wikidata": "https://www.wikidata.org/wiki/Q1437428",
+        "display_name": "Semantics (computer science)",
+        "level": 2,
+        "score": 0.4000000059604645
+      },
+      {
+        "id": "https://openalex.org/C199360897",
+        "wikidata": "https://www.wikidata.org/wiki/Q9143",
+        "display_name": "Programming language",
+        "level": 1,
+        "score": 0.37040001153945923
+      },
+      {
+        "id": "https://openalex.org/C157170001",
+        "wikidata": "https://www.wikidata.org/wiki/Q4781507",
+        "display_name": "Applications of artificial intelligence",
+        "level": 2,
+        "score": 0.3203999996185303
+      },
+      {
+        "id": "https://openalex.org/C80444323",
+        "wikidata": "https://www.wikidata.org/wiki/Q2878974",
+        "display_name": "Theoretical computer science",
+        "level": 1,
+        "score": 0.2930000126361847
+      },
+      {
+        "id": "https://openalex.org/C189783530",
+        "wikidata": "https://www.wikidata.org/wiki/Q352090",
+        "display_name": "CPU cache",
+        "level": 3,
+        "score": 0.29109999537467957
+      },
+      {
+        "id": "https://openalex.org/C2777200299",
+        "wikidata": "https://www.wikidata.org/wiki/Q52943",
+        "display_name": "Conversation",
+        "level": 2,
+        "score": 0.28189998865127563
+      },
+      {
+        "id": "https://openalex.org/C120314980",
+        "wikidata": "https://www.wikidata.org/wiki/Q180634",
+        "display_name": "Distributed computing",
+        "level": 1,
+        "score": 0.2727999985218048
+      },
+      {
+        "id": "https://openalex.org/C189950617",
+        "wikidata": "https://www.wikidata.org/wiki/Q937228",
+        "display_name": "Property (philosophy)",
+        "level": 2,
+        "score": 0.2662999927997589
+      },
+      {
+        "id": "https://openalex.org/C123657996",
+        "wikidata": "https://www.wikidata.org/wiki/Q12271",
+        "display_name": "Architecture",
+        "level": 2,
+        "score": 0.26339998841285706
+      },
+      {
+        "id": "https://openalex.org/C207609745",
+        "wikidata": "https://www.wikidata.org/wiki/Q4944086",
+        "display_name": "Bootstrapping (finance)",
+        "level": 2,
+        "score": 0.25679999589920044
+      },
+      {
+        "id": "https://openalex.org/C38556500",
+        "wikidata": "https://www.wikidata.org/wiki/Q13404475",
+        "display_name": "Cache algorithms",
+        "level": 4,
+        "score": 0.2540999948978424
+      },
+      {
+        "id": "https://openalex.org/C154945302",
+        "wikidata": "https://www.wikidata.org/wiki/Q11660",
+        "display_name": "Artificial intelligence",
+        "level": 1,
+        "score": 0.2526000142097473
+      }
+    ],
+    "mesh": [],
+    "locations_count": 1,
+    "locations": [
+      {
+        "id": "doi:10.48550/arxiv.2605.26289",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.48550/arxiv.2605.26289",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306400194",
+          "display_name": "arXiv (Cornell University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I205783295",
+          "host_organization_name": "Cornell University",
+          "host_organization_lineage": [
+            "https://openalex.org/I205783295"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": null,
+        "is_accepted": false,
+        "is_published": null,
+        "raw_source_name": null,
+        "raw_type": "article"
+      }
+    ],
+    "best_oa_location": {
+      "id": "doi:10.48550/arxiv.2605.26289",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2605.26289",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": null,
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "article"
+    },
+    "sustainable_development_goals": [],
+    "awards": [],
+    "funders": [],
+    "has_content": {
+      "grobid_xml": false,
+      "pdf": false
+    },
+    "content_urls": null,
+    "referenced_works_count": 0,
+    "referenced_works": [],
+    "related_works": [],
+    "abstract_inverted_index": {
+      "Multi-agent": [
+        0
+      ],
+      "tool": [
+        1,
+        18
+      ],
+      "calling": [
+        2
+      ],
+      "is": [
+        3,
+        36,
+        107
+      ],
+      "becoming": [
+        4
+      ],
+      "the": [
+        5,
+        25,
+        34,
+        39,
+        50,
+        74,
+        104,
+        120
+      ],
+      "dominant": [
+        6
+      ],
+      "interaction": [
+        7
+      ],
+      "pattern": [
+        8
+      ],
+      "for": [
+        9
+      ],
+      "LLM-based": [
+        10
+      ],
+      "systems,": [
+        11
+      ],
+      "yet": [
+        12
+      ],
+      "existing": [
+        13
+      ],
+      "inference": [
+        14,
+        46
+      ],
+      "frameworks": [
+        15
+      ],
+      "treat": [
+        16
+      ],
+      "each": [
+        17
+      ],
+      "call": [
+        19
+      ],
+      "as": [
+        20
+      ],
+      "an": [
+        21,
+        58
+      ],
+      "independent": [
+        22
+      ],
+      "request,": [
+        23
+      ],
+      "re-processing": [
+        24
+      ],
+      "entire": [
+        26
+      ],
+      "conversation": [
+        27
+      ],
+      "from": [
+        28,
+        38,
+        134
+      ],
+      "scratch": [
+        29
+      ],
+      "even": [
+        30
+      ],
+      "though": [
+        31
+      ],
+      "85-95%": [
+        32
+      ],
+      "of": [
+        33,
+        54,
+        123
+      ],
+      "prompt": [
+        35
+      ],
+      "unchanged": [
+        37
+      ],
+      "previous": [
+        40
+      ],
+      "turn.": [
+        41
+      ],
+      "We": [
+        42
+      ],
+      "present": [
+        43
+      ],
+      "a": [
+        44,
+        62,
+        78,
+        89,
+        113,
+        124
+      ],
+      "stateful": [
+        45,
+        135
+      ],
+      "architecture": [
+        47
+      ],
+      "that": [
+        48
+      ],
+      "converts": [
+        49
+      ],
+      "$O(n_t)$": [
+        51
+      ],
+      "per-turn": [
+        52
+      ],
+      "cost": [
+        53
+      ],
+      "conventional": [
+        55
+      ],
+      "serving": [
+        56
+      ],
+      "into": [
+        57
+      ],
+      "$O(\u0394_t)$": [
+        59
+      ],
+      "delta-only": [
+        60
+      ],
+      "cost:": [
+        61
+      ],
+      "persistent": [
+        63
+      ],
+      "KV": [
+        64
+      ],
+      "cache": [
+        65,
+        81
+      ],
+      "lives": [
+        66
+      ],
+      "across": [
+        67,
+        84
+      ],
+      "turns": [
+        68
+      ],
+      "and": [
+        69,
+        88,
+        98,
+        117,
+        137
+      ],
+      "advances": [
+        70
+      ],
+      "by": [
+        71
+      ],
+      "ingesting": [
+        72
+      ],
+      "only": [
+        73
+      ],
+      "new": [
+        75
+      ],
+      "tokens,": [
+        76
+      ],
+      "while": [
+        77
+      ],
+      "radix": [
+        79
+      ],
+      "prefix": [
+        80
+      ],
+      "extends": [
+        82
+      ],
+      "this": [
+        83
+      ],
+      "interleaved": [
+        85
+      ],
+      "multi-agent": [
+        86
+      ],
+      "traffic": [
+        87
+      ],
+      "prompt-lookup": [
+        90
+      ],
+      "speculative": [
+        91
+      ],
+      "decoder": [
+        92
+      ],
+      "accelerates": [
+        93
+      ],
+      "structured": [
+        94
+      ],
+      "output.": [
+        95
+      ],
+      "Against": [
+        96
+      ],
+      "vLLM": [
+        97
+      ],
+      "SGLang": [
+        99
+      ],
+      "on": [
+        100,
+        112,
+        119
+      ],
+      "novel,": [
+        101
+      ],
+      "fully-generated": [
+        102
+      ],
+      "workloads,": [
+        103
+      ],
+      "reference": [
+        105
+      ],
+      "implementation": [
+        106
+      ],
+      "$2.1\\times$": [
+        108
+      ],
+      "faster": [
+        109
+      ],
+      "per": [
+        110
+      ],
+      "turn": [
+        111,
+        122
+      ],
+      "6-turn": [
+        114
+      ],
+      "agentic": [
+        115
+      ],
+      "workflow": [
+        116
+      ],
+      "$4.2\\times$": [
+        118
+      ],
+      "median": [
+        121
+      ],
+      "35-turn": [
+        125
+      ],
+      "one,": [
+        126
+      ],
+      "halving": [
+        127
+      ],
+      "end-to-end": [
+        128
+      ],
+      "wall": [
+        129
+      ],
+      "time.": [
+        130
+      ],
+      "The": [
+        131
+      ],
+      "advantage": [
+        132
+      ],
+      "comes": [
+        133
+      ],
+      "reuse": [
+        136
+      ],
+      "speculation,": [
+        138
+      ],
+      "not": [
+        139
+      ],
+      "caching.": [
+        140
+      ]
+    },
+    "counts_by_year": [],
+    "updated_date": "2026-05-28T06:19:16.900634",
+    "created_date": "2026-05-28T00:00:00"
+  }
+}

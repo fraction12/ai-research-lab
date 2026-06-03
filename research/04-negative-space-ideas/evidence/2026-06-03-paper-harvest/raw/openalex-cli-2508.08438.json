@@ -1,0 +1,1149 @@
+{
+  "meta": {
+    "source": "live"
+  },
+  "results": {
+    "id": "https://openalex.org/W4416858267",
+    "doi": "https://doi.org/10.48550/arxiv.2508.08438",
+    "title": "Selective KV-Cache Sharing to Mitigate Timing Side-Channels in LLM Inference",
+    "display_name": "Selective KV-Cache Sharing to Mitigate Timing Side-Channels in LLM Inference",
+    "publication_year": 2025,
+    "publication_date": "2025-08-11",
+    "ids": {
+      "openalex": "https://openalex.org/W4416858267",
+      "doi": "https://doi.org/10.48550/arxiv.2508.08438"
+    },
+    "language": "en",
+    "primary_location": {
+      "id": "pmh:oai:arXiv.org:2508.08438",
+      "is_oa": true,
+      "landing_page_url": "http://arxiv.org/abs/2508.08438",
+      "pdf_url": "https://arxiv.org/pdf/2508.08438",
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "submittedVersion",
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "text"
+    },
+    "type": "preprint",
+    "indexed_in": [
+      "arxiv",
+      "datacite"
+    ],
+    "open_access": {
+      "is_oa": true,
+      "oa_status": "green",
+      "oa_url": "https://arxiv.org/pdf/2508.08438",
+      "any_repository_has_fulltext": true
+    },
+    "authorships": [
+      {
+        "author_position": "first",
+        "author": {
+          "id": null,
+          "display_name": "Chu, Kexin",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": true,
+        "raw_author_name": "Chu, Kexin",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": null,
+          "display_name": "Lin, Zecheng",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Lin, Zecheng",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5035075306",
+          "display_name": "Dawei Xiang",
+          "orcid": "https://orcid.org/0000-0001-6151-8522"
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Xiang, Dawei",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5035994989",
+          "display_name": "Zixu Shen",
+          "orcid": null
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Shen, Zixu",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5004251735",
+          "display_name": "Jianchang Su",
+          "orcid": "https://orcid.org/0000-0002-4089-8316"
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Su, Jianchang",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5100724198",
+          "display_name": "Cheng Chu",
+          "orcid": "https://orcid.org/0000-0002-1806-506X"
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Chu, Cheng",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5103214236",
+          "display_name": "Yiwei Yang",
+          "orcid": "https://orcid.org/0000-0001-8011-5868"
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Yang, Yiwei",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5100399728",
+          "display_name": "Wenhui Zhang",
+          "orcid": "https://orcid.org/0000-0003-2038-4278"
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Zhang, Wenhui",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "middle",
+        "author": {
+          "id": "https://openalex.org/A5031365162",
+          "display_name": "Wenfei Wu",
+          "orcid": "https://orcid.org/0000-0002-1357-3137"
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Wu, Wenfei",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      },
+      {
+        "author_position": "last",
+        "author": {
+          "id": "https://openalex.org/A5100577526",
+          "display_name": "Wei Zhang",
+          "orcid": "https://orcid.org/0009-0004-9512-4192"
+        },
+        "institutions": [],
+        "countries": [],
+        "is_corresponding": false,
+        "raw_author_name": "Zhang, Wei",
+        "raw_affiliation_strings": [],
+        "affiliations": []
+      }
+    ],
+    "institutions": [],
+    "countries_distinct_count": 0,
+    "institutions_distinct_count": 10,
+    "corresponding_author_ids": [],
+    "corresponding_institution_ids": [],
+    "apc_list": null,
+    "apc_paid": null,
+    "fwci": null,
+    "has_fulltext": false,
+    "cited_by_count": 0,
+    "citation_normalized_percentile": null,
+    "cited_by_percentile_year": null,
+    "biblio": {
+      "volume": null,
+      "issue": null,
+      "first_page": null,
+      "last_page": null
+    },
+    "is_retracted": false,
+    "is_paratext": false,
+    "is_xpac": false,
+    "primary_topic": {
+      "id": "https://openalex.org/T11424",
+      "display_name": "Security and Verification in Computing",
+      "score": 0.6858999729156494,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1702",
+        "display_name": "Artificial Intelligence"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/17",
+        "display_name": "Computer Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    "topics": [
+      {
+        "id": "https://openalex.org/T11424",
+        "display_name": "Security and Verification in Computing",
+        "score": 0.6858999729156494,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1702",
+          "display_name": "Artificial Intelligence"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T11689",
+        "display_name": "Adversarial Robustness in Machine Learning",
+        "score": 0.08219999819993973,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1702",
+          "display_name": "Artificial Intelligence"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      {
+        "id": "https://openalex.org/T10054",
+        "display_name": "Parallel Computing and Optimization Techniques",
+        "score": 0.030799999833106995,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1708",
+          "display_name": "Hardware and Architecture"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/17",
+          "display_name": "Computer Science"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      }
+    ],
+    "keywords": [
+      {
+        "id": "https://openalex.org/keywords/scalability",
+        "display_name": "Scalability",
+        "score": 0.6123999953269958
+      },
+      {
+        "id": "https://openalex.org/keywords/reuse",
+        "display_name": "Reuse",
+        "score": 0.5922999978065491
+      },
+      {
+        "id": "https://openalex.org/keywords/overhead",
+        "display_name": "Overhead (engineering)",
+        "score": 0.5791000127792358
+      },
+      {
+        "id": "https://openalex.org/keywords/key",
+        "display_name": "Key (lock)",
+        "score": 0.46630001068115234
+      },
+      {
+        "id": "https://openalex.org/keywords/asynchronous-communication",
+        "display_name": "Asynchronous communication",
+        "score": 0.4498000144958496
+      },
+      {
+        "id": "https://openalex.org/keywords/pipeline",
+        "display_name": "Pipeline (software)",
+        "score": 0.4456999897956848
+      },
+      {
+        "id": "https://openalex.org/keywords/isolation",
+        "display_name": "Isolation (microbiology)",
+        "score": 0.4404999911785126
+      },
+      {
+        "id": "https://openalex.org/keywords/throughput",
+        "display_name": "Throughput",
+        "score": 0.41019999980926514
+      },
+      {
+        "id": "https://openalex.org/keywords/inference",
+        "display_name": "Inference",
+        "score": 0.40849998593330383
+      }
+    ],
+    "concepts": [
+      {
+        "id": "https://openalex.org/C41008148",
+        "wikidata": "https://www.wikidata.org/wiki/Q21198",
+        "display_name": "Computer science",
+        "level": 0,
+        "score": 0.8065999746322632
+      },
+      {
+        "id": "https://openalex.org/C48044578",
+        "wikidata": "https://www.wikidata.org/wiki/Q727490",
+        "display_name": "Scalability",
+        "level": 2,
+        "score": 0.6123999953269958
+      },
+      {
+        "id": "https://openalex.org/C206588197",
+        "wikidata": "https://www.wikidata.org/wiki/Q846574",
+        "display_name": "Reuse",
+        "level": 2,
+        "score": 0.5922999978065491
+      },
+      {
+        "id": "https://openalex.org/C2779960059",
+        "wikidata": "https://www.wikidata.org/wiki/Q7113681",
+        "display_name": "Overhead (engineering)",
+        "level": 2,
+        "score": 0.5791000127792358
+      },
+      {
+        "id": "https://openalex.org/C120314980",
+        "wikidata": "https://www.wikidata.org/wiki/Q180634",
+        "display_name": "Distributed computing",
+        "level": 1,
+        "score": 0.4668000042438507
+      },
+      {
+        "id": "https://openalex.org/C26517878",
+        "wikidata": "https://www.wikidata.org/wiki/Q228039",
+        "display_name": "Key (lock)",
+        "level": 2,
+        "score": 0.46630001068115234
+      },
+      {
+        "id": "https://openalex.org/C151319957",
+        "wikidata": "https://www.wikidata.org/wiki/Q752739",
+        "display_name": "Asynchronous communication",
+        "level": 2,
+        "score": 0.4498000144958496
+      },
+      {
+        "id": "https://openalex.org/C43521106",
+        "wikidata": "https://www.wikidata.org/wiki/Q2165493",
+        "display_name": "Pipeline (software)",
+        "level": 2,
+        "score": 0.4456999897956848
+      },
+      {
+        "id": "https://openalex.org/C2775941552",
+        "wikidata": "https://www.wikidata.org/wiki/Q25212305",
+        "display_name": "Isolation (microbiology)",
+        "level": 2,
+        "score": 0.4404999911785126
+      },
+      {
+        "id": "https://openalex.org/C157764524",
+        "wikidata": "https://www.wikidata.org/wiki/Q1383412",
+        "display_name": "Throughput",
+        "level": 3,
+        "score": 0.41019999980926514
+      },
+      {
+        "id": "https://openalex.org/C2776214188",
+        "wikidata": "https://www.wikidata.org/wiki/Q408386",
+        "display_name": "Inference",
+        "level": 2,
+        "score": 0.40849998593330383
+      },
+      {
+        "id": "https://openalex.org/C123201435",
+        "wikidata": "https://www.wikidata.org/wiki/Q456632",
+        "display_name": "Information privacy",
+        "level": 2,
+        "score": 0.3978999853134155
+      },
+      {
+        "id": "https://openalex.org/C2779585090",
+        "wikidata": "https://www.wikidata.org/wiki/Q3457762",
+        "display_name": "Resilience (materials science)",
+        "level": 2,
+        "score": 0.3684000074863434
+      },
+      {
+        "id": "https://openalex.org/C31258907",
+        "wikidata": "https://www.wikidata.org/wiki/Q1301371",
+        "display_name": "Computer network",
+        "level": 1,
+        "score": 0.36550000309944153
+      },
+      {
+        "id": "https://openalex.org/C38652104",
+        "wikidata": "https://www.wikidata.org/wiki/Q3510521",
+        "display_name": "Computer security",
+        "level": 1,
+        "score": 0.3587000072002411
+      },
+      {
+        "id": "https://openalex.org/C49289754",
+        "wikidata": "https://www.wikidata.org/wiki/Q2267081",
+        "display_name": "Side channel attack",
+        "level": 3,
+        "score": 0.34360000491142273
+      },
+      {
+        "id": "https://openalex.org/C127162648",
+        "wikidata": "https://www.wikidata.org/wiki/Q16858953",
+        "display_name": "Channel (broadcasting)",
+        "level": 2,
+        "score": 0.3328000009059906
+      },
+      {
+        "id": "https://openalex.org/C49937458",
+        "wikidata": "https://www.wikidata.org/wiki/Q2599292",
+        "display_name": "Probabilistic logic",
+        "level": 2,
+        "score": 0.33009999990463257
+      },
+      {
+        "id": "https://openalex.org/C77618280",
+        "wikidata": "https://www.wikidata.org/wiki/Q1155772",
+        "display_name": "Scheme (mathematics)",
+        "level": 2,
+        "score": 0.3158999979496002
+      },
+      {
+        "id": "https://openalex.org/C2777735758",
+        "wikidata": "https://www.wikidata.org/wiki/Q817765",
+        "display_name": "Path (computing)",
+        "level": 2,
+        "score": 0.311599999666214
+      },
+      {
+        "id": "https://openalex.org/C2779777834",
+        "wikidata": "https://www.wikidata.org/wiki/Q4202277",
+        "display_name": "Enforcement",
+        "level": 2,
+        "score": 0.30790001153945923
+      },
+      {
+        "id": "https://openalex.org/C125411270",
+        "wikidata": "https://www.wikidata.org/wiki/Q18653",
+        "display_name": "Encoding (memory)",
+        "level": 2,
+        "score": 0.3059000074863434
+      },
+      {
+        "id": "https://openalex.org/C172191483",
+        "wikidata": "https://www.wikidata.org/wiki/Q1071806",
+        "display_name": "Provisioning",
+        "level": 2,
+        "score": 0.30379998683929443
+      },
+      {
+        "id": "https://openalex.org/C193702766",
+        "wikidata": "https://www.wikidata.org/wiki/Q1414548",
+        "display_name": "Concurrency",
+        "level": 2,
+        "score": 0.30309998989105225
+      },
+      {
+        "id": "https://openalex.org/C165136773",
+        "wikidata": "https://www.wikidata.org/wiki/Q1363179",
+        "display_name": "Single point of failure",
+        "level": 2,
+        "score": 0.2969000041484833
+      },
+      {
+        "id": "https://openalex.org/C79403827",
+        "wikidata": "https://www.wikidata.org/wiki/Q3988",
+        "display_name": "Real-time computing",
+        "level": 1,
+        "score": 0.28540000319480896
+      },
+      {
+        "id": "https://openalex.org/C149635348",
+        "wikidata": "https://www.wikidata.org/wiki/Q193040",
+        "display_name": "Embedded system",
+        "level": 1,
+        "score": 0.27790001034736633
+      },
+      {
+        "id": "https://openalex.org/C116834253",
+        "wikidata": "https://www.wikidata.org/wiki/Q2039217",
+        "display_name": "Identification (biology)",
+        "level": 2,
+        "score": 0.2703999876976013
+      },
+      {
+        "id": "https://openalex.org/C137822555",
+        "wikidata": "https://www.wikidata.org/wiki/Q2587068",
+        "display_name": "Information sensitivity",
+        "level": 2,
+        "score": 0.2702000141143799
+      },
+      {
+        "id": "https://openalex.org/C2780771206",
+        "wikidata": "https://www.wikidata.org/wiki/Q3271761",
+        "display_name": "Safeguard",
+        "level": 2,
+        "score": 0.26249998807907104
+      },
+      {
+        "id": "https://openalex.org/C165696696",
+        "wikidata": "https://www.wikidata.org/wiki/Q11287",
+        "display_name": "Exploit",
+        "level": 2,
+        "score": 0.2596000134944916
+      }
+    ],
+    "mesh": [],
+    "locations_count": 3,
+    "locations": [
+      {
+        "id": "pmh:oai:arXiv.org:2508.08438",
+        "is_oa": true,
+        "landing_page_url": "http://arxiv.org/abs/2508.08438",
+        "pdf_url": "https://arxiv.org/pdf/2508.08438",
+        "source": {
+          "id": "https://openalex.org/S4306400194",
+          "display_name": "arXiv (Cornell University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I205783295",
+          "host_organization_name": "Cornell University",
+          "host_organization_lineage": [
+            "https://openalex.org/I205783295"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": null,
+        "raw_type": "text"
+      },
+      {
+        "id": "pmh:doi:10.48550/arxiv.2508.08438",
+        "is_oa": true,
+        "landing_page_url": null,
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4406922384",
+          "display_name": "Open MIND",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "publisher-specific-oa",
+        "license_id": "https://openalex.org/licenses/publisher-specific-oa",
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": null,
+        "raw_type": "Article"
+      },
+      {
+        "id": "doi:10.48550/arxiv.2508.08438",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.48550/arxiv.2508.08438",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306400194",
+          "display_name": "arXiv (Cornell University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": true,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I205783295",
+          "host_organization_name": "Cornell University",
+          "host_organization_lineage": [
+            "https://openalex.org/I205783295"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": null,
+        "is_accepted": false,
+        "is_published": null,
+        "raw_source_name": null,
+        "raw_type": "article"
+      }
+    ],
+    "best_oa_location": {
+      "id": "pmh:oai:arXiv.org:2508.08438",
+      "is_oa": true,
+      "landing_page_url": "http://arxiv.org/abs/2508.08438",
+      "pdf_url": "https://arxiv.org/pdf/2508.08438",
+      "source": {
+        "id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)",
+        "issn_l": null,
+        "issn": null,
+        "is_oa": true,
+        "is_in_doaj": false,
+        "is_core": false,
+        "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University",
+        "host_organization_lineage": [
+          "https://openalex.org/I205783295"
+        ],
+        "host_organization_lineage_names": [],
+        "type": "repository"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "submittedVersion",
+      "is_accepted": false,
+      "is_published": false,
+      "raw_source_name": null,
+      "raw_type": "text"
+    },
+    "sustainable_development_goals": [],
+    "awards": [],
+    "funders": [],
+    "has_content": {
+      "pdf": false,
+      "grobid_xml": false
+    },
+    "content_urls": null,
+    "referenced_works_count": 0,
+    "referenced_works": [],
+    "related_works": [],
+    "abstract_inverted_index": {
+      "Global": [
+        0
+      ],
+      "KV-cache": [
+        1,
+        47,
+        56,
+        75
+      ],
+      "sharing": [
+        2
+      ],
+      "is": [
+        3
+      ],
+      "an": [
+        4,
+        17,
+        129
+      ],
+      "effective": [
+        5
+      ],
+      "optimization": [
+        6
+      ],
+      "for": [
+        7,
+        123,
+        180
+      ],
+      "accelerating": [
+        8
+      ],
+      "large": [
+        9,
+        143
+      ],
+      "language": [
+        10
+      ],
+      "model": [
+        11
+      ],
+      "(LLM)": [
+        12
+      ],
+      "inference,": [
+        13
+      ],
+      "yet": [
+        14
+      ],
+      "it": [
+        15
+      ],
+      "introduces": [
+        16
+      ],
+      "API-visible": [
+        18
+      ],
+      "timing": [
+        19
+      ],
+      "side": [
+        20
+      ],
+      "channel": [
+        21
+      ],
+      "that": [
+        22,
+        101,
+        136
+      ],
+      "lets": [
+        23
+      ],
+      "adversaries": [
+        24
+      ],
+      "infer": [
+        25
+      ],
+      "sensitive": [
+        26,
+        74
+      ],
+      "user": [
+        27
+      ],
+      "inputs": [
+        28
+      ],
+      "from": [
+        29,
+        105
+      ],
+      "shared": [
+        30
+      ],
+      "entries,": [
+        31
+      ],
+      "leading": [
+        32
+      ],
+      "to": [
+        33,
+        69,
+        153,
+        158,
+        165
+      ],
+      "cross-tenant": [
+        34,
+        71
+      ],
+      "privacy": [
+        35,
+        53,
+        103,
+        179
+      ],
+      "risks.": [
+        36
+      ],
+      "To": [
+        37
+      ],
+      "address": [
+        38
+      ],
+      "this": [
+        39
+      ],
+      "problem,": [
+        40
+      ],
+      "we": [
+        41
+      ],
+      "introduce": [
+        42
+      ],
+      "SafeKV": [
+        43,
+        58,
+        146,
+        168
+      ],
+      "(Secure": [
+        44
+      ],
+      "and": [
+        45,
+        55,
+        62,
+        107,
+        120,
+        127,
+        138,
+        160
+      ],
+      "Flexible": [
+        46
+      ],
+      "Sharing),": [
+        48
+      ],
+      "a": [
+        49,
+        96,
+        112
+      ],
+      "system-level": [
+        50
+      ],
+      "co-design": [
+        51
+      ],
+      "of": [
+        52,
+        73,
+        84,
+        88,
+        172
+      ],
+      "enforcement": [
+        54
+      ],
+      "management.": [
+        57
+      ],
+      "integrates": [
+        59
+      ],
+      "lightweight": [
+        60
+      ],
+      "detection": [
+        61,
+        99
+      ],
+      "isolation": [
+        63,
+        155
+      ],
+      "directly": [
+        64
+      ],
+      "into": [
+        65
+      ],
+      "the": [
+        66,
+        85,
+        148,
+        170
+      ],
+      "serving": [
+        67
+      ],
+      "runtime": [
+        68,
+        134
+      ],
+      "eliminate": [
+        70
+      ],
+      "reuse": [
+        72,
+        174
+      ],
+      "blocks": [
+        76
+      ],
+      "under": [
+        77
+      ],
+      "our": [
+        78
+      ],
+      "threat": [
+        79
+      ],
+      "model,": [
+        80
+      ],
+      "while": [
+        81,
+        175
+      ],
+      "recovering": [
+        82
+      ],
+      "most": [
+        83
+      ],
+      "performance": [
+        86
+      ],
+      "benefits": [
+        87
+      ],
+      "global": [
+        89
+      ],
+      "sharing.": [
+        90
+      ],
+      "Our": [
+        91
+      ],
+      "key": [
+        92
+      ],
+      "contributions": [
+        93
+      ],
+      "are:": [
+        94
+      ],
+      "(1)": [
+        95
+      ],
+      "three-tier": [
+        97
+      ],
+      "asynchronous": [
+        98
+      ],
+      "pipeline": [
+        100
+      ],
+      "decouples": [
+        102
+      ],
+      "classification": [
+        104
+      ],
+      "inference": [
+        106
+      ],
+      "supports": [
+        108
+      ],
+      "streaming": [
+        109
+      ],
+      "workloads,": [
+        110
+      ],
+      "(2)": [
+        111
+      ],
+      "unified": [
+        113
+      ],
+      "radix-tree-based": [
+        114
+      ],
+      "memory": [
+        115
+      ],
+      "manager": [
+        116
+      ],
+      "with": [
+        117
+      ],
+      "path": [
+        118
+      ],
+      "compression": [
+        119
+      ],
+      "sensitivity-aware": [
+        121
+      ],
+      "eviction": [
+        122
+      ],
+      "scalable": [
+        124
+      ],
+      "selective": [
+        125
+      ],
+      "isolation,": [
+        126
+      ],
+      "(3)": [
+        128
+      ],
+      "RDR-guided": [
+        130
+      ],
+      "(Reuse": [
+        131
+      ],
+      "Diversity": [
+        132
+      ],
+      "Ratio)": [
+        133
+      ],
+      "safeguard": [
+        135
+      ],
+      "detects": [
+        137
+      ],
+      "bounds": [
+        139
+      ],
+      "residual": [
+        140
+      ],
+      "leakage.": [
+        141
+      ],
+      "On": [
+        142
+      ],
+      "LLM": [
+        144,
+        182
+      ],
+      "backends,": [
+        145
+      ],
+      "reduces": [
+        147
+      ],
+      "time-to-first-token": [
+        149
+      ],
+      "(TTFT)": [
+        150
+      ],
+      "overhead": [
+        151
+      ],
+      "compared": [
+        152
+      ],
+      "full": [
+        154
+      ],
+      "by": [
+        156,
+        163
+      ],
+      "up": [
+        157,
+        164
+      ],
+      "40.58%": [
+        159
+      ],
+      "raises": [
+        161
+      ],
+      "throughput": [
+        162
+      ],
+      "2.66x.": [
+        166
+      ],
+      "Overall,": [
+        167
+      ],
+      "restores": [
+        169
+      ],
+      "efficiency": [
+        171
+      ],
+      "KV": [
+        173
+      ],
+      "enforcing": [
+        176
+      ],
+      "strong,": [
+        177
+      ],
+      "practical": [
+        178
+      ],
+      "multi-tenant": [
+        181
+      ],
+      "inference.": [
+        183
+      ]
+    },
+    "counts_by_year": [],
+    "updated_date": "2026-04-21T08:09:41.155169",
+    "created_date": "2025-10-10T00:00:00"
+  }
+}

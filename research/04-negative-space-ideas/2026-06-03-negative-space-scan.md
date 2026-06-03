@@ -65,3 +65,11 @@ Why it matters: cloud multi-tenant KV leakage has attention, but local persisten
 - SafeKV: https://arxiv.org/abs/2508.08438
 - Bench360: https://arxiv.org/abs/2511.16682
 - Intelligence per Watt: https://arxiv.org/abs/2511.07885
+
+## Evidence Harvest
+
+- 2026-06-03 metadata harvest: `research/04-negative-space-ideas/evidence/2026-06-03-paper-harvest/negative-space-harvest-summary.md`
+- Raw provider outputs: `research/04-negative-space-ideas/evidence/2026-06-03-paper-harvest/raw/`
+- Method: exact arXiv DOI-form OpenAlex lookups through `openalex-pp-cli`, with arXiv HTML confirmation after arXiv Atom API rate limiting.
+- Follow-up tooling: the workflow was printed as internal `paper-harvester-pp-cli` and exposed through `.codex/skills/pp-paper-harvester/SKILL.md`.
+- Full-text/PDF status: no PDFs or full-text files downloaded.
