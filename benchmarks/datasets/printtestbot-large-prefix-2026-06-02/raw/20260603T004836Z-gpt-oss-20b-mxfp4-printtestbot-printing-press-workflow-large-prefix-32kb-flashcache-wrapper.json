@@ -1,0 +1,369 @@
+{
+  "comparison": {
+    "direct_minus_wrapper_prompt_ms": 4943.916000000005,
+    "direct_minus_wrapper_prompt_ratio": 0.1279981234907733,
+    "direct_prompt_ms_sum": 38624.91,
+    "interpretation": "Positive delta means Flashcache wrapper reduced prompt processing time versus direct full-prompt llama.cpp calls.",
+    "wrapper_cache_hit_rate": 0.8571428571428571,
+    "wrapper_prompt_ms_sum": 33680.994
+  },
+  "direct_full_prompt": [
+    {
+      "content_excerpt": " We need to produce next action. The",
+      "prompt_bytes": 33327,
+      "prompt_sha256": "6023a477317041fa61ddbb11d9bb4129d38d505a1667836dbf1cc62b445fe83b",
+      "scenario": "turn-01-intake",
+      "timings": {
+        "predicted_ms": 145.254,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.15675,
+        "prompt_ms": 5464.154,
+        "prompt_n": 7508,
+        "prompt_per_token_ms": 0.7277775705913693,
+        "wall_ms": 5657.70069998689
+      }
+    },
+    {
+      "content_excerpt": "We have a turn 02 inspect and",
+      "prompt_bytes": 33384,
+      "prompt_sha256": "164ff8568d4b371104aaa8fb6ac4206603cc10df3b45829efda9e6a42cedb1f7",
+      "scenario": "turn-02-inspect",
+      "timings": {
+        "predicted_ms": 145.203,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.150375,
+        "prompt_ms": 5479.769,
+        "prompt_n": 7538,
+        "prompt_per_token_ms": 0.7269526399575484,
+        "wall_ms": 5671.535600034986
+      }
+    },
+    {
+      "content_excerpt": "We need to produce JSON with keys:",
+      "prompt_bytes": 33362,
+      "prompt_sha256": "1a2b468726720ae9bd679af5e6b40b985551178a4adeffbfa4ce04dafed8f156",
+      "scenario": "turn-03-verify-failure",
+      "timings": {
+        "predicted_ms": 144.294,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.03675,
+        "prompt_ms": 5480.763,
+        "prompt_n": 7520,
+        "prompt_per_token_ms": 0.7288248670212766,
+        "wall_ms": 5672.703200019896
+      }
+    },
+    {
+      "content_excerpt": "We need to produce next validation action after",
+      "prompt_bytes": 33460,
+      "prompt_sha256": "a753984870229a890689c3422c807407807dd1e837b76ea982ef5338923e079a",
+      "scenario": "turn-04-patch-state",
+      "timings": {
+        "predicted_ms": 150.692,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.8365,
+        "prompt_ms": 5682.826,
+        "prompt_n": 7531,
+        "prompt_per_token_ms": 0.7545911565529146,
+        "wall_ms": 5881.161900004372
+      }
+    },
+    {
+      "content_excerpt": "We need to produce JSON with keys:",
+      "prompt_bytes": 33338,
+      "prompt_sha256": "1fc7c2584a9bb7a55d083f5fbd1ed1f61a668fd4ac79508b0676ba1c6d7ae24b",
+      "scenario": "turn-05-test-and-vet-failure",
+      "timings": {
+        "predicted_ms": 145.391,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.173875,
+        "prompt_ms": 5484.859,
+        "prompt_n": 7519,
+        "prompt_per_token_ms": 0.7294665514031121,
+        "wall_ms": 5690.933800011408
+      }
+    },
+    {
+      "content_excerpt": "We need to produce next action for review",
+      "prompt_bytes": 33423,
+      "prompt_sha256": "55a7735fb85582545bc79f6c4ac3753069de44ae3100ebfd75928fa80777030c",
+      "scenario": "turn-06-review-feedback",
+      "timings": {
+        "predicted_ms": 143.786,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 17.97325,
+        "prompt_ms": 5459.817,
+        "prompt_n": 7518,
+        "prompt_per_token_ms": 0.726232641660016,
+        "wall_ms": 5650.447499996517
+      }
+    },
+    {
+      "content_excerpt": "We need to produce final handoff action",
+      "prompt_bytes": 33425,
+      "prompt_sha256": "6234002e2fde60e577661d17c834c9492d70ce9b6e980613d9fb6381123382e5",
+      "scenario": "turn-07-final-handoff",
+      "timings": {
+        "predicted_ms": 147.019,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.377375,
+        "prompt_ms": 5572.722,
+        "prompt_n": 7539,
+        "prompt_per_token_ms": 0.7391858336649423,
+        "wall_ms": 5746.413400047459
+      }
+    }
+  ],
+  "metadata": {
+    "cache_dir": "benchmarks\\flashcache-pc-runs\\large-prefix-32kb-20260602T204221Z",
+    "ctx_size": 16384,
+    "finished_at": "2026-06-03T00:48:32.722612+00:00",
+    "fixture": "benchmarks\\fixtures\\printtestbot-printing-press-workflow-large-prefix-32kb.json",
+    "fixture_hash": "2f5e68ae4b1aff1a0c7a8d944a2c7743cecc180c7d42578bf911c67ee50abca9",
+    "model": "benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+    "model_bytes": 12109566560,
+    "predict": 8,
+    "prime_n_predict": 1,
+    "server_bin": "C:/Users/Dushyant/Tools/llama-b9482-vulkan/llama-server.exe",
+    "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "started_at": "2026-06-03T00:42:21.886624+00:00",
+    "temperature": 0.0
+  },
+  "prompt_set": {
+    "fixture_name": "printtestbot-printing-press-workflow-large-prefix-32kb",
+    "prefix_block_names": [
+      "printy-bot-identity",
+      "print-a-bot-runtime-contract",
+      "model-routing-and-cache-rules",
+      "tool-schema-summary",
+      "operating-guardrails",
+      "printing-press-workflow-rules",
+      "repo-and-task-context",
+      "benchmark-instructions",
+      "large-agent-context-32kb"
+    ],
+    "prefix_prompt_bytes": 32786,
+    "prefix_prompt_sha256": "f10222e7945115d14b1450ce33212644a657ee59613883a0f4559749852d2779"
+  },
+  "wrapper_cache_aware": [
+    {
+      "assistant_excerpt": " We need to produce next action. The",
+      "cache_state": "miss",
+      "headers": {
+        "X-Flashcache-Cache": "miss",
+        "X-Flashcache-Key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "X-Flashcache-Prompt-Ms": "284.376"
+      },
+      "scenario": "turn-01-intake",
+      "telemetry": {
+        "cache_key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "cache_state": "miss",
+        "fallback_reason": null,
+        "prime": {
+          "predicted_ms": 0.001,
+          "predicted_n": 1,
+          "predicted_per_token_ms": 0.001,
+          "prompt_ms": 5397.427,
+          "prompt_n": 7380,
+          "prompt_per_token_ms": 0.7313586720867208,
+          "wall_ms": 5443.026699998882
+        },
+        "prompt_ms": 284.376,
+        "prompt_n": 133,
+        "save_ms": 145.301,
+        "saved_tokens": 7380,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 184636844,
+        "timings": {
+          "predicted_ms": 143.094,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 17.88675,
+          "prompt_ms": 284.376,
+          "prompt_n": 133,
+          "prompt_per_token_ms": 2.1381654135338346,
+          "wall_ms": 475.2299999818206
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " We need to produce next action. We",
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "X-Flashcache-Prompt-Ms": "5591.441"
+      },
+      "scenario": "turn-02-inspect",
+      "telemetry": {
+        "cache_key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 5591.441,
+        "prompt_n": 7543,
+        "restore_ms": 70.59,
+        "restored_tokens": 7380,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 184636844,
+        "timings": {
+          "predicted_ms": 144.545,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 18.068125,
+          "prompt_ms": 5591.441,
+          "prompt_n": 7543,
+          "prompt_per_token_ms": 0.7412754872066817,
+          "wall_ms": 5762.699899962172
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " We need to produce next action. We",
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "X-Flashcache-Prompt-Ms": "5512.622"
+      },
+      "scenario": "turn-03-verify-failure",
+      "telemetry": {
+        "cache_key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 5512.622,
+        "prompt_n": 7525,
+        "restore_ms": 73.462,
+        "restored_tokens": 7380,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 184636844,
+        "timings": {
+          "predicted_ms": 146.801,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 18.350125,
+          "prompt_ms": 5512.622,
+          "prompt_n": 7525,
+          "prompt_per_token_ms": 0.7325743521594685,
+          "wall_ms": 5687.249200011138
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " We need to produce next action. The",
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "X-Flashcache-Prompt-Ms": "5635.25"
+      },
+      "scenario": "turn-04-patch-state",
+      "telemetry": {
+        "cache_key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 5635.25,
+        "prompt_n": 7536,
+        "restore_ms": 111.654,
+        "restored_tokens": 7380,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 184636844,
+        "timings": {
+          "predicted_ms": 144.904,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 18.113,
+          "prompt_ms": 5635.25,
+          "prompt_n": 7536,
+          "prompt_per_token_ms": 0.7477773354564756,
+          "wall_ms": 5831.023299950175
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " The user wants to test and run the",
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "X-Flashcache-Prompt-Ms": "5583.143"
+      },
+      "scenario": "turn-05-test-and-vet-failure",
+      "telemetry": {
+        "cache_key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 5583.143,
+        "prompt_n": 7524,
+        "restore_ms": 89.531,
+        "restored_tokens": 7380,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 184636844,
+        "timings": {
+          "predicted_ms": 142.513,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 17.814125,
+          "prompt_ms": 5583.143,
+          "prompt_n": 7524,
+          "prompt_per_token_ms": 0.742044524189261,
+          "wall_ms": 5788.40159997344
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " We need to produce next action for review",
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "X-Flashcache-Prompt-Ms": "5565.509"
+      },
+      "scenario": "turn-06-review-feedback",
+      "telemetry": {
+        "cache_key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 5565.509,
+        "prompt_n": 7523,
+        "restore_ms": 85.948,
+        "restored_tokens": 7380,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 184636844,
+        "timings": {
+          "predicted_ms": 143.722,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 17.96525,
+          "prompt_ms": 5565.509,
+          "prompt_n": 7523,
+          "prompt_per_token_ms": 0.739799149275555,
+          "wall_ms": 5756.141300022136
+        }
+      }
+    },
+    {
+      "assistant_excerpt": " The user wants only........",
+      "cache_state": "hit",
+      "headers": {
+        "X-Flashcache-Cache": "hit",
+        "X-Flashcache-Key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "X-Flashcache-Prompt-Ms": "5508.653"
+      },
+      "scenario": "turn-07-final-handoff",
+      "telemetry": {
+        "cache_key": "c6e3c060450d38c13c8cb36eb2f0669ea6f0a52e7033d09eb075398fae4d2fc7",
+        "cache_state": "hit",
+        "fallback_reason": null,
+        "prompt_ms": 5508.653,
+        "prompt_n": 7544,
+        "restore_ms": 78.935,
+        "restored_tokens": 7380,
+        "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+        "slot_file_bytes": 184636844,
+        "timings": {
+          "predicted_ms": 141.417,
+          "predicted_n": 8,
+          "predicted_per_token_ms": 17.677125,
+          "prompt_ms": 5508.653,
+          "prompt_n": 7544,
+          "prompt_per_token_ms": 0.7302032078472959,
+          "wall_ms": 5680.279300024267
+        }
+      }
+    }
+  ]
+}

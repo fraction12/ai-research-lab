@@ -1,0 +1,439 @@
+{
+  "blocks": [
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "You are Printy, a printed local-first bot created by Print-A-Bot.",
+        "You live on the user's machine and interact through Telegram and GitHub when configured.",
+        "You are not a print-shop, printer queue, or document printing service.",
+        "Your useful job is to help with small resident workflows: inspect repo state, reason over command output, propose next actions, request approval for external actions, and leave receipts.",
+        "Be concise, factual, and operational. Avoid process chatter unless the user asks for it.",
+        "When asked what happened, explain root cause and evidence before recommending a fix."
+      ],
+      "name": "printy-bot-identity",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Runtime path:",
+        "event -> bot package -> workflow -> policy -> context -> execution session -> proposed action -> action adapter -> receipt -> memory.",
+        "The runtime sends Telegram replies; the model should only produce the reply content or next-action JSON requested by the benchmark.",
+        "All public actions require permission policy checks.",
+        "Receipts must include bot, workflow, event, action, model route, context details when available, result, and warnings.",
+        "Local-first routing should try the configured local model first, then fall back to Codex or another cloud model when local output is idle, empty, unsafe, low-confidence, or too slow for the job.",
+        "Local model failures are not necessarily workflow failures when fallback succeeds."
+      ],
+      "name": "print-a-bot-runtime-contract",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Model route modes:",
+        "cloud-only: send the workflow directly to the cloud model.",
+        "local-only: local model must handle the workflow or fail.",
+        "local-first: try local, record latency/progress/quality, then escalate when needed.",
+        "Timeout policy is idle-based, not wall-clock based: a local model may continue if it is producing progress.",
+        "Empty final output after progress is a distinct failure mode and should be ranked for cloud review.",
+        "Slow local success should still be reviewed when cloudReviewPriority is elevated.",
+        "Benchmark cache boundary: stable bot identity, runtime contract, tool schemas, policy, and repo/task context should be reusable; current command output, diffs, failed checks, and review comments are volatile."
+      ],
+      "name": "model-routing-and-cache-rules",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Available local actions are represented as tool schemas but are summarized here for benchmarking:",
+        "read_file(path): inspect a repo file without editing it.",
+        "search(pattern, path): search for relevant code or docs.",
+        "exec(command, cwd): run a shell command and capture exit code, stdout, and stderr.",
+        "apply_patch(diff): edit files with a reviewable patch.",
+        "git_status(): inspect changed files before committing.",
+        "open_pr(branch, title, body): propose a GitHub PR only after policy allows external action.",
+        "write_receipt(action, status, detail): leave an inspectable local record."
+      ],
+      "name": "tool-schema-summary",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Never expose secrets, tokens, private chat IDs, private keys, or raw personal transcripts.",
+        "Never claim victory from exact prompt replay.",
+        "Prefer evidence and benchmark data over claims.",
+        "Use repo-local patterns before inventing abstractions.",
+        "Do not change production bot behavior while running an offline benchmark fixture.",
+        "If the cache experiment loses, name the losing reason: prompt layout instability, slot restore overhead, model size, context mutation, quality drift, or backend limitation."
+      ],
+      "name": "operating-guardrails",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Printing Press CLI workflow:",
+        "1. Research the API or source surface lightly enough to generate a useful CLI.",
+        "2. Generate a Go CLI with clear commands, flags, examples, and output shape.",
+        "3. Build and run smoke commands.",
+        "4. Dogfood real commands and inspect output plausibility.",
+        "5. Fix verify failures, dead code, confusing descriptions, bad ranking, silent source drops, and README issues.",
+        "6. Re-run verify, go test, go vet, and sampled dogfood commands.",
+        "7. Prepare a concise PR handoff with evidence and remaining risks.",
+        "8. Do not publish externally without explicit approval."
+      ],
+      "name": "printing-press-workflow-rules",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-cache-candidate",
+      "lines": [
+        "Current repo: printing-press-library/cli-skills/pp-example-weather.",
+        "Task: polish a generated weather API CLI so it is publish-ready.",
+        "Quality bar: output must be plausible, commands must not silently return nulls, README examples must match the binary, and verify must pass.",
+        "Known commands: search-city, forecast, alerts, stations.",
+        "Known risk: source API occasionally returns empty arrays for broad queries, so command relevance and helpful errors matter.",
+        "Expected validation: go test ./..., go vet ./..., go run ./cmd/pp-example-weather --help, verify script, and three sampled live commands."
+      ],
+      "name": "repo-and-task-context",
+      "tier": "semi-stable"
+    },
+    {
+      "cache_policy": "prefix-cache-candidate",
+      "lines": [
+        "This is an offline benchmark fixture, not a live production run.",
+        "For each changed-tail state, return compact JSON with keys: action, reason, next_command, cache_boundary_note, quality_risk.",
+        "The answer should be short enough that generation cost does not dominate prompt evaluation cost.",
+        "Use the volatile state for the current turn, but preserve the stable workflow rules above.",
+        "The benchmark should make changed-tail prompts share an identical reusable prefix."
+      ],
+      "name": "benchmark-instructions",
+      "tier": "semi-stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "metadata": {
+        "generated": true,
+        "source_names": [
+          "AGENTS.md",
+          "MISSION.md",
+          "README.md",
+          "GLOSSARY.md",
+          "RESOURCES.md",
+          "benchmarks/README.md",
+          "benchmarks/datasets/printtestbot-printing-press-2026-06-02/README.md",
+          "openspec/specs/ollama-workflow-benchmark/spec.md",
+          "openspec/specs/llama-cpp-prompt-cache-benchmark/spec.md",
+          "openspec/specs/llama-cpp-agent-cache-wrapper/spec.md",
+          "openspec/specs/benchmark-result-summary/spec.md",
+          "openspec/specs/prefix-block-store/spec.md",
+          "openspec/specs/research-positioning-doc/spec.md"
+        ],
+        "target_prefix_bytes": 65536
+      },
+      "name": "large-agent-context-64kb",
+      "text": "### Reusable context pass 1\n### Allowlisted context source: AGENTS.md\n# AGENTS.md\n\n## Project\n\nThis repo explores SSD-native inference for local agent workloads.\n\n## Operating Rules\n\n- Prefer evidence and benchmarks over claims.\n- Keep docs decision-oriented: what to build, what to avoid, why.\n- Treat SSD as a memory tier for reusable or predictable data, not as magic VRAM.\n- Optimize for agent loops first: repeated prompts, tool schemas, repo context, and long sessions.\n- Preserve links and source notes in `docs/references.md`.\n\n## Repo-Local Skills\n\nMatt Pocock's `teach` skill is installed at `.codex/skills/teach`.\nUse it when turning this research into a guided learning path, exercises, glossary, or learning record.\n\n### Reusable context pass 1\n### Allowlisted context source: MISSION.md\n# Mission\n\n## Topic\n\nSSD-native inference for local AI agents.\n\n## Why This Matters\n\nThe goal is to understand whether a new class of local inference system can make long-context agent work faster and cheaper by using SSDs as a serious memory tier.\n\nThe project is not trying to prove a slogan. It is trying to find the useful shape:\n\n- what should stay hot in RAM or unified memory\n- what can live on SSD\n- what needs compression\n- where prefetching matters\n- which workloads benefit first\n\n## Desired Outcome\n\nBuild enough understanding to make tasteful product and architecture decisions, then create a prototype that measures whether repeated agent workloads get materially faster.\n\n## Constraints\n\n- Six-hour first learning sprint\n- Local-first bias\n- Apple Silicon / MLX is an important playground\n- llama.cpp portability may matter\n- Benchmarks must separate cold, warm, and repeated runs\n\n## First Practical Question\n\nCan repeated OpenClaw-style agent prompts use persistent prefix/KV caching to reduce prefill time without damaging output quality?\n\n### Reusable context pass 1\n### Allowlisted context source: README.md\n# SSD Native Inference\n\nResearch and prototype notes for making local inference treat SSDs as a first-class memory tier.\n\n## Thesis\n\nThe dent is not \"run any dense model directly from any SSD.\" The dent is storage-aware inference for agent workloads:\n\n- persistent prefix and KV cache\n- model-aware block storage\n- SSD-backed long-context reuse\n- MoE expert paging when the model shape supports it\n- Apple Silicon / MLX and llama.cpp as practical local backends\n- a benchmark harness that measures cold, warm, and repeated-agent-loop performance\n\nAgent workloads are the wedge because they repeat system prompts, tool schemas, repo context, memory blocks, and long-lived session prefixes. That repeated shape lets the SSD become useful instead of pretending to be VRAM.\n\n## Start Here\n\n1. Read [docs/idea-brief.md](docs/idea-brief.md).\n2. Do the [6-hour learning plan](docs/learning-plan-6-hours.md).\n3. Use [docs/technical-map.md](docs/technical-map.md) as the system map.\n4. Start with [docs/prototype-plan.md](docs/prototype-plan.md).\n5. Keep sources in [docs/references.md](docs/references.md).\n\n## Installed Skills\n\nMatt Pocock's `teach` skill is installed repo-locally at:\n\n`/.codex/skills/teach`\n\nSource: `mattpocock/skills`, path `skills/in-progress/teach`.\n\n### Reusable context pass 1\n### Allowlisted context source: GLOSSARY.md\n# Glossary\n\n## KV Cache\n\nStored attention keys and values from previous tokens, reused so the model does not recompute the entire prefix.\n\n## Prefill\n\nThe phase where a model processes the input prompt before generating the first new token.\n\n## Decode\n\nThe phase where a model generates new tokens one at a time after prefill.\n\n## Prefix Cache\n\nA cache of reusable prompt prefixes or their derived inference state.\n\n## Attention Sink\n\nAn initial token or small group of initial tokens that a model attends to strongly as an attention anchor, even when the token content is not semantically important.\n\n## Rolling KV Cache\n\nA bounded KV cache that keeps recent tokens while older tokens roll out of the active cache.\n\n## Prefix Block Store\n\nA content-addressed store for reusable prompt blocks and cache-key metadata.\n\n## PagedAttention\n\nA KV cache layout strategy that stores attention state in paged blocks to reduce fragmentation and improve serving efficiency.\n\n## MoE\n\nMixture of Experts. A sparse model architecture where only some expert submodules are activated for each token.\n\n## Expert Paging\n\nKeeping frequently used MoE experts in fast memory while loading colder experts from slower storage when needed.\n\n## Read Amplification\n\nExtra bytes read from storage beyond the data that was actually useful.\n\n## Warm Run\n\nAn inference run that benefits from previously populated caches.\n\n## Cold Run\n\nAn inference run with no relevant cache already available.\n\n### Reusable context pass 1\n### Allowlisted context source: RESOURCES.md\n# Resources\n\n## Core Videos\n\n- Reiner Pope on Dwarkesh: https://youtu.be/xmkSf5IS-zw\n  Use for inference economics, memory bandwidth, sparsity, and context cost.\n\n- LMCache intro: https://www.youtube.com/watch?v=rINy7mFyRAU\n  Use for KV reuse and cache-layer thinking.\n\n- Prince Canuma MLX talk: https://www.youtube.com/watch?v=zTLJNHj0DeQ\n  Use for Apple Silicon and MLX local inference direction.\n\n## Core Reading\n\n- vLLM PagedAttention: https://docs.vllm.ai/en/stable/design/paged_attention/\n  Learn how KV cache paging works.\n\n- LMCache architecture: https://docs.lmcache.ai/developer_guide/architecture.html\n  Learn the production shape of KV cache reuse.\n\n- LMCache local storage backend: https://docs.lmcache.ai/dev/kv_cache/storage_backends/local_storage.html\n  Learn local disk/offload mechanics.\n\n- Apple LLM in a Flash: https://machinelearning.apple.com/research/efficient-large-language\n  Learn the flash-memory framing.\n\n- FlexGen: https://arxiv.org/abs/2303.06865\n  Learn older offload ancestry and tradeoffs.\n\n## Tools and Repos\n\n- oMLX: https://github.com/jundot/omlx\n  Closest practical Apple Silicon reference.\n\n- Matt Pocock skills: https://github.com/mattpocock/skills\n  Source of the repo-local `teach` skill.\n\n## Compression\n\n- TurboQuant coverage: https://www.tomshardware.com/tech-industry/artificial-intelligence/googles-turboquant-compresses-llm-kv-caches-to-3-bits-with-no-accuracy-loss\n\n- TurboQuant hub: https://turbo-quant.com/turboquant-paper\n\n### Reusable context pass 1\n### Allowlisted context source: benchmarks/README.md\n# Ollama Workflow Benchmark\n\nThis benchmark measures local prompt evaluation cost for repeated agent workflows. It is a baseline for future prefix-cache and KV-cache work; it does not implement SSD-backed KV reuse yet.\n\n## Run\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py --model gemma4:latest --runs 1 --num-predict 16\n```\n\nCompare full-prompt baseline against the Ollama context proxy:\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py \\\n  --strategy compare \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --model gemma4:latest \\\n  --runs 1 \\\n  --num-predict 8 \\\n  --prime-num-predict 1 \\\n  --temperature 0\n```\n\nUse `--vary-runs` when `--runs` is greater than 1 and you want repeated samples to avoid exact prompt replay.\n\nCompare warm in-session reuse against restarting the model before each prompt:\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py \\\n  --strategy restart-compare \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --model gemma4:latest \\\n  --runs 1 \\\n  --num-predict 8 \\\n  --temperature 0 \\\n  --write-prefix-manifest\n```\n\nUse `--dry-run` to verify prompt assembly without calling Ollama:\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py --dry-run\n```\n\nResults are written to `benchmarks/results/*.json`.\n\nPrefix manifests are written to `benchmarks/prefix-manifests/*.json` when `--write-prefix-manifest` is set.\n\nBuild a metadata-only prefix block store:\n\n```bash\npython3 benchmarks/prefix_block_store.py \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --model gemma4:latest\n```\n\nPrefix store artifacts are written to `benchmarks/prefix-store/`.\n\nRun the llama.cpp prompt-cache feasibility benchmark:\n\n```bash\npython3 benchmarks/llama_cpp_prompt_cache_benchmark.py \\\n  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --predict 8 \\\n  --temperature 0\n```\n\nThis starts `llama-server`, primes the reusable prefix, saves the slot cache, restarts for cold full-prompt baselines, then restarts again and restores the saved slot before changed-tail prompts.\n\nUse `--hf-repo` with a current llama.cpp build when the model should be pulled by llama.cpp instead of supplied as a local GGUF path:\n\n```bash\npython3 benchmarks/llama_cpp_prompt_cache_benchmark.py \\\n  --server-bin /path/to/llama-server \\\n  --hf-repo ggml-org/gpt-oss-20b-GGUF \\\n  --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json \\\n  --predict 8 \\\n  --temperature 0\n```\n\nllama.cpp artifacts are written under `benchmarks/llama-cpp-*` and ignored.\n\nRun the Flashcache wrapper service:\n\n```bash\npython3 -m flashcache.cli \\\n  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \\\n  serve \\\n  --port 8099\n```\n\nSend a cache-aware local chat request:\n\n```bash\ncurl http://127.0.0.1:8099/v1/chat/completions \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"model\": \"local-gemma\",\n    \"messages\": [{\"role\": \"user\", \"content\": \"Changed tail for this agent turn\"}],\n    \"max_tokens\": 8,\n    \"temperature\": 0,\n    \"ssd_cache\": {\n      \"namespace\": \"demo-agent-workflow\",\n      \"stable_prefix_text\": \"Reusable agent instructions and tool schema go here.\",\n      \"debug\": true\n    }\n  }'\n```\n\nThe response includes `X-Flashcache-*` headers. With `debug: true`, the response body also includes a `flashcache` object with cache state, prompt timing, slot save/restore timing, and fallback reason when applicable.\n\nCompare direct llama.cpp calls against the Flashcache wrapper:\n\n```bash\npython3 benchmarks/flashcache_wrapper_benchmark.py \\\n  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --predict 8 \\\n  --temperature 0\n```\n\nFlashcache wrapper artifacts are written under `benchmarks/flashcache/` and `benchmarks/flashcache-results/`, both ignored.\n\n## Fixtures\n\n- `codex_deepclean_workflow.json`: small synthetic Codex/DeepClean workflow used as the first controlled baseline.\n- `lightningitb_deepclean_campaign.json`: sanitized real workflow prompt distilled from the LightningITB DeepClean P1/P2 campaign archive. The fixture records source artifact paths and notes that the raw chat transcript is not stored verbatim.\n- `printtestbot_printing_press_workflow.json`: sanitized Printy/printtestbot-style Printing Press CLI workflow with stable bot/runtime/tool rules and seven changed command-output tails.\n\n## Recorded Datasets\n\n- `benchmarks/datasets/printtestbot-printing-press-2026-06-02/`: DushyantPC runs for the Printy fixture, including raw Ollama, llama.cpp slot-cache, and Flashcache wrapper result JSON.\n  - Includes `gpt-oss:20b` Ollama baseline data plus official `gpt-oss-20b-mxfp4.gguf` llama.cpp/Flashcache follow-up data.\n\n## What To Look At\n\n- `prompt_eval_duration`: local time spent evaluating the input prompt.\n- `prompt_eval_count`: prompt tokens processed by Ollama.\n- `load_duration`: model loading time, which should be considered separately from prompt cost.\n- `reusable_prefix_bytes`: stable or semi-stable prompt bytes that would be candidates for future prefix/KV caching.\n- `comparison.baseline_minus_prefix_context_prompt_eval_duration`: positive means the context proxy reduced prompt eval; negative means it was slower.\n- `restart_comparison.restarted_minus_warm_prompt_eval_duration`: positive means model restarts removed warm-prefix benefit and created a persistence gap.\n- `prefix_manifest.cache_key_sha256`: metadata-only cache key scaffold for future prefix/KV cache work.\n- `comparison.baseline_minus_restored_prompt_ms`: positive means llama.cpp slot restore reduced prompt processing time versus fresh full-prompt baselines.\n\n## Strategy Modes\n\n- `full`: send the full scenario prompt every time.\n- `prefix-context`: prime Ollama once with the common stable/semi-stable prefix, then send each changed tail with Ollama's returned `context`.\n- `compare`: run both strategies and report the delta.\n- `restart-compare`: run aligned full prompts in a warm sequence, then stop the Ollama model before each prompt and compare the prompt evaluation cost.\n\nThe `prefix-context` strategy is a proxy experiment. Ollama's generate API documents `context` as conversational memory and marks it deprecated, so this is not proof of SSD-backed KV persistence.\n\n## Prefix Block Store\n\nThe prefix block store is Phase 1 scaffolding. It writes content-addressed metadata for prompt blocks and classifies them as:\n\n- `attention-sink-candidate`: earliest reusable prefix blocks that should stay hot in later KV experiments.\n- `stable-prefix`: reusable workflow context that is a candidate for SSD persistence.\n- `rolling-tail-candidate`: semi-stable tail state that may be warm but not universal.\n- `volatile-tail`: current findings, CI output, review comments, or other state that should not be blindly persisted.\n\nIf repeated Codex-style workflows spend meaningful time in `prompt_eval_duration`, then an SSD-backed prefix/KV cache has a real target to beat.\n\n## llama.cpp Prompt Cache\n\nThe llama.cpp benchmark is the first close backend baseline for persistence. It saves the reusable prefix slot cache to disk, starts fresh server processes, restores the slot, and measures changed-tail prompt processing cost.\n\nUse it to decide whether the next prototype should wrap llama.cpp slot persistence, compare against it, or move lower-level into custom KV storage.\n\n## Flashcache Wrapper\n\nThe Flashcache wrapper is the first product-shaped layer. It accepts an OpenAI-style chat request plus optional `ssd_cache` metadata, manages llama.cpp slot save/restore, and returns cache telemetry to the caller.\n\nTreat the wrapper as an experimental local API subset: non-streaming text responses only, cache-aware requests opt in explicitly, and volatile tail text is not persisted unless debug behavior asks for it.\n\n### Reusable context pass 1\n### Allowlisted context source: benchmarks/datasets/printtestbot-printing-press-2026-06-02/README.md\n# Printtestbot Printing Press Benchmark Dataset\n\nDate: 2026-06-02\n\nMachine: DushyantPC\n\nFixture: `benchmarks/fixtures/printtestbot_printing_press_workflow.json`\n\n## Purpose\n\nThis dataset tests a Printy/printtestbot-style long agent workflow with a stable reusable prefix and changing command-output tails. It is meant to answer whether local-agent prompts can preserve useful prefix/KV work across changed-tail turns and restarts.\n\nThe fixture is sanitized and hand-curated. It is not a raw Telegram transcript and contains no secrets, tokens, private chat IDs, private keys, or personal context.\n\n## Raw Results\n\n- `raw/ollama-full-gpt-oss-20b.json`: full prompt every changed-tail turn.\n- `raw/ollama-exact-repeat-gpt-oss-20b.json`: exact repeated prompt control for one scenario.\n- `raw/ollama-prefix-context-compare-gpt-oss-20b.json`: full prompt versus Ollama `context` proxy.\n- `raw/ollama-restart-compare-gpt-oss-20b.json`: warm sequence versus stopping the model before each turn.\n- `raw/prefix-manifest-gpt-oss-20b.json`: reusable prefix block manifest and cache-key material.\n- `raw/llama-cpp-slot-cache-gemma-3-270m-it-q8.json`: llama.cpp slot save/restore result.\n- `raw/flashcache-wrapper-gemma-3-270m-it-q8.json`: Flashcache wrapper versus direct llama.cpp result.\n- `raw/20260602T215635Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-llama-cpp-prompt-cache.json`: one-scenario `gpt-oss-20b` slot save/restore smoke.\n- `raw/20260602T220157Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-llama-cpp-prompt-cache.json`: full seven-turn `gpt-oss-20b` slot save/restore result.\n- `raw/20260602T220711Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-flashcache-wrapper.json`: full seven-turn `gpt-oss-20b` Flashcache wrapper versus direct llama.cpp result.\n\n## Environment\n\nOllama model:\n\n```text\ngpt-oss:20b\n```\n\nllama.cpp:\n\n```text\nversion: 9469 (d178a1181)\nbuilt with Clang 19.1.5 for Windows x86_64\n```\n\nThis winget build cannot load `gpt-oss` GGUF files. The `gpt-oss-20b` GGUF follow-up used portable llama.cpp:\n\n```text\nversion: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64\n```\n\nGGUF cache-mechanics model:\n\n```text\ngemma-3-270m-it-Q8_0.gguf\n291,545,600 bytes\n```\n\nOpenAI OSS GGUF follow-up model:\n\n```text\ngpt-oss-20b-mxfp4.gguf\n12,109,566,560 bytes\n```\n\n## Headline Results\n\nOllama warm versus restarted on `gpt-oss:20b`:\n\n```text\nwarm prompt eval sum:      4,428.6 ms\nrestarted prompt eval sum: 10,456.5 ms\nrestarted minus warm:       6,027.9 ms\n```\n\nllama.cpp slot save/restore on Gemma 270M Q8:\n\n```text\nbaseline prompt ms sum: 466.950 ms\nrestored prompt ms sum: 216.115 ms\ndelta:                  250.835 ms\nslot cache file:         19,567,436 bytes\n```\n\nFlashcache wrapper on Gemma 270M Q8:\n\n```text\ndirect prompt ms sum:  484.884 ms\nwrapper prompt ms sum: 192.692 ms\ndelta:                 292.192 ms\ncache hit rate:          0.8571428571\n```\n\nllama.cpp slot save/restore on `gpt-oss-20b-mxfp4.gguf`:\n\n```text\nbaseline prompt ms sum: 8,412.695 ms\nrestored prompt ms sum: 8,442.375 ms\ndelta:                  -29.680 ms\nslot cache file:         31,108,988 bytes\n```\n\nFlashcache wrapper on `gpt-oss-20b-mxfp4.gguf`:\n\n```text\ndirect prompt ms sum:  8,452.938 ms\nwrapper prompt ms sum: 7,374.758 ms\ndelta:                 1,078.180 ms\ncache hit rate:          0.8571428571\n```\n\n## Interpretation\n\nThe useful signal is not exact replay. The exact repeat control drops prompt eval sharply, but that is not the product workload.\n\nThe real signal is the restarted comparison: DushyantPC gets warm-session-like prompt eval on changed-tail turns while the model stays loaded, then loses that advantage when `gpt-oss:20b` is stopped before every turn. That creates a concrete target for persistent prefix/KV state.\n\nThe llama.cpp and Flashcache runs show the same cache boundary can reduce prompt processing on a small GGUF model. Those runs prove cache mechanics, not large-model answer quality.\n\nThe `gpt-oss-20b` follow-up is mixed. Direct slot restore is flat to slightly worse on the full seven-turn fixture, while the Flashcache wrapper still reduces prompt processing by about 12.8%. That means the useful path is not \"slot restore always wins\"; it is wrapper-level prompt layout and cache policy, with larger-prefix tests needed before claiming a large-model persistence win.\n\n## Caveats\n\n- Ollama `context` is a deprecated API proxy and was slower than aligned full prompts on this fixture.\n- The llama.cpp/Flashcache tests use a small model because they test slot save/restore mechanics.\n- Direct `gpt-oss-20b` slot restore was tested later and did not beat direct full prompts on this fixture.\n- Generation was capped at 8 tokens to keep prompt evaluation dominant.\n- Output quality was not scored beyond response excerpts. A later benchmark should add a quality rubric with larger `n_predict`.\n\n### Reusable context pass 1\n### Allowlisted context source: openspec/specs/ollama-workflow-benchmark/spec.md\n# ollama-workflow-benchmark Specification\n\n## Purpose\nMeasure local Ollama prompt evaluation cost for repeated agent workflow prompts and compare full-prompt, exact-replay, and proxy prefix-reuse strategies before investing in SSD-backed KV persistence.\n\n## Requirements\n### Requirement: Benchmark repeated workflow prompts\n\nThe system SHALL provide a CLI benchmark that runs repeated agent workflow prompts against a local Ollama model.\n\n#### Scenario: Run benchmark with default fixture\n\n- **WHEN** the user runs the benchmark without selecting a custom fixture\n- **THEN** the system sends a Codex-style DeepClean workflow prompt fixture to Ollama for each configured scenario\n\n#### Scenario: Run benchmark with selected model\n\n- **WHEN** the user provides a model name\n- **THEN** the system sends all benchmark requests to that Ollama model\n\n### Requirement: Separate stable and volatile prompt blocks\n\nThe benchmark fixture SHALL represent the workflow as named stable, semi-stable, and volatile prompt blocks.\n\n#### Scenario: Build scenario prompt\n\n- **WHEN** a benchmark scenario is prepared\n- **THEN** the system assembles the prompt from the fixture blocks selected by that scenario\n\n#### Scenario: Estimate reusable prefix size\n\n- **WHEN** a scenario includes stable or semi-stable blocks\n- **THEN** the system reports their byte sizes and hashes so future cache manifests can reuse the same structure\n\n### Requirement: Record Ollama timing metrics\n\nThe benchmark SHALL record Ollama usage metrics for each run.\n\n#### Scenario: Ollama returns timing metrics\n\n- **WHEN** Ollama returns a non-streaming generate response\n- **THEN** the system records total duration, load duration, prompt eval count, prompt eval duration, eval count, and eval duration\n\n#### Scenario: Derive readable timing values\n\n- **WHEN** a run completes\n- **THEN** the system reports durations in milliseconds and prompt/eval throughput in tokens per second where counts are available\n\n### Requirement: Persist machine-readable results\n\nThe benchmark SHALL write machine-readable result artifacts for later comparison.\n\n#### Scenario: Complete benchmark run\n\n- **WHEN** all configured scenarios complete\n- **THEN** the system writes a JSON result file that includes input metadata, per-run timing metrics, prompt block hashes, and summary statistics\n\n### Requirement: Fail clearly when Ollama is unavailable\n\nThe benchmark SHALL fail with an actionable message when the local Ollama API cannot be reached.\n\n#### Scenario: Ollama API is unreachable\n\n- **WHEN** the benchmark cannot connect to the configured Ollama host\n- **THEN** the system exits non-zero and explains how to start or configure Ollama\n\n### Requirement: Track real fixture provenance\n\nThe benchmark SHALL preserve provenance notes for real workflow fixtures that are distilled from repository campaigns or archived specs.\n\n#### Scenario: Fixture includes source artifacts\n\n- **WHEN** a workflow fixture is based on a real campaign\n- **THEN** the fixture records the source repository, source artifact paths, and the campaign decisions that shaped the prompt\n\n#### Scenario: Fixture protects raw transcript absence\n\n- **WHEN** the original raw chat transcript is not stored\n- **THEN** the fixture records that it is a sanitized distilled prompt rather than a verbatim transcript\n\n### Requirement: Compare full-prompt and prefix-context strategies\n\nThe benchmark SHALL compare a full-prompt baseline against a prefix-context strategy for the same workflow fixture.\n\n#### Scenario: Run comparison mode\n\n- **WHEN** the user selects comparison mode\n- **THEN** the system runs each selected scenario with the full prompt baseline\n- **AND** the system primes a reusable prefix context and runs each selected scenario tail with that context\n\n#### Scenario: Report strategy deltas\n\n- **WHEN** comparison mode completes\n- **THEN** the system reports baseline prompt evaluation cost, prefix-context prime cost, prefix-context tail cost, amortized prefix-context cost, and the delta between strategies\n\n### Requirement: Build reusable prefix from stable blocks\n\nThe prefix-context strategy SHALL build the reusable prefix from stable or semi-stable blocks common to the selected scenarios.\n\n#### Scenario: Common reusable blocks exist\n\n- **WHEN** selected scenarios share stable or semi-stable blocks\n- **THEN** the system primes Ollama with those blocks before running volatile tails\n\n#### Scenario: No reusable prefix exists\n\n- **WHEN** selected scenarios do not share any stable or semi-stable blocks\n- **THEN** the system exits with an actionable error explaining that prefix-context comparison requires reusable blocks\n\n### Requirement: Mark Ollama context reuse as a proxy\n\nThe benchmark SHALL mark prefix-context results as a proxy measurement rather than proof of SSD-backed KV reuse.\n\n#### Scenario: Prefix-context result is persisted\n\n- **WHEN** the system writes prefix-context result metadata\n- **THEN** the metadata records that Ollama `context` reuse is deprecated API behavior and not persistent SSD-backed KV cache\n\n### Requirement: Avoid accidental exact replay in repeated samples\n\nThe benchmark SHALL support repeated samples that vary the volatile request so exact-prompt replay does not hide changed-tail prompt cost.\n\n#### Scenario: Vary repeated runs\n\n- **WHEN** the user enables varied repeated runs\n- **THEN** the system appends a benchmark-only run marker to each full prompt or changed-tail prompt\n- **AND** the system does not append that marker to the reusable prefix prime\n\n### Requirement: Preserve reusable prefix alignment\n\nThe benchmark SHALL keep volatile benchmark metadata after reusable prompt blocks so the measured prompt layout reflects stable-prefix reuse.\n\n#### Scenario: Assemble scenario prompt\n\n- **WHEN** the system assembles a scenario prompt\n- **THEN** stable and semi-stable blocks appear before scenario-specific benchmark metadata\n\n### Requirement: Generate prefix manifests\n\nThe benchmark SHALL generate a machine-readable prefix manifest for selected workflow scenarios.\n\n#### Scenario: Build manifest for selected scenarios\n\n- **WHEN** the benchmark prepares selected workflow scenarios\n- **THEN** the system records common reusable block names, block byte sizes, block hashes, prefix prompt bytes, prefix prompt hash, model name, fixture hash, and scenario tail hashes\n\n#### Scenario: Persist manifest on request\n\n- **WHEN** the user requests a prefix manifest file\n- **THEN** the system writes the manifest to a local JSON file for later comparison\n\n### Requirement: Compare warm and restarted prompt sequences\n\nThe benchmark SHALL compare aligned full-prompt execution while Ollama stays warm against execution with Ollama stopped before each prompt.\n\n#### Scenario: Run restart comparison\n\n- **WHEN** the user selects restart comparison mode\n- **THEN** the system runs selected scenarios once in a warm sequence\n- **AND** the system runs selected scenarios again after stopping the selected Ollama model before each scenario\n\n#### Scenario: Report persistence gap\n\n- **WHEN** restart comparison completes\n- **THEN** the system reports warm prompt evaluation cost, restarted prompt evaluation cost, and restarted-minus-warm prompt evaluation delta\n\n### Requirement: Restart actions are explicit in results\n\nThe benchmark SHALL record restart actions used during restart comparison.\n\n#### Scenario: Ollama stop is invoked\n\n- **WHEN** the benchmark stops an Ollama model for restart comparison\n- **THEN** the system records the model name, command result, elapsed time, and whether the stop happened before a sequence or before a scenario\n\n### Reusable context pass 1\n### Allowlisted context source: openspec/specs/llama-cpp-prompt-cache-benchmark/spec.md\n# llama-cpp-prompt-cache-benchmark Specification\n\n## Purpose\nMeasure whether llama.cpp server can persist and restore reusable workflow prompt state across fresh local server processes before building a custom SSD-native cache layer.\n## Requirements\n### Requirement: Run llama.cpp prompt cache benchmark\n\nThe system SHALL provide a benchmark that runs selected workflow fixture prompts against llama.cpp server.\n\n#### Scenario: Benchmark uses selected fixture\n\n- **WHEN** the user runs the llama.cpp benchmark with a workflow fixture\n- **THEN** the system builds a reusable prefix prompt and changed-tail scenario prompts from the fixture\n- **AND** the system sends those prompts to llama.cpp server through `/completion`\n\n#### Scenario: Benchmark records prompt timing\n\n- **WHEN** llama.cpp returns completion timing data\n- **THEN** the system records prompt processing time, predicted token time, prompt token count, and generated token count where available\n\n### Requirement: Persist and restore slot prompt cache\n\nThe benchmark SHALL test llama.cpp slot save and restore behavior for reusable prefix state.\n\n#### Scenario: Save slot cache\n\n- **WHEN** the reusable prefix prompt has been processed in a slot\n- **THEN** the benchmark saves that slot's prompt cache to a file\n- **AND** records saved-token count, bytes written, and save timing\n\n#### Scenario: Restore slot cache\n\n- **WHEN** the benchmark starts a fresh llama.cpp server for restored-prefix runs\n- **THEN** the benchmark restores the saved slot cache before sending changed-tail prompts\n- **AND** records restored-token count, bytes read, and restore timing\n\n### Requirement: Compare baseline and restored-prefix runs\n\nThe benchmark SHALL compare full-prompt baseline runs against restored-prefix changed-tail runs.\n\n#### Scenario: Compare strategies\n\n- **WHEN** the benchmark completes baseline and restored-prefix runs\n- **THEN** the result reports baseline prompt processing cost, restored-prefix prompt processing cost, save/restore overhead, and net delta\n\n### Requirement: Preserve generated artifacts as local outputs\n\nThe benchmark SHALL keep generated llama.cpp artifacts out of source control.\n\n#### Scenario: Benchmark writes local artifacts\n\n- **WHEN** the benchmark writes model files, slot cache files, prompt files, or result JSON\n- **THEN** those generated paths are covered by git ignore rules\n\n### Requirement: Emit prompt-cache benchmark progress\n\nThe llama.cpp prompt-cache benchmark SHALL emit progress output before long-running model/server phases.\n\n#### Scenario: Progress before prefix priming\n\n- **WHEN** the benchmark is about to create and save the reusable prefix slot cache\n- **THEN** it prints a progress line identifying the prefix priming phase\n\n#### Scenario: Progress before baseline scenario\n\n- **WHEN** the benchmark is about to run a full-prompt baseline scenario\n- **THEN** it prints a progress line identifying the baseline phase and scenario name\n\n#### Scenario: Progress before restored scenario\n\n- **WHEN** the benchmark is about to restore the prefix slot and run a changed-tail scenario\n- **THEN** it prints a progress line identifying the restored-prefix phase and scenario name\n\n### Reusable context pass 1\n### Allowlisted context source: openspec/specs/llama-cpp-agent-cache-wrapper/spec.md\n# llama-cpp-agent-cache-wrapper Specification\n\n## Purpose\nProvide an agent-aware local wrapper around llama.cpp slot save/restore so OpenAI-style chat clients can reuse stable prompt state while receiving explicit cache telemetry.\n## Requirements\n### Requirement: Expose local chat completions endpoint\nThe system SHALL provide a local HTTP endpoint for non-streaming OpenAI-style chat completion requests.\n\n#### Scenario: Standard chat request\n- **WHEN** a client sends `POST /v1/chat/completions` with `model`, `messages`, and non-streaming generation options\n- **THEN** the wrapper sends an equivalent prompt to llama.cpp\n- **AND** the wrapper returns a chat completion response with assistant text and usage or timing metadata where available\n\n#### Scenario: Unsupported streaming request\n- **WHEN** a client sends a chat completion request with `stream: true`\n- **THEN** the wrapper rejects the request with a clear error that streaming is not supported in the first implementation\n\n### Requirement: Accept cache-aware agent metadata\nThe system SHALL accept optional wrapper-specific cache metadata that identifies reusable and volatile prompt material.\n\n#### Scenario: Cache metadata is present\n- **WHEN** a chat completion request includes `ssd_cache` metadata with a namespace and stable prefix content or block references\n- **THEN** the wrapper uses that metadata to build the reusable prefix and cache manifest\n- **AND** the wrapper treats non-prefix messages as changed-tail prompt content\n\n#### Scenario: Cache metadata is absent\n- **WHEN** a chat completion request does not include cache metadata\n- **THEN** the wrapper runs a direct llama.cpp completion without saving or restoring a slot cache\n- **AND** the response telemetry records that cache mode was bypassed\n\n### Requirement: Derive exact-match cache keys\nThe wrapper SHALL derive deterministic exact-match cache keys for reusable prefix slot caches.\n\n#### Scenario: Build cache key\n- **WHEN** the wrapper prepares a cache-aware request\n- **THEN** the cache key includes cache namespace, model identity, llama.cpp server version, context size, relevant llama.cpp settings, stable prefix bytes or block hashes, and cache policy version\n\n#### Scenario: Compatibility input changes\n- **WHEN** any cache-key input differs from an existing manifest\n- **THEN** the wrapper treats the request as a cache miss and does not restore the old slot cache\n\n### Requirement: Persist cache manifest and slot cache\nThe wrapper SHALL persist local cache artifacts for reusable prefixes.\n\n#### Scenario: Cache miss is primed\n- **WHEN** a cache-aware request misses the prefix cache\n- **THEN** the wrapper primes llama.cpp with the reusable prefix\n- **AND** saves the llama.cpp slot cache to a local file\n- **AND** writes a manifest that records cache key, model identity, prefix hashes, saved token count, slot file bytes, and save timing\n\n#### Scenario: Generated artifacts are local\n- **WHEN** the wrapper writes manifests, slot caches, logs, prompt debug files, or smoke benchmark results\n- **THEN** those paths are covered by git ignore rules\n\n### Requirement: Restore cached prefix for changed-tail requests\nThe wrapper SHALL restore matching prefix slot caches before running changed-tail prompts.\n\n#### Scenario: Cache hit is restored\n- **WHEN** a cache-aware request matches an existing manifest and slot cache file\n- **THEN** the wrapper restores the llama.cpp slot before sending the full changed-tail prompt\n- **AND** records restored token count, restore timing, and prompt processing timing\n\n#### Scenario: Restore fails\n- **WHEN** a matching manifest exists but slot restore fails\n- **THEN** the wrapper falls back to direct completion or cache rebuild according to configured policy\n- **AND** the response telemetry records the fallback reason\n\n### Requirement: Protect volatile prompt content\nThe wrapper SHALL avoid persisting raw volatile prompt content by default.\n\n#### Scenario: Volatile tail is processed\n- **WHEN** a cache-aware request includes changed-tail messages or blocks\n- **THEN** the wrapper records hashes, byte counts, and role labels for volatile tail content\n- **AND** does not persist raw volatile text unless an explicit debug option is enabled\n\n### Requirement: Emit cache telemetry\nThe wrapper SHALL expose cache behavior and timing telemetry to callers.\n\n#### Scenario: Completion returns telemetry\n- **WHEN** the wrapper returns a completion response\n- **THEN** the response includes cache state, cache key, prompt processing timing, save or restore timing where applicable, and fallback reason where applicable\n\n#### Scenario: Debug telemetry requested\n- **WHEN** a request enables debug telemetry\n- **THEN** the response body includes a machine-readable cache debug object in addition to normal response fields\n\n### Requirement: Manage llama.cpp server lifecycle\nThe wrapper SHALL manage or connect to a local llama.cpp server safely.\n\n#### Scenario: Managed server starts\n- **WHEN** the wrapper is configured to manage llama.cpp\n- **THEN** it starts `llama-server` with configured model path, host, port, context size, slot save path, and cache prompt options\n- **AND** waits for health before serving cache-aware completions\n\n#### Scenario: Existing server is used\n- **WHEN** the wrapper is configured with an existing llama.cpp base URL\n- **THEN** it verifies health and uses that server without starting a new process\n\n### Requirement: Compare wrapper cache value\nThe system SHALL provide a smoke benchmark for the wrapper cache path.\n\n#### Scenario: Run wrapper smoke benchmark\n- **WHEN** the user runs the wrapper benchmark against a workflow fixture\n- **THEN** the benchmark compares direct llama.cpp full-prompt calls with wrapper cache-aware calls\n- **AND** writes a result JSON that reports cache hit rate, prompt timing, save/restore overhead, and net delta\n\n### Requirement: Emit wrapper benchmark progress\nThe Flashcache wrapper benchmark SHALL emit progress output before long-running direct and cache-aware model phases.\n\n#### Scenario: Progress before direct scenario\n- **WHEN** the wrapper benchmark is about to run a direct full-prompt scenario\n- **THEN** it prints a progress line identifying the direct phase and scenario name\n\n#### Scenario: Progress before cache-aware scenario\n- **WHEN** the wrapper benchmark is about to run a cache-aware scenario through the wrapper\n- **THEN** it prints a progress line identifying the cache-aware phase and scenario name\n\n### Reusable context pass 1\n### Allowlisted context source: openspec/specs/benchmark-result-summary/spec.md\n# benchmark-result-summary Specification\n\n## Purpose\nSummarize benchmark result JSON files into compact comparison reports so repeated local/PC runs can be interpreted without manually opening raw artifacts.\n\n## Requirements\n### Requirement: Summarize benchmark result JSON\nThe system SHALL provide a command-line summarizer for benchmark result JSON files.\n\n#### Scenario: Summarize direct prompt-cache result\n- **WHEN** the user provides a llama.cpp prompt-cache benchmark result JSON\n- **THEN** the summarizer reports model, fixture, started time, reusable prefix bytes, baseline prompt milliseconds, restored prompt milliseconds, delta milliseconds, ratio, slot file bytes, and result path\n\n#### Scenario: Summarize Flashcache wrapper result\n- **WHEN** the user provides a Flashcache wrapper benchmark result JSON\n- **THEN** the summarizer reports model, fixture, started time, reusable prefix bytes, direct prompt milliseconds, wrapper prompt milliseconds, delta milliseconds, ratio, cache hit rate, cache states, and result path\n\n#### Scenario: Missing optional values\n- **WHEN** a supported result JSON omits an optional timing, cache, or artifact field\n- **THEN** the summarizer emits `n/a` for that field instead of failing\n\n#### Scenario: Unsupported result JSON\n- **WHEN** the user provides a JSON file that does not match a supported benchmark result schema\n- **THEN** the summarizer identifies it as unsupported and continues processing other files\n\n### Reusable context pass 1\n### Allowlisted context source: openspec/specs/prefix-block-store/spec.md\n# prefix-block-store Specification\n\n## Purpose\nBuild content-addressed prompt block metadata that classifies attention-sink candidates, stable prefix blocks, rolling-tail candidates, and volatile tails before real KV persistence work begins.\n\n## Requirements\n### Requirement: Build content-addressed prompt block metadata\n\nThe system SHALL build a local metadata store for prompt blocks using deterministic content hashes.\n\n#### Scenario: Store selected fixture blocks\n\n- **WHEN** the user runs the prefix block store builder for a workflow fixture\n- **THEN** the system writes one metadata record per referenced prompt block keyed by SHA-256 hash\n- **AND** the system writes a manifest that references those block hashes in prompt order\n\n#### Scenario: Reuse existing block records\n\n- **WHEN** a block hash already exists in the store\n- **THEN** the system preserves content-addressed identity and records the block as a cache hit in the manifest summary\n\n### Requirement: Classify cache roles\n\nThe system SHALL classify blocks by cache role for future memory-tier decisions.\n\n#### Scenario: Common reusable prefix exists\n\n- **WHEN** selected scenarios share stable or semi-stable blocks\n- **THEN** the system marks the earliest configured reusable blocks as `attention-sink-candidate`\n- **AND** the system marks the remaining common reusable blocks as `stable-prefix`\n\n#### Scenario: Scenario tail blocks exist\n\n- **WHEN** a selected scenario includes blocks outside the common reusable prefix\n- **THEN** the system marks semi-stable blocks as `rolling-tail-candidate`\n- **AND** the system marks volatile blocks as `volatile-tail`\n\n### Requirement: Recommend storage tiers\n\nThe system SHALL recommend a storage tier for each block role.\n\n#### Scenario: Block role is assigned\n\n- **WHEN** the system writes block metadata\n- **THEN** the block metadata includes a storage recommendation for RAM-hot, SSD-persistent, or no-persist treatment\n\n### Requirement: Emit cache-key material\n\nThe system SHALL emit cache-key material for future prefix or KV cache experiments.\n\n#### Scenario: Store manifest is written\n\n- **WHEN** the prefix block store builder completes\n- **THEN** the manifest records model name, fixture hash, selected scenarios, common prefix block hashes, sink block hashes, tail block hashes, and a manifest cache-key hash\n\n### Reusable context pass 1\n### Allowlisted context source: openspec/specs/research-positioning-doc/spec.md\n# research-positioning-doc Specification\n\n## Purpose\nMaintain a source-backed positioning record for SSD-native local-agent inference research so public claims and future paper framing distinguish established prior art from the project's specific workload and persistence wedge.\n\n## Requirements\n### Requirement: Record prior-art positioning\nThe documentation SHALL record whether SSD-native local-agent inference research is known prior art, a frontier, or a project-specific wedge.\n\n#### Scenario: Reader checks novelty\n- **WHEN** a reader opens the research-positioning documentation\n- **THEN** the documentation states that KV/prefix caching and SSD-backed KV storage are already proven areas\n- **AND** it identifies the remaining project wedge around local agent workloads, changed-tail prompts, and cold/restarted-session persistence\n\n### Requirement: Preserve source anchors\nThe documentation SHALL preserve source links for papers, systems, and implementation docs used to support the positioning.\n\n#### Scenario: Reader follows references\n- **WHEN** a reader wants to verify the positioning\n- **THEN** the documentation points to the relevant papers and systems in `docs/references.md`\n\n### Requirement: Keep public-claim guidance conservative\nThe documentation SHALL include conservative phrasing guidance for public claims about novelty.\n\n#### Scenario: Reader drafts public copy\n- **WHEN** a reader uses the documentation to draft public commentary\n- **THEN** the documentation discourages claiming invention of KV caching or SSD-backed inference\n- **AND** it recommends positioning the work as a fast-moving edge for persistent KV/prefix reuse in local agent workflows\n\n### Reusable context pass 1\n### Synthetic local-agent memory notes\nStable agent memory usually repeats project goals, command constraints, tool policies, repo layout, validation rituals, and prior decisions.\nThe benchmark intentionally makes this block reusable. Current command output, diffs, CI failures, and review comments remain volatile tails.\nA local model should use the stable prefix to understand the agent workflow while answering only the current turn.\n\n### Reusable context pass 2\n### Allowlisted context source: AGENTS.md\n# AGENTS.md\n\n## Project\n\nThis repo explores SSD-native inference for local agent workloads.\n\n## Operating Rules\n\n- Prefer evidence and benchmarks over claims.\n- Keep docs decision-oriented: what to build, what to avoid, why.\n- Treat SSD as a memory tier for reusable or predictable data, not as magic VRAM.\n- Optimize for agent loops first: repeated prompts, tool schemas, repo context, and long sessions.\n- Preserve links and source notes in `docs/references.md`.\n\n## Repo-Local Skills\n\nMatt Pocock's `teach` skill is installed at `.codex/skills/teach`.\nUse it when turning this research into a guided learning path, exercises, glossary, or learning record.\n\n### Reusable context pass 2\n### Allowlisted context source: MISSION.md\n# Mission\n\n## Topic\n\nSSD-native inference for local AI agents.\n\n## Why This Matters\n\nThe goal is to understand whether a new class of local inference system can make long-context agent work faster and cheaper by using SSDs as a serious memory tier.\n\nThe project is not trying to prove a slogan. It is trying to find the useful shape:\n\n- what should stay hot in RAM or unified memory\n- what can live on SSD\n- what needs compression\n- where prefetching matters\n- which workloads benefit first\n\n## Desired Outcome\n\nBuild enough understanding to make tasteful product and architecture decisions, then create a prototype that measures whether repeated agent workloads get materially faster.\n\n## Constraints\n\n- Six-hour first learning sprint\n- Local-first bias\n- Apple Silicon / MLX is an important playground\n- llama.cpp portability may matter\n- Benchmarks must separate cold, warm, and repeated runs\n\n## First Practical Question\n\nCan repeated OpenClaw-style agent prompts use persistent prefix/KV caching to reduce prefill time without damaging output quality?\n\n### Reusable context pass 2\n### Allowlisted context source: README.md\n# SSD Native Inference\n\nResearch and prototype notes for making local inference treat SSDs as a first-class memory tier.\n\n## Thesis\n\nThe dent is not \"run any dense model directly from any SSD.\" The dent is storage-aware inference for agent workloads:\n\n- persistent prefix and KV cache\n- model-aware block storage\n- SSD-backed long-context reuse\n- MoE expert paging when the model shape supports it\n- Apple Silicon / MLX and llama.cpp as practical local backends\n- a benchmark harness that measures cold, warm, and repeated-agent-loop performance\n\nAgent workloads are the wedge because they repeat system prompts, tool schemas, repo context, memory blocks, and long-lived session prefixes. That repeated shape lets the SSD become useful instead of pretending to be VRAM.\n\n## Start Here\n\n1. Read [docs/idea-brief.md](docs/idea-brief.md).\n2. Do the [6-hour learning plan](docs/learning-plan-6-hours.md).\n3. Use [docs/technical-map.md](docs/technical-map.md) as the system map.\n4. Start with [docs/prototype-plan.md](docs/prototype-plan.md).\n5. Keep sources in [docs/references.md](docs/references.md).\n\n## Installed Skills\n\nMatt Pocock's `teach` skill is installed repo-locally at:\n\n`/.codex/skills/teach`\n\nSource: `mattpocock/skills`, path `skills/in-progress/teach`.\n\n### Reusable context pass 2\n### Allowlisted context source: GLOSSARY.md\n# Glossary\n\n## KV Cache\n\nStored attention keys and values from previous tokens, reused so the model does not recompute the entire prefix.\n\n## Prefill\n\nThe phase where a model processes the input prompt before generating the first new token.\n\n## Decode\n\nThe phase where a model generates new tokens one at a time after prefill.\n\n## Prefix Cache\n\nA cache of reusable prompt prefixes or their derived inference state.\n\n## Attention Sink\n\nAn initial token or small group of initial tokens that a model attends to strongly as an attention anchor, even when the token content is not semantically important.\n\n## Rolling KV Cache\n\nA bounded KV cache that keeps recent tokens while older tokens roll out of the active cache.\n\n## Prefix Block Store\n\nA content-addressed store for reusable prompt blocks and cache-key metadata.\n\n## PagedAttention\n\nA KV cache layout strategy that stores attention state in paged blocks to reduce fragmentation and improve serving efficiency.\n\n## MoE\n\nMixture of Experts. A sparse model architecture where only some expert submodules are activated for each token.\n\n## Expert Paging\n\nKeeping frequently used MoE experts in fast memory while loading colder experts from slower storage when needed.\n\n## Read Amplification\n\nExtra bytes read from storage beyond the data that was actually useful.\n\n## Warm Run\n\nAn inference run that benefits from previously populated caches.\n\n## Cold Run\n\nAn inference run with no relevant cache already available.\n\n### Reusable context pass 2\n### Allowlisted context source: RESOURCES.md\n# Resources\n\n## Core Videos\n\n- Reiner Pope on Dwarkesh: https://youtu.be/xmkSf5IS-zw\n  Use for inference economics, memory bandwidth, sparsity, and context cost.\n\n- LMCache intro: https://www.youtube.com/watch?v=rINy7mFyRAU\n  Use for KV reuse and cache-layer thinking.\n\n- Prince Canuma MLX talk: https://www.youtube.com/watch?v=zTLJNHj0DeQ\n  Use for Apple Silicon and MLX local inference direction.\n\n## Core Reading\n\n- vLLM PagedAttention: https://docs.vllm.ai/en/stable/design/paged_attention/\n  Learn how KV cache paging works.\n\n- LMCache architecture: https://docs.lmcache.ai/developer_guide/architecture.html\n  Learn the production shape of KV cache reuse.\n\n- LMCache local storage backend: https://docs.lmcache.ai/dev/kv_cache/storage_backends/local_storage.html\n  Learn local disk/offload mechanics.\n\n- Apple LLM in a Flash: https://machinelearning.apple.com/research/efficient-large-language\n  Learn the flash-memory framing.\n\n- FlexGen: https://arxiv.org/abs/2303.06865\n  Learn older offload ancestry and tradeoffs.\n\n## Tools and Repos\n\n- oMLX: https://github.com/jundot/omlx\n  Closest practical Apple Silicon reference.\n\n- Matt Pocock skills: https://github.com/mattpocock/skills\n  Source of the repo-local `teach` skill.\n\n## Compression\n\n- TurboQuant coverage: https://www.tomshardware.com/tech-industry/artificial-intelligence/googles-turboquant-compresses-llm-kv-caches-to-3-bits-with-no-accuracy-loss\n\n- TurboQuant hub: https://turbo-quant.com/turboquant-paper\n\n### Reusable context pass 2\n### Allowlisted context source: benchmarks/README.md\n# Ollama Workflow Benchmark\n\nThis benchmark measures local prompt evaluation cost for repeated agent workflows. It is a baseline for future prefix-cache and KV-cache work; it does not implement SSD-backed KV reuse yet.\n\n## Run\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py --model gemma4:latest --runs 1 --num-predict 16\n```\n\nCompare full-prompt baseline against the Ollama context proxy:\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py \\\n  --strategy compare \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --model gemma4:latest \\\n  --runs 1 \\\n  --num-predict 8 \\\n  --prime-num-predict 1 \\\n  --temperature 0\n```\n\nUse `--vary-runs` when `--runs` is greater than 1 and you want repeated samples to avoid exact prompt replay.\n\nCompare warm in-session reuse against restarting the model before each prompt:\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py \\\n  --strategy restart-compare \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --model gemma4:latest \\\n  --runs 1 \\\n  --num-predict 8 \\\n  --temperature 0 \\\n  --write-prefix-manifest\n```\n\nUse `--dry-run` to verify prompt assembly without calling Ollama:\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py --dry-run\n```\n\nResults are written to `benchmarks/results/*.json`.\n\nPrefix manifests are written to `benchmarks/prefix-manifests/*.json` when `--write-prefix-manifest` is set.\n\nBuild a metadata-only prefix block store:\n\n```bash\npython3 benchmarks/prefix_block_store.py \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --model gemma4:latest\n```\n\nPrefix store artifacts are written to `benchmarks/prefix-store/`.\n\nRun the llama.cpp prompt-cache feasibility benchmark:\n\n```bash\npython3 benchmarks/llama_cpp_prompt_cache_benchmark.py \\\n  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --predict 8 \\\n  --temperature 0\n```\n\nThis starts `llama-server`, primes the reusable prefix, saves the slot cache, restarts for cold full-prompt baselines, then restarts again and restores the saved slot before changed-tail prompts.\n\nUse `--hf-repo` with a current llama.cpp build when the model should be pulled by llama.cpp instead of supplied as a local GGUF path:\n\n```bash\npython3 benchmarks/llama_cpp_prompt_cache_benchmark.py \\\n  --server-bin /path/to/llama-server \\\n  --hf-repo ggml-org/gpt-oss-20b-GGUF \\\n  --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json \\\n  --predict 8 \\\n  --temperature 0\n```\n\nllama.cpp artifacts are written under `benchmarks/llama-cpp-*` and ignored.\n\nRun the Flashcache wrapper service:\n\n```bash\npython3 -m flashcache.cli \\\n  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \\\n  serve \\\n  --port 8099\n```\n\nSend a cache-aware local chat request:\n\n```bash\ncurl http://127.0.0.1:8099/v1/chat/completions \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"model\": \"local-gemma\",\n    \"messages\": [{\"role\": \"user\", \"content\": \"Changed tail for this agent turn\"}],\n    \"max_tokens\": 8,\n    \"temperature\": 0,\n    \"ssd_cache\": {\n      \"namespace\": \"demo-agent-workflow\",\n      \"stable_prefix_text\": \"Reusable agent instructions and tool schema go here.\",\n      \"debug\": true\n    }\n  }'\n```\n\nThe response includes `X-Flashcache-*` headers. With `debug: true`, the response body also includes a `flashcache` object with cache state, prompt timing, slot save/restore timing, and fallback reason when applicable.\n\nCompare direct llama.cpp calls against the Flashcache wrapper:\n\n```bash\npython3 benchmarks/flashcache_wrapper_benchmark.py \\\n  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --predict 8 \\\n  --temperature 0\n```\n\nFlashcache wrapper artifacts are written under `benchmarks/flashcache/` and `benchmarks/flashcache-results/`, both ignored.\n\n## Fixtures\n\n- `codex_deepclean_workflow.json`: small synthetic Codex/DeepClean workflow used as the first controlled baseline.\n- `lightningitb_deepclean_campaign.json`: sanitized real workflow prompt distilled from the LightningITB DeepClean P1/P2 campaign archive. The fixture records source artifact paths and notes that the raw chat transcript is not stored verbatim.\n- `printtestbot_printing_press_workflow.json`: sanitized Printy/printtestbot-style Printing Press CLI workflow with stable bot/runtime/tool rules and seven changed command-output tails.\n\n## Recorded Datasets\n\n- `benchmarks/datasets/printtestbot-printing-press-2026-06-02/`: DushyantPC runs for the Printy fixture, including raw Ollama, llama.cpp slot-cache, and Flashcache wrapper result JSON.\n  - Includes `gpt-oss:20b` Ollama baseline data plus official `gpt-oss-20b-mxfp4.gguf` llama.cpp/Flashcache follow-up data.\n\n## What To Look At\n\n- `prompt_eval_duration`: local time spent evaluating the input prompt.\n- `prompt_eval_count`: prompt tokens processed by Ollama.\n- `load_duration`: model loading time, which should be considered separately from prompt cost.\n- `reusable_prefix_bytes`: stable or semi-stable prompt bytes that would be candidates for future prefix/KV caching.\n- `comparison.baseline_minus_prefix_context_prompt_eval_duration`: positive means the context proxy reduced prompt eval; negative means it was slower.\n- `restart_comparison.restarted_minus_warm_prompt_eval_duration`: positive means model restarts removed warm-prefix benefit and created a persistence gap.\n- `prefix_manifest.cache_key_sha256`: metadata-only cache key scaffold for future prefix/KV cache work.\n- `comparison.baseline_minus_restored_prompt_ms`: positive means llama.cpp slot restore reduced prompt processing time versus fresh full-prompt baselines.\n\n## Strategy Modes\n\n- `full`: send the full scenario prompt every time.\n- `prefix-context`: prime Ollama once with the common stable/semi-stable prefix, then send each changed tail with Ollama's returned `context`.\n- `compare`: run both strategies and report the delta.\n- `restart-compare`: run aligned full prompts in a warm sequence, then stop the Ollama model before each prompt and compare the prompt evaluation cost.\n\nThe `prefix-context` strategy is a proxy experiment. Ollama's generate API documents `context` as conversational memory and marks it deprecated, so this is not proof of SSD-backed KV persistence.\n\n## Prefix Block Store\n\nThe prefix block store is Phase 1 scaffolding. It writes content-addressed metadata for prompt blocks and classifies them as:\n\n- `attention-sink-candidate`: earliest reusable prefix blocks that should stay hot in later KV experiments.\n- `stable-prefix`: reusable workflow context that is a candidate for SSD persistence.\n- `rolling-tail-candidate`: semi-stable tail state that may be warm but not universal.\n- `volatile-tail`: current findings, CI output, review comments, or other state that should not be blindly persisted.\n\nIf repeated Codex-style workflows spend meaningful time in `prompt_eval_duration`, then an SSD-backed prefix/KV cache has a real target to beat.\n\n## llama.cpp Prompt Cache\n\nThe llama.cpp benchmark is the first close backend baseline for persistence. It saves the reusable prefix slot cache to disk, starts fresh server processes, restores the slot, and measures changed-tail prompt processing cost.\n\nUse it to decide whether the next prototype should wrap llama.cpp slot persistence, compare against it, or move lower-level into custom KV storage.\n\n## Flashcache Wrapper\n\nThe Flashcache wrapper is the first product-shaped layer. It accepts an OpenAI-style chat request plus optional `ssd_cache` metadata, manages llama.cpp slot save/restore, and returns cache telemetry to the caller.\n\nTreat the wrapper as an experimental local API subset: non-streaming text responses only, cache-aware requests opt in explicitly, and volatile tail text is not persisted unless debug behavior asks for it.\n\n### Reusable context pass 2\n### Allowlisted context source: benchmarks/datasets/printtestbot-printing-press-2026-06-02/README.md\n# Printtestbot Printing Press Benchmark Dataset\n\nDate: 2026-06-02\n\nMachine: DushyantPC\n\nFixture: `benchmarks/fixtures/printtestbot_printing_press_workflow.json`\n\n## Purpose\n\nThis dataset tests a Printy/printtestbot-style long agent workflow with a stable reusable prefix and changing command-output tails. It is meant to answer whether local-agent prompts can preserve useful prefix/KV work across changed-tail turns and restarts.\n\nThe fixture is sanitized and hand-curated. It is not a raw Telegram transcript and contains no secrets, tokens, private chat IDs, private keys, or personal context.\n\n## Raw Results\n\n- `raw/ollama-full-gpt-oss-20b.json`: full prompt every changed-tail turn.\n- `raw/ollama-exact-repeat-gpt-oss-20b.json`: exact repeated prompt control for one scenario.\n- `raw/ollama-prefix-context-compare-gpt-oss-20b.json`: full prompt versus Ollama `context` proxy.\n- `raw/ollama-restart-compare-gpt-oss-20b.json`: warm sequence versus stopping the model before each turn.\n- `raw/prefix-manifest-gpt-oss-20b.json`: reusable prefix block manifest and cache-key material.\n- `raw/llama-cpp-slot-cache-gemma-3-270m-it-q8.json`: llama.cpp slot save/restore result.\n- `raw/flashcache-wrapper-gemma-3-270m-it-q8.json`: Flashcache wrapper versus direct llama.cpp result.\n- `raw/20260602T215635Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-llama-cpp-prompt-cache.json`: one-scenario `gpt-oss-20b` slot save/restore smoke.\n- `raw/20260602T220157Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-llama-cpp-prompt-cache.json`: full seven-turn `gpt-oss-20b` slot save/restore result.\n- `raw/20260602T220711Z-gpt-oss-20b-mxfp4-printtestbot_printing_press_workflow-flashcache-wrapper.json`: full seven-turn `gpt-oss-20b` Flashcache wrapper versus direct llama.cpp result.\n\n## Environment\n\nOllama model:\n\n```text\ngpt-oss:20b\n```\n\nllama.cpp:\n\n```text\nversion: 9469 (d178a1181)\nbuilt with Clang 19.1.5 for Windows x86_64\n```\n\nThis winget build cannot load `gpt-oss` GGUF files. The `gpt-oss-20b` GGUF follow-up used portable llama.cpp:\n\n```text\nversion: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64\n```\n\nGGUF cache-mechanics model:\n\n```text\ngemma-3-270m-it-Q8_0.gguf\n291,545,600 bytes\n```\n\nOpenAI OSS GGUF follow-up model:\n\n```text\ngpt-oss-20b-mxfp4.gguf\n12,109,566,560 bytes\n`",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 1 incoming message:",
+        "Polish this weather CLI and make sure verify passes. Do not publish yet.",
+        "",
+        "Current command output:",
+        "$ git status --short",
+        " M README.md",
+        "?? cli/weather/",
+        "",
+        "$ go run ./cmd/pp-example-weather --help",
+        "Weather data CLI",
+        "Usage: pp-example-weather [command]",
+        "Commands: search-city forecast alerts stations"
+      ],
+      "name": "turn-01-user-request",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 2 command output:",
+        "$ rg -n \"TODO|panic|nil|weather\" cli/weather cmd README.md",
+        "cmd/pp-example-weather/main.go:44: TODO improve descriptions",
+        "cli/weather/client.go:91: if body == nil { return nil, nil }",
+        "cli/weather/search.go:37: return results[:5]",
+        "README.md:22: pp-example-weather forecast --city London",
+        "",
+        "$ go test ./...",
+        "ok github.com/example/pp-example-weather/cli/weather 0.413s"
+      ],
+      "name": "turn-02-inspect-and-plan",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 3 verify output:",
+        "$ ./scripts/verify.sh",
+        "verify: running help checks",
+        "verify: running sampled live commands",
+        "FAIL search-city relevance",
+        "expected first result to include query token 'Davenport'",
+        "got: [{\"name\":\"Davenport University\",\"country\":\"US\"},{\"name\":\"Port Davenport\",\"country\":\"NZ\"}]",
+        "FAIL forecast example",
+        "unknown flag: --city",
+        "exit code 2"
+      ],
+      "name": "turn-03-verify-failure",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 4 patch summary:",
+        "Edited cli/weather/search.go to score exact city-name matches before substring matches.",
+        "Edited cmd/pp-example-weather/main.go to change forecast syntax from --city to positional <city>.",
+        "Edited README.md examples to use positional city arguments.",
+        "",
+        "$ git diff --stat",
+        " README.md                    | 12 ++++++------",
+        " cli/weather/search.go        | 28 ++++++++++++++++++++++++----",
+        " cmd/pp-example-weather/main.go | 10 +++++-----"
+      ],
+      "name": "turn-04-patch-applied",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 5 verification output:",
+        "$ go test ./...",
+        "--- FAIL: TestSearchRanksExactCity (0.00s)",
+        "    search_test.go:42: expected Davenport, got Davenport University",
+        "FAIL",
+        "",
+        "$ go vet ./...",
+        "# github.com/example/pp-example-weather/cli/weather",
+        "cli/weather/client.go:91: result of nil body should be explicit error, not nil response"
+      ],
+      "name": "turn-05-second-failure",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 6 review notes:",
+        "Review comment 1: Search ranking now depends on lowercase normalization but does not strip punctuation.",
+        "Review comment 2: README still shows JSON fields that the CLI no longer emits.",
+        "Review comment 3: Silent nil response should become a typed source error so users know the upstream returned an empty body.",
+        "",
+        "CI state:",
+        "go-test failed, go-vet failed, docs-check skipped because tests failed."
+      ],
+      "name": "turn-06-review-comments",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 7 final validation output:",
+        "$ go test ./...",
+        "ok github.com/example/pp-example-weather/cli/weather 0.532s",
+        "",
+        "$ go vet ./...",
+        "no issues",
+        "",
+        "$ ./scripts/verify.sh",
+        "verify: help checks passed",
+        "verify: sampled live commands passed",
+        "verify: README examples passed",
+        "",
+        "$ git status --short",
+        " M README.md",
+        " M cli/weather/client.go",
+        " M cli/weather/search.go",
+        " M cli/weather/search_test.go",
+        " M cmd/pp-example-weather/main.go"
+      ],
+      "name": "turn-07-final-validation",
+      "tier": "volatile"
+    }
+  ],
+  "description": "Sanitized Printy/printtestbot-style long-agent workflow for a Printing Press CLI build/fix/retry loop. The fixture is designed to test reusable prefix and KV persistence with stable bot/runtime instructions plus changed command-output tails. Generated large-prefix variant with 65,536 reusable prefix bytes.",
+  "metadata": {
+    "benchmark_goal": "Test whether a real Printy-style agent loop with stable identity, runtime rules, capabilities, tool schemas, repo context, and changing command-output tails can preserve useful prefix/KV work across restarts or separate invocations.",
+    "created_at": "2026-06-02",
+    "expected_cache_boundary": "Save or reuse after stable_prefix plus semi_stable_context, before volatile_tail.",
+    "fixture_version": 1,
+    "generated_large_prefix": {
+      "actual_prefix_bytes": 65536,
+      "allowlisted_context_sources": [
+        "AGENTS.md",
+        "MISSION.md",
+        "README.md",
+        "GLOSSARY.md",
+        "RESOURCES.md",
+        "benchmarks/README.md",
+        "benchmarks/datasets/printtestbot-printing-press-2026-06-02/README.md",
+        "openspec/specs/ollama-workflow-benchmark/spec.md",
+        "openspec/specs/llama-cpp-prompt-cache-benchmark/spec.md",
+        "openspec/specs/llama-cpp-agent-cache-wrapper/spec.md",
+        "openspec/specs/benchmark-result-summary/spec.md",
+        "openspec/specs/prefix-block-store/spec.md",
+        "openspec/specs/research-positioning-doc/spec.md"
+      ],
+      "estimated_largest_prompt_tokens": 18918,
+      "expansion_block_names": [
+        "large-agent-context-64kb"
+      ],
+      "generator": "benchmarks/generate_large_prefix_fixtures.py",
+      "largest_prompt_bytes": 66210,
+      "recommended_ctx_size": 32768,
+      "safety_status": "passed",
+      "source_fixture": "/Users/dushyantgarg/Documents/Projects/ssd-native-inference/benchmarks/fixtures/printtestbot_printing_press_workflow.json",
+      "target_prefix_bytes": 65536
+    },
+    "model_target": "Local instruct model; 7B first for mechanics, larger 14B/20B models for realistic local-agent latency once available.",
+    "sanitization": {
+      "machine_paths_generalized": true,
+      "personal_context_removed": true,
+      "private_chat_ids_removed": true,
+      "raw_transcript_stored": false,
+      "secrets_removed": true,
+      "tokens_removed": true
+    },
+    "source": "Distilled from print-a-bot prompt assembly and sanitized Printy dogfood workflow shape; not a raw private transcript.",
+    "source_files_inspected": [
+      "/Volumes/MacSSD/Projects/print-a-bot/src/runner.ts",
+      "/Volumes/MacSSD/Projects/print-a-bot/src/local-model.ts",
+      "/Volumes/MacSSD/Projects/print-a-bot/src/workflow-runtime.ts",
+      "/Volumes/MacSSD/Projects/print-a-bot/AGENTS.md",
+      "/Volumes/MacSSD/Projects/print-a-bot/docs/VISION.md"
+    ],
+    "source_repo": "fraction12/print-a-bot",
+    "target_repo": "fraction12/ssd-native-inference"
+  },
+  "name": "printtestbot-printing-press-workflow-large-prefix-64kb",
+  "scenarios": [
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-64kb",
+        "turn-01-user-request"
+      ],
+      "description": "Initial user request and repo status for the CLI polish workflow.",
+      "name": "turn-01-intake",
+      "task": "Return the next action for this initial workflow state."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-64kb",
+        "turn-02-inspect-and-plan"
+      ],
+      "description": "Inspection output shows likely CLI polish issues without test failure yet.",
+      "name": "turn-02-inspect",
+      "task": "Return the next action after inspection."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-64kb",
+        "turn-03-verify-failure"
+      ],
+      "description": "Verify fails from ranking and README/example mismatch.",
+      "name": "turn-03-verify-failure",
+      "task": "Return the next action for the failed verify state."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-64kb",
+        "turn-04-patch-applied"
+      ],
+      "description": "Patch has been applied and needs validation.",
+      "name": "turn-04-patch-state",
+      "task": "Return the next validation action after the patch."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-64kb",
+        "turn-05-second-failure"
+      ],
+      "description": "Tests and vet fail after the first patch.",
+      "name": "turn-05-test-and-vet-failure",
+      "task": "Return the next action for test and vet failures."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-64kb",
+        "turn-06-review-comments"
+      ],
+      "description": "Review comments and CI state require a second fix loop.",
+      "name": "turn-06-review-feedback",
+      "task": "Return the next action for review feedback."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-64kb",
+        "turn-07-final-validation"
+      ],
+      "description": "Final validation passes and the workflow needs a handoff decision.",
+      "name": "turn-07-final-handoff",
+      "task": "Return the final handoff action and remaining risk note."
+    }
+  ]
+}

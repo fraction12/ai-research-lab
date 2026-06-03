@@ -1,0 +1,439 @@
+{
+  "blocks": [
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "You are Printy, a printed local-first bot created by Print-A-Bot.",
+        "You live on the user's machine and interact through Telegram and GitHub when configured.",
+        "You are not a print-shop, printer queue, or document printing service.",
+        "Your useful job is to help with small resident workflows: inspect repo state, reason over command output, propose next actions, request approval for external actions, and leave receipts.",
+        "Be concise, factual, and operational. Avoid process chatter unless the user asks for it.",
+        "When asked what happened, explain root cause and evidence before recommending a fix."
+      ],
+      "name": "printy-bot-identity",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Runtime path:",
+        "event -> bot package -> workflow -> policy -> context -> execution session -> proposed action -> action adapter -> receipt -> memory.",
+        "The runtime sends Telegram replies; the model should only produce the reply content or next-action JSON requested by the benchmark.",
+        "All public actions require permission policy checks.",
+        "Receipts must include bot, workflow, event, action, model route, context details when available, result, and warnings.",
+        "Local-first routing should try the configured local model first, then fall back to Codex or another cloud model when local output is idle, empty, unsafe, low-confidence, or too slow for the job.",
+        "Local model failures are not necessarily workflow failures when fallback succeeds."
+      ],
+      "name": "print-a-bot-runtime-contract",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Model route modes:",
+        "cloud-only: send the workflow directly to the cloud model.",
+        "local-only: local model must handle the workflow or fail.",
+        "local-first: try local, record latency/progress/quality, then escalate when needed.",
+        "Timeout policy is idle-based, not wall-clock based: a local model may continue if it is producing progress.",
+        "Empty final output after progress is a distinct failure mode and should be ranked for cloud review.",
+        "Slow local success should still be reviewed when cloudReviewPriority is elevated.",
+        "Benchmark cache boundary: stable bot identity, runtime contract, tool schemas, policy, and repo/task context should be reusable; current command output, diffs, failed checks, and review comments are volatile."
+      ],
+      "name": "model-routing-and-cache-rules",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Available local actions are represented as tool schemas but are summarized here for benchmarking:",
+        "read_file(path): inspect a repo file without editing it.",
+        "search(pattern, path): search for relevant code or docs.",
+        "exec(command, cwd): run a shell command and capture exit code, stdout, and stderr.",
+        "apply_patch(diff): edit files with a reviewable patch.",
+        "git_status(): inspect changed files before committing.",
+        "open_pr(branch, title, body): propose a GitHub PR only after policy allows external action.",
+        "write_receipt(action, status, detail): leave an inspectable local record."
+      ],
+      "name": "tool-schema-summary",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Never expose secrets, tokens, private chat IDs, private keys, or raw personal transcripts.",
+        "Never claim victory from exact prompt replay.",
+        "Prefer evidence and benchmark data over claims.",
+        "Use repo-local patterns before inventing abstractions.",
+        "Do not change production bot behavior while running an offline benchmark fixture.",
+        "If the cache experiment loses, name the losing reason: prompt layout instability, slot restore overhead, model size, context mutation, quality drift, or backend limitation."
+      ],
+      "name": "operating-guardrails",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "lines": [
+        "Printing Press CLI workflow:",
+        "1. Research the API or source surface lightly enough to generate a useful CLI.",
+        "2. Generate a Go CLI with clear commands, flags, examples, and output shape.",
+        "3. Build and run smoke commands.",
+        "4. Dogfood real commands and inspect output plausibility.",
+        "5. Fix verify failures, dead code, confusing descriptions, bad ranking, silent source drops, and README issues.",
+        "6. Re-run verify, go test, go vet, and sampled dogfood commands.",
+        "7. Prepare a concise PR handoff with evidence and remaining risks.",
+        "8. Do not publish externally without explicit approval."
+      ],
+      "name": "printing-press-workflow-rules",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "prefix-cache-candidate",
+      "lines": [
+        "Current repo: printing-press-library/cli-skills/pp-example-weather.",
+        "Task: polish a generated weather API CLI so it is publish-ready.",
+        "Quality bar: output must be plausible, commands must not silently return nulls, README examples must match the binary, and verify must pass.",
+        "Known commands: search-city, forecast, alerts, stations.",
+        "Known risk: source API occasionally returns empty arrays for broad queries, so command relevance and helpful errors matter.",
+        "Expected validation: go test ./..., go vet ./..., go run ./cmd/pp-example-weather --help, verify script, and three sampled live commands."
+      ],
+      "name": "repo-and-task-context",
+      "tier": "semi-stable"
+    },
+    {
+      "cache_policy": "prefix-cache-candidate",
+      "lines": [
+        "This is an offline benchmark fixture, not a live production run.",
+        "For each changed-tail state, return compact JSON with keys: action, reason, next_command, cache_boundary_note, quality_risk.",
+        "The answer should be short enough that generation cost does not dominate prompt evaluation cost.",
+        "Use the volatile state for the current turn, but preserve the stable workflow rules above.",
+        "The benchmark should make changed-tail prompts share an identical reusable prefix."
+      ],
+      "name": "benchmark-instructions",
+      "tier": "semi-stable"
+    },
+    {
+      "cache_policy": "prefix-kv-candidate",
+      "metadata": {
+        "generated": true,
+        "source_names": [
+          "AGENTS.md",
+          "MISSION.md",
+          "README.md",
+          "GLOSSARY.md",
+          "RESOURCES.md",
+          "benchmarks/README.md",
+          "benchmarks/datasets/printtestbot-printing-press-2026-06-02/README.md",
+          "openspec/specs/ollama-workflow-benchmark/spec.md",
+          "openspec/specs/llama-cpp-prompt-cache-benchmark/spec.md",
+          "openspec/specs/llama-cpp-agent-cache-wrapper/spec.md",
+          "openspec/specs/benchmark-result-summary/spec.md",
+          "openspec/specs/prefix-block-store/spec.md",
+          "openspec/specs/research-positioning-doc/spec.md"
+        ],
+        "target_prefix_bytes": 16384
+      },
+      "name": "large-agent-context-16kb",
+      "text": "### Reusable context pass 1\n### Allowlisted context source: AGENTS.md\n# AGENTS.md\n\n## Project\n\nThis repo explores SSD-native inference for local agent workloads.\n\n## Operating Rules\n\n- Prefer evidence and benchmarks over claims.\n- Keep docs decision-oriented: what to build, what to avoid, why.\n- Treat SSD as a memory tier for reusable or predictable data, not as magic VRAM.\n- Optimize for agent loops first: repeated prompts, tool schemas, repo context, and long sessions.\n- Preserve links and source notes in `docs/references.md`.\n\n## Repo-Local Skills\n\nMatt Pocock's `teach` skill is installed at `.codex/skills/teach`.\nUse it when turning this research into a guided learning path, exercises, glossary, or learning record.\n\n### Reusable context pass 1\n### Allowlisted context source: MISSION.md\n# Mission\n\n## Topic\n\nSSD-native inference for local AI agents.\n\n## Why This Matters\n\nThe goal is to understand whether a new class of local inference system can make long-context agent work faster and cheaper by using SSDs as a serious memory tier.\n\nThe project is not trying to prove a slogan. It is trying to find the useful shape:\n\n- what should stay hot in RAM or unified memory\n- what can live on SSD\n- what needs compression\n- where prefetching matters\n- which workloads benefit first\n\n## Desired Outcome\n\nBuild enough understanding to make tasteful product and architecture decisions, then create a prototype that measures whether repeated agent workloads get materially faster.\n\n## Constraints\n\n- Six-hour first learning sprint\n- Local-first bias\n- Apple Silicon / MLX is an important playground\n- llama.cpp portability may matter\n- Benchmarks must separate cold, warm, and repeated runs\n\n## First Practical Question\n\nCan repeated OpenClaw-style agent prompts use persistent prefix/KV caching to reduce prefill time without damaging output quality?\n\n### Reusable context pass 1\n### Allowlisted context source: README.md\n# SSD Native Inference\n\nResearch and prototype notes for making local inference treat SSDs as a first-class memory tier.\n\n## Thesis\n\nThe dent is not \"run any dense model directly from any SSD.\" The dent is storage-aware inference for agent workloads:\n\n- persistent prefix and KV cache\n- model-aware block storage\n- SSD-backed long-context reuse\n- MoE expert paging when the model shape supports it\n- Apple Silicon / MLX and llama.cpp as practical local backends\n- a benchmark harness that measures cold, warm, and repeated-agent-loop performance\n\nAgent workloads are the wedge because they repeat system prompts, tool schemas, repo context, memory blocks, and long-lived session prefixes. That repeated shape lets the SSD become useful instead of pretending to be VRAM.\n\n## Start Here\n\n1. Read [docs/idea-brief.md](docs/idea-brief.md).\n2. Do the [6-hour learning plan](docs/learning-plan-6-hours.md).\n3. Use [docs/technical-map.md](docs/technical-map.md) as the system map.\n4. Start with [docs/prototype-plan.md](docs/prototype-plan.md).\n5. Keep sources in [docs/references.md](docs/references.md).\n\n## Installed Skills\n\nMatt Pocock's `teach` skill is installed repo-locally at:\n\n`/.codex/skills/teach`\n\nSource: `mattpocock/skills`, path `skills/in-progress/teach`.\n\n### Reusable context pass 1\n### Allowlisted context source: GLOSSARY.md\n# Glossary\n\n## KV Cache\n\nStored attention keys and values from previous tokens, reused so the model does not recompute the entire prefix.\n\n## Prefill\n\nThe phase where a model processes the input prompt before generating the first new token.\n\n## Decode\n\nThe phase where a model generates new tokens one at a time after prefill.\n\n## Prefix Cache\n\nA cache of reusable prompt prefixes or their derived inference state.\n\n## Attention Sink\n\nAn initial token or small group of initial tokens that a model attends to strongly as an attention anchor, even when the token content is not semantically important.\n\n## Rolling KV Cache\n\nA bounded KV cache that keeps recent tokens while older tokens roll out of the active cache.\n\n## Prefix Block Store\n\nA content-addressed store for reusable prompt blocks and cache-key metadata.\n\n## PagedAttention\n\nA KV cache layout strategy that stores attention state in paged blocks to reduce fragmentation and improve serving efficiency.\n\n## MoE\n\nMixture of Experts. A sparse model architecture where only some expert submodules are activated for each token.\n\n## Expert Paging\n\nKeeping frequently used MoE experts in fast memory while loading colder experts from slower storage when needed.\n\n## Read Amplification\n\nExtra bytes read from storage beyond the data that was actually useful.\n\n## Warm Run\n\nAn inference run that benefits from previously populated caches.\n\n## Cold Run\n\nAn inference run with no relevant cache already available.\n\n### Reusable context pass 1\n### Allowlisted context source: RESOURCES.md\n# Resources\n\n## Core Videos\n\n- Reiner Pope on Dwarkesh: https://youtu.be/xmkSf5IS-zw\n  Use for inference economics, memory bandwidth, sparsity, and context cost.\n\n- LMCache intro: https://www.youtube.com/watch?v=rINy7mFyRAU\n  Use for KV reuse and cache-layer thinking.\n\n- Prince Canuma MLX talk: https://www.youtube.com/watch?v=zTLJNHj0DeQ\n  Use for Apple Silicon and MLX local inference direction.\n\n## Core Reading\n\n- vLLM PagedAttention: https://docs.vllm.ai/en/stable/design/paged_attention/\n  Learn how KV cache paging works.\n\n- LMCache architecture: https://docs.lmcache.ai/developer_guide/architecture.html\n  Learn the production shape of KV cache reuse.\n\n- LMCache local storage backend: https://docs.lmcache.ai/dev/kv_cache/storage_backends/local_storage.html\n  Learn local disk/offload mechanics.\n\n- Apple LLM in a Flash: https://machinelearning.apple.com/research/efficient-large-language\n  Learn the flash-memory framing.\n\n- FlexGen: https://arxiv.org/abs/2303.06865\n  Learn older offload ancestry and tradeoffs.\n\n## Tools and Repos\n\n- oMLX: https://github.com/jundot/omlx\n  Closest practical Apple Silicon reference.\n\n- Matt Pocock skills: https://github.com/mattpocock/skills\n  Source of the repo-local `teach` skill.\n\n## Compression\n\n- TurboQuant coverage: https://www.tomshardware.com/tech-industry/artificial-intelligence/googles-turboquant-compresses-llm-kv-caches-to-3-bits-with-no-accuracy-loss\n\n- TurboQuant hub: https://turbo-quant.com/turboquant-paper\n\n### Reusable context pass 1\n### Allowlisted context source: benchmarks/README.md\n# Ollama Workflow Benchmark\n\nThis benchmark measures local prompt evaluation cost for repeated agent workflows. It is a baseline for future prefix-cache and KV-cache work; it does not implement SSD-backed KV reuse yet.\n\n## Run\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py --model gemma4:latest --runs 1 --num-predict 16\n```\n\nCompare full-prompt baseline against the Ollama context proxy:\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py \\\n  --strategy compare \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --model gemma4:latest \\\n  --runs 1 \\\n  --num-predict 8 \\\n  --prime-num-predict 1 \\\n  --temperature 0\n```\n\nUse `--vary-runs` when `--runs` is greater than 1 and you want repeated samples to avoid exact prompt replay.\n\nCompare warm in-session reuse against restarting the model before each prompt:\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py \\\n  --strategy restart-compare \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --model gemma4:latest \\\n  --runs 1 \\\n  --num-predict 8 \\\n  --temperature 0 \\\n  --write-prefix-manifest\n```\n\nUse `--dry-run` to verify prompt assembly without calling Ollama:\n\n```bash\npython3 benchmarks/ollama_workflow_benchmark.py --dry-run\n```\n\nResults are written to `benchmarks/results/*.json`.\n\nPrefix manifests are written to `benchmarks/prefix-manifests/*.json` when `--write-prefix-manifest` is set.\n\nBuild a metadata-only prefix block store:\n\n```bash\npython3 benchmarks/prefix_block_store.py \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --model gemma4:latest\n```\n\nPrefix store artifacts are written to `benchmarks/prefix-store/`.\n\nRun the llama.cpp prompt-cache feasibility benchmark:\n\n```bash\npython3 benchmarks/llama_cpp_prompt_cache_benchmark.py \\\n  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --predict 8 \\\n  --temperature 0\n```\n\nThis starts `llama-server`, primes the reusable prefix, saves the slot cache, restarts for cold full-prompt baselines, then restarts again and restores the saved slot before changed-tail prompts.\n\nUse `--hf-repo` with a current llama.cpp build when the model should be pulled by llama.cpp instead of supplied as a local GGUF path:\n\n```bash\npython3 benchmarks/llama_cpp_prompt_cache_benchmark.py \\\n  --server-bin /path/to/llama-server \\\n  --hf-repo ggml-org/gpt-oss-20b-GGUF \\\n  --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json \\\n  --predict 8 \\\n  --temperature 0\n```\n\nllama.cpp artifacts are written under `benchmarks/llama-cpp-*` and ignored.\n\nRun the Flashcache wrapper service:\n\n```bash\npython3 -m flashcache.cli \\\n  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \\\n  serve \\\n  --port 8099\n```\n\nSend a cache-aware local chat request:\n\n```bash\ncurl http://127.0.0.1:8099/v1/chat/completions \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"model\": \"local-gemma\",\n    \"messages\": [{\"role\": \"user\", \"content\": \"Changed tail for this agent turn\"}],\n    \"max_tokens\": 8,\n    \"temperature\": 0,\n    \"ssd_cache\": {\n      \"namespace\": \"demo-agent-workflow\",\n      \"stable_prefix_text\": \"Reusable agent instructions and tool schema go here.\",\n      \"debug\": true\n    }\n  }'\n```\n\nThe response includes `X-Flashcache-*` headers. With `debug: true`, the response body also includes a `flashcache` object with cache state, prompt timing, slot save/restore timing, and fallback reason when applicable.\n\nCompare direct llama.cpp calls against the Flashcache wrapper:\n\n```bash\npython3 benchmarks/flashcache_wrapper_benchmark.py \\\n  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \\\n  --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \\\n  --predict 8 \\\n  --temperature 0\n```\n\nFlashcache wrapper artifacts are written under `benchmarks/flashcache/` and `benchmarks/flashcache-results/`, both ignored.\n\n## Fixtures\n\n- `codex_deepclean_workflow.json`: small synthetic Codex/DeepClean workflow used as the first controlled baseline.\n- `lightningitb_deepclean_campaign.json`: sanitized real workflow prompt distilled from the LightningITB DeepClean P1/P2 campaign archive. The fixture records source artifact paths and notes that the raw chat transcript is not stored verbatim.\n- `printtestbot_printing_press_workflow.json`: sanitized Printy/printtestbot-style Printing Press CLI workflow with stable bot/runtime/tool rules and seven changed comm",
+      "tier": "stable"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 1 incoming message:",
+        "Polish this weather CLI and make sure verify passes. Do not publish yet.",
+        "",
+        "Current command output:",
+        "$ git status --short",
+        " M README.md",
+        "?? cli/weather/",
+        "",
+        "$ go run ./cmd/pp-example-weather --help",
+        "Weather data CLI",
+        "Usage: pp-example-weather [command]",
+        "Commands: search-city forecast alerts stations"
+      ],
+      "name": "turn-01-user-request",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 2 command output:",
+        "$ rg -n \"TODO|panic|nil|weather\" cli/weather cmd README.md",
+        "cmd/pp-example-weather/main.go:44: TODO improve descriptions",
+        "cli/weather/client.go:91: if body == nil { return nil, nil }",
+        "cli/weather/search.go:37: return results[:5]",
+        "README.md:22: pp-example-weather forecast --city London",
+        "",
+        "$ go test ./...",
+        "ok github.com/example/pp-example-weather/cli/weather 0.413s"
+      ],
+      "name": "turn-02-inspect-and-plan",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 3 verify output:",
+        "$ ./scripts/verify.sh",
+        "verify: running help checks",
+        "verify: running sampled live commands",
+        "FAIL search-city relevance",
+        "expected first result to include query token 'Davenport'",
+        "got: [{\"name\":\"Davenport University\",\"country\":\"US\"},{\"name\":\"Port Davenport\",\"country\":\"NZ\"}]",
+        "FAIL forecast example",
+        "unknown flag: --city",
+        "exit code 2"
+      ],
+      "name": "turn-03-verify-failure",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 4 patch summary:",
+        "Edited cli/weather/search.go to score exact city-name matches before substring matches.",
+        "Edited cmd/pp-example-weather/main.go to change forecast syntax from --city to positional <city>.",
+        "Edited README.md examples to use positional city arguments.",
+        "",
+        "$ git diff --stat",
+        " README.md                    | 12 ++++++------",
+        " cli/weather/search.go        | 28 ++++++++++++++++++++++++----",
+        " cmd/pp-example-weather/main.go | 10 +++++-----"
+      ],
+      "name": "turn-04-patch-applied",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 5 verification output:",
+        "$ go test ./...",
+        "--- FAIL: TestSearchRanksExactCity (0.00s)",
+        "    search_test.go:42: expected Davenport, got Davenport University",
+        "FAIL",
+        "",
+        "$ go vet ./...",
+        "# github.com/example/pp-example-weather/cli/weather",
+        "cli/weather/client.go:91: result of nil body should be explicit error, not nil response"
+      ],
+      "name": "turn-05-second-failure",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 6 review notes:",
+        "Review comment 1: Search ranking now depends on lowercase normalization but does not strip punctuation.",
+        "Review comment 2: README still shows JSON fields that the CLI no longer emits.",
+        "Review comment 3: Silent nil response should become a typed source error so users know the upstream returned an empty body.",
+        "",
+        "CI state:",
+        "go-test failed, go-vet failed, docs-check skipped because tests failed."
+      ],
+      "name": "turn-06-review-comments",
+      "tier": "volatile"
+    },
+    {
+      "cache_policy": "do-not-cache-blindly",
+      "lines": [
+        "Turn 7 final validation output:",
+        "$ go test ./...",
+        "ok github.com/example/pp-example-weather/cli/weather 0.532s",
+        "",
+        "$ go vet ./...",
+        "no issues",
+        "",
+        "$ ./scripts/verify.sh",
+        "verify: help checks passed",
+        "verify: sampled live commands passed",
+        "verify: README examples passed",
+        "",
+        "$ git status --short",
+        " M README.md",
+        " M cli/weather/client.go",
+        " M cli/weather/search.go",
+        " M cli/weather/search_test.go",
+        " M cmd/pp-example-weather/main.go"
+      ],
+      "name": "turn-07-final-validation",
+      "tier": "volatile"
+    }
+  ],
+  "description": "Sanitized Printy/printtestbot-style long-agent workflow for a Printing Press CLI build/fix/retry loop. The fixture is designed to test reusable prefix and KV persistence with stable bot/runtime instructions plus changed command-output tails. Generated large-prefix variant with 16,384 reusable prefix bytes.",
+  "metadata": {
+    "benchmark_goal": "Test whether a real Printy-style agent loop with stable identity, runtime rules, capabilities, tool schemas, repo context, and changing command-output tails can preserve useful prefix/KV work across restarts or separate invocations.",
+    "created_at": "2026-06-02",
+    "expected_cache_boundary": "Save or reuse after stable_prefix plus semi_stable_context, before volatile_tail.",
+    "fixture_version": 1,
+    "generated_large_prefix": {
+      "actual_prefix_bytes": 16384,
+      "allowlisted_context_sources": [
+        "AGENTS.md",
+        "MISSION.md",
+        "README.md",
+        "GLOSSARY.md",
+        "RESOURCES.md",
+        "benchmarks/README.md",
+        "benchmarks/datasets/printtestbot-printing-press-2026-06-02/README.md",
+        "openspec/specs/ollama-workflow-benchmark/spec.md",
+        "openspec/specs/llama-cpp-prompt-cache-benchmark/spec.md",
+        "openspec/specs/llama-cpp-agent-cache-wrapper/spec.md",
+        "openspec/specs/benchmark-result-summary/spec.md",
+        "openspec/specs/prefix-block-store/spec.md",
+        "openspec/specs/research-positioning-doc/spec.md"
+      ],
+      "estimated_largest_prompt_tokens": 4874,
+      "expansion_block_names": [
+        "large-agent-context-16kb"
+      ],
+      "generator": "benchmarks/generate_large_prefix_fixtures.py",
+      "largest_prompt_bytes": 17058,
+      "recommended_ctx_size": 8192,
+      "safety_status": "passed",
+      "source_fixture": "/Users/dushyantgarg/Documents/Projects/ssd-native-inference/benchmarks/fixtures/printtestbot_printing_press_workflow.json",
+      "target_prefix_bytes": 16384
+    },
+    "model_target": "Local instruct model; 7B first for mechanics, larger 14B/20B models for realistic local-agent latency once available.",
+    "sanitization": {
+      "machine_paths_generalized": true,
+      "personal_context_removed": true,
+      "private_chat_ids_removed": true,
+      "raw_transcript_stored": false,
+      "secrets_removed": true,
+      "tokens_removed": true
+    },
+    "source": "Distilled from print-a-bot prompt assembly and sanitized Printy dogfood workflow shape; not a raw private transcript.",
+    "source_files_inspected": [
+      "/Volumes/MacSSD/Projects/print-a-bot/src/runner.ts",
+      "/Volumes/MacSSD/Projects/print-a-bot/src/local-model.ts",
+      "/Volumes/MacSSD/Projects/print-a-bot/src/workflow-runtime.ts",
+      "/Volumes/MacSSD/Projects/print-a-bot/AGENTS.md",
+      "/Volumes/MacSSD/Projects/print-a-bot/docs/VISION.md"
+    ],
+    "source_repo": "fraction12/print-a-bot",
+    "target_repo": "fraction12/ssd-native-inference"
+  },
+  "name": "printtestbot-printing-press-workflow-large-prefix-16kb",
+  "scenarios": [
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-16kb",
+        "turn-01-user-request"
+      ],
+      "description": "Initial user request and repo status for the CLI polish workflow.",
+      "name": "turn-01-intake",
+      "task": "Return the next action for this initial workflow state."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-16kb",
+        "turn-02-inspect-and-plan"
+      ],
+      "description": "Inspection output shows likely CLI polish issues without test failure yet.",
+      "name": "turn-02-inspect",
+      "task": "Return the next action after inspection."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-16kb",
+        "turn-03-verify-failure"
+      ],
+      "description": "Verify fails from ranking and README/example mismatch.",
+      "name": "turn-03-verify-failure",
+      "task": "Return the next action for the failed verify state."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-16kb",
+        "turn-04-patch-applied"
+      ],
+      "description": "Patch has been applied and needs validation.",
+      "name": "turn-04-patch-state",
+      "task": "Return the next validation action after the patch."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-16kb",
+        "turn-05-second-failure"
+      ],
+      "description": "Tests and vet fail after the first patch.",
+      "name": "turn-05-test-and-vet-failure",
+      "task": "Return the next action for test and vet failures."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-16kb",
+        "turn-06-review-comments"
+      ],
+      "description": "Review comments and CI state require a second fix loop.",
+      "name": "turn-06-review-feedback",
+      "task": "Return the next action for review feedback."
+    },
+    {
+      "blocks": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions",
+        "large-agent-context-16kb",
+        "turn-07-final-validation"
+      ],
+      "description": "Final validation passes and the workflow needs a handoff decision.",
+      "name": "turn-07-final-handoff",
+      "task": "Return the final handoff action and remaining risk note."
+    }
+  ]
+}

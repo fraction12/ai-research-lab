@@ -127,11 +127,13 @@ Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `ben
 - `codex_deepclean_workflow.json`: small synthetic Codex/DeepClean workflow used as the first controlled baseline.
 - `lightningitb_deepclean_campaign.json`: sanitized real workflow prompt distilled from the LightningITB DeepClean P1/P2 campaign archive. The fixture records source artifact paths and notes that the raw chat transcript is not stored verbatim.
 - `printtestbot_printing_press_workflow.json`: sanitized Printy/printtestbot-style Printing Press CLI workflow with stable bot/runtime/tool rules and seven changed command-output tails.
+- `printtestbot-printing-press-workflow-large-prefix-16kb.json`, `32kb.json`, and `64kb.json`: generated large-prefix variants for testing whether Flashcache value scales as reusable agent context grows.
 
 ## Recorded Datasets
 
 - `benchmarks/datasets/printtestbot-printing-press-2026-06-02/`: DushyantPC runs for the Printy fixture, including raw Ollama, llama.cpp slot-cache, and Flashcache wrapper result JSON.
   - Includes `gpt-oss:20b` Ollama baseline data plus official `gpt-oss-20b-mxfp4.gguf` llama.cpp/Flashcache follow-up data.
+- `benchmarks/datasets/printtestbot-large-prefix-2026-06-02/`: DushyantPC runs for generated larger-prefix Printy fixtures.
 
 ## What To Look At
 
@@ -143,6 +145,14 @@ Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `ben
 - `restart_comparison.restarted_minus_warm_prompt_eval_duration`: positive means model restarts removed warm-prefix benefit and created a persistence gap.
 - `prefix_manifest.cache_key_sha256`: metadata-only cache key scaffold for future prefix/KV cache work.
 - `comparison.baseline_minus_restored_prompt_ms`: positive means llama.cpp slot restore reduced prompt processing time versus fresh full-prompt baselines.
+
+Generate large-prefix fixture variants:
+
+```bash
+python3 benchmarks/generate_large_prefix_fixtures.py
+```
+
+The generator uses only allowlisted repo-local context, checks common secret patterns, preserves the original volatile tails, and records context-size guidance in fixture metadata.
 
 ## Strategy Modes
 
