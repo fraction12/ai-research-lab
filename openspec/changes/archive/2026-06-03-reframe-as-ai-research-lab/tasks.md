@@ -14,6 +14,6 @@
 ## 3. Validation And Rename
 
 - [x] 3.1 Run OpenSpec validation and relevant test/import checks.
-- [ ] 3.2 Commit and push the restructure.
-- [ ] 3.3 Rename the GitHub repo to `ai-research-lab`.
-- [ ] 3.4 Rename the local folder to `ai-research-lab` and verify git remote/status.
+- [x] 3.2 Commit and push the restructure.
+- [x] 3.3 Rename the GitHub repo to `ai-research-lab`.
+- [x] 3.4 Rename the local folder to `ai-research-lab` and verify git remote/status.
