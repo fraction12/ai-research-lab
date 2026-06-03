@@ -6,6 +6,8 @@ import dataclasses
 import datetime as dt
 import time
 import uuid
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
@@ -99,6 +101,30 @@ def timing_record(response: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+@dataclasses.dataclass
+class BoundaryTimings:
+    started_at: float = dataclasses.field(default_factory=time.perf_counter)
+    phases_ms: dict[str, float] = dataclasses.field(default_factory=dict)
+
+    @contextmanager
+    def phase(self, name: str) -> Iterator[None]:
+        started = time.perf_counter()
+        try:
+            yield
+        finally:
+            self.record(name, (time.perf_counter() - started) * 1000)
+
+    def record(self, name: str, duration_ms: float | None) -> None:
+        if duration_ms is None:
+            return
+        current = self.phases_ms.get(name, 0.0)
+        self.phases_ms[name] = current + float(duration_ms)
+
+    def finish(self) -> dict[str, float]:
+        self.phases_ms["total_wrapper_ms"] = (time.perf_counter() - self.started_at) * 1000
+        return dict(self.phases_ms)
+
+
 def completion_text(response: dict[str, Any]) -> str:
     return str(response.get("content", ""))
 
@@ -150,14 +176,17 @@ class FlashcacheWrapper:
         self.store = CacheStore(config.manifest_dir, config.slot_cache_dir, config.max_cache_bytes)
 
     def complete(self, payload: dict[str, Any]) -> tuple[dict[str, Any], dict[str, str]]:
-        parsed = parse_chat_request(payload)
+        boundary = BoundaryTimings()
+        with boundary.phase("request_parse_ms"):
+            parsed = parse_chat_request(payload)
         if parsed.stream:
             raise UnsupportedRequestError("streaming chat completions are not supported by this wrapper yet")
-        server_version = llama_server_version(self.config.server_bin)
+        with boundary.phase("server_version_ms"):
+            server_version = llama_server_version(self.config.server_bin)
         if not parsed.has_cache_metadata or not parsed.stable_prefix_prompt:
-            response, telemetry = self._direct_completion(parsed, server_version, "bypass")
+            response, telemetry = self._direct_completion(parsed, server_version, "bypass", boundary=boundary)
             return response, telemetry_headers(telemetry)
-        response, telemetry = self._cache_aware_completion(parsed, server_version)
+        response, telemetry = self._cache_aware_completion(parsed, server_version, boundary)
         return response, telemetry_headers(telemetry)
 
     def _direct_completion(
@@ -166,13 +195,16 @@ class FlashcacheWrapper:
         server_version: str,
         cache_state: str,
         fallback_reason: str | None = None,
+        boundary: BoundaryTimings | None = None,
     ) -> tuple[dict[str, Any], dict[str, Any]]:
+        boundary = boundary or BoundaryTimings()
         with ManagedLlamaServer(self.config.server_config(), label="direct") as client:
-            llama_response = client.completion(
-                parsed.full_prompt,
-                n_predict=parsed.max_tokens,
-                temperature=parsed.temperature,
-            )
+            with boundary.phase("direct_completion_ms"):
+                llama_response = client.completion(
+                    parsed.full_prompt,
+                    n_predict=parsed.max_tokens,
+                    temperature=parsed.temperature,
+                )
         timings = timing_record(llama_response)
         telemetry = {
             "cache_state": cache_state,
@@ -182,6 +214,7 @@ class FlashcacheWrapper:
             "prompt_ms": timings.get("prompt_ms"),
             "prompt_n": timings.get("prompt_n"),
             "timings": timings,
+            "boundary_timings": boundary.finish(),
         }
         return chat_response(parsed, llama_response, telemetry), telemetry
 
@@ -189,24 +222,33 @@ class FlashcacheWrapper:
         self,
         parsed: ParsedChatRequest,
         server_version: str,
+        boundary: BoundaryTimings,
     ) -> tuple[dict[str, Any], dict[str, Any]]:
-        cache_key, key_material = build_cache_key(
-            namespace=parsed.namespace,
-            model_identity=self.config.model_identity(),
-            server_version=server_version,
-            ctx_size=self.config.ctx_size,
-            llama_settings=self.config.llama_settings(),
-            stable_prefix_prompt=parsed.stable_prefix_prompt,
-            block_hashes=parsed.block_hashes,
-        )
-        manifest = self.store.load(cache_key)
+        with boundary.phase("cache_key_ms"):
+            cache_key, key_material = build_cache_key(
+                namespace=parsed.namespace,
+                model_identity=self.config.model_identity(),
+                server_version=server_version,
+                ctx_size=self.config.ctx_size,
+                llama_settings=self.config.llama_settings(),
+                stable_prefix_prompt=parsed.stable_prefix_prompt,
+                block_hashes=parsed.block_hashes,
+            )
+        with boundary.phase("cache_lookup_ms"):
+            manifest = self.store.load(cache_key)
         slot_filename = f"{cache_key[:16]}-slot.bin"
         if manifest and self.store.slot_path(manifest.slot_filename).exists():
             try:
-                response, telemetry = self._cache_hit(parsed, cache_key, manifest, server_version)
+                response, telemetry = self._cache_hit(parsed, cache_key, manifest, server_version, boundary)
                 return response, telemetry
             except (LlamaCppError, CacheError) as exc:
-                response, telemetry = self._direct_completion(parsed, server_version, "fallback", str(exc))
+                response, telemetry = self._direct_completion(
+                    parsed,
+                    server_version,
+                    "fallback",
+                    str(exc),
+                    boundary=boundary,
+                )
                 return response, telemetry
 
         manifest = new_manifest(
@@ -221,7 +263,7 @@ class FlashcacheWrapper:
             tail_prompt=parsed.tail_prompt,
             persist_volatile_text=parsed.persist_volatile_text,
         )
-        response, telemetry = self._cache_miss(parsed, cache_key, manifest, server_version)
+        response, telemetry = self._cache_miss(parsed, cache_key, manifest, server_version, boundary)
         return response, telemetry
 
     def _cache_miss(
@@ -230,24 +272,28 @@ class FlashcacheWrapper:
         cache_key: str,
         manifest: CacheManifest,
         server_version: str,
+        boundary: BoundaryTimings,
     ) -> tuple[dict[str, Any], dict[str, Any]]:
         with ManagedLlamaServer(self.config.server_config(), label=f"miss-{cache_key[:8]}") as client:
-            prime_response = client.completion(
-                parsed.stable_prefix_prompt,
-                n_predict=self.config.prime_n_predict,
-                temperature=0.0,
-            )
-            save_response = client.save_slot(manifest.slot_filename)
+            with boundary.phase("prefix_prime_ms"):
+                prime_response = client.completion(
+                    parsed.stable_prefix_prompt,
+                    n_predict=self.config.prime_n_predict,
+                    temperature=0.0,
+                )
+            with boundary.phase("slot_save_ms"):
+                save_response = client.save_slot(manifest.slot_filename)
             slot_path = self.store.slot_path(manifest.slot_filename)
             manifest.saved_tokens = save_response.get("n_saved")
             manifest.slot_file_bytes = slot_path.stat().st_size if slot_path.exists() else save_response.get("n_written")
-            manifest.save_ms = save_response.get("timings", {}).get("save_ms")
+            manifest.save_ms = save_response.get("timings", {}).get("save_ms") or save_response.get("_wall_ms")
             self.store.save(manifest)
-            llama_response = client.completion(
-                parsed.full_prompt,
-                n_predict=parsed.max_tokens,
-                temperature=parsed.temperature,
-            )
+            with boundary.phase("tail_completion_ms"):
+                llama_response = client.completion(
+                    parsed.full_prompt,
+                    n_predict=parsed.max_tokens,
+                    temperature=parsed.temperature,
+                )
 
         timings = timing_record(llama_response)
         telemetry = {
@@ -262,6 +308,7 @@ class FlashcacheWrapper:
             "prompt_ms": timings.get("prompt_ms"),
             "prompt_n": timings.get("prompt_n"),
             "timings": timings,
+            "boundary_timings": boundary.finish(),
         }
         manifest.prompt_ms = timings.get("prompt_ms")
         self.store.save(manifest)
@@ -274,17 +321,20 @@ class FlashcacheWrapper:
         cache_key: str,
         manifest: CacheManifest,
         server_version: str,
+        boundary: BoundaryTimings,
     ) -> tuple[dict[str, Any], dict[str, Any]]:
         with ManagedLlamaServer(self.config.server_config(), label=f"hit-{cache_key[:8]}") as client:
-            restore_response = client.restore_slot(manifest.slot_filename)
-            llama_response = client.completion(
-                parsed.full_prompt,
-                n_predict=parsed.max_tokens,
-                temperature=parsed.temperature,
-            )
+            with boundary.phase("slot_restore_ms"):
+                restore_response = client.restore_slot(manifest.slot_filename)
+            with boundary.phase("tail_completion_ms"):
+                llama_response = client.completion(
+                    parsed.full_prompt,
+                    n_predict=parsed.max_tokens,
+                    temperature=parsed.temperature,
+                )
         timings = timing_record(llama_response)
         manifest.restored_tokens = restore_response.get("n_restored")
-        manifest.restore_ms = restore_response.get("timings", {}).get("restore_ms")
+        manifest.restore_ms = restore_response.get("timings", {}).get("restore_ms") or restore_response.get("_wall_ms")
         manifest.prompt_ms = timings.get("prompt_ms")
         self.store.save(manifest)
         telemetry = {
@@ -298,5 +348,6 @@ class FlashcacheWrapper:
             "prompt_ms": timings.get("prompt_ms"),
             "prompt_n": timings.get("prompt_n"),
             "timings": timings,
+            "boundary_timings": boundary.finish(),
         }
         return chat_response(parsed, llama_response, telemetry), telemetry

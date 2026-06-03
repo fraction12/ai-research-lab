@@ -4,6 +4,7 @@ import unittest
 
 from flashcache.cache import CacheError
 from flashcache.wrapper import (
+    BoundaryTimings,
     FlashcacheConfig,
     FlashcacheWrapper,
     UnsupportedRequestError,
@@ -57,12 +58,23 @@ class FlashcacheApiTests(unittest.TestCase):
                 "content": "world",
                 "timings": {"prompt_n": 3, "predicted_n": 1},
             },
-            {"cache_state": "hit"},
+            {"cache_state": "hit", "boundary_timings": {"cache_lookup_ms": 1.25}},
         )
 
         self.assertEqual(response["choices"][0]["message"]["content"], "world")
         self.assertEqual(response["usage"]["total_tokens"], 4)
         self.assertEqual(response["flashcache"]["cache_state"], "hit")
+        self.assertEqual(response["flashcache"]["boundary_timings"]["cache_lookup_ms"], 1.25)
+
+    def test_boundary_timings_accumulate_phase_durations(self) -> None:
+        timings = BoundaryTimings()
+
+        timings.record("cache_lookup_ms", 1.25)
+        timings.record("cache_lookup_ms", 0.75)
+        result = timings.finish()
+
+        self.assertEqual(result["cache_lookup_ms"], 2.0)
+        self.assertGreaterEqual(result["total_wrapper_ms"], 0)
 
 
 if __name__ == "__main__":

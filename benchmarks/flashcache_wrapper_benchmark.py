@@ -57,6 +57,12 @@ def sum_prompt_ms(runs: list[dict[str, Any]], timing_key: str = "timings") -> fl
     return sum(values) if values else None
 
 
+def direct_boundary_timings(response: dict[str, Any]) -> dict[str, float]:
+    timing = timing_record(response)
+    wall_ms = timing.get("wall_ms")
+    return {"direct_completion_ms": float(wall_ms)} if isinstance(wall_ms, (int, float)) else {}
+
+
 def direct_baseline(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[dict[str, Any]]:
     runs = []
     config = FlashcacheConfig(
@@ -82,6 +88,7 @@ def direct_baseline(args: argparse.Namespace, prompt_set: dict[str, Any]) -> lis
                 "prompt_bytes": scenario["prompt_bytes"],
                 "prompt_sha256": scenario["prompt_sha256"],
                 "timings": timing_record(response),
+                "boundary_timings": direct_boundary_timings(response),
                 "content_excerpt": str(response.get("content", ""))[:300],
             }
         )
@@ -125,6 +132,7 @@ def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> list[d
                 "cache_state": telemetry.get("cache_state"),
                 "headers": headers,
                 "telemetry": telemetry,
+                "boundary_timings": telemetry.get("boundary_timings", {}),
                 "assistant_excerpt": response["choices"][0]["message"]["content"][:300],
             }
         )

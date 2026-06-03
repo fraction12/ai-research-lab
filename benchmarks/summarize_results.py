@@ -25,6 +25,11 @@ class SummaryRow:
     hit_rate: Any = None
     cache_states: str | None = None
     slot_file_bytes: Any = None
+    boundary_direct_ms: Any = None
+    boundary_wrapper_ms: Any = None
+    boundary_save_ms: Any = None
+    boundary_restore_ms: Any = None
+    boundary_tail_ms: Any = None
     unsupported_reason: str | None = None
 
 
@@ -35,6 +40,21 @@ def value(data: dict[str, Any], *keys: str) -> Any:
             return None
         current = current[key]
     return current
+
+
+def sum_boundary(runs: list[dict[str, Any]], phase: str) -> float | None:
+    values = []
+    for run in runs:
+        boundary = run.get("boundary_timings")
+        if not isinstance(boundary, dict):
+            telemetry = run.get("telemetry", {})
+            boundary = telemetry.get("boundary_timings") if isinstance(telemetry, dict) else None
+        if not isinstance(boundary, dict):
+            continue
+        phase_value = boundary.get(phase)
+        if isinstance(phase_value, (int, float)):
+            values.append(float(phase_value))
+    return sum(values) if values else None
 
 
 def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
@@ -62,6 +82,8 @@ def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
 
     if "direct_prompt_ms_sum" in comparison or "wrapper_prompt_ms_sum" in comparison:
         states = [str(run.get("cache_state", "n/a")) for run in data.get("wrapper_cache_aware", [])]
+        direct_runs = data.get("direct_full_prompt", [])
+        wrapper_runs = data.get("wrapper_cache_aware", [])
         return SummaryRow(
             kind="flashcache-wrapper",
             before_ms=comparison.get("direct_prompt_ms_sum"),
@@ -70,6 +92,11 @@ def summarize_data(data: dict[str, Any], path: Path) -> SummaryRow:
             ratio=comparison.get("direct_minus_wrapper_prompt_ratio"),
             hit_rate=comparison.get("wrapper_cache_hit_rate"),
             cache_states=",".join(states) if states else None,
+            boundary_direct_ms=sum_boundary(direct_runs, "direct_completion_ms"),
+            boundary_wrapper_ms=sum_boundary(wrapper_runs, "total_wrapper_ms"),
+            boundary_save_ms=sum_boundary(wrapper_runs, "slot_save_ms"),
+            boundary_restore_ms=sum_boundary(wrapper_runs, "slot_restore_ms"),
+            boundary_tail_ms=sum_boundary(wrapper_runs, "tail_completion_ms"),
             **common,
         )
 
@@ -140,6 +167,11 @@ def render(rows: list[SummaryRow]) -> str:
         "ratio",
         "hit_rate",
         "slot_bytes",
+        "boundary_direct_ms",
+        "boundary_wrapper_ms",
+        "boundary_save_ms",
+        "boundary_restore_ms",
+        "boundary_tail_ms",
         "cache_states",
         "path",
     ]
@@ -159,6 +191,11 @@ def render(rows: list[SummaryRow]) -> str:
                     format_value(row.ratio),
                     format_value(row.hit_rate),
                     format_value(row.slot_file_bytes),
+                    format_value(row.boundary_direct_ms),
+                    format_value(row.boundary_wrapper_ms),
+                    format_value(row.boundary_save_ms),
+                    format_value(row.boundary_restore_ms),
+                    format_value(row.boundary_tail_ms),
                     row.cache_states or "n/a",
                     str(row.path),
                 ]

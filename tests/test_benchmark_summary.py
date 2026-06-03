@@ -47,7 +47,30 @@ class BenchmarkSummaryTests(unittest.TestCase):
             {
                 "metadata": {"model": "model.gguf", "fixture": "fixture.json", "started_at": "2026-06-02T00:00:00Z"},
                 "prompt_set": {"prefix_prompt_bytes": 5487},
-                "wrapper_cache_aware": [{"cache_state": "miss"}, {"cache_state": "hit"}],
+                "direct_full_prompt": [
+                    {"boundary_timings": {"direct_completion_ms": 10.0}},
+                    {"boundary_timings": {"direct_completion_ms": 20.0}},
+                ],
+                "wrapper_cache_aware": [
+                    {
+                        "cache_state": "miss",
+                        "boundary_timings": {
+                            "total_wrapper_ms": 8.0,
+                            "slot_save_ms": 1.5,
+                            "tail_completion_ms": 6.0,
+                        },
+                    },
+                    {
+                        "cache_state": "hit",
+                        "telemetry": {
+                            "boundary_timings": {
+                                "total_wrapper_ms": 7.0,
+                                "slot_restore_ms": 2.5,
+                                "tail_completion_ms": 4.0,
+                            }
+                        },
+                    },
+                ],
                 "comparison": {
                     "direct_prompt_ms_sum": 8320.438,
                     "wrapper_prompt_ms_sum": 7374.344,
@@ -65,6 +88,15 @@ class BenchmarkSummaryTests(unittest.TestCase):
         self.assertEqual(row.after_ms, 7374.344)
         self.assertEqual(row.cache_states, "miss,hit")
         self.assertEqual(row.hit_rate, 0.5)
+        self.assertEqual(row.boundary_direct_ms, 30.0)
+        self.assertEqual(row.boundary_wrapper_ms, 15.0)
+        self.assertEqual(row.boundary_save_ms, 1.5)
+        self.assertEqual(row.boundary_restore_ms, 2.5)
+        self.assertEqual(row.boundary_tail_ms, 10.0)
+
+        rendered = summary.render([row])
+        self.assertIn("boundary_wrapper_ms", rendered)
+        self.assertIn("15.000", rendered)
 
     def test_unsupported_json_continues_as_row(self) -> None:
         path = self.write_json({"metadata": {"model": "unknown"}})
