@@ -127,7 +127,16 @@ The system SHALL provide a smoke benchmark for the wrapper cache path.
 - **WHEN** the user runs the wrapper benchmark with session cache mode
 - **THEN** the benchmark prewarms the reusable prefix slot before measured wrapper runs
 - **AND** restores the slot once into a persistent wrapper server session before measured wrapper runs
-- **AND** sends changed-tail prompts without restoring the slot before each measured turn
+- **AND** sends full changed-tail prompts without restoring the slot before each measured turn
+- **AND** records session setup telemetry separately from measured wrapper runs
+- **AND** records the selected cache mode in result metadata
+
+#### Scenario: Run wrapper benchmark with session-tail cache mode
+- **WHEN** the user runs the wrapper benchmark with session-tail cache mode
+- **THEN** the benchmark prewarms the reusable prefix slot before measured wrapper runs
+- **AND** restores the slot once into a persistent wrapper server session before measured wrapper runs
+- **AND** sends only changed-tail prompt text without restoring the slot before each measured turn
+- **AND** marks measured runs as tail-only session cache hits
 - **AND** records session setup telemetry separately from measured wrapper runs
 - **AND** records the selected cache mode in result metadata
 

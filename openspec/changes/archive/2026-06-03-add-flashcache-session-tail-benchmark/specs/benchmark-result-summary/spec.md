@@ -1,8 +1,5 @@
-# benchmark-result-summary Specification
+## MODIFIED Requirements
 
-## Purpose
-Summarize benchmark result JSON files into compact comparison reports so repeated local/PC runs can be interpreted without manually opening raw artifacts.
-## Requirements
 ### Requirement: Summarize benchmark result JSON
 The system SHALL provide command-line tooling for turning benchmark result JSON files into compact comparison reports and reproducible research figures.
 

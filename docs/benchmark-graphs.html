@@ -230,6 +230,41 @@
         font-size: 0.86rem;
       }
 
+      .argument-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 20px;
+      }
+
+      .argument-box {
+        border-top: 2px solid var(--ink);
+        padding-top: 12px;
+      }
+
+      .argument-box h3 {
+        margin: 0 0 8px;
+        font-size: 1rem;
+        line-height: 1.2;
+      }
+
+      .argument-box p {
+        margin: 0;
+        color: #33383d;
+        font-size: 0.96rem;
+      }
+
+      .callout {
+        border-left: 4px solid var(--ink);
+        margin: 24px 0 0;
+        padding: 2px 0 2px 18px;
+      }
+
+      .callout p {
+        max-width: 900px;
+        margin: 0;
+      }
+
       footer {
         padding-top: 22px;
         color: var(--muted);
@@ -248,6 +283,10 @@
         }
 
         .supplement-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .argument-grid {
           grid-template-columns: 1fr;
         }
 
@@ -289,9 +328,64 @@
       <div class="abstract" aria-labelledby="abstract-title">
         <h2 id="abstract-title">Abstract</h2>
         <p>
-          These figures summarize the current Flashcache benchmark evidence. The results do not merely show that prompt caching exists; they show where SSD-backed inference state may become useful for ordinary local-agent machines. Warm sessions are much cheaper than restarted sessions, exact replay is only a control, small-prefix gains depend on backend behavior, and the new persistent/hot-cache runs show that reusable-prefix savings become much clearer once process startup and cold cache-fill noise are separated. Whole-slot files still grow quickly enough that the next layer must measure restore-once session residency, layout, and I/O.
+          These figures summarize the current Flashcache benchmark evidence and the product direction it suggests. The claim is not that Markdown context files, skills, or retrieval are obsolete. They remain the source of truth. The claim is that repeated stable context can become cheaper to keep present for local agents when it is compiled into reusable inference state. The new persistent, hot-cache, and session-tail runs show that reusable-prefix savings become much clearer once process startup, cold cache-fill noise, and full-prompt replay are separated. The next product question is whether an explicit session API can turn that lower repeated-context cost into faster or more reliable specialized agent workflows.
         </p>
       </div>
+
+      <section aria-labelledby="product-thesis-title">
+        <h2 id="product-thesis-title">Applied Product Thesis</h2>
+        <p>
+          The practical product is not a new way to store knowledge. A team can already give an agent Markdown files, repo instructions, examples, and tool schemas. Flashcache is different only if it makes that same stable context cheaper to use repeatedly, without changing the model weights or pretending the cache is memory in a human sense.
+        </p>
+
+        <div class="argument-grid" aria-label="Applied product argument">
+          <div class="argument-box">
+            <h3>Markdown remains canonical.</h3>
+            <p>The cache should be derived from normal files: skills, specs, repo maps, tool schemas, examples, and operating rules. If those files change, the cached prefix must be rebuilt.</p>
+          </div>
+          <div class="argument-box">
+            <h3>The cache removes repeated prefill.</h3>
+            <p>The model should not reprocess the same stable context on every local-agent turn when only the task tail, tool output, or diff changed.</p>
+          </div>
+          <div class="argument-box">
+            <h3>The harness proves product value.</h3>
+            <p>The plugin is valuable only if the same local model and same files complete real workflows faster, cheaper, or more reliably under controlled comparison.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <p>
+            Product hypothesis: a local OpenClaw-style agent running a specialized workflow should improve when a Flashcache plugin keeps stable workflow context resident. The current benchmarks show up to 82.0% prompt-eval reduction on the 64KB hot-cache fixture and 79.8% on the 64KB session-tail fixture; they do not yet prove an 80% better agent. That must be measured end to end.
+          </p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Plain MD context</th>
+              <th>Flashcache plugin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>What knowledge is used?</td>
+              <td>Markdown files, skills, specs, examples, schemas</td>
+              <td>The same files, assembled into a stable reusable prefix</td>
+            </tr>
+            <tr>
+              <td>What changes?</td>
+              <td>The model re-prefills stable tokens each run or turn</td>
+              <td>The stable prefix is prefilled once, saved, restored, or kept resident</td>
+            </tr>
+            <tr>
+              <td>What must be proven?</td>
+              <td>The agent has the right instructions available</td>
+              <td>The agent keeps equal or better quality while reducing repeated-context cost</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
       <section aria-labelledby="figures-title">
         <h2 id="figures-title">Primary Figures</h2>
@@ -316,7 +410,7 @@
           <img src="assets/benchmark-graphs/flashcache-gains-projection.svg" alt="Line chart showing direct prompt evaluation, Flashcache wrapper evaluation, a 128KB linear projection, and a metal target.">
           <figcaption>
             <span class="figure-label">Figure 2. Projection target for the next implementation layer.</span>
-            The 64KB hot-cache measurement saves 11.29s of prompt-eval time across seven turns, reducing prompt evaluation from 13.77s to 2.48s. A simple linear fit over the measured 16KB, 32KB, and 64KB hot-cache ladder projects 23.1s saved at 128KB. The next research step is not another prompt-cache proof; it is a session-resident benchmark that restores once and measures whether the prefix can stay useful across many changed-tail turns.
+            The 64KB hot-cache measurement saves 11.29s of prompt-eval time across seven turns, reducing prompt evaluation from 13.77s to 2.48s. The 64KB session-tail run saves 10.99s while restoring the prefix once and sending only changed tails. A simple linear fit over the measured 16KB, 32KB, and 64KB hot-cache ladder projects 23.1s saved at 128KB. The next research step is an explicit session API with tail append, clean-prefix reset, and quality scoring.
           </figcaption>
           <div class="downloads" aria-label="Figure 2 downloads">
             <a href="assets/benchmark-graphs/flashcache-gains-projection.svg">SVG</a>
@@ -326,10 +420,10 @@
         </figure>
 
         <figure class="paper-figure">
-          <img src="assets/benchmark-graphs/large-prefix-cache-mode-comparison.svg" alt="Line chart comparing prompt-eval reduction across per-request cold, boundary telemetry, persistent cold, version-cached cold, and hot-cache benchmark modes.">
+          <img src="assets/benchmark-graphs/large-prefix-cache-mode-comparison.svg" alt="Line chart comparing prompt-eval reduction across cold, hot-cache, full-prompt session, and tail-only session benchmark modes.">
           <figcaption>
             <span class="figure-label">Figure 3. Server and cache mode change the visible gain.</span>
-            The original per-request cold ladder showed only about 13.9% prompt-eval reduction at 64KB because process and cold-cache effects obscured the reusable-prefix value. Persistent server mode, server-version caching, and hot-cache mode expose the actual steady-state shape: the 64KB hot-cache run saves 82.0% of prompt-eval time with a 100% measured cache-hit rate.
+            The original per-request cold ladder showed only about 13.9% prompt-eval reduction at 64KB because process and cold-cache effects obscured the reusable-prefix value. Persistent server mode, server-version caching, and hot-cache mode expose the actual steady-state shape. Full-prompt session replay is the bad target at -0.3% saved for 64KB; tail-only session mode recovers 79.8% with a one-time restore and 100% measured cache-hit rate.
           </figcaption>
           <div class="downloads" aria-label="Figure 3 downloads">
             <a href="assets/benchmark-graphs/large-prefix-cache-mode-comparison.svg">SVG</a>
@@ -401,6 +495,45 @@
         </table>
       </section>
 
+      <section aria-labelledby="harness-title">
+        <h2 id="harness-title">Harness Validation Path</h2>
+        <p>
+          The next credible proof is an applied agent harness, not another isolated prompt-cache demo. The baseline should run the local model with the normal Markdown files injected or retrieved in the usual way. The treatment should run the same model, same files, same tasks, and same tools, but with the stable context loaded through Flashcache.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Why it matters</th>
+              <th>Acceptance signal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Prompt-eval and wall-clock time</td>
+              <td>Shows whether cached context makes local loops practically faster</td>
+              <td>Large repeated-context savings without hidden setup cost dominating the run</td>
+            </tr>
+            <tr>
+              <td>Workflow completion rate</td>
+              <td>Shows whether the agent remains useful, not merely fast</td>
+              <td>Equal or higher success on fixed OpenClaw/DeepClean-style tasks</td>
+            </tr>
+            <tr>
+              <td>Quality and regression checks</td>
+              <td>Prevents a cache optimization from masking bad edits or worse reasoning</td>
+              <td>Tests, CI, review outcomes, and task-specific graders stay comparable or improve</td>
+            </tr>
+            <tr>
+              <td>Resource footprint</td>
+              <td>Determines whether regular machines can afford the cache layer</td>
+              <td>SSD size, restore time, and eviction behavior remain bounded</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
       <section aria-labelledby="supplement-title">
         <h2 id="supplement-title">Supplementary Figures</h2>
         <p>
@@ -441,7 +574,7 @@
 python3 benchmarks/plot_benchmark_graphs.py</code></pre>
 
         <p>
-          Source inputs are under <code>benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/</code>, <code>benchmarks/datasets/printtestbot-large-prefix-2026-06-02/raw/</code>, <code>benchmarks/datasets/printtestbot-boundary-telemetry-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-persistent-server-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-server-version-cache-2026-06-03/raw/</code>, and <code>benchmarks/datasets/printtestbot-hot-cache-2026-06-03/raw/</code>. The next measurement round should split prefill, restore, save, SSD read/write bytes, memory copy, accelerator upload, and changed-tail evaluation inside a restore-once session benchmark.
+          Source inputs are under <code>benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/</code>, <code>benchmarks/datasets/printtestbot-large-prefix-2026-06-02/raw/</code>, <code>benchmarks/datasets/printtestbot-boundary-telemetry-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-persistent-server-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-server-version-cache-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-hot-cache-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-session-cache-2026-06-03/raw/</code>, and <code>benchmarks/datasets/printtestbot-session-tail-2026-06-03/raw/</code>. The next measurement round should split prefill, restore, save, SSD read/write bytes, memory copy, accelerator upload, and changed-tail evaluation inside an explicit session API.
         </p>
       </section>
     </main>

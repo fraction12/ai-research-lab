@@ -213,6 +213,60 @@
       "saved_s": 11.291943,
       "saved_ratio": 0.8197815922965696,
       "hit_rate": 1.0
+    },
+    {
+      "mode": "session full prompt",
+      "prefix_kb": 16.017578125,
+      "direct_s": 4.5171399999999995,
+      "wrapper_s": 4.312205,
+      "saved_s": 0.20493499999999987,
+      "saved_ratio": 0.045368308265849526,
+      "hit_rate": 1.0
+    },
+    {
+      "mode": "session full prompt",
+      "prefix_kb": 32.017578125,
+      "direct_s": 7.316808,
+      "wrapper_s": 7.225688,
+      "saved_s": 0.09112000000000009,
+      "saved_ratio": 0.012453517982158326,
+      "hit_rate": 1.0
+    },
+    {
+      "mode": "session full prompt",
+      "prefix_kb": 64.017578125,
+      "direct_s": 13.760646999999999,
+      "wrapper_s": 13.807604000000001,
+      "saved_s": -0.04695700000000258,
+      "saved_ratio": -0.003412412221605725,
+      "hit_rate": 1.0
+    },
+    {
+      "mode": "session tail",
+      "prefix_kb": 16.017578125,
+      "direct_s": 4.292852,
+      "wrapper_s": 2.1086840000000002,
+      "saved_s": 2.1841679999999997,
+      "saved_ratio": 0.5087918241765613,
+      "hit_rate": 1.0
+    },
+    {
+      "mode": "session tail",
+      "prefix_kb": 32.017578125,
+      "direct_s": 7.385725000000001,
+      "wrapper_s": 2.379596,
+      "saved_s": 5.006129000000001,
+      "saved_ratio": 0.6778114538518561,
+      "hit_rate": 1.0
+    },
+    {
+      "mode": "session tail",
+      "prefix_kb": 64.017578125,
+      "direct_s": 13.765509,
+      "wrapper_s": 2.77557,
+      "saved_s": 10.989939,
+      "saved_ratio": 0.7983677901049645,
+      "hit_rate": 1.0
     }
   ],
   "slot_file_size_ladder": [

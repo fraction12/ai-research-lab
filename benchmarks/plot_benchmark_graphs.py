@@ -31,6 +31,8 @@ BOUNDARY_RAW = ROOT / "benchmarks/datasets/printtestbot-boundary-telemetry-2026-
 PERSISTENT_RAW = ROOT / "benchmarks/datasets/printtestbot-persistent-server-2026-06-03/raw"
 VERSION_CACHE_RAW = ROOT / "benchmarks/datasets/printtestbot-server-version-cache-2026-06-03/raw"
 HOT_CACHE_RAW = ROOT / "benchmarks/datasets/printtestbot-hot-cache-2026-06-03/raw"
+SESSION_CACHE_RAW = ROOT / "benchmarks/datasets/printtestbot-session-cache-2026-06-03/raw"
+SESSION_TAIL_RAW = ROOT / "benchmarks/datasets/printtestbot-session-tail-2026-06-03/raw"
 OUT_DIR = ROOT / "docs/assets/benchmark-graphs"
 
 COLORS = {
@@ -274,6 +276,8 @@ def large_prefix_mode_rows() -> list[LargePrefixPoint]:
         ("persistent cold", PERSISTENT_RAW),
         ("version-cached cold", VERSION_CACHE_RAW),
         ("hot cache", HOT_CACHE_RAW),
+        ("session full prompt", SESSION_CACHE_RAW),
+        ("session tail", SESSION_TAIL_RAW),
     ]
     for mode, raw_dir in mode_sources:
         for size in [16, 32, 64]:
@@ -683,6 +687,8 @@ def cache_mode_comparison_chart() -> list[Path]:
         "persistent cold",
         "version-cached cold",
         "hot cache",
+        "session full prompt",
+        "session tail",
     ]
     styles = {
         "per-request cold": (COLORS["gray"], (0, (1.5, 2.2)), "Per-request cold"),
@@ -690,6 +696,8 @@ def cache_mode_comparison_chart() -> list[Path]:
         "persistent cold": (COLORS["direct"], "-", "Persistent cold"),
         "version-cached cold": (COLORS["cache"], "-", "Version cached"),
         "hot cache": (COLORS["target"], "-", "Hot cache"),
+        "session full prompt": (COLORS["accent"], (0, (2, 2)), "Session full prompt"),
+        "session tail": (COLORS["ink"], "-", "Session tail"),
     }
 
     fig, ax = plt.subplots(figsize=(8.4, 4.8), constrained_layout=False)
@@ -713,12 +721,21 @@ def cache_mode_comparison_chart() -> list[Path]:
     ax.set_xlabel("Reusable stable prefix")
     ax.set_ylabel("Prompt-eval reduction")
     finish_axes(ax, FuncFormatter(percent_label))
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.28), ncols=3, columnspacing=1.0, handlelength=2.2)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.34), ncols=4, columnspacing=0.8, handlelength=2.0)
     hot_64 = next(row for row in rows if row.mode == "hot cache" and row.prefix_kb > 60)
+    tail_64 = next(row for row in rows if row.mode == "session tail" and row.prefix_kb > 60)
     ax.annotate(
         f"{hot_64.saved_ratio * 100:.1f}% hot-cache reduction",
         xy=(hot_64.prefix_kb, hot_64.saved_ratio * 100),
         xytext=(33, 79),
+        arrowprops={"arrowstyle": "-", "color": COLORS["muted"], "lw": 0.8},
+        fontsize=8,
+        color=COLORS["muted"],
+    )
+    ax.annotate(
+        f"{tail_64.saved_ratio * 100:.1f}% session-tail reduction",
+        xy=(tail_64.prefix_kb, tail_64.saved_ratio * 100),
+        xytext=(24, 62),
         arrowprops={"arrowstyle": "-", "color": COLORS["muted"], "lw": 0.8},
         fontsize=8,
         color=COLORS["muted"],

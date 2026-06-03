@@ -14,6 +14,8 @@ The charts are generated with Matplotlib from the raw JSON files under:
 - `benchmarks/datasets/printtestbot-persistent-server-2026-06-03/raw/`
 - `benchmarks/datasets/printtestbot-server-version-cache-2026-06-03/raw/`
 - `benchmarks/datasets/printtestbot-hot-cache-2026-06-03/raw/`
+- `benchmarks/datasets/printtestbot-session-cache-2026-06-03/raw/`
+- `benchmarks/datasets/printtestbot-session-tail-2026-06-03/raw/`
 
 Regenerate them with:
 
@@ -44,7 +46,31 @@ The figure marks the 128KB point as a projection, not a measured result.
 3. On the small 5.5KB reusable prefix, the tiny Gemma model shows a big cache win, but `gpt-oss-20b` direct slot restore is basically flat.
 4. The Flashcache wrapper gives a repeatable `gpt-oss-20b` win around 12% on the small Printy prefix.
 5. The older per-request cold large-prefix run showed about 13.9% savings at 64KB, but the newer persistent/hot-cache runs expose the steady-state value: the 64KB hot-cache run saves 82.0% of prompt-eval time.
-6. Saved slot files get large quickly, so the next layer needs restore-once session residency, partial restore, better layout, and I/O instrumentation instead of whole-slot blobs forever.
+6. Restore-once full-prompt session replay barely helped, but restore-once tail-only session mode recovered almost the same scaling as hot-cache mode.
+7. Saved slot files get large quickly, so the next layer needs explicit session semantics, clean-prefix reset behavior, partial restore, better layout, and I/O instrumentation instead of whole-slot blobs forever.
+
+## Applied Product Thesis
+
+This is not a replacement for Markdown context files, skills, or retrieval.
+
+The practical claim is narrower and stronger:
+
+- Markdown files remain the source of truth.
+- Flashcache turns stable repeated context from repeated prefill work into reusable inference state.
+- The product is valuable only if an applied harness proves that the same local model and same files complete real workflows faster, cheaper, or more reliably.
+
+So the answer to "why not just give the agent MD files?" is:
+
+> Plain MD files solve knowledge availability. Flashcache tries to reduce the repeated compute cost of keeping that same knowledge present.
+
+The next product proof should use an OpenClaw-style harness. Run the same local model, same workflow files, same tool schemas, and same tasks in two modes:
+
+| Mode | Stable context path | What it proves |
+| --- | --- | --- |
+| Baseline | Inject or retrieve MD files normally | The agent has the right instructions available |
+| Flashcache plugin | Build/cache the same stable files as a reusable prefix | The agent can keep quality while reducing repeated-context cost |
+
+The current benchmark shows up to `82.0%` prompt-eval reduction on the 64KB hot-cache fixture and `79.8%` on the 64KB session-tail fixture. It does **not** yet prove an 80% better agent. That claim must come from end-to-end metrics: wall-clock time, task completion rate, CI/test results, review quality, resource footprint, and repeatability.
 
 ## Warm vs Restarted
 
@@ -108,8 +134,10 @@ The new benchmark data shows why measurement mode matters:
 - persistent cold at 64KB: `81.5%` prompt-eval reduction
 - server-version cached cold at 64KB: `82.0%` prompt-eval reduction
 - hot cache at 64KB: `82.0%` prompt-eval reduction with `100%` measured cache hits
+- restore-once full-prompt session at 64KB: `-0.3%` prompt-eval reduction
+- restore-once tail-only session at 64KB: `79.8%` prompt-eval reduction
 
-Interpretation: process startup and repeated wrapper overhead were obscuring the steady-state local-agent shape. Hot cache is the best current approximation of a regular session after stable context has already been persisted.
+Interpretation: process startup and repeated wrapper overhead were obscuring the steady-state local-agent shape. Hot cache proves restored prefix state can be valuable. Session-tail shows the better product shape: restore stable context once, then send only changed tails. Full-prompt session replay is the bad target.
 
 ## SSD Cost
 
@@ -136,7 +164,7 @@ The current projection is:
 
 - measured 64KB hot-cache savings: `11.3s` across seven turns
 - projected 128KB hot-cache savings: `23.1s` across seven turns
-- next target: a restore-once session benchmark that avoids per-turn whole-slot restore where possible
+- next target: an explicit session API with tail append, clean-prefix reset, quality scoring, and end-to-end agent workflow measurement
 
 ## Next Graphs To Add
 

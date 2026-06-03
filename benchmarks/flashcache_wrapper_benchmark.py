@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT / "benchmarks"))
 
 import llama_cpp_prompt_cache_benchmark as lcb  # noqa: E402
 import ollama_workflow_benchmark as owb  # noqa: E402
-from flashcache.cache import build_cache_key, parse_chat_request  # noqa: E402
+from flashcache.cache import build_cache_key, parse_chat_request, sha256_text  # noqa: E402
 from flashcache.llama_cpp import ManagedLlamaServer, llama_server_version  # noqa: E402
 from flashcache.wrapper import BoundaryTimings, FlashcacheConfig, FlashcacheWrapper, timing_record  # noqa: E402
 
@@ -49,9 +49,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--prime-n-predict", type=int, default=1, help="Generated tokens while priming prefix slot.")
     parser.add_argument(
         "--cache-mode",
-        choices=["cold", "hot", "session"],
+        choices=["cold", "hot", "session", "session-tail"],
         default="cold",
-        help="Measure miss-plus-hit, restore-every-turn hot cache, or restore-once session-resident cache behavior.",
+        help="Measure miss-plus-hit, restore-every-turn hot cache, restore-once full-prompt session, or restore-once tail-only session behavior.",
     )
     parser.add_argument(
         "--server-mode",
@@ -65,8 +65,8 @@ def parse_args() -> argparse.Namespace:
 
 
 def validate_args(args: argparse.Namespace) -> None:
-    if args.cache_mode == "session" and args.server_mode != "persistent":
-        raise SystemExit("--cache-mode session requires --server-mode persistent")
+    if args.cache_mode in {"session", "session-tail"} and args.server_mode != "persistent":
+        raise SystemExit(f"--cache-mode {args.cache_mode} requires --server-mode persistent")
 
 
 def sum_prompt_ms(runs: list[dict[str, Any]], timing_key: str = "timings") -> float | None:
@@ -194,7 +194,7 @@ def wrapper_runs_with_client(
 
 
 def cache_hit_count(runs: list[dict[str, Any]]) -> int:
-    return sum(1 for run in runs if run.get("cache_state") in {"hit", "session-hit"})
+    return sum(1 for run in runs if run.get("cache_state") in {"hit", "session-hit", "session-tail-hit"})
 
 
 def cache_key_for_payload(
@@ -219,6 +219,12 @@ def cache_key_for_payload(
     return cache_key, parsed, server_version
 
 
+def session_completion_prompt(parsed: Any, cache_mode: str) -> tuple[str, str]:
+    if cache_mode == "session-tail":
+        return parsed.tail_prompt, "tail-only"
+    return parsed.full_prompt, "full-prompt"
+
+
 def session_run_scenario(
     args: argparse.Namespace,
     prompt_set: dict[str, Any],
@@ -229,21 +235,27 @@ def session_run_scenario(
     server_version: str,
     slot_file_bytes: int | None,
 ) -> dict[str, Any]:
-    progress(f"cache-session: {scenario['name']}")
+    cache_state = "session-tail-hit" if args.cache_mode == "session-tail" else "session-hit"
+    progress_label = "cache-session-tail" if args.cache_mode == "session-tail" else "cache-session"
+    progress(f"{progress_label}: {scenario['name']}")
     boundary = BoundaryTimings()
     with boundary.phase("request_parse_ms"):
         parsed = parse_chat_request(wrapper_payload(args, prompt_set, scenario))
+    completion_prompt, prompt_mode = session_completion_prompt(parsed, args.cache_mode)
     with boundary.phase("tail_completion_ms"):
         llama_response = client.completion(
-            parsed.full_prompt,
+            completion_prompt,
             n_predict=parsed.max_tokens,
             temperature=parsed.temperature,
         )
     timings = timing_record(llama_response)
     telemetry = {
-        "cache_state": "session-hit",
+        "cache_state": cache_state,
         "cache_key": cache_key,
         "fallback_reason": None,
+        "prompt_mode": prompt_mode,
+        "completion_prompt_bytes": len(completion_prompt.encode("utf-8")),
+        "completion_prompt_sha256": sha256_text(completion_prompt),
         "server_version": server_version,
         "slot_file_bytes": slot_file_bytes,
         "prompt_ms": timings.get("prompt_ms"),
@@ -253,9 +265,10 @@ def session_run_scenario(
     }
     return {
         "scenario": scenario["name"],
-        "cache_state": "session-hit",
+        "cache_state": cache_state,
+        "prompt_mode": prompt_mode,
         "headers": {
-            "X-Flashcache-Cache": "session-hit",
+            "X-Flashcache-Cache": cache_state,
             "X-Flashcache-Key": cache_key,
         },
         "telemetry": telemetry,
@@ -328,7 +341,7 @@ def session_wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -
 
 
 def wrapper_runs(args: argparse.Namespace, prompt_set: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, Any] | None, list[dict[str, Any]]]:
-    if args.cache_mode == "session":
+    if args.cache_mode in {"session", "session-tail"}:
         return session_wrapper_runs(args, prompt_set)
 
     config = config_from_args(args)

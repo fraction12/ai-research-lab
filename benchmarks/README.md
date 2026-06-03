@@ -120,7 +120,7 @@ python3 benchmarks/flashcache_wrapper_benchmark.py \
   --temperature 0
 ```
 
-Use `--cache-mode hot` to prewarm the prefix before measured turns, or `--cache-mode session --server-mode persistent` to restore the prefix once into a persistent server and measure later changed-tail turns without per-turn restore.
+Use `--cache-mode hot` to prewarm the prefix before measured turns, `--cache-mode session --server-mode persistent` to restore the prefix once and replay full prompts, or `--cache-mode session-tail --server-mode persistent` to restore the prefix once and measure tail-only turns.
 
 Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `benchmarks/flashcache-results/`, both ignored.
 
@@ -138,6 +138,7 @@ Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `ben
 - `benchmarks/datasets/printtestbot-large-prefix-2026-06-02/`: DushyantPC runs for generated larger-prefix Printy fixtures.
 - `benchmarks/datasets/printtestbot-hot-cache-2026-06-03/`: DushyantPC hot-cache large-prefix runs where measured turns restore the prefix slot before every changed-tail prompt.
 - `benchmarks/datasets/printtestbot-session-cache-2026-06-03/`: DushyantPC session-cache large-prefix runs where the prefix slot is restored once into a persistent server before measured turns.
+- `benchmarks/datasets/printtestbot-session-tail-2026-06-03/`: DushyantPC session-tail large-prefix runs where the prefix slot is restored once and measured turns send only changed-tail prompt text.
 
 ## What To Look At
 

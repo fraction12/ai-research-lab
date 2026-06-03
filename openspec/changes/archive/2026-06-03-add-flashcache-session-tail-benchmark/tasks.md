@@ -1,0 +1,7 @@
+- [x] Add `session-tail` cache mode CLI validation and metadata.
+- [x] Share session setup between full-prompt session and tail-only session modes.
+- [x] Implement measured tail-only session runs with distinct cache state and prompt mode telemetry.
+- [x] Add focused tests for validation, hit counting, and prompt selection.
+- [x] Validate locally with compile, unit tests, OpenSpec strict validation, benchmark help, and a small-model smoke run.
+- [x] Run or prepare the DushyantPC `gpt-oss-20b` ladder if local smoke succeeds.
+- [x] Update the research paper page with the applied OpenClaw/MD-file product hypothesis.
