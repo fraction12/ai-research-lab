@@ -69,5 +69,13 @@
       "prefix_kb": 64.017578125,
       "slot_file_mb": 361.03526
     }
-  ]
+  ],
+  "projection": {
+    "prefix_kb": 128.0,
+    "direct_prompt_eval_s": 164.92228073858638,
+    "flashcache_prompt_eval_s": 141.92580857043453,
+    "saved_s": 22.996472168151854,
+    "metal_target_prompt_eval_s": 123.69171055393979,
+    "method": "linear fit from measured 16KB, 32KB, and 64KB large-prefix ladder"
+  }
 }

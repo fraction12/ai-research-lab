@@ -13,7 +13,6 @@ try:
 
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    from matplotlib import gridspec
     from matplotlib.lines import Line2D
     from matplotlib.patches import Patch
     from matplotlib.ticker import FuncFormatter
@@ -31,18 +30,18 @@ LARGE_RAW = ROOT / "benchmarks/datasets/printtestbot-large-prefix-2026-06-02/raw
 OUT_DIR = ROOT / "docs/assets/benchmark-graphs"
 
 COLORS = {
-    "ink": "#172026",
-    "muted": "#5f6972",
-    "grid": "#d7dde2",
-    "paper": "#f7f6f1",
-    "surface": "#fffdf7",
-    "warm": "#2f7d6e",
-    "restart": "#d65f43",
-    "direct": "#5267c7",
-    "cache": "#2f8f73",
-    "slot": "#b46a2b",
-    "target": "#c28a1a",
-    "accent": "#7c5cc4",
+    "ink": "#222222",
+    "muted": "#5f6368",
+    "grid": "#cfcfcf",
+    "paper": "#ffffff",
+    "surface": "#ffffff",
+    "warm": "#0072B2",
+    "restart": "#D55E00",
+    "direct": "#0072B2",
+    "cache": "#009E73",
+    "slot": "#E69F00",
+    "target": "#D55E00",
+    "accent": "#CC79A7",
 }
 
 
@@ -75,6 +74,7 @@ def configure_style() -> None:
             "ytick.color": COLORS["muted"],
             "grid.color": "#CFCFCF",
             "grid.linewidth": 0.6,
+            "axes.grid": True,
             "legend.frameon": False,
             "legend.fontsize": 8,
             "svg.fonttype": "none",
@@ -117,13 +117,16 @@ def save_figure(fig: plt.Figure, stem: str) -> list[Path]:
     paths = [OUT_DIR / f"{stem}.svg", OUT_DIR / f"{stem}.pdf", OUT_DIR / f"{stem}.png"]
     for path in paths:
         fig.savefig(path, bbox_inches="tight", pad_inches=0.025)
+        if path.suffix == ".svg":
+            svg = path.read_text(encoding="utf-8")
+            path.write_text("\n".join(line.rstrip() for line in svg.splitlines()) + "\n", encoding="utf-8")
     plt.close(fig)
     return paths
 
 
 def annotate_title(fig: plt.Figure, title: str, subtitle: str) -> None:
-    fig.suptitle(title, x=0.02, y=0.995, ha="left", va="top", fontsize=18, fontweight="bold")
-    fig.text(0.02, 0.935, subtitle, ha="left", va="top", fontsize=10, color=COLORS["muted"])
+    fig.suptitle(title, x=0.02, y=0.985, ha="left", va="top", fontsize=10.5, fontweight="semibold")
+    fig.text(0.02, 0.935, subtitle, ha="left", va="top", fontsize=8, color=COLORS["muted"])
 
 
 def apply_standard_layout(
@@ -131,7 +134,7 @@ def apply_standard_layout(
     *,
     left: float = 0.12,
     right: float = 0.985,
-    top: float = 0.78,
+    top: float = 0.82,
     bottom: float = 0.15,
 ) -> None:
     fig.subplots_adjust(left=left, right=right, top=top, bottom=bottom)
@@ -554,91 +557,53 @@ def gains_projection_chart() -> list[Path]:
     cache_projection = linear_projection(prefix_kb, cache_s, target_x)
     metal_target = direct_projection * 0.75
 
-    fig = plt.figure(figsize=(11.8, 7.1), constrained_layout=False)
-    fig.suptitle(
-        "Flashcache gains and the metal path",
-        x=0.025,
-        y=0.975,
-        ha="left",
-        va="top",
-        fontsize=20,
-        fontweight="bold",
+    fig, ax = plt.subplots(figsize=(7.2, 4.1), constrained_layout=False)
+    fig.subplots_adjust(left=0.105, right=0.985, bottom=0.165, top=0.765)
+    annotate_title(
+        fig,
+        "Flashcache gains and projection target",
+        "Measured gpt-oss-20b prompt-eval time over seven Printy turns; 128KB is a linear projection.",
     )
-    fig.text(
-        0.025,
-        0.925,
-        "Measured gpt-oss-20b prompt-eval time over seven Printy turns, plus a 128KB trend projection.",
-        ha="left",
-        va="top",
-        fontsize=10,
-        color=COLORS["muted"],
-    )
-    ax = fig.add_axes([0.065, 0.285, 0.66, 0.545])
-    side = fig.add_axes([0.75, 0.285, 0.22, 0.545])
-    cards = [
-        fig.add_axes([0.065, 0.075, 0.205, 0.13]),
-        fig.add_axes([0.405, 0.075, 0.205, 0.13]),
-        fig.add_axes([0.745, 0.075, 0.225, 0.13]),
-    ]
 
     measured_x = prefix_kb
     projected_x = [prefix_kb[-1], target_x]
-    ax.axvspan(prefix_kb[-1], target_x, color="#eef4f1", alpha=0.8, zorder=0)
-    ax.text(sum(prefix_kb[:2]) / 2, 177, "measured", ha="center", va="top", fontsize=9, color=COLORS["muted"], family="monospace")
-    ax.text(96, 177, "projection if current trend continues", ha="center", va="top", fontsize=9, color=COLORS["muted"], family="monospace")
-    ax.plot(measured_x, direct_s, color=COLORS["direct"], marker="o", linewidth=2.5, label="Direct full prompt")
-    ax.plot(measured_x, cache_s, color=COLORS["cache"], marker="o", linewidth=2.5, label="Flashcache wrapper")
-    ax.plot(projected_x, [direct_s[-1], direct_projection], color=COLORS["direct"], marker="o", linewidth=2.5, linestyle=(0, (4, 3)))
-    ax.plot(projected_x, [cache_s[-1], cache_projection], color=COLORS["cache"], marker="o", linewidth=2.5, linestyle=(0, (4, 3)))
-    ax.plot(projected_x, [cache_s[-1], metal_target], color=COLORS["target"], marker="o", linewidth=2.2, linestyle=(0, (2, 3)), label="Metal target")
+    ax.axvspan(prefix_kb[-1], target_x, color="#f5f5f5", zorder=0)
+    ax.axvline(prefix_kb[-1], color=COLORS["muted"], linestyle="--", linewidth=0.8)
+    ax.text(prefix_kb[-1] + 2.0, 181, "Projection boundary", rotation=90, va="top", ha="left", fontsize=7.5, color=COLORS["muted"])
+    ax.plot(measured_x, direct_s, color=COLORS["direct"], marker="o", linewidth=1.9, label="Direct full prompt")
+    ax.plot(measured_x, cache_s, color=COLORS["cache"], marker="o", linewidth=1.9, label="Flashcache wrapper")
+    ax.plot(projected_x, [direct_s[-1], direct_projection], color=COLORS["direct"], marker="o", linewidth=1.7, linestyle=(0, (4, 3)), label="Linear projection")
+    ax.plot(projected_x, [cache_s[-1], cache_projection], color=COLORS["cache"], marker="o", linewidth=1.7, linestyle=(0, (4, 3)))
+    ax.plot(projected_x, [cache_s[-1], metal_target], color=COLORS["target"], marker="o", linewidth=1.5, linestyle=(0, (2, 3)), label="Metal target")
     ax.set_xticks([16, 32, 64, 128], ["16KB", "32KB", "64KB", "128KB"])
-    ax.set_xlim(0, 134)
+    ax.set_xlim(10, 134)
     ax.set_ylim(0, 190)
     ax.set_ylabel("Prompt-eval seconds across seven turns")
     ax.set_xlabel("Reusable stable prefix")
     finish_axes(ax, FuncFormatter(seconds_label))
-    ax.legend(loc="upper left", ncols=3)
-
-    side.axis("off")
-    side.text(0.0, 0.97, "WHAT WE ARE WORKING TOWARD", fontsize=9, fontweight="bold", family="monospace", color=COLORS["muted"], va="top")
-    steps = [
-        ("1", "Measure every cache boundary", "prefill, save, restore, I/O, copy, tail", COLORS["cache"]),
-        ("2", "Stop relying on whole-slot blobs", "block layout, partial restore, eviction", COLORS["direct"]),
-        ("3", "Prefetch while agents use tools", "make SSD latency hide behind work", COLORS["target"]),
-    ]
-    y = 0.82
-    for number, title, copy, color in steps:
-        side.text(0.04, y, number, ha="center", va="center", fontsize=9, color=color, bbox={"boxstyle": "circle", "fc": COLORS["surface"], "ec": color, "lw": 1.2})
-        side.text(0.14, y + 0.03, title, fontsize=9, va="center")
-        side.text(0.14, y - 0.035, copy, fontsize=8, color=COLORS["muted"], va="center")
-        y -= 0.19
-    side.text(
-        0.04,
-        0.22,
-        "Projection rule\n\n128KB uses a linear fit from the\nmeasured 16/32/64KB ladder.\n\nMetal target is an experiment goal,\nnot a measured result.",
-        fontsize=8.5,
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.19), ncols=4, columnspacing=1.0, handlelength=1.8)
+    ax.annotate(
+        f"{direct_projection - cache_projection:.1f}s projected saved",
+        xy=(128, cache_projection),
+        xytext=(78, 136),
+        arrowprops={"arrowstyle": "-", "color": COLORS["muted"], "lw": 0.8},
+        fontsize=7.5,
         color=COLORS["muted"],
-        va="top",
-        bbox={"boxstyle": "round,pad=0.55", "fc": COLORS["paper"], "ec": COLORS["grid"], "lw": 0.8},
     )
-
-    card_data = [
-        ("MEASURED @ 64KB", f"{direct_s[-1] - cache_s[-1]:.1f}s saved", f"Direct {direct_s[-1]:.1f}s to Flashcache {cache_s[-1]:.1f}s."),
-        ("PROJECTED @ 128KB", f"{direct_projection - cache_projection:.1f}s saved", f"Direct {direct_projection:.1f}s to Flashcache {cache_projection:.1f}s."),
-        ("NEXT METAL TARGET", "~25% savings", "Partial KV restore, prefetch, better layout."),
-    ]
-    for ax_card, (title, value, copy) in zip(cards, card_data):
-        ax_card.axis("off")
-        ax_card.text(0.02, 0.78, title, fontsize=8.5, fontweight="bold", family="monospace", color=COLORS["muted"])
-        ax_card.text(0.02, 0.44, value, fontsize=17, fontweight="bold")
-        ax_card.text(0.02, 0.16, copy, fontsize=9, color=COLORS["muted"])
-        ax_card.set_facecolor(COLORS["surface"])
+    ax.annotate(
+        "target from partial restore + prefetch",
+        xy=(128, metal_target),
+        xytext=(72, 98),
+        arrowprops={"arrowstyle": "-", "color": COLORS["muted"], "lw": 0.8},
+        fontsize=7.5,
+        color=COLORS["muted"],
+    )
 
     fig.text(
         0.02,
-        0.018,
+        0.025,
         "Source: docs/assets/benchmark-graphs/chart-data.json. Projection is directional and should be replaced by measured 128KB data when available.",
-        fontsize=8.5,
+        fontsize=7.5,
         color=COLORS["muted"],
         family="monospace",
     )
@@ -651,6 +616,7 @@ def main() -> int:
     write_chart_data()
     written: list[Path] = []
     for chart in [
+        paper_evidence_chart,
         warm_restart_chart,
         exact_repeat_chart,
         small_prefix_chart,

@@ -2,7 +2,7 @@
 
 Date: 2026-06-03
 
-These graphs summarize what the current Printy / Print-a-Bot benchmark data says about Flashcache and SSD-backed prompt or KV state.
+These graphs summarize what the current Printy / Print-a-Bot benchmark data says about Flashcache and SSD-backed prompt or KV state. The browser page is formatted as a paper-style figure note; this Markdown file keeps the same claims easy for agents to scan.
 
 For a browser-friendly version, open [Benchmark Graphs HTML](benchmark-graphs.html).
 
@@ -19,6 +19,19 @@ python3 benchmarks/plot_benchmark_graphs.py
 ```
 
 Each chart is exported as SVG, PDF, and PNG under `docs/assets/benchmark-graphs/`.
+
+## Primary Paper Figure
+
+![Flashcache evidence figure](assets/benchmark-graphs/fig1-flashcache-evidence.svg)
+
+Figure 1 is the best artifact to use when explaining the research claim. It combines the current evidence:
+
+- warm-state loss after restart,
+- backend-dependent small-prefix savings,
+- larger absolute savings as reusable prefixes grow,
+- and the SSD cost of whole-slot blobs.
+
+The figure marks the 128KB point as a projection, not a measured result.
 
 ## What We Learned
 
