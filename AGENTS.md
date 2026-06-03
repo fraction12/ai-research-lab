@@ -4,6 +4,8 @@
 
 This repo is an AI research lab workspace. It contains multiple research tracks, including the original SSD-native local-agent inference project and newer research directions around stateful KV reuse, role-aware context compilation, and negative-space idea discovery.
 
+Read `AGENT_HANDOFF.md` first when starting a fresh session or transferring this project to a new agent.
+
 ## Research Track Layout
 
 - `research/01-ssd-native-inference-current/`: current Flashcache, SSD-backed local-agent inference, benchmarks, docs, and tests.
