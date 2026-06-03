@@ -124,6 +124,74 @@ Use `--cache-mode hot` to prewarm the prefix before measured turns, `--cache-mod
 
 Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `benchmarks/flashcache-results/`, both ignored.
 
+Prepare and score correctness eval cases:
+
+```bash
+python3 benchmarks/flashcache_correctness_eval.py list-datasets
+
+python3 benchmarks/flashcache_correctness_eval.py sample \
+  --dataset ifeval \
+  --limit 8 \
+  --output-dir benchmarks/correctness-eval-inputs
+
+python3 benchmarks/flashcache_correctness_eval.py score \
+  --cases benchmarks/correctness-eval-inputs/ifeval-sample-8.jsonl \
+  --responses benchmarks/correctness-eval-results/ifeval-responses.jsonl
+```
+
+The first correctness datasets are `google/IFEval`, `openai/mrcr`, and `openai/graphwalks`. Sampled case files contain `stable_prefix`, `tail_prompt`, and derived `full_prompt` fields so the same case can be run through full-prompt and session-tail modes. Generated correctness inputs/results are local artifacts and ignored.
+
+Response JSONL records should use `{"case_id": "...", "mode": "full" | "session-tail", "response": "...", "latency_ms": 123.4}`. The scorer reports per-mode scores and `session_tail_minus_full_score` for matching case ids.
+
+Build a larger mixed candidate file for a baseline-pass ladder:
+
+```bash
+python3 benchmarks/flashcache_correctness_eval.py build-candidates \
+  --mix ifeval:80,graphwalks:20 \
+  --profile easy \
+  --max-prompt-chars 5000 \
+  --output benchmarks/correctness-eval-inputs/easy-mixed-candidates-100.jsonl
+```
+
+`--profile easy` currently filters IFEval to single supported checks with bounded parameters. It leaves GraphWalks and MRCR unfiltered except for prompt-length and offset options. Candidate JSONL files contain prompt text, so keep them under `benchmarks/correctness-eval-inputs/` or another ignored path.
+
+Generate model responses for a sampled case file:
+
+```bash
+python3 benchmarks/flashcache_correctness_eval.py run \
+  --cases benchmarks/correctness-eval-inputs/ifeval-sample-8.jsonl \
+  --mode both \
+  --answer-protocol json-answer \
+  --server-bin /path/to/llama-server \
+  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \
+  --ctx-size 4096 \
+  --predict 64 \
+  --temperature 0 \
+  --score
+```
+
+`full` mode sends each case's `full_prompt`. `session-tail` mode primes a llama.cpp slot with `stable_prefix`, saves/restores that slot, then sends only `tail_prompt`. Use `--dry-run` to validate response JSONL shape without starting llama.cpp.
+
+`--answer-protocol json-answer` wraps the prompt with final-answer instructions and sends a llama.cpp `/completion` `json_schema` requiring `{"answer": "..."}`. The scorer reads the extracted `answer` while the response JSONL keeps `raw_response` for debugging. This keeps the experiment on the same raw slot save/restore path while avoiding free-form reasoning text in scorer inputs.
+
+The JSON answer protocol also includes a dataset-specific hint for the answer string shape. For example, GraphWalks asks for a JSON-style node list in the `answer` string, while MRCR asks for the exact requested text. Raw protocol runs do not add these hints.
+
+Run the baseline-pass ladder:
+
+```bash
+python3 benchmarks/flashcache_correctness_eval.py baseline-ladder \
+  --cases benchmarks/correctness-eval-inputs/mixed-quality-smoke-3.jsonl \
+  --answer-protocol json-answer \
+  --server-bin /path/to/llama-server \
+  --model benchmarks/models/gemma-3-270m-it-Q8_0.gguf \
+  --ctx-size 32768 \
+  --predict 128 \
+  --temperature 0 \
+  --min-full-score 1.0
+```
+
+The ladder writes full baseline responses/scores first, selects only cases where full mode meets `--min-full-score`, then runs session-tail on that selected set. If zero cases pass full mode, the report is still useful: it says the model/prompt protocol is not ready for parity testing yet.
+
 ## Fixtures
 
 - `codex_deepclean_workflow.json`: small synthetic Codex/DeepClean workflow used as the first controlled baseline.
@@ -139,6 +207,9 @@ Flashcache wrapper artifacts are written under `benchmarks/flashcache/` and `ben
 - `benchmarks/datasets/printtestbot-hot-cache-2026-06-03/`: DushyantPC hot-cache large-prefix runs where measured turns restore the prefix slot before every changed-tail prompt.
 - `benchmarks/datasets/printtestbot-session-cache-2026-06-03/`: DushyantPC session-cache large-prefix runs where the prefix slot is restored once into a persistent server before measured turns.
 - `benchmarks/datasets/printtestbot-session-tail-2026-06-03/`: DushyantPC session-tail large-prefix runs where the prefix slot is restored once and measured turns send only changed-tail prompt text.
+- `benchmarks/datasets/flashcache-correctness-smoke-2026-06-03/`: DushyantPC GPT-OSS 20B paired full/session-tail correctness smoke across IFEval, GraphWalks, and MRCR.
+- `benchmarks/datasets/flashcache-baseline-pass-ladder-2026-06-03/`: DushyantPC GPT-OSS 20B baseline-pass ladder where full-passing IFEval cases were rechecked with session-tail.
+- `benchmarks/datasets/flashcache-correctness-parity-2026-06-03/`: DushyantPC GPT-OSS 20B baseline-pass ladder with 42 full-passing selected cases across IFEval and GraphWalks; session-tail passed 31/42 overall.
 
 ## What To Look At
 

@@ -1,0 +1,180 @@
+{
+  "cases": [
+    {
+      "case_id": "ifeval-1147",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20260.94320003176,
+        "session-tail": 21819.21600003261
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1147,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-1162",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20263.448600017,
+        "session-tail": 21961.670399992727
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1162,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-1580",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20485.434999980498,
+        "session-tail": 21953.7651000428
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1580,
+      "unsupported_checks": {}
+    }
+  ],
+  "metadata": {
+    "case_count": 3,
+    "generated_at": "2026-06-03T03:56:37.677583+00:00",
+    "modes": [
+      "full",
+      "session-tail"
+    ],
+    "response_count": 6
+  },
+  "summary": {
+    "full": {
+      "case_count": 3,
+      "mean_score": 1.0,
+      "numeric_score_count": 3,
+      "pass_rate": 1.0
+    },
+    "session-tail": {
+      "case_count": 3,
+      "mean_score": 1.0,
+      "numeric_score_count": 3,
+      "pass_rate": 1.0
+    }
+  }
+}

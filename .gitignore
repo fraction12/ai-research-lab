@@ -17,6 +17,9 @@ benchmarks/llama-cpp-prompts/
 benchmarks/llama-cpp-logs/
 benchmarks/flashcache/
 benchmarks/flashcache-results/
+benchmarks/correctness-eval-inputs/
+benchmarks/correctness-eval-results/
+benchmarks/correctness-eval-cache/
 
 # Local/private SSH and machine-access artifacts
 .ssh/

@@ -1,0 +1,78 @@
+{
+  "full_summary": {
+    "full": {
+      "case_count": 12,
+      "mean_score": 0.2779692752883101,
+      "numeric_score_count": 12,
+      "pass_rate": 0.25
+    }
+  },
+  "interpretation": "Session-tail quality parity is only meaningful for selected cases where full-prompt baseline met the configured score threshold.",
+  "metadata": {
+    "answer_protocol": "json-answer",
+    "candidate_case_count": 12,
+    "ctx_size": 32768,
+    "dry_run": false,
+    "generated_at": "2026-06-03T03:56:37.678213+00:00",
+    "min_full_score": 1.0,
+    "model": "benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+    "predict": 192,
+    "selected_case_count": 3,
+    "temperature": 0.0
+  },
+  "parity_summary": {
+    "full": {
+      "case_count": 3,
+      "mean_score": 1.0,
+      "numeric_score_count": 3,
+      "pass_rate": 1.0
+    },
+    "session-tail": {
+      "case_count": 3,
+      "mean_score": 1.0,
+      "numeric_score_count": 3,
+      "pass_rate": 1.0
+    }
+  },
+  "paths": {
+    "full_responses": "benchmarks\\correctness-eval-results\\baseline-pass-candidates-12-gpt-oss-20b-json-answer-full-responses.jsonl",
+    "full_scores": "benchmarks\\correctness-eval-results\\baseline-pass-candidates-12-gpt-oss-20b-json-answer-full-scores.json",
+    "parity_responses": "benchmarks\\correctness-eval-results\\baseline-pass-candidates-12-gpt-oss-20b-json-answer-parity-responses.jsonl",
+    "parity_scores": "benchmarks\\correctness-eval-results\\baseline-pass-candidates-12-gpt-oss-20b-json-answer-parity-scores.json",
+    "report": "benchmarks\\correctness-eval-results\\baseline-pass-candidates-12-gpt-oss-20b-json-answer-ladder-report.json",
+    "selected_cases": "benchmarks\\correctness-eval-results\\baseline-pass-candidates-12-gpt-oss-20b-json-answer-selected-cases.jsonl",
+    "session_tail_responses": "benchmarks\\correctness-eval-results\\baseline-pass-candidates-12-gpt-oss-20b-json-answer-session-tail-responses.jsonl"
+  },
+  "selected_cases": [
+    {
+      "case_id": "ifeval-1147",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 744.986,
+      "prompt_ms_saved": 279.01599999999996,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 465.97
+    },
+    {
+      "case_id": "ifeval-1162",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 700.717,
+      "prompt_ms_saved": 482.586,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 218.131
+    },
+    {
+      "case_id": "ifeval-1580",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 719.822,
+      "prompt_ms_saved": 469.71000000000004,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 250.112
+    }
+  ]
+}

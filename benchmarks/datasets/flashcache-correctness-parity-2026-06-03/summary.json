@@ -1,0 +1,134 @@
+{
+  "answer_protocol": "json-answer",
+  "candidate_builder": {
+    "candidate_case_count": 107,
+    "max_prompt_chars": 5000,
+    "mix": "ifeval:100,graphwalks:20",
+    "profile": "easy",
+    "prompt_bearing_candidate_file_recorded": false
+  },
+  "date": "2026-06-03",
+  "full_gate": {
+    "by_dataset": {
+      "graphwalks": {
+        "candidate_count": 20,
+        "full_pass_count": 6,
+        "full_pass_rate": 0.3
+      },
+      "ifeval": {
+        "candidate_count": 87,
+        "full_pass_count": 36,
+        "full_pass_rate": 0.41379310344827586
+      }
+    },
+    "candidate_case_count": 107,
+    "selected_case_count": 42,
+    "selected_rate": 0.3925233644859813
+  },
+  "interpretation": [
+    "The selected set is large enough to judge session-tail quality for this protocol.",
+    "Session-tail preserved most IFEval cases but failed every selected GraphWalks case.",
+    "The next risk is correctness semantics under restored-prefix tail-only decoding, especially reasoning tasks that depend on the stable prefix."
+  ],
+  "machine": "DushyantPC",
+  "model": "gpt-oss-20b-mxfp4.gguf",
+  "notes": [
+    "Full-prompt gate completed first and wrote selected cases before the original remote ladder was interrupted.",
+    "Session-tail was resumed against the selected-cases file and parity artifacts were reconstructed locally from full responses plus resumed tail responses.",
+    "Selected case JSONL was not recorded because it contains prompt text; raw response/score/report artifacts are recorded."
+  ],
+  "parity": {
+    "by_dataset": {
+      "graphwalks": {
+        "mean_session_tail_score": 0.0,
+        "selected_count": 6,
+        "session_tail_pass_count": 0,
+        "session_tail_pass_rate": 0.0
+      },
+      "ifeval": {
+        "mean_session_tail_score": 0.8611111111111112,
+        "selected_count": 36,
+        "session_tail_pass_count": 31,
+        "session_tail_pass_rate": 0.8611111111111112
+      }
+    },
+    "failed_session_tail_cases": [
+      {
+        "case_id": "ifeval-1675",
+        "dataset_id": "ifeval",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "ifeval-2028",
+        "dataset_id": "ifeval",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "ifeval-2324",
+        "dataset_id": "ifeval",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "ifeval-2811",
+        "dataset_id": "ifeval",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "ifeval-3401",
+        "dataset_id": "ifeval",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "graphwalks-6",
+        "dataset_id": "graphwalks",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "graphwalks-9",
+        "dataset_id": "graphwalks",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "graphwalks-11",
+        "dataset_id": "graphwalks",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "graphwalks-13",
+        "dataset_id": "graphwalks",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "graphwalks-16",
+        "dataset_id": "graphwalks",
+        "session_tail_score": 0.0
+      },
+      {
+        "case_id": "graphwalks-19",
+        "dataset_id": "graphwalks",
+        "session_tail_score": 0.0
+      }
+    ],
+    "summary": {
+      "full": {
+        "case_count": 42,
+        "mean_score": 1.0,
+        "numeric_score_count": 42,
+        "pass_rate": 1.0
+      },
+      "session-tail": {
+        "case_count": 42,
+        "mean_score": 0.7380952380952381,
+        "numeric_score_count": 42,
+        "pass_rate": 0.7380952380952381
+      }
+    }
+  },
+  "prompt_time_savings_ms": {
+    "max": 1160.789,
+    "mean": 533.3550238095238,
+    "min": -170.29200000000003,
+    "selected_case_count_with_prompt_timings": 42
+  },
+  "run_id": "easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints"
+}

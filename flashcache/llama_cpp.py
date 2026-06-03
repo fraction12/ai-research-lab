@@ -100,6 +100,7 @@ class LlamaClient:
         n_predict: int,
         temperature: float,
         cache_prompt: bool = True,
+        json_schema: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         payload = {
             "prompt": prompt,
@@ -110,6 +111,8 @@ class LlamaClient:
             "timings_per_token": True,
             "stream": False,
         }
+        if json_schema is not None:
+            payload["json_schema"] = json_schema
         started = time.perf_counter()
         response = http_json("POST", self.base_url + "/completion", payload, timeout=self.timeout)
         response["_wall_ms"] = (time.perf_counter() - started) * 1000
