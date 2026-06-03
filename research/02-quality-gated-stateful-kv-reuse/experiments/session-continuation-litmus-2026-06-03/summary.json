@@ -1,0 +1,216 @@
+{
+  "experiment_id": "session-continuation-litmus-2026-06-03",
+  "date": "2026-06-03",
+  "research_question": "Do llama.cpp same-slot and restored-slot tail-only completions recall primed content on a tiny secret-token task?",
+  "decision": "same_slot_tail_not_semantic_continuation",
+  "artifacts": {
+    "raw_result_json": {
+      "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/session-continuation-litmus-results/session-continuation-litmus-2026-06-03/gpt-oss-20b-mxfp4-session-continuation-litmus.json",
+      "pc_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\session-continuation-litmus-results\\session-continuation-litmus-2026-06-03\\gpt-oss-20b-mxfp4-session-continuation-litmus.json",
+      "sha256": "13afb2ee783991b589d3e8eb8da728ba4d017ea88bed3921787b4fbd652bc197",
+      "contains": [
+        "metadata",
+        "cases with exact prompt text",
+        "records with raw_response and parsed response",
+        "timings",
+        "session_setup save/restore telemetry",
+        "prompt hashes"
+      ],
+      "git_tracking": "ignored"
+    },
+    "raw_cache_dir": {
+      "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/session-continuation-litmus-cache/session-continuation-litmus-2026-06-03/",
+      "pc_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\session-continuation-litmus-cache\\session-continuation-litmus-2026-06-03\\",
+      "contains": [
+        "llama.cpp logs for each case/mode",
+        "restored-tail slot-cache files for each case"
+      ],
+      "git_tracking": "ignored"
+    },
+    "committed_commands": "research/02-quality-gated-stateful-kv-reuse/experiments/session-continuation-litmus-2026-06-03/commands.md",
+    "committed_model_info": "research/02-quality-gated-stateful-kv-reuse/experiments/session-continuation-litmus-2026-06-03/model-info.json",
+    "committed_interpretation": "research/02-quality-gated-stateful-kv-reuse/experiments/session-continuation-litmus-2026-06-03/continuation-interpretation.md"
+  },
+  "metadata": {
+    "machine": "DushyantPC",
+    "backend": "llama.cpp portable Vulkan build",
+    "server_bin": "C:\\Users\\Dushyant\\Tools\\llama-b9482-vulkan\\llama-server.exe",
+    "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "model": "benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+    "model_bytes": 12109566560,
+    "quantization": "mxfp4",
+    "ctx_size": 32768,
+    "predict": 32,
+    "prime_n_predict": 0,
+    "temperature": 0.0,
+    "timeout_seconds": 240.0,
+    "generated_at": "2026-06-03T19:44:47.699256+00:00"
+  },
+  "mode_summary": {
+    "full": {
+      "case_count": 3,
+      "passed_count": 3,
+      "pass_rate": 1.0,
+      "answer_parse_error_count": 0,
+      "response_error_count": 0
+    },
+    "live-tail": {
+      "case_count": 3,
+      "passed_count": 0,
+      "pass_rate": 0.0,
+      "answer_parse_error_count": 0,
+      "response_error_count": 0
+    },
+    "restored-tail": {
+      "case_count": 3,
+      "passed_count": 0,
+      "pass_rate": 0.0,
+      "answer_parse_error_count": 0,
+      "response_error_count": 0
+    },
+    "fresh-tail": {
+      "case_count": 3,
+      "passed_count": 0,
+      "pass_rate": 0.0,
+      "answer_parse_error_count": 0,
+      "response_error_count": 0
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "secret-alpha",
+      "secret_token": "ZXQ-7419-ALPHA",
+      "secret_token_sha256": "e0691a1321fad1b6aa1b57db359814957bd51626317f0211fe49ef0b5dd53e38",
+      "stable_prefix_sha256": "984845f9cc0284a494201ecd90e2473ecc32ce6a66a5c0cf261ea671bd0402f5",
+      "tail_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15",
+      "interpretation": "same_slot_tail_not_semantic_continuation",
+      "mode_results": {
+        "full": {
+          "passed": true,
+          "response": "ZXQ-7419-ALPHA",
+          "completion_prompt_sha256": "bd5b930bcf3a55072b007596999d1b8076aa474e891d8b4624fec6d51bf8ac95"
+        },
+        "live-tail": {
+          "passed": false,
+          "response": "I am a secret token",
+          "completion_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15"
+        },
+        "restored-tail": {
+          "passed": false,
+          "response": "I am a secret token",
+          "completion_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15",
+          "slot_filename": "secret-alpha-984845f9cc0284a4-slot.bin",
+          "n_saved": 37,
+          "n_restored": 37
+        },
+        "fresh-tail": {
+          "passed": false,
+          "response": "I am a secret token",
+          "completion_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15"
+        }
+      }
+    },
+    {
+      "case_id": "secret-bravo",
+      "secret_token": "MNT-5082-BRAVO",
+      "secret_token_sha256": "b3b77feed74a046f3b05829c135dbffef8c2e0294bc8872279300c69be60d10c",
+      "stable_prefix_sha256": "e5a1968c2c16063b4a84cd82e7a6f6c0983f86cb69f1326901f1a5dbb6abb014",
+      "tail_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15",
+      "interpretation": "same_slot_tail_not_semantic_continuation",
+      "mode_results": {
+        "full": {
+          "passed": true,
+          "response": "MNT-5082-BRAVO",
+          "completion_prompt_sha256": "8456c9950bc3bf30b72ba20a94ad2207c6bb5cd691f1a077cd5128b14d8c2d7c"
+        },
+        "live-tail": {
+          "passed": false,
+          "response": "I am a secret token",
+          "completion_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15"
+        },
+        "restored-tail": {
+          "passed": false,
+          "response": "I am a secret token",
+          "completion_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15",
+          "slot_filename": "secret-bravo-e5a1968c2c16063b-slot.bin",
+          "n_saved": 38,
+          "n_restored": 38
+        },
+        "fresh-tail": {
+          "passed": false,
+          "response": "I am a secret token",
+          "completion_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15"
+        }
+      }
+    },
+    {
+      "case_id": "secret-charlie",
+      "secret_token": "KPD-1936-CHARLIE",
+      "secret_token_sha256": "0f3380c6d99444ca61e27d9cc54185de31e77751a8d2916801bc9312e5c6db52",
+      "stable_prefix_sha256": "ee554eba9f2163d3aeb91a25aae0b579dd9926d555ec8abbe27f59a26ccf0cf5",
+      "tail_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15",
+      "interpretation": "same_slot_tail_not_semantic_continuation",
+      "mode_results": {
+        "full": {
+          "passed": true,
+          "response": "KPD-1936-CHARLIE",
+          "completion_prompt_sha256": "e86e7d085fa89cfd524b7666fa3947385db80ed7520ab4850192ed0efd6890ad"
+        },
+        "live-tail": {
+          "passed": false,
+          "response": "I am a secret token",
+          "completion_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15"
+        },
+        "restored-tail": {
+          "passed": false,
+          "response": "I am a secret token",
+          "completion_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15",
+          "slot_filename": "secret-charlie-ee554eba9f2163d3-slot.bin",
+          "n_saved": 38,
+          "n_restored": 38
+        },
+        "fresh-tail": {
+          "passed": false,
+          "response": "I am a secret token",
+          "completion_prompt_sha256": "f636c518d05d161d79f74ba2676a62a289eb86e12b17a8bc16cd79e78425fe15"
+        }
+      }
+    }
+  ],
+  "failure_taxonomy": [
+    {
+      "category": "model weakness",
+      "status": "unlikely primary cause",
+      "evidence": "Full-prompt positive control passed 3/3 with exact token answers."
+    },
+    {
+      "category": "prompt protocol issue",
+      "status": "implicated",
+      "evidence": "Tail-only prompts returned the same generic answer as fresh-tail despite successful priming calls."
+    },
+    {
+      "category": "scorer/parser brittleness",
+      "status": "ruled out for this litmus",
+      "evidence": "All 12 responses parsed as JSON answer objects; failures were exact-answer mismatches, not parse errors."
+    },
+    {
+      "category": "session/cache semantic issue",
+      "status": "implicated at endpoint/protocol level",
+      "evidence": "Live same-slot tail-only calls failed 3/3 even without save/restore."
+    },
+    {
+      "category": "position/compatibility issue",
+      "status": "not isolated",
+      "evidence": "Restored-tail failed, but live-tail also failed, so restore position cannot be the first explanation."
+    },
+    {
+      "category": "runtime/storage issue",
+      "status": "unlikely primary cause",
+      "evidence": "No response errors; restored-tail wrote and restored slot files with n_saved/n_restored 37 to 38 tokens."
+    }
+  ],
+  "next_step_options": {
+    "option_2": "Same-backend stronger or different model/format control, only after deciding whether the protocol is worth testing across models.",
+    "option_3": "Lower-level repair probe that avoids assuming tail-only /completion is semantic append continuation."
+  }
+}

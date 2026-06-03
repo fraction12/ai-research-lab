@@ -20,6 +20,8 @@ build/
 **/benchmarks/correctness-eval-inputs/
 **/benchmarks/correctness-eval-results/
 **/benchmarks/correctness-eval-cache/
+**/benchmarks/session-continuation-litmus-results/
+**/benchmarks/session-continuation-litmus-cache/
 
 # Local/private SSH and machine-access artifacts
 .ssh/
