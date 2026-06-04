@@ -6,8 +6,18 @@ For the current system-level interpretation of the Flashcache/SSD-backed local-a
 
 ## Run
 
+Current Ollama benchmark/test model:
+
 ```bash
-python3 benchmarks/ollama_workflow_benchmark.py --model gemma4:latest --runs 1 --num-predict 16
+ollama serve
+ollama pull gemma4:12b
+ollama list
+```
+
+On DushyantPC, use Ollama `0.30.4` or newer for Gemma 4 tags. When running through SSH, start `ollama serve` directly if the Windows tray app does not auto-start.
+
+```bash
+python3 benchmarks/ollama_workflow_benchmark.py --model gemma4:12b --runs 1 --num-predict 16
 ```
 
 Compare full-prompt baseline against the Ollama context proxy:
@@ -16,7 +26,7 @@ Compare full-prompt baseline against the Ollama context proxy:
 python3 benchmarks/ollama_workflow_benchmark.py \
   --strategy compare \
   --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \
-  --model gemma4:latest \
+  --model gemma4:12b \
   --runs 1 \
   --num-predict 8 \
   --prime-num-predict 1 \
@@ -31,7 +41,7 @@ Compare warm in-session reuse against restarting the model before each prompt:
 python3 benchmarks/ollama_workflow_benchmark.py \
   --strategy restart-compare \
   --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \
-  --model gemma4:latest \
+  --model gemma4:12b \
   --runs 1 \
   --num-predict 8 \
   --temperature 0 \
@@ -53,7 +63,7 @@ Build a metadata-only prefix block store:
 ```bash
 python3 benchmarks/prefix_block_store.py \
   --fixture benchmarks/fixtures/lightningitb_deepclean_campaign.json \
-  --model gemma4:latest
+  --model gemma4:12b
 ```
 
 Prefix store artifacts are written to `benchmarks/prefix-store/`.
@@ -75,13 +85,15 @@ Use `--hf-repo` with a current llama.cpp build when the model should be pulled b
 ```bash
 python3 benchmarks/llama_cpp_prompt_cache_benchmark.py \
   --server-bin /path/to/llama-server \
-  --hf-repo ggml-org/gpt-oss-20b-GGUF \
+  --hf-repo ggml-org/gemma-4-12B-it-GGUF:Q4_K_M \
   --fixture benchmarks/fixtures/printtestbot_printing_press_workflow.json \
   --predict 8 \
   --temperature 0
 ```
 
 llama.cpp artifacts are written under `benchmarks/llama-cpp-*` and ignored.
+
+Do not pass the Ollama tag `gemma4:12b` to llama.cpp `--model`; llama.cpp controls require an explicit GGUF path or compatible `--hf-repo`. The current llama.cpp Gemma 4 target is `ggml-org/gemma-4-12B-it-GGUF:Q4_K_M`.
 
 Run the Flashcache wrapper service:
 

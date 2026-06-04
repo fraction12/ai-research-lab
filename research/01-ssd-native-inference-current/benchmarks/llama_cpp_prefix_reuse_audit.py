@@ -22,7 +22,8 @@ from flashcache.llama_cpp import LlamaServerConfig, ManagedLlamaServer, llama_se
 from flashcache.wrapper import completion_text, timing_record  # noqa: E402
 
 
-DEFAULT_MODEL = ROOT / "benchmarks" / "models" / "gpt-oss-20b-mxfp4.gguf"
+DEFAULT_GEMMA4_HF_REPO = "ggml-org/gemma-4-12B-it-GGUF:Q4_K_M"
+DEFAULT_MODEL = ROOT / "benchmarks" / "models" / "gemma-4-12B-it-Q4_K_M.gguf"
 DEFAULT_OUTPUT_DIR = ROOT / "benchmarks" / "lcpr-results"
 DEFAULT_CACHE_DIR = ROOT / "benchmarks" / "lcpr-cache"
 
@@ -700,7 +701,7 @@ def run_audit(args: argparse.Namespace) -> dict[str, Any]:
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Audit direct llama.cpp prefix reuse behavior.")
     parser.add_argument("--server-bin", default="llama-server", help="llama.cpp server binary.")
-    parser.add_argument("--model", type=Path, default=DEFAULT_MODEL, help="Path to a GGUF model.")
+    parser.add_argument("--model", type=Path, help="Path to a GGUF model. Overrides the default Gemma 4 HF repo.")
     parser.add_argument("--hf-repo", help="Hugging Face GGUF repo for llama.cpp -hf loading.")
     parser.add_argument("--cases", type=Path, help="Optional JSONL audit cases.")
     parser.add_argument(
@@ -719,7 +720,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR, help="Directory for audit JSON output.")
     parser.add_argument("--output", type=Path, help="Explicit output JSON path.")
     parser.add_argument("--dry-run", action="store_true", help="Write record skeletons without starting llama.cpp.")
-    return parser.parse_args(argv)
+    args = parser.parse_args(argv)
+    if args.model is None:
+        args.model = DEFAULT_MODEL
+        if not args.hf_repo:
+            args.hf_repo = DEFAULT_GEMMA4_HF_REPO
+    return args
 
 
 def main(argv: list[str] | None = None) -> int:

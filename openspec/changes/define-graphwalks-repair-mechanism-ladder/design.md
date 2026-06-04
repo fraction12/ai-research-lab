@@ -40,6 +40,7 @@ The repo's paper harvest changes the research emphasis. SSD/NVMe KV movement is 
 - No prevalence claim beyond the fixed six-case cohort.
 - No new SSD storage layout, KV tensor format, compression scheme, or backend integration in this change.
 - No Track 01 harness refactor unless a required runtime-boundary control cannot be expressed otherwise.
+- No experimental vault-mind model.
 
 ## Decisions
 
@@ -180,7 +181,7 @@ python3 benchmarks/flashcache_correctness_eval.py run \
   --mode live-tail \
   --answer-protocol json-answer \
   --server-bin %USERPROFILE%\\Tools\\llama-b9482-vulkan\\llama-server.exe \
-  --model benchmarks\\models\\gpt-oss-20b-mxfp4.gguf \
+  --hf-repo ggml-org/gemma-4-12B-it-GGUF:Q4_K_M \
   --ctx-size 32768 \
   --predict 192 \
   --temperature 0.0 \
@@ -202,7 +203,7 @@ for span in 64 128 256; do
     --mode session-tail \
     --answer-protocol json-answer \
     --server-bin %USERPROFILE%\\Tools\\llama-b9482-vulkan\\llama-server.exe \
-    --model benchmarks\\models\\gpt-oss-20b-mxfp4.gguf \
+    --hf-repo ggml-org/gemma-4-12B-it-GGUF:Q4_K_M \
     --ctx-size 32768 \
     --predict 192 \
     --temperature 0.0 \
@@ -234,3 +235,4 @@ No migration is required. This change defines a focused research ladder. Impleme
 - Can live no-restore be expressed through an existing lower-level wrapper, or does it require a new correctness runner mode?
 - Should anchor recompute spans be token-count based only, or should the first implementation include one deterministic semantic-anchor control?
 - Is a compatible stronger GGUF model available later for cases that remain ambiguous after repair controls?
+- Can Gemma 4 12B be used through the needed backend surface for any stronger-model follow-up: Ollama API for prompt-only controls, or a compatible GGUF/Hugging Face repo for llama.cpp slot controls?

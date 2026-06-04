@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_FIXTURE = ROOT / "benchmarks" / "fixtures" / "codex_deepclean_workflow.json"
 DEFAULT_OUTPUT_DIR = ROOT / "benchmarks" / "results"
 DEFAULT_MANIFEST_DIR = ROOT / "benchmarks" / "prefix-manifests"
+DEFAULT_OLLAMA_MODEL = "gemma4:12b"
 
 
 class BenchmarkError(Exception):
@@ -31,7 +32,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Measure local Ollama prompt evaluation cost for repeated agent workflow prompts."
     )
-    parser.add_argument("--model", default="gemma4:latest", help="Ollama model name.")
+    parser.add_argument("--model", default=DEFAULT_OLLAMA_MODEL, help="Ollama model name.")
     parser.add_argument("--host", default="http://localhost:11434", help="Ollama host URL.")
     parser.add_argument("--fixture", type=Path, default=DEFAULT_FIXTURE, help="Workflow fixture JSON path.")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR, help="Directory for JSON results.")

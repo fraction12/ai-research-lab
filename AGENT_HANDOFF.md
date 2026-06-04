@@ -61,6 +61,13 @@ The strongest current evidence is from the Flashcache harness in track 01.
 
 Important caveat: the model used in the latest correctness run was a local GPT-OSS 20B GGUF model, not a frontier model. Some failures may come from model capability or brittleness rather than cache semantics alone. Do not over-interpret failures as "Flashcache breaks reasoning" until controls isolate the cause.
 
+Current local model policy:
+
+- Use `gemma4:12b` as the current Ollama benchmark/test model on DushyantPC.
+- Use `ggml-org/gemma-4-12B-it-GGUF:Q4_K_M` as the current llama.cpp/HF GGUF target for new correctness and cache-control tests unless a spec intentionally selects a different Gemma 4 quantization.
+- Keep `gpt-oss:20b` and `gpt-oss-20b-mxfp4.gguf` as historical evidence only; do not use them as the default for new tests.
+- Do not use the experimental vault-mind model for benchmarks, controls, or paper-facing comparisons.
+
 ## Current Paper Framing
 
 The broad topic "SSD-native inference" is too broad and too close to existing prior art. The sharper candidate topic is:

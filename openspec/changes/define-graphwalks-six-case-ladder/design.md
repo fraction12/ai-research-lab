@@ -117,7 +117,7 @@ Use these control identifiers:
 | `stronger_tail_hints` | Test whether tail-only failures are due to weak answer instructions | Run session-tail with stricter GraphWalks answer hint |
 | `reset_restore_sanity` | Test restore determinism and clean-prefix reset behavior | Repeat prime/save/restore/tail and compare slot telemetry and answers |
 | `scorer_parser_brittleness` | Test whether failures are scorer/parser artifacts | Re-score raw outputs and record raw/extracted/parsed/reference node sets |
-| `stronger_model_control` | Test whether local GPT-OSS 20B brittleness is the main confounder | Run same cases on a stronger available local or hosted model if practical |
+| `stronger_model_control` | Test whether local-model brittleness is the main confounder | Use Gemma 4 12B for new controls: `gemma4:12b` on Ollama or `ggml-org/gemma-4-12B-it-GGUF:Q4_K_M` on llama.cpp |
 
 Rationale: explicit control ids make summaries, commands, and classifications stable across repeated runs.
 
@@ -150,7 +150,7 @@ for run in 01 02 03; do
     --cases benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-selected-cases.jsonl \
     --mode full \
     --answer-protocol json-answer \
-    --model benchmarks/models/gpt-oss-20b-mxfp4.gguf \
+    --hf-repo ggml-org/gemma-4-12B-it-GGUF:Q4_K_M \
     --ctx-size 32768 \
     --predict 192 \
     --temperature 0.0 \
@@ -171,7 +171,7 @@ for run in 01 02 03; do
     --cases benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-selected-cases.jsonl \
     --mode session-tail \
     --answer-protocol json-answer \
-    --model benchmarks/models/gpt-oss-20b-mxfp4.gguf \
+    --hf-repo ggml-org/gemma-4-12B-it-GGUF:Q4_K_M \
     --ctx-size 32768 \
     --predict 192 \
     --temperature 0.0 \
@@ -213,7 +213,7 @@ python3 benchmarks/flashcache_correctness_eval.py run \
 - Dataset ordering drift could prevent exact source-id reconstruction from the remote GraphWalks stream. Mitigation: verify all six case ids after materialization; if missing, add a tiny source-id selection path and record the dependency.
 - Prompt-bearing artifacts may contain dataset prompt text. Mitigation: keep them under ignored benchmark input paths and commit only hashes, metadata, summaries, and classifications.
 - The existing CLI may not support visible-prefix/session-formatted and stronger-hint controls exactly. Mitigation: first try local case composition; only then add minimal tested harness support.
-- Stronger-model control may be unavailable on the local machine. Mitigation: mark it `not_practical` with the reason, model availability check, and no paper-facing conclusion from that missing control.
+- Stronger-model control may be unavailable on the selected backend. Mitigation: mark it `not_practical` with the reason, model availability check, and no paper-facing conclusion from that missing control. `gemma4:12b` is the current Ollama target, but llama.cpp controls still require a compatible GGUF path or Hugging Face GGUF repo.
 - Six cases are useful for attribution, not prevalence. Mitigation: do not report them as a benchmark pass rate beyond the known failed-case cohort.
 
 ## Migration Plan
@@ -222,6 +222,6 @@ No migration is required. This change only defines the focused experiment contra
 
 ## Open Questions
 
-- Is `gpt-oss-20b-mxfp4.gguf` available in the expected local model path on the machine that will run the experiment?
-- Which stronger model, if any, is practical for the stronger-model control?
+- Has DushyantPC already cached `ggml-org/gemma-4-12B-it-GGUF:Q4_K_M` for llama.cpp, or should the first approved run include the model download time separately from benchmark timing?
+- Which Gemma 4 12B backend path is practical for the stronger-model control: Ollama API, compatible GGUF path, or Hugging Face GGUF repo?
 - Can visible-prefix/session-formatted and stronger-tail-hint controls be represented by case composition alone, or is a minimal CLI option needed?

@@ -28,6 +28,13 @@ Stateful KV reuse can be made useful for local agents if the runtime has a corre
 5. Build a simple quality-risk router.
 6. Measure speed, fallback rate, task-family pass rate, and failure class together.
 
+## Current Local Model Policy
+
+- Use `gemma4:12b` as the current Ollama local benchmark/test model.
+- Use `ggml-org/gemma-4-12B-it-GGUF:Q4_K_M` as the current llama.cpp/HF GGUF target for new correctness and cache-control tests unless a spec intentionally selects a different Gemma 4 quantization.
+- Keep existing `gpt-oss:20b` and `gpt-oss-20b-mxfp4.gguf` results as historical evidence split by model and backend; do not use GPT-OSS as the default for new tests.
+- Do not use the experimental vault-mind model for benchmarks, controls, or paper-facing comparisons.
+
 ## Success Shape
 
 A paper-worthy result would not merely show lower latency. It would define when stateful reuse is safe, when it is unsafe, and how a local system can know the difference.

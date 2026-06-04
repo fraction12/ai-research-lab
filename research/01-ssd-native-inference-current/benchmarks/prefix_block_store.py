@@ -21,7 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Create content-addressed prompt block metadata for future prefix/KV cache experiments."
     )
-    parser.add_argument("--model", default="gemma4:latest", help="Model name used as cache-key material.")
+    parser.add_argument("--model", default=owb.DEFAULT_OLLAMA_MODEL, help="Model name used as cache-key material.")
     parser.add_argument("--fixture", type=Path, default=owb.DEFAULT_FIXTURE, help="Workflow fixture JSON path.")
     parser.add_argument("--store-dir", type=Path, default=DEFAULT_STORE_DIR, help="Prefix block store output directory.")
     parser.add_argument("--scenario", action="append", help="Use only the named scenario. Can be repeated.")
