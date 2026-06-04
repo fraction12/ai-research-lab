@@ -1,0 +1,81 @@
+{
+  "decision": "native_full_visible_parity_passed_family1_capsule_gate_not_run_in_this_script",
+  "overall_result": "native_full_visible_parity_passed_capsule_not_run",
+  "classification_rules": {
+    "passed": "Expected answer appears as a standalone substring in response; exact-only output is tracked separately and was not required for this bridge.",
+    "server_model_prompt_setup_issue": "Use only when refreshed simple-prompt server baseline fails; not triggered in the final bridge run.",
+    "native_server_parity_failure": "Use if native full-visible misses after server baseline passes; not triggered in the final bridge run.",
+    "not_run_by_parity_review_stop": "Use for capsule gates in this assignment because the bridge stops for review after parity passes."
+  },
+  "by_control": {
+    "native_full_visible_prefix_plus_tail": {
+      "records": 6,
+      "answer_contained": 6,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 6
+      },
+      "failure_class_counts": {
+        "passed": 6
+      },
+      "mean_prompt_tokens": 31.666666666666668,
+      "mean_prompt_ms": 302.7734166632096,
+      "mean_decode_or_predicted_ms": 2114.5526166462028
+    },
+    "native_tokenize_add_special_false": {
+      "records": 3,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {},
+      "failure_class_counts": {
+        "passed": 3
+      },
+      "mean_prompt_tokens": null,
+      "mean_prompt_ms": null,
+      "mean_decode_or_predicted_ms": null
+    },
+    "native_tokenize_add_special_true": {
+      "records": 3,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {},
+      "failure_class_counts": {
+        "passed": 3
+      },
+      "mean_prompt_tokens": null,
+      "mean_prompt_ms": null,
+      "mean_decode_or_predicted_ms": null
+    },
+    "server_full_visible_no_cache": {
+      "records": 3,
+      "answer_contained": 3,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 3
+      },
+      "failure_class_counts": {
+        "passed": 3
+      },
+      "mean_prompt_tokens": 31.666666666666668,
+      "mean_prompt_ms": 635.1123333333334,
+      "mean_decode_or_predicted_ms": 5436.375666666666
+    },
+    "server_tokenize_exact_prompt": {
+      "records": 6,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {},
+      "failure_class_counts": {},
+      "mean_prompt_tokens": null,
+      "mean_prompt_ms": null,
+      "mean_decode_or_predicted_ms": null
+    }
+  },
+  "discarded_attempts": [
+    {
+      "attempt": "nonce_prompt_with_corrected_server_flags",
+      "status": "discarded_harness_mismatch_diagnostic",
+      "reason": "Prompt shape still differed from prior known-good documented-cache codeword prompt; final run uses simple prompt shape."
+    }
+  ]
+}

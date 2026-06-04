@@ -1,0 +1,157 @@
+{
+  "experiment": "native-server-parity-bridge-2026-06-04",
+  "change": "bridge-native-server-parity-for-kv-capsule",
+  "decision": "native_full_visible_parity_passed_family1_capsule_gate_not_run_in_this_script",
+  "stop_rule": "parity_passed_stop_before_capsule_rerun_for_review",
+  "interpretation": "Native direct C API full-visible generation reproduced the refreshed server full-visible codeword behavior on the 3-case simple prompt bridge. This makes the native runner trustworthy enough for the next reviewed Family 1 capsule gate; no capsule controls were run in this script.",
+  "capsule_gates_run": false,
+  "discarded_attempt_note": "An earlier nonce-prompt bridge attempt emitted repeated newlines and was discarded as a harness-mismatch diagnostic because it did not use the prior known-good simple prompt shape.",
+  "prompt_shape": "prior_known_good_simple_codeword",
+  "server_flags_matched_prior_documented_cache": [
+    "--cache-prompt",
+    "--slots",
+    "--no-ui",
+    "--no-warmup",
+    "--no-mmap",
+    "--flash-attn auto",
+    "--jinja",
+    "--reasoning off",
+    "--reasoning-budget 0"
+  ],
+  "record_count": 21,
+  "aggregate_by_control": {
+    "native_full_visible_prefix_plus_tail": {
+      "records": 6,
+      "answer_contained": 6,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 6
+      },
+      "failure_class_counts": {
+        "passed": 6
+      },
+      "mean_prompt_tokens": 31.666666666666668,
+      "mean_prompt_ms": 302.7734166632096,
+      "mean_decode_or_predicted_ms": 2114.5526166462028
+    },
+    "native_tokenize_add_special_false": {
+      "records": 3,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {},
+      "failure_class_counts": {
+        "passed": 3
+      },
+      "mean_prompt_tokens": null,
+      "mean_prompt_ms": null,
+      "mean_decode_or_predicted_ms": null
+    },
+    "native_tokenize_add_special_true": {
+      "records": 3,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {},
+      "failure_class_counts": {
+        "passed": 3
+      },
+      "mean_prompt_tokens": null,
+      "mean_prompt_ms": null,
+      "mean_decode_or_predicted_ms": null
+    },
+    "server_full_visible_no_cache": {
+      "records": 3,
+      "answer_contained": 3,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 3
+      },
+      "failure_class_counts": {
+        "passed": 3
+      },
+      "mean_prompt_tokens": 31.666666666666668,
+      "mean_prompt_ms": 635.1123333333334,
+      "mean_decode_or_predicted_ms": 5436.375666666666
+    },
+    "server_tokenize_exact_prompt": {
+      "records": 6,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {},
+      "failure_class_counts": {},
+      "mean_prompt_tokens": null,
+      "mean_prompt_ms": null,
+      "mean_decode_or_predicted_ms": null
+    }
+  },
+  "server_answer_contained": 3,
+  "native_answer_contained_by_route": {
+    "raw_completion_add_special_false": 3,
+    "raw_completion_add_special_true": 3
+  },
+  "tokenization_parity": [
+    {
+      "case_id": "codeword-00",
+      "server_content_token_count": 31,
+      "server_content_token_hash": "052d2c0d95b1fb69cab4b1e87296ea9cac613a100c55426ab3007d9eef40c69d",
+      "server_prompt_payload_token_count": 0,
+      "native_add_special_true_token_count": 31,
+      "native_add_special_true_token_hash": "052d2c0d95b1fb69cab4b1e87296ea9cac613a100c55426ab3007d9eef40c69d",
+      "native_add_special_false_token_count": 31,
+      "native_add_special_false_token_hash": "052d2c0d95b1fb69cab4b1e87296ea9cac613a100c55426ab3007d9eef40c69d",
+      "content_matches_native_true": true,
+      "content_matches_native_false": true
+    },
+    {
+      "case_id": "codeword-01",
+      "server_content_token_count": 32,
+      "server_content_token_hash": "404af7ece1ad2b6845a608c5168e3a40a3ba4e779ff9d9246ede06cbf214f678",
+      "server_prompt_payload_token_count": 0,
+      "native_add_special_true_token_count": 32,
+      "native_add_special_true_token_hash": "404af7ece1ad2b6845a608c5168e3a40a3ba4e779ff9d9246ede06cbf214f678",
+      "native_add_special_false_token_count": 32,
+      "native_add_special_false_token_hash": "404af7ece1ad2b6845a608c5168e3a40a3ba4e779ff9d9246ede06cbf214f678",
+      "content_matches_native_true": true,
+      "content_matches_native_false": true
+    },
+    {
+      "case_id": "codeword-02",
+      "server_content_token_count": 32,
+      "server_content_token_hash": "ebcabab140c696372a78eb555287a8a443bf62839e442ad3960dabaf36383ce3",
+      "server_prompt_payload_token_count": 0,
+      "native_add_special_true_token_count": 32,
+      "native_add_special_true_token_hash": "ebcabab140c696372a78eb555287a8a443bf62839e442ad3960dabaf36383ce3",
+      "native_add_special_false_token_count": 32,
+      "native_add_special_false_token_hash": "ebcabab140c696372a78eb555287a8a443bf62839e442ad3960dabaf36383ce3",
+      "content_matches_native_true": true,
+      "content_matches_native_false": true
+    }
+  ],
+  "top_k_takeaway": "Native first-token top-k was stable and non-newline; rank 1 token was token 3004 across cases/routes, matching the generated response prefix behavior rather than the prior repeated-newline failure.",
+  "model_runner_hashes": {
+    "model_hash": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+    "model_path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "model_size_bytes": 13793422144,
+    "model_header_hex": "47 47 55 46 03 00 00 00 cb 01 00 00 00 00 00 00",
+    "server_hash": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6",
+    "libllama_hash": "9B707D4886051671B8C94BB5A2F3F07DD0868A5BFB34EE163C080D91555E2310",
+    "source_tag": "b9493",
+    "source_commit": "a731805cedc83c0514cbd808a2e38ec46c759cc2"
+  },
+  "runner": {
+    "host": "DushyantPC",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "server_version_stderr": "version: 1 (a731805ce)\nbuilt with Clang 18.1.8 for Windows AMD64",
+    "abi_route": "python_ctypes_direct_libllama_c_api",
+    "abi_risk": "pinned_b9493_headers_used_for_signature_guidance_against_pinned_dll; smoke_and_tokenization_gated",
+    "sequential_load_note": "server baseline completed and server process exited before native direct C API model load"
+  },
+  "raw_artifacts": {
+    "records": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/bridge-records.jsonl",
+    "run_info": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/bridge-run-info.json",
+    "server_log": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/server-console.log",
+    "console": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/bridge-console.txt",
+    "runner": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/native_server_parity_bridge.py"
+  },
+  "next_step": "After review, run Family 1 capsule gates with the parity-proven prompt/token/generation route. Native live append must pass before restored capsule semantics are interpreted."
+}
