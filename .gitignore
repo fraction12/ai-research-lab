@@ -29,6 +29,11 @@ build/
 **/benchmarks/lcpr-results/
 **/benchmarks/lcpr-cache/
 
+# Codex project-local generated hook state
+.codex/manager-ledger.json
+.codex/manager-ledger.json.tmp
+.codex/manager-ledger.errors.log
+
 # Local/private SSH and machine-access artifacts
 .ssh/
 **/.ssh/

@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/workspace_manager_ledger.py\"",
+            "timeout": 10,
+            "statusMessage": "Updating Workspace Manager ledger"
+          }
+        ]
+      }
+    ]
+  }
+}
