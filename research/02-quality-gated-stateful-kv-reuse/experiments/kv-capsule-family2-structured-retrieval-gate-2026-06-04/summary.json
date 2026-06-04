@@ -1,0 +1,165 @@
+{
+  "experiment": "kv-capsule-family2-structured-retrieval-gate-2026-06-04",
+  "change": "run-kv-capsule-family2-structured-retrieval-gate",
+  "source_base_commit": "382e677 Record KV capsule Family 1 gate",
+  "definition_checkpoint_commit": "3036c39 Define KV capsule Family 2 gate",
+  "decision": "family2_restored_capsule_structured_retrieval_passed",
+  "stop_rule": "family2_restored_capsule_passed_stop_before_expansion",
+  "interpretation": "On the 5-case fabricated structured-retrieval Family 2 gate, native full-visible passed, fresh tail-only missed, native live append passed, and restored capsule append passed. This supports semantic continuation for this narrow small structured-retrieval gate only; no mini graph, GraphWalks, noiseless evidence, server bridge, or broad benchmark was run.",
+  "scope_note": "Mechanism gate only; 5 deterministic fabricated key-value/table lookup cases, not GraphWalks or broad quality evidence.",
+  "prompt_shape": "structured_key_value_lookup",
+  "task_shape": "fabricated_key_value_lookup",
+  "canonical_route": {
+    "full_prompt_and_prefix_prefill_add_special": true,
+    "tail_append_add_special": false,
+    "reason": "Family 1 validated this route for the native direct C API path; full prompt and prefix starts use add_special=true, appended tails use add_special=false."
+  },
+  "record_count": 20,
+  "contains_by_control": {
+    "native_full_visible_prefix_plus_tail": 5,
+    "native_fresh_tail_only": 0,
+    "native_live_append_tail_only": 5,
+    "native_restored_capsule_append_tail_only": 5
+  },
+  "aggregate_by_control": {
+    "native_full_visible_prefix_plus_tail": {
+      "records": 5,
+      "answer_contained": 5,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 5
+      },
+      "failure_class_counts": {
+        "passed": 5
+      },
+      "mean_structured_rows": 7.0,
+      "mean_prefix_tokens": 148.2,
+      "mean_tail_tokens": 17.2,
+      "mean_full_prompt_tokens": 165.4,
+      "mean_generated_tokens": 48.0,
+      "mean_prompt_ms": 545.411100005731,
+      "mean_decode_ms": 2143.807219993323,
+      "mean_total_ms": 3008.0721399979666,
+      "mean_n_past_before_tail_append": null,
+      "mean_generation_start_pos": 165.4,
+      "mean_capsule_bytes": 0.0,
+      "mean_capsule_save_ms": null,
+      "mean_capsule_restore_ms": null,
+      "mean_state_bytes_requested": null,
+      "mean_state_bytes_restored": null
+    },
+    "native_fresh_tail_only": {
+      "records": 5,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {
+        "missing": 5
+      },
+      "failure_class_counts": {
+        "fresh_tail_expected_miss": 5
+      },
+      "mean_structured_rows": 7.0,
+      "mean_prefix_tokens": 148.2,
+      "mean_tail_tokens": 17.2,
+      "mean_full_prompt_tokens": 165.4,
+      "mean_generated_tokens": 48.0,
+      "mean_prompt_ms": 113.70743998559192,
+      "mean_decode_ms": 2006.2888199929148,
+      "mean_total_ms": 2391.1273000063375,
+      "mean_n_past_before_tail_append": 0.0,
+      "mean_generation_start_pos": 17.2,
+      "mean_capsule_bytes": 0.0,
+      "mean_capsule_save_ms": null,
+      "mean_capsule_restore_ms": null,
+      "mean_state_bytes_requested": null,
+      "mean_state_bytes_restored": null
+    },
+    "native_live_append_tail_only": {
+      "records": 5,
+      "answer_contained": 5,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 5
+      },
+      "failure_class_counts": {
+        "passed": 5
+      },
+      "mean_structured_rows": 7.0,
+      "mean_prefix_tokens": 148.2,
+      "mean_tail_tokens": 17.2,
+      "mean_full_prompt_tokens": 165.4,
+      "mean_generated_tokens": 48.0,
+      "mean_prompt_ms": 518.2761200121604,
+      "mean_decode_ms": 2001.5877600177191,
+      "mean_total_ms": 2789.581120002549,
+      "mean_n_past_before_tail_append": 148.2,
+      "mean_generation_start_pos": 165.4,
+      "mean_capsule_bytes": 0.0,
+      "mean_capsule_save_ms": null,
+      "mean_capsule_restore_ms": null,
+      "mean_state_bytes_requested": null,
+      "mean_state_bytes_restored": null
+    },
+    "native_restored_capsule_append_tail_only": {
+      "records": 5,
+      "answer_contained": 5,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 5
+      },
+      "failure_class_counts": {
+        "passed": 5
+      },
+      "mean_structured_rows": 7.0,
+      "mean_prefix_tokens": 148.2,
+      "mean_tail_tokens": 17.2,
+      "mean_full_prompt_tokens": 165.4,
+      "mean_generated_tokens": 48.0,
+      "mean_prompt_ms": 86.10826000804082,
+      "mean_decode_ms": 2000.2413600101136,
+      "mean_total_ms": 3591.463459993247,
+      "mean_n_past_before_tail_append": 148.2,
+      "mean_generation_start_pos": 165.4,
+      "mean_capsule_bytes": 7288502.2,
+      "mean_capsule_save_ms": 2.264920005109161,
+      "mean_capsule_restore_ms": 149.17315999045968,
+      "mean_state_bytes_requested": 7288502.2,
+      "mean_state_bytes_restored": 7288502.2
+    }
+  },
+  "model_runner_hashes": {
+    "model_hash": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+    "model_path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "model_size_bytes": 13793422144,
+    "model_header_hex": "47 47 55 46 03 00 00 00 cb 01 00 00 00 00 00 00",
+    "server_hash": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6",
+    "libllama_hash": "9B707D4886051671B8C94BB5A2F3F07DD0868A5BFB34EE163C080D91555E2310",
+    "source_tag": "b9493",
+    "source_commit": "a731805cedc83c0514cbd808a2e38ec46c759cc2"
+  },
+  "runner": {
+    "host": "DushyantPC",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "abi_route": "python_ctypes_direct_libllama_c_api",
+    "abi_risk": "pinned_b9493_headers_used_for_signature_guidance_against_pinned_dll; smoke_and_tokenization_gated",
+    "backend": "cuda_v13",
+    "model_desc": "gpt-oss 20B unknown, may not work",
+    "general_architecture": "gpt-oss",
+    "tokenizer_model": "gpt2",
+    "model_n_swa": 128
+  },
+  "raw_artifacts": {
+    "records": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family2-structured-retrieval-gate-2026-06-04/raw/family2-records.jsonl",
+    "run_info": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family2-structured-retrieval-gate-2026-06-04/raw/family2-run-info.json",
+    "console": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family2-structured-retrieval-gate-2026-06-04/raw/family2-console.txt",
+    "runner": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family2-structured-retrieval-gate-2026-06-04/raw/kv_capsule_family2_gate.py"
+  },
+  "raw_artifact_hashes": {
+    "records_sha256": "7505c7f0c8744a6d426ecf723e69ade82df4b0ebf784ab204a1beab89fe41107",
+    "run_info_sha256": "5e6f8c68d03c90011b52b96d35098f003821a3e5a95a2ae381f65618a3c9e2c8",
+    "console_sha256": "ec3704e1a0a5526c501a5aab9ae1de4105673d0cbecac85122fa582790eea50c",
+    "runner_sha256": "f0e1c5214dfd95b6027e05269f0c143e57c2e55294b06a71e32a10bedc4620ff"
+  },
+  "next_step": "Review before expanding. Do not run Family 3, mini graph, GraphWalks, noiseless evidence, server bridge, or broad benchmarks without a new reviewed OpenSpec change."
+}
