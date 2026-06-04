@@ -32,6 +32,6 @@
 
 ## 5. Validate And Land
 
-- [ ] 5.1 Run `openspec validate run-kv-capsule-family1-semantic-gate --type change --strict`.
-- [ ] 5.2 Run `openspec validate --all --strict`.
-- [ ] 5.3 Commit locally if coherent; do not push without explicit approval.
+- [x] 5.1 Run `openspec validate run-kv-capsule-family1-semantic-gate --type change --strict`; rechecked by orchestration on 2026-06-04.
+- [x] 5.2 Run `openspec validate --all --strict`; rechecked by orchestration on 2026-06-04.
+- [x] 5.3 Commit locally if coherent; landed as local commit `382e677` (`Record KV capsule Family 1 gate`) with no push.

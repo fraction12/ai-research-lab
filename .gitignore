@@ -35,6 +35,7 @@ build/
 **/benchmarks/kv-capsule-semantic-continuation-*/
 **/benchmarks/native-server-parity-bridge-*/
 **/benchmarks/kv-capsule-family1-semantic-gate-*/
+**/benchmarks/kv-capsule-family2-structured-retrieval-gate-*/
 
 # Codex project-local generated hook state
 .codex/manager-ledger.json
