@@ -1,0 +1,31 @@
+{
+  "dushyantpc_checkout_commit": "4578d7f",
+  "experiment_id": "graphwalks-parent-scaling-pilot-2026-06-04",
+  "model": {
+    "path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB"
+  },
+  "raw_command_record": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-parent-scaling-pilot-2026-06-04/raw/pilot-first10-five-control-command.json",
+  "runner": {
+    "path": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
+    "server_flags": [
+      "--cache-prompt",
+      "--slots",
+      "--no-ui",
+      "--no-warmup",
+      "--no-mmap",
+      "--flash-attn auto",
+      "--jinja",
+      "--reasoning off",
+      "--reasoning-budget 0"
+    ],
+    "sha256": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6"
+  },
+  "settings": {
+    "ctx_size": 32768,
+    "predict": 192,
+    "prime_n_predict": 0,
+    "temperature": 0.0,
+    "timeout": 300.0
+  }
+}

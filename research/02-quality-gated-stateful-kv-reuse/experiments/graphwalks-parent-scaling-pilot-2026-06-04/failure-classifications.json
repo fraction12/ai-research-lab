@@ -1,0 +1,505 @@
+{
+  "classifications": [
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-000-row-0",
+      "classification": "model weakness",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Full graph was visible but model did not recover the exact parent set; likely retrieval burden/model weakness for this prompt.",
+      "passed": false,
+      "score": 0.3333333333333333,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-000-row-0",
+      "classification": "session/cache semantic issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-000-row-0",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-000-row-0",
+      "classification": "passed",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-000-row-0",
+      "classification": "passed",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-001-row-1",
+      "classification": "model weakness",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Full graph was visible but model did not recover the exact parent set; likely retrieval burden/model weakness for this prompt.",
+      "passed": false,
+      "score": 0.25,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 2 column 13 (char 14)",
+      "case_id": "graphwalks-parent-001-row-1",
+      "classification": "prompt protocol issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "Model emitted invalid/truncated JSON under a JSON-schema answer protocol; scorer correctly rejected parse error.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": true
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-001-row-1",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-001-row-1",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Same failure appears in fresh evidence-only and hidden-prefix plus evidence, so it is not attributable to session/cache semantics.",
+      "passed": false,
+      "score": 0.28571428571428575,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-001-row-1",
+      "classification": "model weakness",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Same failure appears in fresh evidence-only and hidden-prefix plus evidence, so it is not attributable to session/cache semantics.",
+      "passed": false,
+      "score": 0.28571428571428575,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-002-row-2",
+      "classification": "model weakness",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Full graph was visible but model did not recover the exact parent set; likely retrieval burden/model weakness for this prompt.",
+      "passed": false,
+      "score": 0.4,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-002-row-2",
+      "classification": "session/cache semantic issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-002-row-2",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-002-row-2",
+      "classification": "passed",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-002-row-2",
+      "classification": "passed",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-003-row-3",
+      "classification": "model weakness",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Full graph was visible but model did not recover the exact parent set; likely retrieval burden/model weakness for this prompt.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-003-row-3",
+      "classification": "session/cache semantic issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-003-row-3",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-003-row-3",
+      "classification": "passed",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-003-row-3",
+      "classification": "passed",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-004-row-4",
+      "classification": "model weakness",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Full graph was visible but model did not recover the exact parent set; likely retrieval burden/model weakness for this prompt.",
+      "passed": false,
+      "score": 0.6666666666666665,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 2 column 13 (char 14)",
+      "case_id": "graphwalks-parent-004-row-4",
+      "classification": "prompt protocol issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "Model emitted invalid/truncated JSON under a JSON-schema answer protocol; scorer correctly rejected parse error.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": true
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-004-row-4",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-004-row-4",
+      "classification": "passed",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-004-row-4",
+      "classification": "passed",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-005-row-5",
+      "classification": "model weakness",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Full graph was visible but model did not recover the exact parent set; likely retrieval burden/model weakness for this prompt.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-005-row-5",
+      "classification": "session/cache semantic issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-005-row-5",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-005-row-5",
+      "classification": "passed",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-005-row-5",
+      "classification": "passed",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-006-row-6",
+      "classification": "model weakness",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Full graph was visible but model did not recover the exact parent set; likely retrieval burden/model weakness for this prompt.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 2 column 13 (char 14)",
+      "case_id": "graphwalks-parent-006-row-6",
+      "classification": "prompt protocol issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "Model emitted invalid/truncated JSON under a JSON-schema answer protocol; scorer correctly rejected parse error.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": true
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-006-row-6",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-006-row-6",
+      "classification": "passed",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-006-row-6",
+      "classification": "passed",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-007-row-7",
+      "classification": "model weakness",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Full graph was visible but model did not recover the exact parent set; likely retrieval burden/model weakness for this prompt.",
+      "passed": false,
+      "score": 0.8333333333333334,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 2 column 13 (char 14)",
+      "case_id": "graphwalks-parent-007-row-7",
+      "classification": "prompt protocol issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "Model emitted invalid/truncated JSON under a JSON-schema answer protocol; scorer correctly rejected parse error.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": true
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-007-row-7",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-007-row-7",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Same failure appears in fresh evidence-only and hidden-prefix plus evidence, so it is not attributable to session/cache semantics.",
+      "passed": false,
+      "score": 0.7272727272727272,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-007-row-7",
+      "classification": "model weakness",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Same failure appears in fresh evidence-only and hidden-prefix plus evidence, so it is not attributable to session/cache semantics.",
+      "passed": false,
+      "score": 0.7272727272727272,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-008-row-8",
+      "classification": "model weakness",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Full graph was visible but model did not recover the exact parent set; likely retrieval burden/model weakness for this prompt.",
+      "passed": false,
+      "score": 0.6666666666666666,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-008-row-8",
+      "classification": "session/cache semantic issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-008-row-8",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-008-row-8",
+      "classification": "passed",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-008-row-8",
+      "classification": "passed",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-009-row-9",
+      "classification": "passed",
+      "control": "full_visible_compact_prompt",
+      "evidence": "Control passed exact node-set scorer.",
+      "passed": true,
+      "score": 1.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 2 column 13 (char 14)",
+      "case_id": "graphwalks-parent-009-row-9",
+      "classification": "prompt protocol issue",
+      "control": "hidden_prefix_session_tail",
+      "evidence": "Model emitted invalid/truncated JSON under a JSON-schema answer protocol; scorer correctly rejected parse error.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": true
+    },
+    {
+      "answer_parse_error": null,
+      "case_id": "graphwalks-parent-009-row-9",
+      "classification": "model weakness",
+      "control": "hidden_prefix_compact_tail_no_evidence",
+      "evidence": "No visible graph evidence was available in the completion prompt; model output was unrelated or hallucinated nodes.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": false
+    },
+    {
+      "answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 13 (char 12)",
+      "case_id": "graphwalks-parent-009-row-9",
+      "classification": "prompt protocol issue",
+      "control": "hidden_prefix_compact_visible_evidence_tail",
+      "evidence": "Model emitted invalid/truncated JSON under a JSON-schema answer protocol; scorer correctly rejected parse error.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": true
+    },
+    {
+      "answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 13 (char 12)",
+      "case_id": "graphwalks-parent-009-row-9",
+      "classification": "prompt protocol issue",
+      "control": "fresh_compact_visible_evidence_only",
+      "evidence": "Model emitted invalid/truncated JSON under a JSON-schema answer protocol; scorer correctly rejected parse error.",
+      "passed": false,
+      "score": 0.0,
+      "truncation_suspected": true
+    }
+  ],
+  "experiment_id": "graphwalks-parent-scaling-pilot-2026-06-04"
+}

@@ -1,0 +1,272 @@
+{
+  "controls": {
+    "fresh_compact_visible_evidence_only": {
+      "case_count": 10,
+      "mean_score": 0.8012987012987013,
+      "numeric_score_count": 10,
+      "pass_rate": 0.7
+    },
+    "full_visible_compact_prompt": {
+      "case_count": 10,
+      "mean_score": 0.4149999999999999,
+      "numeric_score_count": 10,
+      "pass_rate": 0.1
+    },
+    "hidden_prefix_compact_tail_no_evidence": {
+      "case_count": 10,
+      "mean_score": 0.0,
+      "numeric_score_count": 10,
+      "pass_rate": 0.0
+    },
+    "hidden_prefix_compact_visible_evidence_tail": {
+      "case_count": 10,
+      "mean_score": 0.8012987012987013,
+      "numeric_score_count": 10,
+      "pass_rate": 0.7
+    },
+    "hidden_prefix_session_tail": {
+      "case_count": 10,
+      "mean_score": 0.0,
+      "numeric_score_count": 10,
+      "pass_rate": 0.0
+    }
+  },
+  "dataset": "openai/graphwalks",
+  "design_planned_case_count": 50,
+  "elapsed_ms": 2504587.7716999967,
+  "estimated_full_50x5_elapsed_ms": 12522938.858499983,
+  "executed_case_count": 10,
+  "executed_slice": "deterministic first 10 of 50",
+  "experiment_id": "graphwalks-parent-scaling-pilot-2026-06-04",
+  "generated_at": "2026-06-04T07:00:43.801282+00:00",
+  "headline": {
+    "fresh_compact_visible_evidence_only": "7/10",
+    "full_visible_compact_prompt": "1/10",
+    "hidden_prefix_compact_tail_no_evidence": "0/10",
+    "hidden_prefix_compact_visible_evidence_tail": "7/10",
+    "hidden_prefix_session_tail": "0/10"
+  },
+  "mechanism_interpretation": "Compact visible evidence repairs 7/10 hidden-prefix failures, but fresh evidence-only exactly matches hidden-prefix plus evidence on all 10 cases by response string and score. In this slice, hidden KV does not add observable correctness value; the useful mechanism is role-aware evidence scheduling / token-efficient context compilation.",
+  "model": {
+    "path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB"
+  },
+  "runner": {
+    "path": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
+    "server_flags": [
+      "--cache-prompt",
+      "--slots",
+      "--no-ui",
+      "--no-warmup",
+      "--no-mmap",
+      "--flash-attn auto",
+      "--jinja",
+      "--reasoning off",
+      "--reasoning-budget 0"
+    ],
+    "sha256": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6"
+  },
+  "settings": {
+    "ctx_size": 32768,
+    "predict": 192,
+    "prime_n_predict": 0,
+    "temperature": 0.0,
+    "timeout": 300.0
+  },
+  "stop_rule_reason": "The full 50-case x 5-control matrix requires 250 model calls; the first-10 slice took 2504.588 seconds, implying a roughly multi-hour full run.",
+  "stop_rule_triggered": true,
+  "subsets": {
+    "all_executed_cases": {
+      "case_ids": [
+        "graphwalks-parent-000-row-0",
+        "graphwalks-parent-001-row-1",
+        "graphwalks-parent-002-row-2",
+        "graphwalks-parent-003-row-3",
+        "graphwalks-parent-004-row-4",
+        "graphwalks-parent-005-row-5",
+        "graphwalks-parent-006-row-6",
+        "graphwalks-parent-007-row-7",
+        "graphwalks-parent-008-row-8",
+        "graphwalks-parent-009-row-9"
+      ],
+      "summary": {
+        "fresh_compact_visible_evidence_only": {
+          "case_count": 10,
+          "mean_score": 0.8012987012987013,
+          "pass_count": 7,
+          "pass_rate": 0.7
+        },
+        "full_visible_compact_prompt": {
+          "case_count": 10,
+          "mean_score": 0.41500000000000004,
+          "pass_count": 1,
+          "pass_rate": 0.1
+        },
+        "hidden_prefix_compact_tail_no_evidence": {
+          "case_count": 10,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        },
+        "hidden_prefix_compact_visible_evidence_tail": {
+          "case_count": 10,
+          "mean_score": 0.8012987012987013,
+          "pass_count": 7,
+          "pass_rate": 0.7
+        },
+        "hidden_prefix_session_tail": {
+          "case_count": 10,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        }
+      }
+    },
+    "compact_no_evidence_repairs_hidden_prefix_failure": {
+      "case_ids": [],
+      "count": 0
+    },
+    "fresh_evidence_only_equals_hidden_prefix_plus_evidence": {
+      "case_ids": [
+        "graphwalks-parent-000-row-0",
+        "graphwalks-parent-001-row-1",
+        "graphwalks-parent-002-row-2",
+        "graphwalks-parent-003-row-3",
+        "graphwalks-parent-004-row-4",
+        "graphwalks-parent-005-row-5",
+        "graphwalks-parent-006-row-6",
+        "graphwalks-parent-007-row-7",
+        "graphwalks-parent-008-row-8",
+        "graphwalks-parent-009-row-9"
+      ],
+      "count": 10
+    },
+    "full_visible_pass_subset": {
+      "case_ids": [
+        "graphwalks-parent-009-row-9"
+      ],
+      "summary": {
+        "fresh_compact_visible_evidence_only": {
+          "case_count": 1,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        },
+        "full_visible_compact_prompt": {
+          "case_count": 1,
+          "mean_score": 1.0,
+          "pass_count": 1,
+          "pass_rate": 1.0
+        },
+        "hidden_prefix_compact_tail_no_evidence": {
+          "case_count": 1,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        },
+        "hidden_prefix_compact_visible_evidence_tail": {
+          "case_count": 1,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        },
+        "hidden_prefix_session_tail": {
+          "case_count": 1,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        }
+      }
+    },
+    "hidden_prefix_fail_subset": {
+      "case_ids": [
+        "graphwalks-parent-000-row-0",
+        "graphwalks-parent-001-row-1",
+        "graphwalks-parent-002-row-2",
+        "graphwalks-parent-003-row-3",
+        "graphwalks-parent-004-row-4",
+        "graphwalks-parent-005-row-5",
+        "graphwalks-parent-006-row-6",
+        "graphwalks-parent-007-row-7",
+        "graphwalks-parent-008-row-8",
+        "graphwalks-parent-009-row-9"
+      ],
+      "summary": {
+        "fresh_compact_visible_evidence_only": {
+          "case_count": 10,
+          "mean_score": 0.8012987012987013,
+          "pass_count": 7,
+          "pass_rate": 0.7
+        },
+        "full_visible_compact_prompt": {
+          "case_count": 10,
+          "mean_score": 0.41500000000000004,
+          "pass_count": 1,
+          "pass_rate": 0.1
+        },
+        "hidden_prefix_compact_tail_no_evidence": {
+          "case_count": 10,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        },
+        "hidden_prefix_compact_visible_evidence_tail": {
+          "case_count": 10,
+          "mean_score": 0.8012987012987013,
+          "pass_count": 7,
+          "pass_rate": 0.7
+        },
+        "hidden_prefix_session_tail": {
+          "case_count": 10,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        }
+      }
+    },
+    "repairable_hidden_prefix_failures": {
+      "case_ids": [
+        "graphwalks-parent-000-row-0",
+        "graphwalks-parent-002-row-2",
+        "graphwalks-parent-003-row-3",
+        "graphwalks-parent-004-row-4",
+        "graphwalks-parent-005-row-5",
+        "graphwalks-parent-006-row-6",
+        "graphwalks-parent-008-row-8"
+      ],
+      "summary": {
+        "fresh_compact_visible_evidence_only": {
+          "case_count": 7,
+          "mean_score": 1.0,
+          "pass_count": 7,
+          "pass_rate": 1.0
+        },
+        "full_visible_compact_prompt": {
+          "case_count": 7,
+          "mean_score": 0.2952380952380952,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        },
+        "hidden_prefix_compact_tail_no_evidence": {
+          "case_count": 7,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        },
+        "hidden_prefix_compact_visible_evidence_tail": {
+          "case_count": 7,
+          "mean_score": 1.0,
+          "pass_count": 7,
+          "pass_rate": 1.0
+        },
+        "hidden_prefix_session_tail": {
+          "case_count": 7,
+          "mean_score": 0.0,
+          "pass_count": 0,
+          "pass_rate": 0.0
+        }
+      }
+    }
+  },
+  "task_family": "graphwalks_parents"
+}
