@@ -1,0 +1,104 @@
+{
+  "decision": "family1_restored_capsule_semantic_passed",
+  "overall_result": "family1_restored_capsule_semantic_passed",
+  "stop_rule": "restored_capsule_passed_stop_before_expansion",
+  "classification_rules": {
+    "passed": "Expected answer appears as a standalone substring in response; exact-only compliance is tracked separately and was not required for this semantic gate.",
+    "fresh_tail_expected_miss": "Fresh tail-only did not contain the hidden codeword, as expected.",
+    "native_full_visible_guard_failed": "Would stop before capsule interpretation if full-visible missed.",
+    "fresh_tail_leakage_or_scorer_issue": "Would stop/quarantine if fresh tail-only contained the hidden codeword.",
+    "native_live_append_protocol_blocker": "Would stop before restored capsule if live append failed.",
+    "restored_capsule_semantic_failure": "Would classify restored state failure after live append passed.",
+    "family1_restored_capsule_semantic_passed": "This run: restored capsule append contained the expected answer for all 3 cases after live append passed."
+  },
+  "by_control": {
+    "native_full_visible_prefix_plus_tail": {
+      "records": 3,
+      "answer_contained": 3,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 3
+      },
+      "failure_class_counts": {
+        "passed": 3
+      },
+      "mean_prefix_tokens": 17.666666666666668,
+      "mean_tail_tokens": 14.0,
+      "mean_full_prompt_tokens": 31.666666666666668,
+      "mean_prompt_ms": 263.74986664935324,
+      "mean_decode_ms": 2310.887866653502,
+      "mean_total_ms": 2916.193966656768,
+      "mean_capsule_bytes": null,
+      "mean_capsule_save_ms": null,
+      "mean_capsule_restore_ms": null,
+      "mean_state_bytes_requested": null,
+      "mean_state_bytes_restored": null
+    },
+    "native_fresh_tail_only": {
+      "records": 3,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {
+        "missing": 3
+      },
+      "failure_class_counts": {
+        "fresh_tail_expected_miss": 3
+      },
+      "mean_prefix_tokens": 17.666666666666668,
+      "mean_tail_tokens": 14.0,
+      "mean_full_prompt_tokens": 31.666666666666668,
+      "mean_prompt_ms": 103.31036666563402,
+      "mean_decode_ms": 2172.729366652978,
+      "mean_total_ms": 2561.833900011455,
+      "mean_capsule_bytes": null,
+      "mean_capsule_save_ms": null,
+      "mean_capsule_restore_ms": null,
+      "mean_state_bytes_requested": null,
+      "mean_state_bytes_restored": null
+    },
+    "native_live_append_tail_only": {
+      "records": 3,
+      "answer_contained": 3,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 3
+      },
+      "failure_class_counts": {
+        "passed": 3
+      },
+      "mean_prefix_tokens": 17.666666666666668,
+      "mean_tail_tokens": 14.0,
+      "mean_full_prompt_tokens": 31.666666666666668,
+      "mean_prompt_ms": 175.91803334653378,
+      "mean_decode_ms": 2089.8549333408787,
+      "mean_total_ms": 2536.7306999784582,
+      "mean_capsule_bytes": null,
+      "mean_capsule_save_ms": null,
+      "mean_capsule_restore_ms": null,
+      "mean_state_bytes_requested": null,
+      "mean_state_bytes_restored": null
+    },
+    "native_restored_capsule_append_tail_only": {
+      "records": 3,
+      "answer_contained": 3,
+      "exact_match": 0,
+      "output_status_counts": {
+        "contains_with_extra_text": 3
+      },
+      "failure_class_counts": {
+        "passed": 3
+      },
+      "mean_prefix_tokens": 17.666666666666668,
+      "mean_tail_tokens": 14.0,
+      "mean_full_prompt_tokens": 31.666666666666668,
+      "mean_prompt_ms": 74.42953332792968,
+      "mean_decode_ms": 2074.61473334115,
+      "mean_total_ms": 3117.3662333361185,
+      "mean_capsule_bytes": 869395.0,
+      "mean_capsule_save_ms": 1.147866656538099,
+      "mean_capsule_restore_ms": 151.6506333524982,
+      "mean_state_bytes_requested": 869395.0,
+      "mean_state_bytes_restored": 869395.0
+    }
+  }
+}

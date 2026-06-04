@@ -1,0 +1,17 @@
+{
+  "experiment_id": "kv-capsule-family1-semantic-gate-2026-06-04",
+  "source_machine": "DushyantPC",
+  "model": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+  "model_sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+  "model_size_bytes": 13793422144,
+  "libllama_dll_sha256": "9B707D4886051671B8C94BB5A2F3F07DD0868A5BFB34EE163C080D91555E2310",
+  "server_sha256_for_bundle_identity": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6",
+  "ctx_size": 32768,
+  "predict": 48,
+  "temperature": 0.0,
+  "native_backend_route": "python ctypes direct libllama C API with cuda_v13 backend loading",
+  "tokenizer_model": "gpt2",
+  "general_architecture": "gpt-oss",
+  "model_n_swa": 128,
+  "runner_script_raw_path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family1-semantic-gate-2026-06-04/raw/kv_capsule_family1_gate.py"
+}

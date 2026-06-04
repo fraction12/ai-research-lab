@@ -1,0 +1,19 @@
+{
+  "committed_artifacts": {
+    "README.md": "experiment narrative, controls, result, stop rule, and interpretation",
+    "summary.json": "aggregate scores, selected route, decision, timings, state byte counts, and hashes",
+    "case-metrics.json": "sanitized per-case records; no prompt text, raw responses, token ID arrays, generated token arrays, top-k arrays, or state bytes",
+    "failure-classifications.json": "taxonomy and stop-rule classifications",
+    "commands.md": "sync, runner, copyback, and validation commands",
+    "model-info.json": "model, runner, backend, hashes, and source metadata",
+    "artifact-manifest.json": "this manifest",
+    "capsule-contract.md": "saved/restored state contract because restored capsule ran"
+  },
+  "raw_artifacts_ignored": {
+    "records": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family1-semantic-gate-2026-06-04/raw/family1-records.jsonl",
+    "run_info": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family1-semantic-gate-2026-06-04/raw/family1-run-info.json",
+    "console": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family1-semantic-gate-2026-06-04/raw/family1-console.txt",
+    "runner": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family1-semantic-gate-2026-06-04/raw/kv_capsule_family1_gate.py"
+  },
+  "raw_artifacts_note": "Prompt-bearing raw prompts, responses, logs, runner script, and any reconstructable evidence remain under ignored Track 01 benchmark paths and are not committed."
+}
