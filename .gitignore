@@ -31,6 +31,7 @@ build/
 **/benchmarks/code-mode-kv-capsule-agent-harness-*/
 **/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-*/
 **/benchmarks/hidden-prefix-semantic-continuation-*/
+**/benchmarks/documented-server-cache-reuse-*/
 
 # Codex project-local generated hook state
 .codex/manager-ledger.json
