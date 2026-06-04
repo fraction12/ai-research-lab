@@ -1,0 +1,93 @@
+{
+  "experiment": "kv-capsule-scaled-amortized-benchmark-campaign-2026-06-04",
+  "change": "run-kv-capsule-scaled-amortized-benchmark-campaign",
+  "source_base_commit": "1a35780 Record KV capsule Family 3 gate",
+  "decision": "campaign_completed_without_interpretable_capsule_pass",
+  "stop_rule": "campaign_completed_gated_units_only",
+  "strongest_truthful_conclusion": "The scaled campaign did not produce interpretable restored-capsule amortization evidence because every scaled structured-retrieval Phase 1 size failed the native full-visible quality guard before capsule controls could run.",
+  "interpretation": "This is a prompt/model/task-format quality boundary for the pinned native GPT-OSS route, not a restored-capsule semantic failure. Family 1 and Family 2 remain positive small-gate evidence, but this scaled synthetic prompt shape cannot support capsule economics claims yet.",
+  "record_count": 50,
+  "phases_run": [
+    "phase1_scaled_structured_retrieval",
+    "phase2_reasoning_calibration"
+  ],
+  "phases_not_run": {
+    "phase3_agent_context": "not_run_phase1_no_restored_capsule_pass"
+  },
+  "phase1_scores": {
+    "rows_25_full_visible": "2/10",
+    "rows_100_full_visible": "0/10",
+    "rows_250_full_visible": "0/10",
+    "fresh_tail_controls": "not_run_full_visible_guard_failed",
+    "live_append_controls": "not_run_full_visible_guard_failed",
+    "restored_capsule_controls": "not_run_full_visible_guard_failed"
+  },
+  "phase2_scores": {
+    "adjacency_table_full_visible": "0/5",
+    "edge_triples_table_full_visible": "0/5",
+    "simple_sentence_facts_full_visible": "0/5",
+    "jsonish_object_list_full_visible": "0/5",
+    "capsule_controls": "not_run_reasoning_full_visible_calibration_failed"
+  },
+  "amortization": {
+    "status": "not_interpretable_no_restored_capsule_controls_ran",
+    "break_even": "not_computed"
+  },
+  "raw_artifacts": {
+    "records": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-scaled-amortized-benchmark-campaign-2026-06-04/raw/campaign-records.jsonl",
+    "run_info": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-scaled-amortized-benchmark-campaign-2026-06-04/raw/campaign-run-info.json",
+    "console": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-scaled-amortized-benchmark-campaign-2026-06-04/raw/campaign-console.txt",
+    "runner": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-scaled-amortized-benchmark-campaign-2026-06-04/raw/kv_capsule_scaled_campaign.py",
+    "phase_results_raw": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-scaled-amortized-benchmark-campaign-2026-06-04/raw/phase-results-raw.json"
+  },
+  "raw_artifact_hashes": {
+    "campaign-console.txt": {
+      "sha256": "e524815179685b4d9ebe1de72d20874e25deef0fd82c584d3ffaea44811fb0f5",
+      "bytes": 721994
+    },
+    "campaign-records.jsonl": {
+      "sha256": "a33e263c4de2b6e6fe6eb6b6f6ce293f56c85e315e40aeb03e847005afb2a55c",
+      "bytes": 103604
+    },
+    "campaign-run-info.json": {
+      "sha256": "f187c917d14a7bc9d15ae03ad80061b7748d1d4e870f2911b6e0028952d9f214",
+      "bytes": 8118
+    },
+    "kv_capsule_scaled_campaign.py": {
+      "sha256": "e8c3182a200e11db3ab3c736dff97afe9fbf3cffd33218102ecab45d92110a2f",
+      "bytes": 58678
+    },
+    "phase-results-raw.json": {
+      "sha256": "f4cfece85b61cd7768784dc0019dfe2e3bc473dedc8ec155c20581fb916e7a56",
+      "bytes": 4170
+    },
+    "remote_run_campaign.ps1": {
+      "sha256": "9d250e2f3d7a8882f6b17f9ac5e162371a787ce58b14ea98d970e6eee709e003",
+      "bytes": 1033
+    },
+    "remote_status_campaign.py": {
+      "sha256": "2715de27d268a96319859a9917977bb27dd0788700a588eefef757ee0e906f58",
+      "bytes": 985
+    },
+    "remote_sync_sanity.ps1": {
+      "sha256": "b71246d6d13b223ae0138b20882d623467bd0153be9222a036d621c9d2fd534c",
+      "bytes": 3324
+    },
+    "runner-help.txt": {
+      "sha256": "87f69f2c1a8633759642d26338c4f9d6c65fe56fdecb738261462f3e2f94d03f",
+      "bytes": 1483
+    },
+    "source-sanity.json": {
+      "sha256": "a5cf930be48c285b99653acb64696ee8eb1c0307f633f96f1acf2506d152822d",
+      "bytes": 874
+    },
+    "source_sanity.py": {
+      "sha256": "a82aa2a78157958bef941af475ca1f239fb2a1fdc5de0e84863e91236d5381dd",
+      "bytes": 1399
+    },
+    "surface-grep.txt": {
+      "sha256": "f8c0217e2c962804b5fd2cd7915671495ccca3bc24267705dad3f11d049d8c66",
+      "bytes": 967
+    }
+  }
+}

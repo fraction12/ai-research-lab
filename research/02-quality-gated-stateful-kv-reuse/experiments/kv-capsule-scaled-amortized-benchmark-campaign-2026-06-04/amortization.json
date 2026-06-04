@@ -1,0 +1,50 @@
+{
+  "status": "not_interpretable_no_restored_capsule_controls_ran",
+  "reason": "All Phase 1 scaled structured-retrieval sizes failed the full-visible quality guard before fresh-tail, live-append, or restored-capsule controls could run.",
+  "report_grid_N": [
+    1,
+    2,
+    5,
+    10,
+    20,
+    50
+  ],
+  "units": [
+    {
+      "unit": "phase1_rows_25",
+      "row_count": 25,
+      "status": "not_computed_full_visible_guard_failed",
+      "full_visible_answer_contained": 2,
+      "query_count": 10,
+      "mean_prefix_tokens": 870.0,
+      "mean_full_prompt_tokens": 892.6,
+      "mean_full_visible_total_ms": 4496.852110000327,
+      "capsule_bytes": null,
+      "break_even_N_in_report_grid": null
+    },
+    {
+      "unit": "phase1_rows_100",
+      "row_count": 100,
+      "status": "not_computed_full_visible_guard_failed",
+      "full_visible_answer_contained": 0,
+      "query_count": 10,
+      "mean_prefix_tokens": 3396.0,
+      "mean_full_prompt_tokens": 3418.8,
+      "mean_full_visible_total_ms": 10546.465870010434,
+      "capsule_bytes": null,
+      "break_even_N_in_report_grid": null
+    },
+    {
+      "unit": "phase1_rows_250",
+      "row_count": 250,
+      "status": "not_computed_full_visible_guard_failed",
+      "full_visible_answer_contained": 0,
+      "query_count": 10,
+      "mean_prefix_tokens": 8466.0,
+      "mean_full_prompt_tokens": 8489.0,
+      "mean_full_visible_total_ms": 13647.417010000208,
+      "capsule_bytes": null,
+      "break_even_N_in_report_grid": null
+    }
+  ]
+}
