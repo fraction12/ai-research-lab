@@ -1,0 +1,199 @@
+{
+  "experiment": "kv-capsule-semantic-continuation-2026-06-04",
+  "change": "probe-kv-capsule-semantic-continuation",
+  "decision": "native_prompt_generation_protocol_blocker",
+  "interpretation": "Direct llama.cpp C API load/tokenize/decode/state APIs are reachable and CUDA-backed, but the accepted Family 1 semantic gate stopped because native full-visible generation emitted repeated newlines and did not contain the codeword. Restored KV capsule semantics remain untested.",
+  "not_a_semantic_kv_capsule_failure": true,
+  "prior_documented_cache_result_separate_control": "The documented server full-prompt resend cache_prompt result remains a separate prior control and is not reinterpreted by this run.",
+  "stop_rule_triggered": "Family 1 positive control failed: full_visible_prefix_plus_tail answer_contained was 0 on accepted records.",
+  "families": {
+    "codeword_gate": "stopped_partial",
+    "key_value_gate": "not_run_stop_rule",
+    "mini_graph_gate": "not_run_stop_rule",
+    "graphwalks_six_case_gate": "not_run_stop_rule"
+  },
+  "accepted_records": 21,
+  "accepted_complete_cases": [
+    "codeword-00",
+    "codeword-01",
+    "codeword-02",
+    "codeword-03",
+    "codeword-04"
+  ],
+  "accepted_partial_cases": [
+    "codeword-05"
+  ],
+  "aggregate_by_control": {
+    "full_visible_prefix_plus_tail": {
+      "records": 6,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {
+        "missing": 6
+      },
+      "mean_prompt_ms": 9012.439833352497,
+      "mean_decode_ms": 3013.834666683882,
+      "raw_harness_failure_class_counts": {
+        "model_weakness": 6
+      },
+      "failure_class_counts": {
+        "native_server_parity_failure": 6
+      }
+    },
+    "fresh_tail_only": {
+      "records": 5,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {
+        "missing": 5
+      },
+      "mean_prompt_ms": 133.74047999968752,
+      "mean_decode_ms": 1952.9455999843776,
+      "raw_harness_failure_class_counts": {
+        "fresh_tail_expected_miss": 5
+      },
+      "failure_class_counts": {
+        "fresh_tail_expected_miss_not_decision_relevant": 5
+      }
+    },
+    "native_live_append_tail_only": {
+      "records": 5,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {
+        "missing": 5
+      },
+      "mean_prompt_ms": 227.1885600173846,
+      "mean_decode_ms": 1974.9514600029215,
+      "raw_harness_failure_class_counts": {
+        "native_live_append_failure": 5
+      },
+      "failure_class_counts": {
+        "untested_due_to_failed_native_full_visible_positive_control": 5
+      }
+    },
+    "native_restored_capsule_append_tail_only": {
+      "records": 5,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "output_status_counts": {
+        "missing": 5
+      },
+      "mean_prompt_ms": 103.0658399919048,
+      "mean_decode_ms": 1946.8575800186954,
+      "raw_harness_failure_class_counts": {
+        "semantic_restore_failure": 5
+      },
+      "failure_class_counts": {
+        "untested_due_to_failed_native_full_visible_positive_control": 5
+      }
+    }
+  },
+  "token_smoke_status": "passed",
+  "token_smoke_records": [
+    {
+      "probe": "plain_ascii",
+      "text_hash": "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9",
+      "token_count": 2,
+      "tokens_first_12": [
+        24912,
+        2375
+      ],
+      "signature_used": "llama_tokenize(const llama_vocab *, const char *, int32_t, llama_token *, int32_t, bool, bool)",
+      "signature_source": "pinned upstream tag b9493 / commit a731805cedc83c0514cbd808a2e38ec46c759cc2"
+    },
+    {
+      "probe": "first_codeword_prefix",
+      "text_hash": "102edd0ede83ce689ad7b16e8309906ec26ee7f2d63f287b1058d87d89f56301",
+      "token_count": 24,
+      "tokens_first_12": [
+        976,
+        9910,
+        3490,
+        1801,
+        395,
+        83204,
+        72592,
+        12,
+        504,
+        12,
+        41345,
+        19
+      ],
+      "signature_used": "llama_tokenize(const llama_vocab *, const char *, int32_t, llama_token *, int32_t, bool, bool)",
+      "signature_source": "pinned upstream tag b9493 / commit a731805cedc83c0514cbd808a2e38ec46c759cc2"
+    },
+    {
+      "probe": "first_codeword_tail",
+      "text_hash": "fb42d7e8dfcc303590b04e197dff745059adeffed0758a35d15d3e54c4fb91eb",
+      "token_count": 24,
+      "tokens_first_12": [
+        2653,
+        83204,
+        72592,
+        12,
+        504,
+        12,
+        41345,
+        19,
+        11,
+        1412,
+        382,
+        290
+      ],
+      "signature_used": "llama_tokenize(const llama_vocab *, const char *, int32_t, llama_token *, int32_t, bool, bool)",
+      "signature_source": "pinned upstream tag b9493 / commit a731805cedc83c0514cbd808a2e38ec46c759cc2"
+    }
+  ],
+  "smoke_status": "passed_load_model_and_create_context",
+  "abi_route": "python_ctypes_direct_libllama_c_api",
+  "abi_signature_source": "pinned upstream tag b9493 / commit a731805cedc83c0514cbd808a2e38ec46c759cc2",
+  "abi_risk": "bounded; exact pinned headers identified after initial current-upstream risk; smoke and tokenization passed",
+  "empty_batch_run_excluded": "An earlier codeword attempt produced empty-batch decode errors before batch.n_tokens was set; those records were deleted/excluded and are not represented in committed summaries.",
+  "batch_fix": "decode_tokens now sets batch.n_tokens before llama_decode; accepted records were produced after that fix.",
+  "gpu_backend_diagnosis": {
+    "nvidia_visible": true,
+    "driver_cuda_line": "| NVIDIA-SMI 580.97                 Driver Version: 580.97         CUDA Version: 13.0     |",
+    "cuda_v13_files": [
+      "concrt140.dll",
+      "cublas64_13.dll",
+      "cublasLt64_13.dll",
+      "ggml-cuda.dll",
+      "msvcp140.dll",
+      "msvcp140_1.dll",
+      "msvcp140_2.dll",
+      "msvcp140_atomic_wait.dll",
+      "msvcp140_codecvt_ids.dll",
+      "vccorlib140.dll",
+      "vcruntime140.dll",
+      "vcruntime140_1.dll",
+      "vcruntime140_threads.dll"
+    ],
+    "diagnosis": "ggml_backend_load_all_from_path must be called on both the bundle root and the selected backend subdir; accepted run console shows CUDA backend loaded and KV/compute buffers on CUDA0."
+  },
+  "model_runner_hashes": {
+    "model_hash": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+    "model_path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "model_size_bytes": 13793422144,
+    "model_header_hex": "47 47 55 46 03 00 00 00 cb 01 00 00 00 00 00 00",
+    "libllama_hash": "9B707D4886051671B8C94BB5A2F3F07DD0868A5BFB34EE163C080D91555E2310",
+    "server_hash": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6",
+    "source_commit": "a731805cedc83c0514cbd808a2e38ec46c759cc2",
+    "source_tag": "b9493",
+    "current_source_clone_head": "7c158fbb4aec1bdc9c81d6ca0e785139f4826fae"
+  },
+  "raw_artifacts": {
+    "accepted_records": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/codeword-records.jsonl",
+    "console_log": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/codeword-console.txt",
+    "token_smoke": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/token-smoke-run-info.json",
+    "smoke": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/smoke-run-info.json",
+    "gpu_diagnostic": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/gpu-backend-diagnostic.json"
+  },
+  "next_direction": "Run a server-parity native protocol bridge: reproduce the server full-visible codeword answer with exact prompt bytes/token IDs, chat/template/BOS handling, sampler settings, logits sanity, and generation-loop parity before retesting live append or restored capsule gates.",
+  "generated_utc": "2026-06-04T19:35:21.420318+00:00",
+  "overall_result": "restored_capsule_semantics_uninterpretable",
+  "classification_note": "Raw harness per-record labels are preliminary and superseded by the stop-rule interpretation. Because the native full-visible positive control failed despite prior server full-visible/documented-cache controls passing, this run is classified as a native/server prompt-generation parity failure, not model weakness or semantic restore failure.",
+  "raw_harness_labels_superseded": true,
+  "not_a_model_weakness_claim": true,
+  "not_a_semantic_restore_failure_claim": true
+}

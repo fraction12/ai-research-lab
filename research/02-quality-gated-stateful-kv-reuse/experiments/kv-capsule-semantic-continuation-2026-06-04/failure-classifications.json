@@ -1,0 +1,60 @@
+{
+  "decision": "native_prompt_generation_protocol_blocker",
+  "overall_result": "restored_capsule_semantics_uninterpretable",
+  "reason": "The native direct-API full-visible positive control failed before live append or restored capsule semantics could be interpreted.",
+  "raw_harness_labels_superseded": true,
+  "raw_label_note": "Raw codeword records may contain preliminary labels such as model_weakness or semantic_restore_failure. Those labels are retained only as raw harness output and are superseded by this experiment-level stop-rule classification.",
+  "why_not_model_weakness": "Prior server full-visible/documented-cache codeword controls passed on the same pinned GPT-OSS family; the native direct-API path has not yet established prompt/template/sampler/generation parity.",
+  "why_not_semantic_restore_failure": "Restored-capsule controls cannot be interpreted when the native full-visible positive semantic control is already failing with the same response-hash pattern.",
+  "invalid_excluded_runs": [
+    "An earlier codeword attempt produced empty-batch decode errors before batch.n_tokens was set; those records were deleted/excluded and are not represented in committed summaries."
+  ],
+  "classification_rules": {
+    "native_server_parity_failure": "Use for full_visible_prefix_plus_tail in this run because the direct API path did not reproduce prior server full-visible behavior.",
+    "untested_due_to_failed_native_full_visible_positive_control": "Use for native live/restored append controls because their semantics are uninterpretable after positive-control failure.",
+    "fresh_tail_expected_miss_not_decision_relevant": "Use for fresh tail-only negative controls; expected miss, but not decision-relevant after positive-control failure.",
+    "raw_model_weakness_or_semantic_restore_failure": "Do not quote as final interpretation; these were preliminary raw harness labels superseded by stop-rule analysis."
+  },
+  "by_control": {
+    "full_visible_prefix_plus_tail": {
+      "records": 6,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "failure_class": "native_server_parity_failure",
+      "raw_harness_failure_class_counts": {
+        "model_weakness": 6
+      },
+      "interpretation": "Native direct-API positive control failed; classify as native/server prompt-generation parity failure, not model weakness."
+    },
+    "fresh_tail_only": {
+      "records": 5,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "failure_class": "fresh_tail_expected_miss_not_decision_relevant",
+      "raw_harness_failure_class_counts": {
+        "fresh_tail_expected_miss": 5
+      },
+      "interpretation": "Expected negative control and not decision-relevant after positive-control failure."
+    },
+    "native_live_append_tail_only": {
+      "records": 5,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "failure_class": "untested_due_to_failed_native_full_visible_positive_control",
+      "raw_harness_failure_class_counts": {
+        "native_live_append_failure": 5
+      },
+      "interpretation": "Not interpreted because native full-visible positive control failed first."
+    },
+    "native_restored_capsule_append_tail_only": {
+      "records": 5,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "failure_class": "untested_due_to_failed_native_full_visible_positive_control",
+      "raw_harness_failure_class_counts": {
+        "semantic_restore_failure": 5
+      },
+      "interpretation": "Not interpreted because native full-visible positive control failed first; not a semantic restore failure claim."
+    }
+  }
+}

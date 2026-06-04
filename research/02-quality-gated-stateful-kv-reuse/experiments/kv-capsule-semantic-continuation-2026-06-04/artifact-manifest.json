@@ -1,0 +1,22 @@
+{
+  "committed_artifacts": {
+    "README.md": "experiment narrative and stop-rule interpretation",
+    "summary.json": "decision, aggregate scores, hashes, and raw artifact pointers",
+    "case-metrics.json": "sanitized per-record metrics without prompt text or raw responses except hashes",
+    "failure-classifications.json": "experiment-level failure taxonomy and non-interpretation of capsule controls",
+    "capsule-contract.md": "contract fields and availability for this run",
+    "commands.md": "commands used and validation commands",
+    "model-info.json": "model, runner, backend, GPU, and hash details",
+    "artifact-manifest.json": "this manifest"
+  },
+  "raw_artifacts_ignored": {
+    "accepted_records": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/codeword-records.jsonl",
+    "console_log": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/codeword-console.txt",
+    "token_smoke": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/token-smoke-run-info.json",
+    "smoke": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/smoke-run-info.json",
+    "gpu_diagnostic": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-semantic-continuation-2026-06-04/raw/gpu-backend-diagnostic.json"
+  },
+  "raw_artifacts_note": "Raw prompts, responses, logs, and ignored harness scripts remain under ignored Track 01 benchmark paths and are not committed.",
+  "excluded_raw_records": "Earlier empty-batch codeword records were deleted/excluded after fixing batch.n_tokens; accepted codeword-records.jsonl has 21 records from the CUDA-backed rerun.",
+  "source_design_doc": "research/02-quality-gated-stateful-kv-reuse/docs/kv-capsule-semantic-continuation-experiment-2026-06-04.md"
+}
