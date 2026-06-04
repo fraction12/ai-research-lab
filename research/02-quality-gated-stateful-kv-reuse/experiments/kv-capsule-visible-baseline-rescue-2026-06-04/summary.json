@@ -1,0 +1,324 @@
+{
+  "campaign": "kv-capsule-visible-baseline-rescue-2026-06-04",
+  "created_utc": "2026-06-04T22:58:30Z",
+  "decision": "visible_baseline_rescue_completed_without_interpretable_capsule_evidence",
+  "exit": {
+    "elapsed_seconds": 1142.498,
+    "exit_code": 0,
+    "finished_utc": "2026-06-04T22:54:17Z",
+    "started_utc": "2026-06-04T22:35:14Z"
+  },
+  "highest_reliable_scales": {
+    "full_visible_rows": null,
+    "live_append_rows": null,
+    "restored_capsule_rows": null
+  },
+  "interpretation": {
+    "primary": "The campaign found one 1-row calibration promotion, but that frozen unit failed the Phase C full-visible guard, so restored capsule behavior is not interpretable.",
+    "route_caveat": "Both native known-positive route controls failed, so this run points to native-route/prompt-protocol instability rather than a clean cache mechanism result.",
+    "scale_boundary": "No 3-row or larger unit met the strict semantic plus exact/normalized promotion gate. 3-row and 5-row had semantic-passing variants but exact protocol failed."
+  },
+  "phase_a": {
+    "calibration_attempt_count": 85,
+    "exact_or_normalized_count": 17,
+    "promoted_units": [
+      {
+        "attempt_id": "rows1_prior_structured_block_value_budget8",
+        "control_used_for_promotion": "native_full_visible_prefix_plus_tail",
+        "decode_budget": 8,
+        "frozen": true,
+        "prefix_format": "prior_structured_block",
+        "prefix_hash": "dc9eac68af663a9affe6cfb17737c3bdd3a350c7dbcb36aee037ad6fa0c363fd",
+        "promotion_rule": "semantic_match_100_percent_and_exact_or_normalized_100_percent",
+        "query_count": 1,
+        "query_protocol": "value_only",
+        "row_count": 1,
+        "unit": "rescue_prior_structured_block_value_budget8_rows_1",
+        "variant_family": "prior_structured_positive_style",
+        "variant_id": "prior_structured_block_value_budget8"
+      }
+    ],
+    "record_count": 617,
+    "required_scales": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "row_summaries": [
+      {
+        "answer_contained_count": 2,
+        "exact_or_normalized_count": 1,
+        "record_count": 3,
+        "row_count": 1,
+        "semantic_match_count": 2
+      },
+      {
+        "answer_contained_count": 21,
+        "exact_or_normalized_count": 4,
+        "record_count": 54,
+        "row_count": 3,
+        "semantic_match_count": 21
+      },
+      {
+        "answer_contained_count": 56,
+        "exact_or_normalized_count": 8,
+        "record_count": 80,
+        "row_count": 5,
+        "semantic_match_count": 56
+      },
+      {
+        "answer_contained_count": 79,
+        "exact_or_normalized_count": 4,
+        "record_count": 160,
+        "row_count": 10,
+        "semantic_match_count": 79
+      },
+      {
+        "answer_contained_count": 30,
+        "exact_or_normalized_count": 0,
+        "record_count": 160,
+        "row_count": 15,
+        "semantic_match_count": 30
+      },
+      {
+        "answer_contained_count": 12,
+        "exact_or_normalized_count": 0,
+        "record_count": 160,
+        "row_count": 25,
+        "semantic_match_count": 12
+      }
+    ],
+    "scale_decisions": [
+      {
+        "decision": "promoted_unit_frozen",
+        "promotion": {
+          "attempt_id": "rows1_prior_structured_block_value_budget8",
+          "control_used_for_promotion": "native_full_visible_prefix_plus_tail",
+          "decode_budget": 8,
+          "frozen": true,
+          "prefix_format": "prior_structured_block",
+          "prefix_hash": "dc9eac68af663a9affe6cfb17737c3bdd3a350c7dbcb36aee037ad6fa0c363fd",
+          "promotion_rule": "semantic_match_100_percent_and_exact_or_normalized_100_percent",
+          "query_count": 1,
+          "query_protocol": "value_only",
+          "row_count": 1,
+          "unit": "rescue_prior_structured_block_value_budget8_rows_1",
+          "variant_family": "prior_structured_positive_style",
+          "variant_id": "prior_structured_block_value_budget8"
+        },
+        "row_count": 1,
+        "unit": "rescue_prior_structured_block_value_budget8_rows_1"
+      },
+      {
+        "best_attempt": {
+          "answer_contained_count": 3,
+          "attempt_id": "rows3_prior_structured_block_channel_budget16",
+          "decision": "calibration_semantic_pass_exact_protocol_failed",
+          "decode_budget": 16,
+          "exact_or_normalized_count": 0,
+          "prefix_format": "prior_structured_block",
+          "prefix_hash": "d489e0c0b4e03420ee4c06865a5c4166b96da133e0c5d5dfbd9cd011527ca6af",
+          "promoted": false,
+          "query_count": 3,
+          "query_protocol": "value_channel",
+          "row_count": 3,
+          "semantic_match_count": 3,
+          "unit": "rescue_prior_structured_block_channel_budget16_rows_3",
+          "variant_family": "prior_structured_positive_style",
+          "variant_id": "prior_structured_block_channel_budget16"
+        },
+        "decision": "no_variant_promoted",
+        "row_count": 3
+      },
+      {
+        "best_attempt": {
+          "answer_contained_count": 5,
+          "attempt_id": "rows5_prior_structured_block_channel_budget16",
+          "decision": "calibration_semantic_pass_exact_protocol_failed",
+          "decode_budget": 16,
+          "exact_or_normalized_count": 0,
+          "prefix_format": "prior_structured_block",
+          "prefix_hash": "ac6cb3f1dc0980354846ec847d8d29d748dc36e204c71b4454c911cdefabf587",
+          "promoted": false,
+          "query_count": 5,
+          "query_protocol": "value_channel",
+          "row_count": 5,
+          "semantic_match_count": 5,
+          "unit": "rescue_prior_structured_block_channel_budget16_rows_5",
+          "variant_family": "prior_structured_positive_style",
+          "variant_id": "prior_structured_block_channel_budget16"
+        },
+        "decision": "no_variant_promoted",
+        "row_count": 5
+      },
+      {
+        "best_attempt": {
+          "answer_contained_count": 10,
+          "attempt_id": "rows10_prior_structured_block_value_budget16",
+          "decision": "calibration_semantic_pass_exact_protocol_failed",
+          "decode_budget": 16,
+          "exact_or_normalized_count": 0,
+          "prefix_format": "prior_structured_block",
+          "prefix_hash": "44edd8591d3a73b5029b09330c4260d19fd579da4542cb3b9983c064c5b63749",
+          "promoted": false,
+          "query_count": 10,
+          "query_protocol": "value_only",
+          "row_count": 10,
+          "semantic_match_count": 10,
+          "unit": "rescue_prior_structured_block_value_budget16_rows_10",
+          "variant_family": "prior_structured_positive_style",
+          "variant_id": "prior_structured_block_value_budget16"
+        },
+        "decision": "no_variant_promoted",
+        "row_count": 10
+      },
+      {
+        "best_attempt": {
+          "answer_contained_count": 10,
+          "attempt_id": "rows15_prior_structured_block_value_budget16",
+          "decision": "calibration_semantic_pass_exact_protocol_failed",
+          "decode_budget": 16,
+          "exact_or_normalized_count": 0,
+          "prefix_format": "prior_structured_block",
+          "prefix_hash": "3a4c2526c5e93908ee6fa424720d26ffe9dbae465e1a5cdbe32a08791764c8c6",
+          "promoted": false,
+          "query_count": 10,
+          "query_protocol": "value_only",
+          "row_count": 15,
+          "semantic_match_count": 10,
+          "unit": "rescue_prior_structured_block_value_budget16_rows_15",
+          "variant_family": "prior_structured_positive_style",
+          "variant_id": "prior_structured_block_value_budget16"
+        },
+        "decision": "no_variant_promoted",
+        "row_count": 15
+      },
+      {
+        "best_attempt": {
+          "answer_contained_count": 9,
+          "attempt_id": "rows25_codebook_arrow_value_budget32",
+          "decision": "calibration_full_visible_failed",
+          "decode_budget": 32,
+          "exact_or_normalized_count": 0,
+          "prefix_format": "codebook_arrow",
+          "prefix_hash": "c80adbf6dd39ade96c51bbf6d9a015de35f51e4a1d308fb5c28d4215c641eb73",
+          "promoted": false,
+          "query_count": 10,
+          "query_protocol": "value_only",
+          "row_count": 25,
+          "semantic_match_count": 9,
+          "unit": "rescue_codebook_arrow_value_budget32_rows_25",
+          "variant_family": "ultra_simple_codebook",
+          "variant_id": "codebook_arrow_value_budget32"
+        },
+        "decision": "no_variant_promoted",
+        "row_count": 25
+      }
+    ],
+    "semantic_match_count": 200,
+    "stretch_scales": [
+      15,
+      25
+    ]
+  },
+  "phase_b": {
+    "alternate_route_probe": {
+      "decision": "alternate_cli_not_available",
+      "executed": false,
+      "llama_cli_available": false,
+      "llama_server_available": true,
+      "prompt_hash": "a0755ec6fb3b0a0eab73789b94d820e1d8d5c8ec5802f5e1eaa0250abe52c134",
+      "route": "alternate_llama_cpp_route_probe",
+      "server_note": "llama-server.exe is present, but this runner does not start an HTTP server route; availability is recorded for manual follow-up."
+    },
+    "decision": "native_route_known_positive_control_failure",
+    "known_positive_units": [
+      {
+        "case_count": 3,
+        "decision": "native_known_positive_failed",
+        "exact_or_normalized_count": 0,
+        "kind": "known_positive_codeword",
+        "semantic_match_count": 0,
+        "unit": "route_codeword_positive_control"
+      },
+      {
+        "case_count": 3,
+        "decision": "native_known_positive_failed",
+        "exact_or_normalized_count": 0,
+        "kind": "known_positive_structured_retrieval",
+        "semantic_match_count": 0,
+        "unit": "route_structured_positive_control"
+      }
+    ]
+  },
+  "phase_c": {
+    "any_restored_capsule_passed": false,
+    "evidence_units": [
+      {
+        "control_order": [
+          "native_full_visible_prefix_plus_tail",
+          "native_fresh_tail_only",
+          "native_live_append_tail_only",
+          "native_restored_capsule_append_tail_only"
+        ],
+        "decision": "promoted_unit_full_visible_regressed",
+        "frozen_evidence_unit": true,
+        "matches_by_control": {
+          "native_fresh_tail_only": 0,
+          "native_full_visible_prefix_plus_tail": 0,
+          "native_live_append_tail_only": 0,
+          "native_restored_capsule_append_tail_only": 0
+        },
+        "phase": "phase_c_capsule_evidence_ladder",
+        "prefix_hash": "dc9eac68af663a9affe6cfb17737c3bdd3a350c7dbcb36aee037ad6fa0c363fd",
+        "promotion": {
+          "attempt_id": "rows1_prior_structured_block_value_budget8",
+          "control_used_for_promotion": "native_full_visible_prefix_plus_tail",
+          "decode_budget": 8,
+          "frozen": true,
+          "prefix_format": "prior_structured_block",
+          "prefix_hash": "dc9eac68af663a9affe6cfb17737c3bdd3a350c7dbcb36aee037ad6fa0c363fd",
+          "promotion_rule": "semantic_match_100_percent_and_exact_or_normalized_100_percent",
+          "query_count": 1,
+          "query_protocol": "value_only",
+          "row_count": 1,
+          "unit": "rescue_prior_structured_block_value_budget8_rows_1",
+          "variant_family": "prior_structured_positive_style",
+          "variant_id": "prior_structured_block_value_budget8"
+        },
+        "query_count": 1,
+        "row_count": 1,
+        "stop_rule": "full_visible_guard_failed",
+        "unit": "rescue_prior_structured_block_value_budget8_rows_1"
+      }
+    ],
+    "highest_reliable_full_visible_rows": null,
+    "highest_reliable_live_append_rows": null,
+    "highest_reliable_restored_capsule_rows": null,
+    "phase": "phase_c_capsule_evidence_on_promoted_units"
+  },
+  "phase_record_counts": [
+    {
+      "control": "native_full_visible_prefix_plus_tail",
+      "count": 617,
+      "phase": "phase_a_visible_calibration"
+    },
+    {
+      "control": "native_full_visible_prefix_plus_tail",
+      "count": 6,
+      "phase": "phase_b_route_control"
+    },
+    {
+      "control": "native_full_visible_prefix_plus_tail",
+      "count": 1,
+      "phase": "phase_c_capsule_evidence"
+    }
+  ],
+  "record_count": 624,
+  "restored_capsule_pass_units": [],
+  "route_control_decision": "native_route_known_positive_control_failure",
+  "schema": "kv_capsule_visible_baseline_rescue_summary_v1",
+  "source_commit_at_pc_run": "c02cde6",
+  "stop_rule": "completed_gated_rescue_campaign"
+}

@@ -1,0 +1,900 @@
+{
+  "failure_class_by_phase": [
+    {
+      "count": 200,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration"
+    },
+    {
+      "count": 417,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration"
+    },
+    {
+      "count": 6,
+      "failure_class": "phase_b_route_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_b_route_control"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_c_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_c_capsule_evidence"
+    }
+  ],
+  "failure_class_by_phase_row_variant": [
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 1,
+      "variant_id": "prior_structured_block_value_budget8"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 1,
+      "variant_id": "sanity_arrow_value_budget4"
+    },
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 1,
+      "variant_id": "sanity_arrow_value_budget8"
+    },
+    {
+      "count": 6,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "codebook_arrow_channel_budget8"
+    },
+    {
+      "count": 4,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "codebook_arrow_channel_budget8"
+    },
+    {
+      "count": 6,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 4,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "codebook_arrow_value_budget4"
+    },
+    {
+      "count": 5,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "codebook_arrow_value_budget8"
+    },
+    {
+      "count": 5,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "codebook_arrow_value_budget8"
+    },
+    {
+      "count": 9,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "natural_sentence_firstline_budget16"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "natural_sentence_firstline_budget16"
+    },
+    {
+      "count": 7,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "natural_sentence_value_budget16"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "natural_sentence_value_budget16"
+    },
+    {
+      "count": 6,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "prior_structured_block_channel_budget16"
+    },
+    {
+      "count": 4,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "prior_structured_block_channel_budget16"
+    },
+    {
+      "count": 5,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "prior_structured_block_channel_budget32"
+    },
+    {
+      "count": 5,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "prior_structured_block_channel_budget32"
+    },
+    {
+      "count": 10,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "prior_structured_block_value_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "prior_structured_block_value_budget8"
+    },
+    {
+      "count": 6,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "short_tsv_channel_budget8"
+    },
+    {
+      "count": 4,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "short_tsv_channel_budget8"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "short_tsv_value_budget4"
+    },
+    {
+      "count": 6,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "short_tsv_value_budget8"
+    },
+    {
+      "count": 4,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "short_tsv_value_budget8"
+    },
+    {
+      "count": 4,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "xml_tagged_channel_budget16"
+    },
+    {
+      "count": 6,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "xml_tagged_channel_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "xml_tagged_channel_budget32"
+    },
+    {
+      "count": 9,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "xml_tagged_value_budget16"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 10,
+      "variant_id": "xml_tagged_value_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "codebook_arrow_channel_budget8"
+    },
+    {
+      "count": 2,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 8,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "codebook_arrow_value_budget4"
+    },
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "codebook_arrow_value_budget8"
+    },
+    {
+      "count": 9,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "codebook_arrow_value_budget8"
+    },
+    {
+      "count": 5,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "natural_sentence_firstline_budget16"
+    },
+    {
+      "count": 5,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "natural_sentence_firstline_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "natural_sentence_value_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "prior_structured_block_channel_budget16"
+    },
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "prior_structured_block_channel_budget32"
+    },
+    {
+      "count": 9,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "prior_structured_block_channel_budget32"
+    },
+    {
+      "count": 10,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "prior_structured_block_value_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "prior_structured_block_value_budget8"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "short_tsv_channel_budget8"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "short_tsv_value_budget4"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "short_tsv_value_budget8"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "xml_tagged_channel_budget16"
+    },
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "xml_tagged_channel_budget32"
+    },
+    {
+      "count": 9,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "xml_tagged_channel_budget32"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 15,
+      "variant_id": "xml_tagged_value_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "codebook_arrow_channel_budget8"
+    },
+    {
+      "count": 9,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "codebook_arrow_value_budget4"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "codebook_arrow_value_budget8"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "natural_sentence_firstline_budget16"
+    },
+    {
+      "count": 2,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "natural_sentence_value_budget16"
+    },
+    {
+      "count": 8,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "natural_sentence_value_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "prior_structured_block_channel_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "prior_structured_block_channel_budget32"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "prior_structured_block_value_budget16"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "prior_structured_block_value_budget8"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "short_tsv_channel_budget8"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "short_tsv_value_budget4"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "short_tsv_value_budget8"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "xml_tagged_channel_budget16"
+    },
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "xml_tagged_channel_budget32"
+    },
+    {
+      "count": 9,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "xml_tagged_channel_budget32"
+    },
+    {
+      "count": 10,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 25,
+      "variant_id": "xml_tagged_value_budget16"
+    },
+    {
+      "count": 3,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "codebook_arrow_channel_budget8"
+    },
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 2,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "codebook_arrow_value_budget4"
+    },
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "codebook_arrow_value_budget8"
+    },
+    {
+      "count": 2,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "codebook_arrow_value_budget8"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "natural_sentence_firstline_budget16"
+    },
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "natural_sentence_value_budget16"
+    },
+    {
+      "count": 2,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "natural_sentence_value_budget16"
+    },
+    {
+      "count": 3,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "prior_structured_block_channel_budget16"
+    },
+    {
+      "count": 3,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "prior_structured_block_channel_budget32"
+    },
+    {
+      "count": 2,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "prior_structured_block_value_budget16"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "prior_structured_block_value_budget16"
+    },
+    {
+      "count": 2,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "prior_structured_block_value_budget8"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "prior_structured_block_value_budget8"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "sanity_arrow_value_budget4"
+    },
+    {
+      "count": 1,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "sanity_arrow_value_budget8"
+    },
+    {
+      "count": 2,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "sanity_arrow_value_budget8"
+    },
+    {
+      "count": 2,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "short_tsv_channel_budget8"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "short_tsv_channel_budget8"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "short_tsv_value_budget4"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "short_tsv_value_budget8"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "xml_tagged_channel_budget16"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "xml_tagged_channel_budget32"
+    },
+    {
+      "count": 2,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "xml_tagged_value_budget16"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 3,
+      "variant_id": "xml_tagged_value_budget16"
+    },
+    {
+      "count": 4,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "codebook_arrow_channel_budget8"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "codebook_arrow_channel_budget8"
+    },
+    {
+      "count": 4,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "codebook_arrow_value_budget32"
+    },
+    {
+      "count": 5,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "codebook_arrow_value_budget4"
+    },
+    {
+      "count": 4,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "codebook_arrow_value_budget8"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "codebook_arrow_value_budget8"
+    },
+    {
+      "count": 5,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "natural_sentence_firstline_budget16"
+    },
+    {
+      "count": 5,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "natural_sentence_value_budget16"
+    },
+    {
+      "count": 5,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "prior_structured_block_channel_budget16"
+    },
+    {
+      "count": 5,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "prior_structured_block_channel_budget32"
+    },
+    {
+      "count": 4,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "prior_structured_block_value_budget16"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "prior_structured_block_value_budget16"
+    },
+    {
+      "count": 4,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "prior_structured_block_value_budget8"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "prior_structured_block_value_budget8"
+    },
+    {
+      "count": 4,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "short_tsv_channel_budget8"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "short_tsv_channel_budget8"
+    },
+    {
+      "count": 5,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "short_tsv_value_budget4"
+    },
+    {
+      "count": 5,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "short_tsv_value_budget8"
+    },
+    {
+      "count": 5,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "xml_tagged_channel_budget16"
+    },
+    {
+      "count": 5,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "xml_tagged_channel_budget32"
+    },
+    {
+      "count": 2,
+      "failure_class": "passed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "xml_tagged_value_budget16"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_a_visible_calibration",
+      "row_count": 5,
+      "variant_id": "xml_tagged_value_budget16"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_b_route_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_b_route_control",
+      "row_count": 3,
+      "variant_id": "route_prior_structured_block_value_budget16"
+    },
+    {
+      "count": 3,
+      "failure_class": "phase_b_route_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_b_route_control",
+      "row_count": null,
+      "variant_id": null
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_c_native_full_visible_prefix_plus_tail_failed",
+      "phase": "phase_c_capsule_evidence",
+      "row_count": 1,
+      "variant_id": "prior_structured_block_value_budget8"
+    }
+  ],
+  "failure_class_counts": [
+    {
+      "count": 200,
+      "failure_class": "passed"
+    },
+    {
+      "count": 417,
+      "failure_class": "phase_a_native_full_visible_prefix_plus_tail_failed"
+    },
+    {
+      "count": 6,
+      "failure_class": "phase_b_route_native_full_visible_prefix_plus_tail_failed"
+    },
+    {
+      "count": 1,
+      "failure_class": "phase_c_native_full_visible_prefix_plus_tail_failed"
+    }
+  ],
+  "interpretation": "Route known-positive controls failed and the only promoted 1-row unit failed the Phase C full-visible guard; restored capsule results are not interpretable because restored capsule was not run.",
+  "schema": "failure_classifications_v1"
+}

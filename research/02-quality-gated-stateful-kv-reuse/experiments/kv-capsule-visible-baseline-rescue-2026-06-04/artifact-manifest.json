@@ -1,0 +1,41 @@
+{
+  "campaign": "kv-capsule-visible-baseline-rescue-2026-06-04",
+  "capsule_contract_file": null,
+  "capsule_contract_note": "Not emitted because restored capsule controls did not run.",
+  "committed_artifact_path": "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-visible-baseline-rescue-2026-06-04",
+  "files": [
+    "README.md",
+    "summary.json",
+    "phase-results.json",
+    "calibration-results.json",
+    "case-metrics.json",
+    "route-controls.json",
+    "amortization.json",
+    "failure-classifications.json",
+    "commands.md",
+    "model-info.json",
+    "artifact-manifest.json"
+  ],
+  "raw_source_is_prompt_bearing": true,
+  "raw_source_path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-visible-baseline-rescue-2026-06-04/raw",
+  "sanitation": {
+    "excluded_fields": [
+      "capsule",
+      "expected",
+      "full_prompt",
+      "generated_tokens",
+      "normalized_response",
+      "prefix",
+      "prompt",
+      "response",
+      "state_bytes",
+      "tail",
+      "token_ids",
+      "tokens",
+      "top_k",
+      "topk"
+    ],
+    "notes": "Prompt/response/expected text remains only in ignored raw artifacts."
+  },
+  "schema": "artifact_manifest_v1"
+}
