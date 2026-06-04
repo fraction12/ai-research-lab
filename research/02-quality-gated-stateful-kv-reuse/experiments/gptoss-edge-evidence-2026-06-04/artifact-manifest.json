@@ -1,0 +1,86 @@
+{
+  "experiment_id": "gptoss-edge-evidence-2026-06-04",
+  "imported_at": "2026-06-04",
+  "source_machine": "DushyantPC",
+  "source_checkout": "C:\\Users\\Dushyant\\Projects\\ai-research-lab",
+  "source_raw_directory": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw",
+  "committed_track02_directory": "research/02-quality-gated-stateful-kv-reuse/experiments/gptoss-edge-evidence-2026-06-04",
+  "prompt_bearing_raw_artifacts": [
+    {
+      "control_id": "pinned_harmony_full_baseline",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-prompts.jsonl",
+      "sha256": "835A560019AAD82D68595C1EFD0B487059D421ABC37D3CF42DF7F35CCE865E6B",
+      "prompt_bearing": true,
+      "git_tracking": "ignored_local"
+    },
+    {
+      "control_id": "final_only_exhaustive_repair_two_misses",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-final-exhaustive-v2-two-prompts.jsonl",
+      "sha256": "E54320137FFD2C2769112E8A990D8DCF134CB453291BF48DF7B3C4883DA2D38D",
+      "prompt_bearing": true,
+      "git_tracking": "ignored_local"
+    },
+    {
+      "control_id": "verified_incoming_edge_evidence",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-prompts.jsonl",
+      "sha256": "9FB0514F2AE051796D2425A9E8B2CE774D582F313AEB5678E13E4473BB1DAB77",
+      "prompt_bearing": true,
+      "git_tracking": "ignored_local"
+    }
+  ],
+  "raw_output_artifacts": [
+    {
+      "control_id": "pinned_harmony_full_baseline",
+      "command_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-command.json",
+      "command_sha256": "C56553A3FF42DA0DF1E02BBDD752CFEB1DBEB6B521C70D947C502A289ED91550",
+      "responses_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-responses.jsonl",
+      "responses_sha256": "F56EB8C0E853782D6A8628816F28A2A7E6EDB594DD130FF28C39F2347318B686",
+      "scores_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-scores.json",
+      "scores_sha256": "91BCB5E41C06C5008A0A5E852730B004AC909C2BBC4668901CD1EE92D5A375CD"
+    },
+    {
+      "control_id": "final_only_exhaustive_repair_two_misses",
+      "command_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-final-exhaustive-v2-two-command.json",
+      "command_sha256": "5229C32B154460E4BBEDD00AFADEA6EBCE7E52EA2C318E0012D5FD3280A1D1AD",
+      "responses_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-final-exhaustive-v2-two-responses.jsonl",
+      "responses_sha256": "95CF14A4806B1EDA887BBC92702105A8ED39844344C056F6797BA495B9747279",
+      "scores_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-final-exhaustive-v2-two-scores.json",
+      "scores_sha256": "C1104DD104E2031716002393AFE3C37C0092CEAEAF1049858017E268A4D3EB26"
+    },
+    {
+      "control_id": "verified_incoming_edge_evidence",
+      "command_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-command.json",
+      "command_sha256": "2F58AAD28DCD8F4F376F4F2FC3136AFD817D5F386334886C6CC07C177E274021",
+      "responses_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-responses.jsonl",
+      "responses_sha256": "F7BA030F1EC7A0C910A5CDBF405E45C737361FFE00F0C8E82A2E33F3ADBB0373",
+      "scores_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-scores.json",
+      "scores_sha256": "BA744D1B6B8A1C3C68EC94E58C794345D3A3B6DBCB89102CD49FA43A4280F8E8"
+    }
+  ],
+  "committed_summary_artifacts": [
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/gptoss-edge-evidence-2026-06-04/README.md",
+      "purpose": "Human-readable result summary and interpretation."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/gptoss-edge-evidence-2026-06-04/summary.json",
+      "purpose": "Machine-readable control summary and per-case metrics."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/gptoss-edge-evidence-2026-06-04/artifact-manifest.json",
+      "purpose": "Raw path and hash provenance."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/gptoss-edge-evidence-2026-06-04/model-info.json",
+      "purpose": "Pinned model, runner, and command environment metadata."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/gptoss-edge-evidence-2026-06-04/commands.md",
+      "purpose": "Exact verified server command and retrieval commands."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/gptoss-edge-evidence-2026-06-04/failure-classifications.json",
+      "purpose": "Failure taxonomy rows for the focused cases."
+    }
+  ]
+}

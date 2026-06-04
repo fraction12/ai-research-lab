@@ -1,0 +1,315 @@
+{
+  "aggregate_metrics": {
+    "added_tail_bytes_mean": 358.0,
+    "added_tail_bytes_total": 2148,
+    "hidden_prompt_ms_mean": 2042.7355,
+    "hidden_prompt_ms_total": 12256.413,
+    "hidden_prompt_n_mean": 111.66666666666667,
+    "hidden_prompt_n_total": 670,
+    "prompt_ms_delta_mean": 1462.045,
+    "prompt_ms_delta_total": 8772.27,
+    "prompt_n_delta_mean": 92.33333333333333,
+    "prompt_n_delta_total": 554,
+    "visible_evidence_bytes_mean": 74.0,
+    "visible_evidence_bytes_total": 444,
+    "visible_evidence_edge_count_mean": 3.0,
+    "visible_evidence_edge_count_total": 18,
+    "visible_prompt_ms_mean": 3504.7805000000003,
+    "visible_prompt_ms_total": 21028.683,
+    "visible_prompt_n_mean": 204.0,
+    "visible_prompt_n_total": 1224
+  },
+  "cases": [
+    {
+      "added_tail_bytes": 358,
+      "answer_nodes": [
+        "c81e728d9d",
+        "d3d9446802",
+        "eccbc87e4b"
+      ],
+      "case_id": "graphwalks-6",
+      "hidden_parse_error": "invalid JSON answer object: Unterminated string starting at: line 2 column 13 (char 14)",
+      "hidden_passed": false,
+      "hidden_predicted_ms": 22680.876,
+      "hidden_predicted_n": 192,
+      "hidden_prompt_ms": 2080.382,
+      "hidden_prompt_n": 113,
+      "hidden_score": 0.0,
+      "prompt_ms_delta": 1547.484,
+      "prompt_n_delta": 96,
+      "score_delta": 1.0,
+      "target_node": "e4da3b7fbb",
+      "visible_block_bytes": 357,
+      "visible_evidence_bytes": 74,
+      "visible_evidence_edge_count": 3,
+      "visible_evidence_tokens": null,
+      "visible_evidence_tokens_note": "Not separately tokenized; prompt_n_delta records the measured total tail prompt token overhead for the evidence block plus wrapper.",
+      "visible_parse_error": null,
+      "visible_passed": true,
+      "visible_predicted_ms": 14814.362,
+      "visible_predicted_n": 126,
+      "visible_predicted_nodes": [
+        "c81e728d9d",
+        "d3d9446802",
+        "eccbc87e4b"
+      ],
+      "visible_prompt_ms": 3627.866,
+      "visible_prompt_n": 209,
+      "visible_response_excerpt": "We need to find parents of node e4da3b7fbb. The evidence slice shows incoming edges: c81e728d9d -> e4da3b7fbb, eccbc87e4b -> e4da3b7fbb, d3d9446802 -> e4da3b7fbb. So parents are those three nodes. Return list. Order? Probably any order. We'll list in order giv",
+      "visible_score": 1.0
+    },
+    {
+      "added_tail_bytes": 358,
+      "answer_nodes": [
+        "c81e728d9d",
+        "eccbc87e4b"
+      ],
+      "case_id": "graphwalks-9",
+      "hidden_parse_error": "invalid JSON answer object: Unterminated string starting at: line 2 column 13 (char 14)",
+      "hidden_passed": false,
+      "hidden_predicted_ms": 22608.641,
+      "hidden_predicted_n": 192,
+      "hidden_prompt_ms": 2059.09,
+      "hidden_prompt_n": 112,
+      "hidden_score": 0.0,
+      "prompt_ms_delta": 1473.947,
+      "prompt_n_delta": 94,
+      "score_delta": 1.0,
+      "target_node": "1679091c5a",
+      "visible_block_bytes": 357,
+      "visible_evidence_bytes": 74,
+      "visible_evidence_edge_count": 3,
+      "visible_evidence_tokens": null,
+      "visible_evidence_tokens_note": "Not separately tokenized; prompt_n_delta records the measured total tail prompt token overhead for the evidence block plus wrapper.",
+      "visible_parse_error": null,
+      "visible_passed": true,
+      "visible_predicted_ms": 3651.492,
+      "visible_predicted_n": 32,
+      "visible_predicted_nodes": [
+        "c81e728d9d",
+        "eccbc87e4b"
+      ],
+      "visible_prompt_ms": 3533.037,
+      "visible_prompt_n": 206,
+      "visible_response_excerpt": "Final Answer: [c81e728d9d, c81e728d9d, eccbc87e4b]",
+      "visible_score": 1.0
+    },
+    {
+      "added_tail_bytes": 308,
+      "answer_nodes": [
+        "d3d9446802"
+      ],
+      "case_id": "graphwalks-11",
+      "hidden_parse_error": null,
+      "hidden_passed": false,
+      "hidden_predicted_ms": 13581.218,
+      "hidden_predicted_n": 116,
+      "hidden_prompt_ms": 2031.848,
+      "hidden_prompt_n": 111,
+      "hidden_score": 0.0,
+      "prompt_ms_delta": 952.567,
+      "prompt_n_delta": 61,
+      "score_delta": 1.0,
+      "target_node": "a87ff679a2",
+      "visible_block_bytes": 307,
+      "visible_evidence_bytes": 24,
+      "visible_evidence_edge_count": 1,
+      "visible_evidence_tokens": null,
+      "visible_evidence_tokens_note": "Not separately tokenized; prompt_n_delta records the measured total tail prompt token overhead for the evidence block plus wrapper.",
+      "visible_parse_error": null,
+      "visible_passed": true,
+      "visible_predicted_ms": 1794.273,
+      "visible_predicted_n": 16,
+      "visible_predicted_nodes": [
+        "d3d9446802"
+      ],
+      "visible_prompt_ms": 2984.415,
+      "visible_prompt_n": 172,
+      "visible_response_excerpt": "Final Answer: [d3d9446802]",
+      "visible_score": 1.0
+    },
+    {
+      "added_tail_bytes": 308,
+      "answer_nodes": [
+        "1679091c5a"
+      ],
+      "case_id": "graphwalks-13",
+      "hidden_parse_error": null,
+      "hidden_passed": false,
+      "hidden_predicted_ms": 13610.484,
+      "hidden_predicted_n": 116,
+      "hidden_prompt_ms": 1999.586,
+      "hidden_prompt_n": 111,
+      "hidden_score": 0.0,
+      "prompt_ms_delta": 1036.242,
+      "prompt_n_delta": 61,
+      "score_delta": 1.0,
+      "target_node": "a87ff679a2",
+      "visible_block_bytes": 307,
+      "visible_evidence_bytes": 24,
+      "visible_evidence_edge_count": 1,
+      "visible_evidence_tokens": null,
+      "visible_evidence_tokens_note": "Not separately tokenized; prompt_n_delta records the measured total tail prompt token overhead for the evidence block plus wrapper.",
+      "visible_parse_error": null,
+      "visible_passed": true,
+      "visible_predicted_ms": 1779.894,
+      "visible_predicted_n": 16,
+      "visible_predicted_nodes": [
+        "1679091c5a"
+      ],
+      "visible_prompt_ms": 3035.828,
+      "visible_prompt_n": 172,
+      "visible_response_excerpt": "Final Answer: [1679091c5a]",
+      "visible_score": 1.0
+    },
+    {
+      "added_tail_bytes": 433,
+      "answer_nodes": null,
+      "case_id": "graphwalks-16",
+      "hidden_parse_error": null,
+      "hidden_passed": false,
+      "hidden_predicted_ms": 13620.063,
+      "hidden_predicted_n": 116,
+      "hidden_prompt_ms": 2036.855,
+      "hidden_prompt_n": 111,
+      "hidden_score": 0.0,
+      "prompt_ms_delta": 2082.34,
+      "prompt_n_delta": 135,
+      "score_delta": 0.0,
+      "target_node": "a87ff679a2",
+      "visible_block_bytes": 432,
+      "visible_evidence_bytes": 149,
+      "visible_evidence_edge_count": 6,
+      "visible_evidence_tokens": null,
+      "visible_evidence_tokens_note": "Not separately tokenized; prompt_n_delta records the measured total tail prompt token overhead for the evidence block plus wrapper.",
+      "visible_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 11 (char 10)",
+      "visible_passed": false,
+      "visible_predicted_ms": 22685.97,
+      "visible_predicted_n": 192,
+      "visible_predicted_nodes": null,
+      "visible_prompt_ms": 4119.195,
+      "visible_prompt_n": 246,
+      "visible_response_excerpt": "{\"answer\":\"We have a graph with nodes: a87ff679a2, cfcd208495, c81e728d9d, e4da3b7fbb, 1679091c5a, 8f14e45fce. Edges: cfcd208495 -> a87ff679a2, c81e728d9d -> a87ff679a2, e4da3b7fbb -> a87ff679a2, e4da3b7fbb -> a87ff679a2, 1679091c5a -> a87ff679a2, 8f14e45fce -",
+      "visible_score": 0.0
+    },
+    {
+      "added_tail_bytes": 383,
+      "answer_nodes": null,
+      "case_id": "graphwalks-19",
+      "hidden_parse_error": "invalid JSON answer object: Unterminated string starting at: line 2 column 13 (char 14)",
+      "hidden_passed": false,
+      "hidden_predicted_ms": 22502.821,
+      "hidden_predicted_n": 192,
+      "hidden_prompt_ms": 2048.652,
+      "hidden_prompt_n": 112,
+      "hidden_score": 0.0,
+      "prompt_ms_delta": 1679.69,
+      "prompt_n_delta": 107,
+      "score_delta": 0.0,
+      "target_node": "c4ca4238a0",
+      "visible_block_bytes": 382,
+      "visible_evidence_bytes": 99,
+      "visible_evidence_edge_count": 4,
+      "visible_evidence_tokens": null,
+      "visible_evidence_tokens_note": "Not separately tokenized; prompt_n_delta records the measured total tail prompt token overhead for the evidence block plus wrapper.",
+      "visible_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 11 (char 10)",
+      "visible_passed": false,
+      "visible_predicted_ms": 22619.077,
+      "visible_predicted_n": 192,
+      "visible_predicted_nodes": null,
+      "visible_prompt_ms": 3728.342,
+      "visible_prompt_n": 219,
+      "visible_response_excerpt": "{\"answer\":\"We have a graph with edges: eccbc87e4b -> c4ca4238a0, eccbc87e4b -> c4ca4238a0, a87ff679a2 -> c4ca4238a0, 1679091c5a -> c4ca4238a0. The question: Find the parents of node c4ca4238a0. The parents are the nodes that have edges pointing to c4ca4238a0. ",
+      "visible_score": 0.0
+    }
+  ],
+  "controls": {
+    "full_visible_reference": {
+      "pinned_harmony_full_baseline": {
+        "case_count": 6,
+        "mean_score": 0.9333333333333332,
+        "passes": 4
+      },
+      "source": "research/02-quality-gated-stateful-kv-reuse/experiments/gptoss-edge-evidence-2026-06-04/summary.json"
+    },
+    "hidden_prefix_session_tail": {
+      "cases_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\graphwalks-six-selected-cases.jsonl",
+      "responses_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-responses.jsonl",
+      "scores_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-scores.json",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.0,
+        "numeric_score_count": 6,
+        "pass_rate": 0.0
+      }
+    },
+    "hidden_prefix_visible_evidence_tail": {
+      "cases_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\graphwalks-six-visible-evidence-slice-cases.jsonl",
+      "responses_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-responses.jsonl",
+      "scores_path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-scores.json",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.6666666666666666,
+        "numeric_score_count": 6,
+        "pass_rate": 0.6666666666666666
+      }
+    },
+    "verified_edge_evidence_control": {
+      "case_count": 6,
+      "mean_score": 1.0,
+      "passes": 6,
+      "source": "research/02-quality-gated-stateful-kv-reuse/experiments/gptoss-edge-evidence-2026-06-04/summary.json"
+    }
+  },
+  "date": "2026-06-04",
+  "experiment_id": "visible-evidence-slice-repair-2026-06-04",
+  "interpretation": {
+    "headline": "Visible evidence slice repairs hidden-prefix/session-tail from 0/6 to 4/6 on the focused GraphWalks cohort.",
+    "next_step": "Run a stricter compact-answer repair on the two remaining visible-evidence failures, or increase predict only as a diagnostic control.",
+    "remaining_failure_pattern": "Both remaining failures saw the evidence but generated verbose truncated JSON at the 192-token cap instead of a compact final node list.",
+    "remaining_failures": [
+      "graphwalks-16",
+      "graphwalks-19"
+    ],
+    "research_framing": "role-aware context compilation / selective recompute, not pure KV cache reuse"
+  },
+  "machine": "DushyantPC",
+  "model": {
+    "family": "gptoss",
+    "name": "gpt-oss-20b",
+    "path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "quantization_or_file_type": "MXFP4",
+    "sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+    "type": "20.9B"
+  },
+  "runner": {
+    "flags": [
+      "--cache-prompt",
+      "--slots",
+      "--no-ui",
+      "--no-warmup",
+      "--no-mmap",
+      "--flash-attn auto",
+      "--jinja",
+      "--reasoning off",
+      "--reasoning-budget 0"
+    ],
+    "path": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
+    "sha256": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6"
+  },
+  "scope": {
+    "broad_benchmarks_run": false,
+    "case_ids": [
+      "graphwalks-6",
+      "graphwalks-9",
+      "graphwalks-11",
+      "graphwalks-13",
+      "graphwalks-16",
+      "graphwalks-19"
+    ],
+    "dataset": "openai/graphwalks",
+    "general_benchmark": false,
+    "task_family": "graphwalks_parents"
+  },
+  "status": "completed_focused_six_case_run"
+}

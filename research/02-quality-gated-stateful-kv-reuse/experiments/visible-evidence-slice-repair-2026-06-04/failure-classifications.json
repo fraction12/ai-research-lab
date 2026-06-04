@@ -1,0 +1,165 @@
+{
+  "case_classifications": [
+    {
+      "case_id": "graphwalks-6",
+      "confidence": "medium",
+      "fallback_recommendation": "Use selective visible evidence extraction for this task shape; do not rely on hidden prefix alone.",
+      "hidden_score": 0.0,
+      "observed_failure": "Hidden-prefix/session-tail failed at 0.0, while adding the extracted visible evidence slice repaired the case to score 1.0.",
+      "open_questions": [
+        "Can a smaller or more compact evidence tail preserve the repair with lower prompt overhead?"
+      ],
+      "primary_class": "session_cache_semantic_issue",
+      "ruled_down": [
+        "scorer_parser_brittleness",
+        "runtime_storage_issue"
+      ],
+      "secondary_classes": [
+        "prompt_protocol_issue"
+      ],
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\evidence-slices.json"
+      ],
+      "visible_parse_error": null,
+      "visible_score": 1.0
+    },
+    {
+      "case_id": "graphwalks-9",
+      "confidence": "medium",
+      "fallback_recommendation": "Use selective visible evidence extraction for this task shape; do not rely on hidden prefix alone.",
+      "hidden_score": 0.0,
+      "observed_failure": "Hidden-prefix/session-tail failed at 0.0, while adding the extracted visible evidence slice repaired the case to score 1.0.",
+      "open_questions": [
+        "Can a smaller or more compact evidence tail preserve the repair with lower prompt overhead?"
+      ],
+      "primary_class": "session_cache_semantic_issue",
+      "ruled_down": [
+        "scorer_parser_brittleness",
+        "runtime_storage_issue"
+      ],
+      "secondary_classes": [
+        "prompt_protocol_issue"
+      ],
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\evidence-slices.json"
+      ],
+      "visible_parse_error": null,
+      "visible_score": 1.0
+    },
+    {
+      "case_id": "graphwalks-11",
+      "confidence": "medium",
+      "fallback_recommendation": "Use selective visible evidence extraction for this task shape; do not rely on hidden prefix alone.",
+      "hidden_score": 0.0,
+      "observed_failure": "Hidden-prefix/session-tail failed at 0.0, while adding the extracted visible evidence slice repaired the case to score 1.0.",
+      "open_questions": [
+        "Can a smaller or more compact evidence tail preserve the repair with lower prompt overhead?"
+      ],
+      "primary_class": "session_cache_semantic_issue",
+      "ruled_down": [
+        "scorer_parser_brittleness",
+        "runtime_storage_issue"
+      ],
+      "secondary_classes": [
+        "prompt_protocol_issue"
+      ],
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\evidence-slices.json"
+      ],
+      "visible_parse_error": null,
+      "visible_score": 1.0
+    },
+    {
+      "case_id": "graphwalks-13",
+      "confidence": "medium",
+      "fallback_recommendation": "Use selective visible evidence extraction for this task shape; do not rely on hidden prefix alone.",
+      "hidden_score": 0.0,
+      "observed_failure": "Hidden-prefix/session-tail failed at 0.0, while adding the extracted visible evidence slice repaired the case to score 1.0.",
+      "open_questions": [
+        "Can a smaller or more compact evidence tail preserve the repair with lower prompt overhead?"
+      ],
+      "primary_class": "session_cache_semantic_issue",
+      "ruled_down": [
+        "scorer_parser_brittleness",
+        "runtime_storage_issue"
+      ],
+      "secondary_classes": [
+        "prompt_protocol_issue"
+      ],
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\evidence-slices.json"
+      ],
+      "visible_parse_error": null,
+      "visible_score": 1.0
+    },
+    {
+      "case_id": "graphwalks-16",
+      "confidence": "medium",
+      "fallback_recommendation": "Use a compact final-answer-only visible-evidence tail or increase predict as a diagnostic; current visible slice is not sufficient for this case.",
+      "hidden_score": 0.0,
+      "observed_failure": "Hidden-prefix/session-tail failed, and visible evidence slice exposed the right incoming edges but the model generated verbose truncated JSON at the 192-token cap.",
+      "open_questions": [
+        "Does a stricter compact-answer tail repair the remaining parse failures without increasing predict?"
+      ],
+      "primary_class": "prompt_protocol_issue",
+      "ruled_down": [
+        "runtime_storage_issue"
+      ],
+      "secondary_classes": [
+        "model_weakness",
+        "session_cache_semantic_issue"
+      ],
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\evidence-slices.json"
+      ],
+      "visible_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 11 (char 10)",
+      "visible_score": 0.0
+    },
+    {
+      "case_id": "graphwalks-19",
+      "confidence": "medium",
+      "fallback_recommendation": "Use a compact final-answer-only visible-evidence tail or increase predict as a diagnostic; current visible slice is not sufficient for this case.",
+      "hidden_score": 0.0,
+      "observed_failure": "Hidden-prefix/session-tail failed, and visible evidence slice exposed the right incoming edges but the model generated verbose truncated JSON at the 192-token cap.",
+      "open_questions": [
+        "Does a stricter compact-answer tail repair the remaining parse failures without increasing predict?"
+      ],
+      "primary_class": "prompt_protocol_issue",
+      "ruled_down": [
+        "runtime_storage_issue"
+      ],
+      "secondary_classes": [
+        "model_weakness",
+        "session_cache_semantic_issue"
+      ],
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\evidence-slices.json"
+      ],
+      "visible_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 11 (char 10)",
+      "visible_score": 0.0
+    }
+  ],
+  "experiment_id": "visible-evidence-slice-repair-2026-06-04",
+  "taxonomy": [
+    "model_weakness",
+    "prompt_protocol_issue",
+    "scorer_parser_brittleness",
+    "session_cache_semantic_issue",
+    "position_compatibility_issue",
+    "runtime_storage_issue",
+    "no_failure_observed",
+    "ambiguous"
+  ]
+}

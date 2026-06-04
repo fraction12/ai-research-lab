@@ -1,0 +1,292 @@
+{
+  "experiment_id": "gptoss-edge-evidence-2026-06-04",
+  "status": "imported_verified_control",
+  "date": "2026-06-04",
+  "machine": "DushyantPC",
+  "scope": {
+    "dataset": "openai/graphwalks",
+    "task_family": "graphwalks_parents",
+    "case_ids": [
+      "graphwalks-6",
+      "graphwalks-9",
+      "graphwalks-11",
+      "graphwalks-13",
+      "graphwalks-16",
+      "graphwalks-19"
+    ],
+    "general_benchmark": false,
+    "notes": "This is a focused six-case attribution and repair signal, not a prevalence benchmark."
+  },
+  "model": {
+    "name": "gpt-oss-20b",
+    "family": "gptoss",
+    "type": "20.9B",
+    "quantization_or_file_type": "MXFP4",
+    "path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB"
+  },
+  "runner": {
+    "path": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
+    "sha256": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6",
+    "version": "1 (a731805ce)",
+    "build": "Clang 18.1.8 Windows AMD64",
+    "capabilities": [
+      "/completion",
+      "/slots",
+      "--slot-save-path",
+      "--cache-prompt",
+      "gptoss"
+    ]
+  },
+  "controls": [
+    {
+      "control_id": "pinned_harmony_full_baseline",
+      "label": "pinned-harmony-full",
+      "case_count": 6,
+      "passes": 4,
+      "pass_rate": 0.6666666666666666,
+      "mean_score": 0.9333333333333332,
+      "misses": [
+        {
+          "case_id": "graphwalks-6",
+          "predicted_nodes": [
+            "c81e728d9d",
+            "eccbc87e4b"
+          ],
+          "answer_nodes": [
+            "c81e728d9d",
+            "d3d9446802",
+            "eccbc87e4b"
+          ],
+          "score": 0.8,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "latency_ms": 19407.43439999642
+        },
+        {
+          "case_id": "graphwalks-19",
+          "predicted_nodes": [
+            "a87ff679a2",
+            "eccbc87e4b"
+          ],
+          "answer_nodes": [
+            "1679091c5a",
+            "a87ff679a2",
+            "eccbc87e4b"
+          ],
+          "score": 0.8,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "latency_ms": 21354.391300003044
+        }
+      ]
+    },
+    {
+      "control_id": "final_only_exhaustive_repair_two_misses",
+      "label": "repair-final-exhaustive-v2-two",
+      "case_count": 2,
+      "passes": 0,
+      "pass_rate": 0.0,
+      "mean_score": 0.8,
+      "misses": [
+        "graphwalks-6",
+        "graphwalks-19"
+      ],
+      "interpretation": "Stronger final-only wording did not recover the omitted parent on either pinned full-prompt miss."
+    },
+    {
+      "control_id": "verified_incoming_edge_evidence",
+      "label": "repair-edge-evidence-six",
+      "case_count": 6,
+      "passes": 6,
+      "pass_rate": 1.0,
+      "mean_score": 1.0,
+      "aggregate_metrics": {
+        "prompt_n_total": 864,
+        "prompt_n_mean": 144.0,
+        "prompt_ms_total": 13745.447,
+        "prompt_ms_mean": 2290.907833333333,
+        "predicted_n_total": 129,
+        "predicted_n_mean": 21.5,
+        "predicted_ms_total": 14292.479,
+        "predicted_ms_mean": 2382.079833333333,
+        "latency_ms_total": 28102.69380005775,
+        "latency_ms_mean": 4683.782300009625,
+        "visible_evidence_bytes_total": 444,
+        "visible_evidence_bytes_mean": 74.0,
+        "visible_evidence_edge_count_total": 18,
+        "visible_evidence_edge_count_mean": 3.0,
+        "visible_evidence_tokens_total": null,
+        "visible_evidence_tokens_note": "Not separately recorded in this control; record in the next repair test."
+      },
+      "cases": [
+        {
+          "case_id": "graphwalks-6",
+          "target_node": "e4da3b7fbb",
+          "verified_sources": [
+            "c81e728d9d",
+            "eccbc87e4b",
+            "d3d9446802"
+          ],
+          "verified_edge_count": 3,
+          "visible_evidence_bytes": 74,
+          "prompt_n": 149,
+          "prompt_ms": 2152.209,
+          "predicted_n": 25,
+          "predicted_ms": 2779.665,
+          "latency_ms": 4938.85739997495,
+          "predicted_nodes": [
+            "c81e728d9d",
+            "d3d9446802",
+            "eccbc87e4b"
+          ],
+          "answer_nodes": [
+            "c81e728d9d",
+            "d3d9446802",
+            "eccbc87e4b"
+          ],
+          "score": 1.0,
+          "passed": true
+        },
+        {
+          "case_id": "graphwalks-9",
+          "target_node": "1679091c5a",
+          "verified_sources": [
+            "c81e728d9d",
+            "eccbc87e4b"
+          ],
+          "verified_edge_count": 3,
+          "visible_evidence_bytes": 74,
+          "prompt_n": 146,
+          "prompt_ms": 2121.801,
+          "predicted_n": 19,
+          "predicted_ms": 2085.363,
+          "latency_ms": 4210.132600041106,
+          "predicted_nodes": [
+            "c81e728d9d",
+            "eccbc87e4b"
+          ],
+          "answer_nodes": [
+            "c81e728d9d",
+            "eccbc87e4b"
+          ],
+          "score": 1.0,
+          "passed": true
+        },
+        {
+          "case_id": "graphwalks-11",
+          "target_node": "a87ff679a2",
+          "verified_sources": [
+            "d3d9446802"
+          ],
+          "verified_edge_count": 1,
+          "visible_evidence_bytes": 24,
+          "prompt_n": 112,
+          "prompt_ms": 1675.878,
+          "predicted_n": 11,
+          "predicted_ms": 1154.426,
+          "latency_ms": 2856.6663000383414,
+          "predicted_nodes": [
+            "d3d9446802"
+          ],
+          "answer_nodes": [
+            "d3d9446802"
+          ],
+          "score": 1.0,
+          "passed": true
+        },
+        {
+          "case_id": "graphwalks-13",
+          "target_node": "a87ff679a2",
+          "verified_sources": [
+            "1679091c5a"
+          ],
+          "verified_edge_count": 1,
+          "visible_evidence_bytes": 24,
+          "prompt_n": 112,
+          "prompt_ms": 1830.23,
+          "predicted_n": 11,
+          "predicted_ms": 1162.742,
+          "latency_ms": 2995.8902999642305,
+          "predicted_nodes": [
+            "1679091c5a"
+          ],
+          "answer_nodes": [
+            "1679091c5a"
+          ],
+          "score": 1.0,
+          "passed": true
+        },
+        {
+          "case_id": "graphwalks-16",
+          "target_node": "a87ff679a2",
+          "verified_sources": [
+            "cfcd208495",
+            "c81e728d9d",
+            "e4da3b7fbb",
+            "1679091c5a",
+            "8f14e45fce"
+          ],
+          "verified_edge_count": 6,
+          "visible_evidence_bytes": 149,
+          "prompt_n": 186,
+          "prompt_ms": 3195.486,
+          "predicted_n": 39,
+          "predicted_ms": 4435.994,
+          "latency_ms": 7653.958400012925,
+          "predicted_nodes": [
+            "1679091c5a",
+            "8f14e45fce",
+            "c81e728d9d",
+            "cfcd208495",
+            "e4da3b7fbb"
+          ],
+          "answer_nodes": [
+            "1679091c5a",
+            "8f14e45fce",
+            "c81e728d9d",
+            "cfcd208495",
+            "e4da3b7fbb"
+          ],
+          "score": 1.0,
+          "passed": true
+        },
+        {
+          "case_id": "graphwalks-19",
+          "target_node": "c4ca4238a0",
+          "verified_sources": [
+            "eccbc87e4b",
+            "a87ff679a2",
+            "1679091c5a"
+          ],
+          "verified_edge_count": 4,
+          "visible_evidence_bytes": 99,
+          "prompt_n": 159,
+          "prompt_ms": 2769.843,
+          "predicted_n": 24,
+          "predicted_ms": 2674.289,
+          "latency_ms": 5447.188800026197,
+          "predicted_nodes": [
+            "1679091c5a",
+            "a87ff679a2",
+            "eccbc87e4b"
+          ],
+          "answer_nodes": [
+            "1679091c5a",
+            "a87ff679a2",
+            "eccbc87e4b"
+          ],
+          "score": 1.0,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "interpretation": {
+    "headline": "Verified incoming-edge evidence repaired all six focused GraphWalks cases.",
+    "not_general_benchmark": true,
+    "not_pure_kv_reuse": true,
+    "research_framing": "role-aware context compilation / selective recompute",
+    "next_question": "Compare hidden-prefix/session-tail against hidden-prefix plus a small visible extracted evidence slice using the same lower-level GPT-OSS path."
+  }
+}

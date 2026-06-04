@@ -1,0 +1,165 @@
+{
+  "aggregate_metrics": {
+    "case_count": 2,
+    "compact_tail_bytes_total": 1298,
+    "evidence_bytes_total": 248,
+    "evidence_edge_count_total": 10,
+    "mean_score": 1.0,
+    "pass_count": 2,
+    "pass_rate": 1.0,
+    "predicted_ms_mean": 4536.773,
+    "predicted_ms_total": 9073.546,
+    "predicted_n_mean": 39.0,
+    "predicted_n_total": 78,
+    "prompt_ms_mean": 3306.565,
+    "prompt_ms_total": 6613.13,
+    "prompt_n_mean": 191.5,
+    "prompt_n_total": 383
+  },
+  "cases": [
+    {
+      "answer_nodes": [
+        "1679091c5a",
+        "8f14e45fce",
+        "c81e728d9d",
+        "cfcd208495",
+        "e4da3b7fbb"
+      ],
+      "answer_parse_error": null,
+      "case_id": "graphwalks-16",
+      "compact_minus_previous_predicted_n": -145,
+      "compact_minus_previous_prompt_n": -41,
+      "compact_passed": true,
+      "compact_score": 1.0,
+      "compact_tail_bytes": 674,
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "f1": 1.0,
+      "latency_ms": 49010.92570001492,
+      "precision": 1.0,
+      "predicted_ms": 5445.655,
+      "predicted_n": 47,
+      "predicted_nodes": [
+        "1679091c5a",
+        "8f14e45fce",
+        "c81e728d9d",
+        "cfcd208495",
+        "e4da3b7fbb"
+      ],
+      "previous_visible_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 11 (char 10)",
+      "previous_visible_predicted_n": 192,
+      "previous_visible_prompt_n": 246,
+      "previous_visible_score": 0.0,
+      "prompt_ms": 3479.768,
+      "prompt_n": 205,
+      "raw_response": "{\n  \"answer\": \"[cfcd208495, c81e728d9d, e4da3b7fbb, 1679091c5a, 8f14e45fce]\"\n}\n",
+      "recall": 1.0,
+      "response": "[cfcd208495, c81e728d9d, e4da3b7fbb, 1679091c5a, 8f14e45fce]",
+      "target_node": "a87ff679a2"
+    },
+    {
+      "answer_nodes": [
+        "1679091c5a",
+        "a87ff679a2",
+        "eccbc87e4b"
+      ],
+      "answer_parse_error": null,
+      "case_id": "graphwalks-19",
+      "compact_minus_previous_predicted_n": -161,
+      "compact_minus_previous_prompt_n": -41,
+      "compact_passed": true,
+      "compact_score": 1.0,
+      "compact_tail_bytes": 624,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "f1": 1.0,
+      "latency_ms": 50889.4614999881,
+      "precision": 1.0,
+      "predicted_ms": 3627.891,
+      "predicted_n": 31,
+      "predicted_nodes": [
+        "1679091c5a",
+        "a87ff679a2",
+        "eccbc87e4b"
+      ],
+      "previous_visible_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 11 (char 10)",
+      "previous_visible_predicted_n": 192,
+      "previous_visible_prompt_n": 219,
+      "previous_visible_score": 0.0,
+      "prompt_ms": 3133.362,
+      "prompt_n": 178,
+      "raw_response": "{\n  \"answer\": \"[eccbc87e4b, a87ff679a2, 1679091c5a]\"\n}\n\n",
+      "recall": 1.0,
+      "response": "[eccbc87e4b, a87ff679a2, 1679091c5a]",
+      "target_node": "c4ca4238a0"
+    }
+  ],
+  "chain": {
+    "compact_visible_evidence_tail": "6/6",
+    "hidden_prefix_session_tail": "0/6",
+    "interpretation": "focused six-case cohort only",
+    "visible_evidence_tail": "4/6"
+  },
+  "date": "2026-06-04",
+  "diagnostics": {
+    "increase_predict_run": false,
+    "reason": "Compact-answer main condition repaired both remaining cases at the original --predict 192 cap."
+  },
+  "experiment_id": "compact-visible-evidence-repair-2026-06-04",
+  "interpretation": {
+    "headline": "Compact-answer visible evidence repaired both remaining GraphWalks cases.",
+    "paper_framing": "role-aware context compilation / quality-gated context scheduling, not pure KV reuse and not a broad benchmark claim",
+    "remaining_failure_class": "none_observed_in_focused_two_case_followup"
+  },
+  "machine": "DushyantPC",
+  "main_result": {
+    "control": "hidden-prefix-compact-visible-evidence-tail",
+    "summary": {
+      "case_count": 2,
+      "mean_score": 1.0,
+      "numeric_score_count": 2,
+      "pass_rate": 1.0
+    }
+  },
+  "model": {
+    "family": "gptoss",
+    "name": "gpt-oss-20b",
+    "path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "quantization_or_file_type": "MXFP4",
+    "sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+    "type": "20.9B"
+  },
+  "runner": {
+    "flags": [
+      "--cache-prompt",
+      "--slots",
+      "--no-ui",
+      "--no-warmup",
+      "--no-mmap",
+      "--flash-attn auto",
+      "--jinja",
+      "--reasoning off",
+      "--reasoning-budget 0"
+    ],
+    "path": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
+    "sha256": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6"
+  },
+  "scope": {
+    "broad_benchmarks_run": false,
+    "case_ids": [
+      "graphwalks-16",
+      "graphwalks-19"
+    ],
+    "dataset": "openai/graphwalks",
+    "general_benchmark": false,
+    "task_family": "graphwalks_parents"
+  },
+  "settings": {
+    "ctx_size": 32768,
+    "predict": 192,
+    "prime_n_predict": 0,
+    "temperature": 0.0,
+    "timeout": 300.0
+  },
+  "status": "completed_focused_two_case_run"
+}

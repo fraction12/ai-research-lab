@@ -1,0 +1,104 @@
+{
+  "artifacts": [
+    {
+      "git_tracking": "ignored_local",
+      "kind": "input",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\graphwalks-six-selected-cases.jsonl",
+      "prompt_bearing": true,
+      "sha256": "3C12FC4A16CC80A87612D118C86CF15B773B799682C439AF319381758BF4087C"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "input",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\graphwalks-six-visible-evidence-slice-cases.jsonl",
+      "prompt_bearing": true,
+      "sha256": "D49996761A1AF09414B6A60EC915CD95699654D7B8CA32799609095C1936E24C"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "input",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04\\evidence-slices.json",
+      "prompt_bearing": false,
+      "sha256": "DB2F4802249B1A59CEF48835085EB9819287C8C9A7B1E0DA4E8E1025B8C79215"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\run_visible_evidence_repair.py",
+      "prompt_bearing": false,
+      "sha256": "75068CBF50F5BCFD6C2919A170A4CB889AFF47120195D7991B57E576E7740699"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-command.json",
+      "prompt_bearing": false,
+      "sha256": "B830D0367499C2D149C745118D8CD22291E4126F215923D3F6EB382797E30A8C"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-responses.jsonl",
+      "prompt_bearing": true,
+      "sha256": "87F4182FEE9C82F3AD928EFF8B9ADAC56AD1A8DF860F2951C5BB79E8E92EB9F1"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-session-tail-scores.json",
+      "prompt_bearing": false,
+      "sha256": "A66440F689FD532D73E8BEFD210195FE123F9841BA0C68656050401B386ADD27"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-command.json",
+      "prompt_bearing": false,
+      "sha256": "26484B9C2BA29D492C5C83C529D5DB658BA1A2D354BE83050DBE1BA6259AFD4A"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-responses.jsonl",
+      "prompt_bearing": true,
+      "sha256": "5E8AE80B29245CD460982F2BAD7D004361EDD4F21FE4A5F6A82DCB6D32B8D974"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\hidden-prefix-visible-evidence-tail-scores.json",
+      "prompt_bearing": false,
+      "sha256": "B560814880949368A40D323AB49DE275948930EDD74040F40BF9FB70D6C7FA5B"
+    }
+  ],
+  "committed_summary_artifacts": [
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/visible-evidence-slice-repair-2026-06-04/README.md"
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/visible-evidence-slice-repair-2026-06-04/summary.json"
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/visible-evidence-slice-repair-2026-06-04/artifact-manifest.json"
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/visible-evidence-slice-repair-2026-06-04/model-info.json"
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/visible-evidence-slice-repair-2026-06-04/commands.md"
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/visible-evidence-slice-repair-2026-06-04/failure-classifications.json"
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/visible-evidence-slice-repair-2026-06-04/evidence-slices.json"
+    }
+  ],
+  "committed_track02_directory": "research/02-quality-gated-stateful-kv-reuse/experiments/visible-evidence-slice-repair-2026-06-04",
+  "experiment_id": "visible-evidence-slice-repair-2026-06-04",
+  "source_cache_directory": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-cache\\visible-evidence-slice-repair-2026-06-04",
+  "source_checkout": "C:\\Users\\Dushyant\\Projects\\ai-research-lab",
+  "source_input_directory": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\visible-evidence-slice-repair-2026-06-04",
+  "source_machine": "DushyantPC",
+  "source_raw_directory": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw"
+}

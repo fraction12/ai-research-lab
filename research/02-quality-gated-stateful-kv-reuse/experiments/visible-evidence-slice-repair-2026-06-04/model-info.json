@@ -1,0 +1,31 @@
+{
+  "machine": "DushyantPC",
+  "model": {
+    "family": "gptoss",
+    "name": "gpt-oss-20b",
+    "path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "quantization_or_file_type": "MXFP4",
+    "sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+    "type": "20.9B"
+  },
+  "notes": "The vault mind experimental model was not used. This run used the pinned GPT-OSS-compatible llama.cpp runner and Ollama GPT-OSS blob.",
+  "raw_runner_script": {
+    "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\visible-evidence-slice-repair-2026-06-04\\raw\\run_visible_evidence_repair.py",
+    "sha256": "75068CBF50F5BCFD6C2919A170A4CB889AFF47120195D7991B57E576E7740699"
+  },
+  "runner": {
+    "flags": [
+      "--cache-prompt",
+      "--slots",
+      "--no-ui",
+      "--no-warmup",
+      "--no-mmap",
+      "--flash-attn auto",
+      "--jinja",
+      "--reasoning off",
+      "--reasoning-budget 0"
+    ],
+    "path": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
+    "sha256": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6"
+  }
+}
