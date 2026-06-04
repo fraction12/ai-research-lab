@@ -11,37 +11,37 @@
 - [x] 2.3 Ensure the only model-bearing CLI mode is `family3`, with no executable server, bridge, Family 1, Family 2, GraphWalks, or broad benchmark path.
 - [x] 2.4 Run local syntax checks and grep sanity checks before DushyantPC sync.
 - [x] 2.5 Report local sanity evidence before DushyantPC sync/model execution.
-- [ ] 2.6 Sync DushyantPC safely without destructive commands and preserve exact commands.
+- [x] 2.6 Sync DushyantPC safely without destructive commands and preserve exact commands.
 
 ## 3. Run Stage A One-Hop Controls
 
-- [ ] 3.1 Run `native_full_visible_prefix_plus_tail` on 3 deterministic Stage A one-hop mini-graph cases using canonical `add_special=true` full-prompt route.
-- [ ] 3.2 Stop if Stage A full-visible guard fails; otherwise advance only if all 3 answer-contained scores pass.
-- [ ] 3.3 Run Stage A `native_fresh_tail_only` and stop/quarantine if any case unexpectedly contains the answer.
-- [ ] 3.4 Run Stage A `native_live_append_tail_only` and stop before restored capsule interpretation if any case fails.
-- [ ] 3.5 Run Stage A `native_restored_capsule_append_tail_only` only if live append passes all 3 cases.
+- [x] 3.1 Run `native_full_visible_prefix_plus_tail` on 3 deterministic Stage A one-hop mini-graph cases using canonical `add_special=true` full-prompt route.
+- [x] 3.2 Stop if Stage A full-visible guard fails; Stage A full-visible scored 2/3, so the run stopped as `family3_stage_a_full_visible_guard_failed`.
+- [x] 3.3 Stage A `native_fresh_tail_only` was not run by stop rule after Stage A full-visible failed.
+- [x] 3.4 Stage A `native_live_append_tail_only` was not run by stop rule after Stage A full-visible failed.
+- [x] 3.5 Stage A `native_restored_capsule_append_tail_only` was not run by stop rule after Stage A full-visible failed.
 
 ## 4. Run Stage B Two-Hop Controls
 
-- [ ] 4.1 Run Stage B only if Stage A restored capsule passes.
-- [ ] 4.2 Run `native_full_visible_prefix_plus_tail` on 2 deterministic Stage B two-hop mini-graph cases.
-- [ ] 4.3 Stop if Stage B full-visible guard fails; otherwise advance only if both answer-contained scores pass.
-- [ ] 4.4 Run Stage B `native_fresh_tail_only` and stop/quarantine if any case unexpectedly contains the answer.
-- [ ] 4.5 Run Stage B `native_live_append_tail_only` and stop before restored capsule interpretation if any case fails.
-- [ ] 4.6 Run Stage B `native_restored_capsule_append_tail_only` only if live append passes both cases.
-- [ ] 4.7 Do not run GraphWalks, noiseless evidence, server bridge, Family 4, or broad benchmarks.
+- [x] 4.1 Stage B was not run because Stage A restored capsule did not run or pass.
+- [x] 4.2 Stage B `native_full_visible_prefix_plus_tail` was not run by Stage A stop rule.
+- [x] 4.3 Stage B full-visible stop condition was not reached because Stage B was not run.
+- [x] 4.4 Stage B `native_fresh_tail_only` was not run by Stage A stop rule.
+- [x] 4.5 Stage B `native_live_append_tail_only` was not run by Stage A stop rule.
+- [x] 4.6 Stage B `native_restored_capsule_append_tail_only` was not run by Stage A stop rule.
+- [x] 4.7 Do not run GraphWalks, noiseless evidence, server bridge, Family 4, or broad benchmarks.
 
 ## 5. Package Artifacts
 
-- [ ] 5.1 Write `README.md` with outcome, stage progression, stop rule, and narrow interpretation.
-- [ ] 5.2 Write `summary.json` with aggregate pass/fail, selected route, decision, timings, stage summaries, and state byte counts/hashes.
-- [ ] 5.3 Write sanitized `case-metrics.json` with no raw prompts, raw responses, expected answer strings, token ID arrays, generated token arrays, top-k arrays, or state bytes.
-- [ ] 5.4 Write `failure-classifications.json`, `commands.md`, `model-info.json`, and `artifact-manifest.json`.
-- [ ] 5.5 Write `capsule-contract.md` only if restored capsule actually runs.
-- [ ] 5.6 Run sanitation grep and confirm raw prompt-bearing artifacts remain ignored.
+- [x] 5.1 Write `README.md` with outcome, stage progression, stop rule, and narrow interpretation.
+- [x] 5.2 Write `summary.json` with aggregate pass/fail, selected route, decision, timings, stage summaries, and state byte counts/hashes.
+- [x] 5.3 Write sanitized `case-metrics.json` with no raw prompts, raw responses, expected answer strings, token ID arrays, generated token arrays, top-k arrays, or state bytes.
+- [x] 5.4 Write `failure-classifications.json`, `commands.md`, `model-info.json`, and `artifact-manifest.json`.
+- [x] 5.5 Omit `capsule-contract.md` because restored capsule did not run.
+- [x] 5.6 Run sanitation grep and confirm raw prompt-bearing artifacts remain ignored.
 
 ## 6. Validate And Land
 
-- [ ] 6.1 Run `openspec validate run-kv-capsule-family3-mini-graph-gate --type change --strict`.
-- [ ] 6.2 Run `openspec validate --all --strict`.
-- [ ] 6.3 Commit locally if coherent; do not push without explicit approval.
+- [x] 6.1 Run `openspec validate run-kv-capsule-family3-mini-graph-gate --type change --strict`.
+- [x] 6.2 Run `openspec validate --all --strict`.
+- [x] 6.3 Commit locally if coherent; do not push without explicit approval.

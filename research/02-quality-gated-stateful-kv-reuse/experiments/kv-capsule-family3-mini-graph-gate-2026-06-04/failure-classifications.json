@@ -1,0 +1,78 @@
+{
+  "experiment": "kv-capsule-family3-mini-graph-gate-2026-06-04",
+  "decision": "family3_stage_a_full_visible_guard_failed",
+  "stop_rule": "family3_stage_a_full_visible_guard_failed",
+  "taxonomy": {
+    "passed": "Control contained the expected hidden-prefix answer under answer-contained scoring.",
+    "fresh_tail_expected_miss": "Fresh tail-only could not know the hidden mini-graph answer; expected negative control miss.",
+    "family3_stage_a_full_visible_guard_failed": "Native full-visible failed on at least one Stage A one-hop mini-graph case, so later controls and capsule semantics are uninterpretable.",
+    "family3_stage_a_fresh_tail_leakage_or_scorer_issue": "Stage A fresh tail unexpectedly contained the answer, invalidating the hidden-prefix retrieval probe.",
+    "family3_stage_a_live_append_protocol_blocker": "Stage A full-visible passed but live append failed, so restored capsule must not be interpreted.",
+    "family3_stage_a_restored_capsule_one_hop_failure": "Stage A live append passed but restored capsule failed on one-hop graph retrieval.",
+    "family3_stage_b_full_visible_guard_failed": "Stage B full-visible failed, so Stage B capsule semantics are uninterpretable.",
+    "family3_stage_b_fresh_tail_leakage_or_scorer_issue": "Stage B fresh tail unexpectedly contained the answer.",
+    "family3_stage_b_live_append_protocol_blocker": "Stage B full-visible passed but live append failed.",
+    "family3_stage_b_restored_capsule_two_hop_failure": "Stage B live append passed but restored capsule failed on two-hop graph retrieval.",
+    "runtime_or_backend_failure": "Runner/backend/API error prevented semantic interpretation."
+  },
+  "by_control": {
+    "native_full_visible_prefix_plus_tail": {
+      "passed": 2,
+      "family3_stage_a_full_visible_guard_failed": 1
+    },
+    "native_fresh_tail_only": {},
+    "native_live_append_tail_only": {},
+    "native_restored_capsule_append_tail_only": {}
+  },
+  "by_stage_control": {
+    "stage_a": {
+      "native_full_visible_prefix_plus_tail": {
+        "passed": 2,
+        "family3_stage_a_full_visible_guard_failed": 1
+      },
+      "native_fresh_tail_only": {},
+      "native_live_append_tail_only": {},
+      "native_restored_capsule_append_tail_only": {}
+    },
+    "stage_b": {
+      "native_full_visible_prefix_plus_tail": {},
+      "native_fresh_tail_only": {},
+      "native_live_append_tail_only": {},
+      "native_restored_capsule_append_tail_only": {}
+    }
+  },
+  "stage_progression": [
+    {
+      "stage": "stage_a",
+      "control": "native_full_visible_prefix_plus_tail",
+      "score": "2/3",
+      "advanced": false,
+      "stop_rule": "family3_stage_a_full_visible_guard_failed"
+    },
+    {
+      "stage": "stage_a",
+      "control": "native_fresh_tail_only",
+      "score": "not_run",
+      "advanced": false
+    },
+    {
+      "stage": "stage_a",
+      "control": "native_live_append_tail_only",
+      "score": "not_run",
+      "advanced": false
+    },
+    {
+      "stage": "stage_a",
+      "control": "native_restored_capsule_append_tail_only",
+      "score": "not_run",
+      "advanced": false
+    },
+    {
+      "stage": "stage_b",
+      "control": "all_controls",
+      "score": "not_run",
+      "advanced": false,
+      "reason": "Stage A full-visible guard failed"
+    }
+  ]
+}
