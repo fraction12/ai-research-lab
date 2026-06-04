@@ -1,0 +1,68 @@
+## 1. OpenSpec Checkpoint
+
+- [x] 1.1 Confirm the worktree is based on `f3862b9 Record scaled KV capsule benchmark campaign`.
+- [x] 1.2 Create proposal, design, task ledger, and spec delta for `run-kv-capsule-calibrated-a-to-e-campaign`.
+- [x] 1.3 Validate the change with `openspec validate run-kv-capsule-calibrated-a-to-e-campaign --type change --strict` before model-bearing work.
+
+## 2. Runner Preparation
+
+- [x] 2.1 Add ignored raw path coverage for `kv-capsule-calibrated-a-to-e-campaign-2026-06-04`.
+- [x] 2.2 Create an ignored native C API runner under the Track 01 raw path.
+- [x] 2.3 Ensure the only model-bearing CLI mode is the explicit calibrated campaign mode, with optional raw-only `smoke` and `token-smoke` modes.
+- [x] 2.4 Remove or disable executable server, bridge, Family 1, Family 2, Family 3, GraphWalks, noiseless-evidence, and broad-benchmark paths from the campaign CLI.
+- [x] 2.5 Implement chunked native prefill/decode around `n_batch=512`.
+- [x] 2.6 Implement Phase A calibration variants and promotion/freeze bookkeeping.
+- [x] 2.7 Implement Phase B/C promoted retrieval controls, one-capsule-many-restores semantics, and scale boundary recording.
+- [x] 2.8 Implement Phase D amortization curves for restored-capsule-passing units.
+- [x] 2.9 Implement Phase E agent-context calibration/evidence, gated on at least one retrieval restored-capsule pass.
+- [x] 2.10 Run local `python3 -m py_compile`, help/mode checks, stale-path grep, and ignored raw-path checks before DushyantPC sync.
+
+## 3. Phase A Visible-Baseline Calibration
+
+- [ ] 3.1 Run systematic structured-retrieval calibration variants at 10 rows first.
+- [ ] 3.2 Promote only variants with full-visible answer-contained 10/10 and exact/normalized scoring high enough for evidence.
+- [ ] 3.3 Preserve failed calibration attempts as sanitized summaries with variant ids, hashes, counts, and failure classes.
+- [ ] 3.4 If all reasonable variants fail at 10 rows, package the benchmarkability result and stop for orchestration review.
+
+## 4. Phase B Semantic Capsule Ladder
+
+- [ ] 4.1 For each promoted retrieval unit, rerun frozen `native_full_visible_prefix_plus_tail` and require 10/10.
+- [ ] 4.2 Run `native_fresh_tail_only` and quarantine any leakage/scorer issue.
+- [ ] 4.3 Run `native_live_append_tail_only` and require 10/10 before restored-capsule interpretation.
+- [ ] 4.4 Run `native_restored_capsule_append_tail_only` with one reusable prefix capsule restored for each tail query.
+- [ ] 4.5 Classify failed promoted units without mutating their evidence prompts.
+
+## 5. Phase C Scale Ladder and Boundary Search
+
+- [ ] 5.1 Push promoted retrieval units through 10, 25, 50, and 100 rows where feasible.
+- [ ] 5.2 Attempt 250 rows only if runtime/context behavior remains practical after lower scales.
+- [ ] 5.3 Record highest reliable full-visible, live-append, and restored-capsule scales.
+
+## 6. Phase D Amortization and Economics
+
+- [ ] 6.1 Measure one-time prefix prefill/save/build cost and per-query restore/tail/decode cost.
+- [ ] 6.2 Calculate break-even curves for N = 1, 2, 5, 10, 20, 50, and 100.
+- [ ] 6.3 Report prompt tokens avoided, capsule bytes, restore bytes, and whether quality-passing units are latency-positive or latency-negative.
+
+## 7. Phase E Agent-Context Benchmark
+
+- [ ] 7.1 Run Phase E only after at least one retrieval restored-capsule ladder passes.
+- [ ] 7.2 Build and calibrate a repo-local agent-context prefix and 8 to 10 deterministic tail tasks.
+- [ ] 7.3 Promote/freeze the agent-context unit only after full-visible quality passes.
+- [ ] 7.4 Run full-visible, fresh-tail, live-append, and restored-capsule controls in order.
+- [ ] 7.5 Record quality retained, token/time avoided, capsule size, and amortized economics.
+
+## 8. Packaging
+
+- [ ] 8.1 Copy ignored raw artifacts back from DushyantPC and preserve raw prompts, responses, logs, token arrays, and state bytes under ignored Track 01 paths.
+- [ ] 8.2 Package sanitized Track 02 artifacts: `README.md`, `summary.json`, `phase-results.json`, `calibration-results.json`, `case-metrics.json`, `amortization.json`, `failure-classifications.json`, `commands.md`, `model-info.json`, and `artifact-manifest.json`.
+- [ ] 8.3 Add `capsule-contract.md` or `capsule-contracts.json` only for units where restored capsule actually runs.
+- [ ] 8.4 Include exact artifact paths, model/backend hashes, command lines, raw artifact hashes, validity boundaries, and highest reliable scales.
+- [ ] 8.5 Run sanitation grep and non-tab/newline control-byte scan over committed campaign artifacts.
+
+## 9. Validation and Landing
+
+- [ ] 9.1 Validate `openspec validate run-kv-capsule-calibrated-a-to-e-campaign --type change --strict`.
+- [ ] 9.2 Validate `openspec validate --all --strict`.
+- [ ] 9.3 Confirm prompt-bearing raw artifacts are ignored and not staged.
+- [ ] 9.4 Commit locally if coherent; do not push.
