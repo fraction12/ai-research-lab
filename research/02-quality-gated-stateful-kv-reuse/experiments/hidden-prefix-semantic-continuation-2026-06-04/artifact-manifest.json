@@ -1,0 +1,56 @@
+{
+  "analysis_scope": "30 codeword records only; one extra key_value record was written before manual stop and is excluded",
+  "analyzed_codeword_record_count": 30,
+  "committed_summary_files": [
+    "README.md",
+    "summary.json",
+    "case-metrics.json",
+    "failure-classifications.json",
+    "commands.md",
+    "model-info.json",
+    "artifact-manifest.json"
+  ],
+  "excluded_record_count": 1,
+  "experiment_id": "hidden-prefix-semantic-continuation-2026-06-04",
+  "manual_stop_note": "DushyantPC runner was manually stopped after the codeword gate; raw responses file contains one excluded kv-01 full_visible_prefix_plus_tail stray record.",
+  "raw_artifacts": [
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/hidden-prefix-semantic-continuation-2026-06-04/raw/semantic-continuation-responses.jsonl",
+      "prompt_bearing": true,
+      "sha256": "C3BF4D3B4B4787E5693D8103484BCCBF1D5AF1C9C5F5F4EBF28A5FC96D788D61"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/hidden-prefix-semantic-continuation-2026-06-04/raw/semantic-continuation-cases.jsonl",
+      "prompt_bearing": true,
+      "sha256": "C47F88B7B15215E81A6E514B010B8E785C27B645BCF92B63D326B84F0A213CD5"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/hidden-prefix-semantic-continuation-2026-06-04/raw/semantic-continuation-command.json",
+      "prompt_bearing": false,
+      "sha256": "F363C3A1A5F432E1E1BCF96BB025E025E7A2AFC8569384AF264BFB806317E07D"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/hidden-prefix-semantic-continuation-2026-06-04/raw/semantic-continuation-summary.json",
+      "prompt_bearing": false,
+      "sha256": "794E8C5EAB26202DA54B31F23E38DACC106E6A84A54F7C6C46CCED797F62F148"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/hidden-prefix-semantic-continuation-2026-06-04/raw/semantic-continuation-failure-classifications.json",
+      "prompt_bearing": false,
+      "sha256": "DB6E7538E54BAB385178953D21D75F40239A311C203AA09EC4F0215CFBC60299"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/hidden-prefix-semantic-continuation-2026-06-04/raw/run_hidden_prefix_semantic_continuation.py",
+      "prompt_bearing": true,
+      "sha256": "BC0265436CF2D5DE9D2EE0940FECF83B2BA92E97B90980E3A17A55B1761B7331"
+    }
+  ],
+  "raw_response_count_total": 31,
+  "source_machine": "DushyantPC"
+}
