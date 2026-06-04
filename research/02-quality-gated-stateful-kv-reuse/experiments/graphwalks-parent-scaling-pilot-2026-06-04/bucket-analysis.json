@@ -5,6 +5,9 @@
         "case_ids": [
           "graphwalks-parent-005-row-5"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 1,
         "summary": {
           "fresh_compact_visible_evidence_only": {
             "case_count": 1,
@@ -38,37 +41,95 @@
           }
         }
       },
-      "2 parents": {
+      "1 parent": {
         "case_ids": [
-          "graphwalks-parent-009-row-9"
+          "graphwalks-parent-011-row-11",
+          "graphwalks-parent-013-row-13",
+          "graphwalks-parent-018-row-18",
+          "graphwalks-parent-026-row-26",
+          "graphwalks-parent-028-row-28",
+          "graphwalks-parent-031-row-31"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 6,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 1,
-            "mean_score": 0.0,
-            "pass_count": 0,
-            "pass_rate": 0.0
+            "case_count": 6,
+            "mean_score": 0.5,
+            "pass_count": 3,
+            "pass_rate": 0.5
           },
           "full_visible_compact_prompt": {
-            "case_count": 1,
-            "mean_score": 1.0,
+            "case_count": 6,
+            "mean_score": 0.16666666666666666,
             "pass_count": 1,
-            "pass_rate": 1.0
+            "pass_rate": 0.16666666666666666
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 1,
+            "case_count": 6,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 1,
+            "case_count": 6,
+            "mean_score": 0.5,
+            "pass_count": 3,
+            "pass_rate": 0.5
+          },
+          "hidden_prefix_session_tail": {
+            "case_count": 6,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          }
+        }
+      },
+      "2 parents": {
+        "case_ids": [
+          "graphwalks-parent-009-row-9",
+          "graphwalks-parent-012-row-12",
+          "graphwalks-parent-017-row-17",
+          "graphwalks-parent-020-row-20",
+          "graphwalks-parent-027-row-27",
+          "graphwalks-parent-029-row-29",
+          "graphwalks-parent-033-row-33",
+          "graphwalks-parent-036-row-36",
+          "graphwalks-parent-038-row-38",
+          "graphwalks-parent-040-row-40",
+          "graphwalks-parent-048-row-48"
+        ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 11,
+        "summary": {
+          "fresh_compact_visible_evidence_only": {
+            "case_count": 11,
+            "mean_score": 0.45454545454545453,
+            "pass_count": 3,
+            "pass_rate": 0.2727272727272727
+          },
+          "full_visible_compact_prompt": {
+            "case_count": 11,
+            "mean_score": 0.3606060606060606,
+            "pass_count": 1,
+            "pass_rate": 0.09090909090909091
+          },
+          "hidden_prefix_compact_tail_no_evidence": {
+            "case_count": 11,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
+          "hidden_prefix_compact_visible_evidence_tail": {
+            "case_count": 11,
+            "mean_score": 0.45454545454545453,
+            "pass_count": 3,
+            "pass_rate": 0.2727272727272727
+          },
           "hidden_prefix_session_tail": {
-            "case_count": 1,
+            "case_count": 11,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -81,35 +142,55 @@
           "graphwalks-parent-002-row-2",
           "graphwalks-parent-003-row-3",
           "graphwalks-parent-006-row-6",
-          "graphwalks-parent-008-row-8"
+          "graphwalks-parent-008-row-8",
+          "graphwalks-parent-010-row-10",
+          "graphwalks-parent-014-row-14",
+          "graphwalks-parent-019-row-19",
+          "graphwalks-parent-021-row-21",
+          "graphwalks-parent-022-row-22",
+          "graphwalks-parent-023-row-23",
+          "graphwalks-parent-024-row-24",
+          "graphwalks-parent-025-row-25",
+          "graphwalks-parent-030-row-30",
+          "graphwalks-parent-032-row-32",
+          "graphwalks-parent-034-row-34",
+          "graphwalks-parent-037-row-37",
+          "graphwalks-parent-041-row-41",
+          "graphwalks-parent-044-row-44",
+          "graphwalks-parent-045-row-45",
+          "graphwalks-parent-046-row-46",
+          "graphwalks-parent-047-row-47"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 22,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 5,
-            "mean_score": 1.0,
-            "pass_count": 5,
-            "pass_rate": 1.0
+            "case_count": 22,
+            "mean_score": 0.8333333333333333,
+            "pass_count": 16,
+            "pass_rate": 0.7272727272727273
           },
           "full_visible_compact_prompt": {
-            "case_count": 5,
-            "mean_score": 0.27999999999999997,
-            "pass_count": 0,
-            "pass_rate": 0.0
+            "case_count": 22,
+            "mean_score": 0.3208874458874459,
+            "pass_count": 1,
+            "pass_rate": 0.045454545454545456
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 5,
+            "case_count": 22,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 5,
-            "mean_score": 1.0,
-            "pass_count": 5,
-            "pass_rate": 1.0
+            "case_count": 22,
+            "mean_score": 0.8333333333333333,
+            "pass_count": 16,
+            "pass_rate": 0.7272727272727273
           },
           "hidden_prefix_session_tail": {
-            "case_count": 5,
+            "case_count": 22,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -120,35 +201,45 @@
         "case_ids": [
           "graphwalks-parent-001-row-1",
           "graphwalks-parent-004-row-4",
-          "graphwalks-parent-007-row-7"
+          "graphwalks-parent-007-row-7",
+          "graphwalks-parent-015-row-15",
+          "graphwalks-parent-016-row-16",
+          "graphwalks-parent-035-row-35",
+          "graphwalks-parent-039-row-39",
+          "graphwalks-parent-042-row-42",
+          "graphwalks-parent-043-row-43",
+          "graphwalks-parent-049-row-49"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 10,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 3,
-            "mean_score": 0.670995670995671,
-            "pass_count": 1,
-            "pass_rate": 0.3333333333333333
+            "case_count": 10,
+            "mean_score": 0.7477489177489177,
+            "pass_count": 4,
+            "pass_rate": 0.4
           },
           "full_visible_compact_prompt": {
-            "case_count": 3,
-            "mean_score": 0.5833333333333334,
+            "case_count": 10,
+            "mean_score": 0.5804545454545454,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 3,
+            "case_count": 10,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 3,
-            "mean_score": 0.670995670995671,
-            "pass_count": 1,
-            "pass_rate": 0.3333333333333333
+            "case_count": 10,
+            "mean_score": 0.7477489177489177,
+            "pass_count": 4,
+            "pass_rate": 0.4
           },
           "hidden_prefix_session_tail": {
-            "case_count": 3,
+            "case_count": 10,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -162,35 +253,61 @@
           "graphwalks-parent-002-row-2",
           "graphwalks-parent-003-row-3",
           "graphwalks-parent-005-row-5",
-          "graphwalks-parent-006-row-6"
+          "graphwalks-parent-006-row-6",
+          "graphwalks-parent-010-row-10",
+          "graphwalks-parent-011-row-11",
+          "graphwalks-parent-013-row-13",
+          "graphwalks-parent-014-row-14",
+          "graphwalks-parent-015-row-15",
+          "graphwalks-parent-017-row-17",
+          "graphwalks-parent-018-row-18",
+          "graphwalks-parent-020-row-20",
+          "graphwalks-parent-021-row-21",
+          "graphwalks-parent-022-row-22",
+          "graphwalks-parent-024-row-24",
+          "graphwalks-parent-025-row-25",
+          "graphwalks-parent-026-row-26",
+          "graphwalks-parent-027-row-27",
+          "graphwalks-parent-028-row-28",
+          "graphwalks-parent-030-row-30",
+          "graphwalks-parent-032-row-32",
+          "graphwalks-parent-036-row-36",
+          "graphwalks-parent-040-row-40",
+          "graphwalks-parent-042-row-42",
+          "graphwalks-parent-043-row-43",
+          "graphwalks-parent-048-row-48",
+          "graphwalks-parent-049-row-49"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 27,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 4,
-            "mean_score": 1.0,
-            "pass_count": 4,
-            "pass_rate": 1.0
+            "case_count": 27,
+            "mean_score": 0.7741702741702743,
+            "pass_count": 18,
+            "pass_rate": 0.6666666666666666
           },
           "full_visible_compact_prompt": {
-            "case_count": 4,
-            "mean_score": 0.1,
-            "pass_count": 0,
-            "pass_rate": 0.0
+            "case_count": 27,
+            "mean_score": 0.2703409758965315,
+            "pass_count": 1,
+            "pass_rate": 0.037037037037037035
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 4,
+            "case_count": 27,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 4,
-            "mean_score": 1.0,
-            "pass_count": 4,
-            "pass_rate": 1.0
+            "case_count": 27,
+            "mean_score": 0.7741702741702743,
+            "pass_count": 18,
+            "pass_rate": 0.6666666666666666
           },
           "hidden_prefix_session_tail": {
-            "case_count": 4,
+            "case_count": 27,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -204,35 +321,55 @@
           "graphwalks-parent-004-row-4",
           "graphwalks-parent-007-row-7",
           "graphwalks-parent-008-row-8",
-          "graphwalks-parent-009-row-9"
+          "graphwalks-parent-009-row-9",
+          "graphwalks-parent-012-row-12",
+          "graphwalks-parent-016-row-16",
+          "graphwalks-parent-019-row-19",
+          "graphwalks-parent-023-row-23",
+          "graphwalks-parent-029-row-29",
+          "graphwalks-parent-031-row-31",
+          "graphwalks-parent-033-row-33",
+          "graphwalks-parent-034-row-34",
+          "graphwalks-parent-035-row-35",
+          "graphwalks-parent-037-row-37",
+          "graphwalks-parent-038-row-38",
+          "graphwalks-parent-039-row-39",
+          "graphwalks-parent-041-row-41",
+          "graphwalks-parent-044-row-44",
+          "graphwalks-parent-045-row-45",
+          "graphwalks-parent-046-row-46",
+          "graphwalks-parent-047-row-47"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 23,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 6,
-            "mean_score": 0.6688311688311689,
-            "pass_count": 3,
-            "pass_rate": 0.5
+            "case_count": 23,
+            "mean_score": 0.6047054394880483,
+            "pass_count": 9,
+            "pass_rate": 0.391304347826087
           },
           "full_visible_compact_prompt": {
-            "case_count": 6,
-            "mean_score": 0.6249999999999999,
-            "pass_count": 1,
-            "pass_rate": 0.16666666666666666
+            "case_count": 23,
+            "mean_score": 0.4578925905012862,
+            "pass_count": 2,
+            "pass_rate": 0.08695652173913043
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 6,
+            "case_count": 23,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 6,
-            "mean_score": 0.6688311688311689,
-            "pass_count": 3,
-            "pass_rate": 0.5
+            "case_count": 23,
+            "mean_score": 0.6047054394880483,
+            "pass_count": 9,
+            "pass_rate": 0.391304347826087
           },
           "hidden_prefix_session_tail": {
-            "case_count": 6,
+            "case_count": 23,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -245,6 +382,9 @@
         "case_ids": [
           "graphwalks-parent-005-row-5"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 1,
         "summary": {
           "fresh_compact_visible_evidence_only": {
             "case_count": 1,
@@ -278,10 +418,55 @@
           }
         }
       },
+      "1": {
+        "case_ids": [
+          "graphwalks-parent-011-row-11",
+          "graphwalks-parent-013-row-13",
+          "graphwalks-parent-026-row-26"
+        ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 3,
+        "summary": {
+          "fresh_compact_visible_evidence_only": {
+            "case_count": 3,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "full_visible_compact_prompt": {
+            "case_count": 3,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "hidden_prefix_compact_tail_no_evidence": {
+            "case_count": 3,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "hidden_prefix_compact_visible_evidence_tail": {
+            "case_count": 3,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "hidden_prefix_session_tail": {
+            "case_count": 3,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          }
+        }
+      },
       "10": {
         "case_ids": [
           "graphwalks-parent-007-row-7"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 1,
         "summary": {
           "fresh_compact_visible_evidence_only": {
             "case_count": 1,
@@ -315,39 +500,94 @@
           }
         }
       },
-      "3": {
+      "2": {
         "case_ids": [
-          "graphwalks-parent-003-row-3",
-          "graphwalks-parent-006-row-6",
-          "graphwalks-parent-009-row-9"
+          "graphwalks-parent-017-row-17",
+          "graphwalks-parent-018-row-18",
+          "graphwalks-parent-020-row-20",
+          "graphwalks-parent-027-row-27",
+          "graphwalks-parent-028-row-28",
+          "graphwalks-parent-036-row-36",
+          "graphwalks-parent-048-row-48"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 7,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 3,
-            "mean_score": 0.6666666666666666,
-            "pass_count": 2,
-            "pass_rate": 0.6666666666666666
+            "case_count": 7,
+            "mean_score": 0.7142857142857143,
+            "pass_count": 4,
+            "pass_rate": 0.5714285714285714
           },
           "full_visible_compact_prompt": {
-            "case_count": 3,
-            "mean_score": 0.3333333333333333,
+            "case_count": 7,
+            "mean_score": 0.38095238095238093,
             "pass_count": 1,
-            "pass_rate": 0.3333333333333333
+            "pass_rate": 0.14285714285714285
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 3,
+            "case_count": 7,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 3,
-            "mean_score": 0.6666666666666666,
-            "pass_count": 2,
-            "pass_rate": 0.6666666666666666
+            "case_count": 7,
+            "mean_score": 0.7142857142857143,
+            "pass_count": 4,
+            "pass_rate": 0.5714285714285714
           },
           "hidden_prefix_session_tail": {
-            "case_count": 3,
+            "case_count": 7,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          }
+        }
+      },
+      "3": {
+        "case_ids": [
+          "graphwalks-parent-003-row-3",
+          "graphwalks-parent-006-row-6",
+          "graphwalks-parent-009-row-9",
+          "graphwalks-parent-010-row-10",
+          "graphwalks-parent-022-row-22",
+          "graphwalks-parent-024-row-24",
+          "graphwalks-parent-030-row-30",
+          "graphwalks-parent-032-row-32",
+          "graphwalks-parent-040-row-40"
+        ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 9,
+        "summary": {
+          "fresh_compact_visible_evidence_only": {
+            "case_count": 9,
+            "mean_score": 0.8333333333333334,
+            "pass_count": 7,
+            "pass_rate": 0.7777777777777778
+          },
+          "full_visible_compact_prompt": {
+            "case_count": 9,
+            "mean_score": 0.28730158730158734,
+            "pass_count": 1,
+            "pass_rate": 0.1111111111111111
+          },
+          "hidden_prefix_compact_tail_no_evidence": {
+            "case_count": 9,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "hidden_prefix_compact_visible_evidence_tail": {
+            "case_count": 9,
+            "mean_score": 0.8333333333333334,
+            "pass_count": 7,
+            "pass_rate": 0.7777777777777778
+          },
+          "hidden_prefix_session_tail": {
+            "case_count": 9,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -357,35 +597,47 @@
       "4": {
         "case_ids": [
           "graphwalks-parent-002-row-2",
-          "graphwalks-parent-008-row-8"
+          "graphwalks-parent-008-row-8",
+          "graphwalks-parent-012-row-12",
+          "graphwalks-parent-014-row-14",
+          "graphwalks-parent-019-row-19",
+          "graphwalks-parent-021-row-21",
+          "graphwalks-parent-023-row-23",
+          "graphwalks-parent-029-row-29",
+          "graphwalks-parent-031-row-31",
+          "graphwalks-parent-033-row-33",
+          "graphwalks-parent-034-row-34"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 11,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 2,
-            "mean_score": 1.0,
-            "pass_count": 2,
-            "pass_rate": 1.0
+            "case_count": 11,
+            "mean_score": 0.79004329004329,
+            "pass_count": 7,
+            "pass_rate": 0.6363636363636364
           },
           "full_visible_compact_prompt": {
-            "case_count": 2,
-            "mean_score": 0.5333333333333333,
+            "case_count": 11,
+            "mean_score": 0.28658008658008655,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 2,
+            "case_count": 11,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 2,
-            "mean_score": 1.0,
-            "pass_count": 2,
-            "pass_rate": 1.0
+            "case_count": 11,
+            "mean_score": 0.79004329004329,
+            "pass_count": 7,
+            "pass_rate": 0.6363636363636364
           },
           "hidden_prefix_session_tail": {
-            "case_count": 2,
+            "case_count": 11,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -394,35 +646,90 @@
       },
       "5": {
         "case_ids": [
-          "graphwalks-parent-000-row-0"
+          "graphwalks-parent-000-row-0",
+          "graphwalks-parent-015-row-15",
+          "graphwalks-parent-025-row-25",
+          "graphwalks-parent-038-row-38",
+          "graphwalks-parent-047-row-47",
+          "graphwalks-parent-049-row-49"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 6,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 1,
-            "mean_score": 1.0,
-            "pass_count": 1,
-            "pass_rate": 1.0
+            "case_count": 6,
+            "mean_score": 0.6666666666666666,
+            "pass_count": 4,
+            "pass_rate": 0.6666666666666666
           },
           "full_visible_compact_prompt": {
-            "case_count": 1,
-            "mean_score": 0.3333333333333333,
-            "pass_count": 0,
-            "pass_rate": 0.0
+            "case_count": 6,
+            "mean_score": 0.4305555555555556,
+            "pass_count": 1,
+            "pass_rate": 0.16666666666666666
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 1,
+            "case_count": 6,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 1,
-            "mean_score": 1.0,
-            "pass_count": 1,
-            "pass_rate": 1.0
+            "case_count": 6,
+            "mean_score": 0.6666666666666666,
+            "pass_count": 4,
+            "pass_rate": 0.6666666666666666
           },
           "hidden_prefix_session_tail": {
-            "case_count": 1,
+            "case_count": 6,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          }
+        }
+      },
+      "6": {
+        "case_ids": [
+          "graphwalks-parent-016-row-16",
+          "graphwalks-parent-035-row-35",
+          "graphwalks-parent-037-row-37",
+          "graphwalks-parent-041-row-41",
+          "graphwalks-parent-042-row-42",
+          "graphwalks-parent-044-row-44",
+          "graphwalks-parent-045-row-45",
+          "graphwalks-parent-046-row-46"
+        ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 8,
+        "summary": {
+          "fresh_compact_visible_evidence_only": {
+            "case_count": 8,
+            "mean_score": 0.6535714285714286,
+            "pass_count": 3,
+            "pass_rate": 0.375
+          },
+          "full_visible_compact_prompt": {
+            "case_count": 8,
+            "mean_score": 0.46233766233766227,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "hidden_prefix_compact_tail_no_evidence": {
+            "case_count": 8,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "hidden_prefix_compact_visible_evidence_tail": {
+            "case_count": 8,
+            "mean_score": 0.6535714285714286,
+            "pass_count": 3,
+            "pass_rate": 0.375
+          },
+          "hidden_prefix_session_tail": {
+            "case_count": 8,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -432,35 +739,40 @@
       "7": {
         "case_ids": [
           "graphwalks-parent-001-row-1",
-          "graphwalks-parent-004-row-4"
+          "graphwalks-parent-004-row-4",
+          "graphwalks-parent-039-row-39",
+          "graphwalks-parent-043-row-43"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 4,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 2,
-            "mean_score": 0.6428571428571429,
+            "case_count": 4,
+            "mean_score": 0.6661255411255411,
             "pass_count": 1,
-            "pass_rate": 0.5
+            "pass_rate": 0.25
           },
           "full_visible_compact_prompt": {
-            "case_count": 2,
-            "mean_score": 0.45833333333333326,
+            "case_count": 4,
+            "mean_score": 0.577651515151515,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 2,
+            "case_count": 4,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 2,
-            "mean_score": 0.6428571428571429,
+            "case_count": 4,
+            "mean_score": 0.6661255411255411,
             "pass_count": 1,
-            "pass_rate": 0.5
+            "pass_rate": 0.25
           },
           "hidden_prefix_session_tail": {
-            "case_count": 2,
+            "case_count": 4,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -480,35 +792,78 @@
           "graphwalks-parent-006-row-6",
           "graphwalks-parent-007-row-7",
           "graphwalks-parent-008-row-8",
-          "graphwalks-parent-009-row-9"
+          "graphwalks-parent-009-row-9",
+          "graphwalks-parent-010-row-10",
+          "graphwalks-parent-011-row-11",
+          "graphwalks-parent-012-row-12",
+          "graphwalks-parent-013-row-13",
+          "graphwalks-parent-014-row-14",
+          "graphwalks-parent-015-row-15",
+          "graphwalks-parent-016-row-16",
+          "graphwalks-parent-017-row-17",
+          "graphwalks-parent-018-row-18",
+          "graphwalks-parent-019-row-19",
+          "graphwalks-parent-020-row-20",
+          "graphwalks-parent-021-row-21",
+          "graphwalks-parent-022-row-22",
+          "graphwalks-parent-023-row-23",
+          "graphwalks-parent-024-row-24",
+          "graphwalks-parent-025-row-25",
+          "graphwalks-parent-026-row-26",
+          "graphwalks-parent-027-row-27",
+          "graphwalks-parent-028-row-28",
+          "graphwalks-parent-029-row-29",
+          "graphwalks-parent-030-row-30",
+          "graphwalks-parent-031-row-31",
+          "graphwalks-parent-032-row-32",
+          "graphwalks-parent-033-row-33",
+          "graphwalks-parent-034-row-34",
+          "graphwalks-parent-035-row-35",
+          "graphwalks-parent-036-row-36",
+          "graphwalks-parent-037-row-37",
+          "graphwalks-parent-038-row-38",
+          "graphwalks-parent-039-row-39",
+          "graphwalks-parent-040-row-40",
+          "graphwalks-parent-041-row-41",
+          "graphwalks-parent-042-row-42",
+          "graphwalks-parent-043-row-43",
+          "graphwalks-parent-044-row-44",
+          "graphwalks-parent-045-row-45",
+          "graphwalks-parent-046-row-46",
+          "graphwalks-parent-047-row-47",
+          "graphwalks-parent-048-row-48",
+          "graphwalks-parent-049-row-49"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 50,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 10,
-            "mean_score": 0.8012987012987013,
-            "pass_count": 7,
-            "pass_rate": 0.7
+            "case_count": 50,
+            "mean_score": 0.6962164502164502,
+            "pass_count": 27,
+            "pass_rate": 0.54
           },
           "full_visible_compact_prompt": {
-            "case_count": 10,
-            "mean_score": 0.41500000000000004,
-            "pass_count": 1,
-            "pass_rate": 0.1
+            "case_count": 50,
+            "mean_score": 0.35661471861471866,
+            "pass_count": 3,
+            "pass_rate": 0.06
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 10,
+            "case_count": 50,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 10,
-            "mean_score": 0.8012987012987013,
-            "pass_count": 7,
-            "pass_rate": 0.7
+            "case_count": 50,
+            "mean_score": 0.6962164502164502,
+            "pass_count": 27,
+            "pass_rate": 0.54
           },
           "hidden_prefix_session_tail": {
-            "case_count": 10,
+            "case_count": 50,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -524,35 +879,104 @@
           "graphwalks-parent-006-row-6",
           "graphwalks-parent-007-row-7",
           "graphwalks-parent-008-row-8",
-          "graphwalks-parent-009-row-9"
+          "graphwalks-parent-009-row-9",
+          "graphwalks-parent-012-row-12",
+          "graphwalks-parent-014-row-14",
+          "graphwalks-parent-015-row-15",
+          "graphwalks-parent-016-row-16",
+          "graphwalks-parent-017-row-17",
+          "graphwalks-parent-018-row-18",
+          "graphwalks-parent-021-row-21",
+          "graphwalks-parent-024-row-24",
+          "graphwalks-parent-025-row-25",
+          "graphwalks-parent-029-row-29",
+          "graphwalks-parent-035-row-35",
+          "graphwalks-parent-036-row-36",
+          "graphwalks-parent-037-row-37",
+          "graphwalks-parent-038-row-38",
+          "graphwalks-parent-039-row-39",
+          "graphwalks-parent-040-row-40",
+          "graphwalks-parent-041-row-41",
+          "graphwalks-parent-042-row-42",
+          "graphwalks-parent-043-row-43",
+          "graphwalks-parent-044-row-44",
+          "graphwalks-parent-045-row-45",
+          "graphwalks-parent-046-row-46",
+          "graphwalks-parent-047-row-47",
+          "graphwalks-parent-048-row-48",
+          "graphwalks-parent-049-row-49"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 31,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 6,
-            "mean_score": 0.6688311688311689,
-            "pass_count": 3,
-            "pass_rate": 0.5
+            "case_count": 31,
+            "mean_score": 0.66056416701578,
+            "pass_count": 13,
+            "pass_rate": 0.41935483870967744
           },
           "full_visible_compact_prompt": {
-            "case_count": 6,
-            "mean_score": 0.5694444444444444,
-            "pass_count": 1,
-            "pass_rate": 0.16666666666666666
+            "case_count": 31,
+            "mean_score": 0.46274263371037566,
+            "pass_count": 3,
+            "pass_rate": 0.0967741935483871
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 6,
+            "case_count": 31,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 6,
-            "mean_score": 0.6688311688311689,
-            "pass_count": 3,
-            "pass_rate": 0.5
+            "case_count": 31,
+            "mean_score": 0.66056416701578,
+            "pass_count": 13,
+            "pass_rate": 0.41935483870967744
           },
           "hidden_prefix_session_tail": {
-            "case_count": 6,
+            "case_count": 31,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          }
+        }
+      },
+      "late": {
+        "case_ids": [
+          "graphwalks-parent-011-row-11",
+          "graphwalks-parent-013-row-13"
+        ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 2,
+        "summary": {
+          "fresh_compact_visible_evidence_only": {
+            "case_count": 2,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "full_visible_compact_prompt": {
+            "case_count": 2,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "hidden_prefix_compact_tail_no_evidence": {
+            "case_count": 2,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "hidden_prefix_compact_visible_evidence_tail": {
+            "case_count": 2,
+            "mean_score": 0.0,
+            "pass_count": 0,
+            "pass_rate": 0.0
+          },
+          "hidden_prefix_session_tail": {
+            "case_count": 2,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -563,35 +987,51 @@
         "case_ids": [
           "graphwalks-parent-000-row-0",
           "graphwalks-parent-002-row-2",
-          "graphwalks-parent-003-row-3"
+          "graphwalks-parent-003-row-3",
+          "graphwalks-parent-010-row-10",
+          "graphwalks-parent-019-row-19",
+          "graphwalks-parent-020-row-20",
+          "graphwalks-parent-022-row-22",
+          "graphwalks-parent-023-row-23",
+          "graphwalks-parent-026-row-26",
+          "graphwalks-parent-027-row-27",
+          "graphwalks-parent-028-row-28",
+          "graphwalks-parent-030-row-30",
+          "graphwalks-parent-031-row-31",
+          "graphwalks-parent-032-row-32",
+          "graphwalks-parent-033-row-33",
+          "graphwalks-parent-034-row-34"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 16,
         "summary": {
           "fresh_compact_visible_evidence_only": {
-            "case_count": 3,
-            "mean_score": 1.0,
-            "pass_count": 3,
-            "pass_rate": 1.0
+            "case_count": 16,
+            "mean_score": 0.8333333333333333,
+            "pass_count": 13,
+            "pass_rate": 0.8125
           },
           "full_visible_compact_prompt": {
-            "case_count": 3,
-            "mean_score": 0.24444444444444446,
+            "case_count": 16,
+            "mean_score": 0.21785714285714283,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_tail_no_evidence": {
-            "case_count": 3,
+            "case_count": 16,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
           },
           "hidden_prefix_compact_visible_evidence_tail": {
-            "case_count": 3,
-            "mean_score": 1.0,
-            "pass_count": 3,
-            "pass_rate": 1.0
+            "case_count": 16,
+            "mean_score": 0.8333333333333333,
+            "pass_count": 13,
+            "pass_rate": 0.8125
           },
           "hidden_prefix_session_tail": {
-            "case_count": 3,
+            "case_count": 16,
             "mean_score": 0.0,
             "pass_count": 0,
             "pass_rate": 0.0
@@ -602,6 +1042,9 @@
         "case_ids": [
           "graphwalks-parent-005-row-5"
         ],
+        "hidden_negative_signal_count": 0,
+        "hidden_positive_signal_count": 0,
+        "hidden_vs_fresh_response_equal_count": 1,
         "summary": {
           "fresh_compact_visible_evidence_only": {
             "case_count": 1,
@@ -637,7 +1080,6 @@
       }
     }
   },
-  "executed_case_count": 10,
-  "experiment_id": "graphwalks-parent-scaling-pilot-2026-06-04",
-  "planned_case_count": 50
+  "case_count": 50,
+  "experiment_id": "graphwalks-parent-scaling-pilot-2026-06-04"
 }

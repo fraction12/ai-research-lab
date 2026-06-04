@@ -1,34 +1,52 @@
 # GraphWalks Parents Scaling Pilot - 2026-06-04
 
-This is a controlled Track 02 pilot for GraphWalks `parents`, not a broad benchmark.
-
-The OpenSpec planned a deterministic 50-case cohort and five controls per case. The full 50x5 matrix would require 250 local GPT-OSS model calls; the first-10 slice took 2504.6s, so the stop rule was triggered and this run reports the deterministic first 10 cases only.
+This is a controlled Track 02 pilot for GraphWalks `parents`, not a broad benchmark. The full deterministic 50-case cohort and five-control matrix completed with the pinned GPT-OSS llama.cpp path.
 
 ## Result
 
 | Control | Passes | Mean F1 |
 | --- | ---: | ---: |
-| `full_visible_compact_prompt` | 1/10 | 0.415 |
-| `hidden_prefix_session_tail` | 0/10 | 0.000 |
-| `hidden_prefix_compact_tail_no_evidence` | 0/10 | 0.000 |
-| `hidden_prefix_compact_visible_evidence_tail` | 7/10 | 0.801 |
-| `fresh_compact_visible_evidence_only` | 7/10 | 0.801 |
+| `full_visible_compact_prompt` | 3/50 | 0.357 |
+| `hidden_prefix_session_tail` | 0/50 | 0.000 |
+| `hidden_prefix_compact_tail_no_evidence` | 0/50 | 0.000 |
+| `hidden_prefix_compact_visible_evidence_tail` | 27/50 | 0.696 |
+| `fresh_compact_visible_evidence_only` | 27/50 | 0.696 |
 
-## Interpretation
+## Hidden KV Value Check
 
-Compact visible evidence repaired 7/10 hidden-prefix failures, while compact no-evidence repaired 0/10. However, fresh compact evidence-only matched hidden-prefix plus compact evidence on all 10 cases by exact response string and score.
+The hidden-prefix plus compact visible-evidence condition matched fresh compact evidence-only on all 50 cases by exact response string and by score.
 
-That means this slice supports role-aware evidence scheduling / token-efficient context compilation. It does not show a material hidden-KV correctness contribution for GraphWalks `parents` in this control setup.
+| Measure | Value |
+| --- | ---: |
+| Score-equal pairs | 50/50 |
+| Response-string-equal pairs | 50/50 |
+| Hidden positive correctness signals | 0 |
+| Hidden negative correctness signals | 0 |
+| Mean latency delta, hidden minus fresh | 14926.7 ms |
+| Mean prompt-token delta, hidden minus fresh | 0.0 |
+| Mean prompt-time delta, hidden minus fresh | 486.9 ms |
 
-Full-visible compact prompt underperformed compact evidence-only. Treat this as a pilot signal for retrieval-burden reduction, not as a general GraphWalks quality claim.
+Interpretation: this full 50-case pilot shows no observable correctness value from hidden KV/session state beyond the visible evidence slice. The useful mechanism is role-aware evidence scheduling / token-efficient context compilation. Hidden-prefix/session mechanics add slot/cache setup work and latency in this runner path.
+
+## Evidence Sufficiency
+
+Evidence extraction used only the graph prefix and requested target node. Reference parent sets were used only after extraction to measure sufficiency. The sufficiency report separates recall coverage from exact/no-extra source-set match. The extracted evidence contained all reference parents for 50/50 cases. It was an exact source-set match for 33/50 cases; the other 17 cases included an extra target self-loop source, so the slice was recall-sufficient but noisy.
+
+## Slot/Cache Telemetry
+
+Slot/cache telemetry was captured for hidden-prefix controls through llama.cpp slot save/restore responses. Fresh evidence-only controls have slot telemetry marked unavailable because no hidden prefix is used.
+
+Key hidden+evidence means:
+
+- prime prompt tokens: 1024.9
+- prime prompt ms: 14173.6
+- setup wall ms: 14235.6
+- save ms: 21.0
+- restore ms: 21.5
 
 ## Failure Notes
 
-The three compact visible-evidence misses were not session/cache-specific:
-
-- `graphwalks-parent-001-row-1`: both evidence controls produced a malformed abbreviated node id (`c81e...`).
-- `graphwalks-parent-007-row-7`: both evidence controls abbreviated one node (`e4da3`).
-- `graphwalks-parent-009-row-9`: both evidence controls produced truncated invalid JSON at the 192-token cap.
+Compact visible evidence repaired many hidden-prefix failures, but the same repairs occurred with fresh evidence-only. Remaining misses are therefore not session/cache-specific in this setup; they are model/prompt-protocol failures over a sufficient compact evidence slice, including malformed abbreviated node ids and JSON truncation/parse failures.
 
 ## Artifact Layout
 

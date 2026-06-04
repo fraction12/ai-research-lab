@@ -5,7 +5,7 @@
     "path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
     "sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB"
   },
-  "raw_command_record": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-parent-scaling-pilot-2026-06-04/raw/pilot-first10-five-control-command.json",
+  "raw_command_record": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-parent-scaling-pilot-2026-06-04/raw/pilot-full50-five-control-command.json",
   "runner": {
     "path": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
     "server_flags": [

@@ -43,3 +43,13 @@
 - [x] Re-run `openspec validate --changes run-graphwalks-parent-scaling-pilot --strict`.
 - [x] Re-run `openspec validate --all --strict`.
 - [x] Report exact artifact paths, scores, subset analyses, model/runner hashes, and final worktree clean/dirty status.
+
+## 7. Full 50-Case Completion
+
+- [x] Run the full deterministic 50-case, five-control GraphWalks `parents` matrix using the same pinned GPT-OSS runner/model/settings.
+- [x] Preserve the prior first-10 raw results and produce full-50 raw command, response, and score artifacts under ignored Track 01 paths.
+- [x] Import full-50 results into the Track 02 summary directory without committing prompt-bearing raw artifacts.
+- [x] Update `README.md`, `summary.json`, `case-metrics.json`, `bucket-analysis.json`, `failure-classifications.json`, `commands.md`, `model-info.json`, and `artifact-manifest.json` for the full 50-case result.
+- [x] Add paired hidden+evidence versus fresh evidence-only comparisons by score, response string, latency, tokens, slot/cache telemetry, evidence sufficiency, buckets, and failure type.
+- [x] Re-run `openspec validate run-graphwalks-parent-scaling-pilot --type change --strict`.
+- [x] Re-run `openspec validate --all --strict`.

@@ -41,11 +41,44 @@
       "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-parent-scaling-pilot-2026-06-04/raw/pilot-first10-five-control-scores.json",
       "prompt_bearing": false,
       "sha256": "23B3620AF712BB94B2A6F59C15AEC464E93B07A4F4222BBF2729249140ECC034"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-parent-scaling-pilot-2026-06-04/raw/pilot-full50-five-control-command.json",
+      "prompt_bearing": true,
+      "sha256": "DA67109274031C929611C54D971CA2A778FB75033D24449EA646AF7408284F53"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-parent-scaling-pilot-2026-06-04/raw/pilot-full50-five-control-responses.jsonl",
+      "prompt_bearing": true,
+      "sha256": "47BEE01DF3CCD95AB13A4147C2B9EC9F59D69A1D1A5568A6BF3184F319F7800C"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-parent-scaling-pilot-2026-06-04/raw/pilot-full50-five-control-scores.json",
+      "prompt_bearing": false,
+      "sha256": "44D7880CF5DE5E5574E2D0782119A24E786336E8111924DDE04B6E567B4859AF"
     }
+  ],
+  "committed_summary_files": [
+    "README.md",
+    "artifact-manifest.json",
+    "bucket-analysis.json",
+    "case-metrics.json",
+    "commands.md",
+    "evidence-slices.json",
+    "failure-classifications.json",
+    "model-info.json",
+    "paired-hidden-vs-fresh-evidence.json",
+    "summary.json"
   ],
   "committed_track02_directory": "research/02-quality-gated-stateful-kv-reuse/experiments/graphwalks-parent-scaling-pilot-2026-06-04",
   "dushyantpc_raw_hashes_match_imported_hashes": true,
   "experiment_id": "graphwalks-parent-scaling-pilot-2026-06-04",
+  "full_50_matrix_complete": true,
+  "full_50_raw_response_count": 250,
+  "paired_analysis_file": "research/02-quality-gated-stateful-kv-reuse/experiments/graphwalks-parent-scaling-pilot-2026-06-04/paired-hidden-vs-fresh-evidence.json",
   "source_cache_directory": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-cache/graphwalks-parent-scaling-pilot-2026-06-04",
   "source_input_directory": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-parent-scaling-pilot-2026-06-04",
   "source_raw_directory": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-parent-scaling-pilot-2026-06-04/raw"
