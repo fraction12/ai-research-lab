@@ -1,0 +1,115 @@
+{
+  "experiment_id": "llama-cpp-prefix-reuse-audit-2026-06-04",
+  "date": "2026-06-04",
+  "research_question": "Can direct llama.cpp /completion calls show prompt-work reduction for same-server exact-repeat, same-server slot restore, and fresh-server slot restore?",
+  "decision": "same_server_restore_reuse_only",
+  "next_step": {
+    "recommended": "Investigate fresh-server slot restore semantics or use persistent-session reuse before GraphWalks.",
+    "graphwalks_follow_up": false
+  },
+  "artifacts": {
+    "raw_result_json": {
+      "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/lcpr-results/lcpr-2026-06-04/gpt-oss-20b-mxfp4-llama-cpp-prefix-reuse-audit.json",
+      "sha256": "35a3aa0953cc08ffc814a29ec413d4e6e9586fa9f12462d4cc22cbfccd52b292",
+      "git_tracking": "ignored"
+    },
+    "raw_cache_dir": {
+      "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/lcpr-cache/lcpr-2026-06-04/",
+      "contains": "llama.cpp logs and slot files for the prefix-reuse audit.",
+      "git_tracking": "ignored",
+      "approx_mb": 369.19
+    }
+  },
+  "model": {
+    "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+    "filename": "gpt-oss-20b-mxfp4.gguf",
+    "quantization_hint_from_filename": "mxfp4",
+    "bytes": 12109566560
+  },
+  "backend": {
+    "server_bin": "C:\\Users\\Dushyant\\Tools\\llama-b9482-vulkan\\llama-server.exe",
+    "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "ctx_size": 32768,
+    "predict": 32,
+    "prime_n_predict": 0,
+    "prefix_repeat": 256,
+    "temperature": 0.0,
+    "timeout_seconds": 300.0
+  },
+  "gate": {
+    "all_scored_controls_passed": true,
+    "exact_repeat_reuse_observed": true,
+    "same_server_restore_reuse_observed": true,
+    "fresh_server_restore_reuse_observed": false,
+    "recommend_graphwalks_follow_up": false,
+    "overall_interpretation": "same_server_restore_reuse_only"
+  },
+  "mode_summary": {
+    "cold-full": {
+      "case_count": 1,
+      "pass_rate": 1.0,
+      "mean_prompt_ms": 5971.621,
+      "mean_prompt_n": 7784.0,
+      "failure_classifications": {
+        "baseline_passed": 1
+      }
+    },
+    "same-server-exact-repeat": {
+      "case_count": 1,
+      "pass_rate": 1.0,
+      "mean_prompt_ms": 46.572,
+      "mean_prompt_n": 1.0,
+      "mean_prompt_ms_delta": 5849.304,
+      "mean_prompt_n_delta": 7783.0,
+      "failure_classifications": {
+        "exact_repeat_reuse_observed": 1
+      }
+    },
+    "same-server-restore-full": {
+      "case_count": 1,
+      "pass_rate": 1.0,
+      "mean_prompt_ms": 305.354,
+      "mean_prompt_n": 46.0,
+      "mean_prompt_ms_delta": 5666.267,
+      "mean_prompt_n_delta": 7738.0,
+      "failure_classifications": {
+        "restore_reuse_observed": 1
+      }
+    },
+    "fresh-server-restore-full": {
+      "case_count": 1,
+      "pass_rate": 1.0,
+      "mean_prompt_ms": 5943.286,
+      "mean_prompt_n": 7784.0,
+      "mean_prompt_ms_delta": 28.335000000000036,
+      "mean_prompt_n_delta": 0.0,
+      "failure_classifications": {
+        "restore_no_reuse": 1
+      }
+    }
+  },
+  "slot_telemetry": [
+    {
+      "mode": "same-server-restore-full",
+      "n_saved": 7743,
+      "n_written": 193563740,
+      "n_restored": 7743,
+      "n_read": 193563740,
+      "slot_file_bytes": 193563740
+    },
+    {
+      "mode": "fresh-server-restore-full",
+      "n_saved": 7743,
+      "n_written": 193563740,
+      "n_restored": 7743,
+      "n_read": 193563740,
+      "slot_file_bytes": 193563740
+    }
+  ],
+  "notes": [
+    "All scored controls passed exact-token JSON answer checks.",
+    "Same-server exact repeat reduced prompt_n from 7784 to 1.",
+    "Same-server restore/full-resend reduced prompt_n from 7784 to 46.",
+    "Fresh-server restore/full-resend restored 7743 tokens but still processed 7784 prompt tokens."
+  ]
+}

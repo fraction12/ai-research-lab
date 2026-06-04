@@ -26,6 +26,8 @@ build/
 **/benchmarks/restored-prefix-full-resend-cache/
 **/benchmarks/rpfr-results/
 **/benchmarks/rpfr-cache/
+**/benchmarks/lcpr-results/
+**/benchmarks/lcpr-cache/
 
 # Local/private SSH and machine-access artifacts
 .ssh/

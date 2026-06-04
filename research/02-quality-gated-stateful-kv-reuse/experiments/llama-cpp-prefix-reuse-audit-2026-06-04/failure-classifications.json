@@ -1,0 +1,63 @@
+{
+  "experiment_id": "llama-cpp-prefix-reuse-audit-2026-06-04",
+  "decision": "same_server_restore_reuse_only",
+  "taxonomy": [
+    {
+      "category": "model weakness",
+      "status": "not observed",
+      "evidence": "All four controls returned exact JSON answers for the synthetic token."
+    },
+    {
+      "category": "prompt protocol issue",
+      "status": "not observed for full visible prompt controls",
+      "evidence": "All modes resent visible full prompts or exact repeats and passed answer scoring."
+    },
+    {
+      "category": "scorer/parser brittleness",
+      "status": "not observed",
+      "evidence": "All scored controls had zero answer parse errors."
+    },
+    {
+      "category": "session/cache semantic issue",
+      "status": "session-local reuse works",
+      "evidence": "Same-server exact repeat reduced prompt_n to 1, and same-server restore/full-resend reduced prompt_n to 46."
+    },
+    {
+      "category": "position/compatibility issue",
+      "status": "implicated at fresh-server restore boundary",
+      "evidence": "Fresh-server restore reported n_restored=7743 but still processed prompt_n=7784 on full resend."
+    },
+    {
+      "category": "runtime/storage issue",
+      "status": "not observed in valid run",
+      "evidence": "Raw result reports zero response errors and slot files were copied back to the Mac checkout."
+    }
+  ],
+  "mode_classifications": [
+    {
+      "mode": "cold-full",
+      "classification": "baseline_passed",
+      "details": "Prompt_n=7784 and prompt_ms=5971.621."
+    },
+    {
+      "mode": "same-server-exact-repeat",
+      "classification": "exact_repeat_reuse_observed",
+      "details": "Second exact-repeat call prompt_n=1 and prompt_ms=46.572."
+    },
+    {
+      "mode": "same-server-restore-full",
+      "classification": "restore_reuse_observed",
+      "details": "Same-server restore/full-resend prompt_n=46 and prompt_ms=305.354."
+    },
+    {
+      "mode": "fresh-server-restore-full",
+      "classification": "restore_no_reuse",
+      "details": "Fresh-server restore/full-resend prompt_n=7784 despite n_restored=7743."
+    }
+  ],
+  "fallback_policy": {
+    "graphwalks_follow_up": "defer",
+    "safe_default": "full visible prompt execution",
+    "mechanism_next_step": "Investigate persistent-session reuse or fresh-server slot restore semantics before GraphWalks."
+  }
+}
