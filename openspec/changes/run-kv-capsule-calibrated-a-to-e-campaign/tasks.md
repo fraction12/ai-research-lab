@@ -19,50 +19,58 @@
 
 ## 3. Phase A Visible-Baseline Calibration
 
-- [ ] 3.1 Run systematic structured-retrieval calibration variants at 10 rows first.
-- [ ] 3.2 Promote only variants with full-visible answer-contained 10/10 and exact/normalized scoring high enough for evidence.
-- [ ] 3.3 Preserve failed calibration attempts as sanitized summaries with variant ids, hashes, counts, and failure classes.
-- [ ] 3.4 If all reasonable variants fail at 10 rows, package the benchmarkability result and stop for orchestration review.
+- [x] 3.1 Run systematic structured-retrieval calibration variants at 10 rows first.
+- [x] 3.2 Enforce promotion only for variants with full-visible answer-contained 10/10 and exact/normalized scoring high enough for evidence; no variants qualified.
+- [x] 3.3 Preserve failed calibration attempts as sanitized summaries with variant ids, hashes, counts, and failure classes.
+- [x] 3.4 If all reasonable variants fail at 10 rows, package the benchmarkability result and stop for orchestration review.
 
 ## 4. Phase B Semantic Capsule Ladder
 
-- [ ] 4.1 For each promoted retrieval unit, rerun frozen `native_full_visible_prefix_plus_tail` and require 10/10.
-- [ ] 4.2 Run `native_fresh_tail_only` and quarantine any leakage/scorer issue.
-- [ ] 4.3 Run `native_live_append_tail_only` and require 10/10 before restored-capsule interpretation.
-- [ ] 4.4 Run `native_restored_capsule_append_tail_only` with one reusable prefix capsule restored for each tail query.
-- [ ] 4.5 Classify failed promoted units without mutating their evidence prompts.
+- [x] 4.1 For each promoted retrieval unit, rerun frozen `native_full_visible_prefix_plus_tail` and require 10/10. Not run by stop rule because Phase A promoted no retrieval unit.
+- [x] 4.2 Run `native_fresh_tail_only` and quarantine any leakage/scorer issue. Not run by stop rule because Phase A promoted no retrieval unit.
+- [x] 4.3 Run `native_live_append_tail_only` and require 10/10 before restored-capsule interpretation. Not run by stop rule because Phase A promoted no retrieval unit.
+- [x] 4.4 Run `native_restored_capsule_append_tail_only` with one reusable prefix capsule restored for each tail query. Not run by stop rule because Phase A promoted no retrieval unit.
+- [x] 4.5 Classify failed promoted units without mutating their evidence prompts. No promoted evidence unit existed; calibration failures were classified instead.
+
+Phase B was not run because Phase A promoted no retrieval unit.
 
 ## 5. Phase C Scale Ladder and Boundary Search
 
-- [ ] 5.1 Push promoted retrieval units through 10, 25, 50, and 100 rows where feasible.
-- [ ] 5.2 Attempt 250 rows only if runtime/context behavior remains practical after lower scales.
-- [ ] 5.3 Record highest reliable full-visible, live-append, and restored-capsule scales.
+- [x] 5.1 Push promoted retrieval units through 10, 25, 50, and 100 rows where feasible. Not run by stop rule because no 10-row unit was promoted.
+- [x] 5.2 Attempt 250 rows only if runtime/context behavior remains practical after lower scales. Not run by stop rule because lower scales did not promote.
+- [x] 5.3 Record highest reliable full-visible, live-append, and restored-capsule scales as null/not established due the Phase A stop rule.
+
+Phase C scale pushes were not run because the smallest 10-row scale failed all calibration variants.
 
 ## 6. Phase D Amortization and Economics
 
-- [ ] 6.1 Measure one-time prefix prefill/save/build cost and per-query restore/tail/decode cost.
-- [ ] 6.2 Calculate break-even curves for N = 1, 2, 5, 10, 20, 50, and 100.
-- [ ] 6.3 Report prompt tokens avoided, capsule bytes, restore bytes, and whether quality-passing units are latency-positive or latency-negative.
+- [x] 6.1 Measure one-time prefix prefill/save/build cost and per-query restore/tail/decode cost. Not applicable because no restored-capsule unit ran.
+- [x] 6.2 Calculate break-even curves for N = 1, 2, 5, 10, 20, 50, and 100. Not interpretable because no restored-capsule unit ran.
+- [x] 6.3 Report amortization as not interpretable because no restored-capsule quality-passing unit existed.
+
+Phase D measurements were not run because no restored-capsule controls were eligible.
 
 ## 7. Phase E Agent-Context Benchmark
 
-- [ ] 7.1 Run Phase E only after at least one retrieval restored-capsule ladder passes.
-- [ ] 7.2 Build and calibrate a repo-local agent-context prefix and 8 to 10 deterministic tail tasks.
-- [ ] 7.3 Promote/freeze the agent-context unit only after full-visible quality passes.
-- [ ] 7.4 Run full-visible, fresh-tail, live-append, and restored-capsule controls in order.
-- [ ] 7.5 Record quality retained, token/time avoided, capsule size, and amortized economics.
+- [x] 7.1 Run Phase E only after at least one retrieval restored-capsule ladder passes.
+- [x] 7.2 Build and calibrate a repo-local agent-context prefix and 8 to 10 deterministic tail tasks. Not run because the retrieval restored-capsule precondition failed.
+- [x] 7.3 Promote/freeze the agent-context unit only after full-visible quality passes. Not run because the retrieval restored-capsule precondition failed.
+- [x] 7.4 Run full-visible, fresh-tail, live-append, and restored-capsule controls in order. Not run because the retrieval restored-capsule precondition failed.
+- [x] 7.5 Record Phase E as not run because the retrieval restored-capsule precondition failed.
+
+Phase E was not run because Phase A/B produced no retrieval restored-capsule pass.
 
 ## 8. Packaging
 
-- [ ] 8.1 Copy ignored raw artifacts back from DushyantPC and preserve raw prompts, responses, logs, token arrays, and state bytes under ignored Track 01 paths.
-- [ ] 8.2 Package sanitized Track 02 artifacts: `README.md`, `summary.json`, `phase-results.json`, `calibration-results.json`, `case-metrics.json`, `amortization.json`, `failure-classifications.json`, `commands.md`, `model-info.json`, and `artifact-manifest.json`.
-- [ ] 8.3 Add `capsule-contract.md` or `capsule-contracts.json` only for units where restored capsule actually runs.
-- [ ] 8.4 Include exact artifact paths, model/backend hashes, command lines, raw artifact hashes, validity boundaries, and highest reliable scales.
-- [ ] 8.5 Run sanitation grep and non-tab/newline control-byte scan over committed campaign artifacts.
+- [x] 8.1 Copy ignored raw artifacts back from DushyantPC and preserve raw prompts, responses, logs, token arrays, and state bytes under ignored Track 01 paths.
+- [x] 8.2 Package sanitized Track 02 artifacts: `README.md`, `summary.json`, `phase-results.json`, `calibration-results.json`, `case-metrics.json`, `amortization.json`, `failure-classifications.json`, `commands.md`, `model-info.json`, and `artifact-manifest.json`.
+- [x] 8.3 Add `capsule-contract.md` or `capsule-contracts.json` only for units where restored capsule actually runs; no capsule contract was created because restored capsule did not run.
+- [x] 8.4 Include exact artifact paths, model/backend hashes, command lines, raw artifact hashes, validity boundaries, and highest reliable scales.
+- [x] 8.5 Run sanitation grep and non-tab/newline control-byte scan over committed campaign artifacts.
 
 ## 9. Validation and Landing
 
-- [ ] 9.1 Validate `openspec validate run-kv-capsule-calibrated-a-to-e-campaign --type change --strict`.
-- [ ] 9.2 Validate `openspec validate --all --strict`.
-- [ ] 9.3 Confirm prompt-bearing raw artifacts are ignored and not staged.
-- [ ] 9.4 Commit locally if coherent; do not push.
+- [x] 9.1 Validate `openspec validate run-kv-capsule-calibrated-a-to-e-campaign --type change --strict`.
+- [x] 9.2 Validate `openspec validate --all --strict`.
+- [x] 9.3 Confirm prompt-bearing raw artifacts are ignored and not staged.
+- [x] 9.4 Commit locally if coherent; do not push.

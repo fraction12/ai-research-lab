@@ -1,0 +1,91 @@
+{
+  "backend": "cuda_v13",
+  "base_commit_before_change": "f3862b9",
+  "canonical_route": {
+    "full_prompt_and_prefix_prefill_add_special": true,
+    "tail_append_add_special": false
+  },
+  "decision": "calibrated_campaign_completed_without_interpretable_capsule_pass",
+  "experiment": "kv-capsule-calibrated-a-to-e-campaign-2026-06-04",
+  "interpretation": "benchmarkability/model-protocol boundary for the pinned native GPT-OSS direct C API route; not evidence against restored KV capsules because no unit was promoted and no live/restored capsule control ran",
+  "libllama_hash": "9B707D4886051671B8C94BB5A2F3F07DD0868A5BFB34EE163C080D91555E2310",
+  "local_checkpoint_commit": "347d551",
+  "model_hash": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+  "openspec_change": "run-kv-capsule-calibrated-a-to-e-campaign",
+  "phase_a": {
+    "best_variant": {
+      "answer_contained_count": 5,
+      "attempt_id": "phase_a_rows10_tsv_value_only_v1",
+      "decision": "calibration_full_visible_failed",
+      "exact_or_normalized_count": 0,
+      "prefix_hash": "0e3605620203fc8f92cd5cea04e3a01c7d06853df5d729e4d50b569e7153df78",
+      "promoted": false,
+      "prompt_shape": "two_column_tsv",
+      "query_count": 10,
+      "row_count": 10,
+      "semantic_match_count": 5,
+      "variant_id": "tsv_value_only_v1"
+    },
+    "promoted_variant_count": 0,
+    "promotion_rule": "full-visible semantic_match 10/10 and exact_or_normalized >= 10/10",
+    "query_count_per_variant": 10,
+    "row_count": 10,
+    "semantic_match_counts": [
+      3,
+      0,
+      0,
+      5,
+      1,
+      0
+    ],
+    "variant_attempt_count": 6
+  },
+  "phase_b": {
+    "reason": "no Phase A retrieval unit promoted",
+    "status": "not_run"
+  },
+  "phase_c": {
+    "highest_reliable_scales": {
+      "highest_reliable_full_visible_rows": null,
+      "highest_reliable_live_append_rows": null,
+      "highest_reliable_restored_capsule_rows": null
+    },
+    "reason": "no smaller promoted retrieval unit passed evidence ladder",
+    "status": "not_run"
+  },
+  "phase_d": {
+    "reason": "no restored-capsule-passing unit",
+    "status": "not_run"
+  },
+  "phase_e": {
+    "reason": "retrieval restored-capsule pass precondition failed",
+    "status": "not_run"
+  },
+  "quality_boundary": {
+    "full_visible_calibration_total_cases": 60,
+    "full_visible_calibration_total_passes": 9,
+    "promoted_units": [],
+    "restored_capsule_pass_units": []
+  },
+  "raw_exit": "\ufeffExitCode: 0",
+  "record_count": 60,
+  "source_commit": "a731805cedc83c0514cbd808a2e38ec46c759cc2",
+  "stop_rule": "phase_a_all_retrieval_calibration_variants_failed_at_10_rows",
+  "timing_summary_ms": {
+    "decode": {
+      "max": 3632.1083000511862,
+      "mean": 1035.9442783354705,
+      "min": 622.7662999881431
+    },
+    "prompt_eval_ms": {
+      "max": 3960.0928999716416,
+      "mean": 853.0856466628999,
+      "min": 567.5974999903701
+    },
+    "total": {
+      "max": 7836.390000011306,
+      "mean": 2099.4311333313817,
+      "min": 1494.6528999716975
+    }
+  }
+}

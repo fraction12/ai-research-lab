@@ -1,0 +1,79 @@
+{
+  "by_variant": [
+    {
+      "decision": "calibration_full_visible_failed",
+      "exact_or_normalized_count": 3,
+      "promoted": false,
+      "query_count": 10,
+      "row_count": 10,
+      "semantic_match_count": 3,
+      "variant_id": "kv_block_value_only_v1"
+    },
+    {
+      "decision": "calibration_full_visible_failed",
+      "exact_or_normalized_count": 0,
+      "promoted": false,
+      "query_count": 10,
+      "row_count": 10,
+      "semantic_match_count": 0,
+      "variant_id": "equals_line_value_only_v1"
+    },
+    {
+      "decision": "calibration_full_visible_failed",
+      "exact_or_normalized_count": 0,
+      "promoted": false,
+      "query_count": 10,
+      "row_count": 10,
+      "semantic_match_count": 0,
+      "variant_id": "answer_channel_v1"
+    },
+    {
+      "decision": "calibration_full_visible_failed",
+      "exact_or_normalized_count": 0,
+      "promoted": false,
+      "query_count": 10,
+      "row_count": 10,
+      "semantic_match_count": 5,
+      "variant_id": "tsv_value_only_v1"
+    },
+    {
+      "decision": "calibration_full_visible_failed",
+      "exact_or_normalized_count": 0,
+      "promoted": false,
+      "query_count": 10,
+      "row_count": 10,
+      "semantic_match_count": 1,
+      "variant_id": "jsonl_value_only_v1"
+    },
+    {
+      "decision": "calibration_full_visible_failed",
+      "exact_or_normalized_count": 0,
+      "promoted": false,
+      "query_count": 10,
+      "row_count": 10,
+      "semantic_match_count": 0,
+      "variant_id": "natural_fact_value_only_v1"
+    }
+  ],
+  "experiment": "kv-capsule-calibrated-a-to-e-campaign-2026-06-04",
+  "overall_failure_class": "native_full_visible_calibration_failure_at_minimum_scale",
+  "overall_not_capsule_failure": true,
+  "taxonomy": [
+    {
+      "class": "native_full_visible_calibration_failure_at_minimum_scale",
+      "meaning": "The pinned native route could not make the full visible baseline reliable at 10 rows across attempted variants."
+    },
+    {
+      "class": "benchmarkability_model_protocol_boundary",
+      "meaning": "The benchmark instrument/model prompt protocol is not reliable enough to promote evidence units."
+    },
+    {
+      "class": "not_restored_capsule_semantic_failure",
+      "meaning": "Restored capsule controls did not run, so capsule semantics were not tested in this campaign."
+    },
+    {
+      "class": "not_amortization_evidence",
+      "meaning": "No passing restored capsule unit exists for economic break-even calculations."
+    }
+  ]
+}
