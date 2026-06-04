@@ -33,6 +33,7 @@ build/
 **/benchmarks/hidden-prefix-semantic-continuation-*/
 **/benchmarks/documented-server-cache-reuse-*/
 **/benchmarks/kv-capsule-semantic-continuation-*/
+**/benchmarks/native-server-parity-bridge-*/
 
 # Codex project-local generated hook state
 .codex/manager-ledger.json
