@@ -30,6 +30,20 @@ Gemma 4 12B must be selected through an explicit profile/config rather than impl
 
 The GPT-OSS profile must remain available and unchanged.
 
+## Committed Profile Resolver
+
+This change adds a non-inference profile resolver at `research/01-ssd-native-inference-current/benchmarks/kv_capsule_profiles.py`.
+
+The resolver is intentionally small and repo-safe:
+
+- `gpt-oss-20b` preserves the existing GPT-OSS runtime defaults, including the old `libllama.dll` name.
+- `gemma4-12b` resolves the Ollama Gemma text blob, b9512 CUDA runtime, `llama.dll`, raw/cache defaults, context/decode knobs, and output-calibration notes.
+- `--llama-dll` is emitted in generated runner arguments so a raw runner does not need to pretend b9512's `llama.dll` is named `libllama.dll`.
+- `--check-paths` reports path availability without loading a model.
+- `--completion-smoke-command` prints the Gemma `llama-completion` one-shot command for orchestration.
+
+The ignored raw Family 1/2 runners still need a runtime-only patch to consume `--model-profile` / `--llama-dll` and hash/export-probe the resolved DLL path. Orchestration owns that ignored-runner patch and DushyantPC execution. The committed resolver alone is not evidence that Gemma capsule runs are executable.
+
 ## DushyantPC Runtime Inventory
 
 Orchestration verified the following concrete Gemma runtime facts on DushyantPC:
@@ -48,6 +62,7 @@ Orchestration verified the following concrete Gemma runtime facts on DushyantPC:
 - `llama-cli` on b9512 is conversation-oriented; `-no-cnv` is not supported there and it directs operators to `llama-completion` instead.
 - A one-shot `llama-completion` smoke against the text model blob exited `0`.
 - Smoke output caveat: raw output included Gemma thinking/channel tokens such as thought/channel markers, so the Gemma profile must calibrate prompt/scoring behavior or use a supported route to disable thinking before Family 1/2 evidence.
+- For `llama-completion` / CLI load smokes, the profile exposes `--reasoning off` when supported. This is a CLI/template calibration knob only; it is not proof that the raw C API sequence-state runner suppresses thinking/channel output unless that runner path uses the same machinery and passes the empirical gate.
 - After orchestration cleanup, no leftover `llama-cli`, `llama-completion`, Hugging Face download, Python harness, or benchmark process remained; only Ollama app/service processes were present.
 
 ## Runtime Assumptions
@@ -61,7 +76,7 @@ Orchestration verified the following concrete Gemma runtime facts on DushyantPC:
 
 1. Gemma profile dry-run/help check.
 2. Raw-only smoke or token-smoke if orchestration approves.
-3. One-shot runtime smoke via `llama-completion` if needed to verify model load; do not use interactive `llama-cli` as the harness route.
+3. One-shot runtime smoke via `llama-completion` if needed to verify model load; include `--reasoning off` when supported and do not use interactive `llama-cli` as the harness route.
 4. Family 1 3-case smoke.
 5. Family 1 30-case gate if smoke passes.
 6. Family 2 smoke only after Family 1 passes.

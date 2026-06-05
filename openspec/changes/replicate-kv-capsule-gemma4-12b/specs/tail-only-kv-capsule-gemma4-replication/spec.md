@@ -22,7 +22,13 @@ The harness SHALL support an explicit llama runtime DLL path/name for each model
 - **WHEN** the Gemma 4 12B profile uses the b9512 CUDA 13 runtime
 - **THEN** the harness loads `llama.dll` from the configured runtime path
 - **AND** it does not assume the library is named `libllama.dll`
-- **AND** it records the resolved DLL path, version, and sequence-state export availability.
+- **AND** it records the resolved DLL path, version, hash, and sequence-state export availability.
+
+#### Scenario: Profile resolver emits runner arguments
+
+- **WHEN** the Gemma profile is resolved before DushyantPC execution
+- **THEN** the emitted runner arguments include `--llama-dll` pointing at b9512's `llama.dll`
+- **AND** the raw runner must use that resolved DLL for loading, hashing, and export scanning before Gemma model-bearing evidence can begin.
 
 ### Requirement: Gemma Thinking Output Calibration
 
@@ -33,6 +39,12 @@ The Gemma profile SHALL calibrate thinking/channel output behavior before Family
 - **WHEN** a Gemma smoke produces thinking/channel markers
 - **THEN** scoring and prompt protocol are treated as uncalibrated
 - **AND** the Family 1/2 evidence ladder does not start until the profile either suppresses those markers through a supported route or defines a deterministic scorer that safely handles them.
+
+#### Scenario: CLI smoke uses reasoning control
+
+- **WHEN** orchestration runs the one-shot `llama-completion` smoke for Gemma
+- **THEN** the prepared command includes `--reasoning off` when that runtime supports it
+- **AND** that CLI flag is treated as a smoke/profile calibration aid, not as proof that the raw C API sequence-state runner has the same output behavior.
 
 ### Requirement: Same Sequence-State Contract
 

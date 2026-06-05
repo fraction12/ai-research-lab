@@ -4,7 +4,9 @@
 
 The executable native C API runners for the latest Family 1 and Family 2 gates live under ignored Track 01 raw benchmark paths. They are intentionally not committed because those raw paths can contain prompt-bearing records, responses, token details, and state/cache artifacts.
 
-No committed durable profile layer was found during repo prep. Therefore this change documents the needed patch shape rather than committing ignored raw runner code.
+This change adds a committed non-inference profile resolver at `research/01-ssd-native-inference-current/benchmarks/kv_capsule_profiles.py`. It prepares profile metadata and command arguments, but it does not itself run or patch model-bearing benchmarks.
+
+The ignored raw Family 1/2 runners still need orchestration's runtime-only patch so their actual load/export/hash paths consume `--model-profile` / `--llama-dll`. In particular, b9512 ships `llama.dll`, not `libllama.dll`; any runner that still hashes or loads `bundle / "libllama.dll"` is not Gemma-ready.
 
 ## Required Patch Shape For Orchestration
 
@@ -49,14 +51,24 @@ Suggested CLI shape:
 --state-route {auto,seq-file,seq-memory,whole-context}
 ```
 
+Committed resolver examples:
+
+```text
+python research/01-ssd-native-inference-current/benchmarks/kv_capsule_profiles.py --profile gemma4-12b --check-paths
+python research/01-ssd-native-inference-current/benchmarks/kv_capsule_profiles.py --profile gemma4-12b --runner-args
+python research/01-ssd-native-inference-current/benchmarks/kv_capsule_profiles.py --profile gemma4-12b --completion-smoke-command
+```
+
 Rules:
 
 - Selecting `gemma4-12b` must change raw/cache defaults away from the GPT-OSS paths.
 - Selecting `gemma4-12b` must load b9512's `llama.dll` or another explicit compatible DLL path. Do not assume the DLL is named `libllama.dll`.
+- Runner metadata and export scans must use the resolved DLL path, not a hardcoded `bundle / "libllama.dll"`.
 - Raw/cache paths must be ignored before any DushyantPC execution.
 - The run metadata must include the selected profile and all resolved fields.
 - If Gemma-specific tokenization/template behavior differs, it must be recorded before evidence and not silently patched mid-gate.
 - Gemma scoring must handle or suppress thinking/channel markers before Family 1/2 evidence. The initial one-shot smoke loaded successfully but produced such markers in raw output.
+- The Gemma `llama-completion` smoke command should include `--reasoning off` when supported. That flag is a CLI/template calibration aid and does not replace the raw C API Family 1/2 semantic gates.
 - `whole-context` remains diagnostic fallback only.
 
 ## Confirmed Runtime Facts
