@@ -26,6 +26,7 @@
 - [x] 4.5 Use Google's open-source Material Web component library for the cockpit controls and interaction surfaces.
 - [x] 4.6 Apply white/blue/grey Material theme across the cockpit and data visualizations.
 - [x] 4.7 Convert the cockpit shell from one continuous scroll page into route-based pages with active navigation.
+- [x] 4.8 Normalize the route UI with readable chart bars, experiment cards, evidence cards, and cleaner Material-adjacent hierarchy.
 
 ## 5. Validation
 

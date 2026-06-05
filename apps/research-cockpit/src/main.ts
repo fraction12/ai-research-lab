@@ -204,6 +204,11 @@ function chip(label: string): string {
   return `<md-assist-chip class="pill-chip" label="${esc(label)}"></md-assist-chip>`;
 }
 
+function shortPath(path: string): string {
+  const parts = path.split("/");
+  return parts.length > 3 ? `.../${parts.slice(-3).join("/")}` : path;
+}
+
 function isChartRow(row: ChartRow | null): row is ChartRow {
   return row !== null;
 }
@@ -350,24 +355,27 @@ function flattenControlRows(experiments: Experiment[]): Array<{
 }
 
 function renderBarChart(container: Element, rows: ChartRow[], options: { label?: string; color?: string } = {}): void {
-  const width = 760;
-  const rowH = 28;
-  const height = Math.max(120, rows.length * rowH + 34);
   const max = Math.max(1, ...rows.map((row) => Number(row.value) || 0));
   const color = options.color || "var(--blue)";
-  const labelWidth = 250;
+  if (!rows.length) {
+    container.innerHTML = `<div class="empty-chart">No comparable data found.</div>`;
+    return;
+  }
   container.innerHTML = `
-    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(options.label || "bar chart")}">
-      ${rows.map((row, index) => {
-        const y = 18 + index * rowH;
-        const barWidth = Math.max(2, ((Number(row.value) || 0) / max) * (width - labelWidth - 86));
+    <div class="bar-list" role="img" aria-label="${esc(options.label || "bar chart")}">
+      ${rows.map((row) => {
+        const width = Math.max(1, ((Number(row.value) || 0) / max) * 100);
         return `
-          <text x="0" y="${y + 14}" class="chart-label">${esc(row.label).slice(0, 38)}</text>
-          <rect x="${labelWidth}" y="${y}" width="${barWidth}" height="16" rx="3" fill="${color}"></rect>
-          <text x="${labelWidth + barWidth + 8}" y="${y + 13}" class="chart-label">${esc(row.display)}</text>
+          <div class="bar-row">
+            <div class="bar-label" title="${esc(row.label)}">${esc(row.label)}</div>
+            <div class="bar-track">
+              <span style="width:${width}%; background:${color}"></span>
+            </div>
+            <div class="bar-value">${esc(row.display)}</div>
+          </div>
         `;
       }).join("")}
-    </svg>
+    </div>
   `;
 }
 
@@ -407,30 +415,38 @@ function experimentMatches(exp: Experiment): boolean {
 function renderExperiments(experiments: Experiment[]): void {
   const visible = experiments.filter(experimentMatches);
   qs("#experimentsTable").innerHTML = `
-    <table>
-      <thead>
-        <tr>
-          <th>Experiment</th>
-          <th>Track</th>
-          <th>Model / Dataset</th>
-          <th>Controls</th>
-          <th>Warnings</th>
-          <th>Source</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${visible.map((exp) => `
-          <tr>
-            <td><strong>${esc(exp.title)}</strong><br><span class="note">${esc(exp.id)}</span></td>
-            <td>${esc(exp.track)}</td>
-            <td>${esc(displayValue(exp.model, "n/a"))}<br><span class="note">${esc(displayValue(exp.dataset))}</span></td>
-            <td>${(exp.controls ?? []).slice(0, 4).map((control) => chip(`${control.name} ${pct(control.passRate)}`)).join(" ") || "n/a"}</td>
-            <td>${(exp.warnings ?? []).slice(0, 3).map((warning) => `<span class="warning">${esc(warning)}</span>`).join("<br>") || "clear"}</td>
-            <td>${sourceButton(exp.readmePath || `${exp.path}/summary.json`, "preview")}</td>
-          </tr>
-        `).join("")}
-      </tbody>
-    </table>
+    <div class="collection-head">
+      <div>
+        <h3>Experiment Runs</h3>
+        <span>${visible.length} visible of ${experiments.length}</span>
+      </div>
+      <span class="note">Filter by track, model, dataset, or control</span>
+    </div>
+    <div class="experiment-grid">
+      ${visible.map((exp) => {
+        const controls = (exp.controls ?? []).slice(0, 5);
+        const warnings = (exp.warnings ?? []).slice(0, 3);
+        return `
+          <article class="experiment-card">
+            <div class="card-kicker">${esc(exp.track)}</div>
+            <div class="card-title-row">
+              <h3>${esc(exp.title)}</h3>
+              ${sourceButton(exp.readmePath || `${exp.path}/summary.json`, "Preview")}
+            </div>
+            <div class="path-note">${esc(shortPath(exp.path))}</div>
+            <dl class="fact-grid">
+              <div><dt>Model</dt><dd>${esc(displayValue(exp.model, "n/a"))}</dd></div>
+              <div><dt>Dataset</dt><dd>${esc(displayValue(exp.dataset, "n/a"))}</dd></div>
+              <div><dt>Cases</dt><dd>${esc(exp.caseCount ?? "n/a")}</dd></div>
+            </dl>
+            <div class="control-strip">
+              ${controls.length ? controls.map((control) => chip(`${control.name} ${pct(control.passRate ?? control.meanScore)}`)).join("") : `<span class="note">No comparable controls indexed</span>`}
+            </div>
+            ${warnings.length ? `<div class="warning-box">${warnings.map((warning) => `<span>${esc(warning)}</span>`).join("")}</div>` : `<div class="clear-box">Research discipline checks clear</div>`}
+          </article>
+        `;
+      }).join("")}
+    </div>
   `;
   bindPreviewButtons();
 }
@@ -458,28 +474,32 @@ function renderPaperCharts(papers: Paper[]): void {
 
 function renderPapers(papers: Paper[]): void {
   qs("#papersTable").innerHTML = `
-    <table>
-      <thead>
-        <tr>
-          <th>Paper</th>
-          <th>Year</th>
-          <th>OA</th>
-          <th>Identifiers</th>
-          <th>Evidence</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${papers.map((paper) => `
-          <tr>
-            <td><strong>${esc(paper.title || "Untitled")}</strong></td>
-            <td>${esc(paper.year || "n/a")}</td>
-            <td>${esc(paper.oaStatus || "unknown")}<br><span class="note">PDFs downloaded: ${paper.pdfsDownloaded ? "yes" : "no"}</span></td>
-            <td>${esc(paper.arxivId || "")}<br><span class="note">${esc(paper.openAlexId || "")}</span></td>
-            <td>${sourceButton(paper.sourcePath, `${paper.rawOutputCount} raw files`)}</td>
-          </tr>
-        `).join("")}
-      </tbody>
-    </table>
+    <div class="collection-head">
+      <div>
+        <h3>Evidence Anchors</h3>
+        <span>${papers.length} harvested papers</span>
+      </div>
+      <span class="note">Metadata-first evidence, not full-text claims</span>
+    </div>
+    <div class="paper-list">
+      ${papers.map((paper) => `
+        <article class="paper-card">
+          <div>
+            <h3>${esc(paper.title || "Untitled")}</h3>
+            <div class="meta-line">
+              ${chip(String(paper.year || "n/a"))}
+              ${chip(`OA ${paper.oaStatus || "unknown"}`)}
+              ${chip(`PDF ${paper.pdfsDownloaded ? "yes" : "no"}`)}
+            </div>
+          </div>
+          <div class="paper-meta">
+            <span>${esc(paper.arxivId || "no arXiv id")}</span>
+            <span>${esc(paper.openAlexId || "no OpenAlex id")}</span>
+          </div>
+          ${sourceButton(paper.sourcePath, `${paper.rawOutputCount} raw files`)}
+        </article>
+      `).join("")}
+    </div>
   `;
   bindPreviewButtons();
 }
