@@ -19,11 +19,11 @@
           </div>
         </div>
         <nav>
-          <a href="#overview">Overview</a>
-          <a href="#experiments">Experiments</a>
-          <a href="#papers">Papers</a>
-          <a href="#graph">Graph</a>
-          <a href="#actions">Agent Actions</a>
+          <a href="#overview" data-route="overview">Overview</a>
+          <a href="#experiments" data-route="experiments">Experiments</a>
+          <a href="#papers" data-route="papers">Papers</a>
+          <a href="#graph" data-route="graph">Graph</a>
+          <a href="#actions" data-route="actions">Agent Actions</a>
         </nav>
         <div class="rail-meta">
           <span id="repoRoot">Loading repo...</span>
@@ -32,7 +32,7 @@
       </aside>
 
       <main>
-        <section id="overview" class="band overview-band">
+        <section id="overview" class="page overview-band" data-page="overview">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Codex-native file-backed lab console</p>
@@ -62,7 +62,7 @@
           </div>
         </section>
 
-        <section id="experiments" class="band">
+        <section id="experiments" class="page" data-page="experiments" hidden>
           <div class="section-heading compact">
             <div>
               <p class="eyebrow">Experiment data</p>
@@ -102,7 +102,7 @@
           <div id="experimentsTable" class="table-wrap"></div>
         </section>
 
-        <section id="papers" class="band">
+        <section id="papers" class="page" data-page="papers" hidden>
           <div class="section-heading compact">
             <div>
               <p class="eyebrow">Prior-art evidence</p>
@@ -129,7 +129,7 @@
           <div id="papersTable" class="table-wrap"></div>
         </section>
 
-        <section id="graph" class="band">
+        <section id="graph" class="page" data-page="graph" hidden>
           <div class="section-heading compact">
             <div>
               <p class="eyebrow">Research topology</p>
@@ -141,7 +141,7 @@
           </section>
         </section>
 
-        <section id="actions" class="band">
+        <section id="actions" class="page" data-page="actions" hidden>
           <div class="section-heading compact">
             <div>
               <p class="eyebrow">Codex handoff</p>

@@ -162,6 +162,13 @@ nav a:hover {
   border-color: var(--line);
 }
 
+nav a.active {
+  background: var(--soft-blue);
+  border-color: rgba(37, 99, 235, 0.35);
+  color: var(--blue-3);
+  font-weight: 700;
+}
+
 .rail-meta {
   margin-top: auto;
   display: grid;
@@ -173,9 +180,13 @@ main {
   min-width: 0;
 }
 
-.band {
+.page {
+  min-height: 100vh;
   padding: 32px clamp(18px, 4vw, 54px);
-  border-bottom: 1px solid var(--line);
+}
+
+.page[hidden] {
+  display: none;
 }
 
 .overview-band {
@@ -285,6 +296,12 @@ h3 {
 .stack {
   display: grid;
   gap: 10px;
+}
+
+#openspec {
+  max-height: 68vh;
+  overflow: auto;
+  padding-right: 3px;
 }
 
 .track,
@@ -421,6 +438,7 @@ svg {
   margin-top: 14px;
   width: 100%;
   max-width: 100%;
+  max-height: min(54vh, 640px);
   border: 1px solid var(--line);
   border-radius: 8px;
   overflow: auto;
@@ -586,7 +604,7 @@ pre {
 }
 
 @media (max-width: 560px) {
-  .band {
+  .page {
     padding: 24px 12px;
   }
 

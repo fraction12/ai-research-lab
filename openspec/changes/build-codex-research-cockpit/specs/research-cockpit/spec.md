@@ -13,6 +13,12 @@ The lab SHALL provide a local web application that can run inside the Codex in-a
 - **THEN** the first screen shows the current lab overview rather than a landing page
 - **AND** it shows tracks, active OpenSpec changes, experiments, papers, and chart summaries
 
+#### Scenario: Navigate between cockpit pages
+- **WHEN** the user selects Overview, Experiments, Papers, Graph, or Agent Actions in the cockpit navigation
+- **THEN** the app shows that route as a focused page instead of one section in a continuous long document
+- **AND** the URL hash, active navigation state, and document title reflect the selected page
+- **AND** data-heavy tables or lists can scroll inside their page area without forcing every route into one long page
+
 ### Requirement: Index repo-backed research data
 The cockpit SHALL build its state from repo files and preserve source file paths for every derived item.
 

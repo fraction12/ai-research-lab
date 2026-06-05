@@ -70,6 +70,8 @@ The SPA will render:
 - Research graph as a lightweight SVG network: track -> experiment/evidence/paper.
 - Agent action prompt panel.
 
+Navigation is route-based inside the shell. The sidebar stays persistent, while `#overview`, `#experiments`, `#papers`, `#graph`, and `#actions` each render as separate pages rather than sections in one continuous document. Data-heavy panels use internal scrolling where needed so a route behaves like a focused workspace page instead of a long report.
+
 Design direction: dense lab console. Compact, utilitarian, white/blue/grey Material palette with high-contrast chart colors. No landing page, no hero, no nested decorative cards.
 
 The UI uses Google's open-source Material Web components (`@material/web`) for controls, buttons, chips, progress indicators, dialogs, selects, and text fields. V1 bundles Material Web through Vite/npm so the app has a proper TypeScript/JavaScript development workflow. The custom data visualization layer remains local SVG because Material Web does not provide chart components.

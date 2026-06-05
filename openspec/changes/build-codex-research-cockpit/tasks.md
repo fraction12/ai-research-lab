@@ -25,6 +25,7 @@
 - [x] 4.4 Add agent-action prompt generator.
 - [x] 4.5 Use Google's open-source Material Web component library for the cockpit controls and interaction surfaces.
 - [x] 4.6 Apply white/blue/grey Material theme across the cockpit and data visualizations.
+- [x] 4.7 Convert the cockpit shell from one continuous scroll page into route-based pages with active navigation.
 
 ## 5. Validation
 

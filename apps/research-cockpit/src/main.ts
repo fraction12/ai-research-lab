@@ -119,6 +119,7 @@ interface AppState {
   data: OverviewData | null;
   experimentFilter: string;
   actionTargets: ActionTarget[];
+  route: RouteId;
 }
 
 interface ChartRow {
@@ -130,11 +131,23 @@ interface ChartRow {
 type ValueElement = HTMLElement & { value: string };
 type TextValueElement = HTMLElement & { value: string; textContent: string };
 type DialogElement = HTMLElement & { show: () => void; close: () => void };
+type RouteId = "overview" | "experiments" | "papers" | "graph" | "actions";
+
+const routes = [
+  { id: "overview", title: "Overview" },
+  { id: "experiments", title: "Experiments" },
+  { id: "papers", title: "Papers" },
+  { id: "graph", title: "Graph" },
+  { id: "actions", title: "Agent Actions" },
+] as const satisfies readonly { id: RouteId; title: string }[];
+
+const validRouteIds = new Set<RouteId>(routes.map((route) => route.id));
 
 const state: AppState = {
   data: null,
   experimentFilter: "",
   actionTargets: [],
+  route: "overview",
 };
 
 function qs<T extends Element>(selector: string): T {
@@ -195,6 +208,26 @@ function isChartRow(row: ChartRow | null): row is ChartRow {
   return row !== null;
 }
 
+function routeFromHash(): RouteId {
+  const rawRoute = window.location.hash.replace(/^#/, "");
+  return validRouteIds.has(rawRoute as RouteId) ? rawRoute as RouteId : "overview";
+}
+
+function applyRoute(nextRoute = routeFromHash()): void {
+  state.route = nextRoute;
+  for (const page of document.querySelectorAll<HTMLElement>("[data-page]")) {
+    page.hidden = page.dataset.page !== nextRoute;
+  }
+  for (const link of document.querySelectorAll<HTMLAnchorElement>("[data-route]")) {
+    const isActive = link.dataset.route === nextRoute;
+    link.classList.toggle("active", isActive);
+    link.setAttribute("aria-current", isActive ? "page" : "false");
+  }
+  const routeTitle = routes.find((route) => route.id === nextRoute)?.title || "Overview";
+  document.title = `${routeTitle} · AI Research Lab Cockpit`;
+  window.scrollTo(0, 0);
+}
+
 async function loadOverview(): Promise<void> {
   const response = await fetch("/api/overview", { cache: "no-store" });
   if (!response.ok) throw new Error(`overview failed: ${response.status}`);
@@ -225,6 +258,7 @@ function render(): void {
   renderGraph(data.graph);
   renderActions(data);
   bindPreviewButtons();
+  applyRoute();
 }
 
 function renderBenchmarkChart(benchmarks: Benchmark[]): void {
@@ -547,6 +581,7 @@ qs("#copyPromptButton").addEventListener("click", async () => {
   window.setTimeout(() => { copyButton.textContent = "Copy Prompt"; }, 1200);
 });
 qs("#closePreview").addEventListener("click", () => qs<DialogElement>("#previewDialog").close());
+window.addEventListener("hashchange", () => applyRoute());
 
 loadOverview().catch((error: unknown) => {
   const message = error instanceof Error ? error.stack || error.message : String(error);
