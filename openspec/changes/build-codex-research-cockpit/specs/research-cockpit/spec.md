@@ -63,9 +63,11 @@ The cockpit SHALL provide built-in charts that make research state and experimen
 ### Requirement: Support Codex-native agent actions
 The cockpit SHALL help the user hand structured research work back to the Codex thread without hiding the action.
 
-#### Scenario: Generate an action prompt
-- **WHEN** the user selects an agent action such as refresh status, harvest papers, summarize failures, or draft a falsifying test
-- **THEN** the cockpit produces a copyable prompt containing target paths, current context, expected artifacts, and verification criteria
+#### Scenario: Generate latest experiment visualization prompt
+- **WHEN** the user opens the Agent Actions page
+- **THEN** the cockpit shows a copyable "Generate data visualization for latest experiment" action
+- **AND** the prompt targets the latest indexed experiment folder
+- **AND** it instructs Codex to use the research-figures workflow for paper-quality charts, computed-data tables, reproducible Matplotlib exports, and visual QA
 - **AND** the prompt is suitable to paste into the current Codex thread
 
 #### Scenario: Avoid silent mutation

@@ -27,6 +27,7 @@
 - [x] 4.6 Apply white/blue/grey Material theme across the cockpit and data visualizations.
 - [x] 4.7 Convert the cockpit shell from one continuous scroll page into route-based pages with active navigation.
 - [x] 4.8 Normalize the route UI with readable chart bars, experiment cards, evidence cards, and cleaner Material-adjacent hierarchy.
+- [x] 4.9 Replace generic agent actions with the first focused action: generate research-figure visualizations for the latest experiment.
 
 ## 5. Validation
 

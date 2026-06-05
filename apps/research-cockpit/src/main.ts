@@ -41,6 +41,8 @@ interface Experiment {
   title: string;
   path: string;
   readmePath: string | null;
+  generatedAt?: string | null;
+  lastModified?: string | null;
   decision?: unknown;
   dataset?: unknown;
   model?: unknown;
@@ -109,16 +111,9 @@ interface OverviewData {
   graph: Graph;
 }
 
-interface ActionTarget {
-  label: string;
-  path: string;
-  kind: "track" | "experiment" | "openspec";
-}
-
 interface AppState {
   data: OverviewData | null;
   experimentFilter: string;
-  actionTargets: ActionTarget[];
   route: RouteId;
 }
 
@@ -146,7 +141,6 @@ const validRouteIds = new Set<RouteId>(routes.map((route) => route.id));
 const state: AppState = {
   data: null,
   experimentFilter: "",
-  actionTargets: [],
   route: "overview",
 };
 
@@ -537,37 +531,56 @@ function renderGraph(graph: Graph): void {
 }
 
 function renderActions(data: OverviewData): void {
-  const targets: ActionTarget[] = [
-    ...data.tracks.map((track) => ({ label: track.id, path: track.path, kind: "track" as const })),
-    ...data.experiments.slice(0, 40).map((exp) => ({ label: exp.id, path: exp.path, kind: "experiment" as const })),
-    ...data.openSpecChanges.slice(0, 30).map((change) => ({ label: change.name, path: change.path, kind: "openspec" as const })),
-  ];
-  state.actionTargets = targets;
-  const actionTarget = qs<ValueElement>("#actionTarget");
-  actionTarget.innerHTML = targets.map((target, index) => `
-    <md-select-option value="${esc(target.path)}" ${index === 0 ? "selected" : ""}>
-      <div slot="headline">${esc(target.label)}</div>
-      <div slot="supporting-text">${esc(target.kind)}</div>
-    </md-select-option>
-  `).join("");
-  actionTarget.value = targets[0]?.path || "";
-  const actionKind = qs<ValueElement>("#actionKind");
-  actionKind.value = actionKind.value || "refresh-track";
-  updatePrompt();
-}
+  const latestExperiment = [...data.experiments].sort((a, b) => {
+    const aTime = Date.parse(a.generatedAt || a.lastModified || "");
+    const bTime = Date.parse(b.generatedAt || b.lastModified || "");
+    return (Number.isFinite(bTime) ? bTime : 0) - (Number.isFinite(aTime) ? aTime : 0);
+  })[0];
+  const actionSummary = qs("#actionSummary");
+  if (!latestExperiment) {
+    actionSummary.innerHTML = `
+      <div class="action-card">
+        <div class="card-kicker">First action</div>
+        <h3>Generate data visualization for latest experiment</h3>
+        <p class="note">No experiment folders were indexed yet.</p>
+      </div>
+    `;
+    qs<TextValueElement>("#agentPrompt").value = "No indexed experiment is available yet. Refresh the cockpit after adding an experiment folder.";
+    return;
+  }
+  const targetPath = latestExperiment.path;
+  const targetLabel = latestExperiment.title || latestExperiment.id;
+  actionSummary.innerHTML = `
+    <div class="action-card">
+      <div class="card-kicker">First action</div>
+      <h3>Generate data visualization for latest experiment</h3>
+      <dl class="fact-grid">
+        <div><dt>Experiment</dt><dd>${esc(targetLabel)}</dd></div>
+        <div><dt>Track</dt><dd>${esc(latestExperiment.track)}</dd></div>
+        <div><dt>Updated</dt><dd>${esc(latestExperiment.generatedAt || latestExperiment.lastModified || "n/a")}</dd></div>
+      </dl>
+      <p class="note">${esc(shortPath(targetPath))}</p>
+    </div>
+  `;
+  qs<TextValueElement>("#agentPrompt").value = `Use the research-figures skill to generate paper-quality data visualizations for the latest indexed experiment.
 
-function updatePrompt(): void {
-  if (!state.data) return;
-  const kind = qs<ValueElement>("#actionKind").value || "refresh-track";
-  const targetPath = qs<ValueElement>("#actionTarget").value;
-  const targetLabel = state.actionTargets.find((target) => target.path === targetPath)?.label || targetPath;
-  const promptMap: Record<string, string> = {
-    "refresh-track": `Use the repo research rules and refresh the status for ${targetLabel}.\n\nTarget path: ${targetPath}\n\nPlease inspect the README, recent notes, experiment folders, and relevant OpenSpec changes. Return: current state, strongest evidence, open risks, next useful action, and exact files you inspected. Do not make edits unless I explicitly ask after the status report.`,
-    "summarize-failures": `Analyze experiment failures for ${targetLabel}.\n\nTarget path: ${targetPath}\n\nSeparate model weakness, prompt-protocol weakness, scorer brittleness, cache/session semantics, compatibility/position issues, and runtime/storage issues. Use source files and cite exact repo paths. Do not blend task families into one aggregate.`,
-    "harvest-papers": `Use the repo-local pp-paper-harvester workflow for ${targetLabel}.\n\nTarget path: ${targetPath}\n\nFind paper anchors or prior-art claims in the target, collect metadata-first evidence with no PDFs by default, preserve raw provider outputs, and update only the relevant evidence note after verification.`,
-    "draft-falsifying-test": `Draft the smallest falsifying test for ${targetLabel}.\n\nTarget path: ${targetPath}\n\nName the mainstream assumption, why the idea might work, why it might fail, baseline, controls, metrics, confounders, expected artifact, and stop rule. Use OpenSpec if this becomes implementation work.`,
-  };
-  qs<TextValueElement>("#agentPrompt").value = promptMap[kind] || promptMap["refresh-track"];
+Experiment: ${targetLabel}
+Target path: ${targetPath}
+Track: ${latestExperiment.track}
+Model: ${displayValue(latestExperiment.model, "n/a")}
+Dataset: ${displayValue(latestExperiment.dataset, "n/a")}
+
+Please:
+1. Define the figure claim in one sentence before plotting.
+2. Inspect the target experiment artifacts, especially README.md, summary.json, case-metrics.json, failure-classifications.json, artifact-manifest.json, commands.md, and any raw result JSON.
+3. Build a compact computed-data table from the experiment data before plotting.
+4. Choose the right paper-style figure type for the available data: horizontal bars for control comparisons, grouped bars for methods x metrics, line plots for time/step axes, or heatmaps for matrix data.
+5. Use Matplotlib's object-oriented API and the repo's research-figures workflow. Export SVG, PDF, and PNG from the same reproducible script.
+6. Save the script and generated figures inside the experiment folder under a clear figures/ or visualization/ subdirectory.
+7. Render and visually inspect the PNG before finalizing. Check for title, legend, tick, annotation, and label overlap.
+8. Return exact output paths, the figure claim, the computed-data table summary, and any caveats about missing or weak experiment data.
+
+Do not edit experiment measurements or make unsupported claims. If the latest experiment lacks enough plottable data, say what artifact is missing and create the smallest useful placeholder data table instead of inventing values.`;
 }
 
 async function previewPath(path: string): Promise<void> {
@@ -592,8 +605,6 @@ qs<ValueElement>("#experimentFilter").addEventListener("input", (event) => {
   state.experimentFilter = (event.target as ValueElement).value;
   if (state.data) renderExperiments(state.data.experiments);
 });
-qs("#actionKind").addEventListener("change", updatePrompt);
-qs("#actionTarget").addEventListener("change", updatePrompt);
 qs("#copyPromptButton").addEventListener("click", async () => {
   await navigator.clipboard.writeText(qs<TextValueElement>("#agentPrompt").value);
   const copyButton = qs("#copyPromptButton");

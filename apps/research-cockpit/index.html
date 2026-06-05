@@ -149,22 +149,8 @@
             </div>
           </div>
           <section class="panel action-panel">
+            <div class="action-summary" id="actionSummary"></div>
             <div class="action-controls">
-              <md-outlined-select id="actionKind" label="Action" value="refresh-track">
-                <md-select-option value="refresh-track" selected>
-                  <div slot="headline">Refresh track status</div>
-                </md-select-option>
-                <md-select-option value="summarize-failures">
-                  <div slot="headline">Summarize experiment failures</div>
-                </md-select-option>
-                <md-select-option value="harvest-papers">
-                  <div slot="headline">Harvest papers for a note</div>
-                </md-select-option>
-                <md-select-option value="draft-falsifying-test">
-                  <div slot="headline">Draft falsifying test</div>
-                </md-select-option>
-              </md-outlined-select>
-              <md-outlined-select id="actionTarget" label="Target"></md-outlined-select>
               <md-filled-button id="copyPromptButton" type="button">Copy Prompt</md-filled-button>
             </div>
             <md-outlined-text-field

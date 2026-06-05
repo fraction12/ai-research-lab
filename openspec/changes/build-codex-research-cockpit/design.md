@@ -80,7 +80,8 @@ The UI uses Google's open-source Material Web components (`@material/web`) for c
 
 V1 uses explicit prompt handoff:
 
-- User chooses action and target.
+- App surfaces a focused action and target.
+- The first action is "Generate data visualization for latest experiment", which targets the newest indexed experiment folder and asks Codex to use the repo's research-figures workflow for paper-quality charts.
 - App generates a structured prompt.
 - User pastes it into the active Codex thread.
 - Codex performs the work with normal repo tools and verification.
