@@ -1,0 +1,618 @@
+{
+  "state_route_requested": "auto",
+  "state_route_effective": "seq_file",
+  "state_route_internal": "seq-file",
+  "state_route_warning": null,
+  "sequence_state_available": {
+    "seq_file": true,
+    "seq_memory": true
+  },
+  "sequence_state_exports": {
+    "seq_file_available": true,
+    "seq_memory_available": true,
+    "exports": {
+      "llama_state_seq_get_size": true,
+      "llama_state_seq_get_data": true,
+      "llama_state_seq_set_data": true,
+      "llama_state_seq_save_file": true,
+      "llama_state_seq_load_file": true
+    },
+    "ext_exports": {
+      "llama_state_seq_get_size_ext": true,
+      "llama_state_seq_get_data_ext": true,
+      "llama_state_seq_set_data_ext": true
+    }
+  },
+  "exports": {
+    "required": {
+      "llama_backend_init": true,
+      "llama_model_default_params": true,
+      "llama_context_default_params": true,
+      "llama_model_load_from_file": true,
+      "llama_init_from_model": true,
+      "llama_tokenize": true,
+      "llama_decode": true,
+      "llama_get_logits_ith": true,
+      "llama_state_get_size": true,
+      "llama_state_get_data": true,
+      "llama_state_set_data": true,
+      "llama_token_to_piece": true
+    },
+    "sequence_state": {
+      "llama_state_seq_get_size": true,
+      "llama_state_seq_get_data": true,
+      "llama_state_seq_set_data": true,
+      "llama_state_seq_save_file": true,
+      "llama_state_seq_load_file": true
+    },
+    "sequence_state_ext": {
+      "llama_state_seq_get_size_ext": true,
+      "llama_state_seq_get_data_ext": true,
+      "llama_state_seq_set_data_ext": true
+    }
+  },
+  "abi_route": "python_ctypes_direct_libllama_c_api",
+  "abi_risk": "pinned_b9493_headers_used_for_signature_guidance_against_pinned_dll; smoke_and_tokenization_gated",
+  "hash_parity": {
+    "full_vs_live": {
+      "total": 30,
+      "response_hash_matches": 12,
+      "normalized_response_hash_matches": 12,
+      "generated_token_hash_matches": 12,
+      "by_case": {
+        "structured-lookup-00": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "35f863311b0a1caa0a67f3aaf6f13a0ac79c168f93698c9fc37d1dfcd171532f",
+          "right_response_hash": "7fb86fa4cf4e657a95d376dd9bc88ae4b1662e19932162f818c23c27ba1f9761",
+          "left_generated_token_hash": "2c31fa8bd043979d2a520e469c74966a467ecb753eef57a83efad48a6894d176",
+          "right_generated_token_hash": "58305694800feeacfa8dcb2638182a9ab409976ae3dab8788b508d6e4d79e0fd"
+        },
+        "structured-lookup-01": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "364b6b8162d1a3154e38f965b4e48b398ed366e493904a765d54322467800702",
+          "right_response_hash": "364b6b8162d1a3154e38f965b4e48b398ed366e493904a765d54322467800702",
+          "left_generated_token_hash": "e63bf707508a16e779a92f55542db2b2506c15bc2cfbcadbeec2a07c3a6ff7b5",
+          "right_generated_token_hash": "e63bf707508a16e779a92f55542db2b2506c15bc2cfbcadbeec2a07c3a6ff7b5"
+        },
+        "structured-lookup-02": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "943975770b8e87954f131211429a9cc12dd779ede98f5de0c24256fc2b1dbec0",
+          "right_response_hash": "4745750a35b3c062d3a83cb535e4d33aa32f9035f5e46623d2185b09a76503e2",
+          "left_generated_token_hash": "1eb06151b360fb1b9e06651c3d7fd3dda2dfaebce9553561f739aaa62a8ce0b6",
+          "right_generated_token_hash": "1b208e2f85a5309f91307ba7c6d96ad20b120dd29dd0acca31cf15018f4690c6"
+        },
+        "structured-lookup-03": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "147ac0b8793331b2339f67aa85a670b6ff31b20a6af7d7871f3b1e91fd13dce3",
+          "right_response_hash": "147ac0b8793331b2339f67aa85a670b6ff31b20a6af7d7871f3b1e91fd13dce3",
+          "left_generated_token_hash": "4145a43920b8729ae19f6d3fc31d0fef8d31c6666e257b5cdf5d0f59e490016a",
+          "right_generated_token_hash": "4145a43920b8729ae19f6d3fc31d0fef8d31c6666e257b5cdf5d0f59e490016a"
+        },
+        "structured-lookup-04": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "7fcbab0530ffc2623df40ac289c838673692c3400759940fa63260d9048d46ec",
+          "right_response_hash": "afbd762f0b6dc3e370d6165eabf7d8d803e08eb771c03cd2807a5977af15ba22",
+          "left_generated_token_hash": "042143150d5223b333fbea87087c2029b72613abfe020491f5a8c4a407ee3b51",
+          "right_generated_token_hash": "4db8ae0a9d37e207637519ccde6eb86c92dc140d0ed7ffc1cabbfefec952ecac"
+        },
+        "structured-lookup-05": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "6e23d5f0e5965f393514047dad0dc62be62623ce1cff00ab9ac0368b8a4e7055",
+          "right_response_hash": "5d79c21ffef4d7a4588c0ef63633f94f3bf7ea822f495db8d81e2e679ac7e6e8",
+          "left_generated_token_hash": "a243bcf87adb5c7a54d24c154c132e81891e88f127e392087c6b6be2483b6df5",
+          "right_generated_token_hash": "6f0d4c8b6fe0ba6e1a777efd9ab75e9fe78932e89fc090a8f2c8e44bf9a7cd95"
+        },
+        "structured-lookup-06": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "3ad9615c1f0213e4c4543757a0cc93cc5b9f789addebbbd15a0e0fa149a761b5",
+          "right_response_hash": "5b9d87676cd5bcd1b7ed0e3b18835149ef0ff604d7014e507655677bc96a04be",
+          "left_generated_token_hash": "1d7a42772fe1c39e46e85eabf79ef0456d06844c4b867a9a6e4357778367ad42",
+          "right_generated_token_hash": "7660b1a6d4a3a7529fb874a1987d3180158fb80c30813f8da2406ec6437e4329"
+        },
+        "structured-lookup-07": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "9d3833b210021a629dd2340157a819735bc2e10798b4dbaf3ddf90f567061e9c",
+          "right_response_hash": "e2f822c68b999c4cd20d2d723253fd7af304d07e56cf15c151bd8f1d1f8b3c2d",
+          "left_generated_token_hash": "208499f03085f7daa1a6afb76c3328915dc55cd67ba9bca1e52691eea1e4b073",
+          "right_generated_token_hash": "f8a67ca676dc6f0f7f75a63ba25f53d2191f3a11d74fa291c4bc86727f85ade4"
+        },
+        "structured-lookup-08": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "6a3f46723bee199df328180ece4a23c66519775cbdcf2521411e44232ce63465",
+          "right_response_hash": "6a3f46723bee199df328180ece4a23c66519775cbdcf2521411e44232ce63465",
+          "left_generated_token_hash": "7bf2ebdc52e051ec9ac7d467a38891311043eff4505bcc26e1f86c7e8ca7fd46",
+          "right_generated_token_hash": "7bf2ebdc52e051ec9ac7d467a38891311043eff4505bcc26e1f86c7e8ca7fd46"
+        },
+        "structured-lookup-09": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "67567fe042c8091f41aace1a48808ae6faabcd4ac84b8d702811fe56dc2445b2",
+          "right_response_hash": "99ad96087e13956decaa239b4daeabfb364e62b5e69316065f47adf2901a9c14",
+          "left_generated_token_hash": "bd777832695cd80c3cb54405e8a8d0ba0045cfb31fc6f5898a57cccccd2f56a9",
+          "right_generated_token_hash": "41e93a9c07e33ed26bb44f322e72b3227a89a5837b638fb0ee62b09d0996172f"
+        },
+        "structured-lookup-10": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "76258314b53fa64357bf88b6f656c436a66b3497c6d92d92f437236cff544b43",
+          "right_response_hash": "76258314b53fa64357bf88b6f656c436a66b3497c6d92d92f437236cff544b43",
+          "left_generated_token_hash": "6f9cc77e958d9086db6b5b8c5c118ca0f5008659122b9df9726b43913ea60a97",
+          "right_generated_token_hash": "6f9cc77e958d9086db6b5b8c5c118ca0f5008659122b9df9726b43913ea60a97"
+        },
+        "structured-lookup-11": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "407ba489434d296acb7d792621ed30c91e57a7f281af6ed5c68063143c2bfc1f",
+          "right_response_hash": "407ba489434d296acb7d792621ed30c91e57a7f281af6ed5c68063143c2bfc1f",
+          "left_generated_token_hash": "e274313e2a082b8dd63c18fb1d3578e78e7f247c873bc6cb0069e700e6568783",
+          "right_generated_token_hash": "e274313e2a082b8dd63c18fb1d3578e78e7f247c873bc6cb0069e700e6568783"
+        },
+        "structured-lookup-12": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "2875bf338bc341dcac0d7ff003a1491103c728568cfe6bae6929f013aaf2f4d8",
+          "right_response_hash": "ca98ceef83e2d3b0eefed907f3374294edfaa93f538e9f62afed37c2700bfd17",
+          "left_generated_token_hash": "b9641ed1ac219c2dab7bb7d7499ff1e3bdd161650519ecce781ab93b34e7ea13",
+          "right_generated_token_hash": "b0f91dd5cbae368cdbde03e27bd43bd84b32bd00af28df44de5f544181e6ade4"
+        },
+        "structured-lookup-13": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "72f5ee7daf018a8bd8358b6f1f9534e45636be4091e55a32cff4565bbb343935",
+          "right_response_hash": "e9c24fc3949f13025be6b6f16464a8168d20dba9f4937cb822cdac5f4a45f318",
+          "left_generated_token_hash": "ef171fbe3cd41efe1bd74341665d358fd7173015231540d1b230c7acdb22a592",
+          "right_generated_token_hash": "fa404f6964d6c2258fea910907c27e72ae8ccec7c22f391a713341f1fe229d4d"
+        },
+        "structured-lookup-14": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "607721ec1005186ac1f2fec700fd910e9bd564e398533b210cbb046a9d5fa83c",
+          "right_response_hash": "44ebb6e7e86b76e1391f484569c0260481a6881ba14906eb5bc5ec5fda8a5e50",
+          "left_generated_token_hash": "4c1315c327a20f90192fa8a4d14be6e64669ae38addf1c1fe6e363124eb48c52",
+          "right_generated_token_hash": "e811434d7a649faf752f910b97d5640908f1e2a8686bd2577a9d209a1e844e38"
+        },
+        "structured-lookup-15": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "771638eefd52e42166d659be56d5164befe9459c626836735e8902849f64493b",
+          "right_response_hash": "d5a53f3d7ddfbeec16a0088a3de6bf72346302777213a13450b10e4bd925b726",
+          "left_generated_token_hash": "5dcad272a1ec7e067075bda94970e3aac6ee8176875972db2fe4146d73a32835",
+          "right_generated_token_hash": "ef7e73fc6735151993ec982e09f92817d0afd049afc90e298aa130cf0f56eeb4"
+        },
+        "structured-lookup-16": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "d7a109c0e42ca57d242023d7ffe932bc5d74715a6b65aac5b42ab225f62d12aa",
+          "right_response_hash": "6d7b9b9dbc60eb68f39c39b3d49667e7f16d00924d0c6f8ea111a26e804921ca",
+          "left_generated_token_hash": "fee99c1a3dfe7e985470b82b82c6d4f12c8e819ae5791cfb0f07387484413009",
+          "right_generated_token_hash": "2ae1076b8dbb3540877ff90bab24322e376f14b2814504be54b18a2ef7fc1001"
+        },
+        "structured-lookup-17": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "dc5bd2e1947539aa59333340f6d9d61679825eb778ba22c29b280fe2750040a4",
+          "right_response_hash": "dc5bd2e1947539aa59333340f6d9d61679825eb778ba22c29b280fe2750040a4",
+          "left_generated_token_hash": "30045d1105d54c96c714cfed3098d5312973971e3c6957caf669f28ac5ff4ad5",
+          "right_generated_token_hash": "30045d1105d54c96c714cfed3098d5312973971e3c6957caf669f28ac5ff4ad5"
+        },
+        "structured-lookup-18": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "96be5b0e37a98d1ee0a9762b034c95bed0c4f8e7b550cc92256d1f7d2ad691a6",
+          "right_response_hash": "96be5b0e37a98d1ee0a9762b034c95bed0c4f8e7b550cc92256d1f7d2ad691a6",
+          "left_generated_token_hash": "526e106ae4ff27aa1fc14ea4ffa66a1a14e7b167b5a228648a93c14447e7dff4",
+          "right_generated_token_hash": "526e106ae4ff27aa1fc14ea4ffa66a1a14e7b167b5a228648a93c14447e7dff4"
+        },
+        "structured-lookup-19": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "20d4e9ff984883b8a6a9a3d7fa2bdd512c979a3e2f9cfd8e4e62e0c92d7f6a94",
+          "right_response_hash": "20d4e9ff984883b8a6a9a3d7fa2bdd512c979a3e2f9cfd8e4e62e0c92d7f6a94",
+          "left_generated_token_hash": "57594af7c3d03c2b75289e92232027f75957d69b07fb5ccced17b1a3c5e7a5d5",
+          "right_generated_token_hash": "57594af7c3d03c2b75289e92232027f75957d69b07fb5ccced17b1a3c5e7a5d5"
+        },
+        "structured-lookup-20": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "0d77b1999ac14369c1eb533616f3bb815313531823d4dd380fdd43ff8bd6b7f6",
+          "right_response_hash": "0d77b1999ac14369c1eb533616f3bb815313531823d4dd380fdd43ff8bd6b7f6",
+          "left_generated_token_hash": "efa21a2787862889263d8fb863bf0db5e701107dfbdfff1be01ac3ac8c101b69",
+          "right_generated_token_hash": "efa21a2787862889263d8fb863bf0db5e701107dfbdfff1be01ac3ac8c101b69"
+        },
+        "structured-lookup-21": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "149a503c4c1a067b8eeca86fd7fb25861121f565003c4c03f34267dbe973fd67",
+          "right_response_hash": "0ba5c73abe2c7afb2f767f1dc0fba2a10db7860587acbb742eede50182242596",
+          "left_generated_token_hash": "09a7ad62943ad6fc314815022f1ccd0b55d056a18cf0a8ffdfd736d5a2fa6a61",
+          "right_generated_token_hash": "071b5e5598b27d9b6336923fca145e556ba6436da4994f1e54f7529ca46a4051"
+        },
+        "structured-lookup-22": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "b469a6533fe876a7fbedae454b3af400021239eb3f63c9fa64f28cb043b96099",
+          "right_response_hash": "83eaad8820ed36844a08bc65e4577d1589a949946b631432bb9a976a5d4f49fe",
+          "left_generated_token_hash": "3a1ab3f471206bfddc8c76d52ff639e529e377e9a1095e7f4b5e5f98326b3e32",
+          "right_generated_token_hash": "893c465a8588bbe16837faf2e756e45ec3aa134af20155199912839136a9c2dd"
+        },
+        "structured-lookup-23": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "4fc8d1c0d0a9f2b6aff8e3ed4b85b20fb6420666f897bdb6b4c6cd444d5910aa",
+          "right_response_hash": "91efa1c07490b39598515de124ce6dda7a642c8cb00f619b929694c2c192fa28",
+          "left_generated_token_hash": "eaf7f62de81e768e5f05088c656ddb55b2e085107f06c3edbac352b26207277a",
+          "right_generated_token_hash": "e5e348d689195f4922ebbeac76252bbfbdcaed93b19ef74e01a038d1d5fef333"
+        },
+        "structured-lookup-24": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "1557576bc9a4a61e1191a24c354f76b232a5e243b8c0018f739428baf47bba8a",
+          "right_response_hash": "1557576bc9a4a61e1191a24c354f76b232a5e243b8c0018f739428baf47bba8a",
+          "left_generated_token_hash": "af32aee4728ff13e323a4ac05d39a986e0594506feba4fccd2384be49e82db3a",
+          "right_generated_token_hash": "af32aee4728ff13e323a4ac05d39a986e0594506feba4fccd2384be49e82db3a"
+        },
+        "structured-lookup-25": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "0756b760244a44435c0e956fb0e319b12329aabe0cc15189702fbc4e3b1f2551",
+          "right_response_hash": "0756b760244a44435c0e956fb0e319b12329aabe0cc15189702fbc4e3b1f2551",
+          "left_generated_token_hash": "03463bbd075066401ee1856cf2a7568c304804186c3eee8f0ae59114a30db5ed",
+          "right_generated_token_hash": "03463bbd075066401ee1856cf2a7568c304804186c3eee8f0ae59114a30db5ed"
+        },
+        "structured-lookup-26": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "47dbd353a7b191bae514810172dc3446a2b7d7b6008d0be2fa5c8571706692ed",
+          "right_response_hash": "b6b1aded1f5cc2347f03abe6fe99596a29b4f55dc711219f0f097f7e6ca4ad93",
+          "left_generated_token_hash": "d688771df41a6f695e12c6cf8a9527be5217726006d03e52633e89acb5bed82f",
+          "right_generated_token_hash": "e31db5c443e0b94ef3634555b05ae04d0b4a89f42fa2bd2f228273de0f3b785c"
+        },
+        "structured-lookup-27": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "f18e7963811ce1a31c02947e39a2090f0f93f1d58fd2b927d4918ba39c7db44e",
+          "right_response_hash": "f18e7963811ce1a31c02947e39a2090f0f93f1d58fd2b927d4918ba39c7db44e",
+          "left_generated_token_hash": "49953989e66333e78ccc99bebe363352ca566af6bdc69eb4e40278e2270be0d5",
+          "right_generated_token_hash": "49953989e66333e78ccc99bebe363352ca566af6bdc69eb4e40278e2270be0d5"
+        },
+        "structured-lookup-28": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "be56dc8bf43aad59049d82c58eb4f10b53365b4d317a07980a8592c8546a2ad9",
+          "right_response_hash": "8b93cb60c750eae5ba126877db88d2cf11ab246b66e25652cbff67ac9cdc5d30",
+          "left_generated_token_hash": "706c5c40e14df4d8b4b151f80d91a376efd90e104bc710e41f559dd51d61248f",
+          "right_generated_token_hash": "02629ccafa6ccdeb3a577558d4c40d2141d4681444aa3fa21a203886279e6892"
+        },
+        "structured-lookup-29": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "77026b7bc39a6daa07c38f4eeda285622e8750eb1fb8ae59f1e27f7ff35f888a",
+          "right_response_hash": "be82f37c28565f5bdaf62f0c1976cb5e9ff84bf4cf1b20ac2ac4324b5d5408a6",
+          "left_generated_token_hash": "a7de03aae85ea6b84f239010e680cce08c4d8e0e62aff26902c3593a8fd37e08",
+          "right_generated_token_hash": "d73c55e606696329499a3fe863c1a243b6b28becfd19bc401f83294c97aadc0d"
+        }
+      }
+    },
+    "live_vs_restored": {
+      "total": 30,
+      "response_hash_matches": 12,
+      "normalized_response_hash_matches": 12,
+      "generated_token_hash_matches": 12,
+      "by_case": {
+        "structured-lookup-00": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "7fb86fa4cf4e657a95d376dd9bc88ae4b1662e19932162f818c23c27ba1f9761",
+          "right_response_hash": "7fb86fa4cf4e657a95d376dd9bc88ae4b1662e19932162f818c23c27ba1f9761",
+          "left_generated_token_hash": "58305694800feeacfa8dcb2638182a9ab409976ae3dab8788b508d6e4d79e0fd",
+          "right_generated_token_hash": "58305694800feeacfa8dcb2638182a9ab409976ae3dab8788b508d6e4d79e0fd"
+        },
+        "structured-lookup-01": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "364b6b8162d1a3154e38f965b4e48b398ed366e493904a765d54322467800702",
+          "right_response_hash": "364b6b8162d1a3154e38f965b4e48b398ed366e493904a765d54322467800702",
+          "left_generated_token_hash": "e63bf707508a16e779a92f55542db2b2506c15bc2cfbcadbeec2a07c3a6ff7b5",
+          "right_generated_token_hash": "e63bf707508a16e779a92f55542db2b2506c15bc2cfbcadbeec2a07c3a6ff7b5"
+        },
+        "structured-lookup-02": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "4745750a35b3c062d3a83cb535e4d33aa32f9035f5e46623d2185b09a76503e2",
+          "right_response_hash": "4745750a35b3c062d3a83cb535e4d33aa32f9035f5e46623d2185b09a76503e2",
+          "left_generated_token_hash": "1b208e2f85a5309f91307ba7c6d96ad20b120dd29dd0acca31cf15018f4690c6",
+          "right_generated_token_hash": "1b208e2f85a5309f91307ba7c6d96ad20b120dd29dd0acca31cf15018f4690c6"
+        },
+        "structured-lookup-03": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "147ac0b8793331b2339f67aa85a670b6ff31b20a6af7d7871f3b1e91fd13dce3",
+          "right_response_hash": "147ac0b8793331b2339f67aa85a670b6ff31b20a6af7d7871f3b1e91fd13dce3",
+          "left_generated_token_hash": "4145a43920b8729ae19f6d3fc31d0fef8d31c6666e257b5cdf5d0f59e490016a",
+          "right_generated_token_hash": "4145a43920b8729ae19f6d3fc31d0fef8d31c6666e257b5cdf5d0f59e490016a"
+        },
+        "structured-lookup-04": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "afbd762f0b6dc3e370d6165eabf7d8d803e08eb771c03cd2807a5977af15ba22",
+          "right_response_hash": "b67381f80904989fd1251d7558ab80fe4cedb3650e2d21afa0cfff5bebe54eb2",
+          "left_generated_token_hash": "4db8ae0a9d37e207637519ccde6eb86c92dc140d0ed7ffc1cabbfefec952ecac",
+          "right_generated_token_hash": "6714375fbc36d4e06a5f9e73933329650d114eb44a80a98c295a3a0f645f23f7"
+        },
+        "structured-lookup-05": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "5d79c21ffef4d7a4588c0ef63633f94f3bf7ea822f495db8d81e2e679ac7e6e8",
+          "right_response_hash": "5d79c21ffef4d7a4588c0ef63633f94f3bf7ea822f495db8d81e2e679ac7e6e8",
+          "left_generated_token_hash": "6f0d4c8b6fe0ba6e1a777efd9ab75e9fe78932e89fc090a8f2c8e44bf9a7cd95",
+          "right_generated_token_hash": "6f0d4c8b6fe0ba6e1a777efd9ab75e9fe78932e89fc090a8f2c8e44bf9a7cd95"
+        },
+        "structured-lookup-06": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "5b9d87676cd5bcd1b7ed0e3b18835149ef0ff604d7014e507655677bc96a04be",
+          "right_response_hash": "4d3372e4a6fb7f9ab4c831b4c2abaef433e52e8eeced5ccb9049f76985c2c5af",
+          "left_generated_token_hash": "7660b1a6d4a3a7529fb874a1987d3180158fb80c30813f8da2406ec6437e4329",
+          "right_generated_token_hash": "e3e0eaba49dd76d24e73a2982fa8f90cbdaff441fda87151a2a67bd18e69e5bb"
+        },
+        "structured-lookup-07": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "e2f822c68b999c4cd20d2d723253fd7af304d07e56cf15c151bd8f1d1f8b3c2d",
+          "right_response_hash": "acc8b3aab1bf9c8a6778bb9d6f06496ed9f8d6fe6cd8b7a60d0d58a548c8c43f",
+          "left_generated_token_hash": "f8a67ca676dc6f0f7f75a63ba25f53d2191f3a11d74fa291c4bc86727f85ade4",
+          "right_generated_token_hash": "ff5c1694c9fd252f475184c2a3d86df4682bc4858d67d386b6fff353a3e54d6f"
+        },
+        "structured-lookup-08": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "6a3f46723bee199df328180ece4a23c66519775cbdcf2521411e44232ce63465",
+          "right_response_hash": "6a3f46723bee199df328180ece4a23c66519775cbdcf2521411e44232ce63465",
+          "left_generated_token_hash": "7bf2ebdc52e051ec9ac7d467a38891311043eff4505bcc26e1f86c7e8ca7fd46",
+          "right_generated_token_hash": "7bf2ebdc52e051ec9ac7d467a38891311043eff4505bcc26e1f86c7e8ca7fd46"
+        },
+        "structured-lookup-09": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "99ad96087e13956decaa239b4daeabfb364e62b5e69316065f47adf2901a9c14",
+          "right_response_hash": "b6dc333fd5e1f0aa17fad2adb8461676b76ffe75d31895c0c038481b541c8b31",
+          "left_generated_token_hash": "41e93a9c07e33ed26bb44f322e72b3227a89a5837b638fb0ee62b09d0996172f",
+          "right_generated_token_hash": "06aac8c23318b349cf7a517b314d675e9f2da3acf346d50a05f916ab7adcaef7"
+        },
+        "structured-lookup-10": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "76258314b53fa64357bf88b6f656c436a66b3497c6d92d92f437236cff544b43",
+          "right_response_hash": "76258314b53fa64357bf88b6f656c436a66b3497c6d92d92f437236cff544b43",
+          "left_generated_token_hash": "6f9cc77e958d9086db6b5b8c5c118ca0f5008659122b9df9726b43913ea60a97",
+          "right_generated_token_hash": "6f9cc77e958d9086db6b5b8c5c118ca0f5008659122b9df9726b43913ea60a97"
+        },
+        "structured-lookup-11": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "407ba489434d296acb7d792621ed30c91e57a7f281af6ed5c68063143c2bfc1f",
+          "right_response_hash": "407ba489434d296acb7d792621ed30c91e57a7f281af6ed5c68063143c2bfc1f",
+          "left_generated_token_hash": "e274313e2a082b8dd63c18fb1d3578e78e7f247c873bc6cb0069e700e6568783",
+          "right_generated_token_hash": "e274313e2a082b8dd63c18fb1d3578e78e7f247c873bc6cb0069e700e6568783"
+        },
+        "structured-lookup-12": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "ca98ceef83e2d3b0eefed907f3374294edfaa93f538e9f62afed37c2700bfd17",
+          "right_response_hash": "2875bf338bc341dcac0d7ff003a1491103c728568cfe6bae6929f013aaf2f4d8",
+          "left_generated_token_hash": "b0f91dd5cbae368cdbde03e27bd43bd84b32bd00af28df44de5f544181e6ade4",
+          "right_generated_token_hash": "b9641ed1ac219c2dab7bb7d7499ff1e3bdd161650519ecce781ab93b34e7ea13"
+        },
+        "structured-lookup-13": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "e9c24fc3949f13025be6b6f16464a8168d20dba9f4937cb822cdac5f4a45f318",
+          "right_response_hash": "23cf60f0f1b73f9b74f999762055ab53b2a00fab1d2e2c455b7726d93711f854",
+          "left_generated_token_hash": "fa404f6964d6c2258fea910907c27e72ae8ccec7c22f391a713341f1fe229d4d",
+          "right_generated_token_hash": "dde528939f6c282e42dda13a27c1f2bf4e36153c635ac217f6d8923971193220"
+        },
+        "structured-lookup-14": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "44ebb6e7e86b76e1391f484569c0260481a6881ba14906eb5bc5ec5fda8a5e50",
+          "right_response_hash": "607721ec1005186ac1f2fec700fd910e9bd564e398533b210cbb046a9d5fa83c",
+          "left_generated_token_hash": "e811434d7a649faf752f910b97d5640908f1e2a8686bd2577a9d209a1e844e38",
+          "right_generated_token_hash": "4c1315c327a20f90192fa8a4d14be6e64669ae38addf1c1fe6e363124eb48c52"
+        },
+        "structured-lookup-15": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "d5a53f3d7ddfbeec16a0088a3de6bf72346302777213a13450b10e4bd925b726",
+          "right_response_hash": "d5a53f3d7ddfbeec16a0088a3de6bf72346302777213a13450b10e4bd925b726",
+          "left_generated_token_hash": "ef7e73fc6735151993ec982e09f92817d0afd049afc90e298aa130cf0f56eeb4",
+          "right_generated_token_hash": "ef7e73fc6735151993ec982e09f92817d0afd049afc90e298aa130cf0f56eeb4"
+        },
+        "structured-lookup-16": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "6d7b9b9dbc60eb68f39c39b3d49667e7f16d00924d0c6f8ea111a26e804921ca",
+          "right_response_hash": "6d7b9b9dbc60eb68f39c39b3d49667e7f16d00924d0c6f8ea111a26e804921ca",
+          "left_generated_token_hash": "2ae1076b8dbb3540877ff90bab24322e376f14b2814504be54b18a2ef7fc1001",
+          "right_generated_token_hash": "2ae1076b8dbb3540877ff90bab24322e376f14b2814504be54b18a2ef7fc1001"
+        },
+        "structured-lookup-17": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "dc5bd2e1947539aa59333340f6d9d61679825eb778ba22c29b280fe2750040a4",
+          "right_response_hash": "beb1890e74f8f83213b624923b8c66a9421f4f453a44eeb39fe716bd6e891627",
+          "left_generated_token_hash": "30045d1105d54c96c714cfed3098d5312973971e3c6957caf669f28ac5ff4ad5",
+          "right_generated_token_hash": "77d86993b4d3aead7ff03775e8c2ad92972a2d7e9aa529791a92a4e4714a5810"
+        },
+        "structured-lookup-18": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "96be5b0e37a98d1ee0a9762b034c95bed0c4f8e7b550cc92256d1f7d2ad691a6",
+          "right_response_hash": "737978ed741e1164c0a099a8c1bf2dc555f37a1bd3d66e44e6a1b63e714628b0",
+          "left_generated_token_hash": "526e106ae4ff27aa1fc14ea4ffa66a1a14e7b167b5a228648a93c14447e7dff4",
+          "right_generated_token_hash": "4c76aaa0fc27916a5d4a8b6f5dab9d2129865710635160f4f31946df00c2c010"
+        },
+        "structured-lookup-19": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "20d4e9ff984883b8a6a9a3d7fa2bdd512c979a3e2f9cfd8e4e62e0c92d7f6a94",
+          "right_response_hash": "3bcf28c44af4f8e1e17c634ecf24ffe816735ebf9dc467405650847e5f9ac0cd",
+          "left_generated_token_hash": "57594af7c3d03c2b75289e92232027f75957d69b07fb5ccced17b1a3c5e7a5d5",
+          "right_generated_token_hash": "a3a1b4decab8ea6a8972715021759771095a9a4442de02fc12bc45b83a1de545"
+        },
+        "structured-lookup-20": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "0d77b1999ac14369c1eb533616f3bb815313531823d4dd380fdd43ff8bd6b7f6",
+          "right_response_hash": "0d77b1999ac14369c1eb533616f3bb815313531823d4dd380fdd43ff8bd6b7f6",
+          "left_generated_token_hash": "efa21a2787862889263d8fb863bf0db5e701107dfbdfff1be01ac3ac8c101b69",
+          "right_generated_token_hash": "efa21a2787862889263d8fb863bf0db5e701107dfbdfff1be01ac3ac8c101b69"
+        },
+        "structured-lookup-21": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "0ba5c73abe2c7afb2f767f1dc0fba2a10db7860587acbb742eede50182242596",
+          "right_response_hash": "149a503c4c1a067b8eeca86fd7fb25861121f565003c4c03f34267dbe973fd67",
+          "left_generated_token_hash": "071b5e5598b27d9b6336923fca145e556ba6436da4994f1e54f7529ca46a4051",
+          "right_generated_token_hash": "09a7ad62943ad6fc314815022f1ccd0b55d056a18cf0a8ffdfd736d5a2fa6a61"
+        },
+        "structured-lookup-22": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "83eaad8820ed36844a08bc65e4577d1589a949946b631432bb9a976a5d4f49fe",
+          "right_response_hash": "ba40772c976991eb61abefd15b66633437b92335481d6aae523107e5f21a070b",
+          "left_generated_token_hash": "893c465a8588bbe16837faf2e756e45ec3aa134af20155199912839136a9c2dd",
+          "right_generated_token_hash": "b649052e26572cff4f72a6fae08a607fb84e390f72b9b5abe5eba187f34cb042"
+        },
+        "structured-lookup-23": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "91efa1c07490b39598515de124ce6dda7a642c8cb00f619b929694c2c192fa28",
+          "right_response_hash": "9479e44cf42b39302363f5e5e28c9528360eba7203da3358f2afc729e787d1b3",
+          "left_generated_token_hash": "e5e348d689195f4922ebbeac76252bbfbdcaed93b19ef74e01a038d1d5fef333",
+          "right_generated_token_hash": "58b45fdc17bf40a43954a210993496ed79eb1c40b7b92d5ea868ec6747004b1c"
+        },
+        "structured-lookup-24": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "1557576bc9a4a61e1191a24c354f76b232a5e243b8c0018f739428baf47bba8a",
+          "right_response_hash": "1472928101003e08ab2ad04edad66744a363c7051f43e4b03601c2a0dd0e654a",
+          "left_generated_token_hash": "af32aee4728ff13e323a4ac05d39a986e0594506feba4fccd2384be49e82db3a",
+          "right_generated_token_hash": "696135e975ea8411687219db1b8585a1cc8096b90a41296130a74947044d65bc"
+        },
+        "structured-lookup-25": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "0756b760244a44435c0e956fb0e319b12329aabe0cc15189702fbc4e3b1f2551",
+          "right_response_hash": "1177684fdb1854234d6485f7ea5501af42bf5220d839d448ddac1679ded35344",
+          "left_generated_token_hash": "03463bbd075066401ee1856cf2a7568c304804186c3eee8f0ae59114a30db5ed",
+          "right_generated_token_hash": "61e8eb49ddbb3589c6622701e6fc739f763bcd003662d2e868195fb35aaa765a"
+        },
+        "structured-lookup-26": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "b6b1aded1f5cc2347f03abe6fe99596a29b4f55dc711219f0f097f7e6ca4ad93",
+          "right_response_hash": "177d62e29da72f77f696b585064003496708cde838a1dfca11fdf2de82d2c46e",
+          "left_generated_token_hash": "e31db5c443e0b94ef3634555b05ae04d0b4a89f42fa2bd2f228273de0f3b785c",
+          "right_generated_token_hash": "56a81a83f183a59d0cdb7ebcd47d69d747e9154ed45b067a370a74da1c8ae45c"
+        },
+        "structured-lookup-27": {
+          "response_hash_match": true,
+          "normalized_response_hash_match": true,
+          "generated_token_hash_match": true,
+          "left_response_hash": "f18e7963811ce1a31c02947e39a2090f0f93f1d58fd2b927d4918ba39c7db44e",
+          "right_response_hash": "f18e7963811ce1a31c02947e39a2090f0f93f1d58fd2b927d4918ba39c7db44e",
+          "left_generated_token_hash": "49953989e66333e78ccc99bebe363352ca566af6bdc69eb4e40278e2270be0d5",
+          "right_generated_token_hash": "49953989e66333e78ccc99bebe363352ca566af6bdc69eb4e40278e2270be0d5"
+        },
+        "structured-lookup-28": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "8b93cb60c750eae5ba126877db88d2cf11ab246b66e25652cbff67ac9cdc5d30",
+          "right_response_hash": "be56dc8bf43aad59049d82c58eb4f10b53365b4d317a07980a8592c8546a2ad9",
+          "left_generated_token_hash": "02629ccafa6ccdeb3a577558d4c40d2141d4681444aa3fa21a203886279e6892",
+          "right_generated_token_hash": "706c5c40e14df4d8b4b151f80d91a376efd90e104bc710e41f559dd51d61248f"
+        },
+        "structured-lookup-29": {
+          "response_hash_match": false,
+          "normalized_response_hash_match": false,
+          "generated_token_hash_match": false,
+          "left_response_hash": "be82f37c28565f5bdaf62f0c1976cb5e9ff84bf4cf1b20ac2ac4324b5d5408a6",
+          "right_response_hash": "d41229f0206764347a616b2d75f620502583fc4b81285eb234d10048edf7ca4d",
+          "left_generated_token_hash": "d73c55e606696329499a3fe863c1a243b6b28becfd19bc401f83294c97aadc0d",
+          "right_generated_token_hash": "e042caecf7c453aff14e7d9c4cbe9550ca5ea83b5f23c5e97a969ab634c6d8ce"
+        }
+      }
+    }
+  },
+  "telemetry_gaps": {
+    "ended_utc": null,
+    "process_cleanup_status": null
+  }
+}
