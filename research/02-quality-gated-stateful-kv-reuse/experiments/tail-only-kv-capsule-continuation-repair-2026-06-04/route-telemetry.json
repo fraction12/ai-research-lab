@@ -1,0 +1,61 @@
+{
+  "route_inventory": {
+    "abi_route": "python_ctypes_direct_libllama_c_api",
+    "abi_risk": "pinned_b9493_headers_used_for_signature_guidance_against_pinned_dll; smoke_and_tokenization_gated",
+    "state_route_requested": "auto",
+    "state_route_effective": "seq_file",
+    "state_route_internal": "seq-file",
+    "state_route_warning": null,
+    "sequence_state_available": {
+      "seq_file": true,
+      "seq_memory": true
+    },
+    "sequence_state_exports": {
+      "seq_file_available": true,
+      "seq_memory_available": true,
+      "exports": {
+        "llama_state_seq_get_size": true,
+        "llama_state_seq_get_data": true,
+        "llama_state_seq_set_data": true,
+        "llama_state_seq_save_file": true,
+        "llama_state_seq_load_file": true
+      },
+      "ext_exports": {
+        "llama_state_seq_get_size_ext": true,
+        "llama_state_seq_get_data_ext": true,
+        "llama_state_seq_set_data_ext": true
+      }
+    },
+    "whole_context_exports_present": {
+      "llama_state_get_size": true,
+      "llama_state_get_data": true,
+      "llama_state_set_data": true
+    }
+  },
+  "native_route": {
+    "full_prompt_and_prefix_prefill_add_special": true,
+    "tail_append_add_special": false,
+    "seq_id": 0,
+    "n_past_before_tail_append": {
+      "count": 30,
+      "mean": 17.466666666666665,
+      "min": 16,
+      "max": 19
+    },
+    "generation_start_pos": {
+      "count": 30,
+      "mean": 31.466666666666665,
+      "min": 30,
+      "max": 33
+    }
+  },
+  "server_diagnostics": {
+    "status": "not_run_in_this_model_bearing_gate",
+    "reason": "Prior bridge/documented-cache artifacts already separated server full-prompt cache reuse from the strong tail-only contract; this gate focused on the native sequence-file route."
+  },
+  "console_evidence": {
+    "cuda_backend_loaded": true,
+    "state_read_meta_observed_in_console": true,
+    "raw_console_path": "/Users/dushyantgarg/.codex/worktrees/328e/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-continuation-repair-2026-06-04/raw/family1-30-console.txt"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "committed_artifacts": [
+    "README.md",
+    "summary.json",
+    "case-metrics.json",
+    "route-telemetry.json",
+    "capsule-contract.md",
+    "failure-classifications.json",
+    "commands.md",
+    "model-info.json",
+    "artifact-manifest.json"
+  ],
+  "ignored_raw_artifacts": {
+    "raw_dir": "/Users/dushyantgarg/.codex/worktrees/328e/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-continuation-repair-2026-06-04/raw",
+    "cache_dir": "/Users/dushyantgarg/.codex/worktrees/328e/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-continuation-repair-2026-06-04/cache",
+    "raw_files": [
+      "export_probe.py",
+      "family1-30-command.txt",
+      "family1-30-console.txt",
+      "family1-30-exit.json",
+      "family1-smoke-command.txt",
+      "family1-smoke-console.txt",
+      "family1-smoke-exit.json",
+      "family1-smoke-repair-records.jsonl",
+      "family1-smoke-repair-run-info.json",
+      "remote_poll_family1_smoke.ps1",
+      "remote_repair_sanity.ps1",
+      "remote_run_family1_30.ps1",
+      "remote_run_family1_smoke.ps1",
+      "remote_summarize_family1_30.ps1",
+      "remote_tail_only_sanity.ps1",
+      "repair-records.jsonl",
+      "repair-run-info.json",
+      "tail_only_kv_capsule_repair.py"
+    ],
+    "cache_file_count": 30
+  },
+  "sanitation_policy": {
+    "committed_allowed": [
+      "hashes",
+      "counts",
+      "timings",
+      "booleans",
+      "failure classes",
+      "route labels",
+      "command lines",
+      "model/backend metadata"
+    ],
+    "committed_forbidden": [
+      "raw prompts",
+      "raw responses",
+      "expected answer strings",
+      "token ID arrays/slices",
+      "generated token arrays/slices",
+      "top-k arrays",
+      "token piece previews",
+      "state bytes"
+    ],
+    "raw_boundary": "Prompt-bearing records, console logs, runner scripts, and state files remain under ignored Track 01 benchmark paths."
+  },
+  "raw_hashes": {
+    "repair_records_jsonl": "14BD96FF894C16521B06EAE6E3D53AE858747374B00466135CB1A959804D6E1E",
+    "repair_run_info_json": "94948B22CFE890A30CD544397081557DEA136ACDC6AC3F739E449FA22B0E7F0C",
+    "family1_30_exit_json": "D681B94718F83393610C3AF822180EA3E16D1522819CC664F8BCD6B5D25BD89F",
+    "family1_smoke_records_jsonl": "880184D73C20BDC7A5A240F8A3E1BA564CC7033237EFE75C45133E51BB4EAA5C",
+    "family1_smoke_run_info_json": "BE46FC3E11DFE257FB16CBB97893F720292FD63C88B3F4D53B02A167F5AFA2C7"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "model": {
+    "path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "hash": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+    "size_bytes": 13793422144,
+    "header_hex": "47 47 55 46 03 00 00 00 cb 01 00 00 00 00 00 00",
+    "description": "gpt-oss 20B unknown, may not work",
+    "architecture": "gpt-oss",
+    "tokenizer_model": "gpt2",
+    "n_vocab": 201088,
+    "is_hybrid": false,
+    "is_recurrent": false,
+    "n_swa": 128
+  },
+  "backend": {
+    "bundle": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss",
+    "backend": "cuda_v13",
+    "libllama_hash": "9B707D4886051671B8C94BB5A2F3F07DD0868A5BFB34EE163C080D91555E2310",
+    "server_hash": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6",
+    "cuda_backend": "cuda_v13",
+    "hardware_observed": "NVIDIA GeForce RTX 3060; CUDA0 in raw console"
+  },
+  "host": {
+    "node": "DushyantPC",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]"
+  }
+}
