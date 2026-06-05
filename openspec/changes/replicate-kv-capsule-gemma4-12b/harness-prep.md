@@ -17,9 +17,17 @@ Suggested profile fields:
   "profile_id": "gemma4-12b",
   "model_family": "gemma",
   "model_name": "Gemma 4 12B",
-  "model_path": "<orchestration-provided local GGUF path>",
+  "ollama_manifest_path": "C:\\Users\\Dushyant\\.ollama\\models\\manifests\\registry.ollama.ai\\library\\gemma4\\12b",
+  "model_path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-5cf8a1f2fc4268b3fd628743675910cf1d8137c4742d0be401c3e885f605023a",
+  "model_size_bytes": 7381382048,
+  "mmproj_layer_present": true,
+  "mmproj_layer_note": "Ollama manifest has an mmproj layer beginning sha256:a18399bf; initial text-only smoke did not require it.",
   "expected_architecture": "<recorded from model metadata after load>",
-  "tokenizer_or_template_notes": "<recorded before evidence>",
+  "tokenizer_or_template_notes": "Gemma smoke emitted thinking/channel markers; calibrate scoring or disable thinking through a supported route before evidence.",
+  "llama_bundle": "C:\\Users\\Dushyant\\Tools\\llama-b9512-cuda13",
+  "llama_version": "9512 (0dbfa66a1)",
+  "llama_dll_path": "C:\\Users\\Dushyant\\Tools\\llama-b9512-cuda13\\llama.dll",
+  "llama_dll_name": "llama.dll",
   "ctx_size": 32768,
   "predict": 48,
   "state_route": "auto",
@@ -35,6 +43,7 @@ Suggested CLI shape:
 --model-profile {gpt-oss-20b,gemma4-12b}
 --model-profile-file <optional-json>
 --model <explicit override>
+--llama-dll <explicit llama.dll/libllama.dll path>
 --out-dir <profile default or explicit override>
 --cache-dir <profile default or explicit override>
 --state-route {auto,seq-file,seq-memory,whole-context}
@@ -43,18 +52,31 @@ Suggested CLI shape:
 Rules:
 
 - Selecting `gemma4-12b` must change raw/cache defaults away from the GPT-OSS paths.
+- Selecting `gemma4-12b` must load b9512's `llama.dll` or another explicit compatible DLL path. Do not assume the DLL is named `libllama.dll`.
 - Raw/cache paths must be ignored before any DushyantPC execution.
 - The run metadata must include the selected profile and all resolved fields.
 - If Gemma-specific tokenization/template behavior differs, it must be recorded before evidence and not silently patched mid-gate.
+- Gemma scoring must handle or suppress thinking/channel markers before Family 1/2 evidence. The initial one-shot smoke loaded successfully but produced such markers in raw output.
 - `whole-context` remains diagnostic fallback only.
+
+## Confirmed Runtime Facts
+
+- Gemma 4 12B is installed through Ollama as the text model blob listed in the profile above.
+- No final duplicate Hugging Face GGUF remains in the repo cache after orchestration cleanup.
+- b9512 CUDA 13 runtime is installed and version-checked.
+- b9512 exports required sequence-state symbols from `llama.dll`.
+- RTX 3060 12GB had about 11.8GB free before smoke.
+- `llama-cli` is conversation-oriented for this runtime; use `llama-completion` for one-shot load smoke instead.
+- Orchestration confirmed no stale model/download/harness processes remained after cleanup.
 
 ## Smoke Ladder For Orchestration
 
 1. Local syntax/help/stale-grep on the patched ignored runner.
 2. Remote syntax/help/stale-grep and export probe.
-3. Family 1 smoke with Gemma profile.
-4. Family 1 primary if smoke passes.
-5. Family 2 smoke if Family 1 primary passes.
-6. Family 2 primary if Family 2 smoke passes.
+3. Optional one-shot `llama-completion` load smoke using the Gemma text blob.
+4. Family 1 smoke with Gemma profile.
+5. Family 1 primary if smoke passes.
+6. Family 2 smoke if Family 1 primary passes.
+7. Family 2 primary if Family 2 smoke passes.
 
 No Family 3, GraphWalks, broad retrieval, noiseless evidence, or agent-context work should run in this replication change.
