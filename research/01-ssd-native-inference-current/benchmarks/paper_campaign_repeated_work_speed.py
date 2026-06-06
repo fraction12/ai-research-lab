@@ -126,7 +126,7 @@ def build_codex_prompt(row: dict[str, Any], *, task_index: int, task_count: int)
 
 
 def build_kv_runner_command(args: argparse.Namespace, *, run_label: str) -> list[str]:
-    return [
+    command = [
         sys.executable,
         str(BENCHMARKS_DIR / "code_mode_kv_capsule_model_loop_runner.py"),
         "--packet",
@@ -141,9 +141,10 @@ def build_kv_runner_command(args: argparse.Namespace, *, run_label: str) -> list
         args.kv_controls,
         "--model-profile",
         args.model_profile,
-        "--case-limit",
-        str(args.case_limit),
     ]
+    if args.case_limit is not None:
+        command.extend(["--case-limit", str(args.case_limit)])
+    return command
 
 
 def run_subprocess(command: list[str], *, cwd: Path, stdin_text: str | None = None) -> tuple[int, str, str, float]:

@@ -108,6 +108,21 @@ class RepeatedWorkSpeedTests(unittest.TestCase):
         self.assertIn("--controls code_mode_native_live_append,code_mode_restored_kv_capsule", joined)
         self.assertIn("--case-limit 2", joined)
 
+    def test_build_kv_runner_command_omits_case_limit_for_full_run(self) -> None:
+        args = argparse.Namespace(
+            packet=Path("packet.jsonl"),
+            out_dir=Path("out"),
+            cache_dir=Path("cache"),
+            kv_controls="code_mode_native_live_append,code_mode_restored_kv_capsule",
+            model_profile="gemma4-12b",
+            case_limit=None,
+        )
+
+        command = speed.build_kv_runner_command(args, run_label="full-kv")
+
+        self.assertNotIn("--case-limit", command)
+        self.assertNotIn("None", command)
+
     def test_codex_command_wraps_windows_powershell_shim(self) -> None:
         args = argparse.Namespace(
             codex_bin=r"C:\Users\Dushyant\AppData\Roaming\npm\codex.ps1",
