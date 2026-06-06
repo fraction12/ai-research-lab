@@ -1,15 +1,15 @@
 ## 1. Campaign Spec And Validation
 
 - [x] 1.1 Create OpenSpec proposal, design, tasks, and spec deltas for the paper-grade Code-mode + KV capsule evaluation campaign.
-- [ ] 1.2 Run `openspec validate design-paper-grade-code-mode-kv-capsule-evaluation --type change --strict`.
-- [ ] 1.3 Run `openspec validate --all --strict` or record why full validation is deferred.
-- [ ] 1.4 Review this campaign against the current BFCL primary-50 artifacts and update if the pilot summary changes.
+- [x] 1.2 Run `openspec validate design-paper-grade-code-mode-kv-capsule-evaluation --type change --strict`.
+- [x] 1.3 Run `openspec validate --all --strict` or record why full validation is deferred.
+- [x] 1.4 Review this campaign against the current BFCL primary-50 artifacts and update if the pilot summary changes.
 
 ## 2. Stage 0 Readiness Implementation
 
-- [ ] 2.1 Add or identify a readiness script that checks repo revision, dirty state, ignored raw paths, model profile, llama.cpp route, DushyantPC reachability, GPU status, and duplicate process state.
-- [ ] 2.2 Ensure readiness output writes `execution-readiness.json` and appends the command to `commands.md`.
-- [ ] 2.3 Add tests or dry-run checks for the readiness script where practical.
+- [x] 2.1 Add or identify a readiness script that checks repo revision, dirty state, ignored raw paths, model profile, llama.cpp route, DushyantPC reachability, GPU status, and duplicate process state.
+- [x] 2.2 Ensure readiness output writes `execution-readiness.json`.
+- [x] 2.3 Add tests or dry-run checks for the readiness script where practical.
 
 ## 3. BFCL Primary Expansion
 
@@ -45,9 +45,9 @@
 
 ## 7. Periodic Checkups
 
-- [ ] 7.1 Add a checkup command or documented routine that reports active process health, GPU status, current row/control counts, failure counts, last JSONL timestamp, artifact sizes, and stop-rule triggers.
-- [ ] 7.2 Append every checkup to `periodic-checkups.jsonl`.
-- [ ] 7.3 Ensure checkups do not mutate or restart active runs unless a stop rule requires it.
+- [x] 7.1 Add a checkup command or documented routine that reports active process health, GPU status, current row/control counts, failure counts, last JSONL timestamp, artifact sizes, and stop-rule triggers.
+- [x] 7.2 Append every checkup to `periodic-checkups.jsonl`.
+- [x] 7.3 Ensure checkups do not mutate or restart active runs unless a stop rule requires it.
 
 ## 8. Paper Package
 
