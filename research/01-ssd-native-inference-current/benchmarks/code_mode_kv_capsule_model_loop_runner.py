@@ -1319,6 +1319,16 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     ap.add_argument("--max-steps", type=int, default=5)
     ap.add_argument("--max-repairs", type=int, default=1)
     ap.add_argument(
+        "--controls",
+        default=",".join(CONTROL_ORDER),
+        help="Comma-separated controls to execute from the packet. Defaults to all controls.",
+    )
+    ap.add_argument(
+        "--case-limit",
+        type=int,
+        help="Optional maximum number of cases to execute, useful for smoke tests.",
+    )
+    ap.add_argument(
         "--tool-answer-fallback",
         choices=["off", "after-loop", "immediate"],
         default="after-loop",
@@ -1334,8 +1344,27 @@ def run(argv: list[str] | None = None) -> int:
     args.cache_dir.mkdir(parents=True, exist_ok=True)
     args.cache_dir = str(args.cache_dir)
     args.run_label = safe_run_label(args.run_label or default_run_label(args.packet))
+    args.controls_to_run = [control.strip() for control in str(args.controls).split(",") if control.strip()]
+    unsupported_controls = sorted(set(args.controls_to_run) - set(CONTROL_ORDER))
+    if unsupported_controls:
+        raise SystemExit(f"unsupported --controls values: {unsupported_controls}")
+    if not args.controls_to_run:
+        raise SystemExit("--controls selected no controls")
 
-    rows = read_packet(args.packet)
+    packet_rows = read_packet(args.packet)
+    all_rows_by_case: dict[str, list[dict[str, Any]]] = {}
+    for row in packet_rows:
+        all_rows_by_case.setdefault(row["case_id"], []).append(row)
+    selected_case_ids = sorted(all_rows_by_case)
+    if args.case_limit is not None:
+        if args.case_limit < 1:
+            raise SystemExit("--case-limit must be >= 1")
+        selected_case_ids = selected_case_ids[: args.case_limit]
+    rows = [
+        row
+        for row in packet_rows
+        if row["case_id"] in set(selected_case_ids) and row["control_id"] in set(args.controls_to_run)
+    ]
     rows_by_case: dict[str, list[dict[str, Any]]] = {}
     for row in rows:
         rows_by_case.setdefault(row["case_id"], []).append(row)
@@ -1403,7 +1432,8 @@ def run(argv: list[str] | None = None) -> int:
             "seq_file": sequence_state["seq_file_available"],
             "seq_memory": sequence_state["seq_memory_available"],
         },
-        "control_order": CONTROL_ORDER,
+        "control_order": args.controls_to_run,
+        "case_limit": args.case_limit,
         "max_steps": args.max_steps,
         "max_repairs": args.max_repairs,
         "tool_answer_fallback": args.tool_answer_fallback,
@@ -1438,9 +1468,9 @@ def run(argv: list[str] | None = None) -> int:
         )
 
         with records_path.open("w", encoding="utf-8") as handle:
-            for case_id in sorted(rows_by_case):
+            for case_id in selected_case_ids:
                 by_control = {row["control_id"]: row for row in rows_by_case[case_id]}
-                for control_id in CONTROL_ORDER:
+                for control_id in args.controls_to_run:
                     row = by_control[control_id]
                     try:
                         if control_id in {
@@ -1455,7 +1485,7 @@ def run(argv: list[str] | None = None) -> int:
                         elif control_id == "code_mode_restored_kv_capsule":
                             result = run_restored_control(helper_mod, lib, model, vocab, n_vocab, args, row, row)
                         elif control_id == "code_mode_wrong_capsule_negative":
-                            source = choose_wrong_capsule_source(rows_by_case, row)
+                            source = choose_wrong_capsule_source(all_rows_by_case, row)
                             result = run_restored_control(helper_mod, lib, model, vocab, n_vocab, args, row, source)
                         else:
                             raise RuntimeError(f"unsupported control: {control_id}")
