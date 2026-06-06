@@ -170,3 +170,15 @@ Tracked findings live at:
 ```text
 research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/selected-cohort-findings.md
 ```
+
+## Repeated Work Speed Follow-Up
+
+The selected cohort established semantic preservation, not speed. The follow-up benchmark must test amortized repeated-work performance against a strong compacted-prompt/tool-call baseline.
+
+Experiment design:
+
+```text
+research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-experiment-design.md
+```
+
+The benchmark question is whether a one-time capsule build plus repeated restored tail calls reduces cumulative wall-clock time and visible-token burden compared with repeatedly sending compacted stable context and regular tool-call instructions. Report matched-quality results only; if the KV route is faster because it fails more, that is not a speed win.
