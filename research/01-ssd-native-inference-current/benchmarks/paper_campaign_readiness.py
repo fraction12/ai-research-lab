@@ -83,6 +83,7 @@ def git_info() -> dict[str, Any]:
 
 
 def process_check() -> dict[str, Any]:
+    current_pid = os.getpid()
     system = platform.system().lower()
     if system == "windows":
         script = (
@@ -91,7 +92,12 @@ def process_check() -> dict[str, Any]:
             "| ConvertTo-Json -Compress"
         )
         result = run_command(["powershell", "-NoProfile", "-Command", script])
-        return {"method": "powershell_get_process", "result": result, "active_processes": parse_json_output(result)}
+        active = [
+            process
+            for process in parse_json_output(result)
+            if isinstance(process, dict) and int(process.get("Id", -1)) != current_pid
+        ]
+        return {"method": "powershell_get_process", "result": result, "active_processes": active}
     result = run_command(["ps", "-axo", "pid=,comm=,etime="])
     active: list[dict[str, str]] = []
     for line in result.get("stdout", "").splitlines():
@@ -99,7 +105,7 @@ def process_check() -> dict[str, Any]:
         if len(parts) < 2:
             continue
         name = Path(parts[1]).name
-        if name in PROCESS_NAMES:
+        if name in PROCESS_NAMES and int(parts[0]) != current_pid:
             active.append({"pid": parts[0], "name": name, "etime": parts[2] if len(parts) > 2 else ""})
     return {"method": "ps", "result": result, "active_processes": active}
 
