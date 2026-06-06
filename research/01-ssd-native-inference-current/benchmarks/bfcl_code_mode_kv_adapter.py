@@ -10,8 +10,10 @@ possible_answer JSONL files.
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import json
+import re
 import sys
 import urllib.request
 from dataclasses import dataclass
@@ -43,7 +45,7 @@ REMOTE_BASE = (
 CONTROL_IDS = list(harness.CONTROL_IDS)
 NEGATIVE_CONTROLS = {"code_mode_fresh_tail_only", "code_mode_wrong_capsule_negative"}
 
-INITIAL_CATEGORY_FILES = {
+BFCL_CATEGORY_FILES = {
     "simple": "BFCL_v3_simple.json",
     "multiple": "BFCL_v3_multiple.json",
     "parallel": "BFCL_v3_parallel.json",
@@ -53,7 +55,67 @@ INITIAL_CATEGORY_FILES = {
     "exec_multiple": "BFCL_v3_exec_multiple.json",
     "exec_parallel": "BFCL_v3_exec_parallel.json",
     "exec_parallel_multiple": "BFCL_v3_exec_parallel_multiple.json",
+    "java": "BFCL_v3_java.json",
+    "javascript": "BFCL_v3_javascript.json",
+    "sql": "BFCL_v3_sql.json",
+    "rest": "BFCL_v3_rest.json",
+    "chatable": "BFCL_v3_chatable.json",
+    "live_simple": "BFCL_v3_live_simple.json",
+    "live_multiple": "BFCL_v3_live_multiple.json",
+    "live_parallel": "BFCL_v3_live_parallel.json",
+    "live_parallel_multiple": "BFCL_v3_live_parallel_multiple.json",
+    "live_relevance": "BFCL_v3_live_relevance.json",
+    "live_irrelevance": "BFCL_v3_live_irrelevance.json",
+    "multi_turn_base": "BFCL_v3_multi_turn_base.json",
+    "multi_turn_composite": "BFCL_v3_multi_turn_composite.json",
+    "multi_turn_long_context": "BFCL_v3_multi_turn_long_context.json",
+    "multi_turn_miss_func": "BFCL_v3_multi_turn_miss_func.json",
+    "multi_turn_miss_param": "BFCL_v3_multi_turn_miss_param.json",
 }
+INITIAL_CATEGORY_FILES = BFCL_CATEGORY_FILES
+DEFAULT_COMPATIBILITY_CATEGORIES = [
+    "simple",
+    "multiple",
+    "parallel",
+    "parallel_multiple",
+    "irrelevance",
+    "exec_simple",
+    "exec_multiple",
+    "exec_parallel",
+    "exec_parallel_multiple",
+    "java",
+    "javascript",
+    "sql",
+    "rest",
+    "live_simple",
+    "live_multiple",
+    "live_parallel",
+    "live_parallel_multiple",
+    "live_relevance",
+    "live_irrelevance",
+    "multi_turn_base",
+    "multi_turn_composite",
+    "multi_turn_long_context",
+    "multi_turn_miss_func",
+    "multi_turn_miss_param",
+]
+MULTI_TURN_CATEGORIES = {
+    "multi_turn_base",
+    "multi_turn_composite",
+    "multi_turn_long_context",
+    "multi_turn_miss_func",
+    "multi_turn_miss_param",
+}
+LIVE_OR_API_CATEGORIES = {
+    "rest",
+    "live_simple",
+    "live_multiple",
+    "live_parallel",
+    "live_parallel_multiple",
+    "live_relevance",
+    "live_irrelevance",
+}
+CALL_STRING_RE = re.compile(r"^\s*(?P<name>[A-Za-z_][A-Za-z0-9_.:-]*)\s*\((?P<args>.*)\)\s*$")
 
 
 @dataclass(frozen=True)
@@ -141,13 +203,54 @@ def user_query_text(messages: list[dict[str, str]]) -> str:
     return "\n".join(f"{message['role'].upper()}: {message['content']}" for message in messages)
 
 
+def parse_call_string(call_text: str) -> dict[str, Any] | None:
+    match = CALL_STRING_RE.match(call_text)
+    if not match:
+        return None
+    name = match.group("name")
+    args_text = match.group("args").strip()
+    if not args_text:
+        return {"name": name, "arguments": {}}
+    try:
+        expr = ast.parse(f"f({args_text})", mode="eval").body
+    except SyntaxError:
+        return {"name": name, "arguments": {"_raw": [call_text]}}
+    if not isinstance(expr, ast.Call):
+        return None
+    arguments: dict[str, list[Any]] = {}
+    for index, arg in enumerate(expr.args):
+        try:
+            value = ast.literal_eval(arg)
+        except ValueError:
+            value = ast.unparse(arg) if hasattr(ast, "unparse") else call_text
+        arguments[f"arg{index}"] = [value]
+    for keyword in expr.keywords:
+        if keyword.arg is None:
+            continue
+        try:
+            value = ast.literal_eval(keyword.value)
+        except ValueError:
+            value = ast.unparse(keyword.value) if hasattr(ast, "unparse") else call_text
+        arguments[str(keyword.arg)] = [value]
+    return {"name": name, "arguments": arguments}
+
+
 def expected_calls_from_answer(answer_row: dict[str, Any] | None) -> list[dict[str, Any]]:
     if not answer_row:
         return []
     calls: list[dict[str, Any]] = []
-    for call_spec in answer_row.get("ground_truth", []):
+    def visit(call_spec: Any) -> None:
+        if isinstance(call_spec, str):
+            parsed = parse_call_string(call_spec)
+            if parsed:
+                calls.append(parsed)
+            return
+        if isinstance(call_spec, list):
+            for item in call_spec:
+                visit(item)
+            return
         if not isinstance(call_spec, dict):
-            continue
+            return
         for name, arguments in call_spec.items():
             calls.append(
                 {
@@ -158,11 +261,19 @@ def expected_calls_from_answer(answer_row: dict[str, Any] | None) -> list[dict[s
                     },
                 }
             )
+    for call_spec in answer_row.get("ground_truth", []):
+        visit(call_spec)
     return calls
 
 
 def source_fields_used(row: dict[str, Any], answer_row: dict[str, Any] | None) -> list[str]:
     fields = ["id", "question", "function"]
+    if "initial_config" in row:
+        fields.append("initial_config")
+    if "path" in row:
+        fields.append("path")
+    if "involved_classes" in row:
+        fields.append("involved_classes")
     if answer_row is not None:
         fields.append("possible_answer.ground_truth")
     return fields
@@ -174,12 +285,24 @@ def source_fields_excluded(row: dict[str, Any], answer_row: dict[str, Any] | Non
 
 
 def make_bfcl_case(category: str, row: dict[str, Any], answer_row: dict[str, Any] | None, index: int) -> BFCLCase:
-    row_id = str(row["id"])
+    row_id = str(row.get("id") or f"{category}_{index}")
     source_row_hash = json_hash(row)
     expected_calls = expected_calls_from_answer(answer_row)
-    functions = list(row.get("function") or [])
+    functions = normalize_functions(row, expected_calls)
     messages = flatten_messages(row.get("question"))
-    scorer_mode = "no_call_irrelevance" if not expected_calls else "expected_call_match"
+    if expected_calls and category in MULTI_TURN_CATEGORIES:
+        scorer_mode = "multi_turn_expected_call_match"
+    elif expected_calls:
+        scorer_mode = "expected_call_match"
+    elif answer_row is None and category != "irrelevance":
+        scorer_mode = "unsupported_missing_possible_answer"
+    else:
+        scorer_mode = "no_call_irrelevance"
+    diagnostic_reason = (
+        "diagnostic_only_missing_possible_answer"
+        if scorer_mode == "unsupported_missing_possible_answer"
+        else "pending_code_mode_full_visible_calibration"
+    )
     return BFCLCase(
         case_id=f"bfcl:{category}:{row_id}",
         category=category,
@@ -192,9 +315,44 @@ def make_bfcl_case(category: str, row: dict[str, Any], answer_row: dict[str, Any
         expected_calls=expected_calls,
         scorer_mode=scorer_mode,
         primary_eligible=False,
-        primary_eligibility_reason="pending_code_mode_full_visible_calibration",
+        primary_eligibility_reason=diagnostic_reason,
         prefix_dependency_class="tool_schema_required_by_design_pending_negative_controls",
     )
+
+
+def normalize_functions(row: dict[str, Any], expected_calls: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    raw_functions = row.get("function")
+    if isinstance(raw_functions, list):
+        return [function for function in raw_functions if isinstance(function, dict)]
+    if isinstance(raw_functions, dict):
+        return [raw_functions]
+    if isinstance(raw_functions, str) and raw_functions.strip():
+        return [
+            {
+                "name": raw_functions.strip(),
+                "description": "BFCL chatable function string.",
+                "parameters": {"type": "dict", "properties": {}},
+            }
+        ]
+    path = row.get("path")
+    names: list[str] = []
+    if isinstance(path, list):
+        names.extend(str(item) for item in path if item)
+    names.extend(call["name"] for call in expected_calls if call.get("name"))
+    seen: set[str] = set()
+    functions: list[dict[str, Any]] = []
+    for name in names:
+        if name in seen:
+            continue
+        seen.add(name)
+        functions.append(
+            {
+                "name": name,
+                "description": "Synthetic BFCL multi-turn tool entry derived from source path/answer metadata.",
+                "parameters": {"type": "dict", "properties": {}},
+            }
+        )
+    return functions
 
 
 def function_catalog_text(functions: list[dict[str, Any]]) -> str:
@@ -219,7 +377,7 @@ def stable_prefix(case: BFCLCase, *, code_mode: bool) -> str:
     )
     return (
         "SYSTEM:\n"
-        f"You are evaluating BFCL benchmark row {case.source_row['id']} under a {mode} harness.\n\n"
+        f"You are evaluating BFCL benchmark row {case.source_row.get('id', case.case_id)} under a {mode} harness.\n\n"
         "BENCHMARK:\n"
         "benchmark_id = BFCL\n"
         f"benchmark_checkpoint = {BFCL_LEADERBOARD_CHECKPOINT}\n"
@@ -311,6 +469,7 @@ def bfcl_tool_entries(case: BFCLCase) -> list[dict[str, Any]]:
 
 
 def source_provenance(case: BFCLCase) -> dict[str, Any]:
+    row_id = str(case.source_row.get("id") or f"{case.category}_{case.source_row_index}")
     return {
         "benchmark_id": "BFCL",
         "benchmark_release": "BFCL_v3",
@@ -320,13 +479,13 @@ def source_provenance(case: BFCLCase) -> dict[str, Any]:
         "eval_package": BFCL_EVAL_PACKAGE,
         "license_id": "apache-2.0",
         "source_category": case.category,
-        "source_file": INITIAL_CATEGORY_FILES[case.category],
+        "source_file": BFCL_CATEGORY_FILES[case.category],
         "source_answer_file": (
-            f"possible_answer/{INITIAL_CATEGORY_FILES[case.category]}" if case.answer_row is not None else None
+            f"possible_answer/{BFCL_CATEGORY_FILES[case.category]}" if case.answer_row is not None else None
         ),
-        "source_row_id": str(case.source_row["id"]),
+        "source_row_id": row_id,
         "source_row_index": case.source_row_index,
-        "source_row_locator": f"{INITIAL_CATEGORY_FILES[case.category]}:{case.source_row_index}:{case.source_row['id']}",
+        "source_row_locator": f"{BFCL_CATEGORY_FILES[case.category]}:{case.source_row_index}:{row_id}",
         "source_row_hash": case.source_row_hash,
         "answer_row_hash": json_hash(case.answer_row) if case.answer_row is not None else None,
         "source_fields_used": source_fields_used(case.source_row, case.answer_row),
@@ -337,7 +496,7 @@ def source_provenance(case: BFCLCase) -> dict[str, Any]:
                 "adapter": ADAPTER_VERSION,
                 "transform": TRANSFORM_VERSION,
                 "category": case.category,
-                "row_id": case.source_row["id"],
+                "row_id": row_id,
             }
         ),
     }
@@ -349,6 +508,17 @@ def control_packet(case: BFCLCase, control_id: str) -> dict[str, Any]:
     parts = prompt_parts(case, control_id)
     expected_calls = case.expected_calls
     expected_to_pass = control_id not in NEGATIVE_CONTROLS
+    row_id = str(case.source_row.get("id") or f"{case.category}_{case.source_row_index}")
+    unsupported_scorer_features = []
+    scorer_limitations = [
+        "No model smoke may use categories whose BFCL-native semantics cannot be represented by this adapter.",
+        "This adapter reconstructs expected function-call matching from BFCL possible_answer rows; it is not a substitute for BFCL executable/live environment scoring.",
+    ]
+    if case.scorer_mode == "unsupported_missing_possible_answer":
+        unsupported_scorer_features.append("missing_possible_answer")
+        scorer_limitations.append(
+            "This row is diagnostic-only because the pinned BFCL source has no possible_answer row for deterministic scoring."
+        )
     return {
         "experiment_id": EXPERIMENT_ID,
         "adapter_version": ADAPTER_VERSION,
@@ -372,7 +542,7 @@ def control_packet(case: BFCLCase, control_id: str) -> dict[str, Any]:
         "required_tool_path": [call["name"] for call in expected_calls],
         "session_id": f"bfcl-session:{case.case_id}",
         "access_key": "bfcl-source-context" if control_id != "code_mode_wrong_capsule_negative" else "wrong-bfcl-source-context",
-        "catalog_id": f"bfcl:{case.category}:{case.source_row['id']}",
+        "catalog_id": f"bfcl:{case.category}:{row_id}",
         "catalog_hash": json_hash(case.functions),
         "all_tools": bfcl_tool_entries(case),
         "model_loop_protocol": "BFCL_CODE_MODE_PROTOCOL",
@@ -390,11 +560,8 @@ def control_packet(case: BFCLCase, control_id: str) -> dict[str, Any]:
             "native_scorer_name": "bfcl_expected_call_scorer",
             "native_scorer_version": SCORER_VERSION,
             "scorer_mode": case.scorer_mode,
-            "unsupported_scorer_features": [],
-            "scorer_limitations": [
-                "No model smoke may use categories whose BFCL-native semantics cannot be represented by this adapter.",
-                "This adapter reconstructs expected function-call matching from BFCL possible_answer rows; it is not a substitute for BFCL executable/live environment scoring.",
-            ],
+            "unsupported_scorer_features": unsupported_scorer_features,
+            "scorer_limitations": scorer_limitations,
         },
         "eligibility": {
             "primary_eligible": case.primary_eligible,
@@ -474,12 +641,18 @@ def actual_call_arguments(actual: dict[str, Any]) -> dict[str, Any]:
     return tool_surface.actual_call_arguments(actual)
 
 
+def call_names_match(expected_name: str, actual_name: str) -> bool:
+    if actual_name == expected_name:
+        return True
+    return actual_name.split(".")[-1] == expected_name.split(".")[-1]
+
+
 def expected_options_allow_omission(expected_options: list[Any]) -> bool:
     return any(normalize_value(option) == "" for option in expected_options)
 
 
 def optional_omitted_arguments(expected: dict[str, Any], actual: dict[str, Any]) -> list[str]:
-    if actual_call_name(actual) != expected["name"]:
+    if not call_names_match(str(expected["name"]), actual_call_name(actual)):
         return []
     actual_args = actual_call_arguments(actual)
     expected_args = dict(expected.get("arguments") or {})
@@ -492,7 +665,7 @@ def optional_omitted_arguments(expected: dict[str, Any], actual: dict[str, Any])
 
 def call_matches(expected: dict[str, Any], actual: dict[str, Any]) -> bool:
     actual_name = actual_call_name(actual)
-    if actual_name != expected["name"]:
+    if not call_names_match(str(expected["name"]), actual_name):
         return False
     actual_args = actual_call_arguments(actual)
     expected_args = dict(expected.get("arguments") or {})
@@ -628,15 +801,73 @@ def materialize_cases(
 ) -> list[BFCLCase]:
     cases: list[BFCLCase] = []
     for category in categories:
-        if category not in INITIAL_CATEGORY_FILES:
-            raise ValueError(f"unsupported initial BFCL category: {category}")
-        file_name = INITIAL_CATEGORY_FILES[category]
+        if category not in BFCL_CATEGORY_FILES:
+            raise ValueError(f"unsupported BFCL category: {category}")
+        file_name = BFCL_CATEGORY_FILES[category]
         rows = load_jsonl(source_dir, file_name, remote_base=remote_base)
         answers = load_possible_answers(source_dir, file_name, remote_base=remote_base)
         for index, row in enumerate(rows[:per_category]):
             answer_row = answers.get(str(row["id"]))
             cases.append(make_bfcl_case(category, row, answer_row, index))
     return cases
+
+
+def compatibility_audit(cases: list[BFCLCase]) -> dict[str, Any]:
+    by_category: dict[str, dict[str, Any]] = {}
+    for case in cases:
+        item = by_category.setdefault(
+            case.category,
+            {
+                "case_count": 0,
+                "scoreable_case_count": 0,
+                "diagnostic_only_case_count": 0,
+                "expected_call_count": 0,
+                "scorer_modes": {},
+                "unsupported_scorer_features": set(),
+                "function_catalog_empty_count": 0,
+                "multi_turn": case.category in MULTI_TURN_CATEGORIES,
+                "live_or_api": case.category in LIVE_OR_API_CATEGORIES,
+            },
+        )
+        item["case_count"] += 1
+        item["expected_call_count"] += len(case.expected_calls)
+        item["scorer_modes"][case.scorer_mode] = item["scorer_modes"].get(case.scorer_mode, 0) + 1
+        if case.scorer_mode == "unsupported_missing_possible_answer":
+            item["diagnostic_only_case_count"] += 1
+            item["unsupported_scorer_features"].add("missing_possible_answer")
+        else:
+            item["scoreable_case_count"] += 1
+        if not case.functions:
+            item["function_catalog_empty_count"] += 1
+
+    normalized_by_category = {}
+    for category, item in sorted(by_category.items()):
+        normalized = dict(item)
+        normalized["unsupported_scorer_features"] = sorted(item["unsupported_scorer_features"])
+        normalized_by_category[category] = normalized
+
+    scoreable = sum(item["scoreable_case_count"] for item in normalized_by_category.values())
+    diagnostic = sum(item["diagnostic_only_case_count"] for item in normalized_by_category.values())
+    transform_errors = [
+        category
+        for category, item in normalized_by_category.items()
+        if item["function_catalog_empty_count"] and category not in {"irrelevance"}
+    ]
+    return {
+        "status": "bfcl_compatibility_audit_passed" if not transform_errors else "bfcl_compatibility_audit_failed",
+        "category_count": len(normalized_by_category),
+        "case_count": len(cases),
+        "scoreable_case_count": scoreable,
+        "diagnostic_only_case_count": diagnostic,
+        "scoreable_categories": sorted(
+            category for category, item in normalized_by_category.items() if item["scoreable_case_count"]
+        ),
+        "diagnostic_only_categories": sorted(
+            category for category, item in normalized_by_category.items() if item["diagnostic_only_case_count"]
+        ),
+        "transform_error_categories": transform_errors,
+        "categories": normalized_by_category,
+    }
 
 
 def materialize_control_packets(cases: list[BFCLCase], controls: list[str] | None = None) -> list[dict[str, Any]]:
@@ -680,6 +911,24 @@ def summarize_packets(packets: list[dict[str, Any]]) -> dict[str, Any]:
         "case_count": len({row["case_id"] for row in packets}),
         "control_record_count": len(packets),
         "categories": by_category,
+        "scoreable_case_count": sum(
+            1
+            for case_id, _ in cases
+            if any(
+                row["case_id"] == case_id
+                and row.get("scoring", {}).get("scorer_mode") != "unsupported_missing_possible_answer"
+                for row in packets
+            )
+        ),
+        "diagnostic_only_case_count": sum(
+            1
+            for case_id, _ in cases
+            if any(
+                row["case_id"] == case_id
+                and row.get("scoring", {}).get("scorer_mode") == "unsupported_missing_possible_answer"
+                for row in packets
+            )
+        ),
         "status": "no_model_materialization_complete",
         "model_run_status": "not_started",
     }
@@ -691,23 +940,39 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--category",
         action="append",
-        choices=sorted(INITIAL_CATEGORY_FILES),
+        choices=sorted(BFCL_CATEGORY_FILES),
         help="BFCL category to materialize. May be repeated.",
     )
     parser.add_argument("--per-category", type=int, default=1)
     parser.add_argument("--out", type=Path, required=True, help="Output control packet JSONL path.")
     parser.add_argument("--summary-out", type=Path, help="Optional summary JSON path.")
+    parser.add_argument(
+        "--compatibility-audit-out",
+        type=Path,
+        help="Optional BFCL category compatibility audit JSON path.",
+    )
+    parser.add_argument(
+        "--all-compatibility-categories",
+        action="store_true",
+        help="Materialize the broad BFCL support surface, including live/API and multi-turn diagnostic categories.",
+    )
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    categories = args.category or ["simple", "multiple", "parallel", "parallel_multiple", "irrelevance"]
+    categories = args.category or (
+        DEFAULT_COMPATIBILITY_CATEGORIES
+        if args.all_compatibility_categories
+        else ["simple", "multiple", "parallel", "parallel_multiple", "irrelevance"]
+    )
     cases = materialize_cases(source_dir=args.source_dir, categories=categories, per_category=args.per_category)
     packets = materialize_control_packets(cases)
     write_jsonl(args.out, packets)
     if args.summary_out:
         write_json(args.summary_out, summarize_packets(packets))
+    if args.compatibility_audit_out:
+        write_json(args.compatibility_audit_out, compatibility_audit(cases))
     return 0
 
 

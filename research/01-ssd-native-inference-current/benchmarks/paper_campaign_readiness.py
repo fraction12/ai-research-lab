@@ -181,29 +181,40 @@ def bfcl_no_model_dry_run(out_dir: Path, per_category: int) -> dict[str, Any]:
     out_dir.mkdir(parents=True, exist_ok=True)
     packet = out_dir / "bfcl-readiness-control-packet.jsonl"
     summary = out_dir / "bfcl-readiness-summary.json"
+    compatibility_audit = out_dir / "bfcl-compatibility-audit.json"
     argv = [
-        "--category",
-        "simple",
-        "--category",
-        "multiple",
-        "--category",
-        "parallel",
+        "--all-compatibility-categories",
         "--per-category",
         str(per_category),
         "--out",
         str(packet),
         "--summary-out",
         str(summary),
+        "--compatibility-audit-out",
+        str(compatibility_audit),
     ]
     started = time.perf_counter()
     try:
         bfcl_adapter.main(argv)
         summary_data = json.loads(summary.read_text(encoding="utf-8"))
+        audit_data = json.loads(compatibility_audit.read_text(encoding="utf-8"))
+        if audit_data.get("status") != "bfcl_compatibility_audit_passed":
+            return {
+                "status": "failed",
+                "packet": str(packet),
+                "summary": str(summary),
+                "compatibility_audit": str(compatibility_audit),
+                "summary_data": summary_data,
+                "audit_data": audit_data,
+                "elapsed_ms": round((time.perf_counter() - started) * 1000, 3),
+            }
         return {
             "status": "passed",
             "packet": str(packet),
             "summary": str(summary),
+            "compatibility_audit": str(compatibility_audit),
             "summary_data": summary_data,
+            "audit_data": audit_data,
             "elapsed_ms": round((time.perf_counter() - started) * 1000, 3),
         }
     except Exception as exc:  # pragma: no cover - defensive readiness reporting.

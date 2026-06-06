@@ -99,6 +99,62 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
                 }
             ],
         )
+        write_jsonl(
+            root / "BFCL_v3_multi_turn_base.json",
+            [
+                {
+                    "id": "multi_turn_base_0",
+                    "question": [
+                        [{"role": "user", "content": "Move final_report.pdf into temp."}],
+                        [{"role": "user", "content": "Search it for budget analysis."}],
+                    ],
+                    "initial_config": {
+                        "GorillaFileSystem": {
+                            "root": {"workspace": {"type": "directory", "contents": {}}},
+                        }
+                    },
+                    "path": [
+                        "GorillaFileSystem.cd",
+                        "GorillaFileSystem.mkdir",
+                        "GorillaFileSystem.mv",
+                        "GorillaFileSystem.grep",
+                    ],
+                    "involved_classes": ["GorillaFileSystem"],
+                }
+            ],
+        )
+        write_jsonl(
+            root / "possible_answer" / "BFCL_v3_multi_turn_base.json",
+            [
+                {
+                    "id": "multi_turn_base_0",
+                    "ground_truth": [
+                        [
+                            "cd(folder='document')",
+                            "mkdir(dir_name='temp')",
+                            "mv(source='final_report.pdf', destination='temp')",
+                        ],
+                        ["cd(folder='temp')", "grep(file_name='final_report.pdf',pattern='budget analysis')"],
+                    ],
+                }
+            ],
+        )
+        write_jsonl(
+            root / "BFCL_v3_rest.json",
+            [
+                {
+                    "id": "rest_0",
+                    "question": [{"role": "user", "content": "Get pet 123."}],
+                    "function": [
+                        {
+                            "name": "getPetById",
+                            "description": "Find pet by id.",
+                            "parameters": {"type": "dict", "properties": {"petId": {"type": "integer"}}},
+                        }
+                    ],
+                }
+            ],
+        )
         return root
 
     def test_materializes_control_packets_with_provenance_and_required_fields(self) -> None:
@@ -172,6 +228,53 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
 
         self.assertTrue(adapter.score_calls([], [])["passed"])
         self.assertFalse(adapter.score_calls([], [{"name": "irrelevant.call", "arguments": {}}])["passed"])
+
+    def test_materializes_multi_turn_string_ground_truth_and_synthesized_tool_catalog(self) -> None:
+        source_dir = self.make_source_dir()
+
+        case = adapter.materialize_cases(source_dir=source_dir, categories=["multi_turn_base"], per_category=1)[0]
+        packet = adapter.control_packet(case, "code_mode_full_visible")
+
+        self.assertEqual(case.scorer_mode, "multi_turn_expected_call_match")
+        self.assertEqual([call["name"] for call in case.expected_calls], ["cd", "mkdir", "mv", "cd", "grep"])
+        self.assertEqual(case.expected_calls[0]["arguments"], {"folder": ["document"]})
+        self.assertIn("Move final_report.pdf", packet["tail_prompt"])
+        self.assertIn("Search it for budget analysis", packet["tail_prompt"])
+        self.assertIn("initial_config", packet["source_provenance"]["source_fields_used"])
+        self.assertIn("GorillaFileSystem.mkdir", [tool["name"] for tool in case.functions])
+        self.assertTrue(
+            adapter.score_calls(
+                [{"name": "mkdir", "arguments": {"dir_name": ["temp"]}}],
+                [{"name": "GorillaFileSystem.mkdir", "arguments": {"dir_name": "temp"}}],
+            )["passed"]
+        )
+
+    def test_live_or_api_rows_without_possible_answers_are_diagnostic_only_not_no_call(self) -> None:
+        source_dir = self.make_source_dir()
+
+        case = adapter.materialize_cases(source_dir=source_dir, categories=["rest"], per_category=1)[0]
+        packet = adapter.control_packet(case, "code_mode_full_visible")
+
+        self.assertEqual(case.expected_calls, [])
+        self.assertEqual(case.scorer_mode, "unsupported_missing_possible_answer")
+        self.assertIn("missing_possible_answer", packet["scoring"]["unsupported_scorer_features"])
+        self.assertEqual(packet["eligibility"]["primary_eligibility_reason"], "diagnostic_only_missing_possible_answer")
+        self.assertFalse(adapter.primary_selection_status(packet)["primary_ready"])
+
+    def test_compatibility_audit_reports_scoreable_and_diagnostic_categories(self) -> None:
+        source_dir = self.make_source_dir()
+        cases = adapter.materialize_cases(
+            source_dir=source_dir,
+            categories=["simple", "multi_turn_base", "rest"],
+            per_category=1,
+        )
+        audit = adapter.compatibility_audit(cases)
+
+        self.assertEqual(audit["status"], "bfcl_compatibility_audit_passed")
+        self.assertEqual(audit["category_count"], 3)
+        self.assertEqual(audit["scoreable_case_count"], 2)
+        self.assertEqual(audit["diagnostic_only_case_count"], 1)
+        self.assertIn("rest", audit["diagnostic_only_categories"])
 
     def test_scores_nested_bfcl_expected_argument_options(self) -> None:
         expected_budget = [
