@@ -261,7 +261,10 @@ def main(argv: list[str] | None = None) -> int:
         "processes": process_check(),
         "model_profile": profile_check(args.profile),
         "py_compile": py_compile_check(),
-        "bfcl_no_model_dry_run": bfcl_no_model_dry_run(args.out_dir / "readiness-raw", args.bfcl_per_category),
+        "bfcl_no_model_dry_run": bfcl_no_model_dry_run(
+            DEFAULT_TRACK01_ROOT / "readiness-raw",
+            args.bfcl_per_category,
+        ),
     }
     report["evaluation"] = evaluate(report)
     output = args.out_dir / "execution-readiness.json"
