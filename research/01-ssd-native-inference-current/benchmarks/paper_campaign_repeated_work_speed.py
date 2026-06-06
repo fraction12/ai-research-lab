@@ -152,6 +152,8 @@ def run_subprocess(command: list[str], *, cwd: Path, stdin_text: str | None = No
         command,
         input=stdin_text,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         cwd=str(cwd),
         capture_output=True,
         check=False,
@@ -442,7 +444,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     ap.add_argument("--cache-dir", type=Path, default=DEFAULT_CACHE_DIR)
     ap.add_argument("--repo-root", type=Path, default=REPO_ROOT)
     ap.add_argument("--run-label", default="bfcl-repeated-work-speed-smoke-v1")
-    ap.add_argument("--case-limit", type=int, default=2)
+    ap.add_argument("--case-limit", type=int, default=None)
     ap.add_argument("--systems", default="codex,kv", help="Comma-separated: codex,kv")
     ap.add_argument("--codex-bin", default="codex", help="Codex executable or Windows codex.ps1 shim path.")
     ap.add_argument("--node-bin", default="node", help="Node executable when --codex-bin points at codex.js.")
