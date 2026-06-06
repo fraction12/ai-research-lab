@@ -6,7 +6,7 @@ This is the operator handoff for the paper-grade Code-mode + KV capsule campaign
 
 - Mac checkout: `/Volumes/MacSSD/Projects/ai-research-lab`
 - DushyantPC execution checkout: `C:\ai\paper`
-- Current prepared commit: `7d8c2f89`
+- Prepared campaign commits: see git history for this change set; `0c5301d` added the selected-cohort launcher used for the completed run.
 - OpenSpec change: `design-paper-grade-code-mode-kv-capsule-evaluation`
 
 Use `C:\ai\paper` for campaign execution. The older DushyantPC checkout at `C:\Users\Dushyant\Projects\ai-research-lab` is dirty/detached historical state and should not be used for this campaign unless it is deliberately cleaned.
@@ -147,3 +147,26 @@ Stop before broad execution if:
 - Windows does not currently have `openspec` or `pytest`; those validations are Mac-side.
 - Gemma 4 emits thought/channel markers in simple `llama-completion` smoke. The scoring plan already treats this as calibration/protocol behavior, not as paper evidence.
 - The full paper campaign is intentionally staged. Do not jump directly to a 500-row all-control run unless Sir explicitly asks for it.
+
+## Completed Selected Cohort
+
+The minimum selected-cohort run completed on 2026-06-06:
+
+- Run label: `bfcl-paper-selected-cohort-v1`
+- Records: `700 / 700`
+- Cases: `100 / 100`
+- Code Mode full visible: `100 / 100`
+- Native live append: `100 / 100`
+- Restored KV capsule: `100 / 100`
+- Restored KV failures: `0`
+- Native/restored hash parity: `100 / 100`
+- Fresh-tail leaks: `0`
+- Wrong-capsule leaks: `0`
+- Compact visible evidence: `19 / 100`
+- Direct visible tools: `91 / 100`
+
+Tracked findings live at:
+
+```text
+research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/selected-cohort-findings.md
+```
