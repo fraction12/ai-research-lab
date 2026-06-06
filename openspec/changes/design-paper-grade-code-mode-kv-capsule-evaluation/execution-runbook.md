@@ -182,3 +182,39 @@ research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv
 ```
 
 The benchmark question is whether a one-time capsule build plus repeated restored tail calls reduces cumulative wall-clock time and visible-token burden compared with repeatedly sending compacted stable context and regular tool-call instructions. Report matched-quality results only; if the KV route is faster because it fails more, that is not a speed win.
+
+Controller:
+
+```text
+research/01-ssd-native-inference-current/benchmarks/paper_campaign_repeated_work_speed.py
+```
+
+Use the completed selected-cohort packet as the task stream:
+
+```powershell
+$raw = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/raw"
+$cache = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/cache"
+$packet = "$raw\bfcl-paper-selected-cohort-v1-control-packet.jsonl"
+$codex = "C:\Users\Dushyant\AppData\Roaming\npm\node_modules\@openai\codex\bin\codex.js"
+
+python research/01-ssd-native-inference-current/benchmarks/paper_campaign_repeated_work_speed.py `
+  --packet "$packet" `
+  --out-dir "$raw\repeated-work-speed" `
+  --cache-dir "$cache" `
+  --systems codex,kv `
+  --case-limit 1 `
+  --run-label bfcl-repeated-work-combined-smoke-v1 `
+  --codex-bin "$codex" `
+  --codex-profile gemma4-ollama-compact `
+  --model-profile gemma4-12b
+```
+
+The Codex arm must use regular visible tool calls through the verified Codex/Ollama/Gemma profile. The KV arm must wrap `code_mode_kv_capsule_model_loop_runner.py` with the `code_mode_native_live_append` and `code_mode_restored_kv_capsule` controls so it remains the same KV + Code Mode harness used for the 100-case selected-cohort benchmark.
+
+Before the full run, smoke both paths:
+
+- Codex resume smoke: `--systems codex --case-limit 2`
+- KV harness smoke: `--systems kv --case-limit 1`
+- Combined controller smoke: `--systems codex,kv --case-limit 1`
+
+The full speed run should remove `--case-limit` only after the smokes produce scored records for both systems and the Codex run logs compaction evidence once the repeated-work stream grows enough to trigger the verified profile threshold.
