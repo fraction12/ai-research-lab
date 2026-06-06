@@ -1,0 +1,17 @@
+{
+  "graphwalks_matrix_status": "not_run_full_visible_calibration_0_of_100",
+  "ifeval_by_control_partial": {
+    "fresh_tail_only": {
+      "count": 4,
+      "failed": 1,
+      "passed": 3
+    },
+    "full_visible": {
+      "count": 50,
+      "failed": 0,
+      "passed": 50
+    }
+  },
+  "ifeval_matrix_status": "stopped_after_fresh_tail_unexpected_pass_before_live_or_restored_capsule_controls",
+  "ifeval_selected_50_partial_records": 54
+}

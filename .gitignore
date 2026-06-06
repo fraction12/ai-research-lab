@@ -42,6 +42,7 @@ build/
 **/benchmarks/kv-capsule-visible-baseline-rescue-*/
 **/benchmarks/tail-only-kv-capsule-continuation-repair-*/
 **/benchmarks/tail-only-kv-capsule-family2-structured-retrieval-scale-*/
+**/benchmarks/tail-only-kv-capsule-gemma4-12b-replication-*/
 
 # Codex project-local generated hook state
 .codex/manager-ledger.json

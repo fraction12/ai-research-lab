@@ -1,0 +1,103 @@
+{
+  "experiment_id": "gemma4-kv-capsule-replication-2026-06-05",
+  "packaged_utc": "2026-06-05T03:30:00Z",
+  "model": {
+    "profile": "gemma4-12b",
+    "model_family": "gemma",
+    "model_desc": "gemma4 ?B Q4_K - Medium",
+    "architecture": "gemma4",
+    "model_path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-5cf8a1f2fc4268b3fd628743675910cf1d8137c4742d0be401c3e885f605023a",
+    "model_size_bytes": 7381382048
+  },
+  "runtime": {
+    "host": "DushyantPC",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "runtime_bundle": "C:\\Users\\Dushyant\\Tools\\llama-b9512-cuda13",
+    "llama_dll": "C:\\Users\\Dushyant\\Tools\\llama-b9512-cuda13\\llama.dll",
+    "llama_dll_sha256": "8A08D3221F375116E4C0AF6263E625A1CAC8552D3FADB38FC3279D9F30EE4EBC",
+    "ctx_size": 4096,
+    "predict": 96,
+    "state_route_requested": "auto",
+    "state_route_effective": "seq_file",
+    "state_route_internal": "seq-file"
+  },
+  "family1_smoke": {
+    "mode": "family1-smoke",
+    "decision": "family1_sequence_state_restored_capsule_semantic_passed",
+    "record_count": 12,
+    "contains_by_control": {
+      "native_full_visible_prefix_plus_tail": 3,
+      "native_fresh_tail_only": 0,
+      "native_live_append_tail_only": 3,
+      "native_restored_capsule_append_tail_only": 3
+    }
+  },
+  "family2_smoke": {
+    "mode": "family2-smoke",
+    "decision": "family2_sequence_state_restored_capsule_deterministic_parity_passed",
+    "record_count": 12,
+    "contains_by_control": {
+      "native_full_visible_prefix_plus_tail": 3,
+      "native_fresh_tail_only": 0,
+      "native_live_append_tail_only": 3,
+      "native_restored_capsule_append_tail_only": 3
+    }
+  },
+  "family2_primary": {
+    "mode": "family2-30",
+    "decision": "family2_sequence_state_restored_capsule_deterministic_parity_passed",
+    "record_count": 120,
+    "case_count": 30,
+    "contains_by_control": {
+      "native_full_visible_prefix_plus_tail": 30,
+      "native_fresh_tail_only": 0,
+      "native_live_append_tail_only": 30,
+      "native_restored_capsule_append_tail_only": 30
+    },
+    "exact_case_contained_by_control": {
+      "native_full_visible_prefix_plus_tail": 30,
+      "native_fresh_tail_only": 0,
+      "native_live_append_tail_only": 30,
+      "native_restored_capsule_append_tail_only": 30
+    },
+    "live_vs_restored_hash_parity": {
+      "total": 30,
+      "response_hash_matches": 30,
+      "normalized_response_hash_matches": 30,
+      "generated_token_hash_matches": 30
+    },
+    "mean_timing_ms": {
+      "native_full_visible_prefix_plus_tail": {
+        "prompt": 314.6,
+        "decode": 2191.12,
+        "total": 2572.07
+      },
+      "native_fresh_tail_only": {
+        "prompt": 50.0,
+        "decode": 5125.4,
+        "total": 5232.78
+      },
+      "native_live_append_tail_only": {
+        "prompt": 342.0,
+        "decode": 2547.0,
+        "total": 2948.28
+      },
+      "native_restored_capsule_append_tail_only": {
+        "prompt": 58.52,
+        "decode": 2601.59,
+        "restore": 61.05,
+        "total": 3820.84
+      }
+    },
+    "mean_prefix_token_count": 358.67,
+    "mean_tail_token_count": 23.93,
+    "mean_sequence_state_bytes": 123415526.67
+  },
+  "validity_boundary": [
+    "Synthetic codeword and structured key-value lookup only.",
+    "No GraphWalks, Family 3, broad retrieval, agent-context, or model-independent quality claim.",
+    "Scoring calibration preserves raw output and exact fields; semantic pass is answer-contained.",
+    "Raw artifacts are local ignored files, not committed."
+  ],
+  "go_no_go": "go_for_next_controlled_phase"
+}

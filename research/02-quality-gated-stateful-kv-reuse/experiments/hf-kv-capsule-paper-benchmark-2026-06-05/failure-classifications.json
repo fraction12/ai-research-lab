@@ -1,0 +1,18 @@
+{
+  "documented_full_prompt_cache_resend_not_run": {
+    "evidence": "HF capsule evidence stopped before complete primary matrix; server cache resend remains diagnostic only.",
+    "severity": "not_run"
+  },
+  "graphwalks_full_visible_calibration_failed": {
+    "classification": "Model/protocol/scorer baseline failure; restored capsule controls are not interpretable.",
+    "evidence": "GraphWalks parents full-visible calibration passed 0/100.",
+    "not_a_capsule_failure": true,
+    "severity": "hard_stop_for_graphwalks_capsule_interpretation"
+  },
+  "ifeval_fresh_tail_leakage_or_task_not_prefix_dependent": {
+    "classification": "The current IFEval split leaves the benchmark task in the tail; it is not a clean hidden-prefix KV capsule task under this protocol.",
+    "evidence": "Selected IFEval full-visible guard passed 50/50, but fresh_tail_only produced 3 unexpected passes in first 4 negative-control records before run was stopped.",
+    "not_a_capsule_failure": true,
+    "severity": "hard_stop_for_ifeval_capsule_interpretation"
+  }
+}

@@ -179,7 +179,7 @@ PROFILES: dict[str, CapsuleProfile] = {
             "Gemma smoke emitted thinking/channel markers; calibrate scorer or disable "
             "thinking through a supported route before Family 1/2 evidence."
         ),
-        output_calibration="uncalibrated_thinking_channel_markers_observed",
+        output_calibration="case_insensitive_contains_preserves_exact_fields; channel markers observed in raw C API output",
         mmproj_layer_note="Ollama manifest has an mmproj layer beginning sha256:a18399bf; text-only smoke did not require it.",
     ),
 }

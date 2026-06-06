@@ -1,0 +1,20 @@
+{
+  "model_profile": "gemma4-12b",
+  "model_family": "gemma",
+  "model_name": "Gemma 4 12B",
+  "model_desc": "gemma4 ?B Q4_K - Medium",
+  "architecture": "gemma4",
+  "tokenizer_model": "gemma4",
+  "ollama_manifest_path": "C:\\Users\\Dushyant\\.ollama\\models\\manifests\\registry.ollama.ai\\library\\gemma4\\12b",
+  "text_model_blob_path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-5cf8a1f2fc4268b3fd628743675910cf1d8137c4742d0be401c3e885f605023a",
+  "text_model_blob_size_bytes": 7381382048,
+  "runtime_bundle": "C:\\Users\\Dushyant\\Tools\\llama-b9512-cuda13",
+  "llama_dll": "C:\\Users\\Dushyant\\Tools\\llama-b9512-cuda13\\llama.dll",
+  "llama_dll_sha256": "8A08D3221F375116E4C0AF6263E625A1CAC8552D3FADB38FC3279D9F30EE4EBC",
+  "backend": "cuda_v13",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "ctx_size": 4096,
+  "predict": 96,
+  "n_gpu_layers": 99,
+  "scoring_calibration": "case_insensitive_contains_preserves_exact_fields; channel markers observed in raw C API output"
+}
