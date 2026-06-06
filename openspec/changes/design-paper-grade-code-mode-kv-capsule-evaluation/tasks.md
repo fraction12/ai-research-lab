@@ -14,11 +14,12 @@
 ## 3. BFCL Primary Expansion
 
 - [ ] 3.1 Materialize a deterministic BFCL candidate pool of at least 500 supported rows where available.
-- [ ] 3.2 Run candidate calibration and select a target primary cohort of 200 full-visible-passing rows, with a minimum paper-eligible cohort of 100.
-- [ ] 3.3 Preserve category balance across simple, multiple, parallel, parallel-multiple, irrelevance/no-call, and any executable/API categories with faithful scoring.
-- [ ] 3.4 Run all seven controls on the selected primary cohort using Gemma 4 12B.
-- [ ] 3.5 Compute live-vs-restored parity, restored-only failures, fresh-tail leaks, wrong-capsule leaks, direct-tool gaps, compact-evidence effects, prompt-token deltas, and timing.
-- [ ] 3.6 Write Track 02 summary artifacts and keep raw artifacts under ignored Track 01 paths.
+- [ ] 3.2 Treat any run below 500 candidate rows as smoke/diagnostic only, not paper calibration.
+- [ ] 3.3 Run candidate calibration and select a target primary cohort of 200 full-visible-passing rows, with a minimum paper-eligible cohort of 100 after scorer-support and negative-control filters.
+- [ ] 3.4 Preserve category balance across simple, multiple, parallel, parallel-multiple, irrelevance/no-call, and any executable/API categories with faithful scoring.
+- [ ] 3.5 Run all seven controls on the selected primary cohort using Gemma 4 12B.
+- [ ] 3.6 Compute live-vs-restored parity, restored-only failures, fresh-tail leaks, wrong-capsule leaks, direct-tool gaps, compact-evidence effects, prompt-token deltas, timing, capsule bytes, capsule SHA, scorer versions, transform hashes, row hashes, and model/llama.cpp route metadata.
+- [ ] 3.7 Write Track 02 summary artifacts and keep raw artifacts under ignored Track 01 paths.
 
 ## 4. Stateful-Agent Follow-On
 

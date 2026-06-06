@@ -6,7 +6,7 @@ This is the operator handoff for the paper-grade Code-mode + KV capsule campaign
 
 - Mac checkout: `/Volumes/MacSSD/Projects/ai-research-lab`
 - DushyantPC execution checkout: `C:\ai\paper`
-- Current prepared commit: `a0dd5069`
+- Current prepared commit: `7d8c2f89`
 - OpenSpec change: `design-paper-grade-code-mode-kv-capsule-evaluation`
 
 Use `C:\ai\paper` for campaign execution. The older DushyantPC checkout at `C:\Users\Dushyant\Projects\ai-research-lab` is dirty/detached historical state and should not be used for this campaign unless it is deliberately cleaned.
@@ -73,6 +73,26 @@ python research/01-ssd-native-inference-current/benchmarks/bfcl_code_mode_kv_ada
 ```
 
 This creates up to 500 BFCL cases and 3500 control records. The model run may be reduced before execution if the materialized source count is lower or if a smaller staged run is chosen.
+
+Calibration contract:
+
+- A run below 500 candidate rows is smoke or diagnostic only. It must not be called paper calibration.
+- The target selected primary cohort is 200 `code_mode_full_visible` passing rows.
+- The minimum paper-eligible cohort is 100 clean full-visible-passing rows after scorer-support and negative-control filters.
+- If fewer than 100 clean rows remain, stop and report a technical-note result rather than a full paper result.
+- Calibration must summarize selected/rejected/diagnostic counts by category before the full paper run starts.
+
+Paper-facing data to preserve in the calibration summary:
+
+- category and source row provenance
+- scorer support and scorer version
+- full-visible pass state
+- native-live vs restored-KV parity hashes and quality fields
+- restored-only failures
+- fresh-tail and wrong-capsule leakage
+- direct-tool gaps and compact-visible-evidence effects
+- prompt-token deltas, capsule save/restore timing, total timing, capsule bytes, and capsule SHA
+- model profile and llama.cpp route identity
 
 ## BFCL Model Run
 

@@ -87,6 +87,7 @@ Default scope:
 - Candidate pool: at least 500 BFCL rows when available from supported categories.
 - Primary cohort target: 200 full-visible-passing rows.
 - Minimum paper-eligible cohort: 100 full-visible-passing rows.
+- Runs below 500 candidate rows are smoke or diagnostic probes only. They may harden the harness, but they do not satisfy paper calibration.
 - Categories: `simple`, `multiple`, `parallel`, `parallel_multiple`, `irrelevance/no-call` if scorer support is faithful, and selected executable/API-style rows if deterministic scoring is faithful.
 - Multi-turn BFCL remains separate until single-turn categories are stable.
 
@@ -105,12 +106,23 @@ Primary selection:
 - A row enters the primary semantic parity cohort only if `code_mode_full_visible` passes.
 - Rows where fresh-tail or wrong-capsule pass are excluded from hidden-prefix claims and classified.
 - Rows requiring unsupported scorer features are diagnostic-only.
+- The campaign stops short of full paper claims if fewer than 100 clean full-visible-passing rows remain after scorer-support and negative-control filters.
 
 Success criterion:
 
 - Restored KV capsule matches native live append quality within a predeclared non-inferiority margin.
 - Default margin: no more than 1 restored-only failure per 50 full-visible-passing rows.
 - Negative controls must remain closed for at least 98% of prefix-dependent selected rows, and every leak must be classified.
+
+Paper-facing calibration outputs:
+
+- Per-category selected/rejected/diagnostic counts for `simple`, `multiple`, `parallel`, `parallel_multiple`, and `irrelevance/no-call` where supported.
+- Live-vs-restored parity: scorer pass/fail, response hash, normalized response hash, generated-token hash, parsed call hash, and quality fields.
+- Restored-only failures, including parser/scorer/runtime/model classifications.
+- Fresh-tail and wrong-capsule leakage counts and classifications by category.
+- Code-mode vs direct-tool gaps and compact-visible-evidence effects.
+- Prompt-token deltas, stable-prefix tokens, tail tokens, capsule save/restore time, total wall time, and capsule bytes.
+- Provenance fields: BFCL revision, source row hash, transform hash, scorer version, model profile, llama.cpp route identity, and capsule SHA.
 
 ### Stage 2: Stateful-Agent Follow-On
 

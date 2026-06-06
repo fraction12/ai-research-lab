@@ -33,12 +33,19 @@ The campaign SHALL treat BFCL primary-50 as pilot evidence and SHALL run a large
 - **WHEN** BFCL expansion begins
 - **THEN** it materializes a deterministic candidate pool of at least 500 supported rows where available
 - **AND** records source revision, row hashes, categories, scorer version, transform version, and prefix-dependency class
+- **AND** treats smaller runs such as 50-row pilots, smoke tests, or partial category probes as diagnostic only, not paper calibration
 
 #### Scenario: BFCL primary cohort is selected
 - **WHEN** candidate calibration finishes
 - **THEN** the target primary cohort is 200 `code_mode_full_visible` passing rows
 - **AND** the minimum paper-eligible cohort is 100 `code_mode_full_visible` passing rows
 - **AND** selected/rejected/leaked/diagnostic counts are recorded by category
+- **AND** the campaign stops short of full paper claims if fewer than 100 clean full-visible-passing rows remain after scorer-support and negative-control filters
+
+#### Scenario: Calibration captures paper metrics
+- **WHEN** BFCL candidate calibration runs
+- **THEN** each record includes enough data to support paper tables and failure analysis: category, selected/diagnostic status, scorer support, full-visible pass state, live-vs-restored parity fields, restored-only failure flags, fresh-tail leak flags, wrong-capsule leak flags, direct-tool gap fields, compact-evidence effect fields, prompt/token counts, timing, model profile, llama.cpp route identity, capsule metadata, and provenance hashes
+- **AND** the calibration summary reports those metrics by category and control before any full paper run begins
 
 ### Requirement: Preserve the seven-control ladder
 The campaign SHALL run the seven-control ladder for every selected row where the benchmark supports it.
