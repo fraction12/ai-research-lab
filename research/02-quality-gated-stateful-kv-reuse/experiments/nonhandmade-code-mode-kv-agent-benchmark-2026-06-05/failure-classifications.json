@@ -1,0 +1,166 @@
+{
+  "artifact": "bfcl-10row-smoke-failure-classifications",
+  "cases": [
+    {
+      "case_id": "bfcl:irrelevance:irrelevance_0",
+      "classification": "diagnostic_negative_control_non_prefix_dependent",
+      "classification_reason": "A negative control produced the expected answer; this row is diagnostic only for leakage or non-prefix-dependence.",
+      "code_mode_full_visible_passed": true,
+      "compact_visible_evidence_passed": true,
+      "direct_full_visible_passed": true,
+      "fresh_tail_answer_contained": true,
+      "native_live_append_passed": true,
+      "restored_kv_capsule_passed": true,
+      "task_bucket": "bfcl_irrelevance",
+      "wrong_capsule_answer_contained": true
+    },
+    {
+      "case_id": "bfcl:irrelevance:irrelevance_1",
+      "classification": "diagnostic_negative_control_non_prefix_dependent",
+      "classification_reason": "A negative control produced the expected answer; this row is diagnostic only for leakage or non-prefix-dependence.",
+      "code_mode_full_visible_passed": true,
+      "compact_visible_evidence_passed": true,
+      "direct_full_visible_passed": true,
+      "fresh_tail_answer_contained": true,
+      "native_live_append_passed": true,
+      "restored_kv_capsule_passed": true,
+      "task_bucket": "bfcl_irrelevance",
+      "wrong_capsule_answer_contained": true
+    },
+    {
+      "case_id": "bfcl:multiple:multiple_0",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_full_visible_passed": false,
+      "compact_visible_evidence_passed": false,
+      "direct_full_visible_passed": false,
+      "fresh_tail_answer_contained": false,
+      "native_live_append_passed": false,
+      "restored_kv_capsule_passed": false,
+      "task_bucket": "bfcl_multiple",
+      "wrong_capsule_answer_contained": false
+    },
+    {
+      "case_id": "bfcl:multiple:multiple_1",
+      "classification": "usable_restored_parity",
+      "classification_reason": "Direct, full-visible, native-live, and restored-capsule controls passed; fresh-tail and wrong-capsule did not answer.",
+      "code_mode_full_visible_passed": true,
+      "compact_visible_evidence_passed": false,
+      "direct_full_visible_passed": true,
+      "fresh_tail_answer_contained": false,
+      "native_live_append_passed": true,
+      "restored_kv_capsule_passed": true,
+      "task_bucket": "bfcl_multiple",
+      "wrong_capsule_answer_contained": false
+    },
+    {
+      "case_id": "bfcl:parallel:parallel_0",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_full_visible_passed": false,
+      "compact_visible_evidence_passed": false,
+      "direct_full_visible_passed": false,
+      "fresh_tail_answer_contained": false,
+      "native_live_append_passed": false,
+      "restored_kv_capsule_passed": false,
+      "task_bucket": "bfcl_parallel",
+      "wrong_capsule_answer_contained": false
+    },
+    {
+      "case_id": "bfcl:parallel:parallel_1",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_full_visible_passed": false,
+      "compact_visible_evidence_passed": false,
+      "direct_full_visible_passed": false,
+      "fresh_tail_answer_contained": false,
+      "native_live_append_passed": false,
+      "restored_kv_capsule_passed": false,
+      "task_bucket": "bfcl_parallel",
+      "wrong_capsule_answer_contained": false
+    },
+    {
+      "case_id": "bfcl:parallel_multiple:parallel_multiple_0",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_full_visible_passed": false,
+      "compact_visible_evidence_passed": false,
+      "direct_full_visible_passed": false,
+      "fresh_tail_answer_contained": false,
+      "native_live_append_passed": false,
+      "restored_kv_capsule_passed": false,
+      "task_bucket": "bfcl_parallel_multiple",
+      "wrong_capsule_answer_contained": false
+    },
+    {
+      "case_id": "bfcl:parallel_multiple:parallel_multiple_1",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_full_visible_passed": false,
+      "compact_visible_evidence_passed": false,
+      "direct_full_visible_passed": false,
+      "fresh_tail_answer_contained": false,
+      "native_live_append_passed": false,
+      "restored_kv_capsule_passed": false,
+      "task_bucket": "bfcl_parallel_multiple",
+      "wrong_capsule_answer_contained": false
+    },
+    {
+      "case_id": "bfcl:simple:simple_0",
+      "classification": "usable_restored_parity",
+      "classification_reason": "Direct, full-visible, native-live, and restored-capsule controls passed; fresh-tail and wrong-capsule did not answer.",
+      "code_mode_full_visible_passed": true,
+      "compact_visible_evidence_passed": false,
+      "direct_full_visible_passed": true,
+      "fresh_tail_answer_contained": false,
+      "native_live_append_passed": true,
+      "restored_kv_capsule_passed": true,
+      "task_bucket": "bfcl_simple",
+      "wrong_capsule_answer_contained": false
+    },
+    {
+      "case_id": "bfcl:simple:simple_1",
+      "classification": "reject_native_live_append_failed",
+      "classification_reason": "Visible baselines passed, but native-live append failed; this is a live-append/model instability issue, not restored KV evidence.",
+      "code_mode_full_visible_passed": true,
+      "compact_visible_evidence_passed": false,
+      "direct_full_visible_passed": true,
+      "fresh_tail_answer_contained": false,
+      "native_live_append_passed": false,
+      "restored_kv_capsule_passed": false,
+      "task_bucket": "bfcl_simple",
+      "wrong_capsule_answer_contained": false
+    }
+  ],
+  "classification_counts": {
+    "diagnostic_negative_control_non_prefix_dependent": 2,
+    "reject_baseline_failed": 5,
+    "reject_native_live_append_failed": 1,
+    "usable_restored_parity": 2
+  },
+  "created_utc": "2026-06-05T20:57:36Z",
+  "experiment_id": "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05",
+  "failure_class_counts_by_control": {
+    "code_mode_fresh_tail_only": {
+      "fresh_tail_leak_or_non_prefix_dependent": 2
+    },
+    "code_mode_full_visible": {
+      "bfcl_scorer_failure": 5
+    },
+    "code_mode_native_live_append": {
+      "bfcl_scorer_failure": 6
+    },
+    "code_mode_restored_kv_capsule": {
+      "bfcl_scorer_failure": 6
+    },
+    "code_mode_wrong_capsule_negative": {
+      "wrong_capsule_leak_or_scorer_looseness": 2
+    },
+    "compact_visible_evidence_code_mode": {
+      "bfcl_scorer_failure": 8
+    },
+    "direct_full_visible_tools": {
+      "bfcl_scorer_failure": 5
+    }
+  }
+}

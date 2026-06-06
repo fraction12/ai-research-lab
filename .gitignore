@@ -28,6 +28,8 @@ build/
 **/benchmarks/rpfr-cache/
 **/benchmarks/lcpr-results/
 **/benchmarks/lcpr-cache/
+**/benchmarks/code-mode-kv-capsule-agent-harness-*/
+**/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-*/
 
 # Codex project-local generated hook state
 .codex/manager-ledger.json

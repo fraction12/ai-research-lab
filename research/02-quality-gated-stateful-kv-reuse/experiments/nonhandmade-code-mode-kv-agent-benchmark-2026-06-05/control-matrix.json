@@ -1,0 +1,780 @@
+{
+  "artifact": "bfcl-10row-smoke-control-matrix",
+  "controls": [
+    "direct_full_visible_tools",
+    "code_mode_full_visible",
+    "code_mode_fresh_tail_only",
+    "code_mode_native_live_append",
+    "code_mode_restored_kv_capsule",
+    "code_mode_wrong_capsule_negative",
+    "compact_visible_evidence_code_mode"
+  ],
+  "created_utc": "2026-06-05T20:57:36Z",
+  "experiment_id": "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05",
+  "legend": {
+    "answer_contained": "True means the expected benchmark answer or expected no-call result was present in the scored output.",
+    "gate_passed": "For positive controls, true means the model produced the expected benchmark answer. For negative controls, true means the negative control behaved as expected, usually by not answering."
+  },
+  "rows": [
+    {
+      "case_id": "bfcl:irrelevance:irrelevance_0",
+      "classification": "diagnostic_negative_control_non_prefix_dependent",
+      "classification_reason": "A negative control produced the expected answer; this row is diagnostic only for leakage or non-prefix-dependence.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": true,
+        "expected_to_pass": false,
+        "failure_class": "fresh_tail_leak_or_non_prefix_dependent",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "98e088ba3c3057532464ea5055d276d62b594124d177fa7eb50c1610d426c174",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "7abdbf1c6b744bdd9c6ea5c410843d130bca640f0a8c63c6c5d7736e9b0ed7c2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "b3b8ace635b1ef1ebe1fc0863f9ff8a00165eec3a7cf80821646314aee29f55a",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "b3b8ace635b1ef1ebe1fc0863f9ff8a00165eec3a7cf80821646314aee29f55a",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": true,
+        "expected_to_pass": false,
+        "failure_class": "wrong_capsule_leak_or_scorer_looseness",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "8bf1859eea42a68a7531bb7bf8d8e8fa905e0c58bba8ff9ef63262c385f9f22c",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "fb90d6b299fa420dcdbba44f26d0971257cecb1ae92c0e67da4e24acdebf3dbb",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "8665a4f6d58770a141d3047e35c135e662ac303b8e391a2e649a8c4307bdc402",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "task_bucket": "bfcl_irrelevance"
+    },
+    {
+      "case_id": "bfcl:irrelevance:irrelevance_1",
+      "classification": "diagnostic_negative_control_non_prefix_dependent",
+      "classification_reason": "A negative control produced the expected answer; this row is diagnostic only for leakage or non-prefix-dependence.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": true,
+        "expected_to_pass": false,
+        "failure_class": "fresh_tail_leak_or_non_prefix_dependent",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "1146e128dce299a0a2a39c9c570c98ed9753b5fc144fe41854399c4d3707f2dc",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "7abdbf1c6b744bdd9c6ea5c410843d130bca640f0a8c63c6c5d7736e9b0ed7c2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "7abdbf1c6b744bdd9c6ea5c410843d130bca640f0a8c63c6c5d7736e9b0ed7c2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "7abdbf1c6b744bdd9c6ea5c410843d130bca640f0a8c63c6c5d7736e9b0ed7c2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": true,
+        "expected_to_pass": false,
+        "failure_class": "wrong_capsule_leak_or_scorer_looseness",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "7abdbf1c6b744bdd9c6ea5c410843d130bca640f0a8c63c6c5d7736e9b0ed7c2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "10ee789c83d0cb2b320e5e3456454a7c9087bec56e5e3f9f2e33eb28211cb296",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "47a22b435a25dd382db78d27474339d4a3326c362dac8b949858d3905f018484",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "task_bucket": "bfcl_irrelevance"
+    },
+    {
+      "case_id": "bfcl:multiple:multiple_0",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "1a2c4d5a11c851b4a12b11c9e7097211867ebe40a7fb071801855b90e399d620",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "host_tool_answer_field",
+        "gate_passed": false,
+        "generated_token_hash": "6bf769486d6d4d61ebf449ea6021fb58b2ea4777ca9f8dcb4a792b753c486b58",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "d2034bcc3daff34febe2262f84642f8682a0eae6ddf4a39f3bd029116549d85c"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "host_tool_answer_field",
+        "gate_passed": false,
+        "generated_token_hash": "6bf769486d6d4d61ebf449ea6021fb58b2ea4777ca9f8dcb4a792b753c486b58",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "d2034bcc3daff34febe2262f84642f8682a0eae6ddf4a39f3bd029116549d85c"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "host_tool_answer_field",
+        "gate_passed": false,
+        "generated_token_hash": "6bf769486d6d4d61ebf449ea6021fb58b2ea4777ca9f8dcb4a792b753c486b58",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "d2034bcc3daff34febe2262f84642f8682a0eae6ddf4a39f3bd029116549d85c"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "7abdbf1c6b744bdd9c6ea5c410843d130bca640f0a8c63c6c5d7736e9b0ed7c2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "20ba6516941b46c16366ac5bf428066b8d861a936d4e2ab478e32334591b3e3d",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "host_tool_answer_field",
+        "gate_passed": false,
+        "generated_token_hash": "13fb076fe9fe0d982d69a61297317a98814a53da4d73ff46dfe9d0af428edc60",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "d2034bcc3daff34febe2262f84642f8682a0eae6ddf4a39f3bd029116549d85c"
+      },
+      "task_bucket": "bfcl_multiple"
+    },
+    {
+      "case_id": "bfcl:multiple:multiple_1",
+      "classification": "usable_restored_parity",
+      "classification_reason": "Direct, full-visible, native-live, and restored-capsule controls passed; fresh-tail and wrong-capsule did not answer.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "2df0c9b381e6d3ad604f50360c6814a22af73548276c1beed13e6e7af78596d6",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "a75f80d0ad212539aae5afe771bf8e42a603c0130c1d3ad503228d8d96a5ddd6",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "db218ff9f0ed714499a5167e9c7816fe96168eac10c1da744c227a63f8d114d0"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "a75f80d0ad212539aae5afe771bf8e42a603c0130c1d3ad503228d8d96a5ddd6",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "db218ff9f0ed714499a5167e9c7816fe96168eac10c1da744c227a63f8d114d0"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "a75f80d0ad212539aae5afe771bf8e42a603c0130c1d3ad503228d8d96a5ddd6",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "db218ff9f0ed714499a5167e9c7816fe96168eac10c1da744c227a63f8d114d0"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "b3b8ace635b1ef1ebe1fc0863f9ff8a00165eec3a7cf80821646314aee29f55a",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "acbe40ee8bbecd83265380014dc36cdc4e2a7666c156b9183c722e3c28854744",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "0279c61073ec13f68b627e935e6bd906e57dd7ccaaaa0309910317d305dac0cd",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "db218ff9f0ed714499a5167e9c7816fe96168eac10c1da744c227a63f8d114d0"
+      },
+      "task_bucket": "bfcl_multiple"
+    },
+    {
+      "case_id": "bfcl:parallel:parallel_0",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "06f032ca0006612c9f994e1b1379469393f82ded73e2ce81ff3d48ccb72b056f",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "3ccaa7937223aec16a961fa9a14bdc9bfaffd62ee4213c51cfcd7dbb5000b747",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "f7873ac11b1947080c7613b008fe9a6b794ce3369028a18691dcd468880a3386",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "f7873ac11b1947080c7613b008fe9a6b794ce3369028a18691dcd468880a3386",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "5fd21b3655cfa78c99c087a4030c33f0d6bc6e1bc386d14fa16d0540035dc134",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "a0df4cbd9556de9176cabd9487f357d91a8099568f20573ca8ec1b0f2588bbc5",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "host_tool_answer_field",
+        "gate_passed": false,
+        "generated_token_hash": "6ba80ece456ecc99f573cdeded32c2ecbe662c6f706b8e1672a199c5245ea3b4",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "349d9995858df96b2bc2e09bcb52b184efab3caa68b484cf223ca197ce61da7e"
+      },
+      "task_bucket": "bfcl_parallel"
+    },
+    {
+      "case_id": "bfcl:parallel:parallel_1",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "30e1554158b05f05c70e318e7ade7e89f3e922525e5fb03598e23f56e7ec78e1",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "de36fcf52e06f0846417cfaf070383d4f70b27e08455be799c3e33d67a19f9f2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "de36fcf52e06f0846417cfaf070383d4f70b27e08455be799c3e33d67a19f9f2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "de36fcf52e06f0846417cfaf070383d4f70b27e08455be799c3e33d67a19f9f2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "53c179a9adfbbb7328819299f582812be7c5a4700a0b6c23a46ff8da009bee09",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "39a1689d015e1a350b6aab6e286814b8f5d45f53f3e785e7cece2b125f2ca414",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "394cb45dd336c73da8bf1529cbbc3e72d857e5fa6f507bd1f0a0019d31eb48ee",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "task_bucket": "bfcl_parallel"
+    },
+    {
+      "case_id": "bfcl:parallel_multiple:parallel_multiple_0",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "2c19e22f65b37884e543518b90edc2087cd76d26dbc1039092e5d7cd0ba0d0f0",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "07d37d677ba628335bb195d4a8c18c119416d6b539c8b78538bd8ae48fa495b7",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "07d37d677ba628335bb195d4a8c18c119416d6b539c8b78538bd8ae48fa495b7",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "07d37d677ba628335bb195d4a8c18c119416d6b539c8b78538bd8ae48fa495b7",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "07bdcf1502fa5fb6f12648c429e5bfe04bb38e4acb87eab4cd2e954a61fbbb28",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "a64cea2ad05a7750120958f4bd4678610d852e6e2f94136e3fc9b89f15e8e614",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "536a4f0ffda93f4052945a72f5f378ab58f8f25728de279c31f36d55d843cfdd",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "task_bucket": "bfcl_parallel_multiple"
+    },
+    {
+      "case_id": "bfcl:parallel_multiple:parallel_multiple_1",
+      "classification": "reject_baseline_failed",
+      "classification_reason": "Direct or Code-mode full-visible baseline failed, so the row cannot isolate KV capsule behavior.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "c86ee5476f3e6a6eddbaa05264b80b7ddbc8382a33c9059f952c789d0e7bc650",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "94b6cc5a4ddab4631e1730e3b123792c97d198c297a3dd1d7b2cfea7e7352868",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "f9d1cadef1d03ed1e44034e73bdc56e1f91372305458b94130208a612676dc3a",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "f9d1cadef1d03ed1e44034e73bdc56e1f91372305458b94130208a612676dc3a",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "cc05a37ef8111fbb02d64105a81d734c2a8a4c633bb716161eb0469cebbec903",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "1bd1737b70a56a8e4e0bce1f3cdc3d49ed3b3d40d19b542da242436caa25f074",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "d48f03cf75271e7fcf701edacc880a23f7c582c8ce4316b50da1aa456bcd5570",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "task_bucket": "bfcl_parallel_multiple"
+    },
+    {
+      "case_id": "bfcl:simple:simple_0",
+      "classification": "usable_restored_parity",
+      "classification_reason": "Direct, full-visible, native-live, and restored-capsule controls passed; fresh-tail and wrong-capsule did not answer.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "92ad23f6071c9b37e015d97ecdef3e5c7200b4fe3b97ded1b9ab7e3e293d6477",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "46f718a96751b5ae494ef085bfc3da51a54e94d092d88302273fb29486ae1d42",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "b5ec503f77bc68692c81119b2ae6eefe88254a792d6dccee318bbe373e76a822"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "46f718a96751b5ae494ef085bfc3da51a54e94d092d88302273fb29486ae1d42",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "b5ec503f77bc68692c81119b2ae6eefe88254a792d6dccee318bbe373e76a822"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "46f718a96751b5ae494ef085bfc3da51a54e94d092d88302273fb29486ae1d42",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "b5ec503f77bc68692c81119b2ae6eefe88254a792d6dccee318bbe373e76a822"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "b3b8ace635b1ef1ebe1fc0863f9ff8a00165eec3a7cf80821646314aee29f55a",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "e8dd7e3ec2545285fd50040577b7937d07640f13a09378cb8d02698cf42e1e23",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "a03bd2abf691a0bc8b44eb2f68ecfd9955eaf704d2f676592db7cb0d86e4996a",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "b5ec503f77bc68692c81119b2ae6eefe88254a792d6dccee318bbe373e76a822"
+      },
+      "task_bucket": "bfcl_simple"
+    },
+    {
+      "case_id": "bfcl:simple:simple_1",
+      "classification": "reject_native_live_append_failed",
+      "classification_reason": "Visible baselines passed, but native-live append failed; this is a live-append/model instability issue, not restored KV evidence.",
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "a7f607bd75048b2edc752a84fea6634bc075884149425563f31fdd847a6423e3",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "e2e0641c9f2067779b39fbdb57e08ff666331842ed68f9675978b0c8d6df0e9b",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "d795543c913ffe4c54a137039cadfc09710b768174bd81e11a5fb07d58063f34"
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "07d37d677ba628335bb195d4a8c18c119416d6b539c8b78538bd8ae48fa495b7",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "07d37d677ba628335bb195d4a8c18c119416d6b539c8b78538bd8ae48fa495b7",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "expected_to_pass": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "generated_token_hash": "b3b8ace635b1ef1ebe1fc0863f9ff8a00165eec3a7cf80821646314aee29f55a",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "expected_to_pass": true,
+        "failure_class": "bfcl_scorer_failure",
+        "final_source": "none",
+        "gate_passed": false,
+        "generated_token_hash": "5f0c9a3b0ca4703ea06eca1a008d4102c8bce7772b1e6002801164a820a57d71",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "expected_to_pass": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "generated_token_hash": "9fc55458e678c38dd98991948ec8ff280248c2ee74293687b3c6a25c031052d2",
+        "normalized_response_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_hash": "d795543c913ffe4c54a137039cadfc09710b768174bd81e11a5fb07d58063f34"
+      },
+      "task_bucket": "bfcl_simple"
+    }
+  ]
+}

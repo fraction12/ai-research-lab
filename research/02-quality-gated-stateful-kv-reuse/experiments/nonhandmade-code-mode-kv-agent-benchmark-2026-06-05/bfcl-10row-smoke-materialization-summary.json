@@ -1,0 +1,63 @@
+{
+  "adapter_version": "bfcl_code_mode_kv_adapter_v1",
+  "bfcl_dataset_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda",
+  "bfcl_leaderboard_checkpoint": "f7cf735",
+  "case_count": 10,
+  "categories": {
+    "irrelevance": {
+      "case_count": 2,
+      "case_ids": [
+        "bfcl:irrelevance:irrelevance_0",
+        "bfcl:irrelevance:irrelevance_1"
+      ],
+      "control_record_count": 14
+    },
+    "multiple": {
+      "case_count": 2,
+      "case_ids": [
+        "bfcl:multiple:multiple_0",
+        "bfcl:multiple:multiple_1"
+      ],
+      "control_record_count": 14
+    },
+    "parallel": {
+      "case_count": 2,
+      "case_ids": [
+        "bfcl:parallel:parallel_0",
+        "bfcl:parallel:parallel_1"
+      ],
+      "control_record_count": 14
+    },
+    "parallel_multiple": {
+      "case_count": 2,
+      "case_ids": [
+        "bfcl:parallel_multiple:parallel_multiple_0",
+        "bfcl:parallel_multiple:parallel_multiple_1"
+      ],
+      "control_record_count": 14
+    },
+    "simple": {
+      "case_count": 2,
+      "case_ids": [
+        "bfcl:simple:simple_0",
+        "bfcl:simple:simple_1"
+      ],
+      "control_record_count": 14
+    }
+  },
+  "control_record_count": 70,
+  "controls": [
+    "direct_full_visible_tools",
+    "code_mode_full_visible",
+    "code_mode_fresh_tail_only",
+    "code_mode_native_live_append",
+    "code_mode_restored_kv_capsule",
+    "code_mode_wrong_capsule_negative",
+    "compact_visible_evidence_code_mode"
+  ],
+  "experiment_id": "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05",
+  "model_run_status": "not_started",
+  "scorer_version": "bfcl_expected_call_scorer_v1",
+  "status": "no_model_materialization_complete",
+  "transform_version": "bfcl_code_mode_kv_transform_v1"
+}

@@ -1,0 +1,97 @@
+{
+  "commands": [
+    "python3 research/01-ssd-native-inference-current/benchmarks/bfcl_code_mode_kv_adapter.py --category simple --category multiple --category parallel --category parallel_multiple --category irrelevance --per-category 1 --out research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/raw/bfcl-stage1-five-case-control-packet.jsonl --summary-out research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/candidate-calibration.json",
+    "research/01-ssd-native-inference-current/benchmarks/code_mode_kv_capsule_model_loop_runner.py --packet research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/raw/bfcl-10row-smoke-control-packet.jsonl --out-dir research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/raw --cache-dir research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/cache --run-label bfcl-10row-smoke --state-route auto --predict 128 --max-steps 3 --max-repairs 1"
+  ],
+  "committed_artifacts": [
+    {
+      "description": "Stage 1 source/provenance audit.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/source-audit.json"
+    },
+    {
+      "description": "Human-readable source audit notes.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/source-audit-notes.md"
+    },
+    {
+      "description": "No-model BFCL five-case materialization summary.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/candidate-calibration.json",
+      "sha256": "816c1d81b4c86d62bf718623e8858e0047fab0653ef0a9cf5b687e23678784b1"
+    },
+    {
+      "description": "BFCL 10-row model smoke summary and claim boundary.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/summary.json"
+    },
+    {
+      "description": "Per-row, per-control BFCL 10-row smoke matrix.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/control-matrix.json"
+    },
+    {
+      "description": "Row classifications and failure class counts.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/failure-classifications.json"
+    },
+    {
+      "description": "Commands used for materialization, remote run, copyback, and validation.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/commands.md"
+    },
+    {
+      "description": "Human-readable smoke result summary.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/README.md"
+    },
+    {
+      "description": "Paper-facing methods notes for the smoke.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/paper-methods-notes.md"
+    },
+    {
+      "description": "Claims explicitly unsupported by this smoke.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/disallowed-claims.md"
+    },
+    {
+      "description": "No-model 10-row BFCL materialization summary.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/bfcl-10row-smoke-materialization-summary.json"
+    },
+    {
+      "description": "One-case transport/parser smoke summary.",
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/bfcl-one-case-transport-summary.json"
+    }
+  ],
+  "created_utc": "2026-06-05T20:21:18Z",
+  "experiment_id": "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05",
+  "ignored_prompt_bearing_artifacts": [
+    {
+      "case_count": 5,
+      "control_record_count": 35,
+      "description": "Prompt-bearing BFCL no-model control packets. Kept ignored by git.",
+      "line_count": 35,
+      "path": "research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/raw/bfcl-stage1-five-case-control-packet.jsonl",
+      "sha256": "9f1ceb8faff03e8bb5720d2b08354933346d8b373385697eb942f55f80b1514f"
+    },
+    {
+      "description": "Prompt-bearing BFCL 10-row seven-control packet. Kept ignored by git.",
+      "line_count": 70,
+      "path": "research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/raw/bfcl-10row-smoke-control-packet.jsonl",
+      "sha256": "0ED761508EEA4859FB893B1366C549373B5704E8E2EB47DF41F7D8086196E41D"
+    },
+    {
+      "description": "Prompt-bearing BFCL 10-row model-loop records. Kept ignored by git.",
+      "line_count": 70,
+      "path": "research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/raw/bfcl-10row-smoke-model-loop-records.jsonl",
+      "sha256": "1d3bbe3449855f0157f5509910a3871ff5860dfa3d2e03756d54d505debafd41"
+    },
+    {
+      "description": "BFCL 10-row model-loop run info. Kept ignored by git with raw run outputs.",
+      "path": "research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/raw/bfcl-10row-smoke-model-loop-run-info.json",
+      "sha256": "3238518dacd699efd5801012e5b84f606458c2381663f2655672f45e487f0d98"
+    }
+  ],
+  "latest_interpretation_decision": "proceed_to_bfcl_primary_candidate_calibration_with_strict_row_gates",
+  "latest_run_label": "bfcl-10row-smoke",
+  "latest_runner_decision": "stop_wrong_capsule_unexpected_pass",
+  "model_run_status": "complete",
+  "sanity_checks": {
+    "fresh_tail_visible_prompt_contains_tool_catalog": false,
+    "full_visible_prompt_contains_tool_catalog": true,
+    "restored_visible_prompt_contains_tool_catalog": false
+  },
+  "status": "bfcl_10row_smoke_complete",
+  "updated_utc": "2026-06-05T20:57:36Z"
+}

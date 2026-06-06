@@ -1,0 +1,509 @@
+{
+  "artifact": "bfcl-10row-smoke-summary",
+  "artifact_hashes": {
+    "packet_sha256": "0ED761508EEA4859FB893B1366C549373B5704E8E2EB47DF41F7D8086196E41D",
+    "raw_records_path": "research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/raw/bfcl-10row-smoke-model-loop-records.jsonl",
+    "raw_records_sha256": "1d3bbe3449855f0157f5509910a3871ff5860dfa3d2e03756d54d505debafd41",
+    "run_info_path": "research/01-ssd-native-inference-current/benchmarks/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/raw/bfcl-10row-smoke-model-loop-run-info.json",
+    "run_info_sha256": "3238518dacd699efd5801012e5b84f606458c2381663f2655672f45e487f0d98"
+  },
+  "claims": {
+    "allowed": [
+      "The BFCL adapter and seven-control runner can run a non-handmade benchmark suite end to end on Gemma4 12B with CUDA and sequence-state restore.",
+      "Restored KV capsule outputs matched native live-append outputs by normalized response hash and generated-token hash on all 10 smoke rows.",
+      "Two rows met strict usable evidence gates and showed restored-capsule correctness parity with native live append while fresh-tail and wrong-capsule negative controls did not answer.",
+      "Restored capsule reduced prompt evaluation time on usable rows, but total wall time did not improve in this smoke."
+    ],
+    "disallowed": [
+      "Do not claim BFCL benchmark success or leaderboard-comparable performance; this was a 10-row smoke with an adapter scorer, not the official BFCL evaluator.",
+      "Do not claim speedup yet; total wall time was slower for restored capsule on usable rows.",
+      "Do not use rows that fail full-visible or native-live controls as evidence against restored KV capsules.",
+      "Do not treat irrelevance/no-call rows as prefix-dependent hidden-KV evidence."
+    ]
+  },
+  "control_summary": {
+    "code_mode_fresh_tail_only": {
+      "answer_contained_count": 2,
+      "expected_to_pass_count": 0,
+      "failure_classes": {
+        "fresh_tail_leak_or_non_prefix_dependent": 2
+      },
+      "gate_pass_count": 8,
+      "label": "fresh tail negative control",
+      "record_count": 10,
+      "tool_result_fallback_count": 0
+    },
+    "code_mode_full_visible": {
+      "answer_contained_count": 5,
+      "expected_to_pass_count": 10,
+      "failure_classes": {
+        "bfcl_scorer_failure": 5
+      },
+      "gate_pass_count": 5,
+      "label": "Code-mode full visible baseline",
+      "record_count": 10,
+      "tool_result_fallback_count": 4
+    },
+    "code_mode_native_live_append": {
+      "answer_contained_count": 4,
+      "expected_to_pass_count": 10,
+      "failure_classes": {
+        "bfcl_scorer_failure": 6
+      },
+      "gate_pass_count": 4,
+      "label": "native live append oracle",
+      "record_count": 10,
+      "tool_result_fallback_count": 3
+    },
+    "code_mode_restored_kv_capsule": {
+      "answer_contained_count": 4,
+      "expected_to_pass_count": 10,
+      "failure_classes": {
+        "bfcl_scorer_failure": 6
+      },
+      "gate_pass_count": 4,
+      "label": "restored KV capsule",
+      "record_count": 10,
+      "tool_result_fallback_count": 3
+    },
+    "code_mode_wrong_capsule_negative": {
+      "answer_contained_count": 2,
+      "expected_to_pass_count": 0,
+      "failure_classes": {
+        "wrong_capsule_leak_or_scorer_looseness": 2
+      },
+      "gate_pass_count": 8,
+      "label": "wrong capsule negative control",
+      "record_count": 10,
+      "tool_result_fallback_count": 0
+    },
+    "compact_visible_evidence_code_mode": {
+      "answer_contained_count": 2,
+      "expected_to_pass_count": 10,
+      "failure_classes": {
+        "bfcl_scorer_failure": 8
+      },
+      "gate_pass_count": 2,
+      "label": "compact visible evidence baseline",
+      "record_count": 10,
+      "tool_result_fallback_count": 0
+    },
+    "direct_full_visible_tools": {
+      "answer_contained_count": 5,
+      "expected_to_pass_count": 10,
+      "failure_classes": {
+        "bfcl_scorer_failure": 5
+      },
+      "gate_pass_count": 5,
+      "label": "direct visible tools baseline",
+      "record_count": 10,
+      "tool_result_fallback_count": 5
+    }
+  },
+  "counts": {
+    "case_count": 10,
+    "classifications": {
+      "diagnostic_negative_control_non_prefix_dependent": 2,
+      "reject_baseline_failed": 5,
+      "reject_native_live_append_failed": 1,
+      "usable_restored_parity": 2
+    },
+    "controls_per_case": 7,
+    "record_count": 70,
+    "usable_case_ids": [
+      "bfcl:multiple:multiple_1",
+      "bfcl:simple:simple_0"
+    ]
+  },
+  "created_utc": "2026-06-05T20:57:36Z",
+  "experiment_id": "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05",
+  "hash_parity": {
+    "code_full_vs_live_all_rows": {
+      "generated_token_hash_matches": 6,
+      "normalized_response_hash_matches": 10,
+      "response_hash_matches": 9,
+      "total": 10
+    },
+    "live_vs_restored_all_rows": {
+      "generated_token_hash_matches": 10,
+      "normalized_response_hash_matches": 10,
+      "response_hash_matches": 10,
+      "total": 10
+    },
+    "live_vs_restored_usable_rows": {
+      "generated_token_hash_matches": 2,
+      "normalized_response_hash_matches": 2,
+      "total": 2
+    }
+  },
+  "interpretation_decision": "proceed_to_bfcl_primary_candidate_calibration_with_strict_row_gates",
+  "next_step": {
+    "action": "run BFCL candidate calibration for a primary cohort",
+    "row_gates": [
+      "external BFCL provenance and revision-pinned source row",
+      "direct_full_visible_tools passes",
+      "code_mode_full_visible passes",
+      "code_mode_native_live_append passes",
+      "fresh_tail_only does not answer for prefix-dependent rows",
+      "wrong_capsule_negative does not answer",
+      "exclude irrelevance/no-call rows from primary hidden-prefix evidence"
+    ],
+    "suggested_scope": "Calibrate 50 to 100 candidate rows, likely starting with simple and multiple categories, then run a selected primary cohort through all seven controls."
+  },
+  "run": {
+    "backend": "cuda_v13",
+    "bundle": "C:\\Users\\Dushyant\\Tools\\llama-b9512-cuda13",
+    "finished_utc": "2026-06-05T20:54:38Z",
+    "harness_version": "code_mode_kv_capsule_agent_harness_v8",
+    "host": "DushyantPC",
+    "max_repairs": 1,
+    "max_steps": 3,
+    "model_desc": "gemma4 ?B Q4_K - Medium",
+    "model_hash": "5CF8A1F2FC4268B3FD628743675910CF1D8137C4742D0BE401C3E885F605023A",
+    "model_path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-5cf8a1f2fc4268b3fd628743675910cf1d8137c4742d0be401c3e885f605023a",
+    "model_profile": "gemma4-12b",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "prompt_protocol_version": "openclaw_code_mode_compiled_template_v1",
+    "run_label": "bfcl-10row-smoke",
+    "sequence_state_available": {
+      "seq_file": true,
+      "seq_memory": true
+    },
+    "started_utc": "2026-06-05T20:43:48Z",
+    "state_route_effective": "seq_file",
+    "state_route_requested": "auto"
+  },
+  "runner_decision": "stop_wrong_capsule_unexpected_pass",
+  "source": {
+    "benchmark_id": "BFCL",
+    "benchmark_release": "BFCL_v3",
+    "dataset_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda",
+    "dataset_url": "https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard/tree/61fc0608cfd831fcfbbaa676ebdfef0ed963eeda",
+    "eval_package": "bfcl-eval==2025.12.17",
+    "leaderboard_checkpoint": "f7cf735",
+    "license_id": "apache-2.0",
+    "native_bfcl_scorer_used": false,
+    "scorer_kind": "deterministic_expected_call_adapter"
+  },
+  "status": "bfcl_10row_smoke_complete",
+  "timing": {
+    "all_rows": {
+      "code_mode_full_visible": {
+        "decode_ms": {
+          "max": 14103.53,
+          "mean": 3220.115,
+          "median": 1729.124,
+          "min": 799.416
+        },
+        "initial_prompt_eval_ms": {
+          "max": 2961.742,
+          "mean": 1801.835,
+          "median": 1667.545,
+          "min": 1062.689
+        },
+        "loop_prompt_eval_ms": {
+          "max": 887.577,
+          "mean": 396.116,
+          "median": 310.427,
+          "min": 0.0
+        },
+        "prompt_eval_ms": {
+          "max": 2961.742,
+          "mean": 2197.951,
+          "median": 2419.139,
+          "min": 1062.689
+        },
+        "total_ms": {
+          "max": 18000.414,
+          "mean": 6910.136,
+          "median": 5669.046,
+          "min": 4210.373
+        }
+      },
+      "code_mode_native_live_append": {
+        "decode_ms": {
+          "max": 11972.027,
+          "mean": 2992.762,
+          "median": 1680.309,
+          "min": 889.857
+        },
+        "initial_prompt_eval_ms": {
+          "max": 2963.285,
+          "mean": 1809.626,
+          "median": 1726.609,
+          "min": 1071.366
+        },
+        "loop_prompt_eval_ms": {
+          "max": 890.209,
+          "mean": 475.652,
+          "median": 526.478,
+          "min": 0.0
+        },
+        "prompt_eval_ms": {
+          "max": 2963.285,
+          "mean": 2285.278,
+          "median": 2351.082,
+          "min": 1373.076
+        },
+        "total_ms": {
+          "max": 15675.929,
+          "mean": 6746.702,
+          "median": 5699.673,
+          "min": 4575.524
+        }
+      },
+      "code_mode_restored_kv_capsule": {
+        "capsule_restore_ms": {
+          "max": 98.375,
+          "mean": 78.447,
+          "median": 87.005,
+          "min": 33.257
+        },
+        "capsule_save_ms": {
+          "max": 101.16,
+          "mean": 58.477,
+          "median": 52.95,
+          "min": 38.661
+        },
+        "decode_ms": {
+          "max": 11962.737,
+          "mean": 3010.932,
+          "median": 1708.718,
+          "min": 897.436
+        },
+        "initial_prompt_eval_ms": {
+          "max": 321.149,
+          "mean": 210.05,
+          "median": 198.714,
+          "min": 88.155
+        },
+        "loop_prompt_eval_ms": {
+          "max": 896.424,
+          "mean": 469.78,
+          "median": 514.007,
+          "min": 0.0
+        },
+        "prompt_eval_ms": {
+          "max": 1200.404,
+          "mean": 679.83,
+          "median": 650.561,
+          "min": 145.02
+        },
+        "state_bytes_restored_values": [
+          66410952,
+          74325068,
+          76389620,
+          78798264,
+          81551000,
+          94626496,
+          111142912,
+          118368844,
+          135917536,
+          171703104
+        ],
+        "state_bytes_saved_values": [
+          66410952,
+          74325068,
+          76389620,
+          78798264,
+          81551000,
+          94626496,
+          111142912,
+          118368844,
+          135917536,
+          171703104
+        ],
+        "total_ms": {
+          "max": 17217.197,
+          "mean": 8397.831,
+          "median": 7323.833,
+          "min": 6185.859
+        }
+      },
+      "compact_visible_evidence_code_mode": {
+        "decode_ms": {
+          "max": 15236.28,
+          "mean": 8440.714,
+          "median": 7006.772,
+          "min": 2873.442
+        },
+        "initial_prompt_eval_ms": {
+          "max": 723.148,
+          "mean": 491.429,
+          "median": 525.874,
+          "min": 240.625
+        },
+        "loop_prompt_eval_ms": {
+          "max": 852.39,
+          "mean": 413.453,
+          "median": 283.045,
+          "min": 229.605
+        },
+        "prompt_eval_ms": {
+          "max": 1467.213,
+          "mean": 904.882,
+          "median": 928.023,
+          "min": 470.23
+        },
+        "total_ms": {
+          "max": 17449.199,
+          "mean": 10777.19,
+          "median": 9115.803,
+          "min": 5822.83
+        }
+      },
+      "direct_full_visible_tools": {
+        "decode_ms": {
+          "max": 19503.855,
+          "mean": 5872.393,
+          "median": 3034.688,
+          "min": 1367.376
+        },
+        "initial_prompt_eval_ms": {
+          "max": 5041.759,
+          "mean": 2634.657,
+          "median": 2358.836,
+          "min": 1391.466
+        },
+        "loop_prompt_eval_ms": {
+          "max": 950.391,
+          "mean": 292.74,
+          "median": 118.0,
+          "min": 0.0
+        },
+        "prompt_eval_ms": {
+          "max": 5041.759,
+          "mean": 2927.397,
+          "median": 2942.014,
+          "min": 1391.466
+        },
+        "total_ms": {
+          "max": 24980.521,
+          "mean": 10399.779,
+          "median": 9062.329,
+          "min": 4018.599
+        }
+      }
+    },
+    "timing_interpretation": "Restored capsule reduces prompt evaluation substantially but did not reduce total wall time in this small smoke because save/restore, loop, and decode overhead dominate.",
+    "usable_rows": {
+      "code_mode_full_visible": {
+        "decode_ms": {
+          "max": 3343.958,
+          "mean": 3143.138,
+          "median": 3143.138,
+          "min": 2942.318
+        },
+        "initial_prompt_eval_ms": {
+          "max": 2460.984,
+          "mean": 1925.42,
+          "median": 1925.42,
+          "min": 1389.857
+        },
+        "loop_prompt_eval_ms": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0
+        },
+        "prompt_eval_ms": {
+          "max": 2460.984,
+          "mean": 1925.42,
+          "median": 1925.42,
+          "min": 1389.857
+        },
+        "total_ms": {
+          "max": 7203.077,
+          "mean": 6448.462,
+          "median": 6448.462,
+          "min": 5693.846
+        }
+      },
+      "code_mode_native_live_append": {
+        "decode_ms": {
+          "max": 3240.9,
+          "mean": 3069.681,
+          "median": 3069.681,
+          "min": 2898.461
+        },
+        "initial_prompt_eval_ms": {
+          "max": 2351.695,
+          "mean": 1862.385,
+          "median": 1862.385,
+          "min": 1373.076
+        },
+        "loop_prompt_eval_ms": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0
+        },
+        "prompt_eval_ms": {
+          "max": 2351.695,
+          "mean": 1862.385,
+          "median": 1862.385,
+          "min": 1373.076
+        },
+        "total_ms": {
+          "max": 6956.919,
+          "mean": 6246.065,
+          "median": 6246.065,
+          "min": 5535.21
+        }
+      },
+      "code_mode_restored_kv_capsule": {
+        "capsule_restore_ms": {
+          "max": 85.363,
+          "mean": 84.369,
+          "median": 84.369,
+          "min": 83.374
+        },
+        "capsule_save_ms": {
+          "max": 70.388,
+          "mean": 60.896,
+          "median": 60.896,
+          "min": 51.404
+        },
+        "decode_ms": {
+          "max": 3272.424,
+          "mean": 3092.507,
+          "median": 3092.507,
+          "min": 2912.59
+        },
+        "initial_prompt_eval_ms": {
+          "max": 212.476,
+          "mean": 178.748,
+          "median": 178.748,
+          "min": 145.02
+        },
+        "loop_prompt_eval_ms": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0
+        },
+        "prompt_eval_ms": {
+          "max": 212.476,
+          "mean": 178.748,
+          "median": 178.748,
+          "min": 145.02
+        },
+        "state_bytes_restored_values": [
+          81551000,
+          135917536
+        ],
+        "state_bytes_saved_values": [
+          81551000,
+          135917536
+        ],
+        "total_ms": {
+          "max": 8702.524,
+          "mean": 7845.794,
+          "median": 7845.794,
+          "min": 6989.063
+        }
+      }
+    },
+    "usable_rows_prompt_eval_reduction_restored_vs_native_percent": 90.4
+  }
+}

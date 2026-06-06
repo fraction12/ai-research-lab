@@ -27,3 +27,4 @@ An idea can become a track only after it has:
 ## Notes
 
 - [2026-06-03 negative-space scan](2026-06-03-negative-space-scan.md)
+- [2026-06-04 semantic contracts negative-space review](2026-06-04-semantic-contracts-negative-space-review.md)

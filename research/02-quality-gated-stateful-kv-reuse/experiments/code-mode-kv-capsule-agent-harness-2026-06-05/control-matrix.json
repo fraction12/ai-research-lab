@@ -1,0 +1,94 @@
+{
+  "controls": [
+    "direct_full_visible_tools",
+    "code_mode_full_visible",
+    "code_mode_fresh_tail_only",
+    "code_mode_native_live_append",
+    "code_mode_restored_kv_capsule",
+    "code_mode_wrong_capsule_negative",
+    "compact_visible_evidence_code_mode"
+  ],
+  "negative_controls": [
+    "code_mode_fresh_tail_only",
+    "code_mode_wrong_capsule_negative"
+  ],
+  "records_by_control": {
+    "code_mode_fresh_tail_only": {
+      "control_gate_pass_count": 30,
+      "control_gate_pass_rate": 1.0,
+      "expected_to_pass_count": 0,
+      "mean_prompt_token_reduction_vs_code_mode_full_visible": 0.8719431108176765,
+      "mean_prompt_token_reduction_vs_direct_full_visible": 0.8447707953627039,
+      "mean_prompt_token_reduction_vs_full_visible": 0.8719431108176765,
+      "record_count": 30,
+      "task_success_count": 0,
+      "task_success_rate": 0.0
+    },
+    "code_mode_full_visible": {
+      "control_gate_pass_count": 30,
+      "control_gate_pass_rate": 1.0,
+      "expected_to_pass_count": 30,
+      "mean_prompt_token_reduction_vs_code_mode_full_visible": 0.0,
+      "mean_prompt_token_reduction_vs_direct_full_visible": -0.21225860901505608,
+      "mean_prompt_token_reduction_vs_full_visible": 0.0,
+      "record_count": 30,
+      "task_success_count": 30,
+      "task_success_rate": 1.0
+    },
+    "code_mode_native_live_append": {
+      "control_gate_pass_count": 30,
+      "control_gate_pass_rate": 1.0,
+      "expected_to_pass_count": 30,
+      "mean_prompt_token_reduction_vs_code_mode_full_visible": 0.8719431108176765,
+      "mean_prompt_token_reduction_vs_direct_full_visible": 0.8447707953627039,
+      "mean_prompt_token_reduction_vs_full_visible": 0.8719431108176765,
+      "record_count": 30,
+      "task_success_count": 30,
+      "task_success_rate": 1.0
+    },
+    "code_mode_restored_kv_capsule": {
+      "control_gate_pass_count": 30,
+      "control_gate_pass_rate": 1.0,
+      "expected_to_pass_count": 30,
+      "mean_prompt_token_reduction_vs_code_mode_full_visible": 0.8719431108176765,
+      "mean_prompt_token_reduction_vs_direct_full_visible": 0.8447707953627039,
+      "mean_prompt_token_reduction_vs_full_visible": 0.8719431108176765,
+      "record_count": 30,
+      "task_success_count": 30,
+      "task_success_rate": 1.0
+    },
+    "code_mode_wrong_capsule_negative": {
+      "control_gate_pass_count": 30,
+      "control_gate_pass_rate": 1.0,
+      "expected_to_pass_count": 0,
+      "mean_prompt_token_reduction_vs_code_mode_full_visible": 0.8719431108176765,
+      "mean_prompt_token_reduction_vs_direct_full_visible": 0.8447707953627039,
+      "mean_prompt_token_reduction_vs_full_visible": 0.8719431108176765,
+      "record_count": 30,
+      "task_success_count": 0,
+      "task_success_rate": 0.0
+    },
+    "compact_visible_evidence_code_mode": {
+      "control_gate_pass_count": 30,
+      "control_gate_pass_rate": 1.0,
+      "expected_to_pass_count": 30,
+      "mean_prompt_token_reduction_vs_code_mode_full_visible": 0.8595780343188899,
+      "mean_prompt_token_reduction_vs_direct_full_visible": 0.8297808608084988,
+      "mean_prompt_token_reduction_vs_full_visible": 0.8595780343188899,
+      "record_count": 30,
+      "task_success_count": 30,
+      "task_success_rate": 1.0
+    },
+    "direct_full_visible_tools": {
+      "control_gate_pass_count": 30,
+      "control_gate_pass_rate": 1.0,
+      "expected_to_pass_count": 30,
+      "mean_prompt_token_reduction_vs_code_mode_full_visible": 0.17509012069142382,
+      "mean_prompt_token_reduction_vs_direct_full_visible": 0.0,
+      "mean_prompt_token_reduction_vs_full_visible": 0.0,
+      "record_count": 30,
+      "task_success_count": 30,
+      "task_success_rate": 1.0
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "all_tools": [
+    {
+      "description": "Return the failing symbol id for a case.",
+      "name": "find_failing_symbol",
+      "namespace": "repo",
+      "tags": [
+        "repo",
+        "symbol",
+        "issue",
+        "lookup"
+      ],
+      "tool_id": "fixture:repo:find_failing_symbol"
+    },
+    {
+      "description": "Return owner metadata for a symbol id.",
+      "name": "read_symbol_owner",
+      "namespace": "repo",
+      "tags": [
+        "repo",
+        "owner",
+        "symbol",
+        "module"
+      ],
+      "tool_id": "fixture:repo:read_symbol_owner"
+    },
+    {
+      "description": "Return deterministic failure counts by module.",
+      "name": "list_module_failures",
+      "namespace": "test",
+      "tags": [
+        "test",
+        "failures",
+        "aggregate",
+        "module"
+      ],
+      "tool_id": "fixture:test:list_module_failures"
+    },
+    {
+      "description": "Run a check that may require one bounded retry.",
+      "name": "run_retryable_check",
+      "namespace": "test",
+      "tags": [
+        "test",
+        "retry",
+        "check",
+        "bounded"
+      ],
+      "tool_id": "fixture:test:run_retryable_check"
+    },
+    {
+      "description": "Return a prior task checkpoint for a long-horizon continuation case.",
+      "name": "read_checkpoint",
+      "namespace": "trace",
+      "tags": [
+        "trace",
+        "checkpoint",
+        "continuation",
+        "memory"
+      ],
+      "tool_id": "fixture:trace:read_checkpoint"
+    },
+    {
+      "description": "Return the policy-compliant response for a denied or suspicious tool request.",
+      "name": "audit_requested_tool",
+      "namespace": "policy",
+      "tags": [
+        "policy",
+        "audit",
+        "denied",
+        "safety"
+      ],
+      "tool_id": "fixture:policy:audit_requested_tool"
+    }
+  ],
+  "catalog_hash_example": "90bda4caa140b9f6b1e9d071ae306d9d61f00fb637f94a1dff06c1bb385d044c",
+  "catalog_id_example": "agent-fixture-v1:correct:single_tool_selection-00",
+  "catalog_version": "fixture_catalog_v1",
+  "control_tools_omitted_from_catalog": [
+    "exec",
+    "wait",
+    "tool_search",
+    "tool_describe",
+    "tool_call"
+  ],
+  "denied_tool_ids": [
+    "fixture:danger:read_secret"
+  ],
+  "openclaw_reference": "https://docs.openclaw.ai/reference/code-mode"
+}

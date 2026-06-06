@@ -1,0 +1,59 @@
+{
+  "artifacts": {
+    "parallel_08_target_v9_records": {
+      "committed": false,
+      "path": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/parallel-08-target-v9-model-loop-records.jsonl",
+      "record_count": 7,
+      "sha256": "758cbcadce69029fe828b46abc2a69eb6569bdd5c79d51fd4dcb44027282d398"
+    },
+    "thirty_case_case_records": {
+      "committed": false,
+      "path": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/thirty-case-case-records.jsonl",
+      "sha256": "331b3abcee1185c0ca62abf3343ab23cb614d56ccab1b84ea1d788a99cb84915"
+    },
+    "thirty_case_command": {
+      "committed": false,
+      "path": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/thirty-case-v9-model-loop-command.txt",
+      "sha256": "61b72606b0319865e3fe75a993a7dcac22ae782f93a107b877288921be2a6a71"
+    },
+    "thirty_case_packet": {
+      "committed": false,
+      "path": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/thirty-case-model-control-packet.jsonl",
+      "sha256": "878dab243fe7e8979d713c56e0917159f80f71fefed79037d4f7ab36e4f55198"
+    },
+    "thirty_case_records": {
+      "committed": false,
+      "path": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/thirty-case-v9-model-loop-records.jsonl",
+      "record_count": 210,
+      "sha256": "283f9b19992d1d9fb2829e37457462d7c92a2001c969c180ccc43a3fc96b5c36"
+    },
+    "thirty_case_run_info": {
+      "committed": false,
+      "path": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/thirty-case-v9-model-loop-run-info.json",
+      "sha256": "6c443ed7715c5773fcfa6caa003d7fd849c22471b7d6cc04db871c02478850cd"
+    },
+    "thirty_case_stderr": {
+      "committed": false,
+      "path": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/thirty-case-v9-model-loop-stderr.txt",
+      "sha256": "3bd1bafe4b63be082672c861874f36668180e8c8eec6b9d0e478542055af83c5"
+    },
+    "twelve_case_v9_records": {
+      "committed": false,
+      "path": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/twelve-case-v9-model-loop-records.jsonl",
+      "record_count": 84,
+      "sha256": "f86c03e3a8659810e1f40a2e95b572ae4fac90330df0b10ba6e6ed79f4f9a267"
+    }
+  },
+  "committed_summary_dir": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/code-mode-kv-capsule-agent-harness-2026-06-05",
+  "experiment_id": "code-mode-kv-capsule-agent-harness-2026-06-05",
+  "generated_at": "2026-06-05T20:03:28.554868+00:00",
+  "ignored_raw_dir": "/Users/dushyantgarg/Documents/Projects/ai-research-lab/research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw",
+  "raw_artifacts_not_committed": [
+    "raw prompts",
+    "generated model text",
+    "tool outputs",
+    "capsule sequence files",
+    "stderr backend logs"
+  ],
+  "stage": "thirty-case-v9"
+}

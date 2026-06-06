@@ -1,0 +1,116 @@
+{
+  "adapter_version": "bfcl_code_mode_kv_adapter_v1",
+  "bfcl_dataset_revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda",
+  "bfcl_leaderboard_checkpoint": "f7cf735",
+  "case_count": 50,
+  "categories": {
+    "multiple": {
+      "case_count": 13,
+      "case_ids": [
+        "bfcl:multiple:multiple_0",
+        "bfcl:multiple:multiple_1",
+        "bfcl:multiple:multiple_10",
+        "bfcl:multiple:multiple_11",
+        "bfcl:multiple:multiple_12",
+        "bfcl:multiple:multiple_2",
+        "bfcl:multiple:multiple_3",
+        "bfcl:multiple:multiple_4",
+        "bfcl:multiple:multiple_5",
+        "bfcl:multiple:multiple_6",
+        "bfcl:multiple:multiple_7",
+        "bfcl:multiple:multiple_8",
+        "bfcl:multiple:multiple_9"
+      ],
+      "control_record_count": 91
+    },
+    "parallel": {
+      "case_count": 12,
+      "case_ids": [
+        "bfcl:parallel:parallel_0",
+        "bfcl:parallel:parallel_1",
+        "bfcl:parallel:parallel_10",
+        "bfcl:parallel:parallel_11",
+        "bfcl:parallel:parallel_2",
+        "bfcl:parallel:parallel_3",
+        "bfcl:parallel:parallel_4",
+        "bfcl:parallel:parallel_5",
+        "bfcl:parallel:parallel_6",
+        "bfcl:parallel:parallel_7",
+        "bfcl:parallel:parallel_8",
+        "bfcl:parallel:parallel_9"
+      ],
+      "control_record_count": 84
+    },
+    "parallel_multiple": {
+      "case_count": 12,
+      "case_ids": [
+        "bfcl:parallel_multiple:parallel_multiple_0",
+        "bfcl:parallel_multiple:parallel_multiple_1",
+        "bfcl:parallel_multiple:parallel_multiple_10",
+        "bfcl:parallel_multiple:parallel_multiple_11",
+        "bfcl:parallel_multiple:parallel_multiple_2",
+        "bfcl:parallel_multiple:parallel_multiple_3",
+        "bfcl:parallel_multiple:parallel_multiple_4",
+        "bfcl:parallel_multiple:parallel_multiple_5",
+        "bfcl:parallel_multiple:parallel_multiple_6",
+        "bfcl:parallel_multiple:parallel_multiple_7",
+        "bfcl:parallel_multiple:parallel_multiple_8",
+        "bfcl:parallel_multiple:parallel_multiple_9"
+      ],
+      "control_record_count": 84
+    },
+    "simple": {
+      "case_count": 13,
+      "case_ids": [
+        "bfcl:simple:simple_0",
+        "bfcl:simple:simple_1",
+        "bfcl:simple:simple_10",
+        "bfcl:simple:simple_11",
+        "bfcl:simple:simple_12",
+        "bfcl:simple:simple_2",
+        "bfcl:simple:simple_3",
+        "bfcl:simple:simple_4",
+        "bfcl:simple:simple_5",
+        "bfcl:simple:simple_6",
+        "bfcl:simple:simple_7",
+        "bfcl:simple:simple_8",
+        "bfcl:simple:simple_9"
+      ],
+      "control_record_count": 91
+    }
+  },
+  "control_record_count": 350,
+  "controls": [
+    "direct_full_visible_tools",
+    "code_mode_full_visible",
+    "code_mode_fresh_tail_only",
+    "code_mode_native_live_append",
+    "code_mode_restored_kv_capsule",
+    "code_mode_wrong_capsule_negative",
+    "compact_visible_evidence_code_mode"
+  ],
+  "experiment_id": "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05",
+  "model_run_status": "not_started",
+  "primary_selection_note": "Balanced 50-row BFCL candidate packet excluding irrelevance/no-call rows.",
+  "scorer_version": "bfcl_expected_call_scorer_v1",
+  "selection_plan": [
+    {
+      "category": "simple",
+      "count": 13
+    },
+    {
+      "category": "multiple",
+      "count": 13
+    },
+    {
+      "category": "parallel",
+      "count": 12
+    },
+    {
+      "category": "parallel_multiple",
+      "count": 12
+    }
+  ],
+  "status": "primary_50_materialization_complete",
+  "transform_version": "bfcl_code_mode_kv_transform_v1"
+}
