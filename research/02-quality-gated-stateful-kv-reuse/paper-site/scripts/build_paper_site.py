@@ -140,6 +140,53 @@ def svg_paper_bar_chart(
     return "\n".join(parts)
 
 
+def svg_paper_rate_bar_chart(
+    title: str,
+    rows: list[tuple[str, float, str]],
+    *,
+    x_label: str,
+    width: int = 760,
+    height: int | None = None,
+    primary_index: int | None = None,
+    inverse_index: int | None = None,
+) -> str:
+    """Horizontal percentage chart with fixed 0-100 scale."""
+
+    height = height or (118 + len(rows) * 36)
+    left, right, top, bottom = 170, 56, 38, 54
+    plot_w = width - left - right
+    plot_h = height - top - bottom
+    tick_values = [0, 25, 50, 75, 100]
+    gap = 9
+    bar_h = max(14, (plot_h - gap * (len(rows) - 1)) / len(rows))
+    parts = [
+        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
+        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
+    ]
+    axis_y = top + plot_h
+    for tick in tick_values:
+        x = left + (tick / 100) * plot_w
+        parts.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{axis_y}" class="gridline" />')
+        parts.append(f'<text x="{x:.1f}" y="{axis_y + 17}" class="tick">{tick}</text>')
+    parts.append(f'<line x1="{left}" y1="{axis_y}" x2="{left + plot_w}" y2="{axis_y}" class="axis" />')
+    parts.append(f'<text x="{left + plot_w / 2}" y="{height - 10}" class="axis-label">{esc(x_label)}</text>')
+    for i, (label, value, note) in enumerate(rows):
+        y = top + i * (bar_h + gap)
+        w = (value / 100) * plot_w
+        cls = "bar-fill"
+        if primary_index is not None and i == primary_index:
+            cls = "bar-fill primary"
+        if inverse_index is not None and i == inverse_index:
+            cls = "bar-fill inverse"
+        for j, line in enumerate(label.split("\n")):
+            parts.append(f'<text x="{left - 10}" y="{y + 11 + j * 12}" class="ylabel">{esc(line)}</text>')
+        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" class="{cls}" />')
+        label_x = left + max(w, 3) + 7
+        parts.append(f'<text x="{label_x:.1f}" y="{y + bar_h / 2 + 4}" class="value">{esc(note)}</text>')
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+
 def svg_paper_log_chart(
     title: str,
     rows: list[tuple[str, float, str]],
@@ -180,6 +227,16 @@ def svg_paper_log_chart(
         parts.append(f'<text x="{left + w + 7}" y="{y + bar_h / 2 + 4}" class="value">{esc(note)}</text>')
     parts.append("</svg>")
     return "\n".join(parts)
+
+
+def svg_paper_small_multiples(
+    title: str,
+    charts: list[str],
+    *,
+    width: int = 760,
+) -> str:
+    body = "\n".join(f'<div class="mini-panel">{chart}</div>' for chart in charts)
+    return f'<div class="small-multiples" role="group" aria-label="{esc(title)}">{body}</div>'
 
 
 def svg_paper_grouped_bar(
@@ -223,6 +280,48 @@ def svg_paper_grouped_bar(
         x = lx + si * 84
         parts.append(f'<rect x="{x}" y="8" width="12" height="8" class="bar-fill {colors[si % len(colors)]}" />')
         parts.append(f'<text x="{x + 17}" y="16" class="legend">{esc(name)}</text>')
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+
+def svg_paper_pass_rate_by_category(
+    title: str,
+    rows: list[tuple[str, int, int]],
+    *,
+    width: int = 760,
+    height: int | None = None,
+) -> str:
+    height = height or (126 + len(rows) * 36)
+    left, right, top, bottom = 132, 76, 38, 56
+    plot_w = width - left - right
+    plot_h = height - top - bottom
+    gap = 9
+    bar_h = max(14, (plot_h - gap * (len(rows) - 1)) / len(rows))
+    parts = [
+        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
+        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
+    ]
+    axis_y = top + plot_h
+    for tick in [0, 25, 50, 75, 100]:
+        x = left + (tick / 100) * plot_w
+        parts.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{axis_y}" class="gridline" />')
+        parts.append(f'<text x="{x:.1f}" y="{axis_y + 17}" class="tick">{tick}</text>')
+    parts.append(f'<line x1="{left}" y1="{axis_y}" x2="{left + plot_w}" y2="{axis_y}" class="axis" />')
+    parts.append(f'<text x="{left + plot_w / 2}" y="{height - 10}" class="axis-label">Pass rate (%)</text>')
+    for i, (label, passed, total) in enumerate(rows):
+        y = top + i * (bar_h + gap)
+        rate = 0 if total == 0 else (passed / total) * 100
+        w = (rate / 100) * plot_w
+        fail_w = plot_w - w
+        parts.append(f'<text x="{left - 10}" y="{y + bar_h / 2 + 4}" class="ylabel">{esc(label)}</text>')
+        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" class="bar-fill primary" />')
+        if fail_w > 0:
+            parts.append(f'<rect x="{left + w:.1f}" y="{y}" width="{fail_w:.1f}" height="{bar_h:.1f}" class="bar-fill inverse muted-fill" />')
+        parts.append(f'<text x="{left + plot_w + 8}" y="{y + bar_h / 2 + 4}" class="value">{passed}/{total}</text>')
+    parts.append('<rect x="514" y="8" width="12" height="8" class="bar-fill primary" />')
+    parts.append('<text x="531" y="16" class="legend">pass</text>')
+    parts.append('<rect x="585" y="8" width="12" height="8" class="bar-fill inverse muted-fill" />')
+    parts.append('<text x="602" y="16" class="legend">fail</text>')
     parts.append("</svg>")
     return "\n".join(parts)
 
@@ -317,6 +416,18 @@ pass_rows = [
     (LABELS[k], counts[k]["gate_passed"], f'{counts[k]["gate_passed"]}/100')
     for k in positive_controls
 ]
+positive_rate_rows = [
+    (LABELS[k], counts[k]["gate_passed"], f'{counts[k]["gate_passed"]}%')
+    for k in positive_controls
+]
+negative_leak_rows = [
+    (
+        LABELS[k],
+        counts[k]["records"] - counts[k]["gate_passed"],
+        f'{counts[k]["records"] - counts[k]["gate_passed"]} leaks',
+    )
+    for k in ["code_mode_fresh_tail_only", "code_mode_wrong_capsule_negative"]
+]
 timing_rows = [(LABELS[k], timing[k], f"{timing[k]:,.1f} ms") for k in positive_controls]
 runtime_rows = [
     ("KV capsule + PTI", kv["cumulative_wall_ms"], fmt_minutes(kv["cumulative_wall_ms"])),
@@ -361,6 +472,7 @@ html_doc = f"""<!doctype html>
       --primary: #1f4e79;
       --mid: #808080;
       --inverse: #b23b30;
+      --inverse-soft: #e2aaa4;
     }}
     * {{ box-sizing: border-box; }}
     html {{ scroll-behavior: smooth; }}
@@ -486,6 +598,12 @@ html_doc = f"""<!doctype html>
     }}
     .figure-head b {{ color: var(--ink); }}
     .figure-body {{ padding: 12px 0 6px; }}
+    .figure-note {{
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }}
     .caption {{
       margin: 8px 0 10px;
       color: var(--muted);
@@ -494,6 +612,13 @@ html_doc = f"""<!doctype html>
     }}
     .chart, .paper-chart {{ width: 100%; min-width: 720px; height: auto; display: block; }}
     .compact-chart {{ min-width: 460px; max-width: 560px; margin: 0 auto; }}
+    .small-multiples {{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }}
+    .small-multiples .paper-chart {{ min-width: 0; }}
     .chart-title, .chart-panel-title, .value, .ylabel, .legend, .donut-label, .tick, .tick-left, .axis-label {{
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       letter-spacing: 0;
@@ -513,6 +638,7 @@ html_doc = f"""<!doctype html>
     .bar-fill.primary {{ fill: var(--primary); }}
     .bar-fill.mid {{ fill: var(--mid); }}
     .bar-fill.inverse {{ fill: var(--inverse); }}
+    .muted-fill {{ fill: var(--inverse-soft); }}
     .slice {{ stroke: var(--paper); stroke-width: 2; }}
     .donut-total {{ font: 720 30px ui-sans-serif, system-ui; text-anchor: middle; fill: var(--ink); }}
     .donut-label {{ font-size: 12px; text-anchor: middle; fill: var(--muted); }}
@@ -576,7 +702,9 @@ html_doc = f"""<!doctype html>
       .paper-header {{ text-align: left; }}
       .kpi-grid {{ grid-template-columns: 1fr 1fr; }}
       .two-col {{ grid-template-columns: 1fr; }}
+      .small-multiples {{ grid-template-columns: 1fr; }}
       .chart, .paper-chart {{ min-width: 660px; }}
+      .small-multiples .paper-chart {{ min-width: 560px; }}
     }}
   </style>
 </head>
@@ -642,6 +770,8 @@ html_doc = f"""<!doctype html>
           ["Direct visible tools", "Regular visible tool-schema baseline."],
           ["Compact visible evidence", "Visible summary baseline, separate from hidden-state reuse."],
       ])}
+      <h3>Figure Construction</h3>
+      <p>Figures follow research-paper conventions: numbered captions state the claim and boundary, axes include units or denominators, log scales are marked explicitly, colour is limited to a colour-blind-safe blue/vermillion/gray palette, and decorative chart elements are omitted. Error bars are not shown because the current artifact is a deterministic run summary rather than a replicated estimate with variance; this is stated at the relevant figures instead of implying uncertainty we did not measure.</p>
     </section>
 
     <section id="results">
@@ -670,32 +800,29 @@ html_doc = f"""<!doctype html>
     <section id="figures">
       <h2>Figures</h2>
       <div class="figure">
-        <div class="figure-head"><b>Figure 1.</b> Control-ladder accuracy on the selected 100-case cohort. Higher is better for positive lanes; negative-control bars are expected to remain at zero leaks.</div>
+        <div class="figure-head"><b>Figure 1.</b> Control-ladder outcome on the selected 100-case cohort. Positive lanes are shown as pass rate; negative controls are shown separately as leak count.</div>
         <div class="figure-body">
-          {svg_paper_bar_chart("Gate-passing cases by lane", pass_rows, max_value=100, x_label="Cases passing gate out of 100", primary_index=2, inverse_index=4)}
+          {svg_paper_small_multiples("Control-ladder pass and leak panels", [
+              svg_paper_rate_bar_chart("Positive lanes", positive_rate_rows, x_label="Pass rate (%)", primary_index=2),
+              svg_paper_bar_chart("Negative-control leaks", negative_leak_rows, max_value=100, x_label="Leak count out of 100", inverse_index=0, width=760, height=190),
+          ])}
         </div>
-        <p class="caption">Source: <code>selected-cohort-summary.json</code>. The restored-KV lane matches both full-visible and native-live controls on all selected cases; compact visible evidence does not explain the result.</p>
+        <p class="caption">Source: <code>selected-cohort-summary.json</code>. The restored-KV lane matches both full-visible and native-live controls on all selected cases; fresh-tail and wrong-capsule controls produce zero leaks. This supports prefix dependence and restored-state preservation, not a speed claim.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 2.</b> Selected-cohort latency boundary. Lower is better; this experiment supports semantic preservation, not a speedup claim for restored KV.</div>
         <div class="figure-body">
           {svg_paper_bar_chart("Mean total latency", timing_rows, x_label="Mean total latency (ms)", primary_index=0, inverse_index=2)}
         </div>
+        <p class="figure-note">No error bars are drawn: this figure reports mean latency from the committed run summary, not repeated-run confidence intervals.</p>
         <p class="caption">Source: <code>selected-cohort-summary.json</code>. Restored KV is correct but slower than full-visible and native-live append in this mechanism run.</p>
       </div>
       <div class="figure">
-        <div class="figure-head"><b>Figure 3.</b> Cohort composition and natural Codex/Ollama failure distribution. This is a diagnostic figure, not causal evidence that compaction caused the failures.</div>
+        <div class="figure-head"><b>Figure 3.</b> Natural Codex/Ollama failure distribution by BFCL category. Pass and fail proportions are shown on a common 0-100% scale, with counts printed at right.</div>
         <div class="figure-body">
-          {svg_paper_grouped_bar("Natural baseline pass/fail by BFCL category", [
-              ("java", [("pass", 14), ("fail", 3), ("total", 17)]),
-              ("js", [("pass", 0), ("fail", 1), ("total", 1)]),
-              ("multiple", [("pass", 21), ("fail", 4), ("total", 25)]),
-              ("parallel", [("pass", 13), ("fail", 1), ("total", 14)]),
-              ("parallel-m", [("pass", 13), ("fail", 4), ("total", 17)]),
-              ("simple", [("pass", 25), ("fail", 1), ("total", 26)]),
-          ], max_value=26, y_label="cases")}
+          {svg_paper_pass_rate_by_category("Natural baseline pass/fail by BFCL category", failure_rows)}
         </div>
-        <p class="caption">Source: <code>repeated-work-speed-findings.md</code>. Most Codex failures were parseable but incorrect calls; one failure parsed zero calls.</p>
+        <p class="caption">Source: <code>repeated-work-speed-findings.md</code>. Most Codex failures were parseable but incorrect calls; one failure parsed zero calls. This is diagnostic, not causal evidence that compaction summaries caused the failures.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 4.</b> Repeated-work visible input burden. Log scale is used because the runtime gap is several orders of magnitude.</div>
