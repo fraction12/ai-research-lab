@@ -5,6 +5,9 @@ from __future__ import annotations
 
 import html
 import json
+import shutil
+import subprocess
+import sys
 from pathlib import Path
 
 
@@ -13,7 +16,17 @@ TRACK = ROOT / "research" / "02-quality-gated-stateful-kv-reuse"
 EXPERIMENT = TRACK / "experiments" / "paper-grade-code-mode-kv-capsule-evaluation-2026-06-05"
 PRIMARY50 = TRACK / "experiments" / "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05"
 ARTIFACTS = TRACK / "paper-artifacts"
+FIGURES = ARTIFACTS / "figures"
+FIGURE_BUILDER = ARTIFACTS / "scripts" / "build_figures.py"
 OUT = TRACK / "paper-site" / "site" / "index.html"
+SITE_FIGURES = OUT.parent / "figures"
+
+
+def build_matplotlib_figures() -> None:
+    subprocess.run([sys.executable, str(FIGURE_BUILDER)], cwd=ROOT, check=True)
+    SITE_FIGURES.mkdir(parents=True, exist_ok=True)
+    for svg in FIGURES.glob("*.svg"):
+        shutil.copy2(svg, SITE_FIGURES / svg.name)
 
 
 def load_json(path: Path) -> dict:
@@ -45,6 +58,16 @@ def esc(value: object) -> str:
     return html.escape(str(value), quote=True)
 
 
+def figure_img(name: str, alt: str) -> str:
+    svg = SITE_FIGURES / f"{name}.svg"
+    if not svg.exists():
+        raise FileNotFoundError(f"Missing figure asset: {svg}")
+    return f'<img class="paper-figure-img" src="figures/{esc(svg.name)}" alt="{esc(alt)}" loading="lazy" />'
+
+
+build_matplotlib_figures()
+
+
 def fmt_int(value: float | int) -> str:
     return f"{value:,.0f}"
 
@@ -54,341 +77,6 @@ def fmt_minutes(ms: float) -> str:
     if minutes >= 60:
         return f"{minutes / 60:.2f} h"
     return f"{minutes:.1f} min"
-
-
-def svg_bar_chart(
-    title: str,
-    rows: list[tuple[str, float, str]],
-    *,
-    max_value: float | None = None,
-    unit: str = "",
-    width: int = 980,
-    height: int | None = None,
-    color: str = "#245c73",
-    accent: str | None = None,
-) -> str:
-    height = height or (130 + len(rows) * 48)
-    left, right, top, bottom = 210, 58, 58, 46
-    plot_w = width - left - right
-    plot_h = height - top - bottom
-    max_v = max_value or max(v for _, v, _ in rows) or 1
-    gap = 14
-    bar_h = max(18, (plot_h - gap * (len(rows) - 1)) / len(rows))
-    parts = [
-        f'<svg class="chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
-        f'<text x="{left}" y="28" class="chart-title">{esc(title)}</text>',
-        f'<line x1="{left}" y1="{top + plot_h}" x2="{left + plot_w}" y2="{top + plot_h}" class="axis" />',
-    ]
-    for i, (label, value, note) in enumerate(rows):
-        y = top + i * (bar_h + gap)
-        w = 0 if max_v == 0 else (value / max_v) * plot_w
-        fill = accent if accent and i == 0 else color
-        label_lines = label.split("\n")
-        for j, line in enumerate(label_lines):
-            parts.append(f'<text x="{left - 14}" y="{y + 14 + j * 15}" class="ylabel">{esc(line)}</text>')
-        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" rx="4" class="bar" fill="{fill}" />')
-        parts.append(f'<text x="{left + w + 10}" y="{y + bar_h / 2 + 5}" class="value">{esc(note or (fmt_int(value) + unit))}</text>')
-    parts.append("</svg>")
-    return "\n".join(parts)
-
-
-def svg_paper_bar_chart(
-    title: str,
-    rows: list[tuple[str, float, str]],
-    *,
-    max_value: float | None = None,
-    x_label: str = "",
-    width: int = 760,
-    height: int | None = None,
-    primary_index: int | None = None,
-    inverse_index: int | None = None,
-) -> str:
-    """Manuscript-style horizontal bar chart with explicit axis ticks."""
-
-    height = height or (118 + len(rows) * 36)
-    left, right, top, bottom = 170, 46, 38, 54
-    plot_w = width - left - right
-    plot_h = height - top - bottom
-    max_v = max_value or max(v for _, v, _ in rows) or 1
-    tick_values = [0, max_v * 0.25, max_v * 0.5, max_v * 0.75, max_v]
-    gap = 9
-    bar_h = max(14, (plot_h - gap * (len(rows) - 1)) / len(rows))
-    parts = [
-        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
-        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
-    ]
-    axis_y = top + plot_h
-    for tick in tick_values:
-        x = left + (tick / max_v) * plot_w if max_v else left
-        parts.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{axis_y}" class="gridline" />')
-        parts.append(f'<text x="{x:.1f}" y="{axis_y + 17}" class="tick">{tick:.0f}</text>')
-    parts.append(f'<line x1="{left}" y1="{axis_y}" x2="{left + plot_w}" y2="{axis_y}" class="axis" />')
-    parts.append(f'<text x="{left + plot_w / 2}" y="{height - 10}" class="axis-label">{esc(x_label)}</text>')
-    for i, (label, value, note) in enumerate(rows):
-        y = top + i * (bar_h + gap)
-        w = 0 if max_v == 0 else (value / max_v) * plot_w
-        cls = "bar-fill"
-        if primary_index is not None and i == primary_index:
-            cls = "bar-fill primary"
-        if inverse_index is not None and i == inverse_index:
-            cls = "bar-fill inverse"
-        for j, line in enumerate(label.split("\n")):
-            parts.append(f'<text x="{left - 10}" y="{y + 11 + j * 12}" class="ylabel">{esc(line)}</text>')
-        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" class="{cls}" />')
-        parts.append(f'<text x="{left + w + 7}" y="{y + bar_h / 2 + 4}" class="value">{esc(note)}</text>')
-    parts.append("</svg>")
-    return "\n".join(parts)
-
-
-def svg_paper_rate_bar_chart(
-    title: str,
-    rows: list[tuple[str, float, str]],
-    *,
-    x_label: str,
-    width: int = 760,
-    height: int | None = None,
-    primary_index: int | None = None,
-    inverse_index: int | None = None,
-) -> str:
-    """Horizontal percentage chart with fixed 0-100 scale."""
-
-    height = height or (118 + len(rows) * 36)
-    left, right, top, bottom = 170, 56, 38, 54
-    plot_w = width - left - right
-    plot_h = height - top - bottom
-    tick_values = [0, 25, 50, 75, 100]
-    gap = 9
-    bar_h = max(14, (plot_h - gap * (len(rows) - 1)) / len(rows))
-    parts = [
-        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
-        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
-    ]
-    axis_y = top + plot_h
-    for tick in tick_values:
-        x = left + (tick / 100) * plot_w
-        parts.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{axis_y}" class="gridline" />')
-        parts.append(f'<text x="{x:.1f}" y="{axis_y + 17}" class="tick">{tick}</text>')
-    parts.append(f'<line x1="{left}" y1="{axis_y}" x2="{left + plot_w}" y2="{axis_y}" class="axis" />')
-    parts.append(f'<text x="{left + plot_w / 2}" y="{height - 10}" class="axis-label">{esc(x_label)}</text>')
-    for i, (label, value, note) in enumerate(rows):
-        y = top + i * (bar_h + gap)
-        w = (value / 100) * plot_w
-        cls = "bar-fill"
-        if primary_index is not None and i == primary_index:
-            cls = "bar-fill primary"
-        if inverse_index is not None and i == inverse_index:
-            cls = "bar-fill inverse"
-        for j, line in enumerate(label.split("\n")):
-            parts.append(f'<text x="{left - 10}" y="{y + 11 + j * 12}" class="ylabel">{esc(line)}</text>')
-        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" class="{cls}" />')
-        label_x = left + max(w, 3) + 7
-        parts.append(f'<text x="{label_x:.1f}" y="{y + bar_h / 2 + 4}" class="value">{esc(note)}</text>')
-    parts.append("</svg>")
-    return "\n".join(parts)
-
-
-def svg_paper_log_chart(
-    title: str,
-    rows: list[tuple[str, float, str]],
-    *,
-    x_label: str,
-    width: int = 760,
-    height: int | None = None,
-) -> str:
-    import math
-
-    height = height or (120 + len(rows) * 40)
-    left, right, top, bottom = 182, 58, 38, 58
-    plot_w = width - left - right
-    plot_h = height - top - bottom
-    logs = [math.log10(max(v, 1)) for _, v, _ in rows]
-    max_log = max(logs) or 1
-    tick_logs = list(range(0, int(math.ceil(max_log)) + 1))
-    gap = 12
-    bar_h = max(16, (plot_h - gap * (len(rows) - 1)) / len(rows))
-    parts = [
-        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
-        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
-    ]
-    axis_y = top + plot_h
-    for tick in tick_logs:
-        x = left + (tick / max_log) * plot_w if max_log else left
-        label = f"10^{tick}" if tick > 0 else "1"
-        parts.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{axis_y}" class="gridline" />')
-        parts.append(f'<text x="{x:.1f}" y="{axis_y + 17}" class="tick">{esc(label)}</text>')
-    parts.append(f'<line x1="{left}" y1="{axis_y}" x2="{left + plot_w}" y2="{axis_y}" class="axis" />')
-    parts.append(f'<text x="{left + plot_w / 2}" y="{height - 10}" class="axis-label">{esc(x_label)}</text>')
-    for i, (label, value, note) in enumerate(rows):
-        y = top + i * (bar_h + gap)
-        w = (math.log10(max(value, 1)) / max_log) * plot_w if max_log else plot_w
-        cls = "bar-fill primary" if i == 0 else "bar-fill inverse"
-        parts.append(f'<text x="{left - 10}" y="{y + bar_h / 2 + 4}" class="ylabel">{esc(label)}</text>')
-        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" class="{cls}" />')
-        parts.append(f'<text x="{left + w + 7}" y="{y + bar_h / 2 + 4}" class="value">{esc(note)}</text>')
-    parts.append("</svg>")
-    return "\n".join(parts)
-
-
-def svg_paper_small_multiples(
-    title: str,
-    charts: list[str],
-    *,
-    width: int = 760,
-) -> str:
-    body = "\n".join(f'<div class="mini-panel">{chart}</div>' for chart in charts)
-    return f'<div class="small-multiples" role="group" aria-label="{esc(title)}">{body}</div>'
-
-
-def svg_paper_grouped_bar(
-    title: str,
-    groups: list[tuple[str, list[tuple[str, float]]]],
-    *,
-    max_value: float,
-    y_label: str,
-    width: int = 760,
-    height: int = 300,
-) -> str:
-    left, right, top, bottom = 58, 18, 42, 58
-    plot_w = width - left - right
-    plot_h = height - top - bottom
-    colors = ["primary", "mid", "inverse"]
-    series = [name for name, _ in groups[0][1]]
-    group_w = plot_w / len(groups)
-    bar_w = min(34, (group_w - 28) / len(series))
-    parts = [
-        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
-        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
-    ]
-    for tick in [0, max_value * 0.25, max_value * 0.5, max_value * 0.75, max_value]:
-        y = top + plot_h - (tick / max_value) * plot_h
-        parts.append(f'<line x1="{left}" y1="{y:.1f}" x2="{left + plot_w}" y2="{y:.1f}" class="gridline" />')
-        parts.append(f'<text x="{left - 8}" y="{y + 4:.1f}" class="tick-left">{tick:.0f}</text>')
-    parts.append(f'<line x1="{left}" y1="{top}" x2="{left}" y2="{top + plot_h}" class="axis" />')
-    parts.append(f'<line x1="{left}" y1="{top + plot_h}" x2="{left + plot_w}" y2="{top + plot_h}" class="axis" />')
-    parts.append(f'<text x="14" y="{top + plot_h / 2}" class="axis-label rotated">{esc(y_label)}</text>')
-    for gi, (group, values) in enumerate(groups):
-        gx = left + gi * group_w + group_w / 2
-        start_x = gx - (len(values) * bar_w + (len(values) - 1) * 4) / 2
-        for si, (_, value) in enumerate(values):
-            h = (value / max_value) * plot_h
-            x = start_x + si * (bar_w + 4)
-            y = top + plot_h - h
-            parts.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_w:.1f}" height="{h:.1f}" class="bar-fill {colors[si % len(colors)]}" />')
-        parts.append(f'<text x="{gx:.1f}" y="{top + plot_h + 20}" class="tick">{esc(group)}</text>')
-    lx = left + plot_w - 248
-    for si, name in enumerate(series):
-        x = lx + si * 84
-        parts.append(f'<rect x="{x}" y="8" width="12" height="8" class="bar-fill {colors[si % len(colors)]}" />')
-        parts.append(f'<text x="{x + 17}" y="16" class="legend">{esc(name)}</text>')
-    parts.append("</svg>")
-    return "\n".join(parts)
-
-
-def svg_paper_pass_rate_by_category(
-    title: str,
-    rows: list[tuple[str, int, int]],
-    *,
-    width: int = 760,
-    height: int | None = None,
-) -> str:
-    height = height or (126 + len(rows) * 36)
-    left, right, top, bottom = 132, 76, 38, 56
-    plot_w = width - left - right
-    plot_h = height - top - bottom
-    gap = 9
-    bar_h = max(14, (plot_h - gap * (len(rows) - 1)) / len(rows))
-    parts = [
-        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
-        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
-    ]
-    axis_y = top + plot_h
-    for tick in [0, 25, 50, 75, 100]:
-        x = left + (tick / 100) * plot_w
-        parts.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{axis_y}" class="gridline" />')
-        parts.append(f'<text x="{x:.1f}" y="{axis_y + 17}" class="tick">{tick}</text>')
-    parts.append(f'<line x1="{left}" y1="{axis_y}" x2="{left + plot_w}" y2="{axis_y}" class="axis" />')
-    parts.append(f'<text x="{left + plot_w / 2}" y="{height - 10}" class="axis-label">Pass rate (%)</text>')
-    for i, (label, passed, total) in enumerate(rows):
-        y = top + i * (bar_h + gap)
-        rate = 0 if total == 0 else (passed / total) * 100
-        w = (rate / 100) * plot_w
-        fail_w = plot_w - w
-        parts.append(f'<text x="{left - 10}" y="{y + bar_h / 2 + 4}" class="ylabel">{esc(label)}</text>')
-        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" class="bar-fill primary" />')
-        if fail_w > 0:
-            parts.append(f'<rect x="{left + w:.1f}" y="{y}" width="{fail_w:.1f}" height="{bar_h:.1f}" class="bar-fill inverse muted-fill" />')
-        parts.append(f'<text x="{left + plot_w + 8}" y="{y + bar_h / 2 + 4}" class="value">{passed}/{total}</text>')
-    parts.append('<rect x="514" y="8" width="12" height="8" class="bar-fill primary" />')
-    parts.append('<text x="531" y="16" class="legend">pass</text>')
-    parts.append('<rect x="585" y="8" width="12" height="8" class="bar-fill inverse muted-fill" />')
-    parts.append('<text x="602" y="16" class="legend">fail</text>')
-    parts.append("</svg>")
-    return "\n".join(parts)
-
-
-def svg_log_bar_chart(title: str, rows: list[tuple[str, float, str]], *, width: int = 980, height: int | None = None) -> str:
-    import math
-
-    height = height or (130 + len(rows) * 52)
-    left, right, top, bottom = 230, 70, 58, 48
-    plot_w = width - left - right
-    plot_h = height - top - bottom
-    logs = [math.log10(max(v, 1)) for _, v, _ in rows]
-    min_log = 0
-    max_log = max(logs) or 1
-    gap = 16
-    bar_h = max(20, (plot_h - gap * (len(rows) - 1)) / len(rows))
-    palette = ["#2b7a78", "#a33d2e", "#777777"]
-    parts = [
-        f'<svg class="chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
-        f'<text x="{left}" y="28" class="chart-title">{esc(title)} (log scale)</text>',
-        f'<line x1="{left}" y1="{top + plot_h}" x2="{left + plot_w}" y2="{top + plot_h}" class="axis" />',
-    ]
-    for i, (label, value, note) in enumerate(rows):
-        y = top + i * (bar_h + gap)
-        w = ((math.log10(max(value, 1)) - min_log) / (max_log - min_log)) * plot_w if max_log > min_log else plot_w
-        parts.append(f'<text x="{left - 14}" y="{y + bar_h / 2 + 5}" class="ylabel">{esc(label)}</text>')
-        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" rx="4" class="bar" fill="{palette[i % len(palette)]}" />')
-        parts.append(f'<text x="{left + w + 10}" y="{y + bar_h / 2 + 5}" class="value">{esc(note)}</text>')
-    parts.append("</svg>")
-    return "\n".join(parts)
-
-
-def svg_donut(title: str, rows: list[tuple[str, int]], *, width: int = 520, height: int = 360) -> str:
-    total = sum(v for _, v in rows)
-    colors = ["#2b7a78", "#245c73", "#8a6f2a", "#a33d2e", "#6f5f90", "#4f6f52"]
-    cx, cy, r = 150, 180, 88
-    import math
-
-    def point(angle: float) -> tuple[float, float]:
-        return cx + r * math.cos(angle), cy + r * math.sin(angle)
-
-    start = -math.pi / 2
-    parts = [
-        f'<svg class="chart compact-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
-        f'<text x="28" y="30" class="chart-title">{esc(title)}</text>',
-    ]
-    for i, (label, value) in enumerate(rows):
-        frac = value / total
-        end = start + frac * math.tau
-        x1, y1 = point(start)
-        x2, y2 = point(end)
-        large = 1 if end - start > math.pi else 0
-        parts.append(
-            f'<path d="M {cx} {cy} L {x1:.2f} {y1:.2f} A {r} {r} 0 {large} 1 {x2:.2f} {y2:.2f} Z" '
-            f'fill="{colors[i % len(colors)]}" class="slice" />'
-        )
-        start = end
-    parts.append(f'<circle cx="{cx}" cy="{cy}" r="52" fill="#f7f3eb" />')
-    parts.append(f'<text x="{cx}" y="{cy - 3}" class="donut-total">{total}</text>')
-    parts.append(f'<text x="{cx}" y="{cy + 18}" class="donut-label">cases</text>')
-    lx, ly = 292, 88
-    for i, (label, value) in enumerate(rows):
-        y = ly + i * 34
-        parts.append(f'<rect x="{lx}" y="{y - 12}" width="14" height="14" rx="2" fill="{colors[i % len(colors)]}" />')
-        parts.append(f'<text x="{lx + 24}" y="{y}" class="legend">{esc(label)}: {value}</text>')
-    parts.append("</svg>")
-    return "\n".join(parts)
 
 
 def table(headers: list[str], rows: list[list[object]]) -> str:
@@ -611,6 +299,7 @@ html_doc = f"""<!doctype html>
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }}
     .chart, .paper-chart {{ width: 100%; min-width: 720px; height: auto; display: block; }}
+    .paper-figure-img {{ width: 100%; min-width: 720px; height: auto; display: block; }}
     .compact-chart {{ min-width: 460px; max-width: 560px; margin: 0 auto; }}
     .small-multiples {{
       display: grid;
@@ -704,6 +393,7 @@ html_doc = f"""<!doctype html>
       .two-col {{ grid-template-columns: 1fr; }}
       .small-multiples {{ grid-template-columns: 1fr; }}
       .chart, .paper-chart {{ min-width: 660px; }}
+      .paper-figure-img {{ min-width: 660px; }}
       .small-multiples .paper-chart {{ min-width: 560px; }}
     }}
   </style>
@@ -802,17 +492,14 @@ html_doc = f"""<!doctype html>
       <div class="figure">
         <div class="figure-head"><b>Figure 1.</b> Control-ladder outcome on the selected 100-case cohort. Positive lanes are shown as pass rate; negative controls are shown separately as leak count.</div>
         <div class="figure-body">
-          {svg_paper_small_multiples("Control-ladder pass and leak panels", [
-              svg_paper_rate_bar_chart("Positive lanes", positive_rate_rows, x_label="Pass rate (%)", primary_index=2),
-              svg_paper_bar_chart("Negative-control leaks", negative_leak_rows, max_value=100, x_label="Leak count out of 100", inverse_index=0, width=760, height=190),
-          ])}
+          {figure_img("figure-01-control-ladder", "Matplotlib chart showing selected-cohort positive lane pass rates and negative-control leak counts.")}
         </div>
         <p class="caption">Source: <code>selected-cohort-summary.json</code>. The restored-KV lane matches both full-visible and native-live controls on all selected cases; fresh-tail and wrong-capsule controls produce zero leaks. This supports prefix dependence and restored-state preservation, not a speed claim.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 2.</b> Selected-cohort latency boundary. Lower is better; this experiment supports semantic preservation, not a speedup claim for restored KV.</div>
         <div class="figure-body">
-          {svg_paper_bar_chart("Mean total latency", timing_rows, x_label="Mean total latency (ms)", primary_index=0, inverse_index=2)}
+          {figure_img("figure-02-latency", "Matplotlib horizontal bar chart of selected-cohort mean total latency by control lane.")}
         </div>
         <p class="figure-note">No error bars are drawn: this figure reports mean latency from the committed run summary, not repeated-run confidence intervals.</p>
         <p class="caption">Source: <code>selected-cohort-summary.json</code>. Restored KV is correct but slower than full-visible and native-live append in this mechanism run.</p>
@@ -820,28 +507,28 @@ html_doc = f"""<!doctype html>
       <div class="figure">
         <div class="figure-head"><b>Figure 3.</b> Natural Codex/Ollama failure distribution by BFCL category. Pass and fail proportions are shown on a common 0-100% scale, with counts printed at right.</div>
         <div class="figure-body">
-          {svg_paper_pass_rate_by_category("Natural baseline pass/fail by BFCL category", failure_rows)}
+          {figure_img("figure-03-codex-failures", "Matplotlib stacked horizontal bar chart showing Codex natural baseline pass and fail proportions by BFCL category.")}
         </div>
         <p class="caption">Source: <code>repeated-work-speed-findings.md</code>. Most Codex failures were parseable but incorrect calls; one failure parsed zero calls. This is diagnostic, not causal evidence that compaction summaries caused the failures.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 4.</b> Repeated-work visible input burden. Log scale is used because the runtime gap is several orders of magnitude.</div>
         <div class="figure-body">
-          {svg_paper_log_chart("Reported visible input tokens", token_rows, x_label="Visible input tokens, log10 scale")}
+          {figure_img("figure-04-visible-input-tokens", "Matplotlib log-scale horizontal bar chart of reported visible input tokens.")}
         </div>
         <p class="caption">Source: <code>repeated-work-speed-summary.json</code>. Codex/Ollama telemetry is route-reported cumulative burden, not clean per-task token accounting.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 5.</b> Repeated-work cumulative wall time. Lower is better.</div>
         <div class="figure-body">
-          {svg_paper_log_chart("Cumulative wall time", runtime_rows, x_label="Wall time in milliseconds, log10 scale")}
+          {figure_img("figure-05-wall-time", "Matplotlib log-scale horizontal bar chart of repeated-work cumulative wall time.")}
         </div>
         <p class="caption">Source: <code>repeated-work-speed-summary.json</code>. KV completed the stream in 14.2 minutes versus 3.28 hours for the natural Codex/Ollama text-compaction lane.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 6.</b> Repeated-work output-token burden. Lower is better for harness overhead, assuming comparable task success.</div>
         <div class="figure-body">
-          {svg_paper_log_chart("Output tokens", output_rows, x_label="Output tokens, log10 scale")}
+          {figure_img("figure-06-output-tokens", "Matplotlib log-scale horizontal bar chart of repeated-work output-token burden.")}
         </div>
         <p class="caption">Source: <code>repeated-work-speed-summary.json</code>. Output-token telemetry shows the practical burden difference between the compact KV harness and text-threaded Codex/Ollama routes.</p>
       </div>
