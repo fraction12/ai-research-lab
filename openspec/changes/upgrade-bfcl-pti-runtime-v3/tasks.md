@@ -29,8 +29,8 @@
 - [x] Add failing tests for enum-literal exact-copy diagnostics.
 - [x] Implement argument-shape/type repair diagnostics and prompt profile.
 - [x] Run local unit tests and OpenSpec validation.
-- [ ] Run DushyantPC schema/literal/count micro-smokes.
-- [ ] Run DushyantPC final 15-case mixed smoke.
+- [x] Run DushyantPC schema/literal/count micro-smokes.
+- [x] Run DushyantPC final 15-case mixed smoke.
 
 ## 4. Smokes
 
