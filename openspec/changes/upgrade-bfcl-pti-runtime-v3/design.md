@@ -18,6 +18,8 @@ PTI v3 treats model output as a compiler input rather than a final answer string
    - missing required arguments
    - unexpected arguments
    - primitive and nested type mismatches
+   - visibly coercible type errors such as quoted numbers/booleans
+   - enum literal drift against schema-declared options
    - Java/camelCase parameter drift
    - identifier/callback literal paraphrases
    - likely call-count mismatches derived from the user request
@@ -44,3 +46,4 @@ This change implements the generic PTI v3 compiler/validator/repair substrate pl
 - Repair prompt builders must not include fields named `possible_answer`, `expected_answer`, `expected_calls`, or `ground_truth`.
 - Operation-count diagnostics may use only the user request and visible function count/name information.
 - Literal diagnostics may only compare model values against exact tokens present in the user request or declared schema enums.
+- Type-normalization diagnostics may only compare model values against the declared visible JSON schema type.

@@ -36,6 +36,21 @@ The BFCL PTI runtime SHALL validate nested array and object values against visib
 - **WHEN** a visible schema declares an object property type and the model emits a conflicting nested value
 - **THEN** validation reports a nested type mismatch
 
+### Requirement: Diagnose Visible-Schema Argument Normalization
+The BFCL PTI runtime SHALL diagnose repairable argument normalization issues using only visible schema type and enum declarations.
+
+#### Scenario: Numeric string should be repaired to schema number
+- **WHEN** a visible schema declares an integer or number argument and the model emits a numeric string
+- **THEN** validation reports a repairable type-normalization diagnostic that asks the model to emit the schema type, not a quoted value
+
+#### Scenario: Boolean string should be repaired to schema boolean
+- **WHEN** a visible schema declares a boolean argument and the model emits a string such as `true` or `false`
+- **THEN** validation reports a repairable type-normalization diagnostic that asks the model to emit an unquoted boolean
+
+#### Scenario: Enum value must be copied exactly
+- **WHEN** a visible schema declares enum values and the model emits a paraphrase or casing variant
+- **THEN** validation reports a repairable enum-literal diagnostic with the visible enum options only
+
 ### Requirement: Build Schema-Only Repair Prompts
 The BFCL PTI runtime SHALL build repair prompts from the user request, visible catalog, prior model output, parsed calls, and validator errors only.
 
@@ -76,6 +91,10 @@ The BFCL PTI runtime SHALL repair count and literal errors with targeted instruc
 #### Scenario: High-confidence extra call is detected
 - **WHEN** the user request provides a high-confidence maximum call count and the model emits more calls than that count
 - **THEN** validation reports a repairable extra-call diagnostic and the prompt instructs the model to remove only unsupported helper, duplicate, or unrequested calls
+
+#### Scenario: Argument shape or type is visibly repairable
+- **WHEN** validation reports a type-normalization or enum-literal diagnostic
+- **THEN** repair is allowed and the prompt instructs the model to re-emit the argument using the exact visible schema type or enum value
 
 ### Requirement: Gate BFCL Model-Loop Repair On Schema Validation
 The BFCL PTI model loop SHALL trigger repair from schema-validator errors rather than BFCL scorer failures.

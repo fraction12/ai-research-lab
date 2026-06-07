@@ -43,7 +43,11 @@ PTI_SCHEMA_BLOCKING_ERROR_CODES = {
     "unexpected_argument",
     "unknown_function",
 }
-PTI_SCHEMA_REPAIRABLE_ERROR_CODES = PTI_SCHEMA_BLOCKING_ERROR_CODES | {"likely_call_count_mismatch"}
+PTI_SCHEMA_REPAIRABLE_ERROR_CODES = PTI_SCHEMA_BLOCKING_ERROR_CODES | {
+    "enum_literal_mismatch",
+    "likely_call_count_mismatch",
+    "type_normalization_required",
+}
 EXPERIMENT_ID = "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05"
 BFCL_LEADERBOARD_CHECKPOINT = "f7cf735"
 BFCL_DATASET_REVISION = "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
@@ -412,7 +416,9 @@ def stable_prefix(case: BFCLCase, *, code_mode: bool) -> str:
         "Do not emit helper, search, validation, explanation, or planning calls.\n"
         "Use function names and parameter names exactly as written in the catalog.\n"
         "Do not invent functions, parameters, or values that are not supported by the user request and schema.\n"
-        "Omit optional/default parameters unless the user request clearly specifies them."
+        "Omit optional/default parameters unless the user request clearly specifies them.\n"
+        "Before final output, check every argument against the visible schema: numbers are unquoted numbers, "
+        "booleans are unquoted true/false, arrays stay arrays, objects stay objects, and enum values are copied exactly."
         "\nPTI v3 repair boundary: if a validator asks for repair, use only the user request, catalog, prior output, and schema errors."
     )
 
@@ -929,6 +935,73 @@ def _value_matches_schema_type(value: Any, expected_type: str | None) -> bool:
     return True
 
 
+def _coercible_schema_type_error(
+    value: Any,
+    expected_type: str | None,
+    *,
+    path: str,
+    call_index: int,
+    function: str,
+) -> dict[str, Any] | None:
+    if not isinstance(value, str) or expected_type is None:
+        return None
+    stripped = value.strip()
+    if expected_type == "integer" and re.fullmatch(r"[-+]?\d+", stripped):
+        target = "integer"
+    elif expected_type == "number" and re.fullmatch(r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)", stripped):
+        target = "number"
+    elif expected_type == "boolean" and stripped.lower() in {"true", "false"}:
+        target = "boolean"
+    else:
+        return None
+    return {
+        "code": "type_normalization_required",
+        "call_index": call_index,
+        "function": function,
+        "argument": path,
+        "expected_type": target,
+        "actual_type": "string",
+        "actual_value": value,
+        "diagnostic": "Value is visibly coercible from the schema but must be emitted using the declared type.",
+    }
+
+
+def _enum_literal_errors(
+    value: Any,
+    schema: dict[str, Any],
+    *,
+    path: str,
+    call_index: int,
+    function: str,
+) -> list[dict[str, Any]]:
+    enum_values = schema.get("enum") if isinstance(schema.get("enum"), list) else []
+    enum_strings = [str(item) for item in enum_values if isinstance(item, str)]
+    if not enum_strings or not isinstance(value, str):
+        return []
+    if value in enum_strings:
+        return []
+    value_folded = value.casefold()
+    close = [item for item in enum_strings if item.casefold() == value_folded]
+    if not close:
+        close = [
+            item
+            for item in enum_strings
+            if item.casefold() in value_folded or value_folded in item.casefold()
+        ]
+    return [
+        {
+            "code": "enum_literal_mismatch",
+            "call_index": call_index,
+            "function": function,
+            "argument": path,
+            "actual_value": value,
+            "visible_enum_options": enum_strings,
+            **({"closest_visible_enum_options": close[:3]} if close else {}),
+            "diagnostic": "Argument must copy one visible enum value exactly.",
+        }
+    ]
+
+
 def _validate_value_against_schema(
     value: Any,
     schema: dict[str, Any],
@@ -939,7 +1012,18 @@ def _validate_value_against_schema(
 ) -> list[dict[str, Any]]:
     expected_type = _schema_type(schema)
     errors: list[dict[str, Any]] = []
+    errors.extend(_enum_literal_errors(value, schema, path=path, call_index=call_index, function=function))
     if not _value_matches_schema_type(value, expected_type):
+        coercible = _coercible_schema_type_error(
+            value,
+            expected_type,
+            path=path,
+            call_index=call_index,
+            function=function,
+        )
+        if coercible is not None:
+            errors.append(coercible)
+            return errors
         errors.append(
             {
                 "code": "type_mismatch" if "." not in path else "nested_type_mismatch",
@@ -1149,6 +1233,8 @@ def schema_validation_repairable_errors(errors: list[dict[str, Any]]) -> list[di
         elif code == "likely_extra_call_count" and error.get("confidence") == "high":
             repairable.append(error)
         elif code == "literal_preservation_suspect":
+            repairable.append(error)
+        elif code in {"enum_literal_mismatch", "type_normalization_required"}:
             repairable.append(error)
         elif code == "function_choice_low_request_support" and error.get("confidence") == "high":
             repairable.append(error)
@@ -1420,12 +1506,21 @@ def schema_repair_profile(validation: dict[str, Any]) -> dict[str, Any]:
             "Do not paraphrase identifiers into descriptive phrases.",
             "Keep all unrelated arguments unchanged.",
         ]
-    elif codes & {"missing_required_argument", "unexpected_argument", "type_mismatch", "nested_type_mismatch"}:
+    elif codes & {
+        "enum_literal_mismatch",
+        "missing_required_argument",
+        "unexpected_argument",
+        "type_mismatch",
+        "nested_type_mismatch",
+        "type_normalization_required",
+    }:
         kind = "argument_schema"
         instructions = [
             "Repair only the named argument schema errors.",
             "Use parameter names exactly as written in the visible function catalog.",
             "Preserve array/object nesting required by the schema.",
+            "Emit numbers and booleans using their schema types, not quoted strings.",
+            "Copy enum values exactly from visible enum options; do not paraphrase or change casing.",
         ]
     else:
         kind = "generic_schema"

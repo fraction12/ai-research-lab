@@ -507,7 +507,7 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertIn("unknown_function", codes)
         self.assertIn("missing_required_argument", codes)
         self.assertIn("unexpected_argument", codes)
-        self.assertIn("type_mismatch", codes)
+        self.assertIn("type_normalization_required", codes)
 
     def test_pti_v3_canonicalizes_schema_referenced_function_names(self) -> None:
         functions = [
@@ -720,8 +720,92 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         )
         self.assertFalse(result["valid"])
         codes = {error["code"] for error in result["errors"]}
-        self.assertIn("nested_type_mismatch", codes)
+        self.assertIn("type_normalization_required", codes)
         self.assertIn("type_mismatch", codes)
+
+    def test_pti_v3_reports_visible_schema_type_normalization_errors(self) -> None:
+        functions = [
+            {
+                "name": "set_reminder",
+                "description": "Set a reminder.",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "minutes": {"type": "integer"},
+                        "urgent": {"type": "boolean"},
+                    },
+                    "required": ["minutes", "urgent"],
+                },
+            }
+        ]
+
+        result = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "set_reminder", "arguments": {"minutes": "15", "urgent": "false"}}],
+            user_request="Set a reminder in 15 minutes and mark urgent false.",
+        )
+
+        self.assertFalse(result["valid"])
+        self.assertTrue(result["blocking_valid"])
+        self.assertTrue(result["repair_required"])
+        errors = [error for error in result["errors"] if error["code"] == "type_normalization_required"]
+        self.assertEqual(
+            [(error["argument"], error["expected_type"], error["actual_value"]) for error in errors],
+            [("minutes", "integer", "15"), ("urgent", "boolean", "false")],
+        )
+        prompt = adapter.build_schema_only_repair_prompt(
+            user_request="Set a reminder in 15 minutes and mark urgent false.",
+            functions=functions,
+            model_output='[{"name":"set_reminder","arguments":{"minutes":"15","urgent":"false"}}]',
+            calls=result["canonical_calls"],
+            validation=result,
+        )
+        self.assertIn("argument_schema", prompt)
+        self.assertIn("Emit numbers and booleans using their schema types", prompt)
+
+    def test_pti_v3_reports_visible_enum_literal_copy_errors(self) -> None:
+        functions = [
+            {
+                "name": "create_ticket",
+                "description": "Create a support ticket.",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "priority": {"type": "string", "enum": ["low", "medium", "high"]},
+                        "category": {"type": "string", "enum": ["email", "ssn", "phone"]},
+                    },
+                    "required": ["priority", "category"],
+                },
+            }
+        ]
+
+        result = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "create_ticket", "arguments": {"priority": "High", "category": "email addresses"}}],
+            user_request="Create a high priority ticket for email addresses.",
+        )
+
+        self.assertFalse(result["valid"])
+        self.assertTrue(result["blocking_valid"])
+        self.assertTrue(result["repair_required"])
+        enum_errors = [error for error in result["errors"] if error["code"] == "enum_literal_mismatch"]
+        self.assertEqual(
+            [(error["argument"], error["actual_value"], error["visible_enum_options"]) for error in enum_errors],
+            [
+                ("priority", "High", ["low", "medium", "high"]),
+                ("category", "email addresses", ["email", "ssn", "phone"]),
+            ],
+        )
+        prompt = adapter.build_schema_only_repair_prompt(
+            user_request="Create a high priority ticket for email addresses.",
+            functions=functions,
+            model_output='[{"name":"create_ticket","arguments":{"priority":"High","category":"email addresses"}}]',
+            calls=result["canonical_calls"],
+            validation=result,
+        )
+        self.assertIn("Copy enum values exactly from visible enum options", prompt)
+        for forbidden in ("possible_answer", "expected_answer", "expected_calls", "ground_truth"):
+            self.assertNotIn(forbidden, prompt)
 
     def test_pti_v3_repair_prompt_is_schema_only(self) -> None:
         functions = [
