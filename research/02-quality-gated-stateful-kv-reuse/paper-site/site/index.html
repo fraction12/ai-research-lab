@@ -345,7 +345,7 @@
     <section id="abstract">
       <h2>Abstract</h2>
       <div class="abstract">
-        Local tool-using agents repeatedly expose stable context to the model, including tool schemas, runtime rules, interface contracts, and task protocols. Existing systems work treats KV state as a reusable serving object [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>], while agent-memory work commonly preserves continuity through visible text, summaries, retrieval, or verbal feedback [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>]. We evaluate an alternative local-agent runtime primitive: <strong>KV Capsules</strong>, saved and restored KV/sequence state for a validated stable prefix, paired with <strong>PTI</strong>, a structured local tool interface for agent runtimes. In BFCL-derived experiments [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>] on a local Gemma 4 12B model, restored KV matched native live append at <code>100/100</code> on a selected 100-case control ladder with zero fresh-tail or wrong-capsule leaks. Compact visible evidence solved only <code>19/100</code>, and direct visible tools solved <code>91/100</code>. In a repeated-work stream, KV Capsule + PTI achieved <code>100/100</code> with <code>3,900</code> cumulative new visible tail/control tokens after state restore and <code>853,499 ms</code> cumulative wall time, compared with <code>86/100</code>, <code>245,774,883</code> cumulative reported visible input tokens, and <code>11,813,816 ms</code> cumulative wall time for the tested text-threaded local-agent baseline using the same model family. These results support a narrow systems claim: for repeated local tool-use workloads, preserving stable context as reusable hidden state and exposing tools through PTI can improve reliability and reduce visible-context burden.
+        Local tool-using agents repeatedly expose stable context to the model, including tool schemas, runtime rules, interface contracts, and task protocols. Existing systems work treats KV state as a reusable serving object [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>], while agent-memory work commonly preserves continuity through visible text, summaries, retrieval, or verbal feedback [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>]. We evaluate an alternative local-agent runtime primitive: <strong>KV Capsules</strong>, saved and restored KV/sequence state for a validated stable prefix, paired with <strong>PTI</strong>, a structured local tool interface for agent runtimes. In BFCL-derived experiments [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>] on a local Gemma 4 12B model, restored KV matched native live append at <code>100/100</code> on a selected 100-case control ladder with zero fresh-tail or wrong-capsule leaks. Compact visible evidence solved only <code>19/100</code>, and direct visible tools solved <code>91/100</code>. In a repeated-work stream, KV Capsule + PTI achieved <code>100/100</code> with <code>3,900</code> cumulative new visible tail/control tokens after state restore and <code>853,499 ms</code> cumulative wall time, compared with <code>86/100</code>, <code>245,774,883</code> cumulative reported visible input tokens, and <code>11,813,816 ms</code> cumulative wall time for the tested text-threaded local-agent baseline using the same model family. A first full BFCL non-live official-evaluator check of the disclosed runtime scored <code>969/1390</code> (<code>69.88%</code>) locally; this is included as an initial calibration point and is not a public leaderboard submission. These results support a narrow systems claim: for repeated local tool-use workloads, preserving stable context as reusable hidden state and exposing tools through PTI can improve reliability and reduce visible-context burden.
       </div>
     </section>
 
@@ -470,6 +470,20 @@
 <tr><td>Text-threaded local-agent baseline</td><td>100</td><td>86/100</td><td>Text thread with natural compaction</td><td>11,813,816 ms</td><td>245,774,883</td><td>9,068,626</td><td>89</td></tr>
 <tr><td>Text-threaded baseline without observed compaction</td><td>100</td><td>87/100</td><td>Text thread without observed compaction events</td><td>11,521,048 ms</td><td>243,088,507</td><td>8,170,400</td><td>0</td></tr></tbody></table>
       </div>
+
+      <div class="rq">
+        <h3>Initial Full BFCL Non-Live Check</h3>
+        <p class="rq-question">Scope: local official BFCL evaluator over the seven non-live categories, using the first full exported prediction run for the custom KV Capsule + PTI runtime.</p>
+        <p>The initial full non-live evaluator check scored <code>969/1390</code>, or <code>69.88%</code>, across the official non-live category set. This result is useful as an end-to-end calibration of the export and evaluator path. It is not used as the final official benchmark number for this draft, and it is not a public leaderboard submission. A newer full official run should supersede this row once its evaluator output is available.</p>
+        <table><thead><tr><th>Category</th><th>Correct</th><th>Total</th><th>Accuracy</th></tr></thead><tbody><tr><td>simple_python</td><td>324</td><td>400</td><td>81.00%</td></tr>
+<tr><td>simple_java</td><td>42</td><td>100</td><td>42.00%</td></tr>
+<tr><td>simple_javascript</td><td>33</td><td>50</td><td>66.00%</td></tr>
+<tr><td>multiple</td><td>171</td><td>200</td><td>85.50%</td></tr>
+<tr><td>parallel</td><td>133</td><td>200</td><td>66.50%</td></tr>
+<tr><td>parallel_multiple</td><td>129</td><td>200</td><td>64.50%</td></tr>
+<tr><td>irrelevance</td><td>137</td><td>240</td><td>57.08%</td></tr>
+<tr><td>non-live overall</td><td>969</td><td>1390</td><td>69.88%</td></tr></tbody></table>
+      </div>
     </section>
 
     <section id="discussion">
@@ -490,14 +504,14 @@
       <div class="figure">
         <div class="figure-head"><b>Figure 2.</b> Control-ladder outcome on the selected 100-case cohort. Positive lanes are shown as pass rate; negative controls are shown separately as leak count.</div>
         <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-01-control-ladder-mobile.svg?v=1780869767" /><img class="paper-figure-img" src="figures/figure-01-control-ladder.svg?v=1780869767" alt="Matplotlib chart showing selected-cohort positive lane pass rates and negative-control leak counts." loading="lazy" /></picture>
+          <picture><source media="(max-width: 760px)" srcset="figures/figure-01-control-ladder-mobile.svg?v=1780870385" /><img class="paper-figure-img" src="figures/figure-01-control-ladder.svg?v=1780870385" alt="Matplotlib chart showing selected-cohort positive lane pass rates and negative-control leak counts." loading="lazy" /></picture>
         </div>
         <p class="caption">The restored-KV lane matches both full-visible and native-live controls on all selected cases; fresh-tail and wrong-capsule controls produce zero leaks. This supports prefix dependence and restored-state preservation, not a speed claim.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 3.</b> Selected-cohort latency boundary. Lower is better; this experiment supports semantic preservation, not a speedup claim for restored KV.</div>
         <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-02-latency-mobile.svg?v=1780869768" /><img class="paper-figure-img" src="figures/figure-02-latency.svg?v=1780869767" alt="Matplotlib horizontal bar chart of selected-cohort mean total latency by control lane." loading="lazy" /></picture>
+          <picture><source media="(max-width: 760px)" srcset="figures/figure-02-latency-mobile.svg?v=1780870385" /><img class="paper-figure-img" src="figures/figure-02-latency.svg?v=1780870385" alt="Matplotlib horizontal bar chart of selected-cohort mean total latency by control lane." loading="lazy" /></picture>
         </div>
         <p class="figure-note">No error bars are drawn: this figure reports mean latency from a deterministic run summary, not repeated-run confidence intervals.</p>
         <p class="caption">Restored KV is correct but slower than full-visible and native-live append in this mechanism run.</p>
@@ -505,30 +519,37 @@
       <div class="figure">
         <div class="figure-head"><b>Figure 4.</b> Text-threaded baseline failure distribution by BFCL category. Pass and fail proportions are shown on a common 0-100% scale, with counts printed at right.</div>
         <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-03-codex-failures-mobile.svg?v=1780870033" /><img class="paper-figure-img" src="figures/figure-03-codex-failures.svg?v=1780870033" alt="Matplotlib stacked horizontal bar chart showing text-threaded baseline pass and fail proportions by BFCL category." loading="lazy" /></picture>
+          <picture><source media="(max-width: 760px)" srcset="figures/figure-03-codex-failures-mobile.svg?v=1780870385" /><img class="paper-figure-img" src="figures/figure-03-codex-failures.svg?v=1780870385" alt="Matplotlib stacked horizontal bar chart showing text-threaded baseline pass and fail proportions by BFCL category." loading="lazy" /></picture>
         </div>
         <p class="caption">Most baseline failures were parseable but incorrect calls; one failure parsed zero calls. This is diagnostic, not causal evidence that compaction summaries caused the failures.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 5.</b> Repeated-work visible input burden. Log scale is used because the runtime gap is several orders of magnitude.</div>
         <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-04-visible-input-tokens-mobile.svg?v=1780869768" /><img class="paper-figure-img" src="figures/figure-04-visible-input-tokens.svg?v=1780869768" alt="Matplotlib log-scale horizontal bar chart of reported visible input tokens." loading="lazy" /></picture>
+          <picture><source media="(max-width: 760px)" srcset="figures/figure-04-visible-input-tokens-mobile.svg?v=1780870386" /><img class="paper-figure-img" src="figures/figure-04-visible-input-tokens.svg?v=1780870386" alt="Matplotlib log-scale horizontal bar chart of reported visible input tokens." loading="lazy" /></picture>
         </div>
         <p class="caption">The baseline telemetry is cumulative reported burden, not clean per-task token accounting.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 6.</b> Repeated-work cumulative wall time. Lower is better.</div>
         <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-05-wall-time-mobile.svg?v=1780869768" /><img class="paper-figure-img" src="figures/figure-05-wall-time.svg?v=1780869768" alt="Matplotlib log-scale horizontal bar chart of repeated-work cumulative wall time." loading="lazy" /></picture>
+          <picture><source media="(max-width: 760px)" srcset="figures/figure-05-wall-time-mobile.svg?v=1780870386" /><img class="paper-figure-img" src="figures/figure-05-wall-time.svg?v=1780870386" alt="Matplotlib log-scale horizontal bar chart of repeated-work cumulative wall time." loading="lazy" /></picture>
         </div>
         <p class="caption">KV completed the stream in 14.2 minutes versus 3.28 hours for the natural text-compaction lane.</p>
       </div>
       <div class="figure">
         <div class="figure-head"><b>Figure 7.</b> Repeated-work output-token burden. Lower is better for harness overhead, assuming comparable task success.</div>
         <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-06-output-tokens-mobile.svg?v=1780869768" /><img class="paper-figure-img" src="figures/figure-06-output-tokens.svg?v=1780869768" alt="Matplotlib log-scale horizontal bar chart of repeated-work output-token burden." loading="lazy" /></picture>
+          <picture><source media="(max-width: 760px)" srcset="figures/figure-06-output-tokens-mobile.svg?v=1780870386" /><img class="paper-figure-img" src="figures/figure-06-output-tokens.svg?v=1780870386" alt="Matplotlib log-scale horizontal bar chart of repeated-work output-token burden." loading="lazy" /></picture>
         </div>
         <p class="caption">Output-token telemetry shows the practical burden difference between the compact KV harness and text-threaded local-agent routes.</p>
+      </div>
+      <div class="figure">
+        <div class="figure-head"><b>Figure 8.</b> Initial full BFCL non-live official-evaluator check. Category accuracies are shown for the first exported prediction run; the dashed line marks the non-live overall score.</div>
+        <div class="figure-body">
+          <picture><source media="(max-width: 760px)" srcset="figures/figure-07-initial-official-bfcl-mobile.svg?v=1780870386" /><img class="paper-figure-img" src="figures/figure-07-initial-official-bfcl.svg?v=1780870385" alt="Matplotlib horizontal bar chart showing initial official BFCL non-live category accuracies and 69.88 percent overall score." loading="lazy" /></picture>
+        </div>
+        <p class="caption">This chart records the first local official-evaluator calibration result: <code>969/1390</code> non-live cases, or <code>69.88%</code>. It should be replaced by the newer full official run once that run is scored.</p>
       </div>
     </section>
 
@@ -538,6 +559,7 @@
         <li>The evaluation is scoped to local Gemma 4 12B experiments.</li>
         <li>The text-threaded baseline is a practical runtime comparison, not a prompt-identical mechanism comparison.</li>
         <li>The selected cohort is quality-gated and BFCL-derived; it is not an official BFCL leaderboard submission.</li>
+        <li>The initial full BFCL non-live check was scored by the official evaluator locally, but it is included only as calibration and not as a public leaderboard result.</li>
         <li>PTI is a structured local tool interface for agent runtimes, not full arbitrary programmatic tool calling.</li>
         <li>Baseline visible-input telemetry is cumulative reported burden, not clean per-task accounting.</li>
         <li>The selected-cohort mechanism run does not show restored KV is faster than native append.</li>

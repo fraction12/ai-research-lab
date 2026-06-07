@@ -31,6 +31,16 @@ SOFT_VERMILLION = "#e2aaa4"
 GRID = "#dddddd"
 INK = "#171717"
 
+INITIAL_OFFICIAL_BFCL = [
+    ("simple_python", 324, 400),
+    ("simple_java", 42, 100),
+    ("simple_javascript", 33, 50),
+    ("multiple", 171, 200),
+    ("parallel", 133, 200),
+    ("parallel_multiple", 129, 200),
+    ("irrelevance", 137, 240),
+]
+
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text())
@@ -326,6 +336,66 @@ def build_codex_failures_mobile(plt) -> None:
     plt.close(fig)
 
 
+def build_initial_official_bfcl(plt) -> None:
+    labels = [r[0] for r in INITIAL_OFFICIAL_BFCL]
+    correct = [r[1] for r in INITIAL_OFFICIAL_BFCL]
+    totals = [r[2] for r in INITIAL_OFFICIAL_BFCL]
+    rates = [(c / t) * 100 for c, t in zip(correct, totals, strict=True)]
+    y = list(range(len(labels)))
+    fig, ax = plt.subplots(figsize=(8.2, 4.05))
+    colors = [BLUE if rate >= 70 else GRAY for rate in rates]
+    ax.barh(y, rates, color=colors, height=0.58)
+    ax.axvline(69.88, color=VERMILLION, linewidth=1.2, linestyle="--", label="non-live overall: 69.88%")
+    ax.set_yticks(y, labels)
+    ax.invert_yaxis()
+    ax.set_xlim(0, 105)
+    ax.set_xlabel("Official evaluator accuracy (%)")
+    ax.set_xticks([0, 25, 50, 75, 100])
+    ax.set_title("Initial official BFCL non-live evaluator check", pad=18)
+    ax.legend(
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.01),
+        frameon=False,
+        ncols=1,
+        borderaxespad=0,
+    )
+    apply_grid(ax)
+    for yi, correct_count, total, rate in zip(y, correct, totals, rates, strict=True):
+        ax.text(min(rate + 1.5, 101.5), yi, f"{correct_count}/{total} ({rate:.2f}%)", va="center", ha="left", fontsize=9, color=INK)
+    save_figure(fig, "figure-07-initial-official-bfcl")
+    plt.close(fig)
+
+
+def build_initial_official_bfcl_mobile(plt) -> None:
+    labels = [r[0] for r in INITIAL_OFFICIAL_BFCL]
+    correct = [r[1] for r in INITIAL_OFFICIAL_BFCL]
+    totals = [r[2] for r in INITIAL_OFFICIAL_BFCL]
+    rates = [(c / t) * 100 for c, t in zip(correct, totals, strict=True)]
+    y = list(range(len(labels)))
+    fig, ax = plt.subplots(figsize=(5.4, 5.4))
+    colors = [BLUE if rate >= 70 else GRAY for rate in rates]
+    ax.barh(y, rates, color=colors, height=0.58)
+    ax.axvline(69.88, color=VERMILLION, linewidth=1.2, linestyle="--", label="overall 69.88%")
+    ax.set_yticks(y, labels)
+    ax.invert_yaxis()
+    ax.set_xlim(0, 105)
+    ax.set_xlabel("Accuracy (%)")
+    ax.set_xticks([0, 25, 50, 75, 100])
+    ax.set_title("Initial official BFCL check", pad=18)
+    ax.legend(
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.01),
+        frameon=False,
+        ncols=1,
+        borderaxespad=0,
+    )
+    apply_grid(ax)
+    for yi, correct_count, total, rate in zip(y, correct, totals, rates, strict=True):
+        ax.text(min(rate + 1.5, 101.5), yi, f"{correct_count}/{total}", va="center", ha="left", fontsize=9, color=INK)
+    save_web_figure(fig, "figure-07-initial-official-bfcl-mobile")
+    plt.close(fig)
+
+
 def log_bar(plt, rows: list[tuple[str, float, str]], *, title: str, xlabel: str, filename: str) -> None:
     labels = [r[0] for r in rows]
     values = [r[1] for r in rows]
@@ -391,6 +461,8 @@ def main() -> None:
     build_latency_mobile(plt, selected)
     build_codex_failures(plt)
     build_codex_failures_mobile(plt)
+    build_initial_official_bfcl(plt)
+    build_initial_official_bfcl_mobile(plt)
     log_bar(
         plt,
         [
@@ -464,6 +536,7 @@ def main() -> None:
             str(EXPERIMENT / "selected-cohort-summary.json"),
             str(EXPERIMENT / "repeated-work-speed-summary.json"),
             str(EXPERIMENT / "repeated-work-speed-findings.md"),
+            str(TRACK / "experiments" / "bfcl-official-kv-pti-leaderboard-lane" / "official-evaluator-summary-2026-06-07.md"),
         ],
         "figures": {
             "figure-01-control-ladder": {
@@ -489,6 +562,10 @@ def main() -> None:
             "figure-06-output-tokens": {
                 "source": "repeated-work-speed-summary.json",
                 "claim_boundary": "Harness burden comparison assuming comparable task success.",
+            },
+            "figure-07-initial-official-bfcl": {
+                "source": "official-evaluator-summary-2026-06-07.md",
+                "claim_boundary": "Initial local official-evaluator non-live result; provisional until a newer full official run is scored.",
             },
         },
     }

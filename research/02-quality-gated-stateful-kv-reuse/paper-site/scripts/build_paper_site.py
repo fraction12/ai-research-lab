@@ -143,6 +143,16 @@ output_rows = [
     ("Text baseline", natural["output_tokens"], fmt_int(natural["output_tokens"])),
     ("Text baseline, no compaction", attempted["output_tokens"], fmt_int(attempted["output_tokens"])),
 ]
+initial_official_bfcl_rows = [
+    ("simple_python", 324, 400, "81.00%"),
+    ("simple_java", 42, 100, "42.00%"),
+    ("simple_javascript", 33, 50, "66.00%"),
+    ("multiple", 171, 200, "85.50%"),
+    ("parallel", 133, 200, "66.50%"),
+    ("parallel_multiple", 129, 200, "64.50%"),
+    ("irrelevance", 137, 240, "57.08%"),
+    ("non-live overall", 969, 1390, "69.88%"),
+]
 failure_rows = [
     ("java", 14, 17),
     ("javascript", 0, 1),
@@ -500,7 +510,7 @@ html_doc = f"""<!doctype html>
     <section id="abstract">
       <h2>Abstract</h2>
       <div class="abstract">
-        Local tool-using agents repeatedly expose stable context to the model, including tool schemas, runtime rules, interface contracts, and task protocols. Existing systems work treats KV state as a reusable serving object [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>], while agent-memory work commonly preserves continuity through visible text, summaries, retrieval, or verbal feedback [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>]. We evaluate an alternative local-agent runtime primitive: <strong>KV Capsules</strong>, saved and restored KV/sequence state for a validated stable prefix, paired with <strong>PTI</strong>, a structured local tool interface for agent runtimes. In BFCL-derived experiments [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>] on a local Gemma 4 12B model, restored KV matched native live append at <code>100/100</code> on a selected 100-case control ladder with zero fresh-tail or wrong-capsule leaks. Compact visible evidence solved only <code>19/100</code>, and direct visible tools solved <code>91/100</code>. In a repeated-work stream, KV Capsule + PTI achieved <code>100/100</code> with <code>3,900</code> cumulative new visible tail/control tokens after state restore and <code>853,499 ms</code> cumulative wall time, compared with <code>86/100</code>, <code>245,774,883</code> cumulative reported visible input tokens, and <code>11,813,816 ms</code> cumulative wall time for the tested text-threaded local-agent baseline using the same model family. These results support a narrow systems claim: for repeated local tool-use workloads, preserving stable context as reusable hidden state and exposing tools through PTI can improve reliability and reduce visible-context burden.
+        Local tool-using agents repeatedly expose stable context to the model, including tool schemas, runtime rules, interface contracts, and task protocols. Existing systems work treats KV state as a reusable serving object [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>], while agent-memory work commonly preserves continuity through visible text, summaries, retrieval, or verbal feedback [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>]. We evaluate an alternative local-agent runtime primitive: <strong>KV Capsules</strong>, saved and restored KV/sequence state for a validated stable prefix, paired with <strong>PTI</strong>, a structured local tool interface for agent runtimes. In BFCL-derived experiments [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>] on a local Gemma 4 12B model, restored KV matched native live append at <code>100/100</code> on a selected 100-case control ladder with zero fresh-tail or wrong-capsule leaks. Compact visible evidence solved only <code>19/100</code>, and direct visible tools solved <code>91/100</code>. In a repeated-work stream, KV Capsule + PTI achieved <code>100/100</code> with <code>3,900</code> cumulative new visible tail/control tokens after state restore and <code>853,499 ms</code> cumulative wall time, compared with <code>86/100</code>, <code>245,774,883</code> cumulative reported visible input tokens, and <code>11,813,816 ms</code> cumulative wall time for the tested text-threaded local-agent baseline using the same model family. A first full BFCL non-live official-evaluator check of the disclosed runtime scored <code>969/1390</code> (<code>69.88%</code>) locally; this is included as an initial calibration point and is not a public leaderboard submission. These results support a narrow systems claim: for repeated local tool-use workloads, preserving stable context as reusable hidden state and exposing tools through PTI can improve reliability and reduce visible-context burden.
       </div>
     </section>
 
@@ -637,6 +647,13 @@ html_doc = f"""<!doctype html>
             ["Text-threaded baseline without observed compaction", "100", "87/100", "Text thread without observed compaction events", "11,521,048 ms", "243,088,507", "8,170,400", "0"],
         ])}
       </div>
+
+      <div class="rq">
+        <h3>Initial Full BFCL Non-Live Check</h3>
+        <p class="rq-question">Scope: local official BFCL evaluator over the seven non-live categories, using the first full exported prediction run for the custom KV Capsule + PTI runtime.</p>
+        <p>The initial full non-live evaluator check scored <code>969/1390</code>, or <code>69.88%</code>, across the official non-live category set. This result is useful as an end-to-end calibration of the export and evaluator path. It is not used as the final official benchmark number for this draft, and it is not a public leaderboard submission. A newer full official run should supersede this row once its evaluator output is available.</p>
+        {table(["Category", "Correct", "Total", "Accuracy"], initial_official_bfcl_rows)}
+      </div>
     </section>
 
     <section id="discussion">
@@ -697,6 +714,13 @@ html_doc = f"""<!doctype html>
         </div>
         <p class="caption">Output-token telemetry shows the practical burden difference between the compact KV harness and text-threaded local-agent routes.</p>
       </div>
+      <div class="figure">
+        <div class="figure-head"><b>Figure 8.</b> Initial full BFCL non-live official-evaluator check. Category accuracies are shown for the first exported prediction run; the dashed line marks the non-live overall score.</div>
+        <div class="figure-body">
+          {figure_img("figure-07-initial-official-bfcl", "Matplotlib horizontal bar chart showing initial official BFCL non-live category accuracies and 69.88 percent overall score.")}
+        </div>
+        <p class="caption">This chart records the first local official-evaluator calibration result: <code>969/1390</code> non-live cases, or <code>69.88%</code>. It should be replaced by the newer full official run once that run is scored.</p>
+      </div>
     </section>
 
     <section id="limitations">
@@ -705,6 +729,7 @@ html_doc = f"""<!doctype html>
         <li>The evaluation is scoped to local Gemma 4 12B experiments.</li>
         <li>The text-threaded baseline is a practical runtime comparison, not a prompt-identical mechanism comparison.</li>
         <li>The selected cohort is quality-gated and BFCL-derived; it is not an official BFCL leaderboard submission.</li>
+        <li>The initial full BFCL non-live check was scored by the official evaluator locally, but it is included only as calibration and not as a public leaderboard result.</li>
         <li>PTI is a structured local tool interface for agent runtimes, not full arbitrary programmatic tool calling.</li>
         <li>Baseline visible-input telemetry is cumulative reported burden, not clean per-task accounting.</li>
         <li>The selected-cohort mechanism run does not show restored KV is faster than native append.</li>
