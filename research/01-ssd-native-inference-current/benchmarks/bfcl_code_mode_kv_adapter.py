@@ -1150,6 +1150,8 @@ def schema_validation_repairable_errors(errors: list[dict[str, Any]]) -> list[di
             repairable.append(error)
         elif code == "literal_preservation_suspect":
             repairable.append(error)
+        elif code == "function_choice_low_request_support" and error.get("confidence") == "high":
+            repairable.append(error)
     return repairable
 
 
@@ -1225,6 +1227,7 @@ def validate_pti_calls_against_catalog(
                     function=name,
                 )
             )
+    errors.extend(_function_choice_support_errors(functions, canonical_calls, user_request))
     minimum_call_count_detail = infer_minimum_call_count_detail(user_request, functions)
     minimum_call_count = (
         int(minimum_call_count_detail["minimum_call_count"]) if minimum_call_count_detail is not None else None
@@ -1265,8 +1268,122 @@ def validate_pti_calls_against_catalog(
         "blocking_errors": blocking_errors,
         "repairable_errors": repairable_errors,
         "canonical_calls": canonical_calls,
+        "slot_repair_plan": slot_repair_plan(canonical_calls, repairable_errors),
         "minimum_call_count": minimum_call_count,
     }
+
+
+def _lexical_tokens(text: str) -> set[str]:
+    boring = {
+        "and",
+        "are",
+        "for",
+        "from",
+        "into",
+        "the",
+        "this",
+        "that",
+        "with",
+        "your",
+    }
+    split_camel = re.sub(r"([a-z])([A-Z])", r"\1 \2", text)
+    return {
+        token.lower()
+        for token in re.findall(r"[A-Za-z][A-Za-z0-9_]{2,}", split_camel)
+        if token.lower() not in boring
+    }
+
+
+def _function_support_tokens(function: dict[str, Any]) -> set[str]:
+    return _lexical_tokens(
+        " ".join(
+            str(part)
+            for part in (
+                function.get("name", ""),
+                function.get("description", ""),
+            )
+            if part
+        )
+    )
+
+
+def _function_choice_support_errors(
+    functions: list[dict[str, Any]],
+    canonical_calls: list[dict[str, Any]],
+    user_request: str,
+) -> list[dict[str, Any]]:
+    """Flag a dubious selected function using only request/catalog lexical evidence."""
+
+    if len(functions) < 2 or not user_request.strip() or not canonical_calls:
+        return []
+    request_tokens = _lexical_tokens(user_request)
+    if not request_tokens:
+        return []
+    support_by_name: dict[str, int] = {}
+    for function in functions:
+        name = str(function.get("name", ""))
+        support_by_name[name] = len(request_tokens & _function_support_tokens(function))
+    best_name, best_score = max(support_by_name.items(), key=lambda item: item[1])
+    if best_score < 2:
+        return []
+    errors: list[dict[str, Any]] = []
+    for call_index, call in enumerate(canonical_calls):
+        selected_name = str(call.get("name", ""))
+        selected_score = support_by_name.get(selected_name, 0)
+        if selected_name != best_name and selected_score == 0 and best_score >= 2:
+            errors.append(
+                {
+                    "code": "function_choice_low_request_support",
+                    "call_index": call_index,
+                    "function": selected_name,
+                    "selected_request_support": selected_score,
+                    "best_visible_catalog_support": best_score,
+                    "diagnostic": (
+                        "Selected function has no lexical support in the user request while another "
+                        "visible catalog function has stronger name/description support."
+                    ),
+                    "confidence": "high",
+                }
+            )
+    return errors
+
+
+def slot_repair_plan(canonical_calls: list[dict[str, Any]], repairable_errors: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    errors_by_call: dict[int, list[dict[str, Any]]] = {}
+    for error in repairable_errors:
+        if "call_index" not in error:
+            continue
+        try:
+            call_index = int(error["call_index"])
+        except (TypeError, ValueError):
+            continue
+        errors_by_call.setdefault(call_index, []).append(error)
+    plan: list[dict[str, Any]] = []
+    for index, call in enumerate(canonical_calls):
+        call_errors = errors_by_call.get(index, [])
+        plan.append(
+            {
+                "call_index": index,
+                "function": call.get("name"),
+                "status": "repair" if call_errors else "preserve",
+                "instruction": (
+                    "Repair only this call using the attached validator errors."
+                    if call_errors
+                    else "Preserve this call unchanged unless adding a missing independent call requires returning it in the final list."
+                ),
+                "validator_errors": call_errors,
+            }
+        )
+    if any("call_index" not in error for error in repairable_errors):
+        plan.append(
+            {
+                "call_index": "new_or_global",
+                "status": "repair",
+                "instruction": "Repair the global validator error while preserving calls marked preserve.",
+                "validator_errors": [error for error in repairable_errors if "call_index" not in error],
+            }
+        )
+    return plan
 
 
 def schema_repair_profile(validation: dict[str, Any]) -> dict[str, Any]:
@@ -1288,10 +1405,11 @@ def schema_repair_profile(validation: dict[str, Any]) -> dict[str, Any]:
             "Remove only unsupported helper, duplicate, or unrequested calls.",
             "Do not add new calls.",
         ]
-    elif codes & {"unknown_function", "ambiguous_function"}:
+    elif codes & {"unknown_function", "ambiguous_function", "function_choice_low_request_support"}:
         kind = "function_selection"
         instructions = [
             "Use exactly one function name from the visible_function_catalog for each call.",
+            "Choose from visible function names and descriptions using the user request, not from any expected answer.",
             "If the previous function name is misspelled, correct it to the closest catalog function only when the user request supports it.",
             "Do not invent wrapper names such as call, params, tool, or function.",
         ]
@@ -1330,6 +1448,7 @@ def build_schema_only_repair_prompt(
     """Build a paper-safe repair prompt from schema and validator errors only."""
     payload = {
         "repair_profile": schema_repair_profile(validation),
+        "slot_repair_plan": validation.get("slot_repair_plan", []),
         "user_request": user_request,
         "visible_function_catalog": functions,
         "previous_model_output": model_output,
@@ -1350,6 +1469,7 @@ def build_schema_only_repair_prompt(
         "VISIBLE FUNCTION CATALOG / USER REQUEST / VALIDATOR ERRORS:\n"
         f"{text}\n\n"
         "Apply the repair_profile instructions exactly. Return only the repaired function call list. Use no explanation."
+        " Preserve every call marked status=preserve in slot_repair_plan unless the repair_profile explicitly says to remove an extra call."
     )
 
 

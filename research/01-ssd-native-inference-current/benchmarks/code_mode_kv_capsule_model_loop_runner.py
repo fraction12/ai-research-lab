@@ -80,6 +80,12 @@ BFCL_SCORER_REPAIR_PROMPT = (
     "Use the user request and BFCL function catalog; do not write host result text or prose."
 )
 BFCL_SCHEMA_REPAIR_PROMPT_VERSION = "bfcl_schema_only_active_repair_gate_v1"
+BFCL_EMPTY_REPAIR_RETRY_PROMPT = (
+    "\n\nSYSTEM:\n"
+    "Your previous BFCL repair response was empty or could not be parsed as a function-call list. "
+    "Return a complete replacement call list now using only the user request and visible function catalog already provided. "
+    "Do not explain. Do not use any expected answer. Output [] only if no visible function should be called."
+)
 MAX_EXEC_CODE_BYTES = 4096
 MAX_EXEC_TOOL_OPS = 12
 FORBIDDEN_EXEC_CODE_PATTERNS = (
@@ -439,6 +445,17 @@ def repair_prompt_boundary(model_output: str) -> str:
     return "\n\n"
 
 
+def should_retry_empty_bfcl_repair(response: str, action: dict[str, Any] | None, parse_status: str | None) -> bool:
+    if action is not None:
+        return False
+    stripped = harness.strip_model_markup(response).strip()
+    if not stripped:
+        return True
+    if parse_status in {"invalid", "parse_error", "no_action", "unparsed", None}:
+        return True
+    return False
+
+
 def allow_stable_defaults(control_id: str, context: harness.ControlContext, case: harness.TaskCase) -> bool:
     if control_id == "code_mode_fresh_tail_only":
         return False
@@ -786,6 +803,8 @@ def run_model_loop(
     last_tool_answer = ""
     bfcl_calls: list[dict[str, Any]] = []
     repair_count = 0
+    empty_repair_retry_count = 0
+    last_bfcl_repair_step = False
     channel_markers_observed = False
 
     for step_index in range(args.max_steps):
@@ -865,6 +884,30 @@ def run_model_loop(
             break
 
         if action is None:
+            if (
+                is_bfcl_row(row)
+                and last_bfcl_repair_step
+                and empty_repair_retry_count < args.max_empty_repair_retries
+                and should_retry_empty_bfcl_repair(gen["response"], action, parse_status)
+            ):
+                retry = append_text(
+                    helper_mod,
+                    lib,
+                    ctx,
+                    vocab,
+                    repair_prompt_boundary(gen["response"]) + BFCL_EMPTY_REPAIR_RETRY_PROMPT,
+                    position,
+                    logits_last=True,
+                )
+                prompt_eval_ms += retry["eval_ms"]
+                position = retry["position"]
+                empty_repair_retry_count += 1
+                step_record["repair_appended"] = True
+                step_record["repair_gate"] = "bfcl_empty_repair_retry_v1"
+                step_record["repair_prompt_hash"] = sha256_text(BFCL_EMPTY_REPAIR_RETRY_PROMPT)
+                step_records.append(step_record)
+                last_bfcl_repair_step = True
+                continue
             if repair_count < args.max_repairs:
                 repair_prompt = BFCL_ACTION_REPAIR_PROMPT if is_bfcl_row(row) else harness.ACTION_REPAIR_PROMPT
                 repair = append_text(helper_mod, lib, ctx, vocab, repair_prompt, position, logits_last=True)
@@ -873,6 +916,7 @@ def run_model_loop(
                 repair_count += 1
                 step_record["repair_appended"] = True
                 step_records.append(step_record)
+                last_bfcl_repair_step = is_bfcl_row(row)
                 continue
             step_records.append(step_record)
             break
@@ -897,10 +941,18 @@ def run_model_loop(
                     repair_count += 1
                     step_record["repair_appended"] = True
                     step_record["repair_gate"] = BFCL_SCHEMA_REPAIR_PROMPT_VERSION
+                    step_record["repair_prompt_hash"] = sha256_text(repair_prompt)
+                    step_record["repair_trace"] = {
+                        "validator_errors": schema_validation.get("repairable_errors", []),
+                        "repair_profile": bfcl_adapter.schema_repair_profile(schema_validation),
+                        "slot_repair_plan": schema_validation.get("slot_repair_plan", []),
+                    }
                     step_records.append(step_record)
+                    last_bfcl_repair_step = True
                     continue
                 step_records.append(step_record)
                 break
+        last_bfcl_repair_step = False
 
         scorer_repair_appended = False
         try:
@@ -1007,6 +1059,7 @@ def run_model_loop(
         "final_position": position,
         "step_count": len(step_records),
         "repair_count": repair_count,
+        "empty_repair_retry_count": empty_repair_retry_count,
         "final_source": final_source,
         "model_loop_steps": step_records,
         "channel_markers_observed": channel_markers_observed,
@@ -1272,6 +1325,7 @@ def build_record(base: dict[str, Any], result: dict[str, Any]) -> dict[str, Any]
             "final_source": result.get("final_source"),
             "step_count": result.get("step_count"),
             "repair_count": result.get("repair_count"),
+            "empty_repair_retry_count": result.get("empty_repair_retry_count"),
             "bfcl_score": bfcl_score,
         },
         "timing": {
@@ -1455,6 +1509,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     ap.add_argument("--predict", type=int, default=96)
     ap.add_argument("--max-steps", type=int, default=5)
     ap.add_argument("--max-repairs", type=int, default=1)
+    ap.add_argument("--max-empty-repair-retries", type=int, default=1)
     ap.add_argument(
         "--controls",
         default=",".join(CONTROL_ORDER),

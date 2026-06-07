@@ -263,6 +263,30 @@ class BFCLOfficialRunnerTests(unittest.TestCase):
             self.assertEqual(len(lines), 2 * 7)
             self.assertEqual(materialized["case_count"], 2)
 
+    def test_run_model_dry_run_passes_empty_repair_retry_budget(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            packet = root / "packet.jsonl"
+            packet.write_text("", encoding="utf-8")
+            args = official.parse_args(
+                [
+                    "run",
+                    "--lane-root",
+                    str(root / "lane"),
+                    "--run-label",
+                    "dry-run",
+                    "--max-empty-repair-retries",
+                    "2",
+                    "--dry-run",
+                ]
+            )
+
+            result = official.run_model(args, packet)
+
+            command = result["command"]
+            flag_index = command.index("--max-empty-repair-retries")
+            self.assertEqual(command[flag_index + 1], "2")
+
 
 if __name__ == "__main__":
     unittest.main()

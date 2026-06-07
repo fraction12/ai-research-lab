@@ -752,6 +752,73 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         for token in forbidden:
             self.assertNotIn(token, prompt)
 
+    def test_pti_v3_repair_prompt_includes_slot_preservation_plan(self) -> None:
+        functions = [
+            {
+                "name": "spotify.play",
+                "description": "Play a song by an artist.",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "artist": {"type": "string"},
+                        "duration": {"type": "integer"},
+                    },
+                    "required": ["artist", "duration"],
+                },
+            }
+        ]
+        calls = [{"name": "spotify.play", "arguments": {"artist": "Taylor Swift", "duration": 20}}]
+        validation = adapter.validate_pti_calls_against_catalog(
+            functions,
+            calls,
+            user_request="Play Taylor Swift for 20 seconds and Maroon 5 for 15 seconds.",
+        )
+
+        prompt = adapter.build_schema_only_repair_prompt(
+            user_request="Play Taylor Swift for 20 seconds and Maroon 5 for 15 seconds.",
+            functions=functions,
+            model_output=adapter.canonical_json(calls),
+            calls=calls,
+            validation=validation,
+        )
+
+        self.assertIn("slot_repair_plan", prompt)
+        self.assertIn('"status":"preserve"', prompt)
+        self.assertIn("Preserve every call marked status=preserve", prompt)
+
+    def test_pti_v3_flags_high_confidence_schema_only_function_choice(self) -> None:
+        functions = [
+            {
+                "name": "deleteFile",
+                "description": "Delete a file from disk.",
+                "parameters": {"type": "dict", "properties": {"path": {"type": "string"}}},
+            },
+            {
+                "name": "summarizeDocument",
+                "description": "Summarize a document.",
+                "parameters": {"type": "dict", "properties": {"path": {"type": "string"}}},
+            },
+        ]
+
+        validation = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "deleteFile", "arguments": {"path": "/tmp/report.txt"}}],
+            user_request="Summarize the document at /tmp/report.txt.",
+        )
+
+        codes = {error["code"] for error in validation["errors"]}
+        self.assertIn("function_choice_low_request_support", codes)
+        self.assertTrue(validation["repair_required"])
+        prompt = adapter.build_schema_only_repair_prompt(
+            user_request="Summarize the document at /tmp/report.txt.",
+            functions=functions,
+            model_output='[{"name":"deleteFile","arguments":{"path":"/tmp/report.txt"}}]',
+            calls=validation["canonical_calls"],
+            validation=validation,
+        )
+        self.assertIn("function_selection", prompt)
+        self.assertIn("visible function names and descriptions", prompt)
+
     def test_tool_surface_runtime_normalizes_dialects_without_expected_answers(self) -> None:
         samples = [
             '{"tool_calls":[{"function_name":"area_circle.calculate","arguments":{"radius":5.0}}]}',
@@ -971,6 +1038,18 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
     def test_model_runner_closes_unfinished_code_fence_before_schema_repair(self) -> None:
         self.assertEqual(model_runner.repair_prompt_boundary("```json\n[{"), "\n```\n\n")
         self.assertEqual(model_runner.repair_prompt_boundary("```json\n[]\n```"), "\n\n")
+
+    def test_model_runner_retries_empty_bfcl_repair_once(self) -> None:
+        self.assertTrue(model_runner.should_retry_empty_bfcl_repair("", None, "invalid"))
+        self.assertTrue(model_runner.should_retry_empty_bfcl_repair("no call here", None, "invalid"))
+        self.assertTrue(model_runner.should_retry_empty_bfcl_repair("still no call", None, "unparsed"))
+        self.assertFalse(
+            model_runner.should_retry_empty_bfcl_repair(
+                '[{"name":"spotify.play","arguments":{"artist":"Taylor Swift"}}]',
+                {"op": "bfcl_calls", "calls": [{"name": "spotify.play", "arguments": {"artist": "Taylor Swift"}}]},
+                "coerced_bfcl_tool_calls_json",
+            )
+        )
 
     def test_model_runner_canonicalizes_bfcl_suffix_before_execution(self) -> None:
         row = {

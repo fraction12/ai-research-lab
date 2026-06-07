@@ -47,6 +47,14 @@ The BFCL PTI runtime SHALL build repair prompts from the user request, visible c
 - **WHEN** visible-schema validation reports a repairable missing-call, extra-call, function-selection, literal-preservation, or argument-schema error
 - **THEN** the repair prompt includes a failure-class-specific repair profile that tells the model what to preserve and what to change without answer-key data
 
+#### Scenario: Repair prompt preserves valid call slots
+- **WHEN** visible-schema validation can identify calls with no validator errors
+- **THEN** the repair prompt includes a slot-level plan that tells the model which calls to preserve and which calls to repair without exposing expected calls
+
+#### Scenario: Repair trace records compiler-style diagnostics
+- **WHEN** a schema repair prompt is appended
+- **THEN** the record includes the validator errors, repair profile, prompt hash, and slot-level repair plan for auditability
+
 ### Requirement: Canonicalize Recoverable Wrapper Dialects Before Repair
 The BFCL PTI runtime SHALL canonicalize recoverable model output wrapper dialects before asking the model to repair.
 
@@ -79,6 +87,17 @@ The BFCL PTI model loop SHALL trigger repair from schema-validator errors rather
 #### Scenario: BFCL scorer failure does not trigger model repair
 - **WHEN** a BFCL call plan is schema-valid but does not match official expected calls
 - **THEN** the loop does not append a scorer-derived repair prompt to the model
+
+#### Scenario: Empty BFCL repair receives one format retry
+- **WHEN** a BFCL schema repair generation is empty or unparsable
+- **THEN** the loop may append one retry prompt that asks for a complete call list without adding expected-call or scorer data
+
+### Requirement: Diagnose Function Choice From Schema Text Only
+The BFCL PTI runtime SHALL flag high-confidence function-choice concerns using only the user request and visible catalog names/descriptions.
+
+#### Scenario: Selected function has no request support while another visible function does
+- **WHEN** the selected catalog function has no lexical support in the user request and another catalog function has substantially stronger lexical support
+- **THEN** validation reports a repairable function-choice diagnostic without naming any expected call
 
 ### Requirement: Preserve Complete BFCL Generations Before Parsing
 The BFCL PTI model loop SHALL avoid stopping generation on structurally incomplete BFCL tool-call fragments.

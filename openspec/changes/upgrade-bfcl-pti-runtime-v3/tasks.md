@@ -21,6 +21,10 @@
 - [x] Disable BFCL scorer-triggered model repair so repair triggers do not depend on expected calls.
 - [x] Add parser-tolerant canonicalization for recoverable wrapper dialects before repair.
 - [x] Add class-targeted repair profiles for missing-call, extra-call, function-selection, literal-preservation, and argument-schema errors.
+- [x] Add slot-preserving repair plans so valid calls are kept unchanged while invalid calls are repaired.
+- [x] Add schema-only high-confidence function-choice diagnostics from visible request/catalog text.
+- [x] Add one BFCL empty/unparsed repair retry without expected-call or scorer data.
+- [x] Add repair trace/audit fields for validator errors, repair profile, slot plan, prompt hash, and empty retry count.
 
 ## 4. Smokes
 
@@ -30,3 +34,4 @@
 - [x] Run DushyantPC targeted model smoke for weak categories.
 - [x] Run DushyantPC micro-smokes for each repair class.
 - [x] Run DushyantPC final 15-case mixed smoke.
+- [x] Run DushyantPC retry-fix smoke for the empty/unparsed literal repair failure.

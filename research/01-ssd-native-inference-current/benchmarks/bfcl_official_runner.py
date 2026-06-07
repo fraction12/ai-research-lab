@@ -376,6 +376,8 @@ def run_model(args: argparse.Namespace, packet_path: Path) -> dict[str, Any]:
         str(args.max_steps),
         "--max-repairs",
         str(args.max_repairs),
+        "--max-empty-repair-retries",
+        str(args.max_empty_repair_retries),
     ]
     if args.case_limit is not None:
         command.extend(["--case-limit", str(args.case_limit)])
@@ -457,6 +459,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--predict", type=int, default=128)
     parser.add_argument("--max-steps", type=int, default=5)
     parser.add_argument("--max-repairs", type=int, default=1)
+    parser.add_argument("--max-empty-repair-retries", type=int, default=1)
     parser.add_argument("--state-route", choices=["auto", "seq-file", "seq-memory", "whole-context"])
     parser.add_argument("--records", type=Path, help="Model-loop records JSONL for export.")
     parser.add_argument("--dry-run", action="store_true", help="Prepare commands and manifest without running the model.")
