@@ -158,6 +158,52 @@ class BFCLOfficialRunnerTests(unittest.TestCase):
             self.assertEqual(exported["record_count"], 1)
             self.assertTrue(Path(exported["sidecar_path"]).exists())
 
+    def test_export_maps_adapter_simple_alias_ids_to_official_bfcl_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            records = root / "records.jsonl"
+            write_jsonl(
+                records,
+                [
+                    {
+                        "case_id": "bfcl:simple_java:java_0",
+                        "control_id": "code_mode_restored_kv_capsule",
+                        "catalog_hash": "catalog",
+                        "source_provenance": {
+                            "source_category": "simple_java",
+                            "source_row_id": "java_0",
+                            "source_row_hash": "rowhash",
+                        },
+                        "positions": {"tail_token_count": 12},
+                        "quality": {"generated_token_count": 7, "bfcl_score": {"passed": True}},
+                        "timing": {"total_ms": 123.4},
+                        "raw": {
+                            "response": json.dumps(
+                                [{"name": "GeometryPresentation.createPresentation", "arguments": {"controller": "mapController", "parent": "mapArea"}}]
+                            )
+                        },
+                    }
+                ],
+            )
+
+            official.export_official_results(
+                records,
+                root / "export",
+                model_dir="gemma4-kv-capsule-pti",
+                control_id="code_mode_restored_kv_capsule",
+            )
+
+            result_file = (
+                root
+                / "export"
+                / "result"
+                / "gemma4-kv-capsule-pti"
+                / "non_live"
+                / "BFCL_v4_simple_java_result.json"
+            )
+            row = json.loads(result_file.read_text(encoding="utf-8").splitlines()[0])
+            self.assertEqual(row["id"], "simple_java_0")
+
     def test_prepare_materializes_packet_from_v4_fixture(self) -> None:
         source = self.make_v4_data_dir()
         with tempfile.TemporaryDirectory() as tmp:

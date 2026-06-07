@@ -209,6 +209,19 @@ def calls_from_record(record: dict[str, Any]) -> list[dict[str, Any]]:
     return adapter.coerce_call_object(parsed)
 
 
+def official_result_id(category: str, source_row_id: str) -> str:
+    """Return the BFCL evaluator ID for rows materialized through adapter aliases."""
+    simple_aliases = {
+        "simple_python": "simple_",
+        "simple_java": "java_",
+        "simple_javascript": "javascript_",
+    }
+    alias = simple_aliases.get(category)
+    if alias and source_row_id.startswith(alias) and not source_row_id.startswith(f"{category}_"):
+        return f"{category}_{source_row_id[len(alias):]}"
+    return source_row_id
+
+
 def export_official_results(
     records_path: Path,
     export_root: Path,
@@ -222,7 +235,10 @@ def export_official_results(
     for row in rows:
         provenance = row.get("source_provenance") or {}
         category = str(provenance.get("source_category") or row.get("task_bucket", "").removeprefix("bfcl_"))
-        source_row_id = str(provenance.get("source_row_id") or row.get("case_id", "").split(":")[-1])
+        source_row_id = official_result_id(
+            category,
+            str(provenance.get("source_row_id") or row.get("case_id", "").split(":")[-1]),
+        )
         calls = calls_from_record(row)
         official_entry = {
             "id": source_row_id,
