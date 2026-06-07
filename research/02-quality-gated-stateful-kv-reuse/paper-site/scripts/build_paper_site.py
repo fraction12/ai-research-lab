@@ -156,7 +156,7 @@ initial_official_bfcl_rows = [
 ]
 official_bfcl_reference_rows = [
     (
-        "Gemma 4 20B + KV Capsule + PTI initial local run",
+        "Gemma 4 12B + KV Capsule + PTI initial local run",
         "Custom local prompt-mode harness",
         "N/A",
         "69.88%",
