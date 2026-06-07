@@ -48,9 +48,11 @@ It is evidence against the tested Codex/Ollama repeated-task route as executed. 
 The required follow-up is a detached Codex-only baseline that:
 
 - keeps the BFCL stream in one continuing Codex thread;
-- uses a forced/budgeted auto-compaction threshold low enough to require compaction;
+- uses the normal verified `gemma4-ollama-compact` profile first, so any compaction is natural rather than threshold-forced;
 - records `context_compacted` or equivalent markers during the actual BFCL workload;
 - is rejected as a compaction baseline if no compaction markers appear.
+
+A lower-threshold Codex profile may be run later as a separate stress test, but it must be labeled as forced compaction and must not be blended into the natural-baseline result.
 
 ## Caveats
 
@@ -64,4 +66,4 @@ The run required a KV-only resume after the original controller passed `--case-l
 
 ## Next Step
 
-For paper-grade speed claims, run a follow-up where Codex compaction is forced or budgeted enough to produce auditable `context_compacted` events during the actual BFCL workload, then compare that result against this KV run.
+For paper-grade speed claims, first run a natural chained Codex session with the normal verified compaction profile. If it produces auditable `context_compacted` events during the actual BFCL workload, compare that result against this KV run. If natural compaction still does not trigger, report that directly and keep any forced-threshold run as a separate stress-test result.

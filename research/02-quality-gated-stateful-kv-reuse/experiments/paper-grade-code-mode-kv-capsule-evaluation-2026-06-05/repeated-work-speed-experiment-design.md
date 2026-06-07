@@ -74,14 +74,16 @@ The first 100-case repeated-work run did not satisfy the compaction-baseline con
 
 This invalidates the phrase "real Codex auto-compaction baseline" for that run. It remains a useful operational comparison against the tested Codex/Ollama regular-tool route, but it cannot support a claim against Codex compaction.
 
-The follow-up Codex baseline must be run as a compaction-forcing validation:
+The primary follow-up Codex baseline must be run as a natural chained-session validation:
 
-- Use a new run label, e.g. `bfcl-repeated-work-codex-forced-compaction-v1`.
+- Use a new run label, e.g. `bfcl-repeated-work-codex-natural-chained-v1`.
 - Run Codex only; reuse the existing KV result for comparison unless the benchmark design changes.
 - Keep the BFCL tasks in a continuing Codex thread through `resume --last` or an equivalent single-thread route.
-- Use a forced/budgeted Codex profile with a lower `model_auto_compact_token_limit` than the original `18000` threshold.
+- Use the normal verified Codex profile, `gemma4-ollama-compact`, with its pre-registered `18000` auto-compaction threshold.
 - Accept the run as Baseline A only if the actual BFCL artifacts contain `context_compacted` or an equivalent Codex compaction marker.
 - If the run still logs zero compaction events, report "Codex auto-compaction did not trigger under the tested BFCL stream" and do not use it as a compaction baseline.
+
+A forced-threshold Codex run is allowed only as a separately labeled stress test. It must not replace the natural chained-session baseline in the main paper claim.
 
 If Codex/Ollama cannot expose the exact Gemma 4 quantization and GPU-offload profile used by the KV harness, use the closest same-weight route available and label the run as an operational harness comparison, not a pure model-identical mechanism comparison. The preferred setup is same model family, same quantization, same GPU offload profile, same sampling parameters.
 
