@@ -132,16 +132,34 @@ def kv_record_paths(out_dir: Path, run_label: str) -> list[Path]:
     return sorted(out_dir.glob(f"{run_label}-kv*-model-loop-records.jsonl"))
 
 
+def speed_record_paths(out_dir: Path, run_label: str) -> list[Path]:
+    """Return speed record files for original and resumed controller runs."""
+    return sorted(out_dir.glob(f"{run_label}*-speed-records.jsonl"))
+
+
+def speed_summary_paths(out_dir: Path, run_label: str) -> list[Path]:
+    """Return speed summary files for original and resumed controller runs."""
+    return sorted(out_dir.glob(f"{run_label}*-speed-summary.json"))
+
+
+def preferred_summary_path(out_dir: Path, run_label: str) -> Path:
+    """Prefer the newest completed summary, including resume-only continuations."""
+    summaries = speed_summary_paths(out_dir, run_label)
+    if not summaries:
+        return out_dir / f"{run_label}-speed-summary.json"
+    return max(summaries, key=lambda path: path.stat().st_mtime)
+
+
 def main() -> int:
-    records_path = OUT_DIR / f"{RUN_LABEL}-speed-records.jsonl"
-    summary_path = OUT_DIR / f"{RUN_LABEL}-speed-summary.json"
+    record_paths = speed_record_paths(OUT_DIR, RUN_LABEL)
+    summary_path = preferred_summary_path(OUT_DIR, RUN_LABEL)
     run_info_path = OUT_DIR / f"{RUN_LABEL}-run-info.json"
     kv_paths = kv_record_paths(OUT_DIR, RUN_LABEL)
     task = task_status(TASK_NAME)
     codex_stdout_paths = sorted(OUT_DIR.glob(f"{RUN_LABEL}-codex-*.stdout.jsonl"))
     codex_stderr_paths = sorted(OUT_DIR.glob(f"{RUN_LABEL}-codex-*.stderr.txt"))
     prompt_paths = sorted((OUT_DIR / f"{RUN_LABEL}-codex-prompts").glob("*.txt"))
-    activity = newest(codex_stdout_paths + codex_stderr_paths + kv_paths + [records_path, summary_path, run_info_path])
+    activity = newest(codex_stdout_paths + codex_stderr_paths + kv_paths + record_paths + [summary_path, run_info_path])
     summary = read_json(summary_path)
     status: dict[str, Any] = {
         "checked_utc": now_utc(),
@@ -157,7 +175,8 @@ def main() -> int:
         "codex_stderr_count": len(codex_stderr_paths),
         "kv_record_count": sum(jsonl_count(path) for path in kv_paths),
         "kv_record_files": [str(path) for path in kv_paths],
-        "speed_record_count": jsonl_count(records_path),
+        "speed_record_count": sum(jsonl_count(path) for path in record_paths),
+        "speed_record_files": [str(path) for path in record_paths],
         "summary": file_info(summary_path),
         "run_info": file_info(run_info_path),
         "latest_activity": activity,
@@ -179,6 +198,14 @@ def main() -> int:
                 "codex_compaction_events_seen": int(codex.get("compaction_events_seen") or 0),
             }
         )
+        if not codex and len(codex_stdout_paths) >= EXPECTED_CASES and kv_pass >= EXPECTED_CASES:
+            status["status"] = "completed_resume_summary_only"
+            status["message"] = (
+                "BFCL repeated-work speed run completed after a KV-only resume; "
+                "write a combined summary before making final comparative claims."
+            )
+            print(json.dumps(status, indent=2))
+            return 0
         if codex_pass < EXPECTED_CASES or kv_pass < EXPECTED_CASES:
             status["status"] = "completed_with_quality_gap"
             status["message"] = "BFCL repeated-work speed run completed but at least one arm missed the pass-count target."
