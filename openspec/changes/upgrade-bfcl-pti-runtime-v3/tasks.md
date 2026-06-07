@@ -28,5 +28,5 @@
 - [x] Run OpenSpec validation.
 - [x] Run DushyantPC unit smoke.
 - [x] Run DushyantPC targeted model smoke for weak categories.
-- [ ] Run DushyantPC micro-smokes for each repair class.
-- [ ] Run DushyantPC final 15-case mixed smoke.
+- [x] Run DushyantPC micro-smokes for each repair class.
+- [x] Run DushyantPC final 15-case mixed smoke.

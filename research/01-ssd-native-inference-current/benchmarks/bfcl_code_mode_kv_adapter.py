@@ -1005,7 +1005,11 @@ def _exact_identifier_tokens(text: str) -> set[str]:
         "use",
         "with",
     }
-    return {token for token in tokens if token.lower() not in boring and (re.search(r"[A-Z_$]", token) or "." in token)}
+    return {
+        token
+        for token in tokens
+        if token.lower() not in boring and (re.search(r"[a-z][A-Z]|[_$]", token) or "." in token)
+    }
 
 
 def _literal_preservation_errors(
@@ -1019,13 +1023,41 @@ def _literal_preservation_errors(
 ) -> list[dict[str, Any]]:
     if not isinstance(value, str) or not _identifier_like_schema(argument, schema):
         return []
-    candidates = _exact_identifier_tokens(user_request)
+    user_candidates = _exact_identifier_tokens(user_request)
+    candidates = set(user_candidates)
+    schema_literal_text = " ".join(
+        str(part)
+        for part in (
+            argument,
+            schema.get("description", ""),
+            schema.get("title", ""),
+        )
+        if part
+    )
+    candidates.update(_exact_identifier_tokens(schema_literal_text))
     enum_values = schema.get("enum") if isinstance(schema.get("enum"), list) else []
     candidates.update(str(item) for item in enum_values if isinstance(item, str))
     if not candidates or value in candidates:
         return []
+    preferred: list[str] = sorted(
+        (candidate for candidate in user_candidates if "." not in candidate),
+        key=len,
+        reverse=True,
+    )
+    if argument in candidates and argument not in preferred:
+        preferred.append(argument)
+    preferred.extend(
+        candidate
+        for candidate in sorted(user_candidates, key=len, reverse=True)
+        if candidate not in preferred
+    )
+    preferred.extend(
+        candidate
+        for candidate in sorted(candidates, key=len, reverse=True)
+        if candidate not in preferred
+    )
     value_words = set(re.findall(r"[A-Za-z0-9_$]+", value))
-    for candidate in sorted(candidates, key=len, reverse=True):
+    for candidate in preferred:
         if candidate not in value and candidate not in value_words:
             return [
                 {
@@ -1312,7 +1344,9 @@ def build_schema_only_repair_prompt(
     return (
         "SYSTEM:\n"
         "Repair this PTI call plan step by step using only the user request, visible function catalog, "
-        "previous model output, parsed call plan, and validator errors. Do not use or infer any answer key.\n\n"
+        "previous model output, parsed call plan, and validator errors. Do not use or infer any answer key.\n"
+        "The previous output may be malformed or incomplete. Start a fresh complete replacement answer now; "
+        "do not continue, close, or patch the previous text.\n\n"
         "VISIBLE FUNCTION CATALOG / USER REQUEST / VALIDATOR ERRORS:\n"
         f"{text}\n\n"
         "Apply the repair_profile instructions exactly. Return only the repaired function call list. Use no explanation."

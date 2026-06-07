@@ -654,6 +654,45 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         literal_errors = [error for error in result["errors"] if error["code"] == "literal_preservation_suspect"]
         self.assertEqual(literal_errors[0]["candidate_literal"], "processFunction")
 
+    def test_pti_v3_prefers_argument_literal_over_unrelated_identifier_tokens(self) -> None:
+        functions = [
+            {
+                "name": "extractLastTransactionId",
+                "description": "Extract a transaction id from a log file.",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "filepath": {"type": "string"},
+                        "processFunction": {
+                            "type": "string",
+                            "description": "Exact processing callback function identifier.",
+                        },
+                    },
+                    "required": ["filepath", "processFunction"],
+                },
+            }
+        ]
+
+        result = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [
+                {
+                    "name": "extractLastTransactionId",
+                    "arguments": {
+                        "filepath": "/var/log/db.log",
+                        "processFunction": "processing function",
+                    },
+                }
+            ],
+            user_request=(
+                "Extract the last transaction id from /var/log/db.log "
+                "and process the information with a processing function."
+            ),
+        )
+
+        literal_errors = [error for error in result["errors"] if error["code"] == "literal_preservation_suspect"]
+        self.assertEqual(literal_errors[0]["candidate_literal"], "processFunction")
+
     def test_pti_v3_validates_nested_schema_shapes(self) -> None:
         functions = [
             {
@@ -872,6 +911,19 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertEqual(model_runner.should_stop_generation(fragment, "", bfcl_row=True), (False, None))
         self.assertEqual(model_runner.should_stop_generation(fragment, "", bfcl_row=False), (False, None))
 
+    def test_model_runner_does_not_stop_bfcl_generation_on_incomplete_json_fragment(self) -> None:
+        fragment = (
+            '\n<|channel>thought\n<channel|>```json\n[\n'
+            '  {"name": "spotify.play", "arguments": {"artist": "Taylor Swift", "duration": 20}},'
+        )
+        complete = (
+            '\n<|channel>thought\n<channel|>```json\n'
+            '[{"name": "spotify.play", "arguments": {"artist": "Taylor Swift", "duration": 20}}]\n```'
+        )
+
+        self.assertEqual(model_runner.should_stop_generation(fragment, "", bfcl_row=True), (False, None))
+        self.assertEqual(model_runner.should_stop_generation(complete, "", bfcl_row=True), (True, "parsed_tool_calls"))
+
     def test_model_runner_accepts_bare_empty_bfcl_call_list(self) -> None:
         action = model_runner.coerce_bfcl_text_to_action("\n<|channel>thought\n<channel|>[]")
 
@@ -915,6 +967,10 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertIn("spotify.play", prompt)
         for forbidden in ("possible_answer", "expected_answer", "expected_calls", "ground_truth"):
             self.assertNotIn(forbidden, prompt)
+
+    def test_model_runner_closes_unfinished_code_fence_before_schema_repair(self) -> None:
+        self.assertEqual(model_runner.repair_prompt_boundary("```json\n[{"), "\n```\n\n")
+        self.assertEqual(model_runner.repair_prompt_boundary("```json\n[]\n```"), "\n\n")
 
     def test_model_runner_canonicalizes_bfcl_suffix_before_execution(self) -> None:
         row = {

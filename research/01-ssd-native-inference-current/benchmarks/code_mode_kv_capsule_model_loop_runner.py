@@ -200,9 +200,27 @@ def protocol_rejection_reason(response: str, parsed: harness.ModelLoopStep, last
     return None
 
 
+def bfcl_generation_looks_incomplete(text: str) -> bool:
+    stripped = harness.strip_model_markup(text).strip()
+    if not stripped:
+        return False
+    if stripped.count("```") % 2 == 1:
+        return True
+    if stripped.rstrip().endswith(","):
+        return True
+    jsonish = re.sub(r"```(?:json)?|```", "", stripped, flags=re.I).strip()
+    if jsonish.count("[") > jsonish.count("]"):
+        return True
+    if jsonish.count("{") > jsonish.count("}"):
+        return True
+    return False
+
+
 def should_stop_generation(text: str, expected_answer: str, *, bfcl_row: bool = False) -> tuple[bool, str | None]:
     if model_authored_tool_result_present(text):
         return True, "model_authored_tool_result"
+    if bfcl_row and bfcl_generation_looks_incomplete(text):
+        return False, None
     if tool_surface.parse_tool_calls_from_text(text).calls:
         return True, "parsed_tool_calls"
     parsed = harness.parse_model_loop_step(text)
@@ -412,6 +430,13 @@ def build_bfcl_schema_repair_prompt(row: dict[str, Any], action: dict[str, Any],
         calls=validation.get("canonical_calls", []),
         validation=validation,
     )
+
+
+def repair_prompt_boundary(model_output: str) -> str:
+    """Close unfinished model-authored markdown/code before appending host repair."""
+    if model_output.count("```") % 2 == 1:
+        return "\n```\n\n"
+    return "\n\n"
 
 
 def allow_stable_defaults(control_id: str, context: harness.ControlContext, case: harness.TaskCase) -> bool:
@@ -858,7 +883,15 @@ def run_model_loop(
             if should_repair_bfcl_action_schema(schema_validation):
                 if repair_count < args.max_repairs:
                     repair_prompt = build_bfcl_schema_repair_prompt(row, action, gen["response"])
-                    repair = append_text(helper_mod, lib, ctx, vocab, "\n\n" + repair_prompt, position, logits_last=True)
+                    repair = append_text(
+                        helper_mod,
+                        lib,
+                        ctx,
+                        vocab,
+                        repair_prompt_boundary(gen["response"]) + repair_prompt,
+                        position,
+                        logits_last=True,
+                    )
                     prompt_eval_ms += repair["eval_ms"]
                     position = repair["position"]
                     repair_count += 1

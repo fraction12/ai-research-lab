@@ -79,3 +79,21 @@ The BFCL PTI model loop SHALL trigger repair from schema-validator errors rather
 #### Scenario: BFCL scorer failure does not trigger model repair
 - **WHEN** a BFCL call plan is schema-valid but does not match official expected calls
 - **THEN** the loop does not append a scorer-derived repair prompt to the model
+
+### Requirement: Preserve Complete BFCL Generations Before Parsing
+The BFCL PTI model loop SHALL avoid stopping generation on structurally incomplete BFCL tool-call fragments.
+
+#### Scenario: Incomplete JSON fragment continues generation
+- **WHEN** a BFCL generation has an unclosed markdown fence, trailing comma, or unbalanced JSON list/object delimiters
+- **THEN** the loop does not stop solely because a partial tool call can be salvaged from the fragment
+
+#### Scenario: Complete JSON call list can stop generation
+- **WHEN** a BFCL generation contains a complete parseable tool-call list
+- **THEN** the loop may stop generation and score the parsed calls
+
+### Requirement: Isolate Host Repair Prompts From Model Markup
+The BFCL PTI model loop SHALL separate host-authored repair prompts from unfinished model-authored markdown or code blocks.
+
+#### Scenario: Repair follows unfinished code fence
+- **WHEN** the previous model output has an unclosed markdown code fence
+- **THEN** the loop closes the fence before appending the host-authored schema repair prompt
