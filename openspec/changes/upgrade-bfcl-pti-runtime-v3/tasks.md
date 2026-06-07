@@ -22,5 +22,5 @@
 
 - [x] Run local unit tests.
 - [x] Run OpenSpec validation.
-- [ ] Run DushyantPC unit smoke.
-- [ ] Run DushyantPC targeted model smoke for weak categories.
+- [x] Run DushyantPC unit smoke.
+- [x] Run DushyantPC targeted model smoke for weak categories.
