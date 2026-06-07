@@ -41,6 +41,17 @@ INITIAL_OFFICIAL_BFCL = [
     ("irrelevance", 137, 240),
 ]
 
+BFCL_LEADERBOARD_REFERENCES = [
+    ("Our KV Capsule + PTI\ninitial local run", 69.88, "custom local harness"),
+    ("Gemma-3-12b-it\nPrompt", 79.44, "official BFCL"),
+    ("Granite-20b\nFC", 82.35, "official BFCL"),
+    ("Gemma-3-27b-it\nPrompt", 87.17, "official BFCL"),
+    ("Llama-3.3-70B\nFC", 88.02, "official BFCL"),
+    ("Qwen3-8B\nPrompt", 88.56, "official BFCL"),
+    ("Llama-4-Maverick-17B\nFC", 88.65, "official BFCL"),
+    ("Qwen3-32B\nPrompt", 90.27, "official BFCL"),
+]
+
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text())
@@ -396,6 +407,47 @@ def build_initial_official_bfcl_mobile(plt) -> None:
     plt.close(fig)
 
 
+def build_bfcl_reference_comparison(plt) -> None:
+    labels = [r[0] for r in BFCL_LEADERBOARD_REFERENCES]
+    rates = [r[1] for r in BFCL_LEADERBOARD_REFERENCES]
+    sources = [r[2] for r in BFCL_LEADERBOARD_REFERENCES]
+    y = list(range(len(labels)))
+    fig, ax = plt.subplots(figsize=(8.4, 4.45))
+    colors = [VERMILLION if i == 0 else BLUE for i in range(len(labels))]
+    ax.barh(y, rates, color=colors, height=0.58)
+    ax.set_yticks(y, labels)
+    ax.invert_yaxis()
+    ax.set_xlim(0, 100)
+    ax.set_xlabel("BFCL V4 Non-Live AST Acc (%)")
+    ax.set_xticks([0, 25, 50, 75, 100])
+    ax.set_title("Official BFCL non-live AST references", pad=14)
+    apply_grid(ax)
+    for yi, rate, source in zip(y, rates, sources, strict=True):
+        ax.text(min(rate + 1.2, 96.5), yi, f"{rate:.2f}% · {source}", va="center", ha="left", fontsize=8.8, color=INK)
+    save_figure(fig, "figure-08-bfcl-reference-comparison")
+    plt.close(fig)
+
+
+def build_bfcl_reference_comparison_mobile(plt) -> None:
+    labels = [r[0].replace("\n", " ") for r in BFCL_LEADERBOARD_REFERENCES]
+    rates = [r[1] for r in BFCL_LEADERBOARD_REFERENCES]
+    y = list(range(len(labels)))
+    fig, ax = plt.subplots(figsize=(5.4, 6.0))
+    colors = [VERMILLION if i == 0 else BLUE for i in range(len(labels))]
+    ax.barh(y, rates, color=colors, height=0.58)
+    ax.set_yticks(y, labels)
+    ax.invert_yaxis()
+    ax.set_xlim(0, 100)
+    ax.set_xlabel("Non-Live AST Acc (%)")
+    ax.set_xticks([0, 25, 50, 75, 100])
+    ax.set_title("BFCL non-live AST references", pad=14)
+    apply_grid(ax)
+    for yi, rate in zip(y, rates, strict=True):
+        ax.text(min(rate + 1.2, 96.5), yi, f"{rate:.2f}%", va="center", ha="left", fontsize=8.8, color=INK)
+    save_web_figure(fig, "figure-08-bfcl-reference-comparison-mobile")
+    plt.close(fig)
+
+
 def log_bar(plt, rows: list[tuple[str, float, str]], *, title: str, xlabel: str, filename: str) -> None:
     labels = [r[0] for r in rows]
     values = [r[1] for r in rows]
@@ -463,6 +515,8 @@ def main() -> None:
     build_codex_failures_mobile(plt)
     build_initial_official_bfcl(plt)
     build_initial_official_bfcl_mobile(plt)
+    build_bfcl_reference_comparison(plt)
+    build_bfcl_reference_comparison_mobile(plt)
     log_bar(
         plt,
         [
@@ -566,6 +620,10 @@ def main() -> None:
             "figure-07-initial-official-bfcl": {
                 "source": "official-evaluator-summary-2026-06-07.md",
                 "claim_boundary": "Initial local official-evaluator non-live result; provisional until a newer full official run is scored.",
+            },
+            "figure-08-bfcl-reference-comparison": {
+                "source": "Official BFCL data_overall.csv plus local official-evaluator initial run.",
+                "claim_boundary": "Compares BFCL Non-Live AST only; not overall leaderboard rank, not hosted-model cost or live/multi-turn performance.",
             },
         },
     }

@@ -151,7 +151,18 @@ initial_official_bfcl_rows = [
     ("parallel", 133, 200, "66.50%"),
     ("parallel_multiple", 129, 200, "64.50%"),
     ("irrelevance", 137, 240, "57.08%"),
-    ("non-live overall", 969, 1390, "69.88%"),
+    ("BFCL Non-Live AST aggregate", "unweighted", "4 groups", "69.88%"),
+    ("raw generated-record count", 969, 1390, "69.71%"),
+]
+official_bfcl_reference_rows = [
+    ("Our KV Capsule + PTI initial local run", "Custom local prompt-mode harness", "N/A", "69.88%", "No API spend recorded", "5.01 h wall-clock"),
+    ("Gemma-3-12b-it (Prompt)", "Google", "30.43%", "79.44%", "$10.77", "11.10 s mean"),
+    ("Gemma-3-27b-it (Prompt)", "Google", "29.47%", "87.17%", "$11.82", "10.88 s mean"),
+    ("Granite-20b-FunctionCalling (FC)", "IBM", "23.23%", "82.35%", "$5.23", "3.20 s mean"),
+    ("Llama-3.3-70B-Instruct (FC)", "Meta", "31.90%", "88.02%", "$29.54", "26.11 s mean"),
+    ("Llama-4-Maverick-17B-128E-Instruct-FP8 (FC)", "Meta", "37.29%", "88.65%", "$18.25", "18.43 s mean"),
+    ("Qwen3-8B (Prompt)", "Qwen", "40.43%", "88.56%", "$63.95", "54.17 s mean"),
+    ("Qwen3-32B (Prompt)", "Qwen", "46.78%", "90.27%", "$199.47", "167.54 s mean"),
 ]
 failure_rows = [
     ("java", 14, 17),
@@ -510,7 +521,7 @@ html_doc = f"""<!doctype html>
     <section id="abstract">
       <h2>Abstract</h2>
       <div class="abstract">
-        Local tool-using agents repeatedly expose stable context to the model, including tool schemas, runtime rules, interface contracts, and task protocols. Existing systems work treats KV state as a reusable serving object [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>], while agent-memory work commonly preserves continuity through visible text, summaries, retrieval, or verbal feedback [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>]. We evaluate an alternative local-agent runtime primitive: <strong>KV Capsules</strong>, saved and restored KV/sequence state for a validated stable prefix, paired with <strong>PTI</strong>, a structured local tool interface for agent runtimes. In BFCL-derived experiments [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>] on a local Gemma 4 12B model, restored KV matched native live append at <code>100/100</code> on a selected 100-case control ladder with zero fresh-tail or wrong-capsule leaks. Compact visible evidence solved only <code>19/100</code>, and direct visible tools solved <code>91/100</code>. In a repeated-work stream, KV Capsule + PTI achieved <code>100/100</code> with <code>3,900</code> cumulative new visible tail/control tokens after state restore and <code>853,499 ms</code> cumulative wall time, compared with <code>86/100</code>, <code>245,774,883</code> cumulative reported visible input tokens, and <code>11,813,816 ms</code> cumulative wall time for the tested text-threaded local-agent baseline using the same model family. A first full BFCL non-live official-evaluator check of the disclosed runtime scored <code>969/1390</code> (<code>69.88%</code>) locally; this is included as an initial calibration point and is not a public leaderboard submission. These results support a narrow systems claim: for repeated local tool-use workloads, preserving stable context as reusable hidden state and exposing tools through PTI can improve reliability and reduce visible-context burden.
+        Local tool-using agents repeatedly expose stable context to the model, including tool schemas, runtime rules, interface contracts, and task protocols. Existing systems work treats KV state as a reusable serving object [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>], while agent-memory work commonly preserves continuity through visible text, summaries, retrieval, or verbal feedback [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>]. We evaluate an alternative local-agent runtime primitive: <strong>KV Capsules</strong>, saved and restored KV/sequence state for a validated stable prefix, paired with <strong>PTI</strong>, a structured local tool interface for agent runtimes. In BFCL-derived experiments [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>] on a local Gemma 4 12B model, restored KV matched native live append at <code>100/100</code> on a selected 100-case control ladder with zero fresh-tail or wrong-capsule leaks. Compact visible evidence solved only <code>19/100</code>, and direct visible tools solved <code>91/100</code>. In a repeated-work stream, KV Capsule + PTI achieved <code>100/100</code> with <code>3,900</code> cumulative new visible tail/control tokens after state restore and <code>853,499 ms</code> cumulative wall time, compared with <code>86/100</code>, <code>245,774,883</code> cumulative reported visible input tokens, and <code>11,813,816 ms</code> cumulative wall time for the tested text-threaded local-agent baseline using the same model family. A first full BFCL non-live official-evaluator check of the disclosed runtime scored <code>69.88%</code> BFCL Non-Live AST Acc locally, with <code>969/1390</code> raw generated records correct; this is included as an initial calibration point and is not a public leaderboard submission. These results support a narrow systems claim: for repeated local tool-use workloads, preserving stable context as reusable hidden state and exposing tools through PTI can improve reliability and reduce visible-context burden.
       </div>
     </section>
 
@@ -651,8 +662,13 @@ html_doc = f"""<!doctype html>
       <div class="rq">
         <h3>Initial Full BFCL Non-Live Check</h3>
         <p class="rq-question">Scope: local official BFCL evaluator over the seven non-live categories, using the first full exported prediction run for the custom KV Capsule + PTI runtime.</p>
-        <p>The initial full non-live evaluator check scored <code>969/1390</code>, or <code>69.88%</code>, across the official non-live category set. This result is useful as an end-to-end calibration of the export and evaluator path. It is not used as the final official benchmark number for this draft, and it is not a public leaderboard submission. A newer full official run should supersede this row once its evaluator output is available.</p>
+        <p>The initial full non-live evaluator check scored <code>69.88%</code> on BFCL's leaderboard-style <strong>Non-Live AST Acc</strong> calculation. That score is an unweighted average over the non-live AST groups: simple, multiple, parallel, and parallel-multiple. The raw generated-record count across all seven local non-live files was <code>969/1390</code>, or <code>69.71%</code>, with irrelevance reported separately at <code>57.08%</code>. This result is useful as an end-to-end calibration of the export and evaluator path. It is not used as the final official benchmark number for this draft, and it is not a public leaderboard submission. A newer full official run should supersede this row once its evaluator output is available.</p>
         {table(["Category", "Correct", "Total", "Accuracy"], initial_official_bfcl_rows)}
+        <h3>BFCL Non-Live Reference Comparison</h3>
+        <p class="rq-question">Comparison target: official BFCL V4 <strong>Non-Live AST Acc</strong>, not overall leaderboard rank.</p>
+        <p>The public BFCL table includes several metrics [<a class="cite" href="https://gorilla.cs.berkeley.edu/data_overall.csv" target="_blank" rel="noreferrer">9</a>]. <strong>Overall Acc</strong> averages across live, multi-turn, memory, web-search, relevance, irrelevance, and other categories. <strong>Non-Live AST Acc</strong> is the offline function-call slice that matches the current evaluation scope. The comparison below therefore uses non-live AST only and does not claim overall BFCL rank.</p>
+        {table(["Model or system", "Organization / disclosure", "Overall Acc", "Non-Live AST Acc", "Reported cost", "Reported latency / wall time"], official_bfcl_reference_rows)}
+        <p>The official BFCL cost and latency columns are shown for public leaderboard rows. Our run was local pre-generated inference, so there is no API spend to report. The original model-loop metadata records <code>2026-06-07T08:11:52Z</code> to <code>2026-06-07T13:12:11Z</code>, about <code>5.01 h</code> wall-clock before local evaluator scoring. The BFCL-generated <code>Total Cost ($)</code> value for the custom local row is not used because it is not a measured dollar cost and is not comparable to hosted-provider cost accounting.</p>
       </div>
     </section>
 
@@ -719,7 +735,14 @@ html_doc = f"""<!doctype html>
         <div class="figure-body">
           {figure_img("figure-07-initial-official-bfcl", "Matplotlib horizontal bar chart showing initial official BFCL non-live category accuracies and 69.88 percent overall score.")}
         </div>
-        <p class="caption">This chart records the first local official-evaluator calibration result: <code>969/1390</code> non-live cases, or <code>69.88%</code>. It should be replaced by the newer full official run once that run is scored.</p>
+        <p class="caption">This chart records the first local official-evaluator calibration result. BFCL-style Non-Live AST Acc is <code>69.88%</code>; raw generated-record accuracy including irrelevance is <code>969/1390</code> (<code>69.71%</code>). It should be replaced by the newer full official run once that run is scored.</p>
+      </div>
+      <div class="figure">
+        <div class="figure-head"><b>Figure 9.</b> BFCL V4 Non-Live AST reference comparison. Higher is better.</div>
+        <div class="figure-body">
+          {figure_img("figure-08-bfcl-reference-comparison", "Matplotlib horizontal bar chart comparing initial KV Capsule PTI run with official BFCL non-live AST reference rows.")}
+        </div>
+        <p class="caption">This is a non-live-only comparison against public BFCL rows. It should not be read as overall leaderboard rank, hosted-model cost comparison, or evidence about live/multi-turn BFCL categories.</p>
       </div>
     </section>
 
@@ -730,6 +753,8 @@ html_doc = f"""<!doctype html>
         <li>The text-threaded baseline is a practical runtime comparison, not a prompt-identical mechanism comparison.</li>
         <li>The selected cohort is quality-gated and BFCL-derived; it is not an official BFCL leaderboard submission.</li>
         <li>The initial full BFCL non-live check was scored by the official evaluator locally, but it is included only as calibration and not as a public leaderboard result.</li>
+        <li>The BFCL reference comparison uses <code>Non-Live AST Acc</code> only. It does not compare overall BFCL rank, live tasks, multi-turn tasks, memory, web search, or hosted-provider serving quality.</li>
+        <li>The initial local run has measured wall-clock metadata, but no measured dollar cost. Hosted BFCL cost fields should not be compared directly with local GPU wall time.</li>
         <li>PTI is a structured local tool interface for agent runtimes, not full arbitrary programmatic tool calling.</li>
         <li>Baseline visible-input telemetry is cumulative reported burden, not clean per-task accounting.</li>
         <li>The selected-cohort mechanism run does not show restored KV is faster than native append.</li>
@@ -748,6 +773,7 @@ html_doc = f"""<!doctype html>
         <li id="ref-6">C. Packer et al. <a href="https://arxiv.org/abs/2310.08560">MemGPT: Towards LLMs as Operating Systems</a>. arXiv:2310.08560, 2023.</li>
         <li id="ref-7">N. Shinn et al. <a href="https://arxiv.org/abs/2303.11366">Reflexion: Language Agents with Verbal Reinforcement Learning</a>. arXiv:2303.11366, 2023.</li>
         <li id="ref-8">G. Gerganov. <a href="https://github.com/ggml-org/llama.cpp">llama.cpp: LLM inference in C/C++</a>. Open-source local inference runtime.</li>
+        <li id="ref-9">Berkeley Function Calling Leaderboard. <a href="https://gorilla.cs.berkeley.edu/leaderboard">Official leaderboard</a> and <a href="https://gorilla.cs.berkeley.edu/data_overall.csv">public data_overall.csv</a>. Accessed 2026-06-07.</li>
       </ol>
     </section>
   </main>

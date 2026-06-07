@@ -22,6 +22,9 @@
     "figure-07-initial-official-bfcl-mobile.svg",
     "figure-07-initial-official-bfcl.pdf",
     "figure-07-initial-official-bfcl.svg",
+    "figure-08-bfcl-reference-comparison-mobile.svg",
+    "figure-08-bfcl-reference-comparison.pdf",
+    "figure-08-bfcl-reference-comparison.svg",
     "figure-manifest.json"
   ],
   "source_artifacts": [
@@ -58,6 +61,10 @@
     "figure-07-initial-official-bfcl": {
       "source": "official-evaluator-summary-2026-06-07.md",
       "claim_boundary": "Initial local official-evaluator non-live result; provisional until a newer full official run is scored."
+    },
+    "figure-08-bfcl-reference-comparison": {
+      "source": "Official BFCL data_overall.csv plus local official-evaluator initial run.",
+      "claim_boundary": "Compares BFCL Non-Live AST only; not overall leaderboard rank, not hosted-model cost or live/multi-turn performance."
     }
   }
 }
