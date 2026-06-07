@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-06-06T16:20:21Z",
+  "candidate_case_count": 502,
+  "record_count": 3514,
+  "target_rows": 100,
+  "clean_primary_eligible_count": 162,
+  "selected_case_count": 100,
+  "selected_case_ids": [
+    "bfcl:simple:simple_0",
+    "bfcl:simple:simple_1",
+    "bfcl:simple:simple_2",
+    "bfcl:simple:simple_3",
+    "bfcl:simple:simple_4",
+    "bfcl:simple:simple_5",
+    "bfcl:simple:simple_6",
+    "bfcl:simple:simple_7",
+    "bfcl:simple:simple_8",
+    "bfcl:simple:simple_9",
+    "bfcl:simple:simple_10",
+    "bfcl:simple:simple_11",
+    "bfcl:simple:simple_18",
+    "bfcl:simple:simple_19",
+    "bfcl:simple:simple_21",
+    "bfcl:simple:simple_22",
+    "bfcl:simple:simple_23",
+    "bfcl:simple:simple_24",
+    "bfcl:simple:simple_25",
+    "bfcl:simple:simple_26",
+    "bfcl:simple:simple_27",
+    "bfcl:simple:simple_28",
+    "bfcl:simple:simple_29",
+    "bfcl:simple:simple_30",
+    "bfcl:simple:simple_31",
+    "bfcl:simple:simple_32",
+    "bfcl:multiple:multiple_0",
+    "bfcl:multiple:multiple_1",
+    "bfcl:multiple:multiple_2",
+    "bfcl:multiple:multiple_4",
+    "bfcl:multiple:multiple_6",
+    "bfcl:multiple:multiple_7",
+    "bfcl:multiple:multiple_8",
+    "bfcl:multiple:multiple_9",
+    "bfcl:multiple:multiple_11",
+    "bfcl:multiple:multiple_12",
+    "bfcl:multiple:multiple_13",
+    "bfcl:multiple:multiple_14",
+    "bfcl:multiple:multiple_16",
+    "bfcl:multiple:multiple_17",
+    "bfcl:multiple:multiple_18",
+    "bfcl:multiple:multiple_19",
+    "bfcl:multiple:multiple_20",
+    "bfcl:multiple:multiple_21",
+    "bfcl:multiple:multiple_22",
+    "bfcl:multiple:multiple_24",
+    "bfcl:multiple:multiple_27",
+    "bfcl:multiple:multiple_28",
+    "bfcl:multiple:multiple_30",
+    "bfcl:multiple:multiple_31",
+    "bfcl:multiple:multiple_32",
+    "bfcl:parallel:parallel_0",
+    "bfcl:parallel:parallel_1",
+    "bfcl:parallel:parallel_2",
+    "bfcl:parallel:parallel_4",
+    "bfcl:parallel:parallel_10",
+    "bfcl:parallel:parallel_13",
+    "bfcl:parallel:parallel_15",
+    "bfcl:parallel:parallel_16",
+    "bfcl:parallel:parallel_20",
+    "bfcl:parallel:parallel_21",
+    "bfcl:parallel:parallel_23",
+    "bfcl:parallel:parallel_25",
+    "bfcl:parallel:parallel_28",
+    "bfcl:parallel:parallel_32",
+    "bfcl:parallel_multiple:parallel_multiple_1",
+    "bfcl:parallel_multiple:parallel_multiple_3",
+    "bfcl:parallel_multiple:parallel_multiple_5",
+    "bfcl:parallel_multiple:parallel_multiple_6",
+    "bfcl:parallel_multiple:parallel_multiple_7",
+    "bfcl:parallel_multiple:parallel_multiple_8",
+    "bfcl:parallel_multiple:parallel_multiple_9",
+    "bfcl:parallel_multiple:parallel_multiple_11",
+    "bfcl:parallel_multiple:parallel_multiple_12",
+    "bfcl:parallel_multiple:parallel_multiple_17",
+    "bfcl:parallel_multiple:parallel_multiple_22",
+    "bfcl:parallel_multiple:parallel_multiple_23",
+    "bfcl:parallel_multiple:parallel_multiple_24",
+    "bfcl:parallel_multiple:parallel_multiple_25",
+    "bfcl:parallel_multiple:parallel_multiple_26",
+    "bfcl:parallel_multiple:parallel_multiple_29",
+    "bfcl:parallel_multiple:parallel_multiple_30",
+    "bfcl:java:java_0",
+    "bfcl:java:java_2",
+    "bfcl:java:java_3",
+    "bfcl:java:java_8",
+    "bfcl:java:java_12",
+    "bfcl:java:java_13",
+    "bfcl:java:java_14",
+    "bfcl:java:java_15",
+    "bfcl:java:java_16",
+    "bfcl:java:java_19",
+    "bfcl:java:java_20",
+    "bfcl:java:java_21",
+    "bfcl:java:java_23",
+    "bfcl:java:java_26",
+    "bfcl:java:java_28",
+    "bfcl:java:java_30",
+    "bfcl:java:java_32",
+    "bfcl:javascript:javascript_0"
+  ],
+  "thresholds": {
+    "minimum_clean_rows": 100,
+    "target_clean_rows": 200
+  },
+  "threshold_decision": "paper_test_ready",
+  "counts_by_category": {
+    "simple": {
+      "cases": 33,
+      "clean_primary_eligible": 26,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 0
+    },
+    "multiple": {
+      "cases": 33,
+      "clean_primary_eligible": 25,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 0
+    },
+    "parallel": {
+      "cases": 33,
+      "clean_primary_eligible": 14,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 4
+    },
+    "parallel_multiple": {
+      "cases": 33,
+      "clean_primary_eligible": 17,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 5
+    },
+    "java": {
+      "cases": 33,
+      "clean_primary_eligible": 17,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 1
+    },
+    "javascript": {
+      "cases": 33,
+      "clean_primary_eligible": 17,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 0
+    },
+    "sql": {
+      "cases": 33,
+      "clean_primary_eligible": 0,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 0
+    },
+    "live_simple": {
+      "cases": 33,
+      "clean_primary_eligible": 16,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 3
+    },
+    "live_multiple": {
+      "cases": 33,
+      "clean_primary_eligible": 10,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 2
+    },
+    "live_parallel": {
+      "cases": 16,
+      "clean_primary_eligible": 9,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 6
+    },
+    "live_parallel_multiple": {
+      "cases": 24,
+      "clean_primary_eligible": 11,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 1
+    },
+    "multi_turn_base": {
+      "cases": 33,
+      "clean_primary_eligible": 0,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 0
+    },
+    "multi_turn_composite": {
+      "cases": 33,
+      "clean_primary_eligible": 0,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 0
+    },
+    "multi_turn_long_context": {
+      "cases": 33,
+      "clean_primary_eligible": 0,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 0
+    },
+    "multi_turn_miss_func": {
+      "cases": 33,
+      "clean_primary_eligible": 0,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 0
+    },
+    "multi_turn_miss_param": {
+      "cases": 33,
+      "clean_primary_eligible": 0,
+      "restored_only_failures": 0,
+      "direct_tool_gaps": 0
+    }
+  },
+  "counts_by_control": {
+    "direct_full_visible_tools": {
+      "records": 502,
+      "gate_passed": 184,
+      "answer_contained": 184
+    },
+    "code_mode_full_visible": {
+      "records": 502,
+      "gate_passed": 175,
+      "answer_contained": 175
+    },
+    "code_mode_fresh_tail_only": {
+      "records": 502,
+      "gate_passed": 502,
+      "answer_contained": 0
+    },
+    "code_mode_native_live_append": {
+      "records": 502,
+      "gate_passed": 176,
+      "answer_contained": 176
+    },
+    "code_mode_restored_kv_capsule": {
+      "records": 502,
+      "gate_passed": 176,
+      "answer_contained": 176
+    },
+    "code_mode_wrong_capsule_negative": {
+      "records": 502,
+      "gate_passed": 502,
+      "answer_contained": 0
+    },
+    "compact_visible_evidence_code_mode": {
+      "records": 502,
+      "gate_passed": 30,
+      "answer_contained": 30
+    }
+  },
+  "rejection_counts": {
+    "code_mode_native_live_append_failed": 326,
+    "code_mode_full_visible_failed": 327,
+    "code_mode_restored_kv_capsule_failed": 326
+  },
+  "restored_only_failure_count": 0,
+  "direct_tool_gap_count": 22,
+  "compact_visible_pass_count": 30,
+  "live_restored_hash_match_count": 502,
+  "calibration_run_label": "bfcl-paper-calibration-detached-v2",
+  "paper_run_label": "bfcl-paper-selected-cohort-v1",
+  "calibration_records_path": "C:\\ai\\paper\\research\\01-ssd-native-inference-current\\benchmarks\\paper-grade-code-mode-kv-capsule-evaluation-2026-06-05\\raw\\bfcl-paper-calibration-detached-v2-model-loop-records.jsonl",
+  "source_packet_path": "C:\\ai\\paper\\research\\01-ssd-native-inference-current\\benchmarks\\paper-grade-code-mode-kv-capsule-evaluation-2026-06-05\\raw\\bfcl-paper-calibration-detached-v2-control-packet.jsonl",
+  "paper_packet_path": "C:\\ai\\paper\\research\\01-ssd-native-inference-current\\benchmarks\\paper-grade-code-mode-kv-capsule-evaluation-2026-06-05\\raw\\bfcl-paper-selected-cohort-v1-control-packet.jsonl"
+}

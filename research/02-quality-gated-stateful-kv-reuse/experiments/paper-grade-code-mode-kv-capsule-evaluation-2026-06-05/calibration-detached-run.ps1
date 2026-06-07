@@ -1,0 +1,4 @@
+﻿$ErrorActionPreference = 'Stop'
+Set-Location 'C:\ai\paper'
+py -3 @('research/01-ssd-native-inference-current/benchmarks/code_mode_kv_capsule_model_loop_runner.py', '--packet', 'C:\ai\paper\research\01-ssd-native-inference-current\benchmarks\paper-grade-code-mode-kv-capsule-evaluation-2026-06-05\raw\bfcl-paper-calibration-detached-control-packet.jsonl', '--out-dir', 'C:\ai\paper\research\01-ssd-native-inference-current\benchmarks\paper-grade-code-mode-kv-capsule-evaluation-2026-06-05\raw', '--cache-dir', 'C:\ai\paper\research\01-ssd-native-inference-current\benchmarks\paper-grade-code-mode-kv-capsule-evaluation-2026-06-05\cache', '--run-label', 'bfcl-paper-calibration-detached', '--model-profile', 'gemma4-12b', '--state-route', 'auto', '--predict', '128', '--max-steps', '3', '--max-repairs', '1')
+exit $LASTEXITCODE
