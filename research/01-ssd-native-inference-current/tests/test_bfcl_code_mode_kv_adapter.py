@@ -447,6 +447,57 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertEqual(adapter.actual_call_name(truncated_doubled_quote_wrapper[0]), "calculate_average")
         self.assertEqual(adapter.actual_call_arguments(truncated_doubled_quote_wrapper[0])["gradeDict"]["science"], 75)
 
+    def test_stable_prefix_contains_pti_v2_contract(self) -> None:
+        case = adapter.materialize_cases(source_dir=self.make_source_dir(), categories=["simple"], per_category=1)[0]
+        prefix = adapter.stable_prefix(case, code_mode=True)
+
+        self.assertIn("PTI protocol version = bfcl_programmatic_tool_interface_v2", prefix)
+        self.assertIn("If no provided function can satisfy the user request, output an empty call list", prefix)
+        self.assertIn("Count the independent operations requested by the user before emitting calls", prefix)
+        self.assertIn("Do not emit helper, search, validation, explanation, or planning calls", prefix)
+        self.assertIn("Use function names and parameter names exactly as written in the catalog", prefix)
+        self.assertIn("Omit optional/default parameters unless the user request clearly specifies them", prefix)
+
+    def test_schema_validator_uses_visible_catalog_without_expected_answers(self) -> None:
+        functions = [
+            {
+                "name": "calculate_triangle_area",
+                "description": "Calculate triangle area.",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "base": {"type": "integer"},
+                        "height": {"type": "integer"},
+                        "units": {"type": "string"},
+                    },
+                    "required": ["base", "height"],
+                },
+            }
+        ]
+
+        valid = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "calculate_triangle_area", "arguments": {"base": 10, "height": 5}}],
+        )
+        self.assertTrue(valid["valid"])
+        self.assertEqual(valid["error_count"], 0)
+        self.assertNotIn("expected", json.dumps(valid).lower())
+        self.assertNotIn("possible_answer", json.dumps(valid).lower())
+
+        invalid = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [
+                {"name": "missing.fn", "arguments": {}},
+                {"name": "calculate_triangle_area", "arguments": {"base": "10", "colour": "blue"}},
+            ],
+        )
+        self.assertFalse(invalid["valid"])
+        codes = {error["code"] for error in invalid["errors"]}
+        self.assertIn("unknown_function", codes)
+        self.assertIn("missing_required_argument", codes)
+        self.assertIn("unexpected_argument", codes)
+        self.assertIn("type_mismatch", codes)
+
     def test_tool_surface_runtime_normalizes_dialects_without_expected_answers(self) -> None:
         samples = [
             '{"tool_calls":[{"function_name":"area_circle.calculate","arguments":{"radius":5.0}}]}',

@@ -32,7 +32,7 @@ import code_mode_tool_surface as tool_surface  # noqa: E402
 ADAPTER_VERSION = "bfcl_code_mode_kv_adapter_v1"
 TRANSFORM_VERSION = "bfcl_code_mode_kv_transform_v1"
 SCORER_VERSION = "bfcl_expected_call_scorer_v1"
-PROMPT_PROTOCOL_VERSION = "bfcl_openclaw_code_mode_compiled_template_v1"
+PROMPT_PROTOCOL_VERSION = "bfcl_programmatic_tool_interface_v2"
 EXPERIMENT_ID = "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05"
 BFCL_LEADERBOARD_CHECKPOINT = "f7cf735"
 BFCL_DATASET_REVISION = "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
@@ -393,9 +393,15 @@ def stable_prefix(case: BFCLCase, *, code_mode: bool) -> str:
         "TOOL/FUNCTION CATALOG:\n"
         f"{function_catalog_text(case.functions)}\n\n"
         "OUTPUT CONTRACT:\n"
+        f"PTI protocol version = {PROMPT_PROTOCOL_VERSION}\n"
         f"{contract}\n"
-        "Do not invent functions. Do not call functions that are irrelevant to the user request. "
-        "Return only the function call plan, not a natural-language answer."
+        "Return only the function call plan, not a natural-language answer.\n"
+        "If no provided function can satisfy the user request, output an empty call list.\n"
+        "Count the independent operations requested by the user before emitting calls; emit exactly those calls.\n"
+        "Do not emit helper, search, validation, explanation, or planning calls.\n"
+        "Use function names and parameter names exactly as written in the catalog.\n"
+        "Do not invent functions, parameters, or values that are not supported by the user request and schema.\n"
+        "Omit optional/default parameters unless the user request clearly specifies them."
     )
 
 
@@ -571,6 +577,22 @@ def control_packet(case: BFCLCase, control_id: str) -> dict[str, Any]:
             "scorer_mode": case.scorer_mode,
             "unsupported_scorer_features": unsupported_scorer_features,
             "scorer_limitations": scorer_limitations,
+        },
+        "pti_runtime": {
+            "runtime_version": PROMPT_PROTOCOL_VERSION,
+            "schema_validator_version": "bfcl_pti_schema_validator_v1",
+            "inference_allowed_inputs": [
+                "source_user_request",
+                "visible_function_catalog_schema",
+                "model_output",
+                "parser_decoder_errors",
+                "schema_validator_errors",
+            ],
+            "inference_disallowed_inputs": [
+                "possible_answer",
+                "official_expected_calls",
+                "answer_key_postprocessing",
+            ],
         },
         "eligibility": {
             "primary_eligible": case.primary_eligible,
@@ -799,6 +821,124 @@ def parse_calls_from_json_text(text: str) -> list[dict[str, Any]]:
 def parse_calls_from_generated_text(text: str) -> list[dict[str, Any]]:
     """Extract the first complete BFCL-style call payload from raw model text."""
     return tool_surface.parse_calls_from_generated_text(text)
+
+
+def _function_catalog_by_name(functions: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    return {str(function.get("name")): function for function in functions if function.get("name")}
+
+
+def _parameter_schema(function: dict[str, Any]) -> tuple[dict[str, dict[str, Any]], set[str]]:
+    parameters = function.get("parameters") if isinstance(function.get("parameters"), dict) else {}
+    properties = parameters.get("properties") if isinstance(parameters.get("properties"), dict) else {}
+    required_raw = parameters.get("required") if isinstance(parameters.get("required"), list) else []
+    required = {str(item) for item in required_raw}
+    return {str(key): value for key, value in properties.items() if isinstance(value, dict)}, required
+
+
+def _schema_type(schema: dict[str, Any]) -> str | None:
+    raw_type = schema.get("type")
+    if isinstance(raw_type, list):
+        raw_type = next((item for item in raw_type if item != "null"), None)
+    if raw_type is None:
+        return None
+    normalized = str(raw_type).lower()
+    aliases = {
+        "int": "integer",
+        "long": "integer",
+        "float": "number",
+        "double": "number",
+        "dict": "object",
+        "map": "object",
+        "hashmap": "object",
+        "boolean": "boolean",
+        "bool": "boolean",
+        "array": "array",
+        "list": "array",
+        "string": "string",
+        "str": "string",
+    }
+    return aliases.get(normalized, normalized)
+
+
+def _value_matches_schema_type(value: Any, expected_type: str | None) -> bool:
+    if expected_type is None or expected_type in {"any", "unknown"}:
+        return True
+    if value is None:
+        return True
+    if expected_type == "integer":
+        return isinstance(value, int) and not isinstance(value, bool)
+    if expected_type == "number":
+        return isinstance(value, (int, float)) and not isinstance(value, bool)
+    if expected_type == "string":
+        return isinstance(value, str)
+    if expected_type == "boolean":
+        return isinstance(value, bool)
+    if expected_type == "array":
+        return isinstance(value, list)
+    if expected_type == "object":
+        return isinstance(value, dict)
+    return True
+
+
+def validate_pti_calls_against_catalog(
+    functions: list[dict[str, Any]], calls: list[dict[str, Any]]
+) -> dict[str, Any]:
+    """Validate parsed PTI calls against visible function schema only.
+
+    This validator intentionally uses no BFCL possible_answer rows. It is safe
+    for inference-time telemetry and schema-only repair prompting.
+    """
+    catalog = _function_catalog_by_name(functions)
+    errors: list[dict[str, Any]] = []
+    for call_index, call in enumerate(calls):
+        name = actual_call_name(call)
+        arguments = actual_call_arguments(call)
+        function = catalog.get(name)
+        if function is None:
+            errors.append({"code": "unknown_function", "call_index": call_index, "function": name})
+            continue
+        properties, required = _parameter_schema(function)
+        for key in sorted(required):
+            if key not in arguments:
+                errors.append(
+                    {
+                        "code": "missing_required_argument",
+                        "call_index": call_index,
+                        "function": name,
+                        "argument": key,
+                    }
+                )
+        for key, value in arguments.items():
+            schema = properties.get(str(key))
+            if schema is None:
+                errors.append(
+                    {
+                        "code": "unexpected_argument",
+                        "call_index": call_index,
+                        "function": name,
+                        "argument": str(key),
+                    }
+                )
+                continue
+            expected_type = _schema_type(schema)
+            if not _value_matches_schema_type(value, expected_type):
+                errors.append(
+                    {
+                        "code": "type_mismatch",
+                        "call_index": call_index,
+                        "function": name,
+                        "argument": str(key),
+                        "expected_type": expected_type,
+                        "actual_type": type(value).__name__,
+                    }
+                )
+    return {
+        "validator_version": "bfcl_pti_schema_validator_v1",
+        "valid": not errors,
+        "call_count": len(calls),
+        "error_count": len(errors),
+        "errors": errors,
+    }
 
 
 def materialize_cases(

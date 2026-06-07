@@ -97,10 +97,33 @@ class BFCLOfficialRunnerTests(unittest.TestCase):
         ]
 
         self.assertEqual(
-            official.calls_to_bfcl_prompt_result(calls),
+            official.calls_to_bfcl_prompt_result(calls, category="simple_python"),
             "[calculate_triangle_area(base=10, height=5), math.echo(items=['a', 'b'], opts={'loud': True})]",
         )
-        self.assertEqual(official.calls_to_bfcl_prompt_result([]), "[]")
+        self.assertEqual(official.calls_to_bfcl_prompt_result([], category="simple_python"), "[]")
+
+    def test_language_aware_call_formatter_avoids_python_literals_for_js_and_java(self) -> None:
+        js_calls = [
+            {
+                "name": "validateUserInput",
+                "arguments": {"inputField": "userInputField", "isComplete": True, "options": {"trim": False}},
+            }
+        ]
+        java_calls = [
+            {
+                "name": "EFSNIOFile.setContents",
+                "arguments": {"source": "fileStream", "force": True, "keepHistory": False, "monitor": None},
+            }
+        ]
+
+        self.assertEqual(
+            official.calls_to_bfcl_prompt_result(js_calls, category="simple_javascript"),
+            '[validateUserInput(inputField="userInputField", isComplete=true, options={trim: false})]',
+        )
+        self.assertEqual(
+            official.calls_to_bfcl_prompt_result(java_calls, category="simple_java"),
+            '[EFSNIOFile.setContents(source="fileStream", force=true, keepHistory=false, monitor=null)]',
+        )
 
     def test_export_official_results_writes_bfcl_result_tree_and_sidecar(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -179,7 +202,12 @@ class BFCLOfficialRunnerTests(unittest.TestCase):
                         "timing": {"total_ms": 123.4},
                         "raw": {
                             "response": json.dumps(
-                                [{"name": "GeometryPresentation.createPresentation", "arguments": {"controller": "mapController", "parent": "mapArea"}}]
+                                [
+                                    {
+                                        "name": "GeometryPresentation.createPresentation",
+                                        "arguments": {"controller": "mapController", "parent": "mapArea", "visible": True},
+                                    }
+                                ]
                             )
                         },
                     }
@@ -203,6 +231,10 @@ class BFCLOfficialRunnerTests(unittest.TestCase):
             )
             row = json.loads(result_file.read_text(encoding="utf-8").splitlines()[0])
             self.assertEqual(row["id"], "simple_java_0")
+            self.assertEqual(
+                row["result"],
+                '[GeometryPresentation.createPresentation(controller="mapController", parent="mapArea", visible=true)]',
+            )
 
     def test_prepare_materializes_packet_from_v4_fixture(self) -> None:
         source = self.make_v4_data_dir()

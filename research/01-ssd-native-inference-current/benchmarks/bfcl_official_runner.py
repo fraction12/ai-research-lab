@@ -14,6 +14,7 @@ import importlib.metadata
 import importlib.util
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -187,17 +188,56 @@ def py_value(value: Any) -> str:
     return repr(value)
 
 
-def call_to_python(call: dict[str, Any]) -> str:
+def bfcl_export_dialect(category: str | None) -> str:
+    if category == "simple_javascript":
+        return "javascript"
+    if category == "simple_java":
+        return "java"
+    return "python"
+
+
+def dialect_value(value: Any, *, dialect: str) -> str:
+    if dialect == "python":
+        return py_value(value)
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if value is None:
+        return "null"
+    if isinstance(value, str):
+        return json.dumps(value, ensure_ascii=False)
+    if isinstance(value, (int, float)):
+        return repr(value)
+    if isinstance(value, list):
+        return "[" + ", ".join(dialect_value(child, dialect=dialect) for child in value) + "]"
+    if isinstance(value, dict):
+        rendered = []
+        for key, child in value.items():
+            key_text = str(key)
+            if dialect == "javascript" and re.match(r"^[A-Za-z_$][A-Za-z0-9_$]*$", key_text):
+                rendered_key = key_text
+            else:
+                rendered_key = json.dumps(key_text, ensure_ascii=False)
+            rendered.append(f"{rendered_key}: {dialect_value(child, dialect=dialect)}")
+        return "{" + ", ".join(rendered) + "}"
+    return json.dumps(str(value), ensure_ascii=False)
+
+
+def call_to_bfcl_prompt(call: dict[str, Any], *, category: str | None = None) -> str:
     name = str(adapter.actual_call_name(call))
     arguments = adapter.actual_call_arguments(call)
-    args = ", ".join(f"{key}={py_value(value)}" for key, value in arguments.items())
+    dialect = bfcl_export_dialect(category)
+    args = ", ".join(f"{key}={dialect_value(value, dialect=dialect)}" for key, value in arguments.items())
     return f"{name}({args})"
 
 
-def calls_to_bfcl_prompt_result(calls: list[dict[str, Any]]) -> str:
+def call_to_python(call: dict[str, Any]) -> str:
+    return call_to_bfcl_prompt(call, category="simple_python")
+
+
+def calls_to_bfcl_prompt_result(calls: list[dict[str, Any]], *, category: str | None = None) -> str:
     if not calls:
         return "[]"
-    return "[" + ", ".join(call_to_python(call) for call in calls) + "]"
+    return "[" + ", ".join(call_to_bfcl_prompt(call, category=category) for call in calls) + "]"
 
 
 def calls_from_record(record: dict[str, Any]) -> list[dict[str, Any]]:
@@ -242,12 +282,14 @@ def export_official_results(
         calls = calls_from_record(row)
         official_entry = {
             "id": source_row_id,
-            "result": calls_to_bfcl_prompt_result(calls),
+            "result": calls_to_bfcl_prompt_result(calls, category=category),
             "input_token_count": row.get("positions", {}).get("tail_token_count"),
             "output_token_count": row.get("quality", {}).get("generated_token_count"),
             "latency": row.get("timing", {}).get("total_ms"),
             "kv_capsule_pti_metadata": {
                 "control_id": control_id,
+                "pti_runtime_version": "bfcl_programmatic_tool_interface_v2",
+                "bfcl_export_dialect": bfcl_export_dialect(category),
                 "case_id": row.get("case_id"),
                 "source_row_hash": provenance.get("source_row_hash"),
                 "function_catalog_hash": row.get("catalog_hash"),
