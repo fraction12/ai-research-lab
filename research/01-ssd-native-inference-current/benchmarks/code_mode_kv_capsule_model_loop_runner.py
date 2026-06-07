@@ -16,6 +16,7 @@ import importlib.util
 import json
 import os
 import platform
+import re
 import sys
 import time
 from pathlib import Path
@@ -339,6 +340,10 @@ def coerce_text_to_action(text: str, case: harness.TaskCase) -> dict[str, Any] |
 def coerce_bfcl_text_to_action(text: str) -> dict[str, Any] | None:
     calls = tool_surface.parse_calls_from_generated_text(text)
     if not calls:
+        cleaned = harness.strip_model_markup(text).strip()
+        cleaned = re.sub(r"<\|?channel\|?>\s*(?:thought|final)?", "", cleaned, flags=re.I).strip()
+        if re.fullmatch(r"\[\s*\]", cleaned):
+            return {"op": "bfcl_calls", "calls": []}
         return None
     return {"op": "bfcl_calls", "calls": calls}
 
@@ -390,6 +395,12 @@ def validate_bfcl_action_schema(row: dict[str, Any], action: dict[str, Any]) -> 
         bfcl_action_calls(action),
         user_request=bfcl_user_request(row),
     )
+
+
+def should_repair_bfcl_action_schema(validation: dict[str, Any]) -> bool:
+    """Return true only for schema diagnostics worth disturbing generation for."""
+
+    return bfcl_adapter.schema_validation_repair_required(validation)
 
 
 def build_bfcl_schema_repair_prompt(row: dict[str, Any], action: dict[str, Any], model_output: str) -> str:
@@ -570,7 +581,7 @@ def execute_host_action(
         validation_errors = validate_exec_code(code)
         operations = harness.parse_code_mode_exec_operations(code)
         code_execution_kind = "emulated_exec_code_subset"
-    if not operations:
+    if not operations and action.get("op") != "bfcl_calls":
         validation_errors.append("no_supported_tools_calls")
     if len(operations) > MAX_EXEC_TOOL_OPS:
         validation_errors.append("too_many_tool_ops")
@@ -651,7 +662,7 @@ def execute_bfcl_action(action: dict[str, Any], row: dict[str, Any], prior_resul
     else:
         raise harness.ToolExecutionError("unsupported_bfcl_action", f"unsupported BFCL action: {action.get('op')!r}")
 
-    if not operations:
+    if not operations and action.get("op") != "bfcl_calls":
         validation_errors.append("no_supported_tools_calls")
     if len(operations) > MAX_EXEC_TOOL_OPS:
         validation_errors.append("too_many_tool_ops")
@@ -663,13 +674,13 @@ def execute_bfcl_action(action: dict[str, Any], row: dict[str, Any], prior_resul
         list(bfcl_adapter.coerce_call_object(operations)),
         user_request=bfcl_user_request(row),
     )
-    if not schema_validation.get("valid"):
+    if not schema_validation.get("blocking_valid"):
         raise harness.ToolExecutionError(
             "bfcl_schema_validation_failed",
             harness.canonical_json(
                 {
                     "validator_version": schema_validation.get("validator_version"),
-                    "errors": schema_validation.get("errors", []),
+                    "errors": schema_validation.get("blocking_errors", []),
                 }
             ),
         )
@@ -700,7 +711,11 @@ def execute_bfcl_action(action: dict[str, Any], row: dict[str, Any], prior_resul
 
     score = bfcl_adapter.score_calls(list(row.get("expected_calls", [])), calls)
     value = {
-        "tool_id": "bfcl:exec" if action.get("op") == "exec" else f"bfcl:function:{calls[-1]['name']}",
+        "tool_id": (
+            "bfcl:exec"
+            if action.get("op") == "exec"
+            else f"bfcl:function:{calls[-1]['name']}" if calls else "bfcl:empty_call_list"
+        ),
         "result": {
             "status": "completed",
             "answer": bfcl_adapter.canonical_json(calls),
@@ -840,7 +855,7 @@ def run_model_loop(
         if is_bfcl_row(row) and row["control_id"] not in NEGATIVE_CONTROLS:
             schema_validation = validate_bfcl_action_schema(row, action)
             step_record["bfcl_schema_validation"] = schema_validation
-            if not schema_validation.get("valid"):
+            if should_repair_bfcl_action_schema(schema_validation):
                 if repair_count < args.max_repairs:
                     repair_prompt = build_bfcl_schema_repair_prompt(row, action, gen["response"])
                     repair = append_text(helper_mod, lib, ctx, vocab, "\n\n" + repair_prompt, position, logits_last=True)

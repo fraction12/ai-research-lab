@@ -547,8 +547,39 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertFalse(result["valid"])
         mismatch = [error for error in result["errors"] if error["code"] == "likely_call_count_mismatch"]
         self.assertEqual(mismatch[0]["expected_min_calls"], 2)
+        self.assertEqual(mismatch[0]["confidence"], "medium")
+        self.assertFalse(result["repair_required"])
         self.assertNotIn("expected_calls", json.dumps(result))
         self.assertNotIn("possible_answer", json.dumps(result))
+
+    def test_pti_v3_repairs_only_high_confidence_call_count_mismatches(self) -> None:
+        functions = [
+            {
+                "name": "spotify.play",
+                "description": "Play music.",
+                "parameters": {"type": "dict", "properties": {}},
+            }
+        ]
+
+        high = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "spotify.play", "arguments": {}}],
+            user_request="Play two songs.",
+        )
+        self.assertFalse(high["valid"])
+        self.assertTrue(high["blocking_valid"])
+        self.assertTrue(high["repair_required"])
+        self.assertEqual(high["repairable_error_count"], 1)
+
+        medium = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "spotify.play", "arguments": {}}],
+            user_request="Play a ballad and a jazz track.",
+        )
+        self.assertFalse(medium["valid"])
+        self.assertTrue(medium["blocking_valid"])
+        self.assertFalse(medium["repair_required"])
+        self.assertEqual(medium["repairable_error_count"], 0)
 
     def test_pti_v3_reports_identifier_literal_paraphrase(self) -> None:
         functions = [
@@ -574,6 +605,8 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
             user_request="Register processFunction as the callback.",
         )
         self.assertFalse(result["valid"])
+        self.assertTrue(result["blocking_valid"])
+        self.assertFalse(result["repair_required"])
         literal_errors = [error for error in result["errors"] if error["code"] == "literal_preservation_suspect"]
         self.assertEqual(literal_errors[0]["candidate_literal"], "processFunction")
 
@@ -792,6 +825,11 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertEqual(model_runner.should_stop_generation(fragment, "", bfcl_row=True), (False, None))
         self.assertEqual(model_runner.should_stop_generation(fragment, "", bfcl_row=False), (False, None))
 
+    def test_model_runner_accepts_bare_empty_bfcl_call_list(self) -> None:
+        action = model_runner.coerce_bfcl_text_to_action("\n<|channel>thought\n<channel|>[]")
+
+        self.assertEqual(action, {"op": "bfcl_calls", "calls": []})
+
     def test_model_runner_coerces_native_bfcl_calls_and_dedupes_retries(self) -> None:
         generated = (
             '<|tool_call>call:spotify.play{artist: "Taylor Swift", duration: 20}<tool_call|>'
@@ -818,6 +856,7 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
 
         validation = model_runner.validate_bfcl_action_schema(packet, action)
         self.assertFalse(validation["valid"])
+        self.assertTrue(validation["repair_required"])
         self.assertIn("likely_call_count_mismatch", {error["code"] for error in validation["errors"]})
 
         prompt = model_runner.build_bfcl_schema_repair_prompt(
@@ -855,6 +894,55 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         )
 
         self.assertEqual(value["result"]["bfcl_calls"][0]["name"], "GorillaFileSystem.mkdir")
+        self.assertTrue(value["result"]["bfcl_schema_validation"]["valid"])
+
+    def test_model_runner_allows_nonblocking_schema_warnings_without_repair(self) -> None:
+        row = {
+            "source_provenance": {"benchmark_id": "BFCL"},
+            "all_tools": [
+                {
+                    "name": "draw_shape",
+                    "description": "Draw one shape.",
+                    "input_schema": {
+                        "type": "dict",
+                        "properties": {"shape": {"type": "string"}},
+                    },
+                }
+            ],
+            "tail_prompt": "BFCL USER REQUEST:\nDraw a rectangle and a circle.",
+            "expected_calls": [{"name": "draw_shape", "arguments": {"shape": ["rectangle"]}}],
+        }
+        action = {"op": "bfcl_calls", "calls": [{"name": "draw_shape", "arguments": {"shape": "rectangle"}}]}
+        validation = model_runner.validate_bfcl_action_schema(row, action)
+
+        self.assertFalse(validation["valid"])
+        self.assertTrue(validation["blocking_valid"])
+        self.assertFalse(model_runner.should_repair_bfcl_action_schema(validation))
+
+        value = model_runner.execute_bfcl_action(action, row, [])
+        self.assertEqual(value["result"]["bfcl_calls"], [{"name": "draw_shape", "arguments": {"shape": "rectangle"}}])
+        self.assertFalse(value["result"]["bfcl_schema_validation"]["valid"])
+        self.assertTrue(value["result"]["bfcl_schema_validation"]["blocking_valid"])
+
+    def test_model_runner_executes_empty_bfcl_call_list_as_abstention(self) -> None:
+        row = {
+            "source_provenance": {"benchmark_id": "BFCL"},
+            "all_tools": [
+                {
+                    "name": "lookup_weather",
+                    "description": "Look up weather.",
+                    "input_schema": {"type": "dict", "properties": {"city": {"type": "string"}}},
+                }
+            ],
+            "tail_prompt": "BFCL USER REQUEST:\nWhat is the capital of France?",
+            "expected_calls": [],
+        }
+
+        value = model_runner.execute_bfcl_action({"op": "bfcl_calls", "calls": []}, row, [])
+
+        self.assertEqual(value["tool_id"], "bfcl:empty_call_list")
+        self.assertEqual(value["result"]["bfcl_calls"], [])
+        self.assertTrue(value["result"]["bfcl_score"]["passed"])
         self.assertTrue(value["result"]["bfcl_schema_validation"]["valid"])
 
     def test_model_runner_flags_bfcl_negative_control_success(self) -> None:

@@ -34,6 +34,15 @@ TRANSFORM_VERSION = "bfcl_code_mode_kv_transform_v1"
 SCORER_VERSION = "bfcl_expected_call_scorer_v1"
 PROMPT_PROTOCOL_VERSION = "bfcl_programmatic_tool_interface_v3"
 PTI_SCHEMA_VALIDATOR_VERSION = "bfcl_pti_schema_validator_v3"
+PTI_SCHEMA_BLOCKING_ERROR_CODES = {
+    "ambiguous_function",
+    "missing_required_argument",
+    "nested_type_mismatch",
+    "type_mismatch",
+    "unexpected_argument",
+    "unknown_function",
+}
+PTI_SCHEMA_REPAIRABLE_ERROR_CODES = PTI_SCHEMA_BLOCKING_ERROR_CODES | {"likely_call_count_mismatch"}
 EXPERIMENT_ID = "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05"
 BFCL_LEADERBOARD_CHECKPOINT = "f7cf735"
 BFCL_DATASET_REVISION = "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
@@ -1021,8 +1030,13 @@ def _literal_preservation_errors(
     return []
 
 
-def infer_minimum_call_count(user_request: str, functions: list[dict[str, Any]]) -> int | None:
-    """Best-effort generic operation-count diagnostic from request text only."""
+def infer_minimum_call_count_detail(user_request: str, functions: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Best-effort generic operation-count diagnostic from request text only.
+
+    This intentionally separates high-confidence count instructions from soft
+    text heuristics. The model-loop repair gate uses only high-confidence
+    diagnostics so a plausible call plan is not disturbed by a weak guess.
+    """
     text = " ".join(user_request.strip().split())
     if not text:
         return None
@@ -1044,12 +1058,20 @@ def infer_minimum_call_count(user_request: str, functions: list[dict[str, Any]])
         re.I,
     )
     if word_count:
-        return word_numbers[word_count.group(1).lower()]
+        return {
+            "minimum_call_count": word_numbers[word_count.group(1).lower()],
+            "evidence": "explicit_word_count",
+            "confidence": "high",
+        }
     explicit = re.search(r"\b(?:exactly|all|both|these)?\s*(\d+)\s+(?:independent\s+)?(?:calls|operations|tasks|requests|items)\b", text, re.I)
     if explicit:
-        return max(1, int(explicit.group(1)))
+        return {
+            "minimum_call_count": max(1, int(explicit.group(1))),
+            "evidence": "explicit_digit_count",
+            "confidence": "high",
+        }
     if re.search(r"\b(both|respectively)\b", text, re.I):
-        return 2
+        return {"minimum_call_count": 2, "evidence": "both_or_respectively", "confidence": "high"}
     # Useful for BFCL parallel-style requests: "draw a rectangle and a circle"
     object_pair = re.search(
         r"\b(?:a|an|the)\s+([A-Za-z][A-Za-z0-9_-]*)\s+(?:and|plus)\s+(?:a|an|the)\s+([A-Za-z][A-Za-z0-9_-]*)\b",
@@ -1057,12 +1079,36 @@ def infer_minimum_call_count(user_request: str, functions: list[dict[str, Any]])
         re.I,
     )
     if object_pair and object_pair.group(1).lower() != object_pair.group(2).lower():
-        return 2
+        return {"minimum_call_count": 2, "evidence": "object_pair_heuristic", "confidence": "medium"}
     if len(functions) == 1:
         function_name = str(functions[0].get("name", "")).rsplit(".", 1)[-1].lower()
         if function_name and len(re.findall(rf"\b{re.escape(function_name)}\b", text.lower())) > 1:
-            return 2
+            return {"minimum_call_count": 2, "evidence": "repeated_function_name", "confidence": "medium"}
     return None
+
+
+def infer_minimum_call_count(user_request: str, functions: list[dict[str, Any]]) -> int | None:
+    detail = infer_minimum_call_count_detail(user_request, functions)
+    return int(detail["minimum_call_count"]) if detail else None
+
+
+def schema_validation_blocking_errors(errors: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [error for error in errors if str(error.get("code")) in PTI_SCHEMA_BLOCKING_ERROR_CODES]
+
+
+def schema_validation_repairable_errors(errors: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    repairable: list[dict[str, Any]] = []
+    for error in errors:
+        code = str(error.get("code"))
+        if code in PTI_SCHEMA_BLOCKING_ERROR_CODES:
+            repairable.append(error)
+        elif code == "likely_call_count_mismatch" and error.get("confidence") == "high":
+            repairable.append(error)
+    return repairable
+
+
+def schema_validation_repair_required(validation: dict[str, Any]) -> bool:
+    return bool(validation.get("repair_required"))
 
 
 def validate_pti_calls_against_catalog(
@@ -1133,22 +1179,34 @@ def validate_pti_calls_against_catalog(
                     function=name,
                 )
             )
-    minimum_call_count = infer_minimum_call_count(user_request, functions)
-    if minimum_call_count is not None and len(canonical_calls) < minimum_call_count:
+    minimum_call_count_detail = infer_minimum_call_count_detail(user_request, functions)
+    minimum_call_count = (
+        int(minimum_call_count_detail["minimum_call_count"]) if minimum_call_count_detail is not None else None
+    )
+    if minimum_call_count_detail is not None and minimum_call_count is not None and len(canonical_calls) < minimum_call_count:
         errors.append(
             {
                 "code": "likely_call_count_mismatch",
                 "expected_min_calls": minimum_call_count,
                 "actual_calls": len(canonical_calls),
-                "evidence": "user_request_only",
+                "evidence": minimum_call_count_detail["evidence"],
+                "confidence": minimum_call_count_detail["confidence"],
             }
         )
+    blocking_errors = schema_validation_blocking_errors(errors)
+    repairable_errors = schema_validation_repairable_errors(errors)
     return {
         "validator_version": PTI_SCHEMA_VALIDATOR_VERSION,
         "valid": not errors,
+        "blocking_valid": not blocking_errors,
+        "repair_required": bool(repairable_errors),
         "call_count": len(canonical_calls),
         "error_count": len(errors),
+        "blocking_error_count": len(blocking_errors),
+        "repairable_error_count": len(repairable_errors),
         "errors": errors,
+        "blocking_errors": blocking_errors,
+        "repairable_errors": repairable_errors,
         "canonical_calls": canonical_calls,
         "minimum_call_count": minimum_call_count,
     }
