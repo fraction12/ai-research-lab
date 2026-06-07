@@ -92,6 +92,141 @@ def svg_bar_chart(
     return "\n".join(parts)
 
 
+def svg_paper_bar_chart(
+    title: str,
+    rows: list[tuple[str, float, str]],
+    *,
+    max_value: float | None = None,
+    x_label: str = "",
+    width: int = 760,
+    height: int | None = None,
+    primary_index: int | None = None,
+    inverse_index: int | None = None,
+) -> str:
+    """Manuscript-style horizontal bar chart with explicit axis ticks."""
+
+    height = height or (118 + len(rows) * 36)
+    left, right, top, bottom = 170, 46, 38, 54
+    plot_w = width - left - right
+    plot_h = height - top - bottom
+    max_v = max_value or max(v for _, v, _ in rows) or 1
+    tick_values = [0, max_v * 0.25, max_v * 0.5, max_v * 0.75, max_v]
+    gap = 9
+    bar_h = max(14, (plot_h - gap * (len(rows) - 1)) / len(rows))
+    parts = [
+        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
+        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
+    ]
+    axis_y = top + plot_h
+    for tick in tick_values:
+        x = left + (tick / max_v) * plot_w if max_v else left
+        parts.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{axis_y}" class="gridline" />')
+        parts.append(f'<text x="{x:.1f}" y="{axis_y + 17}" class="tick">{tick:.0f}</text>')
+    parts.append(f'<line x1="{left}" y1="{axis_y}" x2="{left + plot_w}" y2="{axis_y}" class="axis" />')
+    parts.append(f'<text x="{left + plot_w / 2}" y="{height - 10}" class="axis-label">{esc(x_label)}</text>')
+    for i, (label, value, note) in enumerate(rows):
+        y = top + i * (bar_h + gap)
+        w = 0 if max_v == 0 else (value / max_v) * plot_w
+        cls = "bar-fill"
+        if primary_index is not None and i == primary_index:
+            cls = "bar-fill primary"
+        if inverse_index is not None and i == inverse_index:
+            cls = "bar-fill inverse"
+        for j, line in enumerate(label.split("\n")):
+            parts.append(f'<text x="{left - 10}" y="{y + 11 + j * 12}" class="ylabel">{esc(line)}</text>')
+        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" class="{cls}" />')
+        parts.append(f'<text x="{left + w + 7}" y="{y + bar_h / 2 + 4}" class="value">{esc(note)}</text>')
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+
+def svg_paper_log_chart(
+    title: str,
+    rows: list[tuple[str, float, str]],
+    *,
+    x_label: str,
+    width: int = 760,
+    height: int | None = None,
+) -> str:
+    import math
+
+    height = height or (120 + len(rows) * 40)
+    left, right, top, bottom = 182, 58, 38, 58
+    plot_w = width - left - right
+    plot_h = height - top - bottom
+    logs = [math.log10(max(v, 1)) for _, v, _ in rows]
+    max_log = max(logs) or 1
+    tick_logs = list(range(0, int(math.ceil(max_log)) + 1))
+    gap = 12
+    bar_h = max(16, (plot_h - gap * (len(rows) - 1)) / len(rows))
+    parts = [
+        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
+        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
+    ]
+    axis_y = top + plot_h
+    for tick in tick_logs:
+        x = left + (tick / max_log) * plot_w if max_log else left
+        label = f"10^{tick}" if tick > 0 else "1"
+        parts.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{axis_y}" class="gridline" />')
+        parts.append(f'<text x="{x:.1f}" y="{axis_y + 17}" class="tick">{esc(label)}</text>')
+    parts.append(f'<line x1="{left}" y1="{axis_y}" x2="{left + plot_w}" y2="{axis_y}" class="axis" />')
+    parts.append(f'<text x="{left + plot_w / 2}" y="{height - 10}" class="axis-label">{esc(x_label)}</text>')
+    for i, (label, value, note) in enumerate(rows):
+        y = top + i * (bar_h + gap)
+        w = (math.log10(max(value, 1)) / max_log) * plot_w if max_log else plot_w
+        cls = "bar-fill primary" if i == 0 else "bar-fill inverse"
+        parts.append(f'<text x="{left - 10}" y="{y + bar_h / 2 + 4}" class="ylabel">{esc(label)}</text>')
+        parts.append(f'<rect x="{left}" y="{y}" width="{w:.1f}" height="{bar_h:.1f}" class="{cls}" />')
+        parts.append(f'<text x="{left + w + 7}" y="{y + bar_h / 2 + 4}" class="value">{esc(note)}</text>')
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+
+def svg_paper_grouped_bar(
+    title: str,
+    groups: list[tuple[str, list[tuple[str, float]]]],
+    *,
+    max_value: float,
+    y_label: str,
+    width: int = 760,
+    height: int = 300,
+) -> str:
+    left, right, top, bottom = 58, 18, 42, 58
+    plot_w = width - left - right
+    plot_h = height - top - bottom
+    colors = ["primary", "mid", "inverse"]
+    series = [name for name, _ in groups[0][1]]
+    group_w = plot_w / len(groups)
+    bar_w = min(34, (group_w - 28) / len(series))
+    parts = [
+        f'<svg class="paper-chart" viewBox="0 0 {width} {height}" role="img" aria-label="{esc(title)}">',
+        f'<text x="{left}" y="19" class="chart-panel-title">{esc(title)}</text>',
+    ]
+    for tick in [0, max_value * 0.25, max_value * 0.5, max_value * 0.75, max_value]:
+        y = top + plot_h - (tick / max_value) * plot_h
+        parts.append(f'<line x1="{left}" y1="{y:.1f}" x2="{left + plot_w}" y2="{y:.1f}" class="gridline" />')
+        parts.append(f'<text x="{left - 8}" y="{y + 4:.1f}" class="tick-left">{tick:.0f}</text>')
+    parts.append(f'<line x1="{left}" y1="{top}" x2="{left}" y2="{top + plot_h}" class="axis" />')
+    parts.append(f'<line x1="{left}" y1="{top + plot_h}" x2="{left + plot_w}" y2="{top + plot_h}" class="axis" />')
+    parts.append(f'<text x="14" y="{top + plot_h / 2}" class="axis-label rotated">{esc(y_label)}</text>')
+    for gi, (group, values) in enumerate(groups):
+        gx = left + gi * group_w + group_w / 2
+        start_x = gx - (len(values) * bar_w + (len(values) - 1) * 4) / 2
+        for si, (_, value) in enumerate(values):
+            h = (value / max_value) * plot_h
+            x = start_x + si * (bar_w + 4)
+            y = top + plot_h - h
+            parts.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bar_w:.1f}" height="{h:.1f}" class="bar-fill {colors[si % len(colors)]}" />')
+        parts.append(f'<text x="{gx:.1f}" y="{top + plot_h + 20}" class="tick">{esc(group)}</text>')
+    lx = left + plot_w - 248
+    for si, name in enumerate(series):
+        x = lx + si * 84
+        parts.append(f'<rect x="{x}" y="8" width="12" height="8" class="bar-fill {colors[si % len(colors)]}" />')
+        parts.append(f'<text x="{x + 17}" y="16" class="legend">{esc(name)}</text>')
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+
 def svg_log_bar_chart(title: str, rows: list[tuple[str, float, str]], *, width: int = 980, height: int | None = None) -> str:
     import math
 
@@ -216,16 +351,16 @@ html_doc = f"""<!doctype html>
   <title>Quality-Gated Hidden-State Reuse for Local Tool-Using Agents</title>
   <style>
     :root {{
-      --paper: #f7f3eb;
-      --ink: #151515;
-      --muted: #5f6767;
-      --line: #d6cec0;
-      --green: #2b7a78;
-      --blue: #245c73;
-      --red: #a33d2e;
-      --gold: #8a6f2a;
-      --panel: #fffaf1;
-      --code: #eee6d8;
+      --paper: #ffffff;
+      --ink: #171717;
+      --muted: #555555;
+      --line: #bdbdbd;
+      --soft-line: #e5e5e5;
+      --panel: #fafafa;
+      --code: #f2f2f2;
+      --primary: #1f4e79;
+      --mid: #808080;
+      --inverse: #b23b30;
     }}
     * {{ box-sizing: border-box; }}
     html {{ scroll-behavior: smooth; }}
@@ -246,7 +381,7 @@ html_doc = f"""<!doctype html>
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }}
     .topbar-inner {{
-      max-width: 1180px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 10px 24px;
       display: flex;
@@ -264,10 +399,10 @@ html_doc = f"""<!doctype html>
       padding: 46px 24px 90px;
     }}
     .paper-header {{
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto 42px;
       text-align: center;
-      border-bottom: 2px solid var(--ink);
+      border-bottom: 1.5px solid var(--ink);
       padding-bottom: 28px;
     }}
     .eyebrow {{
@@ -279,8 +414,8 @@ html_doc = f"""<!doctype html>
       margin-bottom: 16px;
     }}
     h1 {{
-      font-size: clamp(34px, 6vw, 66px);
-      line-height: 1.02;
+      font-size: clamp(34px, 5.2vw, 54px);
+      line-height: 1.06;
       margin: 0 0 18px;
       font-weight: 760;
       letter-spacing: 0;
@@ -298,28 +433,27 @@ html_doc = f"""<!doctype html>
       font-size: 13px;
     }}
     section {{
-      max-width: 960px;
-      margin: 0 auto 54px;
+      max-width: 900px;
+      margin: 0 auto 48px;
     }}
     h2 {{
-      font-size: 30px;
+      font-size: 27px;
       line-height: 1.18;
       margin: 0 0 16px;
       border-top: 1px solid var(--line);
       padding-top: 28px;
     }}
     h3 {{
-      font-size: 21px;
+      font-size: 19px;
       margin: 28px 0 10px;
       line-height: 1.25;
     }}
     p {{ margin: 0 0 14px; }}
     .abstract {{
       font-size: 17px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 22px 24px;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 18px 0;
     }}
     .kpi-grid {{
       display: grid;
@@ -329,38 +463,56 @@ html_doc = f"""<!doctype html>
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }}
     .kpi {{
-      border: 1px solid var(--line);
+      border: 1px solid var(--soft-line);
       background: var(--panel);
-      border-radius: 6px;
       padding: 14px 16px;
     }}
     .kpi b {{ display: block; font-size: 26px; line-height: 1.05; margin-bottom: 6px; }}
     .kpi span {{ color: var(--muted); font-size: 12px; line-height: 1.3; display: block; }}
     .figure {{
-      margin: 26px 0 34px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      background: #fbf7ef;
-      border-radius: 6px;
+      margin: 28px 0 38px;
+      padding: 0;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--line);
+      background: #fff;
       overflow-x: auto;
     }}
+    .figure-head {{
+      padding: 10px 0 8px;
+      border-bottom: 1px solid var(--soft-line);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+    }}
+    .figure-head b {{ color: var(--ink); }}
+    .figure-body {{ padding: 12px 0 6px; }}
     .caption {{
-      margin: 10px 2px 0;
+      margin: 8px 0 10px;
       color: var(--muted);
       font-size: 13px;
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }}
-    .chart {{ width: 100%; min-width: 720px; height: auto; display: block; }}
+    .chart, .paper-chart {{ width: 100%; min-width: 720px; height: auto; display: block; }}
     .compact-chart {{ min-width: 460px; max-width: 560px; margin: 0 auto; }}
-    .chart-title, .value, .ylabel, .legend, .donut-label {{
+    .chart-title, .chart-panel-title, .value, .ylabel, .legend, .donut-label, .tick, .tick-left, .axis-label {{
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       letter-spacing: 0;
     }}
     .chart-title {{ font-size: 18px; font-weight: 720; fill: var(--ink); }}
-    .ylabel {{ font-size: 13px; text-anchor: end; fill: #303636; }}
-    .value {{ font-size: 13px; fill: #303636; }}
-    .axis {{ stroke: #9f9688; stroke-width: 1; }}
+    .chart-panel-title {{ font-size: 13px; font-weight: 700; fill: var(--ink); }}
+    .ylabel {{ font-size: 12px; text-anchor: end; fill: #222; }}
+    .value {{ font-size: 12px; fill: #222; }}
+    .axis {{ stroke: #333; stroke-width: 1; }}
+    .gridline {{ stroke: #e6e6e6; stroke-width: 1; }}
+    .tick {{ font-size: 11px; fill: #555; text-anchor: middle; }}
+    .tick-left {{ font-size: 11px; fill: #555; text-anchor: end; }}
+    .axis-label {{ font-size: 11px; fill: #555; text-anchor: middle; }}
+    .rotated {{ transform: rotate(-90deg); transform-origin: 14px center; }}
     .bar {{ opacity: .94; }}
+    .bar-fill {{ fill: var(--mid); }}
+    .bar-fill.primary {{ fill: var(--primary); }}
+    .bar-fill.mid {{ fill: var(--mid); }}
+    .bar-fill.inverse {{ fill: var(--inverse); }}
     .slice {{ stroke: var(--paper); stroke-width: 2; }}
     .donut-total {{ font: 720 30px ui-sans-serif, system-ui; text-anchor: middle; fill: var(--ink); }}
     .donut-label {{ font-size: 12px; text-anchor: middle; fill: var(--muted); }}
@@ -369,7 +521,7 @@ html_doc = f"""<!doctype html>
       border-collapse: collapse;
       width: 100%;
       margin: 18px 0 24px;
-      background: var(--panel);
+      background: #fff;
       border: 1px solid var(--line);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 13px;
@@ -380,7 +532,7 @@ html_doc = f"""<!doctype html>
       text-align: left;
       vertical-align: top;
     }}
-    th {{ background: #ece4d6; font-weight: 720; }}
+    th {{ background: #f3f3f3; font-weight: 720; }}
     tr:last-child td {{ border-bottom: 0; }}
     code {{
       background: var(--code);
@@ -389,13 +541,13 @@ html_doc = f"""<!doctype html>
       font-size: .92em;
     }}
     .callout {{
-      border-left: 4px solid var(--green);
+      border-left: 3px solid var(--primary);
       background: var(--panel);
       padding: 15px 18px;
       margin: 20px 0;
       border-radius: 0 6px 6px 0;
     }}
-    .warning {{ border-left-color: var(--red); }}
+    .warning {{ border-left-color: var(--inverse); }}
     .two-col {{
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -409,7 +561,7 @@ html_doc = f"""<!doctype html>
     }}
     .source-list li {{ margin-bottom: 8px; }}
     footer {{
-      max-width: 960px;
+      max-width: 900px;
       margin: 60px auto 0;
       padding-top: 24px;
       border-top: 1px solid var(--line);
@@ -424,6 +576,7 @@ html_doc = f"""<!doctype html>
       .paper-header {{ text-align: left; }}
       .kpi-grid {{ grid-template-columns: 1fr 1fr; }}
       .two-col {{ grid-template-columns: 1fr; }}
+      .chart, .paper-chart {{ min-width: 660px; }}
     }}
   </style>
 </head>
@@ -517,34 +670,53 @@ html_doc = f"""<!doctype html>
     <section id="figures">
       <h2>Figures</h2>
       <div class="figure">
-        {svg_bar_chart("Selected cohort pass rate", pass_rows, max_value=100, accent="#2b7a78")}
-        <p class="caption">Figure 1. Positive lanes and baselines on the selected 100-case BFCL-derived cohort. Source: <code>selected-cohort-summary.json</code>.</p>
-      </div>
-      <div class="figure">
-        {svg_bar_chart("Selected cohort mean latency", timing_rows, color="#8a6f2a")}
-        <p class="caption">Figure 2. This mechanism run supports semantic preservation, not a restored-KV speedup. Source: <code>selected-cohort-summary.json</code>.</p>
-      </div>
-      <div class="two-col">
-        <div class="figure">
-          {svg_donut("Selected cohort category mix", list(selected["category_counts"].items()))}
-          <p class="caption">Figure 3. Category mix for the selected 100-case cohort.</p>
+        <div class="figure-head"><b>Figure 1.</b> Control-ladder accuracy on the selected 100-case cohort. Higher is better for positive lanes; negative-control bars are expected to remain at zero leaks.</div>
+        <div class="figure-body">
+          {svg_paper_bar_chart("Gate-passing cases by lane", pass_rows, max_value=100, x_label="Cases passing gate out of 100", primary_index=2, inverse_index=4)}
         </div>
-        <div class="figure">
-          {svg_bar_chart("Codex natural baseline pass by category", failure_chart_rows, max_value=26, height=420, color="#a33d2e")}
-          <p class="caption">Figure 4. Natural Codex/Ollama text-compaction pass counts by category. Source: <code>repeated-work-speed-findings.md</code>.</p>
+        <p class="caption">Source: <code>selected-cohort-summary.json</code>. The restored-KV lane matches both full-visible and native-live controls on all selected cases; compact visible evidence does not explain the result.</p>
+      </div>
+      <div class="figure">
+        <div class="figure-head"><b>Figure 2.</b> Selected-cohort latency boundary. Lower is better; this experiment supports semantic preservation, not a speedup claim for restored KV.</div>
+        <div class="figure-body">
+          {svg_paper_bar_chart("Mean total latency", timing_rows, x_label="Mean total latency (ms)", primary_index=0, inverse_index=2)}
         </div>
+        <p class="caption">Source: <code>selected-cohort-summary.json</code>. Restored KV is correct but slower than full-visible and native-live append in this mechanism run.</p>
       </div>
       <div class="figure">
-        {svg_log_bar_chart("Repeated-work visible input burden", token_rows)}
-        <p class="caption">Figure 5. Log scale because the visible-token gap is too large for a linear chart. Codex token telemetry should be read as route-reported cumulative burden.</p>
+        <div class="figure-head"><b>Figure 3.</b> Cohort composition and natural Codex/Ollama failure distribution. This is a diagnostic figure, not causal evidence that compaction caused the failures.</div>
+        <div class="figure-body">
+          {svg_paper_grouped_bar("Natural baseline pass/fail by BFCL category", [
+              ("java", [("pass", 14), ("fail", 3), ("total", 17)]),
+              ("js", [("pass", 0), ("fail", 1), ("total", 1)]),
+              ("multiple", [("pass", 21), ("fail", 4), ("total", 25)]),
+              ("parallel", [("pass", 13), ("fail", 1), ("total", 14)]),
+              ("parallel-m", [("pass", 13), ("fail", 4), ("total", 17)]),
+              ("simple", [("pass", 25), ("fail", 1), ("total", 26)]),
+          ], max_value=26, y_label="cases")}
+        </div>
+        <p class="caption">Source: <code>repeated-work-speed-findings.md</code>. Most Codex failures were parseable but incorrect calls; one failure parsed zero calls.</p>
       </div>
       <div class="figure">
-        {svg_log_bar_chart("Repeated-work cumulative wall time", runtime_rows)}
-        <p class="caption">Figure 6. KV completed the repeated-work stream in 14.2 minutes versus 3.28 hours for the natural Codex/Ollama text-compaction lane.</p>
+        <div class="figure-head"><b>Figure 4.</b> Repeated-work visible input burden. Log scale is used because the runtime gap is several orders of magnitude.</div>
+        <div class="figure-body">
+          {svg_paper_log_chart("Reported visible input tokens", token_rows, x_label="Visible input tokens, log10 scale")}
+        </div>
+        <p class="caption">Source: <code>repeated-work-speed-summary.json</code>. Codex/Ollama telemetry is route-reported cumulative burden, not clean per-task token accounting.</p>
       </div>
       <div class="figure">
-        {svg_log_bar_chart("Repeated-work output token burden", output_rows)}
-        <p class="caption">Figure 7. Output-token telemetry also shows the practical harness burden difference. Source: <code>repeated-work-speed-summary.json</code>.</p>
+        <div class="figure-head"><b>Figure 5.</b> Repeated-work cumulative wall time. Lower is better.</div>
+        <div class="figure-body">
+          {svg_paper_log_chart("Cumulative wall time", runtime_rows, x_label="Wall time in milliseconds, log10 scale")}
+        </div>
+        <p class="caption">Source: <code>repeated-work-speed-summary.json</code>. KV completed the stream in 14.2 minutes versus 3.28 hours for the natural Codex/Ollama text-compaction lane.</p>
+      </div>
+      <div class="figure">
+        <div class="figure-head"><b>Figure 6.</b> Repeated-work output-token burden. Lower is better for harness overhead, assuming comparable task success.</div>
+        <div class="figure-body">
+          {svg_paper_log_chart("Output tokens", output_rows, x_label="Output tokens, log10 scale")}
+        </div>
+        <p class="caption">Source: <code>repeated-work-speed-summary.json</code>. Output-token telemetry shows the practical burden difference between the compact KV harness and text-threaded Codex/Ollama routes.</p>
       </div>
     </section>
 
