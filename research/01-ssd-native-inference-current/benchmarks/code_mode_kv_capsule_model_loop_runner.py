@@ -78,6 +78,7 @@ BFCL_SCORER_REPAIR_PROMPT = (
     '{"tool_calls":[{"function_name":"exact.available.function.name","arguments":{"arg":"value"}}]}. '
     "Use the user request and BFCL function catalog; do not write host result text or prose."
 )
+BFCL_SCHEMA_REPAIR_PROMPT_VERSION = "bfcl_schema_only_active_repair_gate_v1"
 MAX_EXEC_CODE_BYTES = 4096
 MAX_EXEC_TOOL_OPS = 12
 FORBIDDEN_EXEC_CODE_PATTERNS = (
@@ -346,6 +347,62 @@ def merge_bfcl_call_candidates(existing: list[dict[str, Any]], new_calls: list[d
     return tool_surface.merge_call_candidates(existing, new_calls)
 
 
+def bfcl_visible_functions(row: dict[str, Any]) -> list[dict[str, Any]]:
+    functions: list[dict[str, Any]] = []
+    for tool in row.get("all_tools", []):
+        if not isinstance(tool, dict) or not tool.get("name"):
+            continue
+        parameters = tool.get("parameters")
+        if not isinstance(parameters, dict):
+            parameters = tool.get("input_schema") if isinstance(tool.get("input_schema"), dict) else {}
+        functions.append(
+            {
+                "name": str(tool["name"]),
+                "description": str(tool.get("description", "")),
+                "parameters": parameters,
+            }
+        )
+    return functions
+
+
+def bfcl_user_request(row: dict[str, Any]) -> str:
+    tail = str(row.get("tail_prompt", ""))
+    marker = "BFCL USER REQUEST:\n"
+    if marker in tail:
+        return tail.split(marker, 1)[1]
+    return tail
+
+
+def bfcl_action_calls(action: dict[str, Any]) -> list[dict[str, Any]]:
+    if action.get("op") == "bfcl_calls":
+        return list(bfcl_adapter.coerce_call_object(action.get("calls")))
+    if action.get("op") == "call":
+        return [action]
+    if action.get("op") == "exec":
+        operations = harness.parse_code_mode_exec_operations(str(action.get("code", "")))
+        return list(bfcl_adapter.coerce_call_object(operations))
+    return []
+
+
+def validate_bfcl_action_schema(row: dict[str, Any], action: dict[str, Any]) -> dict[str, Any]:
+    return bfcl_adapter.validate_pti_calls_against_catalog(
+        bfcl_visible_functions(row),
+        bfcl_action_calls(action),
+        user_request=bfcl_user_request(row),
+    )
+
+
+def build_bfcl_schema_repair_prompt(row: dict[str, Any], action: dict[str, Any], model_output: str) -> str:
+    validation = validate_bfcl_action_schema(row, action)
+    return bfcl_adapter.build_schema_only_repair_prompt(
+        user_request=bfcl_user_request(row),
+        functions=bfcl_visible_functions(row),
+        model_output=model_output,
+        calls=validation.get("canonical_calls", []),
+        validation=validation,
+    )
+
+
 def allow_stable_defaults(control_id: str, context: harness.ControlContext, case: harness.TaskCase) -> bool:
     if control_id == "code_mode_fresh_tail_only":
         return False
@@ -601,6 +658,26 @@ def execute_bfcl_action(action: dict[str, Any], row: dict[str, Any], prior_resul
     if validation_errors:
         raise harness.ToolExecutionError("invalid_bfcl_exec_code", "; ".join(validation_errors))
 
+    schema_validation = bfcl_adapter.validate_pti_calls_against_catalog(
+        bfcl_visible_functions(row),
+        list(bfcl_adapter.coerce_call_object(operations)),
+        user_request=bfcl_user_request(row),
+    )
+    if not schema_validation.get("valid"):
+        raise harness.ToolExecutionError(
+            "bfcl_schema_validation_failed",
+            harness.canonical_json(
+                {
+                    "validator_version": schema_validation.get("validator_version"),
+                    "errors": schema_validation.get("errors", []),
+                }
+            ),
+        )
+    operations = [
+        {"name": call["name"], "arguments": call.get("arguments", {})}
+        for call in schema_validation.get("canonical_calls", [])
+    ]
+
     calls: list[dict[str, Any]] = []
     transcript: list[dict[str, Any]] = []
     for nested_index, nested in enumerate(operations[:MAX_EXEC_TOOL_OPS]):
@@ -629,6 +706,7 @@ def execute_bfcl_action(action: dict[str, Any], row: dict[str, Any], prior_resul
             "answer": bfcl_adapter.canonical_json(calls),
             "bfcl_calls": calls,
             "bfcl_score": score,
+            "bfcl_schema_validation": schema_validation,
         },
         "exec": {
             "status": "completed",
@@ -637,6 +715,7 @@ def execute_bfcl_action(action: dict[str, Any], row: dict[str, Any], prior_resul
             "transcript": transcript,
             "template": None,
             "template_alias": None,
+            "schema_validation_gate": BFCL_SCHEMA_REPAIR_PROMPT_VERSION,
         },
     }
     prior_results.append(value)
@@ -758,6 +837,23 @@ def run_model_loop(
             step_records.append(step_record)
             break
 
+        if is_bfcl_row(row) and row["control_id"] not in NEGATIVE_CONTROLS:
+            schema_validation = validate_bfcl_action_schema(row, action)
+            step_record["bfcl_schema_validation"] = schema_validation
+            if not schema_validation.get("valid"):
+                if repair_count < args.max_repairs:
+                    repair_prompt = build_bfcl_schema_repair_prompt(row, action, gen["response"])
+                    repair = append_text(helper_mod, lib, ctx, vocab, "\n\n" + repair_prompt, position, logits_last=True)
+                    prompt_eval_ms += repair["eval_ms"]
+                    position = repair["position"]
+                    repair_count += 1
+                    step_record["repair_appended"] = True
+                    step_record["repair_gate"] = BFCL_SCHEMA_REPAIR_PROMPT_VERSION
+                    step_records.append(step_record)
+                    continue
+                step_records.append(step_record)
+                break
+
         scorer_repair_appended = False
         try:
             if not is_bfcl_row(row) and not is_exec_action(action):
@@ -772,13 +868,6 @@ def run_model_loop(
                 bfcl_merged_score = bfcl_adapter.score_calls(list(row.get("expected_calls", [])), bfcl_calls)
                 if bfcl_step_score.get("passed") or bfcl_merged_score.get("passed"):
                     last_tool_answer = bfcl_adapter.canonical_json(bfcl_calls)
-                elif repair_count < args.max_repairs and row["control_id"] not in NEGATIVE_CONTROLS:
-                    repair = append_text(helper_mod, lib, ctx, vocab, BFCL_SCORER_REPAIR_PROMPT, position, logits_last=True)
-                    prompt_eval_ms += repair["eval_ms"]
-                    position = repair["position"]
-                    repair_count += 1
-                    step_record["repair_appended"] = True
-                    scorer_repair_appended = True
             elif isinstance(result, dict) and result.get("answer"):
                 last_tool_answer = str(result["answer"])
             if is_bfcl_row(row):

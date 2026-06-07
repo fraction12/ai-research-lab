@@ -42,3 +42,14 @@ The BFCL PTI runtime SHALL build repair prompts from the user request, visible c
 #### Scenario: Repair prompt excludes answer keys
 - **WHEN** a repair prompt is built
 - **THEN** it does not include `possible_answer`, `expected_answer`, `expected_calls`, `ground_truth`, or official expected calls
+
+### Requirement: Gate BFCL Model-Loop Repair On Schema Validation
+The BFCL PTI model loop SHALL trigger repair from schema-validator errors rather than BFCL scorer failures.
+
+#### Scenario: Invalid call plan is repaired with schema-only context
+- **WHEN** a BFCL model output parses into calls that fail visible-schema validation
+- **THEN** the loop appends a schema-only repair prompt containing validator errors and no answer-key fields
+
+#### Scenario: BFCL scorer failure does not trigger model repair
+- **WHEN** a BFCL call plan is schema-valid but does not match official expected calls
+- **THEN** the loop does not append a scorer-derived repair prompt to the model

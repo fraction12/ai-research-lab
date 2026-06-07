@@ -1026,6 +1026,25 @@ def infer_minimum_call_count(user_request: str, functions: list[dict[str, Any]])
     text = " ".join(user_request.strip().split())
     if not text:
         return None
+    word_numbers = {
+        "two": 2,
+        "three": 3,
+        "four": 4,
+        "five": 5,
+        "six": 6,
+        "seven": 7,
+        "eight": 8,
+        "nine": 9,
+        "ten": 10,
+    }
+    word_pattern = "|".join(word_numbers)
+    word_count = re.search(
+        rf"\b({word_pattern})\s+(?:different\s+|separate\s+|independent\s+)?(?:calls|operations|tasks|requests|items|songs|calculations|queries|shapes)\b",
+        text,
+        re.I,
+    )
+    if word_count:
+        return word_numbers[word_count.group(1).lower()]
     explicit = re.search(r"\b(?:exactly|all|both|these)?\s*(\d+)\s+(?:independent\s+)?(?:calls|operations|tasks|requests|items)\b", text, re.I)
     if explicit:
         return max(1, int(explicit.group(1)))

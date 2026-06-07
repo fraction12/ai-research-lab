@@ -17,6 +17,8 @@
 - [x] Add failing tests that repair prompts exclude `possible_answer`, `expected_answer`, `expected_calls`, and `ground_truth`.
 - [x] Implement schema-only repair prompt builder.
 - [x] Add PTI v3 metadata to control packets.
+- [x] Wire schema-only validator into the active BFCL model-loop repair gate.
+- [x] Disable BFCL scorer-triggered model repair so repair triggers do not depend on expected calls.
 
 ## 4. Smokes
 

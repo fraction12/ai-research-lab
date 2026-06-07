@@ -807,6 +807,56 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         )
         self.assertEqual(len(merged), 2)
 
+    def test_model_runner_uses_schema_only_bfcl_repair_prompt(self) -> None:
+        source_dir = self.make_source_dir()
+        case = adapter.materialize_cases(source_dir=source_dir, categories=["parallel"], per_category=1)[0]
+        packet = adapter.control_packet(case, "code_mode_full_visible")
+        action = {
+            "op": "bfcl_calls",
+            "calls": [{"name": "spotify.play", "arguments": {"artist": "Taylor Swift", "duration": 20}}],
+        }
+
+        validation = model_runner.validate_bfcl_action_schema(packet, action)
+        self.assertFalse(validation["valid"])
+        self.assertIn("likely_call_count_mismatch", {error["code"] for error in validation["errors"]})
+
+        prompt = model_runner.build_bfcl_schema_repair_prompt(
+            packet,
+            action,
+            '{"tool_calls":[{"function_name":"spotify.play","arguments":{"artist":"Taylor Swift","duration":20}}]}',
+        )
+        self.assertIn("VALIDATOR ERRORS", prompt)
+        self.assertIn("spotify.play", prompt)
+        for forbidden in ("possible_answer", "expected_answer", "expected_calls", "ground_truth"):
+            self.assertNotIn(forbidden, prompt)
+
+    def test_model_runner_canonicalizes_bfcl_suffix_before_execution(self) -> None:
+        row = {
+            "source_provenance": {"benchmark_id": "BFCL"},
+            "all_tools": [
+                {
+                    "name": "GorillaFileSystem.mkdir",
+                    "description": "Create directory.",
+                    "input_schema": {
+                        "type": "dict",
+                        "properties": {"dir_name": {"type": "string"}},
+                        "required": ["dir_name"],
+                    },
+                }
+            ],
+            "tail_prompt": "BFCL USER REQUEST:\nCreate a temp directory.",
+            "expected_calls": [{"name": "mkdir", "arguments": {"dir_name": ["temp"]}}],
+        }
+
+        value = model_runner.execute_bfcl_action(
+            {"op": "bfcl_calls", "calls": [{"name": "mkdir", "arguments": {"dir_name": "temp"}}]},
+            row,
+            [],
+        )
+
+        self.assertEqual(value["result"]["bfcl_calls"][0]["name"], "GorillaFileSystem.mkdir")
+        self.assertTrue(value["result"]["bfcl_schema_validation"]["valid"])
+
     def test_model_runner_flags_bfcl_negative_control_success(self) -> None:
         source_dir = self.make_source_dir()
         case = adapter.materialize_cases(source_dir=source_dir, categories=["simple"], per_category=1)[0]
