@@ -1,0 +1,297 @@
+{
+  "core_failure_count": 0,
+  "failure_classes": {
+    "prompt_or_model_weakness": 26,
+    "tool_path_mismatch": 4
+  },
+  "failures": [
+    {
+      "answer_contained": false,
+      "case_id": "bounded_retry-09",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "bounded_retry"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "bounded_retry-09",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "bounded_retry"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "bounded_retry-15",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "bounded_retry"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "bounded_retry-15",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "bounded_retry"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "bounded_retry-21",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "bounded_retry"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "bounded_retry-21",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "bounded_retry"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "bounded_retry-27",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "bounded_retry"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "bounded_retry-27",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "bounded_retry"
+    },
+    {
+      "answer_contained": true,
+      "case_id": "denied_invalid_tool_access-05",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "tool_path_mismatch",
+      "final_source": "host_tool_answer_field",
+      "output_status": "exact",
+      "task_bucket": "denied_invalid_tool_access"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "denied_invalid_tool_access-11",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "denied_invalid_tool_access"
+    },
+    {
+      "answer_contained": true,
+      "case_id": "denied_invalid_tool_access-23",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "tool_path_mismatch",
+      "final_source": "host_tool_answer_field",
+      "output_status": "exact",
+      "task_bucket": "denied_invalid_tool_access"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "dependent_multi_tool-01",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "dependent_multi_tool"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "dependent_multi_tool-07",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "dependent_multi_tool"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "dependent_multi_tool-13",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "dependent_multi_tool"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "dependent_multi_tool-19",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "dependent_multi_tool"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "dependent_multi_tool-25",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "dependent_multi_tool"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "parallel_aggregation-08",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "parallel_aggregation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "parallel_aggregation-14",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "parallel_aggregation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "parallel_aggregation-20",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "parallel_aggregation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "parallel_aggregation-26",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "parallel_aggregation"
+    },
+    {
+      "answer_contained": true,
+      "case_id": "trace_continuation-04",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "tool_path_mismatch",
+      "final_source": "host_tool_answer_field",
+      "output_status": "exact",
+      "task_bucket": "trace_continuation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "trace_continuation-04",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "trace_continuation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "trace_continuation-10",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "trace_continuation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "trace_continuation-10",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "trace_continuation"
+    },
+    {
+      "answer_contained": true,
+      "case_id": "trace_continuation-16",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "tool_path_mismatch",
+      "final_source": "host_tool_answer_field",
+      "output_status": "exact",
+      "task_bucket": "trace_continuation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "trace_continuation-16",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "trace_continuation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "trace_continuation-22",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "trace_continuation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "trace_continuation-22",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "trace_continuation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "trace_continuation-28",
+      "control_id": "direct_full_visible_tools",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "trace_continuation"
+    },
+    {
+      "answer_contained": false,
+      "case_id": "trace_continuation-28",
+      "control_id": "compact_visible_evidence_code_mode",
+      "failure_class": "prompt_or_model_weakness",
+      "final_source": "none",
+      "output_status": "empty",
+      "task_bucket": "trace_continuation"
+    }
+  ],
+  "fresh_tail_answer_leak_count": 0,
+  "taxonomy": [
+    "task_invalidity",
+    "model_weakness",
+    "prompt_protocol_issue",
+    "code_mode_contract_issue",
+    "generated_code_issue",
+    "tool_catalog_semantics_issue",
+    "capsule_semantics_issue",
+    "append_protocol_issue",
+    "compact_evidence_effect",
+    "scorer_parser_brittleness",
+    "runtime_storage_issue",
+    "transport_issue",
+    "ambiguous",
+    "expected_negative_control_failure"
+  ],
+  "wrong_capsule_answer_leak_count": 0
+}

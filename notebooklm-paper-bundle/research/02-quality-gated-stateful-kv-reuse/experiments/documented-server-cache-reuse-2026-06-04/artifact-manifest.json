@@ -1,0 +1,60 @@
+{
+  "committed_summary_files": [
+    "README.md",
+    "summary.json",
+    "case-metrics.json",
+    "failure-classifications.json",
+    "commands.md",
+    "model-info.json",
+    "artifact-manifest.json",
+    "server-log-index.json"
+  ],
+  "experiment_id": "documented-server-cache-reuse-2026-06-04",
+  "local_ignored_raw_mirror": {
+    "base_path": "research/01-ssd-native-inference-current/benchmarks/documented-server-cache-reuse-2026-06-04",
+    "cache_log_slot_file_count": 70,
+    "prompt_bearing": true,
+    "raw_response_count": 50,
+    "request_payload_file_count": 50
+  },
+  "raw_artifacts": [
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/documented-server-cache-reuse-2026-06-04/raw/documented-cache-responses.jsonl",
+      "prompt_bearing": true,
+      "sha256": "2DE1706344D48D8EF0D27E20AD61B75309DDD85041E5E13136FA62A10297C689"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/documented-server-cache-reuse-2026-06-04/raw/documented-cache-cases.jsonl",
+      "prompt_bearing": true,
+      "sha256": "4BB4D751BD7D80B7CB07645E865F10BE5B2C0F181B02D2EB133286189148162D"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/documented-server-cache-reuse-2026-06-04/raw/documented-cache-command.json",
+      "prompt_bearing": false,
+      "sha256": "C70ACC7D4F9C5C9FCFC58D4A023BCB3FD695FD47AC2294DDC946F1BD9DCBB387"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/documented-server-cache-reuse-2026-06-04/raw/documented-cache-summary.json",
+      "prompt_bearing": false,
+      "sha256": "375BCCA398A816B11BF667B0228BDE2D59D920ECCCF04BE1576951538FB44865"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/documented-server-cache-reuse-2026-06-04/raw/run_documented_server_cache_reuse.py",
+      "prompt_bearing": true,
+      "sha256": "22F861F01C4B6D7F444DAA0EF1175965FF849B46446CABFA04866CF3C7094A1D"
+    },
+    {
+      "committed": false,
+      "path": "research/01-ssd-native-inference-current/benchmarks/documented-server-cache-reuse-2026-06-04/raw/documented-cache-raw.zip",
+      "prompt_bearing": true,
+      "sha256": "4155551860E3727177410B09A71917A2A06308A8A569A6D2053DC4EB353F9F24"
+    }
+  ],
+  "raw_response_count": 50,
+  "source_machine": "DushyantPC"
+}

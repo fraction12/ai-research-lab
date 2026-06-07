@@ -1,0 +1,28 @@
+{
+  "backend": "cuda_v13",
+  "bundle": "C:\\Users\\Dushyant\\Tools\\llama-b9512-cuda13",
+  "general_architecture": "gemma4",
+  "llama_dll_hash": "8A08D3221F375116E4C0AF6263E625A1CAC8552D3FADB38FC3279D9F30EE4EBC",
+  "model_desc": "gemma4 ?B Q4_K - Medium",
+  "model_path_hash": "5CF8A1F2FC4268B3FD628743675910CF1D8137C4742D0BE401C3E885F605023A",
+  "model_profile": "gemma4-12b",
+  "model_size_bytes": 7381382048,
+  "sequence_state_exports": {
+    "exports": {
+      "llama_state_seq_get_data": true,
+      "llama_state_seq_get_size": true,
+      "llama_state_seq_load_file": true,
+      "llama_state_seq_save_file": true,
+      "llama_state_seq_set_data": true
+    },
+    "ext_exports": {
+      "llama_state_seq_get_data_ext": true,
+      "llama_state_seq_get_size_ext": true,
+      "llama_state_seq_set_data_ext": true
+    },
+    "seq_file_available": true,
+    "seq_memory_available": true
+  },
+  "state_route_effective": "seq_file",
+  "tokenizer_model": "gemma4"
+}

@@ -1,0 +1,15 @@
+{
+  "backend": "cuda_v13",
+  "context_tokens": 32768,
+  "hardware_observed": "NVIDIA GeForce RTX 3060 CUDA, 12 GB VRAM",
+  "harness_version": "code_mode_kv_capsule_agent_harness_v8",
+  "llama_cpp_bundle": "C:\\Users\\Dushyant\\Tools\\llama-b9512-cuda13",
+  "model_architecture": "gemma4",
+  "model_mode": "gemma4_model_loop",
+  "model_path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-5cf8a1f2fc4268b3fd628743675910cf1d8137c4742d0be401c3e885f605023a",
+  "model_sha256_from_ollama_blob_path": "5cf8a1f2fc4268b3fd628743675910cf1d8137c4742d0be401c3e885f605023a",
+  "model_size_label": "12B",
+  "prompt_protocol_version": "openclaw_code_mode_compiled_template_v1",
+  "quantization": "Q4_K_M GGUF as loaded by llama.cpp",
+  "state_route": "llama.cpp sequence file route, --state-route auto resolved to seq_file for restored controls"
+}

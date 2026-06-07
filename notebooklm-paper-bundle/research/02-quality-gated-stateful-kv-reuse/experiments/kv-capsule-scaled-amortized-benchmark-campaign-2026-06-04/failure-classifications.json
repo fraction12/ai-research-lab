@@ -1,0 +1,44 @@
+{
+  "overall_decision": "campaign_completed_without_interpretable_capsule_pass",
+  "taxonomy": {
+    "phase1_full_visible_guard_failed": "The full visible scaled structured prompt failed answer-contained scoring; capsule semantics and amortization are not interpretable for that size.",
+    "reasoning_full_visible_calibration_failed": "No Phase 2 reasoning template reached 100 percent full-visible answer-contained calibration, so reasoning capsule controls were not run.",
+    "phase3_precondition_failed": "Phase 3 did not run because Phase 1 produced no restored-capsule-pass unit.",
+    "not_restored_capsule_failure": "No restored capsule control ran in this campaign, so the result is not evidence that restored capsules fail at scale.",
+    "prompt_or_model_quality_boundary": "The observed boundary is the native GPT-OSS full-visible prompt/task format, not a save/restore capsule failure."
+  },
+  "by_unit": {
+    "phase1_rows_25": {
+      "classification": "phase1_full_visible_guard_failed",
+      "full_visible_score": "2/10"
+    },
+    "phase1_rows_100": {
+      "classification": "phase1_full_visible_guard_failed",
+      "full_visible_score": "0/10"
+    },
+    "phase1_rows_250": {
+      "classification": "phase1_full_visible_guard_failed",
+      "full_visible_score": "0/10"
+    },
+    "phase2_adjacency_table": {
+      "classification": "reasoning_full_visible_calibration_failed",
+      "full_visible_score": "0/5"
+    },
+    "phase2_edge_triples_table": {
+      "classification": "reasoning_full_visible_calibration_failed",
+      "full_visible_score": "0/5"
+    },
+    "phase2_simple_sentence_facts": {
+      "classification": "reasoning_full_visible_calibration_failed",
+      "full_visible_score": "0/5"
+    },
+    "phase2_jsonish_object_list": {
+      "classification": "reasoning_full_visible_calibration_failed",
+      "full_visible_score": "0/5"
+    },
+    "phase3_agent_context": {
+      "classification": "phase3_precondition_failed",
+      "score": "not_run"
+    }
+  }
+}

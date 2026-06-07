@@ -1,0 +1,32 @@
+{
+  "alternate_route_probe": {
+    "decision": "alternate_cli_not_available",
+    "executed": false,
+    "llama_cli_available": false,
+    "llama_server_available": true,
+    "prompt_hash": "a0755ec6fb3b0a0eab73789b94d820e1d8d5c8ec5802f5e1eaa0250abe52c134",
+    "route": "alternate_llama_cpp_route_probe",
+    "server_note": "llama-server.exe is present, but this runner does not start an HTTP server route; availability is recorded for manual follow-up."
+  },
+  "decision": "native_route_known_positive_control_failure",
+  "known_positive_units": [
+    {
+      "case_count": 3,
+      "decision": "native_known_positive_failed",
+      "exact_or_normalized_count": 0,
+      "kind": "known_positive_codeword",
+      "semantic_match_count": 0,
+      "unit": "route_codeword_positive_control"
+    },
+    {
+      "case_count": 3,
+      "decision": "native_known_positive_failed",
+      "exact_or_normalized_count": 0,
+      "kind": "known_positive_structured_retrieval",
+      "semantic_match_count": 0,
+      "unit": "route_structured_positive_control"
+    }
+  ],
+  "native_ctypes_route": "python_ctypes_direct_libllama_c_api",
+  "phase": "phase_b_route_control_audit"
+}

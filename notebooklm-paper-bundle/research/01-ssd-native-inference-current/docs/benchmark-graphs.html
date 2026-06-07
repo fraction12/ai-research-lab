@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flashcache Research Status Report</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #fbfaf6;
+        --ink: #1f2328;
+        --muted: #5f6368;
+        --rule: #cfcac0;
+        --soft-rule: #e7e2d8;
+        --figure-bg: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--paper);
+      }
+
+      body {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 40px 28px 56px;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      a {
+        color: #075985;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+      }
+
+      header {
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 22px;
+      }
+
+      .kicker,
+      .meta,
+      code,
+      th,
+      .downloads,
+      .figure-label,
+      footer {
+        font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      }
+
+      .kicker {
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 920px;
+        margin: 0;
+        font-size: clamp(2.2rem, 5.4vw, 4.4rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+        font-weight: 700;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .abstract {
+        display: grid;
+        grid-template-columns: 140px minmax(0, 1fr);
+        gap: 24px;
+        border-bottom: 1px solid var(--rule);
+        padding: 24px 0 28px;
+      }
+
+      .abstract h2,
+      section h2 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+      }
+
+      .abstract p {
+        margin: 0;
+      }
+
+      section {
+        border-bottom: 1px solid var(--rule);
+        padding: 34px 0 38px;
+      }
+
+      section > p {
+        max-width: 860px;
+        margin: 12px 0 0;
+      }
+
+      figure {
+        margin: 26px 0 0;
+      }
+
+      .paper-figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--soft-rule);
+        background: var(--figure-bg);
+      }
+
+      .figure-label {
+        display: block;
+        margin: 14px 0 4px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+      }
+
+      figcaption {
+        max-width: 940px;
+        color: #33383d;
+        font-size: 0.96rem;
+        line-height: 1.48;
+      }
+
+      .downloads {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 10px;
+        font-size: 0.78rem;
+      }
+
+      .downloads a {
+        border: 1px solid var(--rule);
+        padding: 3px 7px;
+        background: #fffdf8;
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      table {
+        width: 100%;
+        margin: 18px 0 0;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid var(--soft-rule);
+        padding: 9px 10px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        border-top: 1px solid var(--rule);
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .numeric-table td:not(:first-child),
+      .numeric-table th:not(:first-child) {
+        text-align: right;
+      }
+
+      code {
+        border: 1px solid var(--soft-rule);
+        padding: 1px 4px;
+        background: #fffdf8;
+        font-size: 0.88em;
+      }
+
+      pre {
+        overflow-x: auto;
+        border: 1px solid var(--soft-rule);
+        margin: 16px 0 0;
+        padding: 14px 16px;
+        background: #fffdf8;
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      pre code {
+        border: 0;
+        padding: 0;
+        background: transparent;
+      }
+
+      .supplement-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 22px;
+      }
+
+      .supplement-grid figure {
+        margin: 0;
+      }
+
+      .supplement-grid img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--soft-rule);
+        background: var(--figure-bg);
+      }
+
+      .supplement-grid figcaption {
+        font-size: 0.86rem;
+      }
+
+      .argument-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 20px;
+      }
+
+      .argument-box {
+        border-top: 2px solid var(--ink);
+        padding-top: 12px;
+      }
+
+      .argument-box h3 {
+        margin: 0 0 8px;
+        font-size: 1rem;
+        line-height: 1.2;
+      }
+
+      .argument-box p {
+        margin: 0;
+        color: #33383d;
+        font-size: 0.96rem;
+      }
+
+      .callout {
+        border-left: 4px solid var(--ink);
+        margin: 24px 0 0;
+        padding: 2px 0 2px 18px;
+      }
+
+      .callout p {
+        max-width: 900px;
+        margin: 0;
+      }
+
+      footer {
+        padding-top: 22px;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      @media (max-width: 760px) {
+        body {
+          padding: 28px 18px 40px;
+          font-size: 16px;
+        }
+
+        .abstract {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .supplement-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .argument-grid {
+          grid-template-columns: 1fr;
+        }
+
+        table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+      }
+
+      @media print {
+        body {
+          max-width: none;
+          padding: 0.35in;
+        }
+
+        a {
+          color: inherit;
+        }
+
+        section {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="kicker">Flashcache research report / generated from raw local runs</p>
+      <h1>SSD-backed local-agent state: speed evidence, quality risk, and the next research question</h1>
+      <div class="meta" aria-label="Document metadata">
+        <span>Dataset date: 2026-06-03</span>
+        <span>Model focus: gpt-oss-20b GGUF</span>
+        <span>Workloads: Printy agent loop / IFEval / GraphWalks</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="abstract" aria-labelledby="abstract-title">
+        <h2 id="abstract-title">Abstract</h2>
+        <p>
+          This report summarizes what the Flashcache experiments show so far. The speed evidence is strong enough to continue: large stable agent prefixes can be made much cheaper to reuse, with the 64KB hot-cache and session-tail fixtures reducing prompt-eval time by about 82.0% and 79.8%. The quality evidence is the new constraint: session-tail passed 31/42 full-prompt-passing correctness cases, including 31/36 IFEval cases but 0/6 GraphWalks cases. The research direction is therefore not generic SSD caching. It is quality-gated persistent inference-state reuse for local agents: use SSD-backed state when it is safe, recompute or fall back when quality risk is high, and explain the failure modes.
+        </p>
+      </div>
+
+      <section aria-labelledby="research-thesis-title">
+        <h2 id="research-thesis-title">Research Thesis</h2>
+        <p>
+          Local agents repeatedly combine a stable prefix with a volatile tail. Stable context includes system rules, tool schemas, repo summaries, memory blocks, and workflow scaffolds. The volatile tail includes tool output, diffs, commands, and the next task state. Flashcache asks whether that stable state can become reusable inference state instead of text that the model must reprocess every turn.
+        </p>
+
+        <div class="argument-grid" aria-label="Research argument">
+          <div class="argument-box">
+            <h3>The speed signal is real.</h3>
+            <p>Persistent, hot-cache, and session-tail runs show that reusable-prefix savings become much clearer once process startup, cold cache-fill noise, and full-prompt replay are separated.</p>
+          </div>
+          <div class="argument-box">
+            <h3>The quality gate failed.</h3>
+            <p>The current session-tail protocol preserves many instruction-following cases but collapses on selected GraphWalks cases, so speed cannot be treated as sufficient.</p>
+          </div>
+          <div class="argument-box">
+            <h3>The paper wedge is narrow.</h3>
+            <p>KV caching and SSD offload already exist. The candidate contribution is a correctness contract and fallback policy for local, non-frontier agent loops.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <p>
+            Current verdict: Flashcache has crossed the first threshold, because repeated stable context can be made substantially cheaper. It has not crossed the second threshold, because restored-prefix and tail-only execution are not yet quality-safe for reasoning-over-prefix tasks.
+          </p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Research question</th>
+              <th>What current data says</th>
+              <th>What remains unknown</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Can SSD-backed state reduce repeated local-agent prefill?</td>
+              <td>Yes, especially in hot-cache and session-tail modes on 64KB stable prefixes.</td>
+              <td>Whether lower-level partial restore can reduce slot size and restore overhead.</td>
+            </tr>
+            <tr>
+              <td>Can session-tail preserve full-prompt quality?</td>
+              <td>Not yet. It passed 31/42 selected full-prompt-passing cases.</td>
+              <td>Which failures come from the model, prompt protocol, scorer, or cache semantics.</td>
+            </tr>
+            <tr>
+              <td>What makes this publishable?</td>
+              <td>The strongest topic is quality-gated persistent KV reuse for local agents.</td>
+              <td>Whether a fallback or partial-recompute policy preserves quality while keeping most speedup.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="figures-title">
+        <h2 id="figures-title">Primary Figures</h2>
+        <p>
+          Figure 1 combines the current evidence into a single paper-style panel. Solid lines and bars are measured data; dashed lines mark directional projection.
+        </p>
+
+        <figure class="paper-figure">
+          <img src="assets/benchmark-graphs/fig1-flashcache-evidence.svg" alt="Four-panel figure showing warm versus restarted Ollama runs, small-prefix cache outcomes, large-prefix Flashcache savings with projection, and slot file size growth.">
+          <figcaption>
+            <span class="figure-label">Figure 1. Current evidence for SSD-backed prompt-state reuse.</span>
+            Panel (a) shows that restarted local runs lose warm-state benefit, increasing prompt evaluation from 4.43s to 10.46s across seven turns. Panel (b) shows that small-prefix savings are backend-dependent: Gemma benefits strongly, while gpt-oss-20b whole-slot restore is nearly flat and the Flashcache wrapper averages 12.2% savings. Panel (c) uses the new hot-cache large-prefix data: the 64KB fixture saves 11.29s of prompt evaluation across seven changed-tail turns, and the 128KB point is only a linear projection. Panel (d) shows the cost side: whole-slot files reach 361MB at a 64KB reusable prefix.
+          </figcaption>
+          <div class="downloads" aria-label="Figure 1 downloads">
+            <a href="assets/benchmark-graphs/fig1-flashcache-evidence.svg">SVG</a>
+            <a href="assets/benchmark-graphs/fig1-flashcache-evidence.pdf">PDF</a>
+            <a href="assets/benchmark-graphs/fig1-flashcache-evidence.png">PNG</a>
+          </div>
+        </figure>
+
+        <figure class="paper-figure">
+          <img src="assets/benchmark-graphs/flashcache-gains-projection.svg" alt="Line chart showing direct prompt evaluation, Flashcache wrapper evaluation, a 128KB linear projection, and a metal target.">
+          <figcaption>
+            <span class="figure-label">Figure 2. Projection target for the next implementation layer.</span>
+            The 64KB hot-cache measurement saves 11.29s of prompt-eval time across seven turns, reducing prompt evaluation from 13.77s to 2.48s. The 64KB session-tail run saves 10.99s while restoring the prefix once and sending only changed tails. A simple linear fit over the measured 16KB, 32KB, and 64KB hot-cache ladder projects 23.1s saved at 128KB. The next research step is an explicit session API with tail append, clean-prefix reset, and quality scoring.
+          </figcaption>
+          <div class="downloads" aria-label="Figure 2 downloads">
+            <a href="assets/benchmark-graphs/flashcache-gains-projection.svg">SVG</a>
+            <a href="assets/benchmark-graphs/flashcache-gains-projection.pdf">PDF</a>
+            <a href="assets/benchmark-graphs/flashcache-gains-projection.png">PNG</a>
+          </div>
+        </figure>
+
+        <figure class="paper-figure">
+          <img src="assets/benchmark-graphs/large-prefix-cache-mode-comparison.svg" alt="Line chart comparing prompt-eval reduction across cold, hot-cache, full-prompt session, and tail-only session benchmark modes.">
+          <figcaption>
+            <span class="figure-label">Figure 3. Server and cache mode change the visible gain.</span>
+            The original per-request cold ladder showed only about 13.9% prompt-eval reduction at 64KB because process and cold-cache effects obscured the reusable-prefix value. Persistent server mode, server-version caching, and hot-cache mode expose the actual steady-state shape. Full-prompt session replay is the bad target at -0.3% saved for 64KB; tail-only session mode recovers 79.8% with a one-time restore and 100% measured cache-hit rate.
+          </figcaption>
+          <div class="downloads" aria-label="Figure 3 downloads">
+            <a href="assets/benchmark-graphs/large-prefix-cache-mode-comparison.svg">SVG</a>
+            <a href="assets/benchmark-graphs/large-prefix-cache-mode-comparison.pdf">PDF</a>
+            <a href="assets/benchmark-graphs/large-prefix-cache-mode-comparison.png">PNG</a>
+          </div>
+        </figure>
+
+        <figure class="paper-figure">
+          <img src="assets/benchmark-graphs/correctness-parity-by-task.svg" alt="Bar chart showing session-tail pass rate by task family: IFEval 31 of 36, GraphWalks 0 of 6, and overall 31 of 42.">
+          <figcaption>
+            <span class="figure-label">Figure 4. Correctness parity is the release gate.</span>
+            The full-prompt gate selected 42 cases that the local model could answer correctly in full-prompt mode. Session-tail preserved 31/36 selected IFEval cases but failed every selected GraphWalks case. This does not prove that SSD-backed state is inherently unsafe; it proves that the current local-model/session-tail stack needs failure attribution and fallback before it can replace full prompts.
+          </figcaption>
+          <div class="downloads" aria-label="Figure 4 downloads">
+            <a href="assets/benchmark-graphs/correctness-parity-by-task.svg">SVG</a>
+            <a href="assets/benchmark-graphs/correctness-parity-by-task.pdf">PDF</a>
+            <a href="assets/benchmark-graphs/correctness-parity-by-task.png">PNG</a>
+          </div>
+        </figure>
+      </section>
+
+      <section aria-labelledby="results-title">
+        <h2 id="results-title">Computed Results</h2>
+        <p>
+          These are the numeric claims used by the figures. Projection values are marked separately from measured values.
+        </p>
+
+        <table class="numeric-table">
+          <thead>
+            <tr>
+              <th>Claim</th>
+              <th>Direct / baseline</th>
+              <th>Cache / target</th>
+              <th>Delta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Warm vs restarted prompt eval</td>
+              <td>10.46s restarted</td>
+              <td>4.43s warm</td>
+              <td>2.36x gap</td>
+            </tr>
+            <tr>
+              <td>Exact replay control</td>
+              <td>462ms first run</td>
+              <td>74ms second run</td>
+              <td>known primitive</td>
+            </tr>
+            <tr>
+              <td>gpt-oss-20b small-prefix Flashcache</td>
+              <td>8.42s</td>
+              <td>7.40s</td>
+              <td>12.2% saved</td>
+            </tr>
+            <tr>
+              <td>64KB per-request cold Flashcache</td>
+              <td>81.95s</td>
+              <td>70.56s</td>
+              <td>13.9% saved</td>
+            </tr>
+            <tr>
+              <td>64KB hot-cache Flashcache</td>
+              <td>13.77s</td>
+              <td>2.48s</td>
+              <td>82.0% saved</td>
+            </tr>
+            <tr>
+              <td>128KB hot-cache projection</td>
+              <td>26.4s projected</td>
+              <td>3.27s projected</td>
+              <td>23.1s projected saved</td>
+            </tr>
+            <tr>
+              <td>64KB whole-slot SSD cost</td>
+              <td>64KB reusable prefix</td>
+              <td>361MB slot file</td>
+              <td>optimize layout next</td>
+            </tr>
+            <tr>
+              <td>Correctness selected set</td>
+              <td>42/42 full prompt</td>
+              <td>31/42 session-tail</td>
+              <td>quality gate failed</td>
+            </tr>
+            <tr>
+              <td>IFEval selected cases</td>
+              <td>36/36 full prompt</td>
+              <td>31/36 session-tail</td>
+              <td>mostly preserved</td>
+            </tr>
+            <tr>
+              <td>GraphWalks selected cases</td>
+              <td>6/6 full prompt</td>
+              <td>0/6 session-tail</td>
+              <td>reasoning collapse</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="research-program-title">
+        <h2 id="research-program-title">Research Program</h2>
+        <p>
+          The next paper-oriented phase should test mechanisms, not only faster timings. The immediate goal is to explain when session-tail diverges from full-prompt execution and to design a cache policy that can choose reuse, partial recompute, or full-prompt fallback by task risk.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>What we are trying to find out</th>
+              <th>Smallest useful next test</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Are GraphWalks failures model weakness or cache/session drift?</td>
+              <td>Rerun the six selected GraphWalks failures with full-prompt replay, visible-prefix session formatting, stronger answer hints, and scorer-brittleness checks.</td>
+              <td>This separates model limitations from a real cache semantics problem.</td>
+            </tr>
+            <tr>
+              <td>Can deliberate recompute repair quality?</td>
+              <td>Recompute small anchor spans such as task instructions or graph schema while restoring stable agent context.</td>
+              <td>A small amount of "inefficient" recompute may recover quality while keeping most cache savings.</td>
+            </tr>
+            <tr>
+              <td>Can the system route risky turns to full prompt?</td>
+              <td>Use task family and prompt-role metadata to choose session-tail, partial recompute, or full prompt before generation.</td>
+              <td>The publishable claim is a quality-gated cache policy, not a cache-hit counter.</td>
+            </tr>
+            <tr>
+              <td>Can whole-slot blobs become block-level state?</td>
+              <td>Measure which prefix roles are reusable, hot, risky, or disposable; then design block roles before changing runtime code.</td>
+              <td>The 64KB slot is already about 361MB, so lower-level layout matters for ordinary machines.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="harness-title">
+        <h2 id="harness-title">Harness Validation Path</h2>
+        <p>
+          The next credible proof is an applied agent harness, not another isolated prompt-cache demo. The baseline should run the local model with the normal Markdown files injected or retrieved in the usual way. The treatment should run the same model, same files, same tasks, and same tools, but with the stable context loaded through Flashcache.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Why it matters</th>
+              <th>Acceptance signal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Prompt-eval and wall-clock time</td>
+              <td>Shows whether cached context makes local loops practically faster</td>
+              <td>Large repeated-context savings without hidden setup cost dominating the run</td>
+            </tr>
+            <tr>
+              <td>Workflow completion rate</td>
+              <td>Shows whether the agent remains useful, not merely fast</td>
+              <td>Equal or higher success on fixed OpenClaw/DeepClean-style tasks</td>
+            </tr>
+            <tr>
+              <td>Quality and regression checks</td>
+              <td>Prevents a cache optimization from masking bad edits or worse reasoning</td>
+              <td>Tests, CI, review outcomes, and task-specific graders stay comparable or improve</td>
+            </tr>
+            <tr>
+              <td>Resource footprint</td>
+              <td>Determines whether regular machines can afford the cache layer</td>
+              <td>SSD size, restore time, and eviction behavior remain bounded</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="supplement-title">
+        <h2 id="supplement-title">Supplementary Figures</h2>
+        <p>
+          The individual plots remain available for inspection and regression checks. They are generated from the same script and exported in SVG, PDF, and PNG formats.
+        </p>
+
+        <div class="supplement-grid">
+          <figure>
+            <img src="assets/benchmark-graphs/ollama-warm-vs-restarted.svg" alt="Supplementary bar chart comparing warm and restarted Ollama timing.">
+            <figcaption><span class="figure-label">Figure S1.</span> Warm local sessions versus restarted local sessions.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/benchmark-graphs/ollama-exact-repeat-control.svg" alt="Supplementary bar chart showing prompt-eval time for two identical Ollama prompt runs.">
+            <figcaption><span class="figure-label">Figure S2.</span> Exact prompt replay as a control case.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/benchmark-graphs/small-prefix-cache-outcomes.svg" alt="Supplementary horizontal bar chart showing small-prefix cache outcomes.">
+            <figcaption><span class="figure-label">Figure S3.</span> Small-prefix cache outcomes across Gemma and gpt-oss-20b.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/benchmark-graphs/large-prefix-flashcache-ladder.svg" alt="Supplementary line chart showing large-prefix Flashcache ladder results.">
+            <figcaption><span class="figure-label">Figure S4.</span> Measured hot-cache large-prefix Flashcache ladder.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/benchmark-graphs/slot-file-size-ladder.svg" alt="Supplementary line chart showing slot file size growth.">
+            <figcaption><span class="figure-label">Figure S5.</span> Whole-slot file size growth on SSD.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/benchmark-graphs/correctness-parity-by-task.svg" alt="Supplementary bar chart showing correctness parity by task family.">
+            <figcaption><span class="figure-label">Figure S6.</span> Session-tail correctness parity by task family.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section aria-labelledby="methods-title">
+        <h2 id="methods-title">Methods And Reproduction</h2>
+        <p>
+          Figures are generated by <code>benchmarks/plot_benchmark_graphs.py</code> from raw benchmark JSON and correctness summaries. The computed table is written to <code>docs/assets/benchmark-graphs/chart-data.json</code>.
+        </p>
+
+        <pre><code>python3 -m pip install -r requirements-dev.txt
+python3 benchmarks/plot_benchmark_graphs.py</code></pre>
+
+        <p>
+          Source inputs are under <code>benchmarks/datasets/printtestbot-printing-press-2026-06-02/raw/</code>, <code>benchmarks/datasets/printtestbot-large-prefix-2026-06-02/raw/</code>, <code>benchmarks/datasets/printtestbot-boundary-telemetry-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-persistent-server-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-server-version-cache-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-hot-cache-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-session-cache-2026-06-03/raw/</code>, <code>benchmarks/datasets/printtestbot-session-tail-2026-06-03/raw/</code>, and <code>benchmarks/datasets/flashcache-correctness-parity-2026-06-03/summary.json</code>. The next measurement round should split prefill, restore, save, SSD read/write bytes, memory copy, accelerator upload, changed-tail evaluation, task-family correctness, and fallback decisions inside an explicit session API.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      Companion Markdown: <a href="benchmark-graphs.md">benchmark-graphs.md</a>. Generated assets live under <code>docs/assets/benchmark-graphs/</code>.
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "committed_sanitized_artifacts": [
+    "README.md",
+    "summary.json",
+    "case-metrics.json",
+    "control-matrix.json",
+    "candidate-calibration.json",
+    "amortization.json",
+    "failure-classifications.json",
+    "model-info.json",
+    "commands.md",
+    "artifact-manifest.json",
+    "paper-methods-notes.md"
+  ],
+  "ignored_raw_artifacts": {
+    "cache_dir": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-cache/hf-kv-capsule-paper-benchmark-2026-06-05/",
+    "contains_prompt_bearing_files": true,
+    "contains_raw_responses": true,
+    "inputs_dir": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/hf-kv-capsule-paper-benchmark-2026-06-05/",
+    "not_committed": true,
+    "raw_results_dir": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/hf-kv-capsule-paper-benchmark-2026-06-05/raw/"
+  },
+  "sanitation_policy": "Committed artifacts contain hashes, counts, timings, booleans, route labels, and classifications only; no raw prompts, responses, expected strings, token arrays, top-k arrays, or state bytes."
+}

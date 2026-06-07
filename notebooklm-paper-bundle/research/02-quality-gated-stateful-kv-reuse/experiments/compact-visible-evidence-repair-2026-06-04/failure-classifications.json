@@ -1,0 +1,61 @@
+{
+  "case_classifications": [
+    {
+      "case_id": "graphwalks-16",
+      "confidence": "high",
+      "fallback_recommendation": "For GraphWalks parents under hidden-prefix reuse, schedule a compact visible evidence slice and enforce compact answer-only output.",
+      "observed_failure": "Previous visible-evidence tail failed by verbose truncated JSON; compact-answer tail repaired the case at the same 192-token cap.",
+      "open_questions": [
+        "Whether the same policy generalizes beyond this focused six-case cohort remains untested."
+      ],
+      "primary_class": "prompt_protocol_issue_repaired",
+      "ruled_down": [
+        "scorer_parser_brittleness",
+        "runtime_storage_issue",
+        "evidence_extraction_issue"
+      ],
+      "secondary_classes": [
+        "session_cache_semantic_issue_repaired_by_visible_evidence"
+      ],
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\compact-visible-evidence-repair-2026-06-04\\raw\\hidden-prefix-compact-visible-evidence-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\compact-visible-evidence-repair-2026-06-04\\raw\\hidden-prefix-compact-visible-evidence-tail-responses.jsonl",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\compact-visible-evidence-repair-2026-06-04\\compact-evidence-slices.json"
+      ]
+    },
+    {
+      "case_id": "graphwalks-19",
+      "confidence": "high",
+      "fallback_recommendation": "For GraphWalks parents under hidden-prefix reuse, schedule a compact visible evidence slice and enforce compact answer-only output.",
+      "observed_failure": "Previous visible-evidence tail failed by verbose truncated JSON; compact-answer tail repaired the case at the same 192-token cap.",
+      "open_questions": [
+        "Whether the same policy generalizes beyond this focused six-case cohort remains untested."
+      ],
+      "primary_class": "prompt_protocol_issue_repaired",
+      "ruled_down": [
+        "scorer_parser_brittleness",
+        "runtime_storage_issue",
+        "evidence_extraction_issue"
+      ],
+      "secondary_classes": [
+        "session_cache_semantic_issue_repaired_by_visible_evidence"
+      ],
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\compact-visible-evidence-repair-2026-06-04\\raw\\hidden-prefix-compact-visible-evidence-tail-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\compact-visible-evidence-repair-2026-06-04\\raw\\hidden-prefix-compact-visible-evidence-tail-responses.jsonl",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\compact-visible-evidence-repair-2026-06-04\\compact-evidence-slices.json"
+      ]
+    }
+  ],
+  "experiment_id": "compact-visible-evidence-repair-2026-06-04",
+  "taxonomy": [
+    "model_weakness",
+    "prompt_protocol_issue",
+    "scorer_parser_brittleness",
+    "session_cache_semantic_issue",
+    "position_compatibility_issue",
+    "runtime_storage_issue",
+    "no_failure_observed",
+    "ambiguous"
+  ]
+}

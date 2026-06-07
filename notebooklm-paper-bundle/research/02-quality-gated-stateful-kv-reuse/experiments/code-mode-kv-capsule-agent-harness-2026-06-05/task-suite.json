@@ -1,0 +1,462 @@
+[
+  {
+    "access_key_hash": "7b2cd907b9615c82caf9dc7d7c315b1c8e5d734f243390f13c62bba886443f3c",
+    "case_id": "single_tool_selection-00",
+    "compact_evidence_hash": "ddb9833c78629ddd258aa663638f5bfd018f0cc5a58161a14ed8f5e9f61a4ed4",
+    "expected_answer_hash": "002e67885adb9fc1f18f83749e6781268632d05ed39e15a3647b62d62e42ba99",
+    "fixture_hash": "9df29a45adf86f3723f080b0f3a8adcbb0a2bf4fba9f937a80bef15d1ab701ca",
+    "full_prompt_hash": "109978cdb611eda7e4e0ded8e99d8b52e88a03f4b169a7240cafda86bf6b5d77",
+    "required_tool_path": [
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "8aeed078d2431c3e6020ccc75f6810a8de0b0a1ade68ec29cf27aeefad6436d1",
+    "tail_prompt_hash": "4ca23bc1c8aed5942c52bcc4a88441330afcf64d60917e179d2f93dcfa3cd8f5",
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "access_key_hash": "681f5ec03d0b962bbab09f2c1f0d0742c0df8d4273fdd5f4c9dd01ccd6431b99",
+    "case_id": "dependent_multi_tool-01",
+    "compact_evidence_hash": "dbc4d88f1b9505d24a6ca26ab7f9676c8ece9085e29b080010a83433e04aa123",
+    "expected_answer_hash": "94eada6ef9c71ac7b1042c2354845ae6ae03ec7c0976dd68c10652819afe4d59",
+    "fixture_hash": "9106b7bca898d4e73046b270ab2a8097539ebdaa262deb6206b438f0accbe490",
+    "full_prompt_hash": "c0b5296afecc93762aafa86a8446a6ca41a8f870c6da296b3faf9b08363a8d2e",
+    "required_tool_path": [
+      "fixture:repo:find_failing_symbol",
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "8ce1d54a177ea2913008cdc6093fc2ba807d4d9700949c305d1be7781158949a",
+    "tail_prompt_hash": "d35902cf2324317e9a4b94989f6494f930a01582421d3867f1badc5e85487218",
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "access_key_hash": "ea0659d7398e0f967e72ad5b88d2dc0419dea8bca7b40522ac36f35870a11953",
+    "case_id": "parallel_aggregation-02",
+    "compact_evidence_hash": "9a41590818b2a03242f4477c4e44313404435a4b2943d3c658cfd5a150618052",
+    "expected_answer_hash": "375769e04447b0d55261126c6e40ab84bf83660d6ba17dfbde7b5bbda8edcf89",
+    "fixture_hash": "29ec2c6c753a56cf5d21e0bd4855c46b9de3a91d81946887810cac113e691817",
+    "full_prompt_hash": "fbe211695bf6f485cd885db1e3da7c2a004ecbf507f3c54dad95636a199ff190",
+    "required_tool_path": [
+      "fixture:test:list_module_failures"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "7b150ca29f28424da27782ee70ee0d2e53efd0b6306524d946bb2b052f06a725",
+    "tail_prompt_hash": "37e9b6e0689a9b63a540f11ee8fc09d399517d7cab9c11e252bc3f008e0d3dca",
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "access_key_hash": "2ab2507e7b80b370f52a29f412d2c9232da7a8dbad1bc0d7f971d90fe1e40093",
+    "case_id": "bounded_retry-03",
+    "compact_evidence_hash": "928b3234df8f6d100fb3337db67eb83faa32e7953c9e5d2443d83a7914f905d7",
+    "expected_answer_hash": "fb0b4eb602a5ba288c478af890c805e4b63f6c3e4d663406df64d9f9f07eb087",
+    "fixture_hash": "08490b930777b0411ee391100c9f4f2b6d65cde710c4ce0683c3a54a7089b165",
+    "full_prompt_hash": "31d581dff07d8067d7d728ddf3c0906a73a5b6437c9d6088e6c7e19d9dd36db3",
+    "required_tool_path": [
+      "fixture:test:run_retryable_check",
+      "fixture:test:run_retryable_check"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "124900b3eee34ca433b95fcd6d60d0bbf7d35a7794844be9efd2023d87752590",
+    "tail_prompt_hash": "046a988302febec798ac19ba0af0d712559de0ec226d125668ba18014a781c89",
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "access_key_hash": "a24aeab24851b8266b59d96a86876b0ed6213601f9e5cbbb7238ba5ddd334c68",
+    "case_id": "trace_continuation-04",
+    "compact_evidence_hash": "f6c772e17cde407c49d900ae4255cfdbb9ad38af4a47343bad4a2718271c22fc",
+    "expected_answer_hash": "5ab73ccd7228dbb8bae8a6719ceb86fbe305c39c71b893eadee84e46e84b8eb7",
+    "fixture_hash": "8014c430117adf5e61141dc20cbdc6ea626458d6f6c8bf78d073ef0460adf82d",
+    "full_prompt_hash": "9cabc9a5a65f0807a196025c661072b94fa117cd4e4ef226f0ada897d551df2d",
+    "required_tool_path": [
+      "fixture:trace:read_checkpoint"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "df1bc0ee8660c351f91c9b824ab205fc54320437d4a489472dfd02c93ea6b1e2",
+    "tail_prompt_hash": "80153a1317f1b764657306cb644a99d347a1a919025decda8a999dd9cd7e2b24",
+    "task_bucket": "trace_continuation"
+  },
+  {
+    "access_key_hash": "38c5514795b57a839ea7cf260b9055ec7619b699ab8cba5cd470e94ee2cd6f8b",
+    "case_id": "denied_invalid_tool_access-05",
+    "compact_evidence_hash": "db5e24da732ed30e8d10b26d58808edfccb3da089ddeb3bb14918ad7c894af23",
+    "expected_answer_hash": "d2b33fa7c9976367199f6a137c7508c2accc4b6508322a8a7a8234f4accd2732",
+    "fixture_hash": "3739690791ac2ab4164bcfd0d266fb9cd8d13c1a937f3a57e220a5b6751147d4",
+    "full_prompt_hash": "6ddfaba884d6f3f042c334fce74ebd3af66c9b747023f144b434ed02adc303c6",
+    "required_tool_path": [
+      "fixture:policy:audit_requested_tool"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "9a95d8edb0132d11844554a2398bc096e79a482891dfd8f5acfaf5d8c4d56091",
+    "tail_prompt_hash": "fbfe6f2a7ca7f3f544b94b62d0cf38755397eb5a91dfa71b786c698d84f98228",
+    "task_bucket": "denied_invalid_tool_access"
+  },
+  {
+    "access_key_hash": "02ff58bc9022637fc19fef59435256b30a2f36d3f62254eb8d43773140d1d131",
+    "case_id": "single_tool_selection-06",
+    "compact_evidence_hash": "13c33124da64f1257e649c22cc3a73ec0d3cad85a0738777e0b5ce9f6de7d811",
+    "expected_answer_hash": "cc0b99eeebdb0b3bd6d976791efc4c5656fd3ab9deeaace5ba4c9bc8213bf990",
+    "fixture_hash": "c253264224d8da1b215fe25a708a1c7303065ff3b8e53055cc32aa554c1d71d2",
+    "full_prompt_hash": "cf513e2ab900f7fb0c8d143a39a67289b75d6f36c4aed21d3c91834a6e8f6a6b",
+    "required_tool_path": [
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "bd92220040f8e4f44dab03a533fb46565a36e55743dfa263715901b41adefa4b",
+    "tail_prompt_hash": "290ce730191569349d25a8c5928fdd2017494e975b9c111c1d5c7a910efa8a4d",
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "access_key_hash": "7713b389e083f40d144e64337f9c410b4fdb842a13edb9492aff4d2999e87f16",
+    "case_id": "dependent_multi_tool-07",
+    "compact_evidence_hash": "1f067238de7fea02bb3ece96ccd95444ec39b6e739e430767fd09ce34940458e",
+    "expected_answer_hash": "416a9f9018bf0483862e922ad36fac59f58989974b61e30b5967191cf6ac2674",
+    "fixture_hash": "8ad0e28bc4a48f7b77dc538b2758ffa7b8f6072ac3ab52a25722f39bfb40f80c",
+    "full_prompt_hash": "02d9a3f54b7ef4602ecd1c223233362dc99271c7dc75ba152fa9dca7ca30a071",
+    "required_tool_path": [
+      "fixture:repo:find_failing_symbol",
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "b974467834f64865e28f8561ba94b93f905b06b222e72098ba88aa7ad6357d4a",
+    "tail_prompt_hash": "dbbdb50d1d4656bfae1bc8a0a4547bdfa74649bc1c7ae464bf14777c50b79628",
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "access_key_hash": "83b766f6ce4b18010b886b586e179ca7419bd3411ff91f7e7bb5bfb6b671a4ca",
+    "case_id": "parallel_aggregation-08",
+    "compact_evidence_hash": "8ab6db21357f01b752e85f903ab2cd588cb0defe2404861bc3cfc8dfa9a940a1",
+    "expected_answer_hash": "1e572fa45c8de822dafec2910fd022a55612b371c93fd469406fc1140b2b35f7",
+    "fixture_hash": "bb0c22c3dab939cfee997d6e17a8de27516b8c203f3a000d1143e9c035b6b25e",
+    "full_prompt_hash": "3fe5efc134b51d21187abf0aa37fad86e4dfa4dadcff99f7f55a3559e117b9d2",
+    "required_tool_path": [
+      "fixture:test:list_module_failures"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "bbb25a588cfeb7e33cb7c95668afd1bda4b79a313f9e73e537533c50e6f4a776",
+    "tail_prompt_hash": "793d43a117e4d541eafc5eb1f6667c469467c2c08a15ea397ff8f0a192bce4b0",
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "access_key_hash": "a6e6e90ea83d86e5b3cbc2e924d1a1b7c9f0e947c81da1d220c0449326b3c21b",
+    "case_id": "bounded_retry-09",
+    "compact_evidence_hash": "a445b0c04383512453f0ebb9dbc92c6be019b8b3cc37ed4730289abed15aa8d0",
+    "expected_answer_hash": "9dedda062bad7ad1a18c3d85e2da6a05800e12fe0eb1c8f433d1ac91331577fc",
+    "fixture_hash": "844654847135e202022f7b0042ca76d5ad68a09c86d71e612eea736e6f986ade",
+    "full_prompt_hash": "c4b4c98cc9aaa528450eb53fb1c1f4cb2e25db3949c71bd0c8909d555e89488f",
+    "required_tool_path": [
+      "fixture:test:run_retryable_check",
+      "fixture:test:run_retryable_check"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "4819633440112be915ba343becdc2f0b33dff87b71a19f23b33b790dff755a09",
+    "tail_prompt_hash": "adb698b0d7d71f0cb444f1e1f601e8c16f5f0976e7150f71bc7f71b81a7361a8",
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "access_key_hash": "d2acc813926a4963a78c12d60840901562bb9a43c05dc2f0392a60f5c200c97b",
+    "case_id": "trace_continuation-10",
+    "compact_evidence_hash": "f64421097c4d741114a0abe1ebb9dcc6e8f9f562d3c60e6462d755622db53440",
+    "expected_answer_hash": "de277a52295b576994c2548b565860b19c324bb8f7f819e07cc9aaa773da18f2",
+    "fixture_hash": "56aeacf95bf7cc74753881f62f8ff9318d05faa17cc5201a328c3998c32176b0",
+    "full_prompt_hash": "45490cd3e41d23c043267a2fa90fcf7a83f8da4c22da5111fde74c8e216e4b5a",
+    "required_tool_path": [
+      "fixture:trace:read_checkpoint"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "a61d17e8b282e4cecd409cbef050e499b5b0cf808481420051a4ae74224468ea",
+    "tail_prompt_hash": "3a2d630823ab4a89962f97d45ec88d953b8fff3200c70354aaec70f56c0876c5",
+    "task_bucket": "trace_continuation"
+  },
+  {
+    "access_key_hash": "d1129a18dae70b9852657ed43895967ff0bfd9b9bd817be6272e9a49835f215f",
+    "case_id": "denied_invalid_tool_access-11",
+    "compact_evidence_hash": "dce94b732d3669483597127d81504f4135147efed7068b32d24526df9ca92e96",
+    "expected_answer_hash": "d2b33fa7c9976367199f6a137c7508c2accc4b6508322a8a7a8234f4accd2732",
+    "fixture_hash": "33fc3d39268c165afac05931e75f52e1cd87174bdab27e8eb6273cac62fa27d1",
+    "full_prompt_hash": "f1f8ab100870d862f56511514fc3d879f3c487fa18ba9d57285b4e3071953fa5",
+    "required_tool_path": [
+      "fixture:policy:audit_requested_tool"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "4a374a4f5e3d45d70a71134909351755b235455765530f4d2f62280a95f8d1df",
+    "tail_prompt_hash": "56cac9f2bf62723ce3e65576e63efba4a68b209a9f63c16b5a8a5cc0785cdba1",
+    "task_bucket": "denied_invalid_tool_access"
+  },
+  {
+    "access_key_hash": "8d0581dfa6f4d1d2f7303f944ef744942036fcecde77a7438bb6294e8e30b87d",
+    "case_id": "single_tool_selection-12",
+    "compact_evidence_hash": "0d54e8b07cfa78a665147c8e814e9cc70999e41f11ef38a719d42a1d03a315d4",
+    "expected_answer_hash": "5738a03835bc0d75830ea6c4422eb4f75256a3318fd4a720a7422cc1ba37990a",
+    "fixture_hash": "923443b22902ddf1debf7a8d9d5501e3feaefacd54054656e33bf4d0f5cf4800",
+    "full_prompt_hash": "7ea051894706d4d927b13f57dbaff370d5c392b797b475301294c88b5aed1dbc",
+    "required_tool_path": [
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "82cb1d323c78052f3d56dee2e94f974c4bda434e839a52a537f85c34512eee98",
+    "tail_prompt_hash": "3a42d157aa8c329a321ef616b6307cfc150f1f534ae0673308816fe346ae9f9a",
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "access_key_hash": "25d10e7ca767bf66f412928b28d72fc07e93ab241e722d6d5e417122e34c8be9",
+    "case_id": "dependent_multi_tool-13",
+    "compact_evidence_hash": "3fb96428d9a1ddc632e68e98d4a14642dfd1e8defc3cc776a43ec05c0853b9cb",
+    "expected_answer_hash": "d925ec084385c630aba58e61d5525b43f76055e1d8d747b077a6fd7e95a89ac7",
+    "fixture_hash": "d5522973d74b6fcd8227610111f3c027e8dc776dd7420ac10030b1b6523feb3b",
+    "full_prompt_hash": "3bfac06cae626c3b73025dd7f46bc18c294b98bc57a541a3b554ba45a10d8103",
+    "required_tool_path": [
+      "fixture:repo:find_failing_symbol",
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "73445ee40d5496a11f3662c2104d1d762e026fd737dab10ae9b49e2ea2725b73",
+    "tail_prompt_hash": "3cb5eb40ebc2da3cb71cf295bc0c3898ecdc55550d0c70dc4cbd8067c417f4eb",
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "access_key_hash": "95e6cb82a007e6b4add62f206f52d9d899953c2b59b34d11e143e9900cd72a90",
+    "case_id": "parallel_aggregation-14",
+    "compact_evidence_hash": "004dac9443dc26f4bac4eefe8550bd7c3e19c2cd653c63694e1be4ce297c3aea",
+    "expected_answer_hash": "cf94bae8ecc222560b52dbce79ed4a87a7e812f70d3309c0ec23604487819a56",
+    "fixture_hash": "73cb75938359ceb0199a7bd75dc9fdca138b79afee5d9589a7633fc0b45131fc",
+    "full_prompt_hash": "b81bc3695330f4d9c37ca56f45f2f4b851bf37b0b83994d251b5c990600ec022",
+    "required_tool_path": [
+      "fixture:test:list_module_failures"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "e0a48c35d186bb234803b64f9fcbf9fc2499e6098db3e049bb7623c447dcf1fe",
+    "tail_prompt_hash": "3ddaa68cb6bf5a263eaabbacb173540fad540f94e14b3671d9b25b2fde51617f",
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "access_key_hash": "1940359f42957d4afb503fa252293982a7e102318ecbbc774553258073ee3494",
+    "case_id": "bounded_retry-15",
+    "compact_evidence_hash": "a05460a2e0bb4c611c405a948c1b80740749d0aa70724428f47179cbff45281b",
+    "expected_answer_hash": "908089d92e8057e03577bb7ba2cd198409e5c8375605335bd759fc00f3c5f5ea",
+    "fixture_hash": "7bb5b595d13fb057668e3e02c1ba65c0057583e0ce76e5e3b5633696482eadaf",
+    "full_prompt_hash": "105fce74288a37fff22e8414b2bd01b2ee47e98630b0f64a0570c1c77e292274",
+    "required_tool_path": [
+      "fixture:test:run_retryable_check",
+      "fixture:test:run_retryable_check"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "3fa4f835de1fad9ed325a33e59a87e8852dccb55b31b8c9b4e5de56a2f81f06d",
+    "tail_prompt_hash": "cd8c8686b079cf0c3c110530fe2337a7671157dba1928184dec7b3528d65bda3",
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "access_key_hash": "54a254edc56eea55a0f8efa7d6e57c1c77a4151c5a5c376a40546a49685eaf54",
+    "case_id": "trace_continuation-16",
+    "compact_evidence_hash": "d0a4af35d925a0ffe65e081f61503b3849c1b002b5a6d1acf928f3f683a44540",
+    "expected_answer_hash": "e2048402bd67e2c094c3e4eb1caafd9cd4c1e70383140aa9e58549a0f53e08be",
+    "fixture_hash": "cc3dc4924287f5e8cdbc6733b6c77944ff64a5c22fa2efbbada1841ea4c2c779",
+    "full_prompt_hash": "6965b236b674e8d4259bacb3ed2d444012047e8b984faa7ba54a0e834e5b000e",
+    "required_tool_path": [
+      "fixture:trace:read_checkpoint"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "73b9c77d01539e072e5350b1a938e2b30972d4350b1a702eb088cdfa194be586",
+    "tail_prompt_hash": "122973f7f5292c8f32b46328847996e63ca539c87abf0397ff59577df28d6459",
+    "task_bucket": "trace_continuation"
+  },
+  {
+    "access_key_hash": "0c36b45aef086038582477e4d410c6f9f2b9fb011c53bfb237cecc5a5201c711",
+    "case_id": "denied_invalid_tool_access-17",
+    "compact_evidence_hash": "f48c626adaa5c5bddc273699d15ae149276518267d2337590e452d5dd21644a9",
+    "expected_answer_hash": "d2b33fa7c9976367199f6a137c7508c2accc4b6508322a8a7a8234f4accd2732",
+    "fixture_hash": "2797439a562520d289bb4549d130c36f3dd8c9ab7d28349ecd9a97bfd3e7d583",
+    "full_prompt_hash": "96348c8eea0e3e85f83bf2ef8d9f5fc29d232f6f7684495f37d983e4ceba7c4f",
+    "required_tool_path": [
+      "fixture:policy:audit_requested_tool"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "8befbd1aebb44ade8397957d697681a54921d4c05917ec48a0e81c6df46cf0a9",
+    "tail_prompt_hash": "dc9a720124c77603c98b085acbe443a7f89589bfa58ddca4290bcacfa79855ac",
+    "task_bucket": "denied_invalid_tool_access"
+  },
+  {
+    "access_key_hash": "86637102621c31cac9061d5e25bad7dd21d0b0de266b5339511bb360bc561e30",
+    "case_id": "single_tool_selection-18",
+    "compact_evidence_hash": "93753fd31b835a565996ac30138c9184c28c17c3d4e08d39026054df0918c2a3",
+    "expected_answer_hash": "f1be0a3261be106ad5d79dbc386e40f956e285da9f1eb1c27c162a6164bbdbdb",
+    "fixture_hash": "662defede4630e9aa99221f9efb906a8ef9a46ea407f415734122b3835856de4",
+    "full_prompt_hash": "b44deb0e4e2a44771a82a49338714c45c942b91ba7c997b7c0841204b024b577",
+    "required_tool_path": [
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "078df6274591372f3812e44be0c66b0835a20915c3abd8561bf13b21bab6210e",
+    "tail_prompt_hash": "3e8224a6f1232d9793398ca5f0dd61e35efe4281bccad305f5cb0dd3b0f2cfdc",
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "access_key_hash": "c7199e25113c6f2eb29c1d95e49e9a5a290b4f3a4a87ee5fa2ea4800c1ce0793",
+    "case_id": "dependent_multi_tool-19",
+    "compact_evidence_hash": "bca7ae5e1c4bb2bb977edcbe8aa8d2c68e54dbbc0310b33543db17ba76d91a97",
+    "expected_answer_hash": "99be8b530a1f5dc9820c6cd1ec6c6aa6ee01c32773c729ff91a6acff5589d8b3",
+    "fixture_hash": "35f947f9cb92b5544d70e7b0371b46279e0397bdf43ac4815d96482dfde37b6f",
+    "full_prompt_hash": "557a2c725df29272eaca5eb5c58cb446a289b5640ab8398e0231177e3cc4272d",
+    "required_tool_path": [
+      "fixture:repo:find_failing_symbol",
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "9b48034ae43e8c071912c3cdde78ee41cd383570aef06b65aceb09947bbadce8",
+    "tail_prompt_hash": "e49ec2107899fb62a3ac8feafeefb39dcf9b2554a0259e7ef4d4c0104421886f",
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "access_key_hash": "a46cace846222f133213d0b90f206537d297fde6482d6c2c234d4f8dffa3a259",
+    "case_id": "parallel_aggregation-20",
+    "compact_evidence_hash": "b6ba62fc4f796b4cc5f0b21407c0bd81614fead2fde60c04e499113a628acec8",
+    "expected_answer_hash": "e227321ff8a0a00982916f457816f49b0f04fb1597d56969e13f66720df77589",
+    "fixture_hash": "d8654bf68bd3ff15053918cfd406e036f6a727f9a5e6194ae2e7f50890b6db1a",
+    "full_prompt_hash": "8e82aabce524e1a7855be51e0346f296e19196937d4abf9d370cab3fdcc379ca",
+    "required_tool_path": [
+      "fixture:test:list_module_failures"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "97f6d2fb026f3a5a1e2360b029f88551077cf9f20ef0124ece56be4b0b1dba66",
+    "tail_prompt_hash": "f456362c63eefa645ae80968dabae63701add1fe2b6b4a6764d891c6f87d28a8",
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "access_key_hash": "642845da945295dcf998e9e620ec227e4cbd0f8508ed592cdac1c257326b68a9",
+    "case_id": "bounded_retry-21",
+    "compact_evidence_hash": "0d6b730e58657e10ea08c6e3d79bcec7cb944d0dc7f3f921e34aab1efbcd9319",
+    "expected_answer_hash": "60644c6dc815a56fab92da3747c7ac1d063c3445bdb1b44b1f55dd4e2d329cd8",
+    "fixture_hash": "4f733d13e6eef00491ac920973b7be12dcbcfa539dce982d7117f2e7a8de2523",
+    "full_prompt_hash": "1b37b0eb31e96e1e22f1fc2e8b3b47e107a10627cd7abc0d47ad53901a880aff",
+    "required_tool_path": [
+      "fixture:test:run_retryable_check",
+      "fixture:test:run_retryable_check"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "358e006a301e21d752babcc04c240bb9bf6e7715d298bb65908e81c6db147c8b",
+    "tail_prompt_hash": "b3047cd6075d8c573921f85f7008b78261fc4ec16c72a4de49b4bede141cce16",
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "access_key_hash": "5052e97cdacb4dafc8b80b170ec1dda71e2ad4b26cf47057d432606e355bb3bf",
+    "case_id": "trace_continuation-22",
+    "compact_evidence_hash": "5ba8176512942f60fd8cda8b99df2ee5bf635b49bc16ebeb9155cacd18044230",
+    "expected_answer_hash": "8ac93ddd9447ca33ed4a3589e5b408115887598dbac1c57f44b363d920fdfdea",
+    "fixture_hash": "65466089e301f4ceca1cce69f47ee82156f1d88b9d295d391cc6f39526245ad6",
+    "full_prompt_hash": "a61d98f576a14ff81621a9370d4e837d4377e09bcc0726c535399f0d85028b47",
+    "required_tool_path": [
+      "fixture:trace:read_checkpoint"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "b3d6fcd77ecbc9b89708307bb36479868c936a13defc0db479f5dbe788c2a001",
+    "tail_prompt_hash": "904730ab05afca2026ce4261708922f88fc6366d710ed7a323d363a4477461b2",
+    "task_bucket": "trace_continuation"
+  },
+  {
+    "access_key_hash": "89bb399f130253cf3ee7e2e34667454f4452d4d47dd844cc192760657f43bb96",
+    "case_id": "denied_invalid_tool_access-23",
+    "compact_evidence_hash": "82525ac0f235bedd25a5ee730d6f0248b0882b484a1c55e5c909d713244caef9",
+    "expected_answer_hash": "d2b33fa7c9976367199f6a137c7508c2accc4b6508322a8a7a8234f4accd2732",
+    "fixture_hash": "69e276c1b96870c1a1814e8ba31a8e5c4718e7a482d708332f97a41cc447b75c",
+    "full_prompt_hash": "be62a630397f57d6c4ecd1d84d668c47dd93cb7744a18a00e1d3c2d798aafc98",
+    "required_tool_path": [
+      "fixture:policy:audit_requested_tool"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "1d909cd6de51032671f43ba3881458693018e8aec07c18431f89f4ca57235b7c",
+    "tail_prompt_hash": "d3a4ef015820e1e15520adbb02032e818a06542fb9d403ef2a55e2e3f8aca6a4",
+    "task_bucket": "denied_invalid_tool_access"
+  },
+  {
+    "access_key_hash": "f400b43453c5189520ed2e33d421560f5714bb1c48bd9bdc6a73ab9bb0000241",
+    "case_id": "single_tool_selection-24",
+    "compact_evidence_hash": "88bf8a6888f25140910dfc5cdd234ff31ad03b0351dcad581ad029153c9fd588",
+    "expected_answer_hash": "e23e0efc70057114a04349f388803d96edf73c474b948b89c965cc692b8245ec",
+    "fixture_hash": "f56886a878d902082b8cf1d363e028a3d24987e1deb8818906d9d09ddd137014",
+    "full_prompt_hash": "7977589a28852fee6511191f5587af9e464674911e7c4b4f9217171b0718f337",
+    "required_tool_path": [
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "cd4d4ec1b39adeb21cbc480dbbe71df9f6e0392146129cc9a7045625ae3cf694",
+    "tail_prompt_hash": "1f90ae01a7984f437cfea4843d3b78018bcbe7d4e69160e4156ac7eebaeb5ce4",
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "access_key_hash": "de58da8ccd7f4dc345df152349896ead779e8ce4bbbd899d3de29504707d25d2",
+    "case_id": "dependent_multi_tool-25",
+    "compact_evidence_hash": "5b0f489e75927ae499396ce0a635793c830de2d326100806504e76f67012a700",
+    "expected_answer_hash": "83fcfb65e3aabcf86c616f1564bccaf23866c91e37b1c2f89b03e3dcce260bd1",
+    "fixture_hash": "3a5afa94eb07c3165bf1052274c2e462e84ea8c54a7caae1582ccff32e7cbead",
+    "full_prompt_hash": "9e10b3453d30ba7238eff8178160f6f977c192af2959090283b41abc3e2bc853",
+    "required_tool_path": [
+      "fixture:repo:find_failing_symbol",
+      "fixture:repo:read_symbol_owner"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "8f01876b75f76419180c39db28c17440eb796e2a3cfc7b6fe1053c9882504b07",
+    "tail_prompt_hash": "cbfdd9d47a5eba7ad98d2331da70dbf4c8677c47d301656db4119ebda0381bd4",
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "access_key_hash": "5e781ecba8883947efc839ba2325f78b241b0c9a95250814c387e1d666fae27c",
+    "case_id": "parallel_aggregation-26",
+    "compact_evidence_hash": "65cbae6852acaa8020d2df14cbb08b46b12579e6b2d761728e46ef4786dc5b6b",
+    "expected_answer_hash": "3ee4d4467a700232234befa0eca54b6334638ebf8f57d739a179aa3433b592b1",
+    "fixture_hash": "b31d036f94259d49be4fb63ec58a965ba4d7d85a41c502ec8e8f091870039d5d",
+    "full_prompt_hash": "25ab4323d19c4eb4e0474a2f0975b61b17d2defadb20cdc75969321a52a341bd",
+    "required_tool_path": [
+      "fixture:test:list_module_failures"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "8f6047cb8f10910175e1b243281b0682c458f0c31a1d947f1a3bc7ab54d3049c",
+    "tail_prompt_hash": "ff9d40825264408b25fa4aca00ec7ee8dad9519bead965d793ecf41ed1e2466c",
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "access_key_hash": "7e7499a64825ae53deea41889195e0d69472e87a3338bf779af098506cd72886",
+    "case_id": "bounded_retry-27",
+    "compact_evidence_hash": "2c12eb94165a94717976fdc48a056df7adc5e4666ca71b7d37bc7a29c33e8da0",
+    "expected_answer_hash": "8053d71d25ec7429817847825efe1755780208156822337b3a5e3f4d25a09b98",
+    "fixture_hash": "b1061c47707dba6edadc38c52ea673e90b8cde4c3a306ad08bf3c99c330f0f33",
+    "full_prompt_hash": "efb7c09158ddf57beca7f863704ba82e51f1ff2d51821da7d10af22daf5dece9",
+    "required_tool_path": [
+      "fixture:test:run_retryable_check",
+      "fixture:test:run_retryable_check"
+    ],
+    "session_id_hash": "27ac7a3cd2914d4585149aa02fc0856a9ec85a5c48e9e191f106968c36a52c3e",
+    "stable_prefix_hash": "35ebdade9dc593de4b2ad1c26dec0fe44ce7fc5d6f1af27bd150b42701d666eb",
+    "tail_prompt_hash": "3d3f7fbc95a49864386a520654f180c33305ba54af62a90459ee9546c398964b",
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "access_key_hash": "4e69b35604997a9acabff87f7f426eb69b1629b8eb5a0a38fd22c821c3a772f3",
+    "case_id": "trace_continuation-28",
+    "compact_evidence_hash": "3bee04180b0dbbb3fe89f1238ee952404eff2d23776766fbe2a573ce8183add3",
+    "expected_answer_hash": "6d1cf03e6c85685cb3b80102739e6aadffc3766b73cd2c13b459c7841d6cd819",
+    "fixture_hash": "f39e2d7afb5cb7739b2570078478b8a42d50f3ccdb31c61475d926beade01317",
+    "full_prompt_hash": "88ea3cab8544e3eb80dfbba58c35cc6ff3bf5cb4dca4ef54971bbe2775c65810",
+    "required_tool_path": [
+      "fixture:trace:read_checkpoint"
+    ],
+    "session_id_hash": "84097828fc31a8c8d29210df48901a85de7fd013f686b17be77d1be29cb7a98b",
+    "stable_prefix_hash": "493721374d223f446825327bf5ed14293c0faa47d0a787decd0f93b46243df86",
+    "tail_prompt_hash": "00fc19f2fef2308d1b816fe27b91a81ded115ff718df2bd6f887ee75049053be",
+    "task_bucket": "trace_continuation"
+  },
+  {
+    "access_key_hash": "b04474d77c6da8bd1814d181b745de4cb690f72347b8afc63811734a1852fb03",
+    "case_id": "denied_invalid_tool_access-29",
+    "compact_evidence_hash": "68e68daee3fd5d17237a6ac7156065a2a448490d1a7b102e077b14b54056c42b",
+    "expected_answer_hash": "d2b33fa7c9976367199f6a137c7508c2accc4b6508322a8a7a8234f4accd2732",
+    "fixture_hash": "23e5c0bf5cc3dcb24c0a6d79495af0e0c4587acfe6aac914c661d7a3d1dbc0a9",
+    "full_prompt_hash": "79f23c9360227188588b80274aadc5aad2bf8338634e6acb7c2c0da62867f716",
+    "required_tool_path": [
+      "fixture:policy:audit_requested_tool"
+    ],
+    "session_id_hash": "5d9061408048c12d053925aed45333a142997f26a2cd1e0c4a87678c53a1e3ae",
+    "stable_prefix_hash": "830876f9ab8dfcea9f4fa13d853367a5c3e02a7dab1a539fec724229aa9f023a",
+    "tail_prompt_hash": "9c0bf5b4becd328fbe4503affbe65558dbf43890b9ca6f9a3ee2b35df2b9bddd",
+    "task_bucket": "denied_invalid_tool_access"
+  }
+]

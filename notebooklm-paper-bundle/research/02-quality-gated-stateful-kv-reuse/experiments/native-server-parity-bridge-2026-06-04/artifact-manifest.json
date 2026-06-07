@@ -1,0 +1,21 @@
+{
+  "committed_artifacts": {
+    "README.md": "experiment narrative and review stop",
+    "summary.json": "aggregate scores, decision, hashes, and raw pointers",
+    "case-metrics.json": "sanitized per-record metrics with hashes/token counts/timings only; no prompt text, raw responses, token ID slices, generated token slices, or top-k arrays",
+    "failure-classifications.json": "failure taxonomy and discarded-attempt note",
+    "commands.md": "commands used for spec, sync, run, copyback, validation",
+    "model-info.json": "model, runner, backend, hash, and command details",
+    "artifact-manifest.json": "this manifest"
+  },
+  "raw_artifacts_ignored": {
+    "records": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/bridge-records.jsonl",
+    "run_info": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/bridge-run-info.json",
+    "server_log": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/server-console.log",
+    "console": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/bridge-console.txt",
+    "runner": "research/01-ssd-native-inference-current/benchmarks/native-server-parity-bridge-2026-06-04/raw/native_server_parity_bridge.py"
+  },
+  "raw_artifacts_note": "Prompt-bearing raw requests/responses/logs/runner remain under ignored Track 01 benchmark paths and are not committed.",
+  "capsule_contract": "Not written for this bridge because capsule gates were not run.",
+  "sanitation_note": "Committed summaries omit explicit token ID arrays and top-k arrays; prompt-bearing and reconstructable raw evidence remains under ignored Track 01 paths."
+}

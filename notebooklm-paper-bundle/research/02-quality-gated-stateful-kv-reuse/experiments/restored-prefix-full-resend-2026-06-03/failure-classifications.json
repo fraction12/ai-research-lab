@@ -1,0 +1,58 @@
+{
+  "experiment_id": "restored-prefix-full-resend-2026-06-03",
+  "decision": "correctness_safe_without_useful_acceleration_evidence",
+  "taxonomy": [
+    {
+      "category": "model weakness",
+      "status": "unlikely primary cause for this synthetic probe",
+      "evidence": "The model passed cold-full, restored-full, perturbed-full, and wrong-slot-full exact-token controls 3/3."
+    },
+    {
+      "category": "prompt protocol issue",
+      "status": "not primary for full-resend synthetic controls",
+      "evidence": "Full visible prompt resend produced exact JSON answers in every scored control. Prior tail-only failures remain a separate protocol issue."
+    },
+    {
+      "category": "scorer/parser brittleness",
+      "status": "not observed",
+      "evidence": "All scored controls had zero answer_parse_error_count and exact-token JSON answers."
+    },
+    {
+      "category": "session/cache semantic issue",
+      "status": "no leakage observed in tiny controls",
+      "evidence": "Perturbed-full answered the perturbed visible token 3/3, and wrong-slot-full answered the current visible token 3/3."
+    },
+    {
+      "category": "position/compatibility issue",
+      "status": "implicated for acceleration",
+      "evidence": "Restored-full prompt_n matched cold-full prompt_n exactly on all three cases, and mean prompt_ms was worse than cold-full."
+    },
+    {
+      "category": "runtime/storage issue",
+      "status": "observed then mitigated",
+      "evidence": "The first long-path Windows attempt failed while opening log files. The valid short-path rerun had zero response_error_count in scored modes."
+    }
+  ],
+  "case_classifications": [
+    {
+      "case_id": "prefix-alpha",
+      "classification": "correctness_safe_without_clear_prompt_reduction",
+      "details": "All scored controls passed, but restored-full prompt_ms was 51.986 ms slower than cold-full and prompt_n was unchanged."
+    },
+    {
+      "case_id": "prefix-bravo",
+      "classification": "correctness_safe_without_clear_prompt_reduction",
+      "details": "All scored controls passed, but restored-full prompt_ms was 49.965 ms slower than cold-full and prompt_n was unchanged."
+    },
+    {
+      "case_id": "prefix-charlie",
+      "classification": "correctness_safe_with_prompt_reduction",
+      "details": "All scored controls passed and restored-full prompt_ms was 18.992 ms faster than cold-full, but aggregate prompt_n was unchanged and only one case improved."
+    }
+  ],
+  "fallback_policy": {
+    "graphwalks_six_case_follow_up": "defer",
+    "reason": "The tiny probe did not show useful acceleration evidence.",
+    "safe_default": "full visible prompt execution"
+  }
+}

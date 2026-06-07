@@ -1,0 +1,35 @@
+{
+  "date": "2026-06-03",
+  "machine": {
+    "name": "DushyantPC",
+    "repo_checkout": "C:\\Users\\Dushyant\\Projects\\ai-research-lab",
+    "track01_workdir": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current"
+  },
+  "backend": {
+    "server_bin": "C:\\Users\\Dushyant\\Tools\\llama-b9482-vulkan\\llama-server.exe",
+    "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "backend_family": "llama.cpp portable Vulkan build"
+  },
+  "primary_alternate_model": {
+    "path": "C:\\Users\\Dushyant\\Documents\\vault-mind\\vault-mind-q5_k_m.gguf",
+    "filename": "vault-mind-q5_k_m.gguf",
+    "quantization_hint_from_filename": "q5_k_m",
+    "bytes": 5444831136,
+    "powershell_last_write_time": "/Date(1774404285191)/"
+  },
+  "other_local_ggufs_found": [
+    "C:\\Users\\Dushyant\\My Documents\\vault-mind\\vault-mind-q5_k_m.gguf",
+    "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+    "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\models\\gemma-3-270m-it-Q8_0.gguf",
+    "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\models\\gpt-oss-20b-mxfp4.gguf"
+  ],
+  "run_parameters": {
+    "ctx_size": 32768,
+    "predict": 32,
+    "prime_n_predict": 0,
+    "temperature": 0.0,
+    "timeout_seconds_probe": 90.0,
+    "timeout_seconds_full_runs": 120.0,
+    "mode": "all"
+  }
+}

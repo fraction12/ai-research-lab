@@ -1,0 +1,178 @@
+{
+  "case_count": 6,
+  "cases": [
+    {
+      "added_tail_bytes": 358,
+      "case_id": "graphwalks-6",
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "c81e728d9d -> e4da3b7fbb",
+        "eccbc87e4b -> e4da3b7fbb",
+        "d3d9446802 -> e4da3b7fbb"
+      ],
+      "evidence_sha256": "ea2f586461d72dff7aaef3b31e970299904351f42363cbfa1c5f8dc4facb46a7",
+      "original_tail_bytes": 472,
+      "original_tail_sha256": "ed0d03be718134c898f72445b7e40a33e072fdba8dcaf5e19d28be1eb6800ed7",
+      "reference_answer_nodes_for_scoring_only": [
+        "c81e728d9d",
+        "d3d9446802",
+        "eccbc87e4b"
+      ],
+      "source_id": 6,
+      "stable_prefix_bytes": 2234,
+      "stable_prefix_sha256": "603bd4c94386df61dfa590ef02b694b24ec0796c0ffc1635e96600bac438e42b",
+      "target_node": "e4da3b7fbb",
+      "used_reference_answer_nodes": false,
+      "visible_block_bytes": 357,
+      "visible_block_sha256": "543e40eb88d5c0656ca40a804a89e09a4cf79cc21aec7506efe219aa92ef33e3",
+      "visible_tail_bytes": 830,
+      "visible_tail_sha256": "83041612e80abf68c0555bf5c33075e13716b692dfdaec9e6824e06b2d020d59"
+    },
+    {
+      "added_tail_bytes": 358,
+      "case_id": "graphwalks-9",
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "c81e728d9d -> 1679091c5a",
+        "c81e728d9d -> 1679091c5a",
+        "eccbc87e4b -> 1679091c5a"
+      ],
+      "evidence_sha256": "af1ef9dfd22bb9497e0518829bed2373ff34f9dc13879c19d216ad7bd5f7641e",
+      "original_tail_bytes": 472,
+      "original_tail_sha256": "a137725c243b2dd4b64faa775b30eb199b94f5461987878ef6e2e8c1aee5bd36",
+      "reference_answer_nodes_for_scoring_only": [
+        "c81e728d9d",
+        "eccbc87e4b"
+      ],
+      "source_id": 9,
+      "stable_prefix_bytes": 2259,
+      "stable_prefix_sha256": "53ed23e02a34633f783e54c628611890eaf426ce68239248cfd8dc4e83a95bdf",
+      "target_node": "1679091c5a",
+      "used_reference_answer_nodes": false,
+      "visible_block_bytes": 357,
+      "visible_block_sha256": "3356ee6e3ad492b298caac5b3c43b405acc21f9b60e3c55106f670787cc1b6d7",
+      "visible_tail_bytes": 830,
+      "visible_tail_sha256": "5e1e0d5b93bffaa194737c51a9bae77939d78780416b1b16c0258a2782a659cd"
+    },
+    {
+      "added_tail_bytes": 308,
+      "case_id": "graphwalks-11",
+      "evidence_bytes": 24,
+      "evidence_edge_count": 1,
+      "evidence_lines": [
+        "d3d9446802 -> a87ff679a2"
+      ],
+      "evidence_sha256": "b68f0c071f4e3b671ddf87ac4d2d63fc81b13cbb417f1d637fb1d89b655e624a",
+      "original_tail_bytes": 472,
+      "original_tail_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
+      "reference_answer_nodes_for_scoring_only": [
+        "d3d9446802"
+      ],
+      "source_id": 11,
+      "stable_prefix_bytes": 2234,
+      "stable_prefix_sha256": "d52a6a513604b2f3706090dcea190dded33c909327124d495525c0f38e2d9cbf",
+      "target_node": "a87ff679a2",
+      "used_reference_answer_nodes": false,
+      "visible_block_bytes": 307,
+      "visible_block_sha256": "f56066512f5a377f48d940816e5fa3900477374e2dd63ca3e4c22534c34070d2",
+      "visible_tail_bytes": 780,
+      "visible_tail_sha256": "c04a889a2d20d9dc93bc272f2c738643f369d7f7b129b1a381e24fbc4aa063a7"
+    },
+    {
+      "added_tail_bytes": 308,
+      "case_id": "graphwalks-13",
+      "evidence_bytes": 24,
+      "evidence_edge_count": 1,
+      "evidence_lines": [
+        "1679091c5a -> a87ff679a2"
+      ],
+      "evidence_sha256": "a3775f58b32ecc2d48f59c25ae48513776286df8865347eaa982642343421815",
+      "original_tail_bytes": 472,
+      "original_tail_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
+      "reference_answer_nodes_for_scoring_only": [
+        "1679091c5a"
+      ],
+      "source_id": 13,
+      "stable_prefix_bytes": 2259,
+      "stable_prefix_sha256": "8536bba891e4a777800a3dacb52fc6a70f40a4b448c77cf19a02ff26069f8ee1",
+      "target_node": "a87ff679a2",
+      "used_reference_answer_nodes": false,
+      "visible_block_bytes": 307,
+      "visible_block_sha256": "d05cf9a84cb3797d31d94b8d88e2ba9fc243064c16f17bacc0e4091fd4a59628",
+      "visible_tail_bytes": 780,
+      "visible_tail_sha256": "10c8d527f5e98c96c1ac553e69290ca4357c3b77da356db8e7cf6c99fa6d507b"
+    },
+    {
+      "added_tail_bytes": 433,
+      "case_id": "graphwalks-16",
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "evidence_lines": [
+        "cfcd208495 -> a87ff679a2",
+        "c81e728d9d -> a87ff679a2",
+        "e4da3b7fbb -> a87ff679a2",
+        "e4da3b7fbb -> a87ff679a2",
+        "1679091c5a -> a87ff679a2",
+        "8f14e45fce -> a87ff679a2"
+      ],
+      "evidence_sha256": "81f7d577829dc9a1e0d6b86b79cb36cd6e3b781b3b1cd5bc24e8f7b8d39cf8b6",
+      "original_tail_bytes": 472,
+      "original_tail_sha256": "300f35fec6f72193890c888cd5eb767cbceada11dbc840eddfd4bd39812ce8ef",
+      "reference_answer_nodes_for_scoring_only": [
+        "c81e728d9d",
+        "cfcd208495",
+        "e4da3b7fbb",
+        "1679091c5a",
+        "8f14e45fce"
+      ],
+      "source_id": 16,
+      "stable_prefix_bytes": 2259,
+      "stable_prefix_sha256": "9807c67980d7285e22c641b6e38259ea3d4cef094e6ba5d5f259bbb1773a7cf1",
+      "target_node": "a87ff679a2",
+      "used_reference_answer_nodes": false,
+      "visible_block_bytes": 432,
+      "visible_block_sha256": "95a94b4d7847b518a14a10b486f92ae97b77bdd0ed97968a04a3661b636c79ed",
+      "visible_tail_bytes": 905,
+      "visible_tail_sha256": "f9e70421eba35e973d74c87072488633225845cb3201d6fe742987a38076e303"
+    },
+    {
+      "added_tail_bytes": 383,
+      "case_id": "graphwalks-19",
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "eccbc87e4b -> c4ca4238a0",
+        "eccbc87e4b -> c4ca4238a0",
+        "a87ff679a2 -> c4ca4238a0",
+        "1679091c5a -> c4ca4238a0"
+      ],
+      "evidence_sha256": "9917f5ff8ace7b4f8e9991d28a55950df4a07cac2e7f0b3b9a147fa53bbf76a7",
+      "original_tail_bytes": 472,
+      "original_tail_sha256": "a157aca4f8b83c192bbce92952fa0a3b515f983b59b10d1dc27fa12e1a5f13eb",
+      "reference_answer_nodes_for_scoring_only": [
+        "1679091c5a",
+        "eccbc87e4b",
+        "a87ff679a2"
+      ],
+      "source_id": 19,
+      "stable_prefix_bytes": 2259,
+      "stable_prefix_sha256": "c3d0f7aca61d0b7a8089250f1ced477464825f0e37ff67cc7b5256cc8477c7f9",
+      "target_node": "c4ca4238a0",
+      "used_reference_answer_nodes": false,
+      "visible_block_bytes": 382,
+      "visible_block_sha256": "dcf37c0d9dcac28477f48a17510f37c2a4627cd2cc9d80f325f334fe878d13a5",
+      "visible_tail_bytes": 855,
+      "visible_tail_sha256": "1d838f18f482ce6662e5f46d2862dcf1e20ae8368118357201cabf7376d51d53"
+    }
+  ],
+  "committed_note": "Contains extracted edge lines and hashes only, not the full prompt-bearing case JSONL.",
+  "experiment_id": "visible-evidence-slice-repair-2026-06-04",
+  "extraction_method": "Parse target node from GraphWalks parents tail_prompt, then select stable_prefix edge lines whose destination equals that target. Reference answer nodes are not used for extraction.",
+  "generated_at": "2026-06-04T05:15:35.632599+00:00",
+  "original_cases_path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/visible-evidence-slice-repair-2026-06-04/graphwalks-six-selected-cases.jsonl",
+  "source_cases_path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-selected-cases.jsonl",
+  "source_input_sha256": "DB2F4802249B1A59CEF48835085EB9819287C8C9A7B1E0DA4E8E1025B8C79215",
+  "visible_cases_path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/visible-evidence-slice-repair-2026-06-04/graphwalks-six-visible-evidence-slice-cases.jsonl"
+}

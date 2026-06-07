@@ -1,0 +1,2716 @@
+{
+  "metadata": {
+    "started_at": "2026-06-02T20:43:25.494788+00:00",
+    "model": "gpt-oss:20b",
+    "host": "http://localhost:11434",
+    "fixture_path": "benchmarks\\fixtures\\printtestbot_printing_press_workflow.json",
+    "fixture_hash": "425f7ef0481e15f076c5d681533bfc0afb6cd19e6f31d3634576eb9a5ba91297",
+    "runs_per_scenario": 1,
+    "num_predict": 8,
+    "prime_num_predict": 1,
+    "temperature": 0.0,
+    "num_ctx": null,
+    "dry_run": false,
+    "strategy": "compare",
+    "vary_runs": false,
+    "restart_delay": 0.5,
+    "proxy_context_source": "Ollama /api/generate context parameter; official docs mark it deprecated.",
+    "finished_at": "2026-06-02T20:43:43.789057+00:00"
+  },
+  "prefix_manifest": {
+    "created_at": "2026-06-02T20:43:25.495345+00:00",
+    "manifest_version": 1,
+    "model": "gpt-oss:20b",
+    "fixture_path": "benchmarks\\fixtures\\printtestbot_printing_press_workflow.json",
+    "fixture_hash": "425f7ef0481e15f076c5d681533bfc0afb6cd19e6f31d3634576eb9a5ba91297",
+    "selected_scenarios": [
+      "turn-01-intake",
+      "turn-02-inspect",
+      "turn-03-verify-failure",
+      "turn-04-patch-state",
+      "turn-05-test-and-vet-failure",
+      "turn-06-review-feedback",
+      "turn-07-final-handoff"
+    ],
+    "prefix_block_names": [
+      "printy-bot-identity",
+      "print-a-bot-runtime-contract",
+      "model-routing-and-cache-rules",
+      "tool-schema-summary",
+      "operating-guardrails",
+      "printing-press-workflow-rules",
+      "repo-and-task-context",
+      "benchmark-instructions"
+    ],
+    "prefix_prompt_bytes": 5627,
+    "prefix_prompt_sha256": "eebca4591c46d2b9a13e042222dffe5182becc0ad0c3ba5f81ff09a066a1b8e1",
+    "prefix_blocks": [
+      {
+        "name": "printy-bot-identity",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 586,
+        "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+      },
+      {
+        "name": "print-a-bot-runtime-contract",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 729,
+        "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+      },
+      {
+        "name": "model-routing-and-cache-rules",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 718,
+        "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+      },
+      {
+        "name": "tool-schema-summary",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 570,
+        "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+      },
+      {
+        "name": "operating-guardrails",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 494,
+        "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+      },
+      {
+        "name": "printing-press-workflow-rules",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 575,
+        "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+      },
+      {
+        "name": "repo-and-task-context",
+        "tier": "semi-stable",
+        "cache_policy": "prefix-cache-candidate",
+        "bytes": 592,
+        "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+      },
+      {
+        "name": "benchmark-instructions",
+        "tier": "semi-stable",
+        "cache_policy": "prefix-cache-candidate",
+        "bytes": 460,
+        "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+      }
+    ],
+    "scenario_tails": [
+      {
+        "name": "turn-01-intake",
+        "description": "Initial user request and repo status for the CLI polish workflow.",
+        "tail_prompt_bytes": 670,
+        "tail_prompt_sha256": "27db604ca4ce4903e91b85cb961084b51b6daf436ca75516bdb2b37c563b0f38",
+        "tail_blocks": [
+          {
+            "name": "turn-01-user-request",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 314,
+            "sha256": "46a7e50f0618949ca9753ebe4f119ed963673fde61cabdfff67a0d51e05df0db"
+          }
+        ],
+        "full_prompt_bytes": 6028,
+        "full_prompt_sha256": "bddcac82c872ff7a92b9b1cbaaeeceef8ee029e08218dbddc2e0b85d4439ffb0",
+        "full_blocks": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-01-user-request",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 314,
+            "sha256": "46a7e50f0618949ca9753ebe4f119ed963673fde61cabdfff67a0d51e05df0db"
+          }
+        ]
+      },
+      {
+        "name": "turn-02-inspect",
+        "description": "Inspection output shows likely CLI polish issues without test failure yet.",
+        "tail_prompt_bytes": 727,
+        "tail_prompt_sha256": "446cf53bda7fd86197fcf98b46886156b42b9ed3a030fd961b8f2f856d528171",
+        "tail_blocks": [
+          {
+            "name": "turn-02-inspect-and-plan",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 381,
+            "sha256": "56591ebfaa9ad41ce0f24f4df1a2e06acb06c6250b412f7ae85fd969b2e4132c"
+          }
+        ],
+        "full_prompt_bytes": 6085,
+        "full_prompt_sha256": "3af28acc40366667e44c7fb955a711a482652768bba4879f4f855a7de33db8e4",
+        "full_blocks": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-02-inspect-and-plan",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 381,
+            "sha256": "56591ebfaa9ad41ce0f24f4df1a2e06acb06c6250b412f7ae85fd969b2e4132c"
+          }
+        ]
+      },
+      {
+        "name": "turn-03-verify-failure",
+        "description": "Verify fails from ranking and README/example mismatch.",
+        "tail_prompt_bytes": 705,
+        "tail_prompt_sha256": "9eecea6917a37cc5c309aabd4e930fe0a7072074dbf61b8a4c25c4971fc3ab33",
+        "tail_blocks": [
+          {
+            "name": "turn-03-verify-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 343,
+            "sha256": "72397c639ff15017f7ee90e61c3192be8ddf53e0630e4c853ae76dd19cc119d4"
+          }
+        ],
+        "full_prompt_bytes": 6063,
+        "full_prompt_sha256": "be78a37a5e364906bec752f6ee4caad62c51998079d375bf9bcd39cf65ac2902",
+        "full_blocks": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-03-verify-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 343,
+            "sha256": "72397c639ff15017f7ee90e61c3192be8ddf53e0630e4c853ae76dd19cc119d4"
+          }
+        ]
+      },
+      {
+        "name": "turn-04-patch-state",
+        "description": "Patch has been applied and needs validation.",
+        "tail_prompt_bytes": 803,
+        "tail_prompt_sha256": "557dad184f3e9547dbed5331e687e10e177bc697f79141ea2241ba150410cd4c",
+        "tail_blocks": [
+          {
+            "name": "turn-04-patch-applied",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 446,
+            "sha256": "c335a72855ada71bb8c10097c8712bfc80d5daa22e1e7e8f623d1398880aca7b"
+          }
+        ],
+        "full_prompt_bytes": 6161,
+        "full_prompt_sha256": "a12ca105b7ef8418e0ad298110fb0a1d6d6be97927fe8546e0f4e50aa64cd111",
+        "full_blocks": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-04-patch-applied",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 446,
+            "sha256": "c335a72855ada71bb8c10097c8712bfc80d5daa22e1e7e8f623d1398880aca7b"
+          }
+        ]
+      },
+      {
+        "name": "turn-05-test-and-vet-failure",
+        "description": "Tests and vet fail after the first patch.",
+        "tail_prompt_bytes": 681,
+        "tail_prompt_sha256": "b2c3d2951518f451c04ad10e340773b449314a13072d2fde47a51e360774e0e3",
+        "tail_blocks": [
+          {
+            "name": "turn-05-second-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 315,
+            "sha256": "56dea3bc596d5ab2aeb63bbc1fe23f2305b60e65a34defb420e4cef697799ffe"
+          }
+        ],
+        "full_prompt_bytes": 6039,
+        "full_prompt_sha256": "c3bf3e76251960e117b39609a9622a214c45bd1f09f613e5b44d9deca7ee3b8b",
+        "full_blocks": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-05-second-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 315,
+            "sha256": "56dea3bc596d5ab2aeb63bbc1fe23f2305b60e65a34defb420e4cef697799ffe"
+          }
+        ]
+      },
+      {
+        "name": "turn-06-review-feedback",
+        "description": "Review comments and CI state require a second fix loop.",
+        "tail_prompt_bytes": 766,
+        "tail_prompt_sha256": "b69f2e81520515f1d37c2b0fb0157228d5c5e5a7c197c2dbcce72e6937f0ef9e",
+        "tail_blocks": [
+          {
+            "name": "turn-06-review-comments",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 410,
+            "sha256": "772a0b311277897c785f7c44c57f20edab955a3f54b990352773a62035ddb76a"
+          }
+        ],
+        "full_prompt_bytes": 6124,
+        "full_prompt_sha256": "8a7cb6cb153afe413aa81b71c1a904ff0672a5895347c6943a317b3df04da0ea",
+        "full_blocks": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-06-review-comments",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 410,
+            "sha256": "772a0b311277897c785f7c44c57f20edab955a3f54b990352773a62035ddb76a"
+          }
+        ]
+      },
+      {
+        "name": "turn-07-final-handoff",
+        "description": "Final validation passes and the workflow needs a handoff decision.",
+        "tail_prompt_bytes": 768,
+        "tail_prompt_sha256": "e008dd8593d150c5c24afd9e6bf2afb508d8562d4b691ceb0d9497e4a1d3521f",
+        "tail_blocks": [
+          {
+            "name": "turn-07-final-validation",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 400,
+            "sha256": "4833bf9b4aa161498c84f0ef11264e71450b8ed50d3463c7805e97356e92774a"
+          }
+        ],
+        "full_prompt_bytes": 6126,
+        "full_prompt_sha256": "1052f89ff05771cbd887d4ddb0ff2e3f10e2c2295d0a9bcbd83813d151214c13",
+        "full_blocks": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "turn-07-final-validation",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 400,
+            "sha256": "4833bf9b4aa161498c84f0ef11264e71450b8ed50d3463c7805e97356e92774a"
+          }
+        ]
+      }
+    ],
+    "cache_key_material": {
+      "model": "gpt-oss:20b",
+      "fixture_hash": "425f7ef0481e15f076c5d681533bfc0afb6cd19e6f31d3634576eb9a5ba91297",
+      "prefix_prompt_sha256": "eebca4591c46d2b9a13e042222dffe5182becc0ad0c3ba5f81ff09a066a1b8e1",
+      "prefix_block_hashes": [
+        "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4",
+        "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff",
+        "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e",
+        "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782",
+        "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f",
+        "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653",
+        "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94",
+        "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+      ],
+      "num_ctx": null,
+      "prompt_layout": "stable blocks before scenario metadata and volatile task"
+    },
+    "cache_key_sha256": "72e91559b4dc7142d73b023ad51eac76fe47341826bf6c9b1b13fc59e991c06f",
+    "note": "Metadata scaffold only. This does not persist KV tensors."
+  },
+  "strategies": [
+    {
+      "name": "full",
+      "description": "Full prompt per scenario.",
+      "scenarios": [
+        {
+          "name": "turn-01-intake",
+          "description": "Initial user request and repo status for the CLI polish workflow.",
+          "prompt_bytes": 6028,
+          "reusable_prefix_bytes": 4724,
+          "prompt_sha256": "bddcac82c872ff7a92b9b1cbaaeeceef8ee029e08218dbddc2e0b85d4439ffb0",
+          "block_manifest": [
+            {
+              "name": "printy-bot-identity",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 586,
+              "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+            },
+            {
+              "name": "print-a-bot-runtime-contract",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 729,
+              "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+            },
+            {
+              "name": "model-routing-and-cache-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 718,
+              "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+            },
+            {
+              "name": "tool-schema-summary",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 570,
+              "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+            },
+            {
+              "name": "operating-guardrails",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 494,
+              "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+            },
+            {
+              "name": "printing-press-workflow-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 575,
+              "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+            },
+            {
+              "name": "repo-and-task-context",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 592,
+              "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+            },
+            {
+              "name": "benchmark-instructions",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 460,
+              "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+            },
+            {
+              "name": "turn-01-user-request",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 314,
+              "sha256": "46a7e50f0618949ca9753ebe4f119ed963673fde61cabdfff67a0d51e05df0db"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1172.1392999752425,
+              "total_duration": 1150152600,
+              "load_duration": 249907900,
+              "prompt_eval_count": 1324,
+              "prompt_eval_duration": 445918300,
+              "eval_count": 8,
+              "eval_duration": 446869100,
+              "prompt_eval_tokens_per_second": 2969.1537665083492,
+              "eval_tokens_per_second": 17.90233426298663,
+              "response_excerpt": "",
+              "context_length": 1332
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1150152600.0,
+            "total_duration_min": 1150152600.0,
+            "total_duration_max": 1150152600.0,
+            "load_duration_mean": 249907900.0,
+            "load_duration_min": 249907900.0,
+            "load_duration_max": 249907900.0,
+            "prompt_eval_duration_mean": 445918300.0,
+            "prompt_eval_duration_min": 445918300.0,
+            "prompt_eval_duration_max": 445918300.0,
+            "eval_duration_mean": 446869100.0,
+            "eval_duration_min": 446869100.0,
+            "eval_duration_max": 446869100.0,
+            "prompt_eval_count_mean": 1324.0,
+            "prompt_eval_count_min": 1324.0,
+            "prompt_eval_count_max": 1324.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-02-inspect",
+          "description": "Inspection output shows likely CLI polish issues without test failure yet.",
+          "prompt_bytes": 6085,
+          "reusable_prefix_bytes": 4724,
+          "prompt_sha256": "3af28acc40366667e44c7fb955a711a482652768bba4879f4f855a7de33db8e4",
+          "block_manifest": [
+            {
+              "name": "printy-bot-identity",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 586,
+              "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+            },
+            {
+              "name": "print-a-bot-runtime-contract",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 729,
+              "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+            },
+            {
+              "name": "model-routing-and-cache-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 718,
+              "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+            },
+            {
+              "name": "tool-schema-summary",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 570,
+              "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+            },
+            {
+              "name": "operating-guardrails",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 494,
+              "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+            },
+            {
+              "name": "printing-press-workflow-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 575,
+              "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+            },
+            {
+              "name": "repo-and-task-context",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 592,
+              "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+            },
+            {
+              "name": "benchmark-instructions",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 460,
+              "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+            },
+            {
+              "name": "turn-02-inspect-and-plan",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 381,
+              "sha256": "56591ebfaa9ad41ce0f24f4df1a2e06acb06c6250b412f7ae85fd969b2e4132c"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1175.6020999746397,
+              "total_duration": 1170469200,
+              "load_duration": 244311900,
+              "prompt_eval_count": 1354,
+              "prompt_eval_duration": 484703800,
+              "eval_count": 8,
+              "eval_duration": 436671400,
+              "prompt_eval_tokens_per_second": 2793.4586029653574,
+              "eval_tokens_per_second": 18.320412099349763,
+              "response_excerpt": "",
+              "context_length": 1362
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1170469200.0,
+            "total_duration_min": 1170469200.0,
+            "total_duration_max": 1170469200.0,
+            "load_duration_mean": 244311900.0,
+            "load_duration_min": 244311900.0,
+            "load_duration_max": 244311900.0,
+            "prompt_eval_duration_mean": 484703800.0,
+            "prompt_eval_duration_min": 484703800.0,
+            "prompt_eval_duration_max": 484703800.0,
+            "eval_duration_mean": 436671400.0,
+            "eval_duration_min": 436671400.0,
+            "eval_duration_max": 436671400.0,
+            "prompt_eval_count_mean": 1354.0,
+            "prompt_eval_count_min": 1354.0,
+            "prompt_eval_count_max": 1354.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-03-verify-failure",
+          "description": "Verify fails from ranking and README/example mismatch.",
+          "prompt_bytes": 6063,
+          "reusable_prefix_bytes": 4724,
+          "prompt_sha256": "be78a37a5e364906bec752f6ee4caad62c51998079d375bf9bcd39cf65ac2902",
+          "block_manifest": [
+            {
+              "name": "printy-bot-identity",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 586,
+              "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+            },
+            {
+              "name": "print-a-bot-runtime-contract",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 729,
+              "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+            },
+            {
+              "name": "model-routing-and-cache-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 718,
+              "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+            },
+            {
+              "name": "tool-schema-summary",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 570,
+              "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+            },
+            {
+              "name": "operating-guardrails",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 494,
+              "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+            },
+            {
+              "name": "printing-press-workflow-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 575,
+              "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+            },
+            {
+              "name": "repo-and-task-context",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 592,
+              "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+            },
+            {
+              "name": "benchmark-instructions",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 460,
+              "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+            },
+            {
+              "name": "turn-03-verify-failure",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 343,
+              "sha256": "72397c639ff15017f7ee90e61c3192be8ddf53e0630e4c853ae76dd19cc119d4"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1215.5186000163667,
+              "total_duration": 1208774300,
+              "load_duration": 269950400,
+              "prompt_eval_count": 1336,
+              "prompt_eval_duration": 459973200,
+              "eval_count": 8,
+              "eval_duration": 473431300,
+              "prompt_eval_tokens_per_second": 2904.5170457757104,
+              "eval_tokens_per_second": 16.89791105911248,
+              "response_excerpt": "",
+              "context_length": 1344
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1208774300.0,
+            "total_duration_min": 1208774300.0,
+            "total_duration_max": 1208774300.0,
+            "load_duration_mean": 269950400.0,
+            "load_duration_min": 269950400.0,
+            "load_duration_max": 269950400.0,
+            "prompt_eval_duration_mean": 459973200.0,
+            "prompt_eval_duration_min": 459973200.0,
+            "prompt_eval_duration_max": 459973200.0,
+            "eval_duration_mean": 473431300.0,
+            "eval_duration_min": 473431300.0,
+            "eval_duration_max": 473431300.0,
+            "prompt_eval_count_mean": 1336.0,
+            "prompt_eval_count_min": 1336.0,
+            "prompt_eval_count_max": 1336.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-04-patch-state",
+          "description": "Patch has been applied and needs validation.",
+          "prompt_bytes": 6161,
+          "reusable_prefix_bytes": 4724,
+          "prompt_sha256": "a12ca105b7ef8418e0ad298110fb0a1d6d6be97927fe8546e0f4e50aa64cd111",
+          "block_manifest": [
+            {
+              "name": "printy-bot-identity",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 586,
+              "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+            },
+            {
+              "name": "print-a-bot-runtime-contract",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 729,
+              "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+            },
+            {
+              "name": "model-routing-and-cache-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 718,
+              "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+            },
+            {
+              "name": "tool-schema-summary",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 570,
+              "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+            },
+            {
+              "name": "operating-guardrails",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 494,
+              "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+            },
+            {
+              "name": "printing-press-workflow-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 575,
+              "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+            },
+            {
+              "name": "repo-and-task-context",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 592,
+              "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+            },
+            {
+              "name": "benchmark-instructions",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 460,
+              "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+            },
+            {
+              "name": "turn-04-patch-applied",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 446,
+              "sha256": "c335a72855ada71bb8c10097c8712bfc80d5daa22e1e7e8f623d1398880aca7b"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1209.5922000007704,
+              "total_duration": 1189675200,
+              "load_duration": 233907400,
+              "prompt_eval_count": 1347,
+              "prompt_eval_duration": 506154400,
+              "eval_count": 8,
+              "eval_duration": 444174900,
+              "prompt_eval_tokens_per_second": 2661.2432886091674,
+              "eval_tokens_per_second": 18.010923174632335,
+              "response_excerpt": "",
+              "context_length": 1355
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1189675200.0,
+            "total_duration_min": 1189675200.0,
+            "total_duration_max": 1189675200.0,
+            "load_duration_mean": 233907400.0,
+            "load_duration_min": 233907400.0,
+            "load_duration_max": 233907400.0,
+            "prompt_eval_duration_mean": 506154400.0,
+            "prompt_eval_duration_min": 506154400.0,
+            "prompt_eval_duration_max": 506154400.0,
+            "eval_duration_mean": 444174900.0,
+            "eval_duration_min": 444174900.0,
+            "eval_duration_max": 444174900.0,
+            "prompt_eval_count_mean": 1347.0,
+            "prompt_eval_count_min": 1347.0,
+            "prompt_eval_count_max": 1347.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-05-test-and-vet-failure",
+          "description": "Tests and vet fail after the first patch.",
+          "prompt_bytes": 6039,
+          "reusable_prefix_bytes": 4724,
+          "prompt_sha256": "c3bf3e76251960e117b39609a9622a214c45bd1f09f613e5b44d9deca7ee3b8b",
+          "block_manifest": [
+            {
+              "name": "printy-bot-identity",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 586,
+              "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+            },
+            {
+              "name": "print-a-bot-runtime-contract",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 729,
+              "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+            },
+            {
+              "name": "model-routing-and-cache-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 718,
+              "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+            },
+            {
+              "name": "tool-schema-summary",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 570,
+              "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+            },
+            {
+              "name": "operating-guardrails",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 494,
+              "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+            },
+            {
+              "name": "printing-press-workflow-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 575,
+              "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+            },
+            {
+              "name": "repo-and-task-context",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 592,
+              "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+            },
+            {
+              "name": "benchmark-instructions",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 460,
+              "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+            },
+            {
+              "name": "turn-05-second-failure",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 315,
+              "sha256": "56dea3bc596d5ab2aeb63bbc1fe23f2305b60e65a34defb420e4cef697799ffe"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1142.3670999938622,
+              "total_duration": 1135319400,
+              "load_duration": 258415800,
+              "prompt_eval_count": 1335,
+              "prompt_eval_duration": 436462100,
+              "eval_count": 8,
+              "eval_duration": 434962400,
+              "prompt_eval_tokens_per_second": 3058.6848205147708,
+              "eval_tokens_per_second": 18.392394377077192,
+              "response_excerpt": "",
+              "context_length": 1343
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1135319400.0,
+            "total_duration_min": 1135319400.0,
+            "total_duration_max": 1135319400.0,
+            "load_duration_mean": 258415800.0,
+            "load_duration_min": 258415800.0,
+            "load_duration_max": 258415800.0,
+            "prompt_eval_duration_mean": 436462100.0,
+            "prompt_eval_duration_min": 436462100.0,
+            "prompt_eval_duration_max": 436462100.0,
+            "eval_duration_mean": 434962400.0,
+            "eval_duration_min": 434962400.0,
+            "eval_duration_max": 434962400.0,
+            "prompt_eval_count_mean": 1335.0,
+            "prompt_eval_count_min": 1335.0,
+            "prompt_eval_count_max": 1335.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-06-review-feedback",
+          "description": "Review comments and CI state require a second fix loop.",
+          "prompt_bytes": 6124,
+          "reusable_prefix_bytes": 4724,
+          "prompt_sha256": "8a7cb6cb153afe413aa81b71c1a904ff0672a5895347c6943a317b3df04da0ea",
+          "block_manifest": [
+            {
+              "name": "printy-bot-identity",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 586,
+              "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+            },
+            {
+              "name": "print-a-bot-runtime-contract",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 729,
+              "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+            },
+            {
+              "name": "model-routing-and-cache-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 718,
+              "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+            },
+            {
+              "name": "tool-schema-summary",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 570,
+              "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+            },
+            {
+              "name": "operating-guardrails",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 494,
+              "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+            },
+            {
+              "name": "printing-press-workflow-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 575,
+              "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+            },
+            {
+              "name": "repo-and-task-context",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 592,
+              "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+            },
+            {
+              "name": "benchmark-instructions",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 460,
+              "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+            },
+            {
+              "name": "turn-06-review-comments",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 410,
+              "sha256": "772a0b311277897c785f7c44c57f20edab955a3f54b990352773a62035ddb76a"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1118.1794999865815,
+              "total_duration": 1104578400,
+              "load_duration": 224806300,
+              "prompt_eval_count": 1334,
+              "prompt_eval_duration": 435877400,
+              "eval_count": 8,
+              "eval_duration": 437897400,
+              "prompt_eval_tokens_per_second": 3060.4936158653786,
+              "eval_tokens_per_second": 18.269119661363597,
+              "response_excerpt": "",
+              "context_length": 1342
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1104578400.0,
+            "total_duration_min": 1104578400.0,
+            "total_duration_max": 1104578400.0,
+            "load_duration_mean": 224806300.0,
+            "load_duration_min": 224806300.0,
+            "load_duration_max": 224806300.0,
+            "prompt_eval_duration_mean": 435877400.0,
+            "prompt_eval_duration_min": 435877400.0,
+            "prompt_eval_duration_max": 435877400.0,
+            "eval_duration_mean": 437897400.0,
+            "eval_duration_min": 437897400.0,
+            "eval_duration_max": 437897400.0,
+            "prompt_eval_count_mean": 1334.0,
+            "prompt_eval_count_min": 1334.0,
+            "prompt_eval_count_max": 1334.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-07-final-handoff",
+          "description": "Final validation passes and the workflow needs a handoff decision.",
+          "prompt_bytes": 6126,
+          "reusable_prefix_bytes": 4724,
+          "prompt_sha256": "1052f89ff05771cbd887d4ddb0ff2e3f10e2c2295d0a9bcbd83813d151214c13",
+          "block_manifest": [
+            {
+              "name": "printy-bot-identity",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 586,
+              "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+            },
+            {
+              "name": "print-a-bot-runtime-contract",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 729,
+              "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+            },
+            {
+              "name": "model-routing-and-cache-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 718,
+              "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+            },
+            {
+              "name": "tool-schema-summary",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 570,
+              "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+            },
+            {
+              "name": "operating-guardrails",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 494,
+              "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+            },
+            {
+              "name": "printing-press-workflow-rules",
+              "tier": "stable",
+              "cache_policy": "prefix-kv-candidate",
+              "bytes": 575,
+              "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+            },
+            {
+              "name": "repo-and-task-context",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 592,
+              "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+            },
+            {
+              "name": "benchmark-instructions",
+              "tier": "semi-stable",
+              "cache_policy": "prefix-cache-candidate",
+              "bytes": 460,
+              "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+            },
+            {
+              "name": "turn-07-final-validation",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 400,
+              "sha256": "4833bf9b4aa161498c84f0ef11264e71450b8ed50d3463c7805e97356e92774a"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1166.018099989742,
+              "total_duration": 1158459300,
+              "load_duration": 236021300,
+              "prompt_eval_count": 1355,
+              "prompt_eval_duration": 483562000,
+              "eval_count": 8,
+              "eval_duration": 433264500,
+              "prompt_eval_tokens_per_second": 2802.1225820060304,
+              "eval_tokens_per_second": 18.464471471814562,
+              "response_excerpt": "",
+              "context_length": 1363
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1158459300.0,
+            "total_duration_min": 1158459300.0,
+            "total_duration_max": 1158459300.0,
+            "load_duration_mean": 236021300.0,
+            "load_duration_min": 236021300.0,
+            "load_duration_max": 236021300.0,
+            "prompt_eval_duration_mean": 483562000.0,
+            "prompt_eval_duration_min": 483562000.0,
+            "prompt_eval_duration_max": 483562000.0,
+            "eval_duration_mean": 433264500.0,
+            "eval_duration_min": 433264500.0,
+            "eval_duration_max": 433264500.0,
+            "prompt_eval_count_mean": 1355.0,
+            "prompt_eval_count_min": 1355.0,
+            "prompt_eval_count_max": 1355.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        }
+      ],
+      "summary": {
+        "run_count": 7,
+        "prompt_eval_duration_sum": 3252651200,
+        "total_duration_sum": 8117428400,
+        "load_duration_sum": 1717321000
+      }
+    },
+    {
+      "name": "prefix-context",
+      "description": "Prime common reusable blocks once, then run changed tails with Ollama context.",
+      "proxy_note": "Ollama generate context reuse is deprecated API behavior and is not persistent SSD-backed KV cache.",
+      "prefix_block_names": [
+        "printy-bot-identity",
+        "print-a-bot-runtime-contract",
+        "model-routing-and-cache-rules",
+        "tool-schema-summary",
+        "operating-guardrails",
+        "printing-press-workflow-rules",
+        "repo-and-task-context",
+        "benchmark-instructions"
+      ],
+      "prefix_prompt_bytes": 5627,
+      "prefix_prompt_sha256": "eebca4591c46d2b9a13e042222dffe5182becc0ad0c3ba5f81ff09a066a1b8e1",
+      "prefix_block_manifest": [
+        {
+          "name": "printy-bot-identity",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 586,
+          "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+        },
+        {
+          "name": "print-a-bot-runtime-contract",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 729,
+          "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+        },
+        {
+          "name": "model-routing-and-cache-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 718,
+          "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+        },
+        {
+          "name": "tool-schema-summary",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 570,
+          "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+        },
+        {
+          "name": "operating-guardrails",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 494,
+          "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+        },
+        {
+          "name": "printing-press-workflow-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 575,
+          "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+        },
+        {
+          "name": "repo-and-task-context",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 592,
+          "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+        },
+        {
+          "name": "benchmark-instructions",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 460,
+          "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+        }
+      ],
+      "prime": {
+        "prompt_bytes": 5627,
+        "run": {
+          "run_index": 1,
+          "wall_duration_ms": 1736.545300052967,
+          "total_duration": 1729515400,
+          "load_duration": 233757800,
+          "prompt_eval_count": 1227,
+          "prompt_eval_duration": 1489769500,
+          "eval_count": 1,
+          "eval_duration": null,
+          "prompt_eval_tokens_per_second": 823.6173448308615,
+          "eval_tokens_per_second": null,
+          "response_excerpt": "",
+          "context_length": 1228
+        }
+      },
+      "scenarios": [
+        {
+          "name": "turn-01-intake",
+          "description": "Initial user request and repo status for the CLI polish workflow.",
+          "tail_prompt_bytes": 670,
+          "tail_prompt_sha256": "27db604ca4ce4903e91b85cb961084b51b6daf436ca75516bdb2b37c563b0f38",
+          "tail_block_manifest": [
+            {
+              "name": "turn-01-user-request",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 314,
+              "sha256": "46a7e50f0618949ca9753ebe4f119ed963673fde61cabdfff67a0d51e05df0db"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1178.9384000003338,
+              "total_duration": 1168740800,
+              "load_duration": 276570400,
+              "prompt_eval_count": 1450,
+              "prompt_eval_duration": 450373800,
+              "eval_count": 8,
+              "eval_duration": 436892800,
+              "prompt_eval_tokens_per_second": 3219.5478511405413,
+              "eval_tokens_per_second": 18.3111280387317,
+              "response_excerpt": "",
+              "context_length": 1458
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1168740800.0,
+            "total_duration_min": 1168740800.0,
+            "total_duration_max": 1168740800.0,
+            "load_duration_mean": 276570400.0,
+            "load_duration_min": 276570400.0,
+            "load_duration_max": 276570400.0,
+            "prompt_eval_duration_mean": 450373800.0,
+            "prompt_eval_duration_min": 450373800.0,
+            "prompt_eval_duration_max": 450373800.0,
+            "eval_duration_mean": 436892800.0,
+            "eval_duration_min": 436892800.0,
+            "eval_duration_max": 436892800.0,
+            "prompt_eval_count_mean": 1450.0,
+            "prompt_eval_count_min": 1450.0,
+            "prompt_eval_count_max": 1450.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-02-inspect",
+          "description": "Inspection output shows likely CLI polish issues without test failure yet.",
+          "tail_prompt_bytes": 727,
+          "tail_prompt_sha256": "446cf53bda7fd86197fcf98b46886156b42b9ed3a030fd961b8f2f856d528171",
+          "tail_block_manifest": [
+            {
+              "name": "turn-02-inspect-and-plan",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 381,
+              "sha256": "56591ebfaa9ad41ce0f24f4df1a2e06acb06c6250b412f7ae85fd969b2e4132c"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1227.2690999670886,
+              "total_duration": 1217655400,
+              "load_duration": 246444400,
+              "prompt_eval_count": 1480,
+              "prompt_eval_duration": 525403800,
+              "eval_count": 8,
+              "eval_duration": 434931400,
+              "prompt_eval_tokens_per_second": 2816.881035120035,
+              "eval_tokens_per_second": 18.393705306170123,
+              "response_excerpt": "",
+              "context_length": 1488
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1217655400.0,
+            "total_duration_min": 1217655400.0,
+            "total_duration_max": 1217655400.0,
+            "load_duration_mean": 246444400.0,
+            "load_duration_min": 246444400.0,
+            "load_duration_max": 246444400.0,
+            "prompt_eval_duration_mean": 525403800.0,
+            "prompt_eval_duration_min": 525403800.0,
+            "prompt_eval_duration_max": 525403800.0,
+            "eval_duration_mean": 434931400.0,
+            "eval_duration_min": 434931400.0,
+            "eval_duration_max": 434931400.0,
+            "prompt_eval_count_mean": 1480.0,
+            "prompt_eval_count_min": 1480.0,
+            "prompt_eval_count_max": 1480.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-03-verify-failure",
+          "description": "Verify fails from ranking and README/example mismatch.",
+          "tail_prompt_bytes": 705,
+          "tail_prompt_sha256": "9eecea6917a37cc5c309aabd4e930fe0a7072074dbf61b8a4c25c4971fc3ab33",
+          "tail_block_manifest": [
+            {
+              "name": "turn-03-verify-failure",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 343,
+              "sha256": "72397c639ff15017f7ee90e61c3192be8ddf53e0630e4c853ae76dd19cc119d4"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1111.7573999799788,
+              "total_duration": 1101411600,
+              "load_duration": 217253800,
+              "prompt_eval_count": 1462,
+              "prompt_eval_duration": 442728600,
+              "eval_count": 8,
+              "eval_duration": 436291600,
+              "prompt_eval_tokens_per_second": 3302.2488269337014,
+              "eval_tokens_per_second": 18.336360360822898,
+              "response_excerpt": "",
+              "context_length": 1470
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1101411600.0,
+            "total_duration_min": 1101411600.0,
+            "total_duration_max": 1101411600.0,
+            "load_duration_mean": 217253800.0,
+            "load_duration_min": 217253800.0,
+            "load_duration_max": 217253800.0,
+            "prompt_eval_duration_mean": 442728600.0,
+            "prompt_eval_duration_min": 442728600.0,
+            "prompt_eval_duration_max": 442728600.0,
+            "eval_duration_mean": 436291600.0,
+            "eval_duration_min": 436291600.0,
+            "eval_duration_max": 436291600.0,
+            "prompt_eval_count_mean": 1462.0,
+            "prompt_eval_count_min": 1462.0,
+            "prompt_eval_count_max": 1462.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-04-patch-state",
+          "description": "Patch has been applied and needs validation.",
+          "tail_prompt_bytes": 803,
+          "tail_prompt_sha256": "557dad184f3e9547dbed5331e687e10e177bc697f79141ea2241ba150410cd4c",
+          "tail_block_manifest": [
+            {
+              "name": "turn-04-patch-applied",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 446,
+              "sha256": "c335a72855ada71bb8c10097c8712bfc80d5daa22e1e7e8f623d1398880aca7b"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1264.710599964019,
+              "total_duration": 1256066200,
+              "load_duration": 292629900,
+              "prompt_eval_count": 1473,
+              "prompt_eval_duration": 499584600,
+              "eval_count": 8,
+              "eval_duration": 459196600,
+              "prompt_eval_tokens_per_second": 2948.449571904338,
+              "eval_tokens_per_second": 17.421731781115106,
+              "response_excerpt": "",
+              "context_length": 1481
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1256066200.0,
+            "total_duration_min": 1256066200.0,
+            "total_duration_max": 1256066200.0,
+            "load_duration_mean": 292629900.0,
+            "load_duration_min": 292629900.0,
+            "load_duration_max": 292629900.0,
+            "prompt_eval_duration_mean": 499584600.0,
+            "prompt_eval_duration_min": 499584600.0,
+            "prompt_eval_duration_max": 499584600.0,
+            "eval_duration_mean": 459196600.0,
+            "eval_duration_min": 459196600.0,
+            "eval_duration_max": 459196600.0,
+            "prompt_eval_count_mean": 1473.0,
+            "prompt_eval_count_min": 1473.0,
+            "prompt_eval_count_max": 1473.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-05-test-and-vet-failure",
+          "description": "Tests and vet fail after the first patch.",
+          "tail_prompt_bytes": 681,
+          "tail_prompt_sha256": "b2c3d2951518f451c04ad10e340773b449314a13072d2fde47a51e360774e0e3",
+          "tail_block_manifest": [
+            {
+              "name": "turn-05-second-failure",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 315,
+              "sha256": "56dea3bc596d5ab2aeb63bbc1fe23f2305b60e65a34defb420e4cef697799ffe"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1222.7728000143543,
+              "total_duration": 1208117800,
+              "load_duration": 281254600,
+              "prompt_eval_count": 1461,
+              "prompt_eval_duration": 463647600,
+              "eval_count": 8,
+              "eval_duration": 455975400,
+              "prompt_eval_tokens_per_second": 3151.100102750451,
+              "eval_tokens_per_second": 17.5448061452438,
+              "response_excerpt": "",
+              "context_length": 1469
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1208117800.0,
+            "total_duration_min": 1208117800.0,
+            "total_duration_max": 1208117800.0,
+            "load_duration_mean": 281254600.0,
+            "load_duration_min": 281254600.0,
+            "load_duration_max": 281254600.0,
+            "prompt_eval_duration_mean": 463647600.0,
+            "prompt_eval_duration_min": 463647600.0,
+            "prompt_eval_duration_max": 463647600.0,
+            "eval_duration_mean": 455975400.0,
+            "eval_duration_min": 455975400.0,
+            "eval_duration_max": 455975400.0,
+            "prompt_eval_count_mean": 1461.0,
+            "prompt_eval_count_min": 1461.0,
+            "prompt_eval_count_max": 1461.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-06-review-feedback",
+          "description": "Review comments and CI state require a second fix loop.",
+          "tail_prompt_bytes": 766,
+          "tail_prompt_sha256": "b69f2e81520515f1d37c2b0fb0157228d5c5e5a7c197c2dbcce72e6937f0ef9e",
+          "tail_block_manifest": [
+            {
+              "name": "turn-06-review-comments",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 410,
+              "sha256": "772a0b311277897c785f7c44c57f20edab955a3f54b990352773a62035ddb76a"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1223.4092999715358,
+              "total_duration": 1213508800,
+              "load_duration": 245240200,
+              "prompt_eval_count": 1460,
+              "prompt_eval_duration": 502636100,
+              "eval_count": 8,
+              "eval_duration": 460359100,
+              "prompt_eval_tokens_per_second": 2904.6859149193624,
+              "eval_tokens_per_second": 17.377738378583153,
+              "response_excerpt": "",
+              "context_length": 1468
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1213508800.0,
+            "total_duration_min": 1213508800.0,
+            "total_duration_max": 1213508800.0,
+            "load_duration_mean": 245240200.0,
+            "load_duration_min": 245240200.0,
+            "load_duration_max": 245240200.0,
+            "prompt_eval_duration_mean": 502636100.0,
+            "prompt_eval_duration_min": 502636100.0,
+            "prompt_eval_duration_max": 502636100.0,
+            "eval_duration_mean": 460359100.0,
+            "eval_duration_min": 460359100.0,
+            "eval_duration_max": 460359100.0,
+            "prompt_eval_count_mean": 1460.0,
+            "prompt_eval_count_min": 1460.0,
+            "prompt_eval_count_max": 1460.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        },
+        {
+          "name": "turn-07-final-handoff",
+          "description": "Final validation passes and the workflow needs a handoff decision.",
+          "tail_prompt_bytes": 768,
+          "tail_prompt_sha256": "e008dd8593d150c5c24afd9e6bf2afb508d8562d4b691ceb0d9497e4a1d3521f",
+          "tail_block_manifest": [
+            {
+              "name": "turn-07-final-validation",
+              "tier": "volatile",
+              "cache_policy": "do-not-cache-blindly",
+              "bytes": 400,
+              "sha256": "4833bf9b4aa161498c84f0ef11264e71450b8ed50d3463c7805e97356e92774a"
+            }
+          ],
+          "runs": [
+            {
+              "run_index": 1,
+              "wall_duration_ms": 1125.6616999744438,
+              "total_duration": 1106260400,
+              "load_duration": 209392400,
+              "prompt_eval_count": 1481,
+              "prompt_eval_duration": 452100000,
+              "eval_count": 8,
+              "eval_duration": 439210000,
+              "prompt_eval_tokens_per_second": 3275.823932758239,
+              "eval_tokens_per_second": 18.21452152728763,
+              "response_excerpt": "",
+              "context_length": 1489
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "total_duration_mean": 1106260400.0,
+            "total_duration_min": 1106260400.0,
+            "total_duration_max": 1106260400.0,
+            "load_duration_mean": 209392400.0,
+            "load_duration_min": 209392400.0,
+            "load_duration_max": 209392400.0,
+            "prompt_eval_duration_mean": 452100000.0,
+            "prompt_eval_duration_min": 452100000.0,
+            "prompt_eval_duration_max": 452100000.0,
+            "eval_duration_mean": 439210000.0,
+            "eval_duration_min": 439210000.0,
+            "eval_duration_max": 439210000.0,
+            "prompt_eval_count_mean": 1481.0,
+            "prompt_eval_count_min": 1481.0,
+            "prompt_eval_count_max": 1481.0,
+            "eval_count_mean": 8.0,
+            "eval_count_min": 8.0,
+            "eval_count_max": 8.0
+          }
+        }
+      ],
+      "summary": {
+        "tail_run_count": 7,
+        "prime_prompt_eval_duration": 1489769500,
+        "tail_prompt_eval_duration_sum": 3336474500,
+        "prompt_eval_duration_sum": 4826244000,
+        "amortized_prompt_eval_duration": 689463428.5714285,
+        "proxy_note": "Ollama generate context reuse is deprecated API behavior and is not persistent SSD-backed KV cache."
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "turn-01-intake",
+      "description": "Initial user request and repo status for the CLI polish workflow.",
+      "prompt_bytes": 6028,
+      "reusable_prefix_bytes": 4724,
+      "prompt_sha256": "bddcac82c872ff7a92b9b1cbaaeeceef8ee029e08218dbddc2e0b85d4439ffb0",
+      "block_manifest": [
+        {
+          "name": "printy-bot-identity",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 586,
+          "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+        },
+        {
+          "name": "print-a-bot-runtime-contract",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 729,
+          "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+        },
+        {
+          "name": "model-routing-and-cache-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 718,
+          "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+        },
+        {
+          "name": "tool-schema-summary",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 570,
+          "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+        },
+        {
+          "name": "operating-guardrails",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 494,
+          "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+        },
+        {
+          "name": "printing-press-workflow-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 575,
+          "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+        },
+        {
+          "name": "repo-and-task-context",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 592,
+          "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+        },
+        {
+          "name": "benchmark-instructions",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 460,
+          "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+        },
+        {
+          "name": "turn-01-user-request",
+          "tier": "volatile",
+          "cache_policy": "do-not-cache-blindly",
+          "bytes": 314,
+          "sha256": "46a7e50f0618949ca9753ebe4f119ed963673fde61cabdfff67a0d51e05df0db"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "wall_duration_ms": 1172.1392999752425,
+          "total_duration": 1150152600,
+          "load_duration": 249907900,
+          "prompt_eval_count": 1324,
+          "prompt_eval_duration": 445918300,
+          "eval_count": 8,
+          "eval_duration": 446869100,
+          "prompt_eval_tokens_per_second": 2969.1537665083492,
+          "eval_tokens_per_second": 17.90233426298663,
+          "response_excerpt": "",
+          "context_length": 1332
+        }
+      ],
+      "summary": {
+        "run_count": 1,
+        "total_duration_mean": 1150152600.0,
+        "total_duration_min": 1150152600.0,
+        "total_duration_max": 1150152600.0,
+        "load_duration_mean": 249907900.0,
+        "load_duration_min": 249907900.0,
+        "load_duration_max": 249907900.0,
+        "prompt_eval_duration_mean": 445918300.0,
+        "prompt_eval_duration_min": 445918300.0,
+        "prompt_eval_duration_max": 445918300.0,
+        "eval_duration_mean": 446869100.0,
+        "eval_duration_min": 446869100.0,
+        "eval_duration_max": 446869100.0,
+        "prompt_eval_count_mean": 1324.0,
+        "prompt_eval_count_min": 1324.0,
+        "prompt_eval_count_max": 1324.0,
+        "eval_count_mean": 8.0,
+        "eval_count_min": 8.0,
+        "eval_count_max": 8.0
+      }
+    },
+    {
+      "name": "turn-02-inspect",
+      "description": "Inspection output shows likely CLI polish issues without test failure yet.",
+      "prompt_bytes": 6085,
+      "reusable_prefix_bytes": 4724,
+      "prompt_sha256": "3af28acc40366667e44c7fb955a711a482652768bba4879f4f855a7de33db8e4",
+      "block_manifest": [
+        {
+          "name": "printy-bot-identity",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 586,
+          "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+        },
+        {
+          "name": "print-a-bot-runtime-contract",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 729,
+          "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+        },
+        {
+          "name": "model-routing-and-cache-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 718,
+          "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+        },
+        {
+          "name": "tool-schema-summary",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 570,
+          "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+        },
+        {
+          "name": "operating-guardrails",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 494,
+          "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+        },
+        {
+          "name": "printing-press-workflow-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 575,
+          "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+        },
+        {
+          "name": "repo-and-task-context",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 592,
+          "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+        },
+        {
+          "name": "benchmark-instructions",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 460,
+          "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+        },
+        {
+          "name": "turn-02-inspect-and-plan",
+          "tier": "volatile",
+          "cache_policy": "do-not-cache-blindly",
+          "bytes": 381,
+          "sha256": "56591ebfaa9ad41ce0f24f4df1a2e06acb06c6250b412f7ae85fd969b2e4132c"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "wall_duration_ms": 1175.6020999746397,
+          "total_duration": 1170469200,
+          "load_duration": 244311900,
+          "prompt_eval_count": 1354,
+          "prompt_eval_duration": 484703800,
+          "eval_count": 8,
+          "eval_duration": 436671400,
+          "prompt_eval_tokens_per_second": 2793.4586029653574,
+          "eval_tokens_per_second": 18.320412099349763,
+          "response_excerpt": "",
+          "context_length": 1362
+        }
+      ],
+      "summary": {
+        "run_count": 1,
+        "total_duration_mean": 1170469200.0,
+        "total_duration_min": 1170469200.0,
+        "total_duration_max": 1170469200.0,
+        "load_duration_mean": 244311900.0,
+        "load_duration_min": 244311900.0,
+        "load_duration_max": 244311900.0,
+        "prompt_eval_duration_mean": 484703800.0,
+        "prompt_eval_duration_min": 484703800.0,
+        "prompt_eval_duration_max": 484703800.0,
+        "eval_duration_mean": 436671400.0,
+        "eval_duration_min": 436671400.0,
+        "eval_duration_max": 436671400.0,
+        "prompt_eval_count_mean": 1354.0,
+        "prompt_eval_count_min": 1354.0,
+        "prompt_eval_count_max": 1354.0,
+        "eval_count_mean": 8.0,
+        "eval_count_min": 8.0,
+        "eval_count_max": 8.0
+      }
+    },
+    {
+      "name": "turn-03-verify-failure",
+      "description": "Verify fails from ranking and README/example mismatch.",
+      "prompt_bytes": 6063,
+      "reusable_prefix_bytes": 4724,
+      "prompt_sha256": "be78a37a5e364906bec752f6ee4caad62c51998079d375bf9bcd39cf65ac2902",
+      "block_manifest": [
+        {
+          "name": "printy-bot-identity",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 586,
+          "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+        },
+        {
+          "name": "print-a-bot-runtime-contract",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 729,
+          "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+        },
+        {
+          "name": "model-routing-and-cache-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 718,
+          "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+        },
+        {
+          "name": "tool-schema-summary",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 570,
+          "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+        },
+        {
+          "name": "operating-guardrails",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 494,
+          "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+        },
+        {
+          "name": "printing-press-workflow-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 575,
+          "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+        },
+        {
+          "name": "repo-and-task-context",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 592,
+          "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+        },
+        {
+          "name": "benchmark-instructions",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 460,
+          "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+        },
+        {
+          "name": "turn-03-verify-failure",
+          "tier": "volatile",
+          "cache_policy": "do-not-cache-blindly",
+          "bytes": 343,
+          "sha256": "72397c639ff15017f7ee90e61c3192be8ddf53e0630e4c853ae76dd19cc119d4"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "wall_duration_ms": 1215.5186000163667,
+          "total_duration": 1208774300,
+          "load_duration": 269950400,
+          "prompt_eval_count": 1336,
+          "prompt_eval_duration": 459973200,
+          "eval_count": 8,
+          "eval_duration": 473431300,
+          "prompt_eval_tokens_per_second": 2904.5170457757104,
+          "eval_tokens_per_second": 16.89791105911248,
+          "response_excerpt": "",
+          "context_length": 1344
+        }
+      ],
+      "summary": {
+        "run_count": 1,
+        "total_duration_mean": 1208774300.0,
+        "total_duration_min": 1208774300.0,
+        "total_duration_max": 1208774300.0,
+        "load_duration_mean": 269950400.0,
+        "load_duration_min": 269950400.0,
+        "load_duration_max": 269950400.0,
+        "prompt_eval_duration_mean": 459973200.0,
+        "prompt_eval_duration_min": 459973200.0,
+        "prompt_eval_duration_max": 459973200.0,
+        "eval_duration_mean": 473431300.0,
+        "eval_duration_min": 473431300.0,
+        "eval_duration_max": 473431300.0,
+        "prompt_eval_count_mean": 1336.0,
+        "prompt_eval_count_min": 1336.0,
+        "prompt_eval_count_max": 1336.0,
+        "eval_count_mean": 8.0,
+        "eval_count_min": 8.0,
+        "eval_count_max": 8.0
+      }
+    },
+    {
+      "name": "turn-04-patch-state",
+      "description": "Patch has been applied and needs validation.",
+      "prompt_bytes": 6161,
+      "reusable_prefix_bytes": 4724,
+      "prompt_sha256": "a12ca105b7ef8418e0ad298110fb0a1d6d6be97927fe8546e0f4e50aa64cd111",
+      "block_manifest": [
+        {
+          "name": "printy-bot-identity",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 586,
+          "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+        },
+        {
+          "name": "print-a-bot-runtime-contract",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 729,
+          "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+        },
+        {
+          "name": "model-routing-and-cache-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 718,
+          "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+        },
+        {
+          "name": "tool-schema-summary",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 570,
+          "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+        },
+        {
+          "name": "operating-guardrails",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 494,
+          "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+        },
+        {
+          "name": "printing-press-workflow-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 575,
+          "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+        },
+        {
+          "name": "repo-and-task-context",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 592,
+          "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+        },
+        {
+          "name": "benchmark-instructions",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 460,
+          "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+        },
+        {
+          "name": "turn-04-patch-applied",
+          "tier": "volatile",
+          "cache_policy": "do-not-cache-blindly",
+          "bytes": 446,
+          "sha256": "c335a72855ada71bb8c10097c8712bfc80d5daa22e1e7e8f623d1398880aca7b"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "wall_duration_ms": 1209.5922000007704,
+          "total_duration": 1189675200,
+          "load_duration": 233907400,
+          "prompt_eval_count": 1347,
+          "prompt_eval_duration": 506154400,
+          "eval_count": 8,
+          "eval_duration": 444174900,
+          "prompt_eval_tokens_per_second": 2661.2432886091674,
+          "eval_tokens_per_second": 18.010923174632335,
+          "response_excerpt": "",
+          "context_length": 1355
+        }
+      ],
+      "summary": {
+        "run_count": 1,
+        "total_duration_mean": 1189675200.0,
+        "total_duration_min": 1189675200.0,
+        "total_duration_max": 1189675200.0,
+        "load_duration_mean": 233907400.0,
+        "load_duration_min": 233907400.0,
+        "load_duration_max": 233907400.0,
+        "prompt_eval_duration_mean": 506154400.0,
+        "prompt_eval_duration_min": 506154400.0,
+        "prompt_eval_duration_max": 506154400.0,
+        "eval_duration_mean": 444174900.0,
+        "eval_duration_min": 444174900.0,
+        "eval_duration_max": 444174900.0,
+        "prompt_eval_count_mean": 1347.0,
+        "prompt_eval_count_min": 1347.0,
+        "prompt_eval_count_max": 1347.0,
+        "eval_count_mean": 8.0,
+        "eval_count_min": 8.0,
+        "eval_count_max": 8.0
+      }
+    },
+    {
+      "name": "turn-05-test-and-vet-failure",
+      "description": "Tests and vet fail after the first patch.",
+      "prompt_bytes": 6039,
+      "reusable_prefix_bytes": 4724,
+      "prompt_sha256": "c3bf3e76251960e117b39609a9622a214c45bd1f09f613e5b44d9deca7ee3b8b",
+      "block_manifest": [
+        {
+          "name": "printy-bot-identity",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 586,
+          "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+        },
+        {
+          "name": "print-a-bot-runtime-contract",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 729,
+          "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+        },
+        {
+          "name": "model-routing-and-cache-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 718,
+          "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+        },
+        {
+          "name": "tool-schema-summary",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 570,
+          "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+        },
+        {
+          "name": "operating-guardrails",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 494,
+          "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+        },
+        {
+          "name": "printing-press-workflow-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 575,
+          "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+        },
+        {
+          "name": "repo-and-task-context",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 592,
+          "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+        },
+        {
+          "name": "benchmark-instructions",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 460,
+          "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+        },
+        {
+          "name": "turn-05-second-failure",
+          "tier": "volatile",
+          "cache_policy": "do-not-cache-blindly",
+          "bytes": 315,
+          "sha256": "56dea3bc596d5ab2aeb63bbc1fe23f2305b60e65a34defb420e4cef697799ffe"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "wall_duration_ms": 1142.3670999938622,
+          "total_duration": 1135319400,
+          "load_duration": 258415800,
+          "prompt_eval_count": 1335,
+          "prompt_eval_duration": 436462100,
+          "eval_count": 8,
+          "eval_duration": 434962400,
+          "prompt_eval_tokens_per_second": 3058.6848205147708,
+          "eval_tokens_per_second": 18.392394377077192,
+          "response_excerpt": "",
+          "context_length": 1343
+        }
+      ],
+      "summary": {
+        "run_count": 1,
+        "total_duration_mean": 1135319400.0,
+        "total_duration_min": 1135319400.0,
+        "total_duration_max": 1135319400.0,
+        "load_duration_mean": 258415800.0,
+        "load_duration_min": 258415800.0,
+        "load_duration_max": 258415800.0,
+        "prompt_eval_duration_mean": 436462100.0,
+        "prompt_eval_duration_min": 436462100.0,
+        "prompt_eval_duration_max": 436462100.0,
+        "eval_duration_mean": 434962400.0,
+        "eval_duration_min": 434962400.0,
+        "eval_duration_max": 434962400.0,
+        "prompt_eval_count_mean": 1335.0,
+        "prompt_eval_count_min": 1335.0,
+        "prompt_eval_count_max": 1335.0,
+        "eval_count_mean": 8.0,
+        "eval_count_min": 8.0,
+        "eval_count_max": 8.0
+      }
+    },
+    {
+      "name": "turn-06-review-feedback",
+      "description": "Review comments and CI state require a second fix loop.",
+      "prompt_bytes": 6124,
+      "reusable_prefix_bytes": 4724,
+      "prompt_sha256": "8a7cb6cb153afe413aa81b71c1a904ff0672a5895347c6943a317b3df04da0ea",
+      "block_manifest": [
+        {
+          "name": "printy-bot-identity",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 586,
+          "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+        },
+        {
+          "name": "print-a-bot-runtime-contract",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 729,
+          "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+        },
+        {
+          "name": "model-routing-and-cache-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 718,
+          "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+        },
+        {
+          "name": "tool-schema-summary",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 570,
+          "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+        },
+        {
+          "name": "operating-guardrails",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 494,
+          "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+        },
+        {
+          "name": "printing-press-workflow-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 575,
+          "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+        },
+        {
+          "name": "repo-and-task-context",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 592,
+          "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+        },
+        {
+          "name": "benchmark-instructions",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 460,
+          "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+        },
+        {
+          "name": "turn-06-review-comments",
+          "tier": "volatile",
+          "cache_policy": "do-not-cache-blindly",
+          "bytes": 410,
+          "sha256": "772a0b311277897c785f7c44c57f20edab955a3f54b990352773a62035ddb76a"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "wall_duration_ms": 1118.1794999865815,
+          "total_duration": 1104578400,
+          "load_duration": 224806300,
+          "prompt_eval_count": 1334,
+          "prompt_eval_duration": 435877400,
+          "eval_count": 8,
+          "eval_duration": 437897400,
+          "prompt_eval_tokens_per_second": 3060.4936158653786,
+          "eval_tokens_per_second": 18.269119661363597,
+          "response_excerpt": "",
+          "context_length": 1342
+        }
+      ],
+      "summary": {
+        "run_count": 1,
+        "total_duration_mean": 1104578400.0,
+        "total_duration_min": 1104578400.0,
+        "total_duration_max": 1104578400.0,
+        "load_duration_mean": 224806300.0,
+        "load_duration_min": 224806300.0,
+        "load_duration_max": 224806300.0,
+        "prompt_eval_duration_mean": 435877400.0,
+        "prompt_eval_duration_min": 435877400.0,
+        "prompt_eval_duration_max": 435877400.0,
+        "eval_duration_mean": 437897400.0,
+        "eval_duration_min": 437897400.0,
+        "eval_duration_max": 437897400.0,
+        "prompt_eval_count_mean": 1334.0,
+        "prompt_eval_count_min": 1334.0,
+        "prompt_eval_count_max": 1334.0,
+        "eval_count_mean": 8.0,
+        "eval_count_min": 8.0,
+        "eval_count_max": 8.0
+      }
+    },
+    {
+      "name": "turn-07-final-handoff",
+      "description": "Final validation passes and the workflow needs a handoff decision.",
+      "prompt_bytes": 6126,
+      "reusable_prefix_bytes": 4724,
+      "prompt_sha256": "1052f89ff05771cbd887d4ddb0ff2e3f10e2c2295d0a9bcbd83813d151214c13",
+      "block_manifest": [
+        {
+          "name": "printy-bot-identity",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 586,
+          "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+        },
+        {
+          "name": "print-a-bot-runtime-contract",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 729,
+          "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+        },
+        {
+          "name": "model-routing-and-cache-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 718,
+          "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+        },
+        {
+          "name": "tool-schema-summary",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 570,
+          "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+        },
+        {
+          "name": "operating-guardrails",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 494,
+          "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+        },
+        {
+          "name": "printing-press-workflow-rules",
+          "tier": "stable",
+          "cache_policy": "prefix-kv-candidate",
+          "bytes": 575,
+          "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+        },
+        {
+          "name": "repo-and-task-context",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 592,
+          "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+        },
+        {
+          "name": "benchmark-instructions",
+          "tier": "semi-stable",
+          "cache_policy": "prefix-cache-candidate",
+          "bytes": 460,
+          "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+        },
+        {
+          "name": "turn-07-final-validation",
+          "tier": "volatile",
+          "cache_policy": "do-not-cache-blindly",
+          "bytes": 400,
+          "sha256": "4833bf9b4aa161498c84f0ef11264e71450b8ed50d3463c7805e97356e92774a"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 1,
+          "wall_duration_ms": 1166.018099989742,
+          "total_duration": 1158459300,
+          "load_duration": 236021300,
+          "prompt_eval_count": 1355,
+          "prompt_eval_duration": 483562000,
+          "eval_count": 8,
+          "eval_duration": 433264500,
+          "prompt_eval_tokens_per_second": 2802.1225820060304,
+          "eval_tokens_per_second": 18.464471471814562,
+          "response_excerpt": "",
+          "context_length": 1363
+        }
+      ],
+      "summary": {
+        "run_count": 1,
+        "total_duration_mean": 1158459300.0,
+        "total_duration_min": 1158459300.0,
+        "total_duration_max": 1158459300.0,
+        "load_duration_mean": 236021300.0,
+        "load_duration_min": 236021300.0,
+        "load_duration_max": 236021300.0,
+        "prompt_eval_duration_mean": 483562000.0,
+        "prompt_eval_duration_min": 483562000.0,
+        "prompt_eval_duration_max": 483562000.0,
+        "eval_duration_mean": 433264500.0,
+        "eval_duration_min": 433264500.0,
+        "eval_duration_max": 433264500.0,
+        "prompt_eval_count_mean": 1355.0,
+        "prompt_eval_count_min": 1355.0,
+        "prompt_eval_count_max": 1355.0,
+        "eval_count_mean": 8.0,
+        "eval_count_min": 8.0,
+        "eval_count_max": 8.0
+      }
+    }
+  ],
+  "comparison": {
+    "baseline_prompt_eval_duration": 3252651200,
+    "prefix_context_prompt_eval_duration": 4826244000,
+    "baseline_minus_prefix_context_prompt_eval_duration": -1573592800,
+    "baseline_minus_prefix_context_prompt_eval_ratio": -0.48378774828361554,
+    "interpretation": "Positive delta means prefix-context was faster for prompt eval; negative delta means it was slower."
+  }
+}

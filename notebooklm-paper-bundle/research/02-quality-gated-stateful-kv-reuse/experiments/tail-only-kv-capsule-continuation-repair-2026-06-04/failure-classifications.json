@@ -1,0 +1,55 @@
+{
+  "overall": {
+    "decision": "family1_sequence_state_restored_capsule_semantic_passed",
+    "stop_rule": "restored_capsule_passed_stop_before_expansion",
+    "classification": "positive_narrow_sequence_file_family1_gate"
+  },
+  "taxonomy": {
+    "passed": "answer-contained scorer found the expected case answer in the generated text",
+    "fresh_tail_expected_miss": "negative control did not contain the hidden-prefix answer",
+    "native_full_visible_guard_failed": "full visible positive guard failed; capsule semantics would be uninterpretable",
+    "native_live_append_protocol_blocker": "live append failed; restored capsule semantics would be uninterpretable",
+    "restored_capsule_semantic_failure": "restored capsule failed after full-visible and live append passed",
+    "runtime_or_backend_failure": "runner/backend raised an exception before semantic interpretation"
+  },
+  "observed_by_control": {
+    "native_full_visible_prefix_plus_tail": {
+      "total": 30,
+      "answer_contained": 30,
+      "exact_match": 0,
+      "failure_classes": {
+        "passed": 30
+      }
+    },
+    "native_fresh_tail_only": {
+      "total": 30,
+      "answer_contained": 0,
+      "exact_match": 0,
+      "failure_classes": {
+        "fresh_tail_expected_miss": 30
+      }
+    },
+    "native_live_append_tail_only": {
+      "total": 30,
+      "answer_contained": 30,
+      "exact_match": 0,
+      "failure_classes": {
+        "passed": 30
+      }
+    },
+    "native_restored_capsule_append_tail_only": {
+      "total": 30,
+      "answer_contained": 30,
+      "exact_match": 0,
+      "failure_classes": {
+        "passed": 30
+      }
+    }
+  },
+  "not_observed": [
+    "native_full_visible_guard_failed",
+    "native_live_append_protocol_blocker",
+    "restored_capsule_semantic_failure",
+    "runtime_or_backend_failure"
+  ]
+}

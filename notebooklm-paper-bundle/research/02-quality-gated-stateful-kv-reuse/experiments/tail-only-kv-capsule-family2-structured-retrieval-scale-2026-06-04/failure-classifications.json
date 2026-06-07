@@ -1,0 +1,20 @@
+{
+  "decision": "family2_sequence_state_restored_capsule_semantic_passed_hash_warning",
+  "stop_rule": "restored_capsule_semantic_passed_hash_warning_stop_before_expansion",
+  "classes_observed": {
+    "passed": 90,
+    "fresh_tail_expected_miss": 30
+  },
+  "definitions": {
+    "passed": "Control produced an output containing the hidden expected value.",
+    "fresh_tail_expected_miss": "Negative control did not contain the hidden expected value, as required.",
+    "semantic_pass_hash_warning": "All semantic controls passed, but live/restored or full/live response hashes did not match for every case.",
+    "telemetry_cleanup_gap": "Run evidence is complete in records and run-info, but final cleanup fields are null due transport/cleanup telemetry interruption."
+  },
+  "not_observed": [
+    "family2_full_visible_guard_failed",
+    "fresh_tail_leakage_or_scorer_issue",
+    "family2_native_live_append_protocol_blocker",
+    "family2_restored_capsule_semantic_failure"
+  ]
+}

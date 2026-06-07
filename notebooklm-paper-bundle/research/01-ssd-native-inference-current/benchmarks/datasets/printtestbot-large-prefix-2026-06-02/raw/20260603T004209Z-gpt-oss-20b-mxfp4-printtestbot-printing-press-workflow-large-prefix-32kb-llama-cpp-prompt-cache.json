@@ -1,0 +1,1178 @@
+{
+  "metadata": {
+    "started_at": "2026-06-03T00:35:54.221708+00:00",
+    "server_bin": "C:/Users/Dushyant/Tools/llama-b9482-vulkan/llama-server.exe",
+    "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "server_command": [
+      "C:/Users/Dushyant/Tools/llama-b9482-vulkan/llama-server.exe",
+      "--model",
+      "benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "60818",
+      "--ctx-size",
+      "16384",
+      "--parallel",
+      "1",
+      "--slot-save-path",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-slot-cache",
+      "--cache-prompt",
+      "--slots",
+      "--no-ui",
+      "--no-warmup",
+      "--log-disable"
+    ],
+    "model": "benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+    "model_bytes": 12109566560,
+    "fixture": "benchmarks\\fixtures\\printtestbot-printing-press-workflow-large-prefix-32kb.json",
+    "fixture_hash": "2f5e68ae4b1aff1a0c7a8d944a2c7743cecc180c7d42578bf911c67ee50abca9",
+    "ctx_size": 16384,
+    "predict": 8,
+    "temperature": 0.0,
+    "slot_id": 0,
+    "slot_cache_dir": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-slot-cache",
+    "prompt_paths": [
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-reusable-prefix.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-01-intake.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-02-inspect.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-03-verify-failure.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-04-patch-state.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-05-test-and-vet-failure.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-06-review-feedback.txt",
+      "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-prompts\\llama-cpp-turn-07-final-handoff.txt"
+    ],
+    "dry_run": false,
+    "finished_at": "2026-06-03T00:42:09.976580+00:00"
+  },
+  "prompt_set": {
+    "fixture_name": "printtestbot-printing-press-workflow-large-prefix-32kb",
+    "prefix_block_names": [
+      "printy-bot-identity",
+      "print-a-bot-runtime-contract",
+      "model-routing-and-cache-rules",
+      "tool-schema-summary",
+      "operating-guardrails",
+      "printing-press-workflow-rules",
+      "repo-and-task-context",
+      "benchmark-instructions",
+      "large-agent-context-32kb"
+    ],
+    "prefix_prompt_bytes": 32786,
+    "prefix_prompt_sha256": "f10222e7945115d14b1450ce33212644a657ee59613883a0f4559749852d2779",
+    "prefix_manifest": [
+      {
+        "name": "printy-bot-identity",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 586,
+        "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+      },
+      {
+        "name": "print-a-bot-runtime-contract",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 729,
+        "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+      },
+      {
+        "name": "model-routing-and-cache-rules",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 718,
+        "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+      },
+      {
+        "name": "tool-schema-summary",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 570,
+        "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+      },
+      {
+        "name": "operating-guardrails",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 494,
+        "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+      },
+      {
+        "name": "printing-press-workflow-rules",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 575,
+        "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+      },
+      {
+        "name": "repo-and-task-context",
+        "tier": "semi-stable",
+        "cache_policy": "prefix-cache-candidate",
+        "bytes": 592,
+        "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+      },
+      {
+        "name": "benchmark-instructions",
+        "tier": "semi-stable",
+        "cache_policy": "prefix-cache-candidate",
+        "bytes": 460,
+        "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+      },
+      {
+        "name": "large-agent-context-32kb",
+        "tier": "stable",
+        "cache_policy": "prefix-kv-candidate",
+        "bytes": 27197,
+        "sha256": "e4edce6c709c6b8cd9073496abbd08153cfa61008016027f7cd7df963d99c0d9"
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "turn-01-intake",
+        "description": "Initial user request and repo status for the CLI polish workflow.",
+        "prompt_bytes": 33327,
+        "prompt_sha256": "6023a477317041fa61ddbb11d9bb4129d38d505a1667836dbf1cc62b445fe83b",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "large-agent-context-32kb",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 27197,
+            "sha256": "e4edce6c709c6b8cd9073496abbd08153cfa61008016027f7cd7df963d99c0d9"
+          },
+          {
+            "name": "turn-01-user-request",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 314,
+            "sha256": "46a7e50f0618949ca9753ebe4f119ed963673fde61cabdfff67a0d51e05df0db"
+          }
+        ]
+      },
+      {
+        "name": "turn-02-inspect",
+        "description": "Inspection output shows likely CLI polish issues without test failure yet.",
+        "prompt_bytes": 33384,
+        "prompt_sha256": "164ff8568d4b371104aaa8fb6ac4206603cc10df3b45829efda9e6a42cedb1f7",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "large-agent-context-32kb",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 27197,
+            "sha256": "e4edce6c709c6b8cd9073496abbd08153cfa61008016027f7cd7df963d99c0d9"
+          },
+          {
+            "name": "turn-02-inspect-and-plan",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 381,
+            "sha256": "56591ebfaa9ad41ce0f24f4df1a2e06acb06c6250b412f7ae85fd969b2e4132c"
+          }
+        ]
+      },
+      {
+        "name": "turn-03-verify-failure",
+        "description": "Verify fails from ranking and README/example mismatch.",
+        "prompt_bytes": 33362,
+        "prompt_sha256": "1a2b468726720ae9bd679af5e6b40b985551178a4adeffbfa4ce04dafed8f156",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "large-agent-context-32kb",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 27197,
+            "sha256": "e4edce6c709c6b8cd9073496abbd08153cfa61008016027f7cd7df963d99c0d9"
+          },
+          {
+            "name": "turn-03-verify-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 343,
+            "sha256": "72397c639ff15017f7ee90e61c3192be8ddf53e0630e4c853ae76dd19cc119d4"
+          }
+        ]
+      },
+      {
+        "name": "turn-04-patch-state",
+        "description": "Patch has been applied and needs validation.",
+        "prompt_bytes": 33460,
+        "prompt_sha256": "a753984870229a890689c3422c807407807dd1e837b76ea982ef5338923e079a",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "large-agent-context-32kb",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 27197,
+            "sha256": "e4edce6c709c6b8cd9073496abbd08153cfa61008016027f7cd7df963d99c0d9"
+          },
+          {
+            "name": "turn-04-patch-applied",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 446,
+            "sha256": "c335a72855ada71bb8c10097c8712bfc80d5daa22e1e7e8f623d1398880aca7b"
+          }
+        ]
+      },
+      {
+        "name": "turn-05-test-and-vet-failure",
+        "description": "Tests and vet fail after the first patch.",
+        "prompt_bytes": 33338,
+        "prompt_sha256": "1fc7c2584a9bb7a55d083f5fbd1ed1f61a668fd4ac79508b0676ba1c6d7ae24b",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "large-agent-context-32kb",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 27197,
+            "sha256": "e4edce6c709c6b8cd9073496abbd08153cfa61008016027f7cd7df963d99c0d9"
+          },
+          {
+            "name": "turn-05-second-failure",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 315,
+            "sha256": "56dea3bc596d5ab2aeb63bbc1fe23f2305b60e65a34defb420e4cef697799ffe"
+          }
+        ]
+      },
+      {
+        "name": "turn-06-review-feedback",
+        "description": "Review comments and CI state require a second fix loop.",
+        "prompt_bytes": 33423,
+        "prompt_sha256": "55a7735fb85582545bc79f6c4ac3753069de44ae3100ebfd75928fa80777030c",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "large-agent-context-32kb",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 27197,
+            "sha256": "e4edce6c709c6b8cd9073496abbd08153cfa61008016027f7cd7df963d99c0d9"
+          },
+          {
+            "name": "turn-06-review-comments",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 410,
+            "sha256": "772a0b311277897c785f7c44c57f20edab955a3f54b990352773a62035ddb76a"
+          }
+        ]
+      },
+      {
+        "name": "turn-07-final-handoff",
+        "description": "Final validation passes and the workflow needs a handoff decision.",
+        "prompt_bytes": 33425,
+        "prompt_sha256": "6234002e2fde60e577661d17c834c9492d70ce9b6e980613d9fb6381123382e5",
+        "block_manifest": [
+          {
+            "name": "printy-bot-identity",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 586,
+            "sha256": "3744ba3d593fc79b66a276bb8c5e4d62e35a88c4d3a223e9345b232b838463d4"
+          },
+          {
+            "name": "print-a-bot-runtime-contract",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 729,
+            "sha256": "27097ac9932b9faad887fd7b8b9a9ed9718d4718b3532a0d0e88aed7ae5b68ff"
+          },
+          {
+            "name": "model-routing-and-cache-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 718,
+            "sha256": "97a62260fd52ea980c3462289b21a5df75a87e7482a416fbfa2491c0d69f310e"
+          },
+          {
+            "name": "tool-schema-summary",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 570,
+            "sha256": "76d8ec936e09ea214872122d428967f2c266913baf9415818971d0217d0ee782"
+          },
+          {
+            "name": "operating-guardrails",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 494,
+            "sha256": "8ecc84feae738d44b21764eced2937234001bf7c80681ae5a84942266368675f"
+          },
+          {
+            "name": "printing-press-workflow-rules",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 575,
+            "sha256": "6178277863cea532494173d51b3c452dfc139f4b64416e28630295b08d750653"
+          },
+          {
+            "name": "repo-and-task-context",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 592,
+            "sha256": "fbb62c62e4c85904ee29965b7cfc276c1dff4ad23814366e11238578e7104f94"
+          },
+          {
+            "name": "benchmark-instructions",
+            "tier": "semi-stable",
+            "cache_policy": "prefix-cache-candidate",
+            "bytes": 460,
+            "sha256": "94839d725f3e1a66ca5ae93fea3ab61147f418d954229a9cc919cfcd92ecf290"
+          },
+          {
+            "name": "large-agent-context-32kb",
+            "tier": "stable",
+            "cache_policy": "prefix-kv-candidate",
+            "bytes": 27197,
+            "sha256": "e4edce6c709c6b8cd9073496abbd08153cfa61008016027f7cd7df963d99c0d9"
+          },
+          {
+            "name": "turn-07-final-validation",
+            "tier": "volatile",
+            "cache_policy": "do-not-cache-blindly",
+            "bytes": 400,
+            "sha256": "4833bf9b4aa161498c84f0ef11264e71450b8ed50d3463c7805e97356e92774a"
+          }
+        ]
+      }
+    ]
+  },
+  "slot_cache": {
+    "filename": "f10222e7945115d1-slot.bin",
+    "path": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-slot-cache\\f10222e7945115d1-slot.bin",
+    "exists": true,
+    "file_bytes": 184833580,
+    "save_response": {
+      "id_slot": 0,
+      "filename": "f10222e7945115d1-slot.bin",
+      "n_saved": 7388,
+      "n_written": 184833580,
+      "timings": {
+        "save_ms": 139.715
+      },
+      "_wall_ms": 141.00170001620427
+    }
+  },
+  "baseline_full": [
+    {
+      "server_startup_ms": 17536.807900003623,
+      "server_shutdown_ms": 1323.4756999881938,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003622Z-baseline-turn-01-intake.log",
+      "completion": {
+        "wall_ms": 5629.9745999858715,
+        "prompt_ms": 5452.143,
+        "prompt_n": 7508,
+        "prompt_per_token_ms": 0.726177810335642,
+        "predicted_ms": 145.048,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.131,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7508,
+          "prompt_ms": 5452.143,
+          "prompt_per_token_ms": 0.726177810335642,
+          "prompt_per_second": 1377.0731985569712,
+          "predicted_n": 8,
+          "predicted_ms": 145.048,
+          "predicted_per_token_ms": 18.131,
+          "predicted_per_second": 55.154155865644476
+        },
+        "content_excerpt": " We need to produce next action. The"
+      },
+      "scenario": "turn-01-intake"
+    },
+    {
+      "server_startup_ms": 17707.857100002002,
+      "server_shutdown_ms": 1982.456400000956,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003647Z-baseline-turn-02-inspect.log",
+      "completion": {
+        "wall_ms": 5688.005500007421,
+        "prompt_ms": 5480.956,
+        "prompt_n": 7538,
+        "prompt_per_token_ms": 0.7271101087821703,
+        "predicted_ms": 144.264,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.033,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7538,
+          "prompt_ms": 5480.956,
+          "prompt_per_token_ms": 0.7271101087821703,
+          "prompt_per_second": 1375.3075193451652,
+          "predicted_n": 8,
+          "predicted_ms": 144.264,
+          "predicted_per_token_ms": 18.033,
+          "predicted_per_second": 55.453890090389834
+        },
+        "content_excerpt": "We have a turn 02 inspect and"
+      },
+      "scenario": "turn-02-inspect"
+    },
+    {
+      "server_startup_ms": 17484.55809999723,
+      "server_shutdown_ms": 1334.5242999494076,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003712Z-baseline-turn-03-verify-failure.log",
+      "completion": {
+        "wall_ms": 5783.327199984342,
+        "prompt_ms": 5588.866,
+        "prompt_n": 7520,
+        "prompt_per_token_ms": 0.7432002659574468,
+        "predicted_ms": 147.053,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.381625,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7520,
+          "prompt_ms": 5588.866,
+          "prompt_per_token_ms": 0.7432002659574468,
+          "prompt_per_second": 1345.532349496302,
+          "predicted_n": 8,
+          "predicted_ms": 147.053,
+          "predicted_per_token_ms": 18.381625,
+          "predicted_per_second": 54.40215432531129
+        },
+        "content_excerpt": "We need to produce JSON with keys:"
+      },
+      "scenario": "turn-03-verify-failure"
+    },
+    {
+      "server_startup_ms": 17531.317199987825,
+      "server_shutdown_ms": 1332.6616999693215,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003737Z-baseline-turn-04-patch-state.log",
+      "completion": {
+        "wall_ms": 5697.408900014125,
+        "prompt_ms": 5489.476,
+        "prompt_n": 7531,
+        "prompt_per_token_ms": 0.7289172752622494,
+        "predicted_ms": 148.149,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.518625,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7531,
+          "prompt_ms": 5489.476,
+          "prompt_per_token_ms": 0.7289172752622494,
+          "prompt_per_second": 1371.8977913374613,
+          "predicted_n": 8,
+          "predicted_ms": 148.149,
+          "predicted_per_token_ms": 18.518625,
+          "predicted_per_second": 53.99968950178536
+        },
+        "content_excerpt": "We need to produce next validation action after"
+      },
+      "scenario": "turn-04-patch-state"
+    },
+    {
+      "server_startup_ms": 17610.79210002208,
+      "server_shutdown_ms": 1330.6098000030033,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003801Z-baseline-turn-05-test-and-vet-failure.log",
+      "completion": {
+        "wall_ms": 5686.130199988838,
+        "prompt_ms": 5494.019,
+        "prompt_n": 7519,
+        "prompt_per_token_ms": 0.7306847985104402,
+        "predicted_ms": 145.406,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.17575,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7519,
+          "prompt_ms": 5494.019,
+          "prompt_per_token_ms": 0.7306847985104402,
+          "prompt_per_second": 1368.5791767374667,
+          "predicted_n": 8,
+          "predicted_ms": 145.406,
+          "predicted_per_token_ms": 18.17575,
+          "predicted_per_second": 55.018362378443804
+        },
+        "content_excerpt": "We need to produce JSON with keys:"
+      },
+      "scenario": "turn-05-test-and-vet-failure"
+    },
+    {
+      "server_startup_ms": 17118.84419998387,
+      "server_shutdown_ms": 1338.8269999995828,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003826Z-baseline-turn-06-review-feedback.log",
+      "completion": {
+        "wall_ms": 5672.516299993731,
+        "prompt_ms": 5467.291,
+        "prompt_n": 7518,
+        "prompt_per_token_ms": 0.7272267890396382,
+        "predicted_ms": 143.871,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 17.983875,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7518,
+          "prompt_ms": 5467.291,
+          "prompt_per_token_ms": 0.7272267890396382,
+          "prompt_per_second": 1375.0868574582914,
+          "predicted_n": 8,
+          "predicted_ms": 143.871,
+          "predicted_per_token_ms": 17.983875,
+          "predicted_per_second": 55.605368698347824
+        },
+        "content_excerpt": "We need to produce next action for review"
+      },
+      "scenario": "turn-06-review-feedback"
+    },
+    {
+      "server_startup_ms": 17982.102899986785,
+      "server_shutdown_ms": 1338.4074999485165,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003850Z-baseline-turn-07-final-handoff.log",
+      "completion": {
+        "wall_ms": 5763.6350999819115,
+        "prompt_ms": 5571.257,
+        "prompt_n": 7539,
+        "prompt_per_token_ms": 0.7389915108104522,
+        "predicted_ms": 144.517,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.064625,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7539,
+          "prompt_ms": 5571.257,
+          "prompt_per_token_ms": 0.7389915108104522,
+          "prompt_per_second": 1353.1955176363251,
+          "predicted_n": 8,
+          "predicted_ms": 144.517,
+          "predicted_per_token_ms": 18.064625,
+          "predicted_per_second": 55.35680923351578
+        },
+        "content_excerpt": "We need to produce final handoff action"
+      },
+      "scenario": "turn-07-final-handoff"
+    }
+  ],
+  "restored_prefix": [
+    {
+      "scenario": "turn-01-intake",
+      "server_startup_ms": 17583.983700023964,
+      "server_shutdown_ms": 1335.4664000216872,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003915Z-restore-turn-01-intake.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "f10222e7945115d1-slot.bin",
+        "n_restored": 7388,
+        "n_read": 184833580,
+        "timings": {
+          "restore_ms": 70.637
+        },
+        "_wall_ms": 86.60260000033304
+      },
+      "completion": {
+        "wall_ms": 5664.3357000430115,
+        "prompt_ms": 5466.263,
+        "prompt_n": 7508,
+        "prompt_per_token_ms": 0.7280584709643048,
+        "predicted_ms": 147.511,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.438875,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7508,
+          "prompt_ms": 5466.263,
+          "prompt_per_token_ms": 0.7280584709643048,
+          "prompt_per_second": 1373.5160565819829,
+          "predicted_n": 8,
+          "predicted_ms": 147.511,
+          "predicted_per_token_ms": 18.438875,
+          "predicted_per_second": 54.23324362250951
+        },
+        "content_excerpt": " We need to produce next action. The"
+      }
+    },
+    {
+      "scenario": "turn-02-inspect",
+      "server_startup_ms": 17765.803799964488,
+      "server_shutdown_ms": 1334.257600014098,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003940Z-restore-turn-02-inspect.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "f10222e7945115d1-slot.bin",
+        "n_restored": 7388,
+        "n_read": 184833580,
+        "timings": {
+          "restore_ms": 94.467
+        },
+        "_wall_ms": 110.63250002916902
+      },
+      "completion": {
+        "wall_ms": 5734.615000023041,
+        "prompt_ms": 5529.357,
+        "prompt_n": 7538,
+        "prompt_per_token_ms": 0.7335310427169011,
+        "predicted_ms": 146.794,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.34925,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7538,
+          "prompt_ms": 5529.357,
+          "prompt_per_token_ms": 0.7335310427169011,
+          "prompt_per_second": 1363.268821311411,
+          "predicted_n": 8,
+          "predicted_ms": 146.794,
+          "predicted_per_token_ms": 18.34925,
+          "predicted_per_second": 54.498140250963935
+        },
+        "content_excerpt": "We have a turn 02 inspect and"
+      }
+    },
+    {
+      "scenario": "turn-03-verify-failure",
+      "server_startup_ms": 17617.224999994505,
+      "server_shutdown_ms": 1322.9043000028469,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T004005Z-restore-turn-03-verify-failure.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "f10222e7945115d1-slot.bin",
+        "n_restored": 7388,
+        "n_read": 184833580,
+        "timings": {
+          "restore_ms": 95.879
+        },
+        "_wall_ms": 96.86190000502393
+      },
+      "completion": {
+        "wall_ms": 5684.846499993,
+        "prompt_ms": 5509.373,
+        "prompt_n": 7520,
+        "prompt_per_token_ms": 0.7326293882978723,
+        "predicted_ms": 148.638,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.57975,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7520,
+          "prompt_ms": 5509.373,
+          "prompt_per_token_ms": 0.7326293882978723,
+          "prompt_per_second": 1364.946610077045,
+          "predicted_n": 8,
+          "predicted_ms": 148.638,
+          "predicted_per_token_ms": 18.57975,
+          "predicted_per_second": 53.82203743322703
+        },
+        "content_excerpt": "We need to produce JSON with keys:"
+      }
+    },
+    {
+      "scenario": "turn-04-patch-state",
+      "server_startup_ms": 17962.088599975687,
+      "server_shutdown_ms": 1339.85859999666,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T004030Z-restore-turn-04-patch-state.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "f10222e7945115d1-slot.bin",
+        "n_restored": 7388,
+        "n_read": 184833580,
+        "timings": {
+          "restore_ms": 90.997
+        },
+        "_wall_ms": 112.38800000865012
+      },
+      "completion": {
+        "wall_ms": 5879.962099948898,
+        "prompt_ms": 5688.25,
+        "prompt_n": 7531,
+        "prompt_per_token_ms": 0.7553113796308591,
+        "predicted_ms": 145.175,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.146875,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7531,
+          "prompt_ms": 5688.25,
+          "prompt_per_token_ms": 0.7553113796308591,
+          "prompt_per_second": 1323.9572803586339,
+          "predicted_n": 8,
+          "predicted_ms": 145.175,
+          "predicted_per_token_ms": 18.146875,
+          "predicted_per_second": 55.105906664370586
+        },
+        "content_excerpt": "We need to produce next validation action after"
+      }
+    },
+    {
+      "scenario": "turn-05-test-and-vet-failure",
+      "server_startup_ms": 17579.222000029404,
+      "server_shutdown_ms": 1704.7874000272714,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T004055Z-restore-turn-05-test-and-vet-failure.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "f10222e7945115d1-slot.bin",
+        "n_restored": 7388,
+        "n_read": 184833580,
+        "timings": {
+          "restore_ms": 103.418
+        },
+        "_wall_ms": 104.61079998640344
+      },
+      "completion": {
+        "wall_ms": 5652.140399964992,
+        "prompt_ms": 5459.886,
+        "prompt_n": 7519,
+        "prompt_per_token_ms": 0.7261452320787339,
+        "predicted_ms": 145.73,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.21625,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7519,
+          "prompt_ms": 5459.886,
+          "prompt_per_token_ms": 0.7261452320787339,
+          "prompt_per_second": 1377.1349804739511,
+          "predicted_n": 8,
+          "predicted_ms": 145.73,
+          "predicted_per_token_ms": 18.21625,
+          "predicted_per_second": 54.896040623070064
+        },
+        "content_excerpt": "We need to produce JSON with keys:"
+      }
+    },
+    {
+      "scenario": "turn-06-review-feedback",
+      "server_startup_ms": 17586.782599973958,
+      "server_shutdown_ms": 1325.8372000418603,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T004120Z-restore-turn-06-review-feedback.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "f10222e7945115d1-slot.bin",
+        "n_restored": 7388,
+        "n_read": 184833580,
+        "timings": {
+          "restore_ms": 78.074
+        },
+        "_wall_ms": 94.19570001773536
+      },
+      "completion": {
+        "wall_ms": 5757.661100011319,
+        "prompt_ms": 5578.276,
+        "prompt_n": 7518,
+        "prompt_per_token_ms": 0.7419893588720404,
+        "predicted_ms": 149.985,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.748125,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7518,
+          "prompt_ms": 5578.276,
+          "prompt_per_token_ms": 0.7419893588720404,
+          "prompt_per_second": 1347.7282228416093,
+          "predicted_n": 8,
+          "predicted_ms": 149.985,
+          "predicted_per_token_ms": 18.748125,
+          "predicted_per_second": 53.33866720005334
+        },
+        "content_excerpt": "We need to produce next action for review"
+      }
+    },
+    {
+      "scenario": "turn-07-final-handoff",
+      "server_startup_ms": 17720.610499964096,
+      "server_shutdown_ms": 1345.5499000265263,
+      "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T004145Z-restore-turn-07-final-handoff.log",
+      "restore_response": {
+        "id_slot": 0,
+        "filename": "f10222e7945115d1-slot.bin",
+        "n_restored": 7388,
+        "n_read": 184833580,
+        "timings": {
+          "restore_ms": 108.907
+        },
+        "_wall_ms": 110.52409996045753
+      },
+      "completion": {
+        "wall_ms": 5692.695399979129,
+        "prompt_ms": 5480.963,
+        "prompt_n": 7539,
+        "prompt_per_token_ms": 0.727014590794535,
+        "predicted_ms": 147.941,
+        "predicted_n": 8,
+        "predicted_per_token_ms": 18.492625,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 7539,
+          "prompt_ms": 5480.963,
+          "prompt_per_token_ms": 0.727014590794535,
+          "prompt_per_second": 1375.488212564106,
+          "predicted_n": 8,
+          "predicted_ms": 147.941,
+          "predicted_per_token_ms": 18.492625,
+          "predicted_per_second": 54.07561122339311
+        },
+        "content_excerpt": "We need to produce final handoff action"
+      }
+    }
+  ],
+  "prime_prefix": {
+    "server_startup_ms": 17883.133199997246,
+    "server_shutdown_ms": 1335.1024000439793,
+    "server_log": "C:\\Users\\Dushyant\\Projects\\ssd-native-inference\\benchmarks\\llama-cpp-logs\\20260603T003557Z-prime-prefix.log",
+    "completion": {
+      "wall_ms": 5701.6603000229225,
+      "prompt_ms": 5524.72,
+      "prompt_n": 7381,
+      "prompt_per_token_ms": 0.7485056225443707,
+      "predicted_ms": 148.228,
+      "predicted_n": 8,
+      "predicted_per_token_ms": 18.5285,
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 7381,
+        "prompt_ms": 5524.72,
+        "prompt_per_token_ms": 0.7485056225443707,
+        "prompt_per_second": 1335.9953083595187,
+        "predicted_n": 8,
+        "predicted_ms": 148.228,
+        "predicted_per_token_ms": 18.5285,
+        "predicted_per_second": 53.97090967968265
+      },
+      "content_excerpt": "We have a long prompt. The user"
+    }
+  },
+  "comparison": {
+    "baseline_prompt_ms_sum": 38544.008,
+    "restored_prompt_ms_sum": 38712.368,
+    "baseline_minus_restored_prompt_ms": -168.36000000000058,
+    "baseline_minus_restored_prompt_ratio": -0.004367994112080938,
+    "interpretation": "Positive delta means slot restore reduced prompt processing time."
+  }
+}

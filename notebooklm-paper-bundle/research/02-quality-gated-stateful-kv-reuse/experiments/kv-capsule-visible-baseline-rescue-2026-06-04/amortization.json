@@ -1,0 +1,6 @@
+{
+  "amortization_units": [],
+  "reason": "No restored capsule unit passed or ran. Phase C stopped at full-visible guard failure on the only promoted unit.",
+  "schema": "amortization_v1",
+  "status": "not_interpretable"
+}

@@ -1,0 +1,28 @@
+{
+  "experiment": "kv-capsule-family2-structured-retrieval-gate-2026-06-04",
+  "committed_summaries": [
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family2-structured-retrieval-gate-2026-06-04/README.md",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family2-structured-retrieval-gate-2026-06-04/summary.json",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family2-structured-retrieval-gate-2026-06-04/case-metrics.json",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family2-structured-retrieval-gate-2026-06-04/failure-classifications.json",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family2-structured-retrieval-gate-2026-06-04/commands.md",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family2-structured-retrieval-gate-2026-06-04/model-info.json",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family2-structured-retrieval-gate-2026-06-04/artifact-manifest.json",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family2-structured-retrieval-gate-2026-06-04/capsule-contract.md"
+  ],
+  "ignored_raw_artifacts": {
+    "records": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family2-structured-retrieval-gate-2026-06-04/raw/family2-records.jsonl",
+    "run_info": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family2-structured-retrieval-gate-2026-06-04/raw/family2-run-info.json",
+    "console": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family2-structured-retrieval-gate-2026-06-04/raw/family2-console.txt",
+    "runner": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family2-structured-retrieval-gate-2026-06-04/raw/kv_capsule_family2_gate.py"
+  },
+  "ignored_raw_artifact_hashes": {
+    "records_sha256": "7505c7f0c8744a6d426ecf723e69ade82df4b0ebf784ab204a1beab89fe41107",
+    "run_info_sha256": "5e6f8c68d03c90011b52b96d35098f003821a3e5a95a2ae381f65618a3c9e2c8",
+    "console_sha256": "ec3704e1a0a5526c501a5aab9ae1de4105673d0cbecac85122fa582790eea50c",
+    "runner_sha256": "f0e1c5214dfd95b6027e05269f0c143e57c2e55294b06a71e32a10bedc4620ff"
+  },
+  "sanitization_policy": "Committed summaries contain hashes, counts, timings, booleans, classifications, and metadata only. Raw prompts, raw responses, expected answer strings, token ID arrays/slices, generated token arrays/slices, top-k arrays, and state bytes remain under ignored Track 01 raw paths.",
+  "capsule_contract_included": true,
+  "raw_console_note": "An inline PowerShell quoting error affected the initial console redirection variable only; the Python runner executed once with default Family 2 raw out-dir, and the root console log was copied into the ignored raw directory as family2-console.txt."
+}

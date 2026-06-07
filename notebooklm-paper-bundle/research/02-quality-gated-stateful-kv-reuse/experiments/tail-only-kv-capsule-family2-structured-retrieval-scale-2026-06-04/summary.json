@@ -1,0 +1,116 @@
+{
+  "experiment_id": "tail-only-kv-capsule-family2-structured-retrieval-scale-2026-06-04",
+  "packaged_utc": "2026-06-05T02:20:10Z",
+  "primary_result": {
+    "mode": "family2-30",
+    "decision": "family2_sequence_state_restored_capsule_semantic_passed_hash_warning",
+    "stop_rule": "restored_capsule_semantic_passed_hash_warning_stop_before_expansion",
+    "interpretation": "Family 2 structured retrieval passed semantic continuation on the official sequence-file state route, but deterministic output hash parity was partial and is reported as a warning.",
+    "record_count": 120,
+    "case_count": 30,
+    "state_route_effective": "seq_file",
+    "state_route_internal": "seq-file",
+    "contains_by_control": {
+      "native_full_visible_prefix_plus_tail": 30,
+      "native_fresh_tail_only": 0,
+      "native_live_append_tail_only": 30,
+      "native_restored_capsule_append_tail_only": 30
+    },
+    "exact_by_control": {
+      "native_full_visible_prefix_plus_tail": 0,
+      "native_fresh_tail_only": 0,
+      "native_live_append_tail_only": 0,
+      "native_restored_capsule_append_tail_only": 0
+    },
+    "full_vs_live_hash_parity": {
+      "total": 30,
+      "response_hash_matches": 12,
+      "normalized_response_hash_matches": 12,
+      "generated_token_hash_matches": 12
+    },
+    "live_vs_restored_hash_parity": {
+      "total": 30,
+      "response_hash_matches": 12,
+      "normalized_response_hash_matches": 12,
+      "generated_token_hash_matches": 12
+    },
+    "capsule_stats": {
+      "count": 30,
+      "mean_bytes": 9516392.266666668,
+      "min_bytes": 8681084,
+      "max_bytes": 10377932,
+      "mean_save_ms": 14.269426668761298,
+      "mean_restore_ms": 7.2199733287561685
+    },
+    "timing_summary": {
+      "native_full_visible_prefix_plus_tail": {
+        "count": 30,
+        "mean_total_ms": 4734.160073332411,
+        "mean_prompt_ms": 886.5323966640668,
+        "mean_decode_ms": 3480.751516668048,
+        "mean_generated_token_count": 48
+      },
+      "native_fresh_tail_only": {
+        "count": 30,
+        "mean_total_ms": 124977.19877332372,
+        "mean_prompt_ms": 223.66861999810985,
+        "mean_decode_ms": 124675.25752666213,
+        "mean_generated_token_count": 48
+      },
+      "native_live_append_tail_only": {
+        "count": 30,
+        "mean_total_ms": 5159.5766633322155,
+        "mean_prompt_ms": 823.8485233314956,
+        "mean_decode_ms": 4252.069496666081,
+        "mean_generated_token_count": 48
+      },
+      "native_restored_capsule_append_tail_only": {
+        "count": 30,
+        "mean_total_ms": 6075.670993330034,
+        "mean_prompt_ms": 214.31202000239864,
+        "mean_decode_ms": 5046.239539996411,
+        "mean_generated_token_count": 48
+      }
+    },
+    "ended_utc": null,
+    "process_cleanup_status": null,
+    "telemetry_note": "Raw artifacts copied back with complete 120-record run and run-info. ended_utc/process_cleanup_status were absent, likely due SSH/PC cleanup telemetry interruption after model evidence completed."
+  },
+  "smoke_result": {
+    "mode": "family2-smoke",
+    "decision": "family2_sequence_state_restored_capsule_deterministic_parity_passed",
+    "stop_rule": "restored_capsule_deterministic_parity_passed_stop_before_expansion",
+    "record_count": 12,
+    "contains_by_control": {
+      "native_full_visible_prefix_plus_tail": 3,
+      "native_fresh_tail_only": 0,
+      "native_live_append_tail_only": 3,
+      "native_restored_capsule_append_tail_only": 3
+    },
+    "full_vs_live_hash_parity": {
+      "total": 3,
+      "response_hash_matches": 1,
+      "normalized_response_hash_matches": 1,
+      "generated_token_hash_matches": 1
+    },
+    "live_vs_restored_hash_parity": {
+      "total": 3,
+      "response_hash_matches": 3,
+      "normalized_response_hash_matches": 3,
+      "generated_token_hash_matches": 3
+    },
+    "capsule_stats": {
+      "count": 3,
+      "mean_bytes": 9509014.666666666,
+      "min_bytes": 8730268,
+      "max_bytes": 10254972,
+      "mean_save_ms": 14.814233329767982,
+      "mean_restore_ms": 128.33933332391703
+    }
+  },
+  "validity_boundary": [
+    "Fabricated structured lookup only; no Family 3, GraphWalks, broad retrieval, noiseless evidence, or agent-context claim.",
+    "Semantic pass is answer-contained/exact over deterministic structured facts; deterministic hash parity is partial at 12/30.",
+    "Success is on GPT-OSS 20B GGUF with llama.cpp native sequence-file state route on DushyantPC CUDA backend."
+  ]
+}

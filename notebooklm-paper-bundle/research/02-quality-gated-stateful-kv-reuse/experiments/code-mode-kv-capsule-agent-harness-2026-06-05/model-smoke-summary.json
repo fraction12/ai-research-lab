@@ -1,0 +1,109 @@
+{
+  "experiment_id": "code-mode-kv-capsule-agent-harness-2026-06-05",
+  "stage": "two-case-model-smoke",
+  "route": "gemma4-12b-llama-cpp-seq-file-native-ctypes",
+  "decision": "two_case_smoke_completed_with_stop_rule_failure",
+  "interpretable_for_kv_capsule": false,
+  "stop_rule": "full_visible_guards_failed_before_capsule_interpretation",
+  "primary_interpretation": "Gemma 4 produced tool-intent fragments/channel markers instead of final answers; the model-bearing adapter did not implement an actual Code mode tool execution loop, so hidden KV capsule value was not tested.",
+  "model": {
+    "profile": "gemma4-12b",
+    "architecture": "gemma4",
+    "model_desc": "gemma4 ?B Q4_K - Medium",
+    "ctx_size": 4096,
+    "predict": 48
+  },
+  "state_route": {
+    "requested": "auto",
+    "effective": "seq_file",
+    "internal": "seq-file",
+    "seq_file_available": true,
+    "seq_memory_available": true
+  },
+  "counts_by_control": {
+    "direct_full_visible_tools": {
+      "record_count": 2,
+      "gate_pass_count": 0,
+      "answer_contained_count": 0,
+      "expected_to_pass_count": 2,
+      "failure_classes": ["prompt_or_model_weakness"]
+    },
+    "code_mode_full_visible": {
+      "record_count": 2,
+      "gate_pass_count": 0,
+      "answer_contained_count": 0,
+      "expected_to_pass_count": 2,
+      "failure_classes": ["prompt_or_model_weakness"]
+    },
+    "code_mode_fresh_tail_only": {
+      "record_count": 2,
+      "gate_pass_count": 2,
+      "answer_contained_count": 0,
+      "expected_to_pass_count": 0,
+      "failure_classes": []
+    },
+    "code_mode_native_live_append": {
+      "record_count": 2,
+      "gate_pass_count": 0,
+      "answer_contained_count": 0,
+      "expected_to_pass_count": 2,
+      "failure_classes": ["native_live_append_protocol_blocker"]
+    },
+    "code_mode_restored_kv_capsule": {
+      "record_count": 2,
+      "gate_pass_count": 0,
+      "answer_contained_count": 0,
+      "expected_to_pass_count": 2,
+      "failure_classes": ["restored_capsule_semantic_failure"]
+    },
+    "code_mode_wrong_capsule_negative": {
+      "record_count": 2,
+      "gate_pass_count": 2,
+      "answer_contained_count": 0,
+      "expected_to_pass_count": 0,
+      "failure_classes": []
+    },
+    "compact_visible_evidence_code_mode": {
+      "record_count": 2,
+      "gate_pass_count": 0,
+      "answer_contained_count": 0,
+      "expected_to_pass_count": 2,
+      "failure_classes": ["prompt_or_model_weakness"]
+    }
+  },
+  "hash_parity": {
+    "code_full_vs_live": {
+      "total": 2,
+      "response_hash_matches": 0,
+      "normalized_response_hash_matches": 0,
+      "generated_token_hash_matches": 0
+    },
+    "live_vs_restored": {
+      "total": 2,
+      "response_hash_matches": 2,
+      "normalized_response_hash_matches": 2,
+      "generated_token_hash_matches": 2
+    }
+  },
+  "observed_output_shapes": ["missing"],
+  "failure_classes": [
+    "native_live_append_protocol_blocker",
+    "prompt_or_model_weakness",
+    "restored_capsule_semantic_failure"
+  ],
+  "raw_artifacts": {
+    "records": "research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/two-case-model-smoke-records.jsonl",
+    "run_info": "research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/two-case-model-smoke-run-info.json",
+    "command": "research/01-ssd-native-inference-current/benchmarks/code-mode-kv-capsule-agent-harness-2026-06-05/raw/two-case-smoke-command.txt"
+  },
+  "next_required_fix": [
+    "Implement a real two-phase Code mode/tool-call loop: generate tool intent, validate/execute hidden catalog tool(s), append tool result, then generate final answer.",
+    "Alternatively revise prompts into a completion-style protocol that Gemma can pass under direct full-visible before any hidden/capsule comparison.",
+    "Rerun only the two-case gate; do not run 12-case or 30-case until direct full-visible and code-mode full-visible pass."
+  ],
+  "disallowed_claims_after_smoke": [
+    "Do not claim KV capsule helps Code mode tasks yet.",
+    "Do not claim restored capsule failed semantically on Code mode tasks.",
+    "Do not run or report larger benchmark numbers from this prompt protocol."
+  ]
+}

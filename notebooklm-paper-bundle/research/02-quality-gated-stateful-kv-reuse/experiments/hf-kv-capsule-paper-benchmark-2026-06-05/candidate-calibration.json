@@ -1,0 +1,22 @@
+{
+  "graphwalks_candidates": 100,
+  "graphwalks_full_visible": {
+    "count": 100,
+    "failed": 100,
+    "passed": 0
+  },
+  "ifeval_extra_150": {
+    "count": 150,
+    "failed": 105,
+    "passed": 45
+  },
+  "ifeval_initial_100": {
+    "count": 100,
+    "failed": 71,
+    "passed": 29
+  },
+  "ifeval_selected_count": 50,
+  "ifeval_selected_sha256": "24622f76cb484255ee1a085f73b6afb59818acc473d711b10ad7d6657d3f181f",
+  "ifeval_total_candidates": 250,
+  "ifeval_total_full_visible_passed": 74
+}

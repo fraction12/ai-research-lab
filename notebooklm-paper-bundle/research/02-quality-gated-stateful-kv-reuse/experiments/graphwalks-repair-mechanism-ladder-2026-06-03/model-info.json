@@ -1,0 +1,54 @@
+{
+  "checkout_base_commit": "cbb28cb25358d81bd2bb190b4f560f26bfc2d943",
+  "controls": {
+    "anchor_recompute_128": {
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-anchor-recompute-128-cases.jsonl",
+      "mode": "session-tail"
+    },
+    "anchor_recompute_256": {
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-anchor-recompute-256-cases.jsonl",
+      "mode": "session-tail"
+    },
+    "anchor_recompute_64": {
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-anchor-recompute-64-cases.jsonl",
+      "mode": "session-tail"
+    },
+    "graph_and_query_visible_session_format": {
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-graph-and-query-visible-session-format-cases.jsonl",
+      "mode": "session-tail"
+    },
+    "graph_and_query_visible_tail": {
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-graph-and-query-visible-tail-cases.jsonl",
+      "mode": "session-tail"
+    },
+    "live_tail": {
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-selected-cases.jsonl",
+      "mode": "live-tail"
+    },
+    "query_visible_graph_hidden": {
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-query-visible-graph-hidden-cases.jsonl",
+      "mode": "session-tail"
+    }
+  },
+  "llama_server": {
+    "build": "Clang 19.1.5 for Windows x86_64",
+    "path": "C:/Users/Dushyant/Tools/llama-b9482-vulkan/llama-server.exe",
+    "version": "9482 (4fb16eccc)"
+  },
+  "machine": "DushyantPC",
+  "model": {
+    "bytes": 12109566560,
+    "path": "research/01-ssd-native-inference-current/benchmarks/models/gpt-oss-20b-mxfp4.gguf",
+    "quantization_from_filename": "mxfp4"
+  },
+  "python": "3.14.0",
+  "run_parameters": {
+    "answer_protocol": "json-answer",
+    "ctx_size": 32768,
+    "predict": 192,
+    "prime_n_predict": 0,
+    "server_timeout_seconds": 240,
+    "temperature": 0.0
+  },
+  "source_state_note": "Base checkout plus uncommitted define-graphwalks-repair-mechanism-ladder implementation changes."
+}

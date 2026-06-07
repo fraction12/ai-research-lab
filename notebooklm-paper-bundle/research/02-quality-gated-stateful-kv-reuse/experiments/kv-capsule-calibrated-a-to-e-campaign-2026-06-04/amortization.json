@@ -1,0 +1,15 @@
+{
+  "N_values_requested": [
+    1,
+    2,
+    5,
+    10,
+    20,
+    50,
+    100
+  ],
+  "break_even_curves": [],
+  "experiment": "kv-capsule-calibrated-a-to-e-campaign-2026-06-04",
+  "reason": "No promoted retrieval unit reached live/restored capsule controls; no restored-capsule-passing unit exists for break-even calculation.",
+  "status": "not_interpretable"
+}

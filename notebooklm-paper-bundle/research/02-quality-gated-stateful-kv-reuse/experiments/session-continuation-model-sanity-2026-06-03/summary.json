@@ -1,0 +1,235 @@
+{
+  "experiment_id": "session-continuation-model-sanity-2026-06-03",
+  "date": "2026-06-03",
+  "research_question": "Does tail-only raw /completion session-continuation failure change under an alternate local GGUF or explicit transcript prompt format?",
+  "decision": "tail_only_completion_failure_generalizes_to_alternate_model_and_transcript_format",
+  "artifacts": {
+    "raw_result_json": [
+      {
+        "name": "vault-mind-default-full-probe.json",
+        "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/session-continuation-litmus-results/session-continuation-model-sanity-2026-06-03/vault-mind-default-full-probe.json",
+        "sha256": "36741adb19ba3912f83c0a1136b27516113369758101a58847801e919040df78",
+        "git_tracking": "ignored"
+      },
+      {
+        "name": "vault-mind-default-litmus-long-cache-failed.json",
+        "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/session-continuation-litmus-results/session-continuation-model-sanity-2026-06-03/vault-mind-default-litmus-long-cache-failed.json",
+        "sha256": "8bc7d23dafa32da21b1ecf844ccc45d011a5c1f15b766f7ec8446a51ff9be954",
+        "git_tracking": "ignored",
+        "note": "Preserved failed first attempt with long Windows cache path/log-file errors."
+      },
+      {
+        "name": "vault-mind-default-litmus.json",
+        "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/session-continuation-litmus-results/session-continuation-model-sanity-2026-06-03/vault-mind-default-litmus.json",
+        "sha256": "b45db64889b14080dd9a1327095161add53cdb52a9e8c6eb46cb4e55c46ac81e",
+        "git_tracking": "ignored"
+      },
+      {
+        "name": "vault-mind-transcript-format-litmus.json",
+        "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/session-continuation-litmus-results/session-continuation-model-sanity-2026-06-03/vault-mind-transcript-format-litmus.json",
+        "sha256": "3732137f821a6e19e9e74bf72b52986d2696a6b0936e830624eb125c4b2fc835",
+        "git_tracking": "ignored"
+      }
+    ],
+    "raw_cache_dirs": [
+      {
+        "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/session-continuation-litmus-cache/scms-vd/",
+        "contains": "Valid default litmus logs and restored-tail slot files.",
+        "git_tracking": "ignored"
+      },
+      {
+        "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/session-continuation-litmus-cache/scms-vt/",
+        "contains": "Valid transcript-format litmus logs and restored-tail slot files.",
+        "git_tracking": "ignored"
+      },
+      {
+        "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/session-continuation-litmus-cache/session-continuation-model-sanity-2026-06-03/",
+        "contains": "Probe cache/logs plus preserved long-cache failed attempt directories.",
+        "git_tracking": "ignored"
+      }
+    ],
+    "committed_transcript_cases": "research/02-quality-gated-stateful-kv-reuse/experiments/session-continuation-model-sanity-2026-06-03/transcript-format-cases.jsonl",
+    "committed_commands": "research/02-quality-gated-stateful-kv-reuse/experiments/session-continuation-model-sanity-2026-06-03/commands.md",
+    "committed_model_info": "research/02-quality-gated-stateful-kv-reuse/experiments/session-continuation-model-sanity-2026-06-03/model-info.json",
+    "committed_interpretation": "research/02-quality-gated-stateful-kv-reuse/experiments/session-continuation-model-sanity-2026-06-03/continuation-model-sanity.md"
+  },
+  "model": {
+    "path": "C:\\Users\\Dushyant\\Documents\\vault-mind\\vault-mind-q5_k_m.gguf",
+    "filename": "vault-mind-q5_k_m.gguf",
+    "quantization_hint_from_filename": "q5_k_m",
+    "bytes": 5444831136
+  },
+  "backend": {
+    "server_bin": "C:\\Users\\Dushyant\\Tools\\llama-b9482-vulkan\\llama-server.exe",
+    "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "ctx_size": 32768,
+    "predict": 32,
+    "prime_n_predict": 0,
+    "temperature": 0.0
+  },
+  "probe": {
+    "case_set": "default",
+    "mode": "full",
+    "case_count": 3,
+    "passed_count": 3,
+    "pass_rate": 1.0,
+    "interpretation": "alternate model loads and solves positive control"
+  },
+  "case_set_summaries": {
+    "default": {
+      "full": {
+        "case_count": 3,
+        "passed_count": 3,
+        "pass_rate": 1.0,
+        "answer_parse_error_count": 0,
+        "response_error_count": 0
+      },
+      "live-tail": {
+        "case_count": 3,
+        "passed_count": 0,
+        "pass_rate": 0.0,
+        "answer_parse_error_count": 3,
+        "response_error_count": 0,
+        "response_pattern": "{\"answer\": \"wv923fj293rj293rj293rj293rj2"
+      },
+      "restored-tail": {
+        "case_count": 3,
+        "passed_count": 0,
+        "pass_rate": 0.0,
+        "answer_parse_error_count": 3,
+        "response_error_count": 0,
+        "response_pattern": "{\"answer\": \"wv923fj293rj293rj293rj293rj2"
+      },
+      "fresh-tail": {
+        "case_count": 3,
+        "passed_count": 0,
+        "pass_rate": 0.0,
+        "answer_parse_error_count": 3,
+        "response_error_count": 0,
+        "response_pattern": "{\"answer\": \"wv923fj293rj293rj293rj293rj2"
+      }
+    },
+    "transcript-format": {
+      "full": {
+        "case_count": 3,
+        "passed_count": 3,
+        "pass_rate": 1.0,
+        "answer_parse_error_count": 0,
+        "response_error_count": 0
+      },
+      "live-tail": {
+        "case_count": 3,
+        "passed_count": 0,
+        "pass_rate": 0.0,
+        "answer_parse_error_count": 0,
+        "response_error_count": 0,
+        "response_pattern": "1234567890"
+      },
+      "restored-tail": {
+        "case_count": 3,
+        "passed_count": 0,
+        "pass_rate": 0.0,
+        "answer_parse_error_count": 0,
+        "response_error_count": 0,
+        "response_pattern": "1234567890"
+      },
+      "fresh-tail": {
+        "case_count": 3,
+        "passed_count": 0,
+        "pass_rate": 0.0,
+        "answer_parse_error_count": 0,
+        "response_error_count": 0,
+        "response_pattern": "1234567890"
+      }
+    }
+  },
+  "restore_sanity": [
+    {
+      "case_set": "default",
+      "case_id": "secret-alpha",
+      "slot_filename": "secret-alpha-984845f9cc0284a4-slot.bin",
+      "n_saved": 39,
+      "n_restored": 39,
+      "n_written": 2237740,
+      "n_read": 2237740
+    },
+    {
+      "case_set": "default",
+      "case_id": "secret-bravo",
+      "slot_filename": "secret-bravo-e5a1968c2c16063b-slot.bin",
+      "n_saved": 39,
+      "n_restored": 39,
+      "n_written": 2237740,
+      "n_read": 2237740
+    },
+    {
+      "case_set": "default",
+      "case_id": "secret-charlie",
+      "slot_filename": "secret-charlie-ee554eba9f2163d3-slot.bin",
+      "n_saved": 40,
+      "n_restored": 40,
+      "n_written": 2295100,
+      "n_read": 2295100
+    },
+    {
+      "case_set": "transcript-format",
+      "case_id": "transcript-alpha",
+      "slot_filename": "transcript-alpha-a24fe24c7bc23a7e-slot.bin",
+      "n_saved": 71,
+      "n_restored": 71,
+      "n_written": 4073260,
+      "n_read": 4073260
+    },
+    {
+      "case_set": "transcript-format",
+      "case_id": "transcript-bravo",
+      "slot_filename": "transcript-bravo-6dcfe590217b0900-slot.bin",
+      "n_saved": 73,
+      "n_restored": 73,
+      "n_written": 4187980,
+      "n_read": 4187980
+    },
+    {
+      "case_set": "transcript-format",
+      "case_id": "transcript-charlie",
+      "slot_filename": "transcript-charlie-f0df0e16ee2b7bde-slot.bin",
+      "n_saved": 73,
+      "n_restored": 73,
+      "n_written": 4187980,
+      "n_read": 4187980
+    }
+  ],
+  "failure_taxonomy": [
+    {
+      "category": "model weakness",
+      "status": "unlikely primary cause for the litmus",
+      "evidence": "Vault-mind full-prompt controls passed 3/3 for default and 3/3 for transcript-format."
+    },
+    {
+      "category": "prompt protocol issue",
+      "status": "strongly implicated",
+      "evidence": "Tail-only live/restored outputs matched fresh-tail behavior in both case sets."
+    },
+    {
+      "category": "scorer/parser brittleness",
+      "status": "not the primary cause",
+      "evidence": "Default tail modes had parse errors, but transcript-format tail modes parsed cleanly as wrong answer 1234567890; full modes parsed and passed."
+    },
+    {
+      "category": "session/cache semantic issue",
+      "status": "strongly implicated at endpoint/protocol level",
+      "evidence": "Same-slot live-tail failed 0/3 for both case sets without disk restore."
+    },
+    {
+      "category": "position/compatibility issue",
+      "status": "not isolated",
+      "evidence": "Restored-tail failed, but live-tail also failed, so restore position cannot be the first explanation."
+    },
+    {
+      "category": "runtime/storage issue",
+      "status": "mixed: path-length issue observed, storage not primary after rerun",
+      "evidence": "A long cache path caused Windows log-file errors and was preserved; short-path reruns had no response errors and restored slot files with matching n_saved/n_restored."
+    }
+  ],
+  "next_step": "Proceed to Option 3: lower-level/protocol repair probe closer to actual KV/session mechanics."
+}

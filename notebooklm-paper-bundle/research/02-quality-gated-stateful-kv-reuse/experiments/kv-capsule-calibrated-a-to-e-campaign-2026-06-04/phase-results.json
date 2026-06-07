@@ -1,0 +1,115 @@
+{
+  "experiment": "kv-capsule-calibrated-a-to-e-campaign-2026-06-04",
+  "highest_reliable_scales": {
+    "highest_reliable_full_visible_rows": null,
+    "highest_reliable_live_append_rows": null,
+    "highest_reliable_restored_capsule_rows": null
+  },
+  "phases": [
+    {
+      "attempts": [
+        {
+          "answer_contained_count": 3,
+          "attempt_id": "phase_a_rows10_kv_block_value_only_v1",
+          "decision": "calibration_full_visible_failed",
+          "exact_or_normalized_count": 3,
+          "prefix_hash": "3364786551d6f3275f1e4c6dcc065171e794da4fde9d3f56b992d6797d3bfb44",
+          "promoted": false,
+          "prompt_shape": "compact_key_value_blocks",
+          "query_count": 10,
+          "row_count": 10,
+          "semantic_match_count": 3,
+          "variant_id": "kv_block_value_only_v1"
+        },
+        {
+          "answer_contained_count": 0,
+          "attempt_id": "phase_a_rows10_equals_line_value_only_v1",
+          "decision": "calibration_full_visible_failed",
+          "exact_or_normalized_count": 0,
+          "prefix_hash": "485545903dfc5e40bb5f0bcad91fef638dccd12b26756d6dd77126ed343eee8e",
+          "promoted": false,
+          "prompt_shape": "equals_line_records",
+          "query_count": 10,
+          "row_count": 10,
+          "semantic_match_count": 0,
+          "variant_id": "equals_line_value_only_v1"
+        },
+        {
+          "answer_contained_count": 0,
+          "attempt_id": "phase_a_rows10_answer_channel_v1",
+          "decision": "calibration_full_visible_failed",
+          "exact_or_normalized_count": 0,
+          "prefix_hash": "866d81ec56a708d756ce5ba1a7816b0f2f9139e66ca74532d17a1e43a712f4c3",
+          "promoted": false,
+          "prompt_shape": "answer_channel_records",
+          "query_count": 10,
+          "row_count": 10,
+          "semantic_match_count": 0,
+          "variant_id": "answer_channel_v1"
+        },
+        {
+          "answer_contained_count": 5,
+          "attempt_id": "phase_a_rows10_tsv_value_only_v1",
+          "decision": "calibration_full_visible_failed",
+          "exact_or_normalized_count": 0,
+          "prefix_hash": "0e3605620203fc8f92cd5cea04e3a01c7d06853df5d729e4d50b569e7153df78",
+          "promoted": false,
+          "prompt_shape": "two_column_tsv",
+          "query_count": 10,
+          "row_count": 10,
+          "semantic_match_count": 5,
+          "variant_id": "tsv_value_only_v1"
+        },
+        {
+          "answer_contained_count": 1,
+          "attempt_id": "phase_a_rows10_jsonl_value_only_v1",
+          "decision": "calibration_full_visible_failed",
+          "exact_or_normalized_count": 0,
+          "prefix_hash": "81518aa0cceada8462ba46681f6374a7470d8537b0c3562426f52ed8624f81f1",
+          "promoted": false,
+          "prompt_shape": "jsonl_objects",
+          "query_count": 10,
+          "row_count": 10,
+          "semantic_match_count": 1,
+          "variant_id": "jsonl_value_only_v1"
+        },
+        {
+          "answer_contained_count": 0,
+          "attempt_id": "phase_a_rows10_natural_fact_value_only_v1",
+          "decision": "calibration_full_visible_failed",
+          "exact_or_normalized_count": 0,
+          "prefix_hash": "d13a0854dd46ea742e4fa994eb396b0d91963ca61666e74a190da0d9efcfd108",
+          "promoted": false,
+          "prompt_shape": "compact_natural_language_facts",
+          "query_count": 10,
+          "row_count": 10,
+          "semantic_match_count": 0,
+          "variant_id": "natural_fact_value_only_v1"
+        }
+      ],
+      "decision": "no_variant_promoted",
+      "phase": "A_visible_baseline_calibration",
+      "status": "completed"
+    },
+    {
+      "phase": "B_semantic_capsule_ladder",
+      "reason": "no promoted retrieval unit",
+      "status": "not_run"
+    },
+    {
+      "phase": "C_scale_boundary_search",
+      "reason": "Phase B did not run",
+      "status": "not_run"
+    },
+    {
+      "phase": "D_amortization_economics",
+      "reason": "no restored-capsule-passing unit",
+      "status": "not_run"
+    },
+    {
+      "phase": "E_agent_context_capsule_benchmark",
+      "reason": "retrieval pass precondition failed",
+      "status": "not_run"
+    }
+  ]
+}

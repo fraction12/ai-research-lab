@@ -1,0 +1,126 @@
+{
+  "analysis_scope": "codeword_gate_only",
+  "analyzed_response_count": 30,
+  "control_summary": {
+    "fresh_tail_only": {
+      "answer_contained_count": 0,
+      "answer_contained_rate": 0.0,
+      "case_count": 10,
+      "extractable_answer_count": 0,
+      "mean_decode_ms": 3591.5,
+      "mean_latency_ms": 30747.558149986435,
+      "mean_predicted_tokens": 32,
+      "mean_prompt_ms": 416.6511,
+      "mean_prompt_tokens": 14,
+      "output_status_counts": {
+        "contains_with_extra_text": 0,
+        "exact_only": 0,
+        "malformed": 0,
+        "missing": 10
+      },
+      "strict_exact_match_count": 0,
+      "strict_exact_match_rate": 0.0
+    },
+    "full_visible_prefix_plus_tail": {
+      "answer_contained_count": 10,
+      "answer_contained_rate": 1.0,
+      "case_count": 10,
+      "extractable_answer_count": 10,
+      "mean_decode_ms": 3537.4444,
+      "mean_latency_ms": 31399.57890000078,
+      "mean_predicted_tokens": 31.5,
+      "mean_prompt_ms": 622.8308,
+      "mean_prompt_tokens": 31,
+      "output_status_counts": {
+        "contains_with_extra_text": 10,
+        "exact_only": 0,
+        "malformed": 0,
+        "missing": 0
+      },
+      "strict_exact_match_count": 0,
+      "strict_exact_match_rate": 0.0
+    },
+    "restored_hidden_prefix_plus_tail": {
+      "answer_contained_count": 0,
+      "answer_contained_rate": 0.0,
+      "case_count": 10,
+      "extractable_answer_count": 0,
+      "mean_decode_ms": 3592.6246,
+      "mean_latency_ms": 31247.66863999539,
+      "mean_predicted_tokens": 32,
+      "mean_prompt_ms": 413.162,
+      "mean_prompt_tokens": 14,
+      "output_status_counts": {
+        "contains_with_extra_text": 0,
+        "exact_only": 0,
+        "malformed": 0,
+        "missing": 10
+      },
+      "strict_exact_match_count": 0,
+      "strict_exact_match_rate": 0.0
+    }
+  },
+  "ctx_size": 32768,
+  "excluded_records": [
+    {
+      "case_id": "kv-01",
+      "control": "full_visible_prefix_plus_tail",
+      "probe_family": "key_value",
+      "reason": "manual stop after codeword gate; non-codeword stray excluded from analysis"
+    }
+  ],
+  "excluded_response_count": 1,
+  "experiment_id": "hidden-prefix-semantic-continuation-2026-06-04",
+  "generated_at": "2026-06-04T17:59:39.515470+00:00",
+  "interpretation": "The pinned llama.cpp + GPT-OSS restored hidden-prefix protocol mechanically saves/restores slot state but does not make the hidden codeword semantically available to the tail completion in this probe. Prior GraphWalks hidden-prefix failures should be interpreted as protocol/backend-usage failures for this path, not as evidence against hidden KV reuse in general.",
+  "metrics": {
+    "answer_contained": "expected codeword appears as a standalone substring in raw or normalized response",
+    "restored_vs_fresh_equality": "SHA-256 equality over exact raw response strings and normalized response strings",
+    "strict_exact_match": "normalized response equals expected codeword exactly"
+  },
+  "model": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+  "model_sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+  "paired_summary": {
+    "case_count": 10,
+    "fresh_tail_contains_answer_count": 0,
+    "full_visible_contains_answer_count": 10,
+    "restored_exact_response_equals_fresh_count": 10,
+    "restored_hidden_prefix_contains_answer_count": 0,
+    "restored_normalized_equals_fresh_count": 10
+  },
+  "planned_ladder": "10 codeword variants, 20 key/value variants, optional tiny structured probe",
+  "predict": 32,
+  "prime_n_predict": 0,
+  "raw_response_count_total": 31,
+  "runner": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
+  "runner_sha256": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6",
+  "semantic_decision": "current_restored_hidden_prefix_protocol_behaves_like_fresh_tail_only_on_codeword_gate",
+  "slot_telemetry_summary": {
+    "mean_prime_prompt_ms": 431.0512,
+    "mean_restore_ms": 8.079189999261871,
+    "mean_save_ms": 10.540999996010214,
+    "restored_cases_with_n_saved": 10,
+    "restored_n_read_values": [
+      787500,
+      836680,
+      935040
+    ],
+    "restored_n_restored_values": [
+      16,
+      17,
+      19
+    ],
+    "restored_n_saved_values": [
+      16,
+      17,
+      19
+    ],
+    "restored_n_written_values": [
+      787500,
+      836680,
+      935040
+    ]
+  },
+  "stop_rule_applied": "Stopped after 10-codeword gate because restored hidden prefix contained 0/10 expected codewords while full visible contained 10/10 and restored responses exactly matched fresh tail-only 10/10.",
+  "temperature": 0.0
+}

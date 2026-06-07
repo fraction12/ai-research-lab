@@ -1,0 +1,115 @@
+{
+  "calibration": {
+    "graphwalks_candidates": 100,
+    "graphwalks_full_visible": {
+      "count": 100,
+      "failed": 100,
+      "passed": 0
+    },
+    "ifeval_extra_150": {
+      "count": 150,
+      "failed": 105,
+      "passed": 45
+    },
+    "ifeval_initial_100": {
+      "count": 100,
+      "failed": 71,
+      "passed": 29
+    },
+    "ifeval_selected_count": 50,
+    "ifeval_selected_sha256": "24622f76cb484255ee1a085f73b6afb59818acc473d711b10ad7d6657d3f181f",
+    "ifeval_total_candidates": 250,
+    "ifeval_total_full_visible_passed": 74
+  },
+  "decision": "stopped_without_hf_capsule_interpretation",
+  "experiment_id": "hf-kv-capsule-paper-benchmark-2026-06-05",
+  "hf_live_gates": {
+    "graphwalks": {
+      "by_control": {
+        "full_visible": {
+          "count": 10,
+          "failed": 10,
+          "passed": 0
+        },
+        "native_live_append": {
+          "count": 10,
+          "failed": 10,
+          "passed": 0
+        }
+      },
+      "decision": "hf-live-gate_completed",
+      "record_count": 20
+    },
+    "ifeval": {
+      "by_control": {
+        "full_visible": {
+          "count": 10,
+          "failed": 9,
+          "passed": 1
+        },
+        "native_live_append": {
+          "count": 10,
+          "failed": 9,
+          "passed": 1
+        }
+      },
+      "decision": "hf-live-gate_completed",
+      "record_count": 20
+    }
+  },
+  "interpretation_boundary": "No HF restored-capsule quality claim. IFEval selected rows were full-visible reliable but tail-only solved enough cases to violate the negative control; GraphWalks did not pass full-visible calibration.",
+  "model_profile": "gemma4-12b",
+  "primary_matrix": {
+    "graphwalks_matrix_status": "not_run_full_visible_calibration_0_of_100",
+    "ifeval_by_control_partial": {
+      "fresh_tail_only": {
+        "count": 4,
+        "failed": 1,
+        "passed": 3
+      },
+      "full_visible": {
+        "count": 50,
+        "failed": 0,
+        "passed": 50
+      }
+    },
+    "ifeval_matrix_status": "stopped_after_fresh_tail_unexpected_pass_before_live_or_restored_capsule_controls",
+    "ifeval_selected_50_partial_records": 54
+  },
+  "sequence_state_available": {
+    "seq_file": true,
+    "seq_memory": true
+  },
+  "state_route_effective": "seq_file",
+  "stop_rules_fired": [
+    "ifeval_fresh_tail_leakage_or_task_not_prefix_dependent",
+    "graphwalks_full_visible_calibration_failed"
+  ],
+  "strongest_result": "Synthetic preflight passed on Gemma 4 12B seq_file route, but HF paper-facing capsule evidence was not interpretable under this split.",
+  "synthetic_preflight": {
+    "by_control": {
+      "fresh_tail_only": {
+        "count": 6,
+        "failed": 6,
+        "passed": 0
+      },
+      "full_visible": {
+        "count": 6,
+        "failed": 0,
+        "passed": 6
+      },
+      "native_live_append": {
+        "count": 6,
+        "failed": 0,
+        "passed": 6
+      },
+      "native_restored_capsule_append": {
+        "count": 6,
+        "failed": 0,
+        "passed": 6
+      }
+    },
+    "decision": "preflight_completed",
+    "record_count": 24
+  }
+}

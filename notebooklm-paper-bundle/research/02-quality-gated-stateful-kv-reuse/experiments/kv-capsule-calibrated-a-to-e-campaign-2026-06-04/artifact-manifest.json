@@ -1,0 +1,112 @@
+{
+  "committed_artifact_dir": "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-calibrated-a-to-e-campaign-2026-06-04",
+  "committed_files": [
+    "README.md",
+    "summary.json",
+    "phase-results.json",
+    "calibration-results.json",
+    "case-metrics.json",
+    "amortization.json",
+    "failure-classifications.json",
+    "commands.md",
+    "model-info.json",
+    "artifact-manifest.json"
+  ],
+  "experiment": "kv-capsule-calibrated-a-to-e-campaign-2026-06-04",
+  "ignored_raw_dir": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw",
+  "ignored_raw_files": [
+    {
+      "bytes": 3167,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/calibration-results-raw.json",
+      "sha256": "dd322c8082d420db0b93e6b1d9eca4b2189fb81d38ae6d778c528db0775047f5"
+    },
+    {
+      "bytes": 370,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/campaign-command.txt",
+      "sha256": "f67b4205854b3fd5ee6e7e6c82c9fcf8aa1f846af091db105bbd0fce714b70ce"
+    },
+    {
+      "bytes": 16,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/campaign-exit.txt",
+      "sha256": "b0cf468cc40cba68b599464e38535a8e9ff8b5c7813971c725582294b2949c1e"
+    },
+    {
+      "bytes": 2131,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/campaign-pid.json",
+      "sha256": "69fdf5ac03dd49b97657cd908910d8a028f7f542ddf150bc979dec3c7906a56a"
+    },
+    {
+      "bytes": 122714,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/campaign-records.jsonl",
+      "sha256": "3f6db17bf86c0fee34ca08766a3f7350c2351bbf3736fa519c47da81166e289c"
+    },
+    {
+      "bytes": 8467,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/campaign-run-info.json",
+      "sha256": "15f21bcb6d8b44fb66b91020b5aefcc43cc6f5acc1cfd2e1638ca6c7d5cd66c8"
+    },
+    {
+      "bytes": 719002,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/campaign-stderr.txt",
+      "sha256": "eaf6c87fa95d1f434c0cfa0572ca8793aafd696be20bc942dada73959f8d4eaa"
+    },
+    {
+      "bytes": 35903,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/campaign-stdout.txt",
+      "sha256": "88da58113f86606717ca7b312d568ecb727125028cfdf7a584a2a73478de2ef3"
+    },
+    {
+      "bytes": 230,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/foreground-diagnostic-info.json",
+      "sha256": "f8709774ef2e79c730f6141234d15611d88af50ca7427a166bd1993fd94c1764"
+    },
+    {
+      "bytes": 76734,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/foreground-diagnostic-stderr.txt",
+      "sha256": "c422db85336b5ea7e9599b39f8ebe488152238e1850c24727e00347b9c1310de"
+    },
+    {
+      "bytes": 32,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/foreground-diagnostic-stdout.txt",
+      "sha256": "1f83ccea6309d70b09f77492050247ab29c6f913259498ed350a10c6eb4696e9"
+    },
+    {
+      "bytes": 65154,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/kv_capsule_calibrated_campaign.py",
+      "sha256": "7f8d870da4a9dc5a3a953dfda6a3bb727290531f000d88764e751be670bbd5fb"
+    },
+    {
+      "bytes": 4373,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/phase-results-raw.json",
+      "sha256": "7c2d3a23a96352c95fb02b5d5dc55a0efa7902567b8d9750a4f72a80c6f0303a"
+    },
+    {
+      "bytes": 11,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/smoke-diagnostic-exit.txt",
+      "sha256": "69045f283dd1cd2dbb5c19bddc3660e6c029add2ad239bce59b9fc570f47e837"
+    },
+    {
+      "bytes": 86658,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/smoke-diagnostic-stderr.txt",
+      "sha256": "dbcd16d4937d36e72b9e59efe0ad0b08206e781f385630237491c8dcc8ef868f"
+    },
+    {
+      "bytes": 6788,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/smoke-diagnostic-stdout.txt",
+      "sha256": "87d059ac67cbb7ff63bc677f8b457abfaeadd971b9e89c0f59d318a1f9b35950"
+    },
+    {
+      "bytes": 3391,
+      "path": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-calibrated-a-to-e-campaign-2026-06-04/raw/smoke-run-info.json",
+      "sha256": "24c39d3369921d63bf6ba8a2e49eced0fde6f1fd598ada4ae6f17fe162478922"
+    }
+  ],
+  "omitted_files": [
+    {
+      "file": "capsule-contract.md",
+      "reason": "Restored capsule controls did not run."
+    }
+  ],
+  "raw_prompt_bearing_boundary": "Raw prompts, expected answer strings, responses, token details, stderr/stdout, runner script, and diagnostics remain ignored under Track 01 benchmark raw path.",
+  "sanitization_policy": "Committed JSON omits expected, response, normalized_response, raw prompt text, token id arrays, generated token arrays, top-k arrays, and state bytes."
+}

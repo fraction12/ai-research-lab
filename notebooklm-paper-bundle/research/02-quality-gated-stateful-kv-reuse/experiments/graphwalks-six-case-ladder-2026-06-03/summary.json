@@ -1,0 +1,607 @@
+{
+  "case_ids": [
+    "graphwalks-6",
+    "graphwalks-9",
+    "graphwalks-11",
+    "graphwalks-13",
+    "graphwalks-16",
+    "graphwalks-19"
+  ],
+  "case_results": [
+    {
+      "answer_nodes": [
+        "c81e728d9d",
+        "d3d9446802",
+        "eccbc87e4b"
+      ],
+      "case_id": "graphwalks-6",
+      "full_replay_scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "session_tail_scores": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stronger_tail_hints_score": 0.0,
+      "visible_prefix_session_formatted_score": 0.0
+    },
+    {
+      "answer_nodes": [
+        "c81e728d9d",
+        "eccbc87e4b"
+      ],
+      "case_id": "graphwalks-9",
+      "full_replay_scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "session_tail_scores": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stronger_tail_hints_score": 0.0,
+      "visible_prefix_session_formatted_score": 0.5714285714285715
+    },
+    {
+      "answer_nodes": [
+        "d3d9446802"
+      ],
+      "case_id": "graphwalks-11",
+      "full_replay_scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "session_tail_scores": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stronger_tail_hints_score": 0.0,
+      "visible_prefix_session_formatted_score": 0.0
+    },
+    {
+      "answer_nodes": [
+        "1679091c5a"
+      ],
+      "case_id": "graphwalks-13",
+      "full_replay_scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "session_tail_scores": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stronger_tail_hints_score": 0.0,
+      "visible_prefix_session_formatted_score": 1.0
+    },
+    {
+      "answer_nodes": [
+        "c81e728d9d",
+        "cfcd208495",
+        "e4da3b7fbb",
+        "1679091c5a",
+        "8f14e45fce"
+      ],
+      "case_id": "graphwalks-16",
+      "full_replay_scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "session_tail_scores": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stronger_tail_hints_score": 0.0,
+      "visible_prefix_session_formatted_score": 1.0
+    },
+    {
+      "answer_nodes": [
+        "1679091c5a",
+        "eccbc87e4b",
+        "a87ff679a2"
+      ],
+      "case_id": "graphwalks-19",
+      "full_replay_scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "session_tail_scores": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stronger_tail_hints_score": 0.0,
+      "visible_prefix_session_formatted_score": 1.0
+    }
+  ],
+  "checkout_commit": "0c0f001",
+  "controls": {
+    "full_replay_variance": {
+      "finding": "Stable full-prompt baseline: all six cases passed in all three runs.",
+      "pass_rate_by_run": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "runs": [
+        "01",
+        "02",
+        "03"
+      ],
+      "summary_by_run": [
+        {
+          "case_count": 6,
+          "mean_score": 1.0,
+          "numeric_score_count": 6,
+          "pass_rate": 1.0
+        },
+        {
+          "case_count": 6,
+          "mean_score": 1.0,
+          "numeric_score_count": 6,
+          "pass_rate": 1.0
+        },
+        {
+          "case_count": 6,
+          "mean_score": 1.0,
+          "numeric_score_count": 6,
+          "pass_rate": 1.0
+        }
+      ]
+    },
+    "session_tail_replay": {
+      "finding": "Stable session-tail collapse: all six cases failed in all three runs.",
+      "pass_rate_by_run": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "runs": [
+        "01",
+        "02",
+        "03"
+      ],
+      "summary_by_run": [
+        {
+          "case_count": 6,
+          "mean_score": 0.0,
+          "numeric_score_count": 6,
+          "pass_rate": 0.0
+        },
+        {
+          "case_count": 6,
+          "mean_score": 0.0,
+          "numeric_score_count": 6,
+          "pass_rate": 0.0
+        },
+        {
+          "case_count": 6,
+          "mean_score": 0.0,
+          "numeric_score_count": 6,
+          "pass_rate": 0.0
+        }
+      ]
+    },
+    "stronger_model_control": {
+      "reason": "No stronger compatible GGUF model was available in the llama.cpp harness. Ollama had other local models, but using them would change backend/protocol and would not be a same-control comparison.",
+      "status": "not_practical"
+    },
+    "stronger_tail_hints": {
+      "finding": "Stronger visible tail hints passed 0/6 and produced malformed JSON/prose outputs for all cases.",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.0,
+        "numeric_score_count": 6,
+        "pass_rate": 0.0
+      }
+    },
+    "visible_prefix_session_formatted": {
+      "finding": "Visible-prefix/session-formatted control passed 3/6, showing prompt-format sensitivity but not explaining the full session-tail collapse.",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.5952380952380952,
+        "numeric_score_count": 6,
+        "pass_rate": 0.5
+      }
+    }
+  },
+  "experiment_id": "graphwalks-six-case-ladder-2026-06-03",
+  "findings": [
+    "Full-prompt replay variance is not the cause for these six cases.",
+    "Session-tail failure is deterministic for this local model/protocol stack: 0/18 session-tail attempts passed.",
+    "Regular session-tail failures are not scorer/parser brittleness: JSON answer extraction succeeded and the parsed node sets were wrong or prose-like.",
+    "Stronger tail hints did not repair session-tail; they made JSON answer parsing fail on all six cases.",
+    "The visible-prefix/session-formatted control passed only half the cases, so prompt formatting is a real confounder for graphwalks-6, graphwalks-9, and graphwalks-11.",
+    "For graphwalks-13, graphwalks-16, and graphwalks-19, visible-prefix passed while session-tail failed, giving stronger evidence for session/cache semantic non-equivalence."
+  ],
+  "generated_at": "2026-06-03T18:41:18.475197+00:00",
+  "input_artifacts": [
+    {
+      "git_tracking": "ignored",
+      "line_count": 20,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-20-candidates.jsonl",
+      "sha256": "fdda437f945329e242f240478bbeb32957f425ce6002ee3491e973c64cac380a"
+    },
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-selected-cases.jsonl",
+      "sha256": "3c12fc4a16cc80a87612d118c86cf15b773b799682c439af319381758bf4087c"
+    },
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-stronger-tail-hints-cases.jsonl",
+      "sha256": "19abc904d28890e438362307f0ac67f530053dc3a579d125cf69e2c989b38412"
+    },
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-six-case-ladder-2026-06-03/graphwalks-six-visible-prefix-session-formatted-cases.jsonl",
+      "sha256": "a24de107216410ed29967a6afabbbb21eae8370472fbb20a7e411d7e27a3a1ec"
+    }
+  ],
+  "machine": "DushyantPC",
+  "raw_artifacts": [
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/dry-run-both-responses.jsonl",
+      "sha256": "e4e86d444748e82f6d9e809dad445076e4581f3a41e1ec6de44ce9e6ed5449b6"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/dry-run-both-scores.json",
+      "sha256": "80a670fcbd269cd6c0f5480580184b915b766828acbf981bfb9ad4e753de90fc"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-responses.jsonl",
+      "sha256": "5e178fc119039542ab94236f3da0cea91e49e49f395ac0a223ca9c6840e2ad27"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-01-scores.json",
+      "sha256": "57b626cc08ffe20a085ef651a4f65c2ae3fde62c08a44dcf13c185efa2097e32"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-responses.jsonl",
+      "sha256": "3730018439194115fc664f2924ceaefc356b23487152ab13c6149cc9f6205401"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-02-scores.json",
+      "sha256": "7e206a88d5b28a6ad13726d0232ec4d788f7229140bed1ff826e484a74c5439b"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-responses.jsonl",
+      "sha256": "c9beeeaf903b93c2fad4a4bdedad9b12327b0093ad9d2afb767700bf4127f5d0"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/full-replay-03-scores.json",
+      "sha256": "a085a2b1ae2876d5c9814300012688da391657027845ab43aca2d534175f5861"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/preflight-dry-run-responses.jsonl",
+      "sha256": "111463325550ab573ad6ed6716871a037ec4a13b20e297dce33da50f63ac958f"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/preflight-dry-run-scores.json",
+      "sha256": "768cb5aa854d009d220b43720fb8947b329b1cedab6a4d05cc2717f3ce43b025"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-responses.jsonl",
+      "sha256": "df6093f45f328c6522a8a13a912cb1b9c19b09386dd1ba2a3cdf8d37b68fa6bf"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-01-scores.json",
+      "sha256": "bec17615f6c4f470a8f77e9fa8729d85289bbf3d8bbd039bdc08201411bcf1f1"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-responses.jsonl",
+      "sha256": "64e87975a159dbdce5dfa02a9d09cc2a28c1d61701a609615bf03e85f0656a7a"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-02-scores.json",
+      "sha256": "bafd4f31a3247dbf3661f7a9ae1778dc223fde0dc7fb1d96fe00e727d060bff9"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-responses.jsonl",
+      "sha256": "b9c3e2c35c7ba07db819c293b9bf386689d156c9218467cda565cbfc24ef3fa9"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/session-tail-03-scores.json",
+      "sha256": "0aa049a68d9d9dda2c96bf32147683033f054736364b615d696428db819c51ec"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-responses.jsonl",
+      "sha256": "eb09685b718d972cf08228d309fc537541dc02a70d82bad73b017d9c1a0e0f6a"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/stronger-tail-hints-session-tail-scores.json",
+      "sha256": "d1dc0dd72e95b5387fdcfbf753f308b6fbcfaeb91a370eb0310f25f49f8dcf73"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-responses.jsonl",
+      "sha256": "f3dfb45db68a74146e0e9ea2da86e7be4aabb7136ff50d4bff4ac4e68761c53d"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-six-case-ladder-2026-06-03/raw/visible-prefix-session-formatted-scores.json",
+      "sha256": "0d73be272bee1a8f1b6ffff678bdadb81e36ceef1b19b205f618cb7d50d41381"
+    }
+  ],
+  "restore_telemetry": {
+    "finding": "All session-tail runs reported save/restore telemetry with stable restored token counts and no response-level runtime errors.",
+    "rows": [
+      {
+        "case_id": "graphwalks-6",
+        "error": null,
+        "n_read": 28034988,
+        "n_restored": 1012,
+        "n_saved": 1012,
+        "n_written": 28034988,
+        "restore_ms": 16.392,
+        "run": "01",
+        "save_ms": 24.746,
+        "slot_filename": "graphwalks-6-91e70c8330c19999-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-9",
+        "error": null,
+        "n_read": 28576012,
+        "n_restored": 1034,
+        "n_saved": 1034,
+        "n_written": 28576012,
+        "restore_ms": 21.646,
+        "run": "01",
+        "save_ms": 28.864,
+        "slot_filename": "graphwalks-9-0597b337fec2eb8e-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-11",
+        "error": null,
+        "n_read": 28108764,
+        "n_restored": 1015,
+        "n_saved": 1015,
+        "n_written": 28108764,
+        "restore_ms": 16.48,
+        "run": "01",
+        "save_ms": 29.846,
+        "slot_filename": "graphwalks-11-f652b0c98887ebb7-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-13",
+        "error": null,
+        "n_read": 28698972,
+        "n_restored": 1039,
+        "n_saved": 1039,
+        "n_written": 28698972,
+        "restore_ms": 10.983,
+        "run": "01",
+        "save_ms": 25.65,
+        "slot_filename": "graphwalks-13-0cf7e790fbb795c5-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-16",
+        "error": null,
+        "n_read": 28576012,
+        "n_restored": 1034,
+        "n_saved": 1034,
+        "n_written": 28576012,
+        "restore_ms": 18.194,
+        "run": "01",
+        "save_ms": 22.074,
+        "slot_filename": "graphwalks-16-0743554557e450a7-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-19",
+        "error": null,
+        "n_read": 28330092,
+        "n_restored": 1024,
+        "n_saved": 1024,
+        "n_written": 28330092,
+        "restore_ms": 21.134,
+        "run": "01",
+        "save_ms": 35.129,
+        "slot_filename": "graphwalks-19-35f08aa3658106b7-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-6",
+        "error": null,
+        "n_read": 28034988,
+        "n_restored": 1012,
+        "n_saved": 1012,
+        "n_written": 28034988,
+        "restore_ms": 15.607,
+        "run": "02",
+        "save_ms": 25.986,
+        "slot_filename": "graphwalks-6-91e70c8330c19999-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-9",
+        "error": null,
+        "n_read": 28576012,
+        "n_restored": 1034,
+        "n_saved": 1034,
+        "n_written": 28576012,
+        "restore_ms": 20.906,
+        "run": "02",
+        "save_ms": 25.972,
+        "slot_filename": "graphwalks-9-0597b337fec2eb8e-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-11",
+        "error": null,
+        "n_read": 28108764,
+        "n_restored": 1015,
+        "n_saved": 1015,
+        "n_written": 28108764,
+        "restore_ms": 18.624,
+        "run": "02",
+        "save_ms": 24.531,
+        "slot_filename": "graphwalks-11-f652b0c98887ebb7-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-13",
+        "error": null,
+        "n_read": 28698972,
+        "n_restored": 1039,
+        "n_saved": 1039,
+        "n_written": 28698972,
+        "restore_ms": 11.058,
+        "run": "02",
+        "save_ms": 25.578,
+        "slot_filename": "graphwalks-13-0cf7e790fbb795c5-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-16",
+        "error": null,
+        "n_read": 28576012,
+        "n_restored": 1034,
+        "n_saved": 1034,
+        "n_written": 28576012,
+        "restore_ms": 11.088,
+        "run": "02",
+        "save_ms": 25.843,
+        "slot_filename": "graphwalks-16-0743554557e450a7-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-19",
+        "error": null,
+        "n_read": 28330092,
+        "n_restored": 1024,
+        "n_saved": 1024,
+        "n_written": 28330092,
+        "restore_ms": 16.265,
+        "run": "02",
+        "save_ms": 23.216,
+        "slot_filename": "graphwalks-19-35f08aa3658106b7-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-6",
+        "error": null,
+        "n_read": 28034988,
+        "n_restored": 1012,
+        "n_saved": 1012,
+        "n_written": 28034988,
+        "restore_ms": 16.57,
+        "run": "03",
+        "save_ms": 25.219,
+        "slot_filename": "graphwalks-6-91e70c8330c19999-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-9",
+        "error": null,
+        "n_read": 28576012,
+        "n_restored": 1034,
+        "n_saved": 1034,
+        "n_written": 28576012,
+        "restore_ms": 20.891,
+        "run": "03",
+        "save_ms": 18.808,
+        "slot_filename": "graphwalks-9-0597b337fec2eb8e-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-11",
+        "error": null,
+        "n_read": 28108764,
+        "n_restored": 1015,
+        "n_saved": 1015,
+        "n_written": 28108764,
+        "restore_ms": 15.733,
+        "run": "03",
+        "save_ms": 25.202,
+        "slot_filename": "graphwalks-11-f652b0c98887ebb7-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-13",
+        "error": null,
+        "n_read": 28698972,
+        "n_restored": 1039,
+        "n_saved": 1039,
+        "n_written": 28698972,
+        "restore_ms": 18.757,
+        "run": "03",
+        "save_ms": 25.538,
+        "slot_filename": "graphwalks-13-0cf7e790fbb795c5-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-16",
+        "error": null,
+        "n_read": 28576012,
+        "n_restored": 1034,
+        "n_saved": 1034,
+        "n_written": 28576012,
+        "restore_ms": 14.614,
+        "run": "03",
+        "save_ms": 27.166,
+        "slot_filename": "graphwalks-16-0743554557e450a7-slot.bin"
+      },
+      {
+        "case_id": "graphwalks-19",
+        "error": null,
+        "n_read": 28330092,
+        "n_restored": 1024,
+        "n_saved": 1024,
+        "n_written": 28330092,
+        "restore_ms": 10.831,
+        "run": "03",
+        "save_ms": 26.293,
+        "slot_filename": "graphwalks-19-35f08aa3658106b7-slot.bin"
+      }
+    ]
+  },
+  "status": "completed_focused_controls",
+  "timing": {
+    "full_prompt_ms": {
+      "count": 18,
+      "max": 1540.238,
+      "mean": 1485.3641111111112,
+      "min": 1453.472
+    },
+    "session_tail_prompt_ms": {
+      "count": 18,
+      "max": 407.235,
+      "mean": 397.3333888888889,
+      "min": 380.733
+    },
+    "stronger_tail_prompt_ms": {
+      "count": 6,
+      "max": 429.18,
+      "mean": 425.683,
+      "min": 423.086
+    },
+    "visible_prefix_prompt_ms": {
+      "count": 6,
+      "max": 1560.587,
+      "mean": 1497.6456666666666,
+      "min": 1461.437
+    }
+  }
+}

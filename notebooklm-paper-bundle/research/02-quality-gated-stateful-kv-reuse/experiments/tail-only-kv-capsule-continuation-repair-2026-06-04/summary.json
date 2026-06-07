@@ -1,0 +1,181 @@
+{
+  "experiment": "tail-only-kv-capsule-continuation-repair-2026-06-04",
+  "decision": "family1_sequence_state_restored_capsule_semantic_passed",
+  "result_class": "narrow_family1_sequence_file_tail_only_semantic_continuation_positive",
+  "interpretation": "The pinned GPT-OSS/native CUDA stack passed the 30-case simple codeword Family 1 gate using official sequence-file state save/load plus tail-only append. This is not evidence for richer retrieval, GraphWalks, or general KV capsule correctness.",
+  "primary_gate": {
+    "mode": "family1-30",
+    "command": [
+      "python",
+      "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\tail-only-kv-capsule-continuation-repair-2026-06-04\\raw\\tail_only_kv_capsule_repair.py",
+      "--mode",
+      "family1-30",
+      "--state-route",
+      "auto",
+      "--out-dir",
+      "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\tail-only-kv-capsule-continuation-repair-2026-06-04\\raw",
+      "--cache-dir",
+      "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\tail-only-kv-capsule-continuation-repair-2026-06-04\\cache"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-06-04T23:50:07.2290156Z",
+    "finished_utc": "2026-06-04T23:59:03.7527190Z",
+    "record_count": 120,
+    "pass_counts": {
+      "native_full_visible_prefix_plus_tail": {
+        "total": 30,
+        "answer_contained": 30,
+        "exact_match": 0,
+        "failure_classes": {
+          "passed": 30
+        }
+      },
+      "native_fresh_tail_only": {
+        "total": 30,
+        "answer_contained": 0,
+        "exact_match": 0,
+        "failure_classes": {
+          "fresh_tail_expected_miss": 30
+        }
+      },
+      "native_live_append_tail_only": {
+        "total": 30,
+        "answer_contained": 30,
+        "exact_match": 0,
+        "failure_classes": {
+          "passed": 30
+        }
+      },
+      "native_restored_capsule_append_tail_only": {
+        "total": 30,
+        "answer_contained": 30,
+        "exact_match": 0,
+        "failure_classes": {
+          "passed": 30
+        }
+      }
+    },
+    "stop_rule": "restored_capsule_passed_stop_before_expansion"
+  },
+  "preliminary_smoke_gate": {
+    "mode": "family1-smoke",
+    "command": [
+      "python",
+      "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\tail-only-kv-capsule-continuation-repair-2026-06-04\\raw\\tail_only_kv_capsule_repair.py",
+      "--mode",
+      "family1-smoke",
+      "--state-route",
+      "auto",
+      "--out-dir",
+      "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\tail-only-kv-capsule-continuation-repair-2026-06-04\\raw",
+      "--cache-dir",
+      "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\tail-only-kv-capsule-continuation-repair-2026-06-04\\cache"
+    ],
+    "exit_code": 0,
+    "record_count": 12,
+    "pass_counts": {
+      "native_full_visible_prefix_plus_tail": {
+        "total": 3,
+        "answer_contained": 3,
+        "exact_match": 0,
+        "failure_classes": {
+          "passed": 3
+        }
+      },
+      "native_fresh_tail_only": {
+        "total": 3,
+        "answer_contained": 0,
+        "exact_match": 0,
+        "failure_classes": {
+          "fresh_tail_expected_miss": 3
+        }
+      },
+      "native_live_append_tail_only": {
+        "total": 3,
+        "answer_contained": 3,
+        "exact_match": 0,
+        "failure_classes": {
+          "passed": 3
+        }
+      },
+      "native_restored_capsule_append_tail_only": {
+        "total": 3,
+        "answer_contained": 3,
+        "exact_match": 0,
+        "failure_classes": {
+          "passed": 3
+        }
+      }
+    },
+    "decision": "family1_sequence_state_restored_capsule_semantic_passed",
+    "stop_rule": "restored_capsule_passed_stop_before_expansion"
+  },
+  "state_route": {
+    "requested": "auto",
+    "effective": "seq_file",
+    "internal": "seq-file",
+    "warning": null,
+    "sequence_state_available": {
+      "seq_file": true,
+      "seq_memory": true
+    },
+    "sequence_exports": {
+      "seq_file_available": true,
+      "seq_memory_available": true,
+      "exports": {
+        "llama_state_seq_get_size": true,
+        "llama_state_seq_get_data": true,
+        "llama_state_seq_set_data": true,
+        "llama_state_seq_save_file": true,
+        "llama_state_seq_load_file": true
+      },
+      "ext_exports": {
+        "llama_state_seq_get_size_ext": true,
+        "llama_state_seq_get_data_ext": true,
+        "llama_state_seq_set_data_ext": true
+      }
+    }
+  },
+  "capsule_bytes": {
+    "count": 30,
+    "mean": 859630.6666666666,
+    "min": 787500,
+    "max": 935040
+  },
+  "state_bytes_saved": {
+    "count": 30,
+    "mean": 859630.6666666666,
+    "min": 787500,
+    "max": 935040
+  },
+  "state_bytes_restored": {
+    "count": 30,
+    "mean": 859630.6666666666,
+    "min": 787500,
+    "max": 935040
+  },
+  "save_ms": {
+    "count": 30,
+    "mean": 5.5970433381541325,
+    "min": 3.474300028756261,
+    "max": 9.144499956164509
+  },
+  "restore_ms": {
+    "count": 30,
+    "mean": 6.297223330087339,
+    "min": 1.9232999766245484,
+    "max": 27.281599992420524
+  },
+  "seq_tokens_loaded": {
+    "count": 30,
+    "mean": 17.466666666666665,
+    "min": 16,
+    "max": 19
+  },
+  "validity_boundary": [
+    "Family 1 simple codeword only.",
+    "Answer-contained scoring passed; exact-only was 0/30 because GPT-OSS emitted harmless extra text around the answer.",
+    "No Family 2 scale, Family 3 repair, GraphWalks, retrieval, or agent-context inference is claimed here."
+  ],
+  "next_frontier": "Richer structured retrieval/Family 2 on the same seq_file route, only after orchestration approval."
+}

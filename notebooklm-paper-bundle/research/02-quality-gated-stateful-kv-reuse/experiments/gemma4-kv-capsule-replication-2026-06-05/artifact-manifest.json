@@ -1,0 +1,23 @@
+{
+  "experiment_id": "gemma4-kv-capsule-replication-2026-06-05",
+  "raw_artifact_policy": "local_ignored_prompt_bearing_files_not_committed",
+  "local_raw_artifacts": {
+    "family1_smoke_run_info": "research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-gemma4-12b-replication-2026-06-04/raw/repair-run-info.json",
+    "family1_smoke_records": "research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-gemma4-12b-replication-2026-06-04/raw/repair-records.jsonl",
+    "family2_smoke_run_info": "research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-gemma4-12b-replication-2026-06-04/raw/family2-smoke-run-info.json",
+    "family2_smoke_records": "research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-gemma4-12b-replication-2026-06-04/raw/family2-smoke-records.jsonl",
+    "family2_primary_run_info": "research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-gemma4-12b-replication-2026-06-04/raw/family2-30-run-info.json",
+    "family2_primary_records": "research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-gemma4-12b-replication-2026-06-04/raw/family2-30-records.jsonl",
+    "family2_primary_console_log": "research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-gemma4-12b-replication-2026-06-04/raw/family2-30-console.log"
+  },
+  "remote_raw_artifacts": {
+    "root": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\tail-only-kv-capsule-gemma4-12b-replication-2026-06-04\\raw"
+  },
+  "distilled_artifacts": [
+    "README.md",
+    "summary.json",
+    "model-info.json",
+    "commands.md",
+    "artifact-manifest.json"
+  ]
+}

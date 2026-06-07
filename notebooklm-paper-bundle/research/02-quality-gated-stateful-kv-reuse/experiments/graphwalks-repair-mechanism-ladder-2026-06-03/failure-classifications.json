@@ -1,0 +1,211 @@
+{
+  "classifications": [
+    {
+      "best_repair_control": "anchor_recompute_64",
+      "best_repair_score": 0.5454545454545454,
+      "case_id": "graphwalks-6",
+      "classification_rationale": "Full-prompt replay from the prior ladder passed all three attempts. Live no-restore tail continuation failed with score 0.0, so the failure appears before disk save/restore. Restored session-tail baseline also failed with score 0.0. Best repair proxy was anchor_recompute_64 with score 0.5454545454545454, which improved partial F1 but did not pass. The prior visible-prefix/session-formatted control degraded for this case family, so prompt protocol sensitivity remains a secondary issue. Making the original full prompt visible in the tail under session-tail framing did not recover correctness.",
+      "confidence": "medium",
+      "fallback_recommendation": "require_full_prompt",
+      "open_questions": [
+        "A true KV-layer selective recompute control has not been implemented; anchor controls are prompt-level proxies.",
+        "A stronger same-backend GGUF model control remains unavailable."
+      ],
+      "primary_class": "live_session_semantic_issue",
+      "scores": {
+        "anchor_recompute_128": 0.0,
+        "anchor_recompute_256": 0.0,
+        "anchor_recompute_64": 0.5454545454545454,
+        "graph_and_query_visible_session_format": 0.0,
+        "graph_and_query_visible_tail": 0.0,
+        "live_tail": 0.0,
+        "query_visible_graph_hidden": 0.0
+      },
+      "secondary_classes": [
+        "partial_anchor_visibility_repair_signal",
+        "prompt_protocol_issue"
+      ],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-scores.json"
+      ]
+    },
+    {
+      "best_repair_control": "anchor_recompute_128",
+      "best_repair_score": 0.6666666666666666,
+      "case_id": "graphwalks-9",
+      "classification_rationale": "Full-prompt replay from the prior ladder passed all three attempts. Live no-restore tail continuation failed with score 0.0, so the failure appears before disk save/restore. Restored session-tail baseline also failed with score 0.0. Best repair proxy was anchor_recompute_128 with score 0.6666666666666666, which improved partial F1 but did not pass. The prior visible-prefix/session-formatted control degraded for this case family, so prompt protocol sensitivity remains a secondary issue. Making the original full prompt visible in the tail under session-tail framing did not recover correctness.",
+      "confidence": "medium",
+      "fallback_recommendation": "require_full_prompt",
+      "open_questions": [
+        "A true KV-layer selective recompute control has not been implemented; anchor controls are prompt-level proxies.",
+        "A stronger same-backend GGUF model control remains unavailable."
+      ],
+      "primary_class": "live_session_semantic_issue",
+      "scores": {
+        "anchor_recompute_128": 0.6666666666666666,
+        "anchor_recompute_256": 0.5714285714285715,
+        "anchor_recompute_64": 0.0,
+        "graph_and_query_visible_session_format": 0.0,
+        "graph_and_query_visible_tail": 0.0,
+        "live_tail": 0.0,
+        "query_visible_graph_hidden": 0.0
+      },
+      "secondary_classes": [
+        "partial_anchor_visibility_repair_signal",
+        "prompt_protocol_issue"
+      ],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-scores.json"
+      ]
+    },
+    {
+      "best_repair_control": "live_tail",
+      "best_repair_score": 0.0,
+      "case_id": "graphwalks-11",
+      "classification_rationale": "Full-prompt replay from the prior ladder passed all three attempts. Live no-restore tail continuation failed with score 0.0, so the failure appears before disk save/restore. Restored session-tail baseline also failed with score 0.0. No visibility or anchor control produced a positive repair score for this case. The prior visible-prefix/session-formatted control degraded for this case family, so prompt protocol sensitivity remains a secondary issue. Making the original full prompt visible in the tail under session-tail framing did not recover correctness.",
+      "confidence": "medium",
+      "fallback_recommendation": "require_full_prompt",
+      "open_questions": [
+        "A true KV-layer selective recompute control has not been implemented; anchor controls are prompt-level proxies.",
+        "A stronger same-backend GGUF model control remains unavailable."
+      ],
+      "primary_class": "live_session_semantic_issue",
+      "scores": {
+        "anchor_recompute_128": 0.0,
+        "anchor_recompute_256": 0.0,
+        "anchor_recompute_64": 0.0,
+        "graph_and_query_visible_session_format": 0.0,
+        "graph_and_query_visible_tail": 0.0,
+        "live_tail": 0.0,
+        "query_visible_graph_hidden": 0.0
+      },
+      "secondary_classes": [
+        "prompt_protocol_issue"
+      ],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-scores.json"
+      ]
+    },
+    {
+      "best_repair_control": "anchor_recompute_256",
+      "best_repair_score": 0.4,
+      "case_id": "graphwalks-13",
+      "classification_rationale": "Full-prompt replay from the prior ladder passed all three attempts. Live no-restore tail continuation failed with score 0.0, so the failure appears before disk save/restore. Restored session-tail baseline also failed with score 0.0. Best repair proxy was anchor_recompute_256 with score 0.4, which improved partial F1 but did not pass. Making the original full prompt visible in the tail under session-tail framing did not recover correctness.",
+      "confidence": "high",
+      "fallback_recommendation": "require_full_prompt",
+      "open_questions": [
+        "A true KV-layer selective recompute control has not been implemented; anchor controls are prompt-level proxies.",
+        "A stronger same-backend GGUF model control remains unavailable."
+      ],
+      "primary_class": "live_session_semantic_issue",
+      "scores": {
+        "anchor_recompute_128": 0.0,
+        "anchor_recompute_256": 0.4,
+        "anchor_recompute_64": 0.0,
+        "graph_and_query_visible_session_format": 0.0,
+        "graph_and_query_visible_tail": 0.0,
+        "live_tail": 0.0,
+        "query_visible_graph_hidden": 0.0
+      },
+      "secondary_classes": [
+        "partial_anchor_visibility_repair_signal"
+      ],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-scores.json"
+      ]
+    },
+    {
+      "best_repair_control": "anchor_recompute_256",
+      "best_repair_score": 0.7499999999999999,
+      "case_id": "graphwalks-16",
+      "classification_rationale": "Full-prompt replay from the prior ladder passed all three attempts. Live no-restore tail continuation failed with score 0.0, so the failure appears before disk save/restore. Restored session-tail baseline also failed with score 0.0. Best repair proxy was anchor_recompute_256 with score 0.7499999999999999, which improved partial F1 but did not pass. Making the original full prompt visible in the tail under session-tail framing did not recover correctness.",
+      "confidence": "high",
+      "fallback_recommendation": "require_full_prompt",
+      "open_questions": [
+        "A true KV-layer selective recompute control has not been implemented; anchor controls are prompt-level proxies.",
+        "A stronger same-backend GGUF model control remains unavailable."
+      ],
+      "primary_class": "live_session_semantic_issue",
+      "scores": {
+        "anchor_recompute_128": 0.0,
+        "anchor_recompute_256": 0.7499999999999999,
+        "anchor_recompute_64": 0.0,
+        "graph_and_query_visible_session_format": 0.0,
+        "graph_and_query_visible_tail": 0.0,
+        "live_tail": 0.0,
+        "query_visible_graph_hidden": 0.0
+      },
+      "secondary_classes": [
+        "partial_anchor_visibility_repair_signal"
+      ],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-scores.json"
+      ]
+    },
+    {
+      "best_repair_control": "anchor_recompute_256",
+      "best_repair_score": 0.8,
+      "case_id": "graphwalks-19",
+      "classification_rationale": "Full-prompt replay from the prior ladder passed all three attempts. Live no-restore tail continuation failed with score 0.0, so the failure appears before disk save/restore. Restored session-tail baseline also failed with score 0.0. Best repair proxy was anchor_recompute_256 with score 0.8, which improved partial F1 but did not pass. Making the original full prompt visible in the tail under session-tail framing did not recover correctness.",
+      "confidence": "high",
+      "fallback_recommendation": "require_full_prompt",
+      "open_questions": [
+        "A true KV-layer selective recompute control has not been implemented; anchor controls are prompt-level proxies.",
+        "A stronger same-backend GGUF model control remains unavailable."
+      ],
+      "primary_class": "live_session_semantic_issue",
+      "scores": {
+        "anchor_recompute_128": 0.0,
+        "anchor_recompute_256": 0.8,
+        "anchor_recompute_64": 0.0,
+        "graph_and_query_visible_session_format": 0.0,
+        "graph_and_query_visible_tail": 0.0,
+        "live_tail": 0.0,
+        "query_visible_graph_hidden": 0.0
+      },
+      "secondary_classes": [
+        "partial_anchor_visibility_repair_signal"
+      ],
+      "supporting_artifact_paths": [
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-scores.json",
+        "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-scores.json"
+      ]
+    }
+  ],
+  "experiment_id": "graphwalks-repair-mechanism-ladder-2026-06-03"
+}

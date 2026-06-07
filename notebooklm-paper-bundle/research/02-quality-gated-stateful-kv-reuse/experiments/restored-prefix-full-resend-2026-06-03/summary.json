@@ -1,0 +1,188 @@
+{
+  "experiment_id": "restored-prefix-full-resend-2026-06-03",
+  "date": "2026-06-03",
+  "research_question": "Can llama.cpp slot restore plus full visible prompt resend preserve correctness and reduce prompt processing for exact-prefix matches?",
+  "decision": "correctness_safe_without_useful_acceleration_evidence",
+  "graphwalks_follow_up": {
+    "recommended": false,
+    "reason": "Synthetic correctness and safety controls passed, but restored-full had no token-count reduction and worse mean prompt time than cold-full."
+  },
+  "artifacts": {
+    "valid_raw_result_json": {
+      "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/rpfr-results/rpfr-2026-06-03/gpt-oss-20b-mxfp4-restored-prefix-full-resend.json",
+      "sha256": "a7e537ddc8b0831cd0d41e4dfe1154508a3393971484cce26cc00afcaec5814b",
+      "git_tracking": "ignored"
+    },
+    "valid_raw_cache_dir": {
+      "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/rpfr-cache/rpfr-2026-06-03/",
+      "contains": "llama.cpp logs and slot files for cold-full, prime-save, restored-full, perturbed-full, and wrong-slot-full controls.",
+      "git_tracking": "ignored"
+    },
+    "first_attempt_long_path_failure_json": {
+      "repo_relative_path": "research/01-ssd-native-inference-current/benchmarks/restored-prefix-full-resend-results/restored-prefix-full-resend-2026-06-03/gpt-oss-20b-mxfp4-restored-prefix-full-resend.json",
+      "sha256": "ffcb919551f041883e9c0dabf282bda428b1f635a08a6883c754d97066bc0c1e",
+      "git_tracking": "ignored",
+      "note": "Preserved failed first attempt with long Windows cache/log paths."
+    }
+  },
+  "model": {
+    "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\models\\gpt-oss-20b-mxfp4.gguf",
+    "filename": "gpt-oss-20b-mxfp4.gguf",
+    "quantization_hint_from_filename": "mxfp4",
+    "bytes": 12109566560
+  },
+  "backend": {
+    "server_bin": "C:\\Users\\Dushyant\\Tools\\llama-b9482-vulkan\\llama-server.exe",
+    "server_version": "version: 9482 (4fb16eccc)\nbuilt with Clang 19.1.5 for Windows x86_64",
+    "ctx_size": 32768,
+    "predict": 32,
+    "prime_n_predict": 0,
+    "temperature": 0.0,
+    "timeout_seconds": 240.0
+  },
+  "gate": {
+    "correctness_and_safety_controls_pass": true,
+    "mode_all_pass": {
+      "cold-full": true,
+      "restored-full": true,
+      "perturbed-full": true,
+      "wrong-slot-full": true
+    },
+    "prompt_reduction_cases": 1,
+    "majority_prompt_reduction": false,
+    "token_reduction_cases": 0,
+    "mean_cold_minus_restored_prompt_ms": -27.652999999999906,
+    "mean_cold_minus_restored_prompt_n": 0.0,
+    "useful_acceleration_evidence": false,
+    "recommend_graphwalks_follow_up": false,
+    "overall_interpretation": "correctness_safe_without_useful_acceleration_evidence"
+  },
+  "mode_summary": {
+    "cold-full": {
+      "case_count": 3,
+      "scored_count": 3,
+      "passed_count": 3,
+      "pass_rate": 1.0,
+      "answer_parse_error_count": 0,
+      "response_error_count": 0,
+      "mean_prompt_ms": 659.6743333333334,
+      "mean_prompt_n": 79.66666666666667,
+      "failure_classifications": {
+        "passed": 3
+      }
+    },
+    "prime-save": {
+      "case_count": 3,
+      "scored_count": 0,
+      "passed_count": 0,
+      "pass_rate": null,
+      "answer_parse_error_count": 0,
+      "response_error_count": 0,
+      "mean_prompt_ms": null,
+      "mean_prompt_n": null,
+      "failure_classifications": {
+        "not_scored_prime_save": 3
+      }
+    },
+    "restored-full": {
+      "case_count": 3,
+      "scored_count": 3,
+      "passed_count": 3,
+      "pass_rate": 1.0,
+      "answer_parse_error_count": 0,
+      "response_error_count": 0,
+      "mean_prompt_ms": 687.3273333333333,
+      "mean_prompt_n": 79.66666666666667,
+      "failure_classifications": {
+        "passed": 3
+      }
+    },
+    "perturbed-full": {
+      "case_count": 3,
+      "scored_count": 3,
+      "passed_count": 3,
+      "pass_rate": 1.0,
+      "answer_parse_error_count": 0,
+      "response_error_count": 0,
+      "mean_prompt_ms": 710.755,
+      "mean_prompt_n": 79.66666666666667,
+      "failure_classifications": {
+        "passed": 3
+      }
+    },
+    "wrong-slot-full": {
+      "case_count": 3,
+      "scored_count": 3,
+      "passed_count": 3,
+      "pass_rate": 1.0,
+      "answer_parse_error_count": 0,
+      "response_error_count": 0,
+      "mean_prompt_ms": 648.8013333333333,
+      "mean_prompt_n": 79.66666666666667,
+      "failure_classifications": {
+        "passed": 3
+      }
+    }
+  },
+  "case_summary": {
+    "prefix-alpha": {
+      "interpretation": "correctness_safe_without_clear_prompt_reduction",
+      "cold_prompt_ms": 665.92,
+      "restored_prompt_ms": 717.906,
+      "cold_minus_restored_prompt_ms": -51.98599999999999,
+      "cold_minus_restored_prompt_n": 0.0,
+      "all_scored_controls_passed": true
+    },
+    "prefix-bravo": {
+      "interpretation": "correctness_safe_without_clear_prompt_reduction",
+      "cold_prompt_ms": 648.47,
+      "restored_prompt_ms": 698.435,
+      "cold_minus_restored_prompt_ms": -49.96499999999992,
+      "cold_minus_restored_prompt_n": 0.0,
+      "all_scored_controls_passed": true
+    },
+    "prefix-charlie": {
+      "interpretation": "correctness_safe_with_prompt_reduction",
+      "cold_prompt_ms": 664.633,
+      "restored_prompt_ms": 645.641,
+      "cold_minus_restored_prompt_ms": 18.992000000000075,
+      "cold_minus_restored_prompt_n": 0.0,
+      "all_scored_controls_passed": true
+    }
+  },
+  "slot_telemetry": [
+    {
+      "case_id": "prefix-alpha",
+      "slot_source_case_id": "prefix-alpha",
+      "n_saved": 37,
+      "n_written": 1820280,
+      "n_restored": 37,
+      "n_read": 1820280,
+      "mode": "restored-full"
+    },
+    {
+      "case_id": "prefix-bravo",
+      "slot_source_case_id": "prefix-bravo",
+      "n_saved": 38,
+      "n_written": 1869460,
+      "n_restored": 38,
+      "n_read": 1869460,
+      "mode": "restored-full"
+    },
+    {
+      "case_id": "prefix-charlie",
+      "slot_source_case_id": "prefix-charlie",
+      "n_saved": 38,
+      "n_written": 1869460,
+      "n_restored": 38,
+      "n_read": 1869460,
+      "mode": "restored-full"
+    }
+  ],
+  "notes": [
+    "All scored responses were exact JSON answers with zero parser errors.",
+    "Perturbed-full answered the perturbed visible token, not the restored original token.",
+    "Wrong-slot-full answered the current visible token, not the restored wrong-slot token.",
+    "Prompt token accounting did not decrease for restored-full versus cold-full."
+  ]
+}

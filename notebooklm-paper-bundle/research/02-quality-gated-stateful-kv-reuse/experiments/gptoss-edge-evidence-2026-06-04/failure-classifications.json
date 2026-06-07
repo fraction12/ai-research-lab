@@ -1,0 +1,139 @@
+{
+  "experiment_id": "gptoss-edge-evidence-2026-06-04",
+  "taxonomy": [
+    {
+      "class": "model_weakness",
+      "definition": "The model omits or invents graph nodes despite valid answer format and valid scorer behavior."
+    },
+    {
+      "class": "prompt_protocol_issue",
+      "definition": "Prompt instructions or layout fail to expose, privilege, or constrain the evidence needed by the scorer."
+    },
+    {
+      "class": "scorer_parser_brittleness",
+      "definition": "Raw output contains an acceptable answer but the parser or scorer rejects it."
+    },
+    {
+      "class": "session_cache_semantic_issue",
+      "definition": "Restored hidden prefix/session state changes answer semantics compared with a visible prompt control."
+    },
+    {
+      "class": "position_compatibility_issue",
+      "definition": "Token position, tokenizer, context length, slot, prompt hash, or compatibility metadata explains drift."
+    },
+    {
+      "class": "runtime_storage_issue",
+      "definition": "Server, storage, save/restore, slot telemetry, file corruption, or nondeterministic runtime behavior explains drift."
+    }
+  ],
+  "case_classifications": [
+    {
+      "case_id": "graphwalks-6",
+      "observed_failure": "Pinned full prompt omitted one correct parent, `d3d9446802`; final-only repair also omitted it. Verified incoming-edge evidence passed.",
+      "primary_class": "model_weakness",
+      "secondary_classes": [
+        "prompt_protocol_issue"
+      ],
+      "confidence": "medium",
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-final-exhaustive-v2-two-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-scores.json"
+      ],
+      "ruled_down": [
+        "scorer_parser_brittleness",
+        "runtime_storage_issue"
+      ],
+      "fallback_recommendation": "Use selective visible evidence extraction or full fallback until hidden-prefix repair is proven.",
+      "open_questions": [
+        "Can the same extracted evidence slice repair hidden-prefix/session-tail without exposing the full graph?"
+      ]
+    },
+    {
+      "case_id": "graphwalks-9",
+      "observed_failure": "No failure observed in pinned full baseline or verified incoming-edge evidence control.",
+      "primary_class": "no_failure_observed_in_imported_controls",
+      "secondary_classes": [],
+      "confidence": "high",
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-scores.json"
+      ],
+      "ruled_down": [],
+      "fallback_recommendation": "Use as a positive control for visible evidence slice measurement.",
+      "open_questions": [
+        "Does hidden-prefix/session-tail still fail this case under the lower-level GPT-OSS path?"
+      ]
+    },
+    {
+      "case_id": "graphwalks-11",
+      "observed_failure": "No failure observed in pinned full baseline or verified incoming-edge evidence control.",
+      "primary_class": "no_failure_observed_in_imported_controls",
+      "secondary_classes": [],
+      "confidence": "high",
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-scores.json"
+      ],
+      "ruled_down": [],
+      "fallback_recommendation": "Use as a positive control for visible evidence slice measurement.",
+      "open_questions": [
+        "Does hidden-prefix/session-tail still fail this case under the lower-level GPT-OSS path?"
+      ]
+    },
+    {
+      "case_id": "graphwalks-13",
+      "observed_failure": "No failure observed in pinned full baseline or verified incoming-edge evidence control.",
+      "primary_class": "no_failure_observed_in_imported_controls",
+      "secondary_classes": [],
+      "confidence": "high",
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-scores.json"
+      ],
+      "ruled_down": [],
+      "fallback_recommendation": "Use as a positive control for visible evidence slice measurement.",
+      "open_questions": [
+        "Does hidden-prefix/session-tail still fail this case under the lower-level GPT-OSS path?"
+      ]
+    },
+    {
+      "case_id": "graphwalks-16",
+      "observed_failure": "No failure observed in pinned full baseline or verified incoming-edge evidence control.",
+      "primary_class": "no_failure_observed_in_imported_controls",
+      "secondary_classes": [],
+      "confidence": "high",
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-scores.json"
+      ],
+      "ruled_down": [],
+      "fallback_recommendation": "Use as a positive control for visible evidence slice measurement.",
+      "open_questions": [
+        "Does hidden-prefix/session-tail still fail this case under the lower-level GPT-OSS path?"
+      ]
+    },
+    {
+      "case_id": "graphwalks-19",
+      "observed_failure": "Pinned full prompt omitted one correct parent, `1679091c5a`; final-only repair also omitted it. Verified incoming-edge evidence passed.",
+      "primary_class": "model_weakness",
+      "secondary_classes": [
+        "prompt_protocol_issue"
+      ],
+      "confidence": "medium",
+      "supporting_artifact_paths": [
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\pinned-harmony-full-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-final-exhaustive-v2-two-scores.json",
+        "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\gptoss-llcpp-2026-06-04\\raw\\repair-edge-evidence-six-scores.json"
+      ],
+      "ruled_down": [
+        "scorer_parser_brittleness",
+        "runtime_storage_issue"
+      ],
+      "fallback_recommendation": "Use selective visible evidence extraction or full fallback until hidden-prefix repair is proven.",
+      "open_questions": [
+        "Can the same extracted evidence slice repair hidden-prefix/session-tail without exposing the full graph?"
+      ]
+    }
+  ]
+}

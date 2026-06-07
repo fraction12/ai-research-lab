@@ -1,0 +1,148 @@
+{
+  "cases": [
+    {
+      "case_id": "ifeval-1001",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20592.598100018222,
+        "session-tail": 20264.212600013707
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 1
+                },
+                "passed": false
+              }
+            ],
+            "passed_instruction_count": 0,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 1.0,
+      "source_id": 1001,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "graphwalks-0",
+      "dataset_id": "graphwalks",
+      "latency_ms": {
+        "full": 20706.767999974545,
+        "session-tail": 23554.7557999962
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "answer_nodes": [
+              "1679091c5a",
+              "c9f0f895fb",
+              "d3d9446802"
+            ],
+            "f1": 0.3333333333333333,
+            "precision": 0.3333333333333333,
+            "predicted_nodes": [
+              "1679091c5a",
+              "8f14e45fce",
+              "e4da3b7fbb"
+            ],
+            "recall": 0.3333333333333333
+          },
+          "passed": false,
+          "score": 0.3333333333333333,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 2 column 13 (char 14)"
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -0.3333333333333333,
+      "source_id": 0,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "mrcr-0",
+      "dataset_id": "mrcr",
+      "latency_ms": {
+        "full": 23431.326999969315,
+        "session-tail": 23948.275200033095
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "similarity": 0.002297970126388357
+          },
+          "passed": false,
+          "score": 0.002297970126388357,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "similarity": 0.0
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -0.002297970126388357,
+      "source_id": 0,
+      "unsupported_checks": {}
+    }
+  ],
+  "metadata": {
+    "case_count": 3,
+    "generated_at": "2026-06-03T03:38:48.109435+00:00",
+    "modes": [
+      "full",
+      "session-tail"
+    ],
+    "response_count": 6
+  },
+  "summary": {
+    "full": {
+      "case_count": 3,
+      "mean_score": 0.11187710115324057,
+      "numeric_score_count": 3,
+      "pass_rate": 0.0
+    },
+    "session-tail": {
+      "case_count": 3,
+      "mean_score": 0.3333333333333333,
+      "numeric_score_count": 3,
+      "pass_rate": 0.3333333333333333
+    }
+  }
+}

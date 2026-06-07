@@ -1,0 +1,259 @@
+# Execution Runbook
+
+This is the operator handoff for the paper-grade Code-mode + KV capsule campaign.
+
+## Source Of Truth
+
+- Mac checkout: `/Volumes/MacSSD/Projects/ai-research-lab`
+- DushyantPC execution checkout: `C:\ai\paper`
+- Prepared campaign commits: see git history for this change set; `0c5301d` added the selected-cohort launcher used for the completed run.
+- OpenSpec change: `design-paper-grade-code-mode-kv-capsule-evaluation`
+
+Use `C:\ai\paper` for campaign execution. The older DushyantPC checkout at `C:\Users\Dushyant\Projects\ai-research-lab` is dirty/detached historical state and should not be used for this campaign unless it is deliberately cleaned.
+
+## Stage 0 Readiness
+
+Run on DushyantPC:
+
+```powershell
+cd C:\ai\paper
+python research/01-ssd-native-inference-current/benchmarks/paper_campaign_readiness.py
+```
+
+Expected:
+
+- `ready: true`
+- no blockers
+- `execution-readiness.json` written under:
+
+```text
+research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/
+```
+
+Prompt-bearing BFCL readiness packets are written under ignored Track 01:
+
+```text
+research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/readiness-raw/
+```
+
+## Checkup
+
+Run on DushyantPC:
+
+```powershell
+cd C:\ai\paper
+python research/01-ssd-native-inference-current/benchmarks/paper_campaign_checkup.py
+```
+
+Expected:
+
+- appends `periodic-checkups.jsonl`
+- reports GPU status, active process state, latest model-loop record file if present, row/control counts, and stop-rule indicators
+- does not mutate or restart the run
+
+Before model execution starts, `no_model_loop_records_found` is expected.
+
+## BFCL Candidate Packet
+
+Initial paper-campaign candidate materialization should use supported BFCL categories first:
+
+```powershell
+cd C:\ai\paper
+$raw = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/raw"
+New-Item -ItemType Directory -Force $raw | Out-Null
+python research/01-ssd-native-inference-current/benchmarks/bfcl_code_mode_kv_adapter.py `
+  --category simple `
+  --category multiple `
+  --category parallel `
+  --category parallel_multiple `
+  --category irrelevance `
+  --per-category 100 `
+  --out "$raw\bfcl-candidate-control-packet.jsonl" `
+  --summary-out "$raw\bfcl-candidate-materialization-summary.json"
+```
+
+This creates up to 500 BFCL cases and 3500 control records. The model run may be reduced before execution if the materialized source count is lower or if a smaller staged run is chosen.
+
+Calibration contract:
+
+- A run below 500 candidate rows is smoke or diagnostic only. It must not be called paper calibration.
+- The target selected primary cohort is 200 `code_mode_full_visible` passing rows.
+- The minimum paper-eligible cohort is 100 clean full-visible-passing rows after scorer-support and negative-control filters.
+- If fewer than 100 clean rows remain, stop and report a technical-note result rather than a full paper result.
+- Calibration must summarize selected/rejected/diagnostic counts by category before the full paper run starts.
+
+Paper-facing data to preserve in the calibration summary:
+
+- category and source row provenance
+- scorer support and scorer version
+- full-visible pass state
+- native-live vs restored-KV parity hashes and quality fields
+- restored-only failures
+- fresh-tail and wrong-capsule leakage
+- direct-tool gaps and compact-visible-evidence effects
+- prompt-token deltas, capsule save/restore timing, total timing, capsule bytes, and capsule SHA
+- model profile and llama.cpp route identity
+
+## BFCL Model Run
+
+Start with a bounded calibration run, not the full paper run, unless Sir explicitly asks for the full run immediately.
+
+Example 10-row smoke:
+
+```powershell
+cd C:\ai\paper
+$raw = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/raw"
+$cache = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/cache"
+python research/01-ssd-native-inference-current/benchmarks/bfcl_code_mode_kv_adapter.py `
+  --category simple `
+  --category multiple `
+  --category parallel `
+  --per-category 2 `
+  --out "$raw\bfcl-smoke-control-packet.jsonl" `
+  --summary-out "$raw\bfcl-smoke-materialization-summary.json"
+python research/01-ssd-native-inference-current/benchmarks/code_mode_kv_capsule_model_loop_runner.py `
+  --packet "$raw\bfcl-smoke-control-packet.jsonl" `
+  --out-dir "$raw" `
+  --cache-dir "$cache" `
+  --run-label bfcl-paper-smoke `
+  --model-profile gemma4-12b `
+  --state-route auto `
+  --predict 128 `
+  --max-steps 3 `
+  --max-repairs 1
+```
+
+After the smoke, run:
+
+```powershell
+python research/01-ssd-native-inference-current/benchmarks/paper_campaign_checkup.py --raw-dir "$raw"
+```
+
+## Stop Rules
+
+Stop before broad execution if:
+
+- readiness reports any blocker
+- GPU is unavailable or saturated before launch
+- duplicate Python/llama processes are active before launch
+- BFCL materialization cannot produce all seven controls
+- fresh-tail or wrong-capsule negative controls pass unexpectedly in a staged run
+- native live append passes but restored capsule fails repeatedly
+- parser/scorer repair dominates the run
+- JSONL output stops advancing while a process remains active
+
+## Current Known Caveats
+
+- Windows does not currently have `openspec` or `pytest`; those validations are Mac-side.
+- Gemma 4 emits thought/channel markers in simple `llama-completion` smoke. The scoring plan already treats this as calibration/protocol behavior, not as paper evidence.
+- The full paper campaign is intentionally staged. Do not jump directly to a 500-row all-control run unless Sir explicitly asks for it.
+
+## Completed Selected Cohort
+
+The minimum selected-cohort run completed on 2026-06-06:
+
+- Run label: `bfcl-paper-selected-cohort-v1`
+- Records: `700 / 700`
+- Cases: `100 / 100`
+- Code Mode full visible: `100 / 100`
+- Native live append: `100 / 100`
+- Restored KV capsule: `100 / 100`
+- Restored KV failures: `0`
+- Native/restored hash parity: `100 / 100`
+- Fresh-tail leaks: `0`
+- Wrong-capsule leaks: `0`
+- Compact visible evidence: `19 / 100`
+- Direct visible tools: `91 / 100`
+
+Tracked findings live at:
+
+```text
+research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/selected-cohort-findings.md
+```
+
+## Repeated Work Speed Follow-Up
+
+The selected cohort established semantic preservation, not speed. The follow-up benchmark must test amortized repeated-work performance against a strong compacted-prompt/tool-call baseline.
+
+Experiment design:
+
+```text
+research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-experiment-design.md
+```
+
+The benchmark question is whether a one-time capsule build plus repeated restored tail calls reduces cumulative wall-clock time and visible-token burden compared with repeatedly sending compacted stable context and regular tool-call instructions. Report matched-quality results only; if the KV route is faster because it fails more, that is not a speed win.
+
+Controller:
+
+```text
+research/01-ssd-native-inference-current/benchmarks/paper_campaign_repeated_work_speed.py
+```
+
+Use the completed selected-cohort packet as the task stream:
+
+```powershell
+$raw = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/raw"
+$cache = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/cache"
+$packet = "$raw\bfcl-paper-selected-cohort-v1-control-packet.jsonl"
+$codex = "C:\Users\Dushyant\AppData\Roaming\npm\node_modules\@openai\codex\bin\codex.js"
+
+python research/01-ssd-native-inference-current/benchmarks/paper_campaign_repeated_work_speed.py `
+  --packet "$packet" `
+  --out-dir "$raw\repeated-work-speed" `
+  --cache-dir "$cache" `
+  --systems codex,kv `
+  --case-limit 1 `
+  --run-label bfcl-repeated-work-combined-smoke-v1 `
+  --codex-bin "$codex" `
+  --codex-profile gemma4-ollama-compact `
+  --model-profile gemma4-12b
+```
+
+The Codex arm must use regular visible tool calls through the verified Codex/Ollama/Gemma profile. The KV arm must wrap `code_mode_kv_capsule_model_loop_runner.py` with the `code_mode_native_live_append` and `code_mode_restored_kv_capsule` controls so it remains the same KV + Code Mode harness used for the 100-case selected-cohort benchmark.
+
+Before the full run, smoke both paths:
+
+- Codex resume smoke: `--systems codex --case-limit 2`
+- KV harness smoke: `--systems kv --case-limit 1`
+- Combined controller smoke: `--systems codex,kv --case-limit 1`
+
+The full speed run should remove `--case-limit` only after the smokes produce scored records for both systems and the Codex run logs compaction evidence once the repeated-work stream grows enough to trigger the verified profile threshold.
+
+### Completed Repeated-Work Run
+
+The first 100-case repeated-work run completed via Codex-first execution plus KV-only resume:
+
+- Run label: `bfcl-repeated-work-speed-v1`
+- Final commit: `7f63a53`
+- KV + Code Mode: `100 / 100`, `14.2 min`
+- Codex/Ollama regular-tool route: `87 / 100`, `192.0 min`
+- Codex compaction events in actual BFCL run: `0`
+
+This run must be cited carefully. It is not a valid real-compaction baseline because Codex did not emit compaction markers during the BFCL workload. Treat it as an operational comparison against the tested Codex/Ollama regular-tool route as executed.
+
+### Forced Codex Compaction Follow-Up
+
+Run a Codex-only follow-up before making any claim against real Codex compaction:
+
+```powershell
+cd C:\ai\paper
+$raw = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/raw"
+$cache = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/cache"
+$packet = "$raw\bfcl-paper-selected-cohort-v1-control-packet.jsonl"
+$codex = "C:\Users\Dushyant\AppData\Roaming\npm\node_modules\@openai\codex\bin\codex.js"
+
+python research/01-ssd-native-inference-current/benchmarks/paper_campaign_repeated_work_speed.py `
+  --packet "$packet" `
+  --out-dir "$raw\repeated-work-speed" `
+  --cache-dir "$cache" `
+  --systems codex `
+  --run-label bfcl-repeated-work-codex-forced-compaction-v1 `
+  --codex-bin "$codex" `
+  --codex-profile gemma4-ollama-compact-forced `
+  --model-profile gemma4-12b
+```
+
+Acceptance rule:
+
+- If BFCL artifacts contain `context_compacted` or equivalent Codex compaction markers, this can be analyzed as the forced Codex compaction baseline.
+- If compaction events remain `0`, the result is a failed compaction-trigger attempt and must not be used as Baseline A.

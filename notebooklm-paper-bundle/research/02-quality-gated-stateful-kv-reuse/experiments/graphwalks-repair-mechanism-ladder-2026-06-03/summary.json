@@ -1,0 +1,405 @@
+{
+  "case_ids": [
+    "graphwalks-6",
+    "graphwalks-9",
+    "graphwalks-11",
+    "graphwalks-13",
+    "graphwalks-16",
+    "graphwalks-19"
+  ],
+  "case_scores": {
+    "graphwalks-11": {
+      "anchor_recompute_128": 0.0,
+      "anchor_recompute_256": 0.0,
+      "anchor_recompute_64": 0.0,
+      "graph_and_query_visible_session_format": 0.0,
+      "graph_and_query_visible_tail": 0.0,
+      "live_tail": 0.0,
+      "query_visible_graph_hidden": 0.0
+    },
+    "graphwalks-13": {
+      "anchor_recompute_128": 0.0,
+      "anchor_recompute_256": 0.4,
+      "anchor_recompute_64": 0.0,
+      "graph_and_query_visible_session_format": 0.0,
+      "graph_and_query_visible_tail": 0.0,
+      "live_tail": 0.0,
+      "query_visible_graph_hidden": 0.0
+    },
+    "graphwalks-16": {
+      "anchor_recompute_128": 0.0,
+      "anchor_recompute_256": 0.7499999999999999,
+      "anchor_recompute_64": 0.0,
+      "graph_and_query_visible_session_format": 0.0,
+      "graph_and_query_visible_tail": 0.0,
+      "live_tail": 0.0,
+      "query_visible_graph_hidden": 0.0
+    },
+    "graphwalks-19": {
+      "anchor_recompute_128": 0.0,
+      "anchor_recompute_256": 0.8,
+      "anchor_recompute_64": 0.0,
+      "graph_and_query_visible_session_format": 0.0,
+      "graph_and_query_visible_tail": 0.0,
+      "live_tail": 0.0,
+      "query_visible_graph_hidden": 0.0
+    },
+    "graphwalks-6": {
+      "anchor_recompute_128": 0.0,
+      "anchor_recompute_256": 0.0,
+      "anchor_recompute_64": 0.5454545454545454,
+      "graph_and_query_visible_session_format": 0.0,
+      "graph_and_query_visible_tail": 0.0,
+      "live_tail": 0.0,
+      "query_visible_graph_hidden": 0.0
+    },
+    "graphwalks-9": {
+      "anchor_recompute_128": 0.6666666666666666,
+      "anchor_recompute_256": 0.5714285714285715,
+      "anchor_recompute_64": 0.0,
+      "graph_and_query_visible_session_format": 0.0,
+      "graph_and_query_visible_tail": 0.0,
+      "live_tail": 0.0,
+      "query_visible_graph_hidden": 0.0
+    }
+  },
+  "checkout_base_commit": "cbb28cb25358d81bd2bb190b4f560f26bfc2d943",
+  "control_summaries": {
+    "anchor_recompute_128": {
+      "answer_parse_error_count": 0,
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-anchor-recompute-128-cases.jsonl",
+      "family": "anchor-recompute-proxy",
+      "label": "128 whitespace-token visible anchor repair",
+      "latency_ms": {
+        "count": 6,
+        "max": 21188.195499998983,
+        "mean": 20921.343466674443,
+        "min": 20580.527400015853
+      },
+      "mode": "session-tail",
+      "prompt_ms": {
+        "count": 6,
+        "max": 838.297,
+        "mean": 829.7046666666666,
+        "min": 821.284
+      },
+      "response_error_count": 0,
+      "response_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-responses.jsonl",
+      "score_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-scores.json",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.1111111111111111,
+        "numeric_score_count": 6,
+        "pass_rate": 0.0
+      }
+    },
+    "anchor_recompute_256": {
+      "answer_parse_error_count": 1,
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-anchor-recompute-256-cases.jsonl",
+      "family": "anchor-recompute-proxy",
+      "label": "256 whitespace-token visible anchor repair",
+      "latency_ms": {
+        "count": 6,
+        "max": 25320.48329996178,
+        "mean": 22562.167166674044,
+        "min": 21452.335599984508
+      },
+      "mode": "session-tail",
+      "prompt_ms": {
+        "count": 6,
+        "max": 914.378,
+        "mean": 903.6708333333333,
+        "min": 887.356
+      },
+      "response_error_count": 0,
+      "response_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-responses.jsonl",
+      "score_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-scores.json",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.42023809523809524,
+        "numeric_score_count": 6,
+        "pass_rate": 0.0
+      }
+    },
+    "anchor_recompute_64": {
+      "answer_parse_error_count": 0,
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-anchor-recompute-64-cases.jsonl",
+      "family": "anchor-recompute-proxy",
+      "label": "64 whitespace-token visible anchor repair",
+      "latency_ms": {
+        "count": 6,
+        "max": 21797.05679998733,
+        "mean": 21111.437216663035,
+        "min": 20209.279700007755
+      },
+      "mode": "session-tail",
+      "prompt_ms": {
+        "count": 6,
+        "max": 503.78,
+        "mean": 497.5523333333333,
+        "min": 490.13
+      },
+      "response_error_count": 0,
+      "response_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-responses.jsonl",
+      "score_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-scores.json",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.0909090909090909,
+        "numeric_score_count": 6,
+        "pass_rate": 0.0
+      }
+    },
+    "graph_and_query_visible_session_format": {
+      "answer_parse_error_count": 4,
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-graph-and-query-visible-session-format-cases.jsonl",
+      "family": "visibility",
+      "label": "original hidden prefix plus original full prompt visible in tail",
+      "latency_ms": {
+        "count": 6,
+        "max": 25492.652899993118,
+        "mean": 24500.839583333192,
+        "min": 21618.869500001892
+      },
+      "mode": "session-tail",
+      "prompt_ms": {
+        "count": 6,
+        "max": 1091.794,
+        "mean": 1081.825,
+        "min": 1073.629
+      },
+      "response_error_count": 0,
+      "response_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-responses.jsonl",
+      "score_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-scores.json",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.0,
+        "numeric_score_count": 6,
+        "pass_rate": 0.0
+      }
+    },
+    "graph_and_query_visible_tail": {
+      "answer_parse_error_count": 4,
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-graph-and-query-visible-tail-cases.jsonl",
+      "family": "visibility",
+      "label": "short hidden prefix, original full prompt visible in tail",
+      "latency_ms": {
+        "count": 6,
+        "max": 24541.91410000203,
+        "mean": 23633.206033341896,
+        "min": 21882.499300001655
+      },
+      "mode": "session-tail",
+      "prompt_ms": {
+        "count": 6,
+        "max": 1208.752,
+        "mean": 1182.0265,
+        "min": 1139.124
+      },
+      "response_error_count": 0,
+      "response_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-responses.jsonl",
+      "score_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-scores.json",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.0,
+        "numeric_score_count": 6,
+        "pass_rate": 0.0
+      }
+    },
+    "live_tail": {
+      "answer_parse_error_count": 0,
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-selected-cases.jsonl",
+      "family": "runtime-boundary",
+      "label": "live-tail no-restore",
+      "latency_ms": {
+        "count": 6,
+        "max": 23393.389900040347,
+        "mean": 22067.294983338797,
+        "min": 21250.367100001313
+      },
+      "mode": "live-tail",
+      "prompt_ms": {
+        "count": 6,
+        "max": 413.228,
+        "mean": 401.93266666666665,
+        "min": 393.726
+      },
+      "response_error_count": 0,
+      "response_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-responses.jsonl",
+      "score_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-scores.json",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.0,
+        "numeric_score_count": 6,
+        "pass_rate": 0.0
+      }
+    },
+    "query_visible_graph_hidden": {
+      "answer_parse_error_count": 0,
+      "case_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-query-visible-graph-hidden-cases.jsonl",
+      "family": "baseline",
+      "label": "restored session-tail baseline / query visible, graph hidden",
+      "latency_ms": {
+        "count": 6,
+        "max": 23727.1691999631,
+        "mean": 22207.541383308126,
+        "min": 21383.041699999012
+      },
+      "mode": "session-tail",
+      "prompt_ms": {
+        "count": 6,
+        "max": 411.692,
+        "mean": 398.1168333333333,
+        "min": 386.081
+      },
+      "response_error_count": 0,
+      "response_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-responses.jsonl",
+      "score_file": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-scores.json",
+      "summary": {
+        "case_count": 6,
+        "mean_score": 0.0,
+        "numeric_score_count": 6,
+        "pass_rate": 0.0
+      }
+    }
+  },
+  "experiment_id": "graphwalks-repair-mechanism-ladder-2026-06-03",
+  "generated_at": "2026-06-03T19:24:32.083952+00:00",
+  "input_artifacts": [
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-anchor-recompute-128-cases.jsonl",
+      "sha256": "b2fae917df427be82405df201628e8e23156e36147b08d16324a1b1a89e5ac49"
+    },
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-anchor-recompute-256-cases.jsonl",
+      "sha256": "5f414a74677cec2ec84308fff80a8ae6e2375cba4418a89b163305ac34d74dc0"
+    },
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-anchor-recompute-64-cases.jsonl",
+      "sha256": "16adfa69e131fc2c41485585bceee79f729aad4781bad7995078c59045e614ad"
+    },
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-graph-and-query-visible-session-format-cases.jsonl",
+      "sha256": "02424bffe81e82b6421f14314d7df96ad10c8db4f71e535c5d65366f78d0fabb"
+    },
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-graph-and-query-visible-tail-cases.jsonl",
+      "sha256": "614a5c8093a96b4c89e485b2d740f40b4558fa0a2642cdd60cba227bcca0b96c"
+    },
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-query-visible-graph-hidden-cases.jsonl",
+      "sha256": "cb4134840a8dbe6406d60ebc35bf836a6e7f397557732acdec1431e5ff62436d"
+    },
+    {
+      "git_tracking": "ignored",
+      "line_count": 6,
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-repair-mechanism-ladder-2026-06-03/graphwalks-six-selected-cases.jsonl",
+      "sha256": "3c12fc4a16cc80a87612d118c86cf15b773b799682c439af319381758bf4087c"
+    }
+  ],
+  "machine": "DushyantPC",
+  "main_findings": [
+    "Live no-restore tail continuation failed 0/6, matching restored session-tail 0/6; the collapse appears before disk save/restore.",
+    "No prompt-level repair control fully repaired any case; all controls had 0/6 pass rate.",
+    "Anchor recompute proxies produced partial signal: 64-token mean score 0.0909, 128-token mean score 0.1111, and 256-token mean score 0.4202.",
+    "The 256-token anchor partially improved graphwalks-9, graphwalks-13, graphwalks-16, and graphwalks-19, but one case produced a JSON parse failure and none passed.",
+    "Making the original full prompt visible in the tail under session-tail framing did not recover correctness in this protocol.",
+    "The safe fallback policy for this fixed cohort is full-prompt execution; restored or live tail-only reuse is not quality-safe for GraphWalks-style reasoning-over-prefix tasks in this model/protocol stack."
+  ],
+  "raw_artifacts": [
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-responses.jsonl",
+      "sha256": "76eccea8510c8b4aa200981c5db8e4b0a014b995f70770cdbc731fa1fa58edd5"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-128-session-tail-scores.json",
+      "sha256": "e466d60b2f2981b9306bdf80a79f4c4e671501fb33f665ebcbe3ad3d5af7bf3e"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-responses.jsonl",
+      "sha256": "ce2d5a0266f119a7a942b14d81d6762ecb360bf9d7a03efc4fb0c62add46ced3"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-256-session-tail-scores.json",
+      "sha256": "1f2e5bd611409170909d81a8b8aa1ebf90f8169be01e6ebb4751454a696d7142"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-responses.jsonl",
+      "sha256": "f2e20599bf750ec76ef2741b7597e4670c791f30b3af4760868ab8625410eed7"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/anchor-recompute-64-session-tail-scores.json",
+      "sha256": "6038f4bbb12d6289501b30dd47ec42acd647e3f9c54f4e3f2b1d11378c6c3099"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/dry-run-live-tail-responses.jsonl",
+      "sha256": "71ebac34dc49d987f5c29b9f00612852646abc00f34ac861565e71f09557390a"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/dry-run-live-tail-scores.json",
+      "sha256": "1e9013cc18bad056b8a7e058c17d6d13dddb101f26c316ef7d57f9bc60e5a796"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-responses.jsonl",
+      "sha256": "b786a8de055dcf6578c0340de5f8184104a69bc8ec6b0ed325512cc36cf2a2f5"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-session-format-session-tail-scores.json",
+      "sha256": "3ea012c316f08f8fae495bd726a2fdd0d0eef5495567e9b094a138e4392526a6"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-responses.jsonl",
+      "sha256": "dbc76ff10e4db76445d755ab786af651fabe1c993e72f7ffe9399193ed1a347f"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/graph-and-query-visible-tail-session-tail-scores.json",
+      "sha256": "d3ed3b98d9d73126fc381b0cb9410ab6af0114668e2cc0449d8c2f3f8b3a613e"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-responses.jsonl",
+      "sha256": "23d4272ba4d900461c96bdc0d7f81d5afdbf302adb38668eec2eb3a2e28f91ce"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/live-tail-scores.json",
+      "sha256": "95bf701d6345b5265f36392a46ae87b81e4a7efbb91543372a89bfebf89e871b"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-responses.jsonl",
+      "sha256": "454916db13da202c56547adfc0971e5905fc47c648d9c8adafeca158649df502"
+    },
+    {
+      "git_tracking": "ignored",
+      "path": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-results/graphwalks-repair-mechanism-ladder-2026-06-03/raw/query-visible-graph-hidden-session-tail-scores.json",
+      "sha256": "31501dee0bd5461a930d1a5dd1a2e658af34ab05092ef20b20056912c9083ba7"
+    }
+  ],
+  "scope": "Same six GraphWalks cases only; no broad benchmarks.",
+  "source_state_note": "Live runs used base commit cbb28cb plus the uncommitted live-tail mode and OpenSpec artifacts from this change.",
+  "status": "completed_focused_controls"
+}

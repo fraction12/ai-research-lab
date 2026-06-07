@@ -1,0 +1,469 @@
+{
+  "full_summary": {
+    "full": {
+      "case_count": 107,
+      "mean_score": 0.47093871860227,
+      "numeric_score_count": 107,
+      "pass_rate": 0.3925233644859813
+    }
+  },
+  "interpretation": "Session-tail quality parity is only meaningful for selected cases where full-prompt baseline met the configured score threshold.",
+  "metadata": {
+    "answer_protocol": "json-answer",
+    "candidate_case_count": 107,
+    "ctx_size": 32768,
+    "dry_run": false,
+    "generated_at": "2026-06-03T05:11:41.528577+00:00",
+    "min_full_score": 1.0,
+    "model": "benchmarks/models/gpt-oss-20b-mxfp4.gguf",
+    "predict": 192,
+    "resumed_session_tail_from_selected_cases": true,
+    "selected_case_count": 42,
+    "temperature": 0.0
+  },
+  "parity_summary": {
+    "full": {
+      "case_count": 42,
+      "mean_score": 1.0,
+      "numeric_score_count": 42,
+      "pass_rate": 1.0
+    },
+    "session-tail": {
+      "case_count": 42,
+      "mean_score": 0.7380952380952381,
+      "numeric_score_count": 42,
+      "pass_rate": 0.7380952380952381
+    }
+  },
+  "paths": {
+    "full_responses": "benchmarks/correctness-eval-results/easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints-full-responses.jsonl",
+    "full_scores": "benchmarks/correctness-eval-results/easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints-full-scores.json",
+    "parity_responses": "benchmarks/correctness-eval-results/easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints-parity-responses.jsonl",
+    "parity_scores": "benchmarks/correctness-eval-results/easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints-parity-scores.json",
+    "report": "benchmarks/correctness-eval-results/easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints-ladder-report.json",
+    "selected_cases": "benchmarks/correctness-eval-results/easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints-selected-cases.jsonl",
+    "session_tail_responses": "benchmarks/correctness-eval-results/easy-mixed-candidates-107-gpt-oss-20b-json-answer-hints-session-tail-responses.jsonl"
+  },
+  "selected_cases": [
+    {
+      "case_id": "ifeval-1001",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 786.724,
+      "prompt_ms_saved": 464.86100000000005,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 321.863
+    },
+    {
+      "case_id": "ifeval-1147",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 718.203,
+      "prompt_ms_saved": 316.287,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 401.916
+    },
+    {
+      "case_id": "ifeval-1162",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 673.414,
+      "prompt_ms_saved": 480.258,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 193.156
+    },
+    {
+      "case_id": "ifeval-1187",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 732.388,
+      "prompt_ms_saved": 521.0830000000001,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 211.305
+    },
+    {
+      "case_id": "ifeval-1580",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 700.698,
+      "prompt_ms_saved": 493.913,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 206.785
+    },
+    {
+      "case_id": "ifeval-1629",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 683.274,
+      "prompt_ms_saved": 471.926,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 211.348
+    },
+    {
+      "case_id": "ifeval-1675",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 720.168,
+      "prompt_ms_saved": 505.432,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 214.736
+    },
+    {
+      "case_id": "ifeval-1738",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 731.671,
+      "prompt_ms_saved": 489.865,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 241.806
+    },
+    {
+      "case_id": "ifeval-2028",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 713.351,
+      "prompt_ms_saved": 487.528,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 225.823
+    },
+    {
+      "case_id": "ifeval-2034",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 733.449,
+      "prompt_ms_saved": 341.81699999999995,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 391.632
+    },
+    {
+      "case_id": "ifeval-2207",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 712.014,
+      "prompt_ms_saved": 331.243,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 380.771
+    },
+    {
+      "case_id": "ifeval-2245",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 820.248,
+      "prompt_ms_saved": 455.95300000000003,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 364.295
+    },
+    {
+      "case_id": "ifeval-2311",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 672.057,
+      "prompt_ms_saved": 449.053,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 223.004
+    },
+    {
+      "case_id": "ifeval-2324",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 670.95,
+      "prompt_ms_saved": 466.16900000000004,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 204.781
+    },
+    {
+      "case_id": "ifeval-2328",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 699.321,
+      "prompt_ms_saved": 491.723,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 207.598
+    },
+    {
+      "case_id": "ifeval-2374",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 799.134,
+      "prompt_ms_saved": 578.471,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 220.663
+    },
+    {
+      "case_id": "ifeval-2392",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 718.022,
+      "prompt_ms_saved": 349.5210000000001,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 368.501
+    },
+    {
+      "case_id": "ifeval-2417",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 709.026,
+      "prompt_ms_saved": 351.66599999999994,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 357.36
+    },
+    {
+      "case_id": "ifeval-2432",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 692.428,
+      "prompt_ms_saved": 379.644,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 312.784
+    },
+    {
+      "case_id": "ifeval-2534",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 703.644,
+      "prompt_ms_saved": 476.019,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 227.625
+    },
+    {
+      "case_id": "ifeval-2716",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 690.388,
+      "prompt_ms_saved": 477.92100000000005,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 212.467
+    },
+    {
+      "case_id": "ifeval-2798",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 658.613,
+      "prompt_ms_saved": 460.63800000000003,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 197.975
+    },
+    {
+      "case_id": "ifeval-2811",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 675.784,
+      "prompt_ms_saved": 479.39599999999996,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 196.388
+    },
+    {
+      "case_id": "ifeval-2825",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 759.564,
+      "prompt_ms_saved": 538.545,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 221.019
+    },
+    {
+      "case_id": "ifeval-2828",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 723.757,
+      "prompt_ms_saved": 511.49299999999994,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 212.264
+    },
+    {
+      "case_id": "ifeval-2957",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 685.486,
+      "prompt_ms_saved": 449.048,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 236.438
+    },
+    {
+      "case_id": "ifeval-301",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 690.046,
+      "prompt_ms_saved": 473.96000000000004,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 216.086
+    },
+    {
+      "case_id": "ifeval-3166",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 674.74,
+      "prompt_ms_saved": 453.916,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 220.824
+    },
+    {
+      "case_id": "ifeval-32",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 691.587,
+      "prompt_ms_saved": 492.005,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 199.582
+    },
+    {
+      "case_id": "ifeval-3323",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 674.487,
+      "prompt_ms_saved": 447.61199999999997,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 226.875
+    },
+    {
+      "case_id": "ifeval-3401",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 704.203,
+      "prompt_ms_saved": 359.085,
+      "session_tail_answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 11 (char 10)",
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 345.118
+    },
+    {
+      "case_id": "ifeval-3445",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 668.365,
+      "prompt_ms_saved": 449.21000000000004,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 219.155
+    },
+    {
+      "case_id": "ifeval-3540",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 733.445,
+      "prompt_ms_saved": 390.607,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 342.838
+    },
+    {
+      "case_id": "ifeval-3595",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 688.024,
+      "prompt_ms_saved": 480.86199999999997,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 207.162
+    },
+    {
+      "case_id": "ifeval-3615",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 699.653,
+      "prompt_ms_saved": -170.29200000000003,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 869.945
+    },
+    {
+      "case_id": "ifeval-3631",
+      "dataset_id": "ifeval",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 677.658,
+      "prompt_ms_saved": 466.52700000000004,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": 0.0,
+      "session_tail_prompt_ms": 211.131
+    },
+    {
+      "case_id": "graphwalks-6",
+      "dataset_id": "graphwalks",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 1513.497,
+      "prompt_ms_saved": 1126.653,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 386.844
+    },
+    {
+      "case_id": "graphwalks-9",
+      "dataset_id": "graphwalks",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 1545.258,
+      "prompt_ms_saved": 1160.789,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 384.469
+    },
+    {
+      "case_id": "graphwalks-11",
+      "dataset_id": "graphwalks",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 1473.998,
+      "prompt_ms_saved": 1075.4660000000001,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 398.532
+    },
+    {
+      "case_id": "graphwalks-13",
+      "dataset_id": "graphwalks",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 1543.963,
+      "prompt_ms_saved": 1147.784,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 396.179
+    },
+    {
+      "case_id": "graphwalks-16",
+      "dataset_id": "graphwalks",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 1555.094,
+      "prompt_ms_saved": 1152.44,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 402.654
+    },
+    {
+      "case_id": "graphwalks-19",
+      "dataset_id": "graphwalks",
+      "full_answer_parse_error": null,
+      "full_prompt_ms": 1478.951,
+      "prompt_ms_saved": 1074.814,
+      "session_tail_answer_parse_error": null,
+      "session_tail_minus_full_score": -1.0,
+      "session_tail_prompt_ms": 404.137
+    }
+  ]
+}

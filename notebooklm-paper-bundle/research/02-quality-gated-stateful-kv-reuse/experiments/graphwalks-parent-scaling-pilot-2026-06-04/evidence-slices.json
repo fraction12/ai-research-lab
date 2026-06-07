@@ -1,0 +1,2941 @@
+{
+  "case_count": 50,
+  "cases": [
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-000-row-0",
+      "duplicate_edges": true,
+      "evidence_bytes": 124,
+      "evidence_edge_count": 5,
+      "evidence_lines": [
+        "1679091c5a -> 8f14e45fce",
+        "1679091c5a -> 8f14e45fce",
+        "8f14e45fce -> 8f14e45fce",
+        "c9f0f895fb -> 8f14e45fce",
+        "d3d9446802 -> 8f14e45fce"
+      ],
+      "evidence_sha256": "b97402384c6fe3df8c6284ec3c5a6681d55f82f6856a6102cf14467a6cb5b354",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c9f0f895fb",
+          "d3d9446802"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "8f14e45fce"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.8571428571428571,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "c9f0f895fb",
+          "d3d9446802"
+        ],
+        "precision": 0.75,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "c9f0f895fb",
+          "d3d9446802"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        24,
+        25,
+        30,
+        35,
+        40
+      ],
+      "source_id": 0,
+      "target_node": "8f14e45fce",
+      "unique_evidence_edge_count": 4,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 5,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-001-row-1",
+      "duplicate_edges": true,
+      "evidence_bytes": 174,
+      "evidence_edge_count": 7,
+      "evidence_lines": [
+        "cfcd208495 -> e4da3b7fbb",
+        "c81e728d9d -> e4da3b7fbb",
+        "c81e728d9d -> e4da3b7fbb",
+        "eccbc87e4b -> e4da3b7fbb",
+        "a87ff679a2 -> e4da3b7fbb",
+        "a87ff679a2 -> e4da3b7fbb",
+        "1679091c5a -> e4da3b7fbb"
+      ],
+      "evidence_sha256": "375f2559f279651171d96837195a0b06822fd5319b2c6a3fe7621f75b2e0694e",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c81e728d9d",
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c81e728d9d",
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c81e728d9d",
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        2,
+        10,
+        13,
+        16,
+        22,
+        23,
+        32
+      ],
+      "source_id": 1,
+      "target_node": "e4da3b7fbb",
+      "unique_evidence_edge_count": 5,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 4,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-002-row-2",
+      "duplicate_edges": false,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "eccbc87e4b -> cfcd208495",
+        "a87ff679a2 -> cfcd208495",
+        "e4da3b7fbb -> cfcd208495",
+        "c9f0f895fb -> cfcd208495"
+      ],
+      "evidence_sha256": "0d7c73f9ba236051b9fdab2de38e0c18e272506bd681e1162bfc234452c652f4",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "a87ff679a2",
+          "c9f0f895fb",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "a87ff679a2",
+          "c9f0f895fb",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "a87ff679a2",
+          "c9f0f895fb",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        15,
+        22,
+        26,
+        43
+      ],
+      "source_id": 2,
+      "target_node": "cfcd208495",
+      "unique_evidence_edge_count": 4,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-003-row-3",
+      "duplicate_edges": false,
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "eccbc87e4b -> cfcd208495",
+        "e4da3b7fbb -> cfcd208495",
+        "8f14e45fce -> cfcd208495"
+      ],
+      "evidence_sha256": "a50648f92f7eb9dfe0e2e2411678bad31403c36a2d27c4b53f7f108ef1929f2a",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "8f14e45fce",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "8f14e45fce",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "8f14e45fce",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        15,
+        27,
+        38
+      ],
+      "source_id": 3,
+      "target_node": "cfcd208495",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 5,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-004-row-4",
+      "duplicate_edges": true,
+      "evidence_bytes": 174,
+      "evidence_edge_count": 7,
+      "evidence_lines": [
+        "cfcd208495 -> 45c48cce2e",
+        "c4ca4238a0 -> 45c48cce2e",
+        "e4da3b7fbb -> 45c48cce2e",
+        "e4da3b7fbb -> 45c48cce2e",
+        "8f14e45fce -> 45c48cce2e",
+        "45c48cce2e -> 45c48cce2e",
+        "d3d9446802 -> 45c48cce2e"
+      ],
+      "evidence_sha256": "e366e525130595e8ff37b5399731e0c846ae8aebf3e38843b38c55029f3f971b",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "45c48cce2e",
+          "8f14e45fce",
+          "c4ca4238a0",
+          "cfcd208495",
+          "d3d9446802",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "45c48cce2e"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.9090909090909091,
+        "missing_reference_parents": [],
+        "overlap": [
+          "8f14e45fce",
+          "c4ca4238a0",
+          "cfcd208495",
+          "d3d9446802",
+          "e4da3b7fbb"
+        ],
+        "precision": 0.8333333333333334,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "8f14e45fce",
+          "c4ca4238a0",
+          "cfcd208495",
+          "d3d9446802",
+          "e4da3b7fbb"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        1,
+        3,
+        15,
+        17,
+        23,
+        28,
+        30
+      ],
+      "source_id": 4,
+      "target_node": "45c48cce2e",
+      "unique_evidence_edge_count": 6,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 0,
+      "answer_size_bucket": "0 parents",
+      "case_id": "graphwalks-parent-005-row-5",
+      "duplicate_edges": false,
+      "evidence_bytes": 0,
+      "evidence_edge_count": 0,
+      "evidence_lines": [],
+      "evidence_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 46,
+      "prefix_bytes": 2284,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "none",
+      "relevant_edge_positions": [],
+      "source_id": 5,
+      "target_node": "3416a75f4c",
+      "unique_evidence_edge_count": 0,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-006-row-6",
+      "duplicate_edges": false,
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "c81e728d9d -> e4da3b7fbb",
+        "eccbc87e4b -> e4da3b7fbb",
+        "d3d9446802 -> e4da3b7fbb"
+      ],
+      "evidence_sha256": "ea2f586461d72dff7aaef3b31e970299904351f42363cbfa1c5f8dc4facb46a7",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "c81e728d9d",
+          "d3d9446802",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "c81e728d9d",
+          "d3d9446802",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "c81e728d9d",
+          "d3d9446802",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        10,
+        14,
+        41
+      ],
+      "source_id": 6,
+      "target_node": "e4da3b7fbb",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 6,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-007-row-7",
+      "duplicate_edges": true,
+      "evidence_bytes": 249,
+      "evidence_edge_count": 10,
+      "evidence_lines": [
+        "cfcd208495 -> 1679091c5a",
+        "c4ca4238a0 -> 1679091c5a",
+        "c4ca4238a0 -> 1679091c5a",
+        "eccbc87e4b -> 1679091c5a",
+        "eccbc87e4b -> 1679091c5a",
+        "eccbc87e4b -> 1679091c5a",
+        "eccbc87e4b -> 1679091c5a",
+        "a87ff679a2 -> 1679091c5a",
+        "e4da3b7fbb -> 1679091c5a",
+        "8f14e45fce -> 1679091c5a"
+      ],
+      "evidence_sha256": "a20fb58927605702b617cbe9deea07d4be1b3c7a7375a4abb90157d0a50b43b0",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "8f14e45fce",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "cfcd208495",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "8f14e45fce",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "cfcd208495",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "8f14e45fce",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "cfcd208495",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        3,
+        6,
+        8,
+        15,
+        16,
+        18,
+        19,
+        20,
+        26,
+        36
+      ],
+      "source_id": 7,
+      "target_node": "1679091c5a",
+      "unique_evidence_edge_count": 6,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-008-row-8",
+      "duplicate_edges": true,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "c4ca4238a0 -> c9f0f895fb",
+        "c4ca4238a0 -> c9f0f895fb",
+        "e4da3b7fbb -> c9f0f895fb",
+        "8f14e45fce -> c9f0f895fb"
+      ],
+      "evidence_sha256": "bf8d70e37fffd8dc22c3110c912e6271d6796c070431d5d21ec9a84eee75ca77",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "8f14e45fce",
+          "c4ca4238a0",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "8f14e45fce",
+          "c4ca4238a0",
+          "e4da3b7fbb"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "8f14e45fce",
+          "c4ca4238a0",
+          "e4da3b7fbb"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        3,
+        4,
+        17,
+        23
+      ],
+      "source_id": 8,
+      "target_node": "c9f0f895fb",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-009-row-9",
+      "duplicate_edges": true,
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "c81e728d9d -> 1679091c5a",
+        "c81e728d9d -> 1679091c5a",
+        "eccbc87e4b -> 1679091c5a"
+      ],
+      "evidence_sha256": "af1ef9dfd22bb9497e0518829bed2373ff34f9dc13879c19d216ad7bd5f7641e",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "c81e728d9d",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "c81e728d9d",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "c81e728d9d",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        10,
+        11,
+        17
+      ],
+      "source_id": 9,
+      "target_node": "1679091c5a",
+      "unique_evidence_edge_count": 2,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-010-row-10",
+      "duplicate_edges": false,
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "1679091c5a -> 45c48cce2e",
+        "8f14e45fce -> 45c48cce2e",
+        "c51ce410c1 -> 45c48cce2e"
+      ],
+      "evidence_sha256": "ff0efdf558e4d0d62c5df6a1cb6117348d68424632761549f2cc86f5fc97526b",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c51ce410c1"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c51ce410c1"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c51ce410c1"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        20,
+        23,
+        40
+      ],
+      "source_id": 10,
+      "target_node": "45c48cce2e",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 1,
+      "answer_size_bucket": "1 parent",
+      "case_id": "graphwalks-parent-011-row-11",
+      "duplicate_edges": false,
+      "evidence_bytes": 24,
+      "evidence_edge_count": 1,
+      "evidence_lines": [
+        "d3d9446802 -> a87ff679a2"
+      ],
+      "evidence_sha256": "b68f0c071f4e3b671ddf87ac4d2d63fc81b13cbb417f1d637fb1d89b655e624a",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "d3d9446802"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "d3d9446802"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "d3d9446802"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "late",
+      "relevant_edge_positions": [
+        42
+      ],
+      "source_id": 11,
+      "target_node": "a87ff679a2",
+      "unique_evidence_edge_count": 1,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-012-row-12",
+      "duplicate_edges": true,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "cfcd208495 -> c81e728d9d",
+        "c81e728d9d -> c81e728d9d",
+        "c81e728d9d -> c81e728d9d",
+        "8f14e45fce -> c81e728d9d"
+      ],
+      "evidence_sha256": "dff05091a28c0cda7ce512b644e4d164f1d0cc209f6316688d59af0272727c17",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "8f14e45fce",
+          "c81e728d9d",
+          "cfcd208495"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "c81e728d9d"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.8,
+        "missing_reference_parents": [],
+        "overlap": [
+          "8f14e45fce",
+          "cfcd208495"
+        ],
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "8f14e45fce",
+          "cfcd208495"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        0,
+        10,
+        11,
+        36
+      ],
+      "source_id": 12,
+      "target_node": "c81e728d9d",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 1,
+      "answer_size_bucket": "1 parent",
+      "case_id": "graphwalks-parent-013-row-13",
+      "duplicate_edges": false,
+      "evidence_bytes": 24,
+      "evidence_edge_count": 1,
+      "evidence_lines": [
+        "1679091c5a -> a87ff679a2"
+      ],
+      "evidence_sha256": "a3775f58b32ecc2d48f59c25ae48513776286df8865347eaa982642343421815",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "late",
+      "relevant_edge_positions": [
+        32
+      ],
+      "source_id": 13,
+      "target_node": "a87ff679a2",
+      "unique_evidence_edge_count": 1,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 4,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-014-row-14",
+      "duplicate_edges": false,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "cfcd208495 -> e4da3b7fbb",
+        "c81e728d9d -> e4da3b7fbb",
+        "eccbc87e4b -> e4da3b7fbb",
+        "c9f0f895fb -> e4da3b7fbb"
+      ],
+      "evidence_sha256": "fce64b6e0816f9ffc5153fd44942dc3a3d31aacb4ddc2bd0a8e290514f854ced",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "c81e728d9d",
+          "c9f0f895fb",
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "c81e728d9d",
+          "c9f0f895fb",
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "c81e728d9d",
+          "c9f0f895fb",
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        1,
+        14,
+        15,
+        41
+      ],
+      "source_id": 14,
+      "target_node": "e4da3b7fbb",
+      "unique_evidence_edge_count": 4,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 5,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-015-row-15",
+      "duplicate_edges": false,
+      "evidence_bytes": 124,
+      "evidence_edge_count": 5,
+      "evidence_lines": [
+        "cfcd208495 -> e4da3b7fbb",
+        "c4ca4238a0 -> e4da3b7fbb",
+        "eccbc87e4b -> e4da3b7fbb",
+        "1679091c5a -> e4da3b7fbb",
+        "c9f0f895fb -> e4da3b7fbb"
+      ],
+      "evidence_sha256": "85745e179999fd42aa2a29cd1586ddd1e1b663f0d28a938d66849f73be22313c",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c9f0f895fb",
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c9f0f895fb",
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c9f0f895fb",
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        3,
+        8,
+        16,
+        34,
+        40
+      ],
+      "source_id": 15,
+      "target_node": "e4da3b7fbb",
+      "unique_evidence_edge_count": 5,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 5,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-016-row-16",
+      "duplicate_edges": true,
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "evidence_lines": [
+        "cfcd208495 -> a87ff679a2",
+        "c81e728d9d -> a87ff679a2",
+        "e4da3b7fbb -> a87ff679a2",
+        "e4da3b7fbb -> a87ff679a2",
+        "1679091c5a -> a87ff679a2",
+        "8f14e45fce -> a87ff679a2"
+      ],
+      "evidence_sha256": "81f7d577829dc9a1e0d6b86b79cb36cd6e3b781b3b1cd5bc24e8f7b8d39cf8b6",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c81e728d9d",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c81e728d9d",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c81e728d9d",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        3,
+        13,
+        27,
+        28,
+        30,
+        39
+      ],
+      "source_id": 16,
+      "target_node": "a87ff679a2",
+      "unique_evidence_edge_count": 5,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-017-row-17",
+      "duplicate_edges": false,
+      "evidence_bytes": 49,
+      "evidence_edge_count": 2,
+      "evidence_lines": [
+        "c81e728d9d -> d3d9446802",
+        "c9f0f895fb -> d3d9446802"
+      ],
+      "evidence_sha256": "ab1c3cce10868a514a2aae3d98fa26241b68df93dccdaa3affea1e54d40a9185",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "c81e728d9d",
+          "c9f0f895fb"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "c81e728d9d",
+          "c9f0f895fb"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "c81e728d9d",
+          "c9f0f895fb"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        9,
+        35
+      ],
+      "source_id": 17,
+      "target_node": "d3d9446802",
+      "unique_evidence_edge_count": 2,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 1,
+      "answer_size_bucket": "1 parent",
+      "case_id": "graphwalks-parent-018-row-18",
+      "duplicate_edges": false,
+      "evidence_bytes": 49,
+      "evidence_edge_count": 2,
+      "evidence_lines": [
+        "eccbc87e4b -> eccbc87e4b",
+        "c51ce410c1 -> eccbc87e4b"
+      ],
+      "evidence_sha256": "b9edaa4a540e6b8db85bd5d9d577b4e2dc8b319ae00f98214c6589e797b019b9",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "c51ce410c1",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "eccbc87e4b"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.6666666666666666,
+        "missing_reference_parents": [],
+        "overlap": [
+          "c51ce410c1"
+        ],
+        "precision": 0.5,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "c51ce410c1"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        10,
+        39
+      ],
+      "source_id": 18,
+      "target_node": "eccbc87e4b",
+      "unique_evidence_edge_count": 2,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-019-row-19",
+      "duplicate_edges": true,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "eccbc87e4b -> c4ca4238a0",
+        "eccbc87e4b -> c4ca4238a0",
+        "a87ff679a2 -> c4ca4238a0",
+        "1679091c5a -> c4ca4238a0"
+      ],
+      "evidence_sha256": "9917f5ff8ace7b4f8e9991d28a55950df4a07cac2e7f0b3b9a147fa53bbf76a7",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "a87ff679a2",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "a87ff679a2",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "a87ff679a2",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        18,
+        19,
+        20,
+        30
+      ],
+      "source_id": 19,
+      "target_node": "c4ca4238a0",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-020-row-20",
+      "duplicate_edges": false,
+      "evidence_bytes": 49,
+      "evidence_edge_count": 2,
+      "evidence_lines": [
+        "e4da3b7fbb -> 8f14e45fce",
+        "6512bd43d9 -> 8f14e45fce"
+      ],
+      "evidence_sha256": "fbce43a9717e0fbcda2bbf6cc0530468ab4f063e161adf054ad43d77aa72004d",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "6512bd43d9",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "6512bd43d9",
+          "e4da3b7fbb"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "6512bd43d9",
+          "e4da3b7fbb"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        15,
+        34
+      ],
+      "source_id": 20,
+      "target_node": "8f14e45fce",
+      "unique_evidence_edge_count": 2,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-021-row-21",
+      "duplicate_edges": false,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "cfcd208495 -> c81e728d9d",
+        "c81e728d9d -> c81e728d9d",
+        "8f14e45fce -> c81e728d9d",
+        "d3d9446802 -> c81e728d9d"
+      ],
+      "evidence_sha256": "599585916c6f235eefe47172ae45fd0efb3559dc6e9db341a3a2d08f6c766948",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "8f14e45fce",
+          "c81e728d9d",
+          "cfcd208495",
+          "d3d9446802"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "c81e728d9d"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.8571428571428571,
+        "missing_reference_parents": [],
+        "overlap": [
+          "8f14e45fce",
+          "cfcd208495",
+          "d3d9446802"
+        ],
+        "precision": 0.75,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "8f14e45fce",
+          "cfcd208495",
+          "d3d9446802"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        2,
+        10,
+        30,
+        42
+      ],
+      "source_id": 21,
+      "target_node": "c81e728d9d",
+      "unique_evidence_edge_count": 4,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-022-row-22",
+      "duplicate_edges": false,
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "eccbc87e4b -> a87ff679a2",
+        "e4da3b7fbb -> a87ff679a2",
+        "8f14e45fce -> a87ff679a2"
+      ],
+      "evidence_sha256": "a55fa4931d80fe1da57e50b53c28c946072a1b2dd84820af884734c784d14c58",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "8f14e45fce",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "8f14e45fce",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "8f14e45fce",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        17,
+        26,
+        36
+      ],
+      "source_id": 22,
+      "target_node": "a87ff679a2",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-023-row-23",
+      "duplicate_edges": true,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "a87ff679a2 -> c81e728d9d",
+        "a87ff679a2 -> c81e728d9d",
+        "1679091c5a -> c81e728d9d",
+        "8f14e45fce -> c81e728d9d"
+      ],
+      "evidence_sha256": "a69eee6d86147ed956e34892f5e32cdc6eb9a279b7832fef94e8f4051ac7f18b",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "a87ff679a2"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "8f14e45fce",
+          "a87ff679a2"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "a87ff679a2"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        22,
+        23,
+        34,
+        38
+      ],
+      "source_id": 23,
+      "target_node": "c81e728d9d",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-024-row-24",
+      "duplicate_edges": false,
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "c81e728d9d -> c4ca4238a0",
+        "8f14e45fce -> c4ca4238a0",
+        "45c48cce2e -> c4ca4238a0"
+      ],
+      "evidence_sha256": "10a95a25c3445afb664668cb68cf0c1afa5665c51977e6b02f5014de650e2261",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "45c48cce2e",
+          "8f14e45fce",
+          "c81e728d9d"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "45c48cce2e",
+          "8f14e45fce",
+          "c81e728d9d"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "45c48cce2e",
+          "8f14e45fce",
+          "c81e728d9d"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        9,
+        29,
+        36
+      ],
+      "source_id": 24,
+      "target_node": "c4ca4238a0",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 4,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-025-row-25",
+      "duplicate_edges": false,
+      "evidence_bytes": 124,
+      "evidence_edge_count": 5,
+      "evidence_lines": [
+        "c4ca4238a0 -> c81e728d9d",
+        "c81e728d9d -> c81e728d9d",
+        "eccbc87e4b -> c81e728d9d",
+        "1679091c5a -> c81e728d9d",
+        "c9f0f895fb -> c81e728d9d"
+      ],
+      "evidence_sha256": "a55f22d2a1af27d241ce50e2946ef3668df3942c8bfd895994b9b776f77e9291",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "c9f0f895fb",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "c81e728d9d"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.888888888888889,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c9f0f895fb",
+          "eccbc87e4b"
+        ],
+        "precision": 0.8,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c9f0f895fb",
+          "eccbc87e4b"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        7,
+        12,
+        15,
+        30,
+        41
+      ],
+      "source_id": 25,
+      "target_node": "c81e728d9d",
+      "unique_evidence_edge_count": 5,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 1,
+      "answer_size_bucket": "1 parent",
+      "case_id": "graphwalks-parent-026-row-26",
+      "duplicate_edges": false,
+      "evidence_bytes": 24,
+      "evidence_edge_count": 1,
+      "evidence_lines": [
+        "a87ff679a2 -> c4ca4238a0"
+      ],
+      "evidence_sha256": "ebee24cd513bbabb6b567a54679014bc8c493b8128fb1b97c0edcb2ab4e1d4da",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "a87ff679a2"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "a87ff679a2"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "a87ff679a2"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        19
+      ],
+      "source_id": 26,
+      "target_node": "c4ca4238a0",
+      "unique_evidence_edge_count": 1,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-027-row-27",
+      "duplicate_edges": false,
+      "evidence_bytes": 49,
+      "evidence_edge_count": 2,
+      "evidence_lines": [
+        "1f0e3dad99 -> c51ce410c1",
+        "33e75ff09d -> c51ce410c1"
+      ],
+      "evidence_sha256": "9c7c49f09aa2f426a9de1d505b2c8d3595562c770183e6d5765694d858f83f9b",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1f0e3dad99",
+          "33e75ff09d"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1f0e3dad99",
+          "33e75ff09d"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1f0e3dad99",
+          "33e75ff09d"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 46,
+      "prefix_bytes": 2284,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        19,
+        28
+      ],
+      "source_id": 27,
+      "target_node": "c51ce410c1",
+      "unique_evidence_edge_count": 2,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 1,
+      "answer_size_bucket": "1 parent",
+      "case_id": "graphwalks-parent-028-row-28",
+      "duplicate_edges": false,
+      "evidence_bytes": 49,
+      "evidence_edge_count": 2,
+      "evidence_lines": [
+        "1679091c5a -> 1679091c5a",
+        "45c48cce2e -> 1679091c5a"
+      ],
+      "evidence_sha256": "27f5c4d3fe276756d5d715484f30198d6e6784c403b1665572f460cee08ff3bb",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "45c48cce2e"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "1679091c5a"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.6666666666666666,
+        "missing_reference_parents": [],
+        "overlap": [
+          "45c48cce2e"
+        ],
+        "precision": 0.5,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "45c48cce2e"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        25,
+        39
+      ],
+      "source_id": 28,
+      "target_node": "1679091c5a",
+      "unique_evidence_edge_count": 2,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-029-row-29",
+      "duplicate_edges": true,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "c81e728d9d -> 1679091c5a",
+        "c81e728d9d -> 1679091c5a",
+        "e4da3b7fbb -> 1679091c5a",
+        "1679091c5a -> 1679091c5a"
+      ],
+      "evidence_sha256": "49395037fe549df579f8b6b1956045dd9002b91efadd5103171265789bdcee05",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "c81e728d9d",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "1679091c5a"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.8,
+        "missing_reference_parents": [],
+        "overlap": [
+          "c81e728d9d",
+          "e4da3b7fbb"
+        ],
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "c81e728d9d",
+          "e4da3b7fbb"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        10,
+        13,
+        29,
+        33
+      ],
+      "source_id": 29,
+      "target_node": "1679091c5a",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-030-row-30",
+      "duplicate_edges": false,
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "a87ff679a2 -> c81e728d9d",
+        "1679091c5a -> c81e728d9d",
+        "45c48cce2e -> c81e728d9d"
+      ],
+      "evidence_sha256": "954931c901ebd91d18ee55bf4f7a93bf9632e62ccb9dd2779723ce40857b5ac8",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "45c48cce2e",
+          "a87ff679a2"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "45c48cce2e",
+          "a87ff679a2"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "45c48cce2e",
+          "a87ff679a2"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        19,
+        26,
+        39
+      ],
+      "source_id": 30,
+      "target_node": "c81e728d9d",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 1,
+      "answer_size_bucket": "1 parent",
+      "case_id": "graphwalks-parent-031-row-31",
+      "duplicate_edges": true,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "e4da3b7fbb -> e4da3b7fbb",
+        "e4da3b7fbb -> e4da3b7fbb",
+        "1679091c5a -> e4da3b7fbb",
+        "1679091c5a -> e4da3b7fbb"
+      ],
+      "evidence_sha256": "453972e72cd40775584d01c15c2c700cad6e96d64de585e542fa95b5625366b6",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "e4da3b7fbb"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.6666666666666666,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a"
+        ],
+        "precision": 0.5,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        20,
+        22,
+        24,
+        27
+      ],
+      "source_id": 31,
+      "target_node": "e4da3b7fbb",
+      "unique_evidence_edge_count": 2,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-032-row-32",
+      "duplicate_edges": false,
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "1679091c5a -> c9f0f895fb",
+        "c20ad4d76f -> c9f0f895fb",
+        "c51ce410c1 -> c9f0f895fb"
+      ],
+      "evidence_sha256": "bc3858df53813c9a18b4e6a8cbe543f99cf1f6c986f419962ae3fa346cc175e7",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "c20ad4d76f",
+          "c51ce410c1"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "c20ad4d76f",
+          "c51ce410c1"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "c20ad4d76f",
+          "c51ce410c1"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        20,
+        36,
+        41
+      ],
+      "source_id": 32,
+      "target_node": "c9f0f895fb",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-033-row-33",
+      "duplicate_edges": true,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "a87ff679a2 -> 1679091c5a",
+        "1679091c5a -> 1679091c5a",
+        "8f14e45fce -> 1679091c5a",
+        "8f14e45fce -> 1679091c5a"
+      ],
+      "evidence_sha256": "bacc6541ceee0c38a217519e3375c07f8dc37d217684fab265a2a22837e8a72c",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "a87ff679a2"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "1679091c5a"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.8,
+        "missing_reference_parents": [],
+        "overlap": [
+          "8f14e45fce",
+          "a87ff679a2"
+        ],
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "8f14e45fce",
+          "a87ff679a2"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        22,
+        30,
+        35,
+        38
+      ],
+      "source_id": 33,
+      "target_node": "1679091c5a",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-034-row-34",
+      "duplicate_edges": true,
+      "evidence_bytes": 99,
+      "evidence_edge_count": 4,
+      "evidence_lines": [
+        "1679091c5a -> a87ff679a2",
+        "c9f0f895fb -> a87ff679a2",
+        "aab3238922 -> a87ff679a2",
+        "aab3238922 -> a87ff679a2"
+      ],
+      "evidence_sha256": "23f99d8685c5342322026b1136dd31ffef90c890388a1439dbb1f58b781ea9d9",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "aab3238922",
+          "c9f0f895fb"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "aab3238922",
+          "c9f0f895fb"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "aab3238922",
+          "c9f0f895fb"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "middle",
+      "relevant_edge_positions": [
+        20,
+        26,
+        43,
+        44
+      ],
+      "source_id": 34,
+      "target_node": "a87ff679a2",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 5,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-035-row-35",
+      "duplicate_edges": true,
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "evidence_lines": [
+        "cfcd208495 -> a87ff679a2",
+        "c81e728d9d -> a87ff679a2",
+        "c81e728d9d -> a87ff679a2",
+        "1679091c5a -> a87ff679a2",
+        "8f14e45fce -> a87ff679a2",
+        "c9f0f895fb -> a87ff679a2"
+      ],
+      "evidence_sha256": "54eaef01eaa1ab8cbf9aad48c1bea7cd2e1b2c63ecba27756d060a8f687fabee",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c81e728d9d",
+          "c9f0f895fb",
+          "cfcd208495"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c81e728d9d",
+          "c9f0f895fb",
+          "cfcd208495"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "c81e728d9d",
+          "c9f0f895fb",
+          "cfcd208495"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        4,
+        13,
+        14,
+        30,
+        38,
+        43
+      ],
+      "source_id": 35,
+      "target_node": "a87ff679a2",
+      "unique_evidence_edge_count": 5,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-036-row-36",
+      "duplicate_edges": false,
+      "evidence_bytes": 49,
+      "evidence_edge_count": 2,
+      "evidence_lines": [
+        "cfcd208495 -> c9f0f895fb",
+        "eccbc87e4b -> c9f0f895fb"
+      ],
+      "evidence_sha256": "cfafc17104dcbd9fe44638d8ca7bb47f803bbd2ea130091ab2bce22096bcc8d3",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "cfcd208495",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        4,
+        15
+      ],
+      "source_id": 36,
+      "target_node": "c9f0f895fb",
+      "unique_evidence_edge_count": 2,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 4,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-037-row-37",
+      "duplicate_edges": true,
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "evidence_lines": [
+        "cfcd208495 -> d3d9446802",
+        "c4ca4238a0 -> d3d9446802",
+        "c81e728d9d -> d3d9446802",
+        "45c48cce2e -> d3d9446802",
+        "45c48cce2e -> d3d9446802",
+        "d3d9446802 -> d3d9446802"
+      ],
+      "evidence_sha256": "fbc48e6997f170e53dc36b3d0d1175eb7ad1ea83542e7e367c4e8efafce16fd6",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "45c48cce2e",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "cfcd208495",
+          "d3d9446802"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "d3d9446802"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.888888888888889,
+        "missing_reference_parents": [],
+        "overlap": [
+          "45c48cce2e",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "cfcd208495"
+        ],
+        "precision": 0.8,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "45c48cce2e",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "cfcd208495"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        1,
+        6,
+        9,
+        36,
+        38,
+        42
+      ],
+      "source_id": 37,
+      "target_node": "d3d9446802",
+      "unique_evidence_edge_count": 5,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-038-row-38",
+      "duplicate_edges": true,
+      "evidence_bytes": 124,
+      "evidence_edge_count": 5,
+      "evidence_lines": [
+        "c4ca4238a0 -> c9f0f895fb",
+        "1679091c5a -> c9f0f895fb",
+        "1679091c5a -> c9f0f895fb",
+        "1679091c5a -> c9f0f895fb",
+        "c9f0f895fb -> c9f0f895fb"
+      ],
+      "evidence_sha256": "7c5c8c11651f7ab6de0f62e736dcf97d07c5f54aec78fec09156349725a01c3a",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c9f0f895fb"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "c9f0f895fb"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.8,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "c4ca4238a0"
+        ],
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "c4ca4238a0"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        6,
+        30,
+        33,
+        34,
+        41
+      ],
+      "source_id": 38,
+      "target_node": "c9f0f895fb",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 6,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-039-row-39",
+      "duplicate_edges": true,
+      "evidence_bytes": 174,
+      "evidence_edge_count": 7,
+      "evidence_lines": [
+        "cfcd208495 -> d3d9446802",
+        "c4ca4238a0 -> d3d9446802",
+        "a87ff679a2 -> d3d9446802",
+        "e4da3b7fbb -> d3d9446802",
+        "1679091c5a -> d3d9446802",
+        "1679091c5a -> d3d9446802",
+        "c9f0f895fb -> d3d9446802"
+      ],
+      "evidence_sha256": "5edb0d0c5e6eedad06eb294a07ae78f1ed6bc2b0b3c2bbd09bac6b7e363bf9ee",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "c9f0f895fb",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "c9f0f895fb",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "c9f0f895fb",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        0,
+        6,
+        16,
+        21,
+        24,
+        25,
+        35
+      ],
+      "source_id": 39,
+      "target_node": "d3d9446802",
+      "unique_evidence_edge_count": 6,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-040-row-40",
+      "duplicate_edges": false,
+      "evidence_bytes": 74,
+      "evidence_edge_count": 3,
+      "evidence_lines": [
+        "c4ca4238a0 -> c4ca4238a0",
+        "c9f0f895fb -> c4ca4238a0",
+        "d3d9446802 -> c4ca4238a0"
+      ],
+      "evidence_sha256": "8ea78e52e28e6b7b4565da5e97e67c0594c83ef6e04624ef8613257d793fe7d4",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "c4ca4238a0",
+          "c9f0f895fb",
+          "d3d9446802"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "c4ca4238a0"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.8,
+        "missing_reference_parents": [],
+        "overlap": [
+          "c9f0f895fb",
+          "d3d9446802"
+        ],
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "c9f0f895fb",
+          "d3d9446802"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        6,
+        34,
+        42
+      ],
+      "source_id": 40,
+      "target_node": "c4ca4238a0",
+      "unique_evidence_edge_count": 3,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 4,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-041-row-41",
+      "duplicate_edges": true,
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "evidence_lines": [
+        "c4ca4238a0 -> eccbc87e4b",
+        "c4ca4238a0 -> eccbc87e4b",
+        "a87ff679a2 -> eccbc87e4b",
+        "1679091c5a -> eccbc87e4b",
+        "8f14e45fce -> eccbc87e4b",
+        "8f14e45fce -> eccbc87e4b"
+      ],
+      "evidence_sha256": "5115d3448bdc360954918217226b427f76e569267128097f99551c1b8a97e2ca",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "a87ff679a2",
+          "c4ca4238a0"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "8f14e45fce",
+          "a87ff679a2",
+          "c4ca4238a0"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "a87ff679a2",
+          "c4ca4238a0"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        6,
+        9,
+        23,
+        30,
+        36,
+        37
+      ],
+      "source_id": 41,
+      "target_node": "eccbc87e4b",
+      "unique_evidence_edge_count": 4,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 6,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-042-row-42",
+      "duplicate_edges": false,
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "evidence_lines": [
+        "cfcd208495 -> 8f14e45fce",
+        "c4ca4238a0 -> 8f14e45fce",
+        "c81e728d9d -> 8f14e45fce",
+        "e4da3b7fbb -> 8f14e45fce",
+        "1679091c5a -> 8f14e45fce",
+        "c9f0f895fb -> 8f14e45fce"
+      ],
+      "evidence_sha256": "d9e0876c1e3303c89cad1b2ec0a734de6f61636f555047942d6b4a13cf7d58c5",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "c9f0f895fb",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "c9f0f895fb",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "c9f0f895fb",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        0,
+        8,
+        14,
+        27,
+        34,
+        44
+      ],
+      "source_id": 42,
+      "target_node": "8f14e45fce",
+      "unique_evidence_edge_count": 6,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 7,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-043-row-43",
+      "duplicate_edges": false,
+      "evidence_bytes": 174,
+      "evidence_edge_count": 7,
+      "evidence_lines": [
+        "cfcd208495 -> c9f0f895fb",
+        "c4ca4238a0 -> c9f0f895fb",
+        "c81e728d9d -> c9f0f895fb",
+        "e4da3b7fbb -> c9f0f895fb",
+        "1679091c5a -> c9f0f895fb",
+        "8f14e45fce -> c9f0f895fb",
+        "45c48cce2e -> c9f0f895fb"
+      ],
+      "evidence_sha256": "dc83c28acb42271f3f9d37ec94dbc6b6e787adfb26c0391cd6f80d8acc9c9f64",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "45c48cce2e",
+          "8f14e45fce",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "45c48cce2e",
+          "8f14e45fce",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "45c48cce2e",
+          "8f14e45fce",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "cfcd208495",
+          "e4da3b7fbb"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        3,
+        6,
+        9,
+        21,
+        26,
+        29,
+        38
+      ],
+      "source_id": 43,
+      "target_node": "c9f0f895fb",
+      "unique_evidence_edge_count": 7,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 4,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-044-row-44",
+      "duplicate_edges": true,
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "evidence_lines": [
+        "cfcd208495 -> cfcd208495",
+        "eccbc87e4b -> cfcd208495",
+        "eccbc87e4b -> cfcd208495",
+        "e4da3b7fbb -> cfcd208495",
+        "1679091c5a -> cfcd208495",
+        "8f14e45fce -> cfcd208495"
+      ],
+      "evidence_sha256": "7d9c2e55d9aec68bb174dc648ca515211cbddc8b193ad6ebbba5728668aa1024",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "cfcd208495",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "cfcd208495"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.888888888888889,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "8f14e45fce",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "precision": 0.8,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "8f14e45fce",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        2,
+        16,
+        17,
+        27,
+        31,
+        36
+      ],
+      "source_id": 44,
+      "target_node": "cfcd208495",
+      "unique_evidence_edge_count": 5,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 4,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-045-row-45",
+      "duplicate_edges": true,
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "evidence_lines": [
+        "cfcd208495 -> c81e728d9d",
+        "c4ca4238a0 -> c81e728d9d",
+        "c4ca4238a0 -> c81e728d9d",
+        "c81e728d9d -> c81e728d9d",
+        "a87ff679a2 -> c81e728d9d",
+        "1679091c5a -> c81e728d9d"
+      ],
+      "evidence_sha256": "48cb5784beda38514fa233b0c438674a4dae7a06cf3f9f602178c2289415006c",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "cfcd208495"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "c81e728d9d"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.888888888888889,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "cfcd208495"
+        ],
+        "precision": 0.8,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "cfcd208495"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        3,
+        6,
+        7,
+        11,
+        21,
+        33
+      ],
+      "source_id": 45,
+      "target_node": "c81e728d9d",
+      "unique_evidence_edge_count": 5,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-046-row-46",
+      "duplicate_edges": true,
+      "evidence_bytes": 149,
+      "evidence_edge_count": 6,
+      "evidence_lines": [
+        "c4ca4238a0 -> 1679091c5a",
+        "a87ff679a2 -> 1679091c5a",
+        "a87ff679a2 -> 1679091c5a",
+        "1679091c5a -> 1679091c5a",
+        "1679091c5a -> 1679091c5a",
+        "c9f0f895fb -> 1679091c5a"
+      ],
+      "evidence_sha256": "6dae2c58058d8dda9e2e2dbdd8c41867430b70f5aeaac528aeeca4faa9f01db4",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "a87ff679a2",
+          "c4ca4238a0",
+          "c9f0f895fb"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "1679091c5a"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.8571428571428571,
+        "missing_reference_parents": [],
+        "overlap": [
+          "a87ff679a2",
+          "c4ca4238a0",
+          "c9f0f895fb"
+        ],
+        "precision": 0.75,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "a87ff679a2",
+          "c4ca4238a0",
+          "c9f0f895fb"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        8,
+        20,
+        22,
+        31,
+        34,
+        40
+      ],
+      "source_id": 46,
+      "target_node": "1679091c5a",
+      "unique_evidence_edge_count": 4,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 3,
+      "answer_size_bucket": "3-4 parents",
+      "case_id": "graphwalks-parent-047-row-47",
+      "duplicate_edges": true,
+      "evidence_bytes": 124,
+      "evidence_edge_count": 5,
+      "evidence_lines": [
+        "c4ca4238a0 -> c4ca4238a0",
+        "c81e728d9d -> c4ca4238a0",
+        "e4da3b7fbb -> c4ca4238a0",
+        "e4da3b7fbb -> c4ca4238a0",
+        "1679091c5a -> c4ca4238a0"
+      ],
+      "evidence_sha256": "856fc2356d7f4f5b55298b3716d87b49e310ff2dbca0bba6f521abdf2f7141ae",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "c4ca4238a0",
+          "c81e728d9d",
+          "e4da3b7fbb"
+        ],
+        "exact_source_set_match": false,
+        "extra_evidence_sources": [
+          "c4ca4238a0"
+        ],
+        "extra_sources_are_target_self_loops": true,
+        "f1": 0.8571428571428571,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "c81e728d9d",
+          "e4da3b7fbb"
+        ],
+        "precision": 0.75,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "c81e728d9d",
+          "e4da3b7fbb"
+        ],
+        "sufficient": false,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 45,
+      "prefix_bytes": 2259,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        9,
+        12,
+        25,
+        27,
+        32
+      ],
+      "source_id": 47,
+      "target_node": "c4ca4238a0",
+      "unique_evidence_edge_count": 4,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 2,
+      "answer_size_bucket": "2 parents",
+      "case_id": "graphwalks-parent-048-row-48",
+      "duplicate_edges": false,
+      "evidence_bytes": 49,
+      "evidence_edge_count": 2,
+      "evidence_lines": [
+        "eccbc87e4b -> 3c59dc048e",
+        "c20ad4d76f -> 3c59dc048e"
+      ],
+      "evidence_sha256": "1ff6d7195a4aae2bf8720eed6d1981bfd0e56636d83acd6bd4ff78bfba5a5902",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "c20ad4d76f",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "c20ad4d76f",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "c20ad4d76f",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 46,
+      "prefix_bytes": 2284,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        7,
+        25
+      ],
+      "source_id": 48,
+      "target_node": "3c59dc048e",
+      "unique_evidence_edge_count": 2,
+      "used_reference_answer_nodes": false
+    },
+    {
+      "answer_size": 5,
+      "answer_size_bucket": "5+ parents",
+      "case_id": "graphwalks-parent-049-row-49",
+      "duplicate_edges": false,
+      "evidence_bytes": 124,
+      "evidence_edge_count": 5,
+      "evidence_lines": [
+        "eccbc87e4b -> c4ca4238a0",
+        "e4da3b7fbb -> c4ca4238a0",
+        "1679091c5a -> c4ca4238a0",
+        "c9f0f895fb -> c4ca4238a0",
+        "45c48cce2e -> c4ca4238a0"
+      ],
+      "evidence_sha256": "71d162c1d6171a8d20f8e73ea591013ed568aa392cbeebc778c847e5f29d7ced",
+      "evidence_sufficiency": {
+        "contains_all_reference_parents": true,
+        "evidence_source_nodes": [
+          "1679091c5a",
+          "45c48cce2e",
+          "c9f0f895fb",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "exact_source_set_match": true,
+        "extra_evidence_sources": [],
+        "extra_sources_are_target_self_loops": false,
+        "f1": 1.0,
+        "missing_reference_parents": [],
+        "overlap": [
+          "1679091c5a",
+          "45c48cce2e",
+          "c9f0f895fb",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "precision": 1.0,
+        "recall": 1.0,
+        "reference_parent_nodes": [
+          "1679091c5a",
+          "45c48cce2e",
+          "c9f0f895fb",
+          "e4da3b7fbb",
+          "eccbc87e4b"
+        ],
+        "sufficient": true,
+        "sufficient_for_recall": true
+      },
+      "evidence_token_count": null,
+      "graph_edge_count": 44,
+      "prefix_bytes": 2234,
+      "prefix_length_bucket": "medium",
+      "relevant_edge_position_bucket": "early",
+      "relevant_edge_positions": [
+        13,
+        23,
+        26,
+        32,
+        37
+      ],
+      "source_id": 49,
+      "target_node": "c4ca4238a0",
+      "unique_evidence_edge_count": 5,
+      "used_reference_answer_nodes": false
+    }
+  ],
+  "evidence_sufficiency_summary": {
+    "contains_all_reference_parents_count": 50,
+    "exact_source_set_match_count": 33,
+    "mean_f1": 0.9378643578643578,
+    "mean_precision": 0.8973333333333333,
+    "mean_recall": 1.0,
+    "missing_reference_parent_count": 0,
+    "noisy_self_loop_extra_source_count": 17
+  },
+  "experiment_id": "graphwalks-parent-scaling-pilot-2026-06-04",
+  "extraction_method": "Parse target node from parents operation, then select stable_prefix edge lines whose destination equals the target. Reference answer nodes are not used.",
+  "reference_used_only_for_sufficiency_measurement": true,
+  "source_input_directory": "research/01-ssd-native-inference-current/benchmarks/correctness-eval-inputs/graphwalks-parent-scaling-pilot-2026-06-04",
+  "used_reference_answer_nodes_for_extraction": false
+}

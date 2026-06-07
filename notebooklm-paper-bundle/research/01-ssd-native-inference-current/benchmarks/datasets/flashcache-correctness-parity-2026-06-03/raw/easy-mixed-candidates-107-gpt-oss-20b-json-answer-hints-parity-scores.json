@@ -1,0 +1,2231 @@
+{
+  "cases": [
+    {
+      "case_id": "ifeval-1001",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 21095.810500031803,
+        "session-tail": 20435.527299996465
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1001,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-1147",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20773.795099987183,
+        "session-tail": 21562.06129997736
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1147,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-1162",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19481.062099977862,
+        "session-tail": 19759.162699978333
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1162,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-1187",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20164.6449000109,
+        "session-tail": 20085.071499983314
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1187,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-1580",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19517.020399973262,
+        "session-tail": 19705.16160002444
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1580,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-1629",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20142.138099996373,
+        "session-tail": 19475.888299988583
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1629,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-1675",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20257.87269999273,
+        "session-tail": 19768.74199998565
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": [
+                    "heute"
+                  ]
+                },
+                "passed": false
+              }
+            ],
+            "passed_instruction_count": 0,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 1675,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-1738",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19773.02750002127,
+        "session-tail": 20242.261499981396
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 1738,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2028",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19501.044799981173,
+        "session-tail": 19011.86049997341
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": [
+                    "yes"
+                  ]
+                },
+                "passed": false
+              }
+            ],
+            "passed_instruction_count": 0,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 2028,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2034",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 21344.472499971744,
+        "session-tail": 20021.403300052043
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2034,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2207",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20136.930699984077,
+        "session-tail": 19436.037999985274
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2207,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2245",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20286.96040000068,
+        "session-tail": 20252.732299966738
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2245,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2311",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20488.679000001866,
+        "session-tail": 20941.350999986753
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2311,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2324",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19929.39479998313,
+        "session-tail": 21431.892700027674
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 2
+                },
+                "passed": false
+              }
+            ],
+            "passed_instruction_count": 0,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 2324,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2328",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19928.966300038155,
+        "session-tail": 20393.415800004732
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2328,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2374",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20656.4222999732,
+        "session-tail": 20019.69409995945
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2374,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2392",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19911.912999989,
+        "session-tail": 19968.938799982425
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:frequency",
+                "metrics": {
+                  "expected": 2,
+                  "frequency": 0,
+                  "keyword": "founding"
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:frequency",
+                "metrics": {
+                  "expected": 2,
+                  "frequency": 0,
+                  "keyword": "founding"
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2392,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2417",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19610.09010003181,
+        "session-tail": 21358.18450001534
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2417,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2432",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19289.08949997276,
+        "session-tail": 20210.57930000825
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2432,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2534",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20921.14920000313,
+        "session-tail": 20037.214900017716
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2534,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2716",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20227.68680000445,
+        "session-tail": 20701.802199997474
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:frequency",
+                "metrics": {
+                  "expected": 2,
+                  "frequency": 0,
+                  "keyword": "the"
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:frequency",
+                "metrics": {
+                  "expected": 2,
+                  "frequency": 1,
+                  "keyword": "the"
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2716,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2798",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 21393.35059997393,
+        "session-tail": 20794.4365000003
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2798,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2811",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 18857.771099952515,
+        "session-tail": 19569.13049996365
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": [
+                    "yo"
+                  ]
+                },
+                "passed": false
+              }
+            ],
+            "passed_instruction_count": 0,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 2811,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2825",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20347.860800044145,
+        "session-tail": 19918.039900017902
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2825,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2828",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19991.479800024536,
+        "session-tail": 19929.915599990636
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2828,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-2957",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19974.436399992555,
+        "session-tail": 20021.3131000055
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 2957,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-301",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19440.641799999867,
+        "session-tail": 19312.63719999697
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 301,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-3166",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19997.356400010176,
+        "session-tail": 19615.668700018432
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 3166,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-32",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19581.28939999733,
+        "session-tail": 20311.83730001794
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 32,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-3323",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20144.10079998197,
+        "session-tail": 19696.831100038253
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 3323,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-3401",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 22361.096199951135,
+        "session-tail": 24891.363999980967
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "answer_parse_error": "invalid JSON answer object: Unterminated string starting at: line 1 column 11 (char 10)"
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 3401,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-3445",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20437.49660003232,
+        "session-tail": 19455.99539997056
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 3445,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-3540",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 19638.442899973597,
+        "session-tail": 19531.22020000592
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 3540,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-3595",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20269.958399992902,
+        "session-tail": 20368.196700001135
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "keywords:forbidden_words",
+                "metrics": {
+                  "found_forbidden_words": []
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 3595,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-3615",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20464.489300036803,
+        "session-tail": 22406.986400019377
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 3615,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "ifeval-3631",
+      "dataset_id": "ifeval",
+      "latency_ms": {
+        "full": 20263.262299995404,
+        "session-tail": 19681.477600010112
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "checks": [
+              {
+                "instruction_id": "punctuation:no_comma",
+                "metrics": {
+                  "comma_count": 0
+                },
+                "passed": true
+              }
+            ],
+            "passed_instruction_count": 1,
+            "supported_instruction_count": 1,
+            "total_instruction_count": 1
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": 0.0,
+      "source_id": 3631,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "graphwalks-6",
+      "dataset_id": "graphwalks",
+      "latency_ms": {
+        "full": 20979.118899966124,
+        "session-tail": 23772.893500048667
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "answer_nodes": [
+              "c81e728d9d",
+              "d3d9446802",
+              "eccbc87e4b"
+            ],
+            "f1": 1.0,
+            "precision": 1.0,
+            "predicted_nodes": [
+              "c81e728d9d",
+              "d3d9446802",
+              "eccbc87e4b"
+            ],
+            "recall": 1.0
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "answer_nodes": [
+              "c81e728d9d",
+              "d3d9446802",
+              "eccbc87e4b"
+            ],
+            "f1": 0.0,
+            "precision": 0.0,
+            "predicted_nodes": [
+              "1f8a1..??..??..??..??..??..??..??..??..??....??....??................................................?..??............................................",
+              "1f8a1c3d4e.",
+              "The",
+              "We",
+              "a",
+              "e4da3b7fbb.",
+              "find",
+              "first",
+              "has",
+              "is:",
+              "need",
+              "node",
+              "node:",
+              "of",
+              "parent",
+              "parents",
+              "step",
+              "the",
+              "to"
+            ],
+            "recall": 0.0
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 6,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "graphwalks-9",
+      "dataset_id": "graphwalks",
+      "latency_ms": {
+        "full": 20097.901700006332,
+        "session-tail": 22610.780999995768
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "answer_nodes": [
+              "c81e728d9d",
+              "eccbc87e4b"
+            ],
+            "f1": 1.0,
+            "precision": 1.0,
+            "predicted_nodes": [
+              "c81e728d9d",
+              "eccbc87e4b"
+            ],
+            "recall": 1.0
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "answer_nodes": [
+              "c81e728d9d",
+              "eccbc87e4b"
+            ],
+            "f1": 0.0,
+            "precision": 0.0,
+            "predicted_nodes": [
+              "...",
+              "1679091c5a.",
+              "Let's",
+              "The",
+              "We",
+              "a",
+              "all",
+              "an",
+              "and",
+              "edge",
+              "edges",
+              "edges.",
+              "find",
+              "graph",
+              "have",
+              "list:",
+              "many",
+              "need",
+              "node",
+              "nodes",
+              "of",
+              "parents",
+              "parse",
+              "problem:",
+              "that",
+              "the",
+              "to",
+              "with"
+            ],
+            "recall": 0.0
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 9,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "graphwalks-11",
+      "dataset_id": "graphwalks",
+      "latency_ms": {
+        "full": 21118.47340001259,
+        "session-tail": 21569.575099973008
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "answer_nodes": [
+              "d3d9446802"
+            ],
+            "f1": 1.0,
+            "precision": 1.0,
+            "predicted_nodes": [
+              "d3d9446802"
+            ],
+            "recall": 1.0
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "answer_nodes": [
+              "d3d9446802"
+            ],
+            "f1": 0.0,
+            "precision": 0.0,
+            "predicted_nodes": [
+              "0a4d55a8",
+              "node"
+            ],
+            "recall": 0.0
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 11,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "graphwalks-13",
+      "dataset_id": "graphwalks",
+      "latency_ms": {
+        "full": 20535.77179997228,
+        "session-tail": 22056.848900043406
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "answer_nodes": [
+              "1679091c5a"
+            ],
+            "f1": 1.0,
+            "precision": 1.0,
+            "predicted_nodes": [
+              "1679091c5a"
+            ],
+            "recall": 1.0
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "answer_nodes": [
+              "1679091c5a"
+            ],
+            "f1": 0.0,
+            "precision": 0.0,
+            "predicted_nodes": [
+              "0a4d55a8",
+              "node"
+            ],
+            "recall": 0.0
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 13,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "graphwalks-16",
+      "dataset_id": "graphwalks",
+      "latency_ms": {
+        "full": 20468.580199987628,
+        "session-tail": 21860.882300010417
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "answer_nodes": [
+              "1679091c5a",
+              "8f14e45fce",
+              "c81e728d9d",
+              "cfcd208495",
+              "e4da3b7fbb"
+            ],
+            "f1": 1.0,
+            "precision": 1.0,
+            "predicted_nodes": [
+              "1679091c5a",
+              "8f14e45fce",
+              "c81e728d9d",
+              "cfcd208495",
+              "e4da3b7fbb"
+            ],
+            "recall": 1.0
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "answer_nodes": [
+              "1679091c5a",
+              "8f14e45fce",
+              "c81e728d9d",
+              "cfcd208495",
+              "e4da3b7fbb"
+            ],
+            "f1": 0.0,
+            "precision": 0.0,
+            "predicted_nodes": [
+              "0a4d55a8",
+              "node"
+            ],
+            "recall": 0.0
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 16,
+      "unsupported_checks": {}
+    },
+    {
+      "case_id": "graphwalks-19",
+      "dataset_id": "graphwalks",
+      "latency_ms": {
+        "full": 21437.49379995279,
+        "session-tail": 21696.02460000897
+      },
+      "scores": {
+        "full": {
+          "metrics": {
+            "answer_nodes": [
+              "1679091c5a",
+              "a87ff679a2",
+              "eccbc87e4b"
+            ],
+            "f1": 1.0,
+            "precision": 1.0,
+            "predicted_nodes": [
+              "1679091c5a",
+              "a87ff679a2",
+              "eccbc87e4b"
+            ],
+            "recall": 1.0
+          },
+          "passed": true,
+          "score": 1.0,
+          "unsupported_checks": []
+        },
+        "session-tail": {
+          "metrics": {
+            "answer_nodes": [
+              "1679091c5a",
+              "a87ff679a2",
+              "eccbc87e4b"
+            ],
+            "f1": 0.0,
+            "precision": 0.0,
+            "predicted_nodes": [
+              "...",
+              "The",
+              "We",
+              "and",
+              "at",
+              "c4ca4238a0.",
+              "find",
+              "first",
+              "how",
+              "is",
+              "list",
+              "look",
+              "many?",
+              "need",
+              "node",
+              "nodes",
+              "of",
+              "parents",
+              "step",
+              "the",
+              "to"
+            ],
+            "recall": 0.0
+          },
+          "passed": false,
+          "score": 0.0,
+          "unsupported_checks": []
+        }
+      },
+      "session_tail_minus_full_score": -1.0,
+      "source_id": 19,
+      "unsupported_checks": {}
+    }
+  ],
+  "metadata": {
+    "case_count": 42,
+    "generated_at": "2026-06-03T05:11:41.526713+00:00",
+    "modes": [
+      "full",
+      "session-tail"
+    ],
+    "response_count": 84
+  },
+  "summary": {
+    "full": {
+      "case_count": 42,
+      "mean_score": 1.0,
+      "numeric_score_count": 42,
+      "pass_rate": 1.0
+    },
+    "session-tail": {
+      "case_count": 42,
+      "mean_score": 0.7380952380952381,
+      "numeric_score_count": 42,
+      "pass_rate": 0.7380952380952381
+    }
+  }
+}

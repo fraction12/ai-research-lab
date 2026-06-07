@@ -1,0 +1,53 @@
+{
+  "artifacts": [
+    {
+      "git_tracking": "ignored_local",
+      "kind": "input",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\compact-visible-evidence-repair-2026-06-04\\graphwalks-two-compact-visible-evidence-cases.jsonl",
+      "prompt_bearing": true,
+      "sha256": "6217CC8B9137B16550577E12324492D5F04EA5AF77875E1767A4B0B091179DD5"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "input",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\compact-visible-evidence-repair-2026-06-04\\compact-evidence-slices.json",
+      "prompt_bearing": false,
+      "sha256": "05FDF2E1D3DBC8172DC113CFCCA95137AFD76D472E83ED7FAB48282C6C8F558B"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\compact-visible-evidence-repair-2026-06-04\\raw\\run_compact_visible_evidence_repair.py",
+      "prompt_bearing": false,
+      "sha256": "75068CBF50F5BCFD6C2919A170A4CB889AFF47120195D7991B57E576E7740699"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\compact-visible-evidence-repair-2026-06-04\\raw\\hidden-prefix-compact-visible-evidence-tail-command.json",
+      "prompt_bearing": false,
+      "sha256": "4D503661325353E7B7941EA063A6ED0F9839B0FCF64F4D1DEE33FABA219AF09F"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\compact-visible-evidence-repair-2026-06-04\\raw\\hidden-prefix-compact-visible-evidence-tail-responses.jsonl",
+      "prompt_bearing": true,
+      "sha256": "AE990E42EE450014728D415C3782616C4AFE89F7BB411C78D81A79B59C94A201"
+    },
+    {
+      "git_tracking": "ignored_local",
+      "kind": "raw_output",
+      "path": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\compact-visible-evidence-repair-2026-06-04\\raw\\hidden-prefix-compact-visible-evidence-tail-scores.json",
+      "prompt_bearing": false,
+      "sha256": "155B9BC57BEC7704CE2F65BF9465C21209338069C1A9BE080F531F0A8C1DD49A"
+    }
+  ],
+  "committed_track02_directory": "research/02-quality-gated-stateful-kv-reuse/experiments/compact-visible-evidence-repair-2026-06-04",
+  "experiment_id": "compact-visible-evidence-repair-2026-06-04",
+  "source_cache_directory": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-cache\\compact-visible-evidence-repair-2026-06-04",
+  "source_checkout": "C:\\Users\\Dushyant\\Projects\\ai-research-lab",
+  "source_input_directory": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-inputs\\compact-visible-evidence-repair-2026-06-04",
+  "source_machine": "DushyantPC",
+  "source_raw_directory": "C:\\Users\\Dushyant\\Projects\\ai-research-lab\\research\\01-ssd-native-inference-current\\benchmarks\\correctness-eval-results\\compact-visible-evidence-repair-2026-06-04\\raw"
+}

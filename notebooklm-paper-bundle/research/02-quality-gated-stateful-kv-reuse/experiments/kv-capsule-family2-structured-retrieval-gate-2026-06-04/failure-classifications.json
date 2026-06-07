@@ -1,0 +1,51 @@
+{
+  "experiment": "kv-capsule-family2-structured-retrieval-gate-2026-06-04",
+  "decision": "family2_restored_capsule_structured_retrieval_passed",
+  "stop_rule": "family2_restored_capsule_passed_stop_before_expansion",
+  "taxonomy": {
+    "passed": "Control contained the expected hidden-prefix value under answer-contained scoring.",
+    "fresh_tail_expected_miss": "Fresh tail-only could not know the hidden structured value; expected negative control miss.",
+    "family2_full_visible_guard_failed": "Native full-visible structured prompt failed, so capsule semantics are uninterpretable.",
+    "family2_fresh_tail_leakage_or_scorer_issue": "Fresh tail unexpectedly contained the answer, invalidating the hidden-prefix retrieval probe.",
+    "family2_live_append_protocol_blocker": "Native full-visible passed but same-context live append failed, so restored capsule must not be interpreted.",
+    "family2_restored_capsule_structured_retrieval_failure": "Live append passed but restored capsule append failed; classify as capsule persistence/state completeness issue unless telemetry narrows it.",
+    "runtime_or_backend_failure": "Runner/backend/API error prevented semantic interpretation."
+  },
+  "by_control": {
+    "native_full_visible_prefix_plus_tail": {
+      "passed": 5
+    },
+    "native_fresh_tail_only": {
+      "fresh_tail_expected_miss": 5
+    },
+    "native_live_append_tail_only": {
+      "passed": 5
+    },
+    "native_restored_capsule_append_tail_only": {
+      "passed": 5
+    }
+  },
+  "stop_rule_progression": [
+    {
+      "control": "native_full_visible_prefix_plus_tail",
+      "advanced": true,
+      "score": "5/5"
+    },
+    {
+      "control": "native_fresh_tail_only",
+      "advanced": true,
+      "score": "0/5"
+    },
+    {
+      "control": "native_live_append_tail_only",
+      "advanced": true,
+      "score": "5/5"
+    },
+    {
+      "control": "native_restored_capsule_append_tail_only",
+      "advanced": false,
+      "score": "5/5",
+      "final_result": "family2_restored_capsule_structured_retrieval_passed"
+    }
+  ]
+}

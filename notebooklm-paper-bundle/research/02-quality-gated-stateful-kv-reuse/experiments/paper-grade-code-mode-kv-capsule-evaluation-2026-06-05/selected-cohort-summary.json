@@ -1,0 +1,71 @@
+{
+  "cases": 100,
+  "category_counts": {
+    "java": 17,
+    "javascript": 1,
+    "multiple": 25,
+    "parallel": 14,
+    "parallel_multiple": 17,
+    "simple": 26
+  },
+  "compact_visible_passes": 19,
+  "complete_cases": 100,
+  "counts_by_control": {
+    "code_mode_fresh_tail_only": {
+      "gate_passed": 100,
+      "records": 100
+    },
+    "code_mode_full_visible": {
+      "gate_passed": 100,
+      "records": 100
+    },
+    "code_mode_native_live_append": {
+      "gate_passed": 100,
+      "records": 100
+    },
+    "code_mode_restored_kv_capsule": {
+      "gate_passed": 100,
+      "records": 100
+    },
+    "code_mode_wrong_capsule_negative": {
+      "gate_passed": 100,
+      "records": 100
+    },
+    "compact_visible_evidence_code_mode": {
+      "gate_passed": 19,
+      "records": 100
+    },
+    "direct_full_visible_tools": {
+      "gate_passed": 91,
+      "records": 100
+    }
+  },
+  "direct_tool_gaps": 9,
+  "direct_visible_tool_passes": 91,
+  "fresh_tail_leaks": 0,
+  "native_restored_hash_parity": 100,
+  "packet_cases": 100,
+  "packet_records": 700,
+  "records": 700,
+  "restored_kv_failures": 0,
+  "run_label": "bfcl-paper-selected-cohort-v1",
+  "timing_mean_ms": {
+    "code_mode_fresh_tail_only": 9738.9,
+    "code_mode_full_visible": 6766.7,
+    "code_mode_native_live_append": 6782.7,
+    "code_mode_restored_kv_capsule": 8513.8,
+    "code_mode_wrong_capsule_negative": 7571.6,
+    "compact_visible_evidence_code_mode": 9434.8,
+    "direct_full_visible_tools": 8179.8
+  },
+  "timing_median_ms": {
+    "code_mode_fresh_tail_only": 9691.5,
+    "code_mode_full_visible": 6252.9,
+    "code_mode_native_live_append": 6253.5,
+    "code_mode_restored_kv_capsule": 8042.3,
+    "code_mode_wrong_capsule_negative": 6962.7,
+    "compact_visible_evidence_code_mode": 8993.6,
+    "direct_full_visible_tools": 6979.3
+  },
+  "wrong_capsule_leaks": 0
+}

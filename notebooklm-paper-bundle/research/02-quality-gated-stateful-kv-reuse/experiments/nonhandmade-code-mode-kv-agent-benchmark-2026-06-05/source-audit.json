@@ -1,0 +1,291 @@
+{
+  "experiment_id": "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05",
+  "created_utc": "2026-06-05T20:21:18Z",
+  "status": "stage1_source_audit_complete",
+  "stage1_decision": {
+    "selected_source": "bfcl",
+    "decision": "use_bfcl_first",
+    "rationale": "BFCL is closest to the existing seven-control ladder because it directly evaluates tool/function selection, function arguments, irrelevance/no-call behavior, multiple and parallel calls, executable/API-style calls, and multi-turn categories without first requiring a simulated user or mutable customer-service environment.",
+    "model_run_status": "not_started",
+    "pre_smoke_gate": "No model smoke may run until BFCL materialization, source provenance, scorer reconstruction, deterministic category sampling, and prefix-dependence labeling pass a no-model dry run."
+  },
+  "sources": {
+    "bfcl": {
+      "name": "Berkeley Function Calling Leaderboard",
+      "short_name": "BFCL",
+      "stage": "stage1_primary",
+      "upstream_url": "https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard",
+      "leaderboard_url": "https://gorilla.cs.berkeley.edu/leaderboard",
+      "paper_url": "https://openreview.net/pdf?id=2GmDdhBdDk",
+      "dataset_url": "https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard/tree/main",
+      "source_kind": "repo_plus_hf_jsonl_plus_pip_package",
+      "selected_revision_sha": "f7cf735",
+      "selected_revision_note": "The BFCL leaderboard page reports that current official results were evaluated using commit f7cf735 and bfcl-eval==2025.12.17. The full commit SHA should be verified after cloning because git ls-remote does not list arbitrary historical commits.",
+      "current_dataset_head_sha_observed": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda",
+      "scorer_entrypoint": "bfcl-eval==2025.12.17 or source checkout scorer at the selected BFCL checkpoint",
+      "scorer_revision": "2025.12.17",
+      "scorer_semantics": [
+        "AST/function-call matching",
+        "executable function-call checks where available",
+        "irrelevance/no-call checks",
+        "multi-call and parallel-call category checks",
+        "multi-turn category checks where source metadata and scorer integration are faithful"
+      ],
+      "category_taxonomy": [
+        "simple",
+        "multiple",
+        "parallel",
+        "parallel_multiple",
+        "irrelevance",
+        "exec_simple",
+        "exec_multiple",
+        "exec_parallel",
+        "exec_parallel_multiple",
+        "rest",
+        "sql",
+        "java",
+        "javascript",
+        "chatable",
+        "live_simple",
+        "live_multiple",
+        "live_parallel",
+        "live_parallel_multiple",
+        "live_relevance",
+        "live_irrelevance",
+        "multi_turn_base",
+        "multi_turn_composite",
+        "multi_turn_long_context",
+        "multi_turn_miss_func",
+        "multi_turn_miss_param"
+      ],
+      "stage1_category_scope": {
+        "include_initial": [
+          "simple",
+          "multiple",
+          "parallel",
+          "parallel_multiple",
+          "irrelevance",
+          "exec_simple",
+          "exec_multiple",
+          "exec_parallel",
+          "exec_parallel_multiple"
+        ],
+        "include_after_adapter_smoke": [
+          "multi_turn_base",
+          "multi_turn_composite",
+          "multi_turn_miss_func",
+          "multi_turn_miss_param"
+        ],
+        "diagnostic_or_deferred": [
+          "live_*",
+          "web_search",
+          "memory",
+          "format_sensitivity"
+        ],
+        "rationale": "Start with non-live JSONL categories to avoid external service dependencies. Add selected multi-turn once single-turn scorer fidelity is proven."
+      },
+      "license_id": "apache-2.0",
+      "license_url": "https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+      "materialization_commands": [
+        "git clone https://github.com/ShishirPatil/gorilla.git external/gorilla",
+        "cd external/gorilla && git checkout f7cf735",
+        "cd external/gorilla/berkeley-function-call-leaderboard && pip install -e .",
+        "pip install bfcl-eval==2025.12.17",
+        "git clone https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard external/bfcl-data",
+        "cd external/bfcl-data && git checkout 61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
+      ],
+      "loader_notes": [
+        "Read BFCL JSONL files directly.",
+        "Do not use Hugging Face load_dataset for BFCL because the dataset card says it is not compatible with load_dataset."
+      ],
+      "external_services_required": "no_for_initial_non_live_jsonl_categories",
+      "api_keys_required": "no_for_initial_non_live_jsonl_categories",
+      "network_required": "yes_for_initial_clone_or_download_only",
+      "unsupported_scorer_features": [
+        "Any BFCL category whose native scorer cannot be faithfully reconstructed locally is diagnostic-only.",
+        "Live/agentic categories with external service assumptions are deferred until non-live JSONL controls pass."
+      ],
+      "integration_risks": [
+        "BFCL code, PyPI package, and HF data revisions must be pinned separately.",
+        "A shallow function-name-only scorer would overstate quality for parallel, multi-call, executable, or irrelevance categories.",
+        "Some rows may be solvable from the volatile user query alone and must be marked non-prefix-dependent rather than primary KV evidence."
+      ],
+      "provenance_confidence": "high_for_source_identity_medium_until_full_checkout_verifies_selected_commit"
+    },
+    "tau_bench_original": {
+      "name": "tau-bench",
+      "short_name": "tau-bench",
+      "stage": "follow_on_reference",
+      "upstream_url": "https://github.com/sierra-research/tau-bench",
+      "paper_url": "https://arxiv.org/abs/2406.12045",
+      "source_kind": "repo",
+      "current_head_sha_observed": "59a200c6d575d595120f1cb70fea53cef0632f6b",
+      "license_id": "mit",
+      "domain_taxonomy": [
+        "airline",
+        "retail"
+      ],
+      "scorer_semantics": [
+        "outcome/state based task success",
+        "database end-state comparison",
+        "communication and policy-following reward components"
+      ],
+      "integration_risks": [
+        "Original tau-bench tasks may be superseded by tau2/tau3 fixes.",
+        "Outcome scoring is not strict function-call matching, so adapter claims must preserve state-checker semantics."
+      ],
+      "follow_on_note": "Use as prior source; prefer tau2/tau3 repo for current follow-on execution."
+    },
+    "tau2_bench": {
+      "name": "tau2-bench / tau3 current benchmark repo",
+      "short_name": "tau2",
+      "stage": "follow_on_candidate",
+      "upstream_url": "https://github.com/sierra-research/tau2-bench",
+      "paper_url": "https://arxiv.org/abs/2506.07982",
+      "source_kind": "repo",
+      "current_head_sha_observed": "1746a25db265724f6fed2260934bb67f1514fad7",
+      "license_id": "mit",
+      "materialization_commands": [
+        "git clone https://github.com/sierra-research/tau2-bench external/tau2-bench",
+        "cd external/tau2-bench && git checkout 1746a25db265724f6fed2260934bb67f1514fad7",
+        "uv sync",
+        "tau2 intro",
+        "tau2 run --domain airline --agent-llm <agent> --user-llm <user> --num-trials 1 --num-tasks 5"
+      ],
+      "domain_taxonomy": [
+        "airline",
+        "retail",
+        "telecom",
+        "mock",
+        "banking_knowledge"
+      ],
+      "scorer_semantics": [
+        "domain task success",
+        "database or state outcome checking",
+        "communication reward",
+        "policy compliance"
+      ],
+      "integration_risks": [
+        "Requires simulated user/environment integration.",
+        "May require a separate user model or scripted user layer.",
+        "Reference actions are diagnostic unless the reward basis includes action matching."
+      ],
+      "provenance_confidence": "high_for_repo_head_medium_for_exact_task_release_until_pinned"
+    },
+    "toolsandbox": {
+      "name": "ToolSandbox",
+      "short_name": "ToolSandbox",
+      "stage": "follow_on_candidate",
+      "upstream_url": "https://github.com/apple/ToolSandbox",
+      "paper_url": "https://arxiv.org/abs/2408.04682",
+      "source_kind": "repo",
+      "current_head_sha_observed": "165848b9a78cead7ca7fe7c89c688b58e6501219",
+      "license_id": "custom_apple_license",
+      "license_note": "Treat raw redistribution and adapted code carefully; not a simple SPDX-style OSS license.",
+      "materialization_commands": [
+        "git clone https://github.com/apple/ToolSandbox external/ToolSandbox",
+        "cd external/ToolSandbox && git checkout 165848b9a78cead7ca7fe7c89c688b58e6501219",
+        "conda create -n ToolSandbox python=3.9",
+        "conda activate ToolSandbox",
+        "pip install '.[dev]'",
+        "tool_sandbox --user GPT_4_o_2024_05_13 --agent Claude_3_Haiku --scenario wifi_off"
+      ],
+      "category_taxonomy": [
+        "single tool call",
+        "multiple tool call",
+        "single user turn",
+        "multiple user turn",
+        "state dependency",
+        "canonicalization",
+        "insufficient information",
+        "distraction tools",
+        "hidden or renamed argument metadata"
+      ],
+      "scorer_semantics": [
+        "milestone DAG",
+        "snapshot/addition/removal/update similarity",
+        "tool-trace checks",
+        "guardrail checks"
+      ],
+      "integration_risks": [
+        "Host execution and sandboxing need extra care.",
+        "Custom license needs review before redistributing derived artifacts.",
+        "Longer stateful conversations make it a harder second-stage benchmark, not Stage 1."
+      ],
+      "provenance_confidence": "high_for_repo_head_medium_for_license_redistro_scope"
+    }
+  },
+  "required_source_audit_fields": [
+    "upstream_url",
+    "paper_url",
+    "dataset_url",
+    "source_kind",
+    "selected_revision_sha",
+    "current_head_sha_observed",
+    "license_id",
+    "license_url",
+    "license_text_hash",
+    "materialization_commands",
+    "source_files_included",
+    "source_files_excluded",
+    "source_record_locator",
+    "source_row_hash",
+    "category_taxonomy",
+    "scorer_entrypoint",
+    "scorer_revision",
+    "scorer_semantics",
+    "unsupported_scorer_features",
+    "external_services_required",
+    "api_keys_required",
+    "network_required",
+    "redistribution_notes",
+    "transform_version",
+    "transform_hash",
+    "provenance_confidence"
+  ],
+  "required_case_fields_before_model_smoke": [
+    "primary_eligible",
+    "primary_eligibility_reason",
+    "prefix_dependency_class",
+    "benchmark_id",
+    "benchmark_release",
+    "source_revision_sha",
+    "source_category",
+    "source_row_locator",
+    "source_row_hash",
+    "source_fields_used",
+    "source_fields_excluded",
+    "native_scorer_name",
+    "native_scorer_version",
+    "scorer_mode",
+    "unsupported_scorer_features",
+    "expected_call_hash",
+    "expected_argument_hash",
+    "parsed_call_hash",
+    "parsed_argument_hash",
+    "transform_version",
+    "transform_hash",
+    "template",
+    "template_alias",
+    "alias_registry_version",
+    "host_filled_args",
+    "final_source",
+    "parse_status",
+    "wrong_capsule_source_case_id",
+    "wrong_capsule_mismatch_rationale",
+    "delta_prompt_contains_stable_prefix",
+    "seq_tokens_saved",
+    "seq_tokens_loaded",
+    "n_past",
+    "generation_start_pos",
+    "capsule_bytes",
+    "capsule_hash"
+  ],
+  "stop_rules_before_model_smoke": [
+    "No category may enter model smoke if native or faithful category-specific scoring is not proven.",
+    "Rows where prefix dependency cannot be classified must be diagnostic-only.",
+    "Rows where fresh-tail can pass from volatile query alone must be excluded from hidden-prefix value claims.",
+    "If alias normalization or host finalization is the dominant success mechanism in a dry run, classify the result as runtime-harness/host-repair evidence and stop before broad claims.",
+    "No DushyantPC smoke may launch until the no-model BFCL dry run emits exact seven-control records for at least five rows."
+  ]
+}

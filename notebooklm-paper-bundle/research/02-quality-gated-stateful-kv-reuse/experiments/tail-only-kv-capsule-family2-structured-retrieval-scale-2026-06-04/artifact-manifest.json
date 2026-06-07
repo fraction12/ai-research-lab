@@ -1,0 +1,47 @@
+{
+  "committed_artifacts": [
+    "README.md",
+    "summary.json",
+    "case-metrics.json",
+    "route-telemetry.json",
+    "capsule-contract.md",
+    "failure-classifications.json",
+    "commands.md",
+    "model-info.json",
+    "artifact-manifest.json"
+  ],
+  "ignored_raw_boundary": "research/01-ssd-native-inference-current/benchmarks/tail-only-kv-capsule-family2-structured-retrieval-scale-2026-06-04/raw",
+  "raw_files_used": [
+    "family2-smoke-records.jsonl",
+    "family2-smoke-run-info.json",
+    "family2-records.jsonl",
+    "family2-run-info.json"
+  ],
+  "raw_files_not_committed": [
+    "tail_only_kv_capsule_family2_scale.py",
+    "__pycache__",
+    "cache state files if present"
+  ],
+  "sanitation_policy": {
+    "excluded_fields": [
+      "expected",
+      "response",
+      "normalized_response",
+      "raw prompts",
+      "token id arrays",
+      "generated token arrays",
+      "top-k arrays",
+      "token piece previews",
+      "state bytes"
+    ],
+    "included_fields": [
+      "hashes",
+      "counts",
+      "timings",
+      "booleans",
+      "routes",
+      "failure classes",
+      "model/backend metadata"
+    ]
+  }
+}

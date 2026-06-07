@@ -1,0 +1,1862 @@
+[
+  {
+    "case_id": "bounded_retry-03",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 4745.882,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6794.566,
+        "visible_prompt_tokens": 337
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6842.155,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 8370.827,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 8799.739,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 10089.721,
+        "visible_prompt_tokens": 49
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 19403.177,
+        "visible_prompt_tokens": 278
+      }
+    },
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "case_id": "bounded_retry-09",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 4292.352,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6166.436,
+        "visible_prompt_tokens": 337
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6028.132,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6153.894,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 8375.156,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 14292.68,
+        "visible_prompt_tokens": 49
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 37853.802,
+        "visible_prompt_tokens": 278
+      }
+    },
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "case_id": "bounded_retry-15",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 4076.413,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6105.403,
+        "visible_prompt_tokens": 337
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6002.328,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 8109.942,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7961.818,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 13977.278,
+        "visible_prompt_tokens": 49
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 37908.4,
+        "visible_prompt_tokens": 278
+      }
+    },
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "case_id": "bounded_retry-21",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 3996.02,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6358.114,
+        "visible_prompt_tokens": 337
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5997.663,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7862.798,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7810.111,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 15078.069,
+        "visible_prompt_tokens": 49
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 37819.606,
+        "visible_prompt_tokens": 278
+      }
+    },
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "case_id": "bounded_retry-27",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 4000.233,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5956.484,
+        "visible_prompt_tokens": 337
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6043.583,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7972.322,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7912.11,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 14071.822,
+        "visible_prompt_tokens": 49
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 38220.861,
+        "visible_prompt_tokens": 278
+      }
+    },
+    "task_bucket": "bounded_retry"
+  },
+  {
+    "case_id": "denied_invalid_tool_access-05",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 8523.691,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6174.504,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6246.794,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7967.597,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7870.344,
+        "visible_prompt_tokens": 47
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 12411.065,
+        "visible_prompt_tokens": 51
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": "tool_path_mismatch",
+        "final_source": "host_tool_answer_field",
+        "gate_passed": false,
+        "total_ms": 25335.154,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "denied_invalid_tool_access"
+  },
+  {
+    "case_id": "denied_invalid_tool_access-11",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 4798.683,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6200.817,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6292.419,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 8109.283,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 8106.68,
+        "visible_prompt_tokens": 47
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 14045.493,
+        "visible_prompt_tokens": 51
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 16354.604,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "denied_invalid_tool_access"
+  },
+  {
+    "case_id": "denied_invalid_tool_access-17",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 6316.112,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6191.233,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6167.56,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7895.862,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7801.959,
+        "visible_prompt_tokens": 47
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 10830.843,
+        "visible_prompt_tokens": 51
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 16281.399,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "denied_invalid_tool_access"
+  },
+  {
+    "case_id": "denied_invalid_tool_access-23",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 4749.621,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5963.326,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6215.281,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7828.049,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7761.088,
+        "visible_prompt_tokens": 47
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 12973.957,
+        "visible_prompt_tokens": 51
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": "tool_path_mismatch",
+        "final_source": "host_tool_answer_field",
+        "gate_passed": false,
+        "total_ms": 24521.037,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "denied_invalid_tool_access"
+  },
+  {
+    "case_id": "denied_invalid_tool_access-29",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 5418.654,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5605.618,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5807.026,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7326.469,
+        "visible_prompt_tokens": 47
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7369.117,
+        "visible_prompt_tokens": 47
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 13270.797,
+        "visible_prompt_tokens": 51
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 15254.026,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "denied_invalid_tool_access"
+  },
+  {
+    "case_id": "dependent_multi_tool-01",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 3930.946,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5646.022,
+        "visible_prompt_tokens": 336
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5659.621,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7506.613,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7346.088,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 5766.998,
+        "visible_prompt_tokens": 48
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 14869.119,
+        "visible_prompt_tokens": 277
+      }
+    },
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "case_id": "dependent_multi_tool-07",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 13381.449,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5651.256,
+        "visible_prompt_tokens": 336
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5567.881,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7266.163,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7247.851,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 13861.701,
+        "visible_prompt_tokens": 48
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 14961.206,
+        "visible_prompt_tokens": 277
+      }
+    },
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "case_id": "dependent_multi_tool-13",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 5264.264,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5601.313,
+        "visible_prompt_tokens": 336
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5542.117,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7100.69,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7453.174,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 10547.345,
+        "visible_prompt_tokens": 48
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 14812.512,
+        "visible_prompt_tokens": 277
+      }
+    },
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "case_id": "dependent_multi_tool-19",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 3726.68,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5554.851,
+        "visible_prompt_tokens": 336
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5578.279,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7246.524,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7269.476,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 10259.673,
+        "visible_prompt_tokens": 48
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 14962.375,
+        "visible_prompt_tokens": 277
+      }
+    },
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "case_id": "dependent_multi_tool-25",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 3626.933,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5631.744,
+        "visible_prompt_tokens": 336
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5669.862,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7291.558,
+        "visible_prompt_tokens": 44
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7225.063,
+        "visible_prompt_tokens": 44
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 8359.218,
+        "visible_prompt_tokens": 48
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 14857.166,
+        "visible_prompt_tokens": 277
+      }
+    },
+    "task_bucket": "dependent_multi_tool"
+  },
+  {
+    "case_id": "parallel_aggregation-02",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 6035.383,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5583.318,
+        "visible_prompt_tokens": 335
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5533.715,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7290.299,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7219.557,
+        "visible_prompt_tokens": 43
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 9674.68,
+        "visible_prompt_tokens": 47
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 14783.915,
+        "visible_prompt_tokens": 276
+      }
+    },
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "case_id": "parallel_aggregation-08",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 5170.477,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6324.734,
+        "visible_prompt_tokens": 335
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6275.818,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 8085.739,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7274.231,
+        "visible_prompt_tokens": 43
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 7625.772,
+        "visible_prompt_tokens": 47
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 11154.199,
+        "visible_prompt_tokens": 276
+      }
+    },
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "case_id": "parallel_aggregation-14",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 5509.463,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 4019.781,
+        "visible_prompt_tokens": 335
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6337.467,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7983.81,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7251.905,
+        "visible_prompt_tokens": 43
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 10090.849,
+        "visible_prompt_tokens": 47
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 11223.793,
+        "visible_prompt_tokens": 276
+      }
+    },
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "case_id": "parallel_aggregation-20",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 5529.04,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5505.789,
+        "visible_prompt_tokens": 335
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6366.73,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 8122.148,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7298.203,
+        "visible_prompt_tokens": 43
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 12262.504,
+        "visible_prompt_tokens": 47
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 11167.837,
+        "visible_prompt_tokens": 276
+      }
+    },
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "case_id": "parallel_aggregation-26",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7903.988,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5511.344,
+        "visible_prompt_tokens": 335
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 6349.128,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 8165.05,
+        "visible_prompt_tokens": 43
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7156.615,
+        "visible_prompt_tokens": 43
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 8737.855,
+        "visible_prompt_tokens": 47
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 11223.462,
+        "visible_prompt_tokens": 276
+      }
+    },
+    "task_bucket": "parallel_aggregation"
+  },
+  {
+    "case_id": "single_tool_selection-00",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 2787.208,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5533.787,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5604.852,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7191.347,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7182.083,
+        "visible_prompt_tokens": 42
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 7453.474,
+        "visible_prompt_tokens": 46
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 11688.591,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "case_id": "single_tool_selection-06",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 2647.278,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5665.876,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5626.51,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7370.236,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7200.796,
+        "visible_prompt_tokens": 42
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 6660.881,
+        "visible_prompt_tokens": 46
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 11747.125,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "case_id": "single_tool_selection-12",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 2567.168,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5691.517,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5599.107,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7294.883,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7131.805,
+        "visible_prompt_tokens": 42
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 8553.02,
+        "visible_prompt_tokens": 46
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 11680.321,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "case_id": "single_tool_selection-18",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 2561.57,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5568.508,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5563.466,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7291.746,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7231.618,
+        "visible_prompt_tokens": 42
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 8621.546,
+        "visible_prompt_tokens": 46
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 11711.996,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "case_id": "single_tool_selection-24",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 2596.674,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5611.983,
+        "visible_prompt_tokens": 341
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5593.365,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7277.09,
+        "visible_prompt_tokens": 42
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7386.747,
+        "visible_prompt_tokens": 42
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 8598.782,
+        "visible_prompt_tokens": 46
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_tool_answer_field",
+        "gate_passed": true,
+        "total_ms": 11865.379,
+        "visible_prompt_tokens": 282
+      }
+    },
+    "task_bucket": "single_tool_selection"
+  },
+  {
+    "case_id": "trace_continuation-04",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 3706.809,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5422.226,
+        "visible_prompt_tokens": 332
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5461.619,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7262.909,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7127.325,
+        "visible_prompt_tokens": 39
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 8762.224,
+        "visible_prompt_tokens": 43
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": "tool_path_mismatch",
+        "final_source": "host_tool_answer_field",
+        "gate_passed": false,
+        "total_ms": 32158.725,
+        "visible_prompt_tokens": 273
+      }
+    },
+    "task_bucket": "trace_continuation"
+  },
+  {
+    "case_id": "trace_continuation-10",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 5125.319,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5466.013,
+        "visible_prompt_tokens": 332
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5421.496,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7182.092,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 6992.984,
+        "visible_prompt_tokens": 39
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 7098.206,
+        "visible_prompt_tokens": 43
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 24096.036,
+        "visible_prompt_tokens": 273
+      }
+    },
+    "task_bucket": "trace_continuation"
+  },
+  {
+    "case_id": "trace_continuation-16",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 5090.272,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5477.391,
+        "visible_prompt_tokens": 332
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5502.038,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7236.988,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7037.183,
+        "visible_prompt_tokens": 39
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 7188.717,
+        "visible_prompt_tokens": 43
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": true,
+        "failure_class": "tool_path_mismatch",
+        "final_source": "host_tool_answer_field",
+        "gate_passed": false,
+        "total_ms": 32226.307,
+        "visible_prompt_tokens": 273
+      }
+    },
+    "task_bucket": "trace_continuation"
+  },
+  {
+    "case_id": "trace_continuation-22",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 3307.34,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5466.434,
+        "visible_prompt_tokens": 332
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5571.021,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7171.01,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7016.93,
+        "visible_prompt_tokens": 39
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 8915.087,
+        "visible_prompt_tokens": 43
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 22682.353,
+        "visible_prompt_tokens": 273
+      }
+    },
+    "task_bucket": "trace_continuation"
+  },
+  {
+    "case_id": "trace_continuation-28",
+    "controls": {
+      "code_mode_fresh_tail_only": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 3731.262,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_full_visible": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5438.999,
+        "visible_prompt_tokens": 332
+      },
+      "code_mode_native_live_append": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 5458.795,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_restored_kv_capsule": {
+        "answer_contained": true,
+        "failure_class": null,
+        "final_source": "host_exec_answer_field",
+        "gate_passed": true,
+        "total_ms": 7148.899,
+        "visible_prompt_tokens": 39
+      },
+      "code_mode_wrong_capsule_negative": {
+        "answer_contained": false,
+        "failure_class": null,
+        "final_source": "none",
+        "gate_passed": true,
+        "total_ms": 7099.452,
+        "visible_prompt_tokens": 39
+      },
+      "compact_visible_evidence_code_mode": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 7978.202,
+        "visible_prompt_tokens": 43
+      },
+      "direct_full_visible_tools": {
+        "answer_contained": false,
+        "failure_class": "prompt_or_model_weakness",
+        "final_source": "none",
+        "gate_passed": false,
+        "total_ms": 47506.747,
+        "visible_prompt_tokens": 273
+      }
+    },
+    "task_bucket": "trace_continuation"
+  }
+]

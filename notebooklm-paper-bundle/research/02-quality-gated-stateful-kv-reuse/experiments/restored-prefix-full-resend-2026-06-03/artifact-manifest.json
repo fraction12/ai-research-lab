@@ -1,0 +1,65 @@
+{
+  "experiment_id": "restored-prefix-full-resend-2026-06-03",
+  "date": "2026-06-03",
+  "committed_artifacts": [
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/restored-prefix-full-resend-2026-06-03/README.md",
+      "purpose": "Reader-facing experiment summary."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/restored-prefix-full-resend-2026-06-03/commands.md",
+      "purpose": "Exact command lines."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/restored-prefix-full-resend-2026-06-03/model-info.json",
+      "purpose": "Model, backend, machine, and run metadata."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/restored-prefix-full-resend-2026-06-03/summary.json",
+      "purpose": "Aggregate and case-level result summary."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/restored-prefix-full-resend-2026-06-03/mechanism-decision.md",
+      "purpose": "Mechanism interpretation and GraphWalks stop rule."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/restored-prefix-full-resend-2026-06-03/failure-classifications.json",
+      "purpose": "Failure taxonomy classifications."
+    },
+    {
+      "path": "research/02-quality-gated-stateful-kv-reuse/experiments/restored-prefix-full-resend-2026-06-03/artifact-manifest.json",
+      "purpose": "Artifact inventory."
+    }
+  ],
+  "ignored_raw_artifacts": [
+    {
+      "path": "research/01-ssd-native-inference-current/benchmarks/rpfr-results/rpfr-2026-06-03/gpt-oss-20b-mxfp4-restored-prefix-full-resend.json",
+      "sha256": "a7e537ddc8b0831cd0d41e4dfe1154508a3393971484cce26cc00afcaec5814b",
+      "contains": "Prompt-bearing raw records, responses, telemetry, and recomputed summary for the valid short-path probe."
+    },
+    {
+      "path": "research/01-ssd-native-inference-current/benchmarks/rpfr-cache/rpfr-2026-06-03/",
+      "contains": "llama.cpp log files and slot-cache files for the valid short-path probe."
+    },
+    {
+      "path": "research/01-ssd-native-inference-current/benchmarks/restored-prefix-full-resend-results/restored-prefix-full-resend-2026-06-03/gpt-oss-20b-mxfp4-restored-prefix-full-resend.json",
+      "sha256": "ffcb919551f041883e9c0dabf282bda428b1f635a08a6883c754d97066bc0c1e",
+      "contains": "Prompt-bearing raw records for the first long-path failure attempt."
+    }
+  ],
+  "source_code_artifacts": [
+    {
+      "path": "research/01-ssd-native-inference-current/benchmarks/flashcache_restored_prefix_full_resend_probe.py",
+      "purpose": "Focused restored-prefix full-resend probe runner."
+    },
+    {
+      "path": "research/01-ssd-native-inference-current/tests/test_restored_prefix_full_resend_probe.py",
+      "purpose": "Fake-client tests for mode sequencing, safety classification, and gate logic."
+    }
+  ],
+  "scope_controls": {
+    "broad_benchmarks_run": false,
+    "graphwalks_run": false,
+    "alternate_models_run": false
+  }
+}

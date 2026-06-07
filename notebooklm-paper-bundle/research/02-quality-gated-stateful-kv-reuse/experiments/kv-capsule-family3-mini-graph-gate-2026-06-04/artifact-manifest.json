@@ -1,0 +1,29 @@
+{
+  "experiment": "kv-capsule-family3-mini-graph-gate-2026-06-04",
+  "committed_summaries": [
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family3-mini-graph-gate-2026-06-04/README.md",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family3-mini-graph-gate-2026-06-04/summary.json",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family3-mini-graph-gate-2026-06-04/case-metrics.json",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family3-mini-graph-gate-2026-06-04/failure-classifications.json",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family3-mini-graph-gate-2026-06-04/commands.md",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family3-mini-graph-gate-2026-06-04/model-info.json",
+    "research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family3-mini-graph-gate-2026-06-04/artifact-manifest.json"
+  ],
+  "omitted_summaries": {
+    "capsule-contract.md": "Omitted because restored capsule did not run; Stage A full-visible guard failed first."
+  },
+  "ignored_raw_artifacts": {
+    "records": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family3-mini-graph-gate-2026-06-04/raw/family3-records.jsonl",
+    "run_info": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family3-mini-graph-gate-2026-06-04/raw/family3-run-info.json",
+    "console": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family3-mini-graph-gate-2026-06-04/raw/family3-console.txt",
+    "runner": "research/01-ssd-native-inference-current/benchmarks/kv-capsule-family3-mini-graph-gate-2026-06-04/raw/kv_capsule_family3_gate.py"
+  },
+  "ignored_raw_artifact_hashes": {
+    "records_sha256": "02fa0950a16664b006fbc32c2ef9c00a863c65346987abf2acad8c9bbf0739eb",
+    "run_info_sha256": "c9ff18ca21d43e12257a9600f6ffee0a4f11a4bf573c889926b776586497262f",
+    "console_sha256": "dcfb7602faaeef3ac397aa16dbdbb0c08bd14599f105dd2b44ecc71b65dc329c",
+    "runner_sha256": "963db68d07090bc55761f04453aa852fe8fff1e91d62f176d10156777c9baa79"
+  },
+  "sanitization_policy": "Committed summaries contain hashes, counts, timings, booleans, classifications, stage labels, hop counts, and metadata only. Raw prompts, raw responses, expected answer strings, token ID arrays/slices, generated token arrays/slices, top-k arrays, and state bytes remain under ignored Track 01 raw paths.",
+  "capsule_contract_included": false
+}

@@ -1,0 +1,54 @@
+{
+  "machine": "DushyantPC",
+  "model": {
+    "name": "gpt-oss-20b",
+    "family": "gptoss",
+    "type": "20.9B",
+    "quantization_or_file_type": "MXFP4",
+    "path": "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "sha256": "E7B273F9636059A689E3DDCAB3716E4F65ABE0143AC978E46673AD0E52D09EFB",
+    "notes": "Do not substitute the vault mind experimental model for Track 02 tests."
+  },
+  "runner": {
+    "path": "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
+    "sha256": "765422B969681C910460FC77A49E08610E51B1730BE00A79015DA67E7C1798B6",
+    "version": "1 (a731805ce)",
+    "build": "built with Clang 18.1.8 for Windows AMD64",
+    "capabilities_used": [
+      "/completion",
+      "/slots",
+      "--slot-save-path",
+      "--cache-prompt",
+      "--jinja",
+      "--reasoning off",
+      "--reasoning-budget 0"
+    ]
+  },
+  "server_command": [
+    "C:\\Users\\Dushyant\\Tools\\llama-ollama-a731805ce-gptoss\\llama-server.exe",
+    "--model",
+    "C:\\Users\\Dushyant\\.ollama\\models\\blobs\\sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "50601",
+    "--ctx-size",
+    "32768",
+    "--parallel",
+    "1",
+    "--slot-save-path",
+    "benchmarks\\correctness-eval-cache\\gptoss-edge-evidence-six\\slot",
+    "--cache-prompt",
+    "--slots",
+    "--no-ui",
+    "--no-warmup",
+    "--no-mmap",
+    "--flash-attn",
+    "auto",
+    "--jinja",
+    "--reasoning",
+    "off",
+    "--reasoning-budget",
+    "0"
+  ]
+}
