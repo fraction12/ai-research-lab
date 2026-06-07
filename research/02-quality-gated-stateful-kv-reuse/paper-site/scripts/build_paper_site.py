@@ -155,7 +155,14 @@ initial_official_bfcl_rows = [
     ("raw generated-record count", 969, 1390, "69.71%"),
 ]
 official_bfcl_reference_rows = [
-    ("Our KV Capsule + PTI initial local run", "Custom local prompt-mode harness", "N/A", "69.88%", "No API spend recorded", "13.0 s mean"),
+    (
+        "Our KV Capsule + PTI initial local run",
+        "Custom local prompt-mode harness",
+        "N/A",
+        "69.88%",
+        "No API spend recorded",
+        "13.0 s measured mean; 12.6 s amortized mean",
+    ),
     ("Gemma-3-12b-it (Prompt)", "Google", "30.43%", "79.44%", "$10.77", "11.10 s mean"),
     ("Gemma-3-27b-it (Prompt)", "Google", "29.47%", "87.17%", "$11.82", "10.88 s mean"),
     ("Granite-20b-FunctionCalling (FC)", "IBM", "23.23%", "82.35%", "$5.23", "3.20 s mean"),
@@ -668,7 +675,7 @@ html_doc = f"""<!doctype html>
         <p class="rq-question">Comparison target: official BFCL V4 <strong>Non-Live AST Acc</strong>, not overall leaderboard rank.</p>
         <p>The public BFCL table includes several metrics [<a class="cite" href="https://gorilla.cs.berkeley.edu/data_overall.csv" target="_blank" rel="noreferrer">9</a>]. <strong>Overall Acc</strong> averages across live, multi-turn, memory, web-search, relevance, irrelevance, and other categories. <strong>Non-Live AST Acc</strong> is the offline function-call slice that matches the current evaluation scope. The comparison below therefore uses non-live AST only and does not claim overall BFCL rank.</p>
         {table(["Model or system", "Organization / disclosure", "Overall Acc", "Non-Live AST Acc", "Reported cost", "Reported mean latency"], official_bfcl_reference_rows)}
-        <p>The official BFCL cost and latency columns are shown for public leaderboard rows. Our run was local pre-generated inference, so there is no API spend to report. The original model-loop metadata records <code>2026-06-07T08:11:52Z</code> to <code>2026-06-07T13:12:11Z</code>, about <code>5.01 h</code> total wall-clock before local evaluator scoring. For comparability with the leaderboard-style latency cells, the table reports this as <code>13.0 s</code> mean per generated record over <code>1390</code> records. The BFCL-generated <code>Total Cost ($)</code> value for the custom local row is not used because it is not a measured dollar cost and is not comparable to hosted-provider cost accounting.</p>
+        <p>The official BFCL cost and latency columns are shown for public leaderboard rows. Our run was local pre-generated inference, so there is no API spend to report. The original model-loop metadata records <code>2026-06-07T08:11:52Z</code> to <code>2026-06-07T13:12:11Z</code>, about <code>5.01 h</code> total wall-clock before local evaluator scoring. For comparability with the leaderboard-style latency cells, the table reports a measured <code>13.0 s</code> mean per generated record over <code>1390</code> records. It also reports a <code>12.6 s</code> amortized mean: recomputed from the same model-loop records by charging the stable-prefix capsule build cost, <code>initial_prompt_eval_ms + capsule_save_ms</code>, once per non-live source-category family and removing that repeated build cost from the other rows. This amortized value reflects the runtime setting KV Capsules are meant for: repeated task tails sharing fixed prompt/protocol context. It is not a hosted BFCL serving metric. The BFCL-generated <code>Total Cost ($)</code> value for the custom local row is not used because it is not a measured dollar cost and is not comparable to hosted-provider cost accounting.</p>
       </div>
     </section>
 
