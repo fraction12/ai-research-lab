@@ -376,6 +376,12 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
             )["passed"]
         )
 
+        call_wrapper_shape = adapter.parse_calls_from_generated_text(
+            '{"call":{"function":"calculate_triangle_area","parameters":{"base":10,"height":5}}}'
+        )
+        self.assertEqual(adapter.actual_call_name(call_wrapper_shape[0]), "calculate_triangle_area")
+        self.assertEqual(adapter.actual_call_arguments(call_wrapper_shape[0])["base"], 10)
+
     def test_parses_observed_model_json_call_shapes(self) -> None:
         action_input = adapter.parse_calls_from_generated_text(
             '{"action":"calculate_em_force","action_input":{"charge1":12,"charge2":10,"distance":5}}\n'
@@ -530,6 +536,31 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertFalse(ambiguous["valid"])
         self.assertIn("ambiguous_function", {error["code"] for error in ambiguous["errors"]})
 
+        fuzzy = adapter.validate_pti_calls_against_catalog(
+            [
+                {
+                    "name": "SQLCompletionAnalyzer.makeProposalsFromObject",
+                    "parameters": {
+                        "type": "dict",
+                        "properties": {
+                            "object": {"type": "string"},
+                            "useShortName": {"type": "boolean"},
+                        },
+                    },
+                }
+            ],
+            [
+                {
+                    "name": "SQLCompletionAnalyzer.makeProorasFromObject",
+                    "arguments": {"object": "Customers", "useShortName": True},
+                }
+            ],
+            user_request="Make proposals from Customers.",
+        )
+        self.assertTrue(fuzzy["valid"])
+        self.assertEqual(fuzzy["canonical_calls"][0]["name"], "SQLCompletionAnalyzer.makeProposalsFromObject")
+        self.assertIn("function_fuzzy_schema_match", fuzzy["canonical_calls"][0]["normalizations"])
+
     def test_pti_v3_reports_call_count_without_expected_answers(self) -> None:
         functions = [
             {
@@ -551,6 +582,19 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertFalse(result["repair_required"])
         self.assertNotIn("expected_calls", json.dumps(result))
         self.assertNotIn("possible_answer", json.dumps(result))
+
+        extra = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [
+                {"name": "draw_shape", "arguments": {"shape": "rectangle"}},
+                {"name": "draw_shape", "arguments": {"shape": "circle"}},
+                {"name": "draw_shape", "arguments": {"shape": "helper"}},
+            ],
+            user_request="Draw exactly 2 operations.",
+        )
+        self.assertFalse(extra["valid"])
+        self.assertTrue(extra["repair_required"])
+        self.assertIn("likely_extra_call_count", {error["code"] for error in extra["errors"]})
 
     def test_pti_v3_repairs_only_high_confidence_call_count_mismatches(self) -> None:
         functions = [
@@ -606,7 +650,7 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         )
         self.assertFalse(result["valid"])
         self.assertTrue(result["blocking_valid"])
-        self.assertFalse(result["repair_required"])
+        self.assertTrue(result["repair_required"])
         literal_errors = [error for error in result["errors"] if error["code"] == "literal_preservation_suspect"]
         self.assertEqual(literal_errors[0]["candidate_literal"], "processFunction")
 
@@ -662,6 +706,9 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
 
         self.assertIn("VISIBLE FUNCTION CATALOG", prompt)
         self.assertIn("VALIDATOR ERRORS", prompt)
+        self.assertIn("repair_profile", prompt)
+        self.assertIn("missing_call", prompt)
+        self.assertIn("Preserve every already valid call", prompt)
         forbidden = ["possible_answer", "expected_answer", "expected_calls", "ground_truth"]
         for token in forbidden:
             self.assertNotIn(token, prompt)

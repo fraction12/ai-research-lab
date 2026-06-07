@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+import difflib
 import hashlib
 import json
 import re
@@ -863,6 +864,15 @@ def _resolve_catalog_function(
                 "candidates": suffix_matches,
             },
         )
+    close_matches = difflib.get_close_matches(emitted_name, list(catalog), n=2, cutoff=0.88)
+    if len(close_matches) == 1:
+        name = close_matches[0]
+        return name, catalog[name], ["function_fuzzy_schema_match"], None
+    suffix_names = {name.rsplit(".", 1)[-1]: name for name in catalog}
+    close_suffixes = difflib.get_close_matches(emitted_name.rsplit(".", 1)[-1], list(suffix_names), n=2, cutoff=0.88)
+    if len(close_suffixes) == 1:
+        name = suffix_names[close_suffixes[0]]
+        return name, catalog[name], ["function_fuzzy_suffix_schema_match"], None
     return None, None, [], {"code": "unknown_function", "function": emitted_name}
 
 
@@ -1104,6 +1114,10 @@ def schema_validation_repairable_errors(errors: list[dict[str, Any]]) -> list[di
             repairable.append(error)
         elif code == "likely_call_count_mismatch" and error.get("confidence") == "high":
             repairable.append(error)
+        elif code == "likely_extra_call_count" and error.get("confidence") == "high":
+            repairable.append(error)
+        elif code == "literal_preservation_suspect":
+            repairable.append(error)
     return repairable
 
 
@@ -1193,6 +1207,17 @@ def validate_pti_calls_against_catalog(
                 "confidence": minimum_call_count_detail["confidence"],
             }
         )
+    if minimum_call_count_detail is not None and minimum_call_count is not None and len(canonical_calls) > minimum_call_count:
+        if minimum_call_count_detail["confidence"] == "high":
+            errors.append(
+                {
+                    "code": "likely_extra_call_count",
+                    "expected_max_calls": minimum_call_count,
+                    "actual_calls": len(canonical_calls),
+                    "evidence": minimum_call_count_detail["evidence"],
+                    "confidence": minimum_call_count_detail["confidence"],
+                }
+            )
     blocking_errors = schema_validation_blocking_errors(errors)
     repairable_errors = schema_validation_repairable_errors(errors)
     return {
@@ -1212,6 +1237,56 @@ def validate_pti_calls_against_catalog(
     }
 
 
+def schema_repair_profile(validation: dict[str, Any]) -> dict[str, Any]:
+    """Classify schema-only errors into a targeted repair instruction profile."""
+
+    errors = list(validation.get("repairable_errors") or validation.get("errors") or [])
+    codes = {str(error.get("code")) for error in errors}
+    if "likely_call_count_mismatch" in codes:
+        kind = "missing_call"
+        instructions = [
+            "Preserve every already valid call in parsed_call_plan.",
+            "Add only the missing independent operation(s) requested by the user.",
+            "Do not remove or rewrite valid calls unless a schema error names that exact call.",
+        ]
+    elif "likely_extra_call_count" in codes:
+        kind = "extra_call"
+        instructions = [
+            "Preserve the calls that directly satisfy the user request.",
+            "Remove only unsupported helper, duplicate, or unrequested calls.",
+            "Do not add new calls.",
+        ]
+    elif codes & {"unknown_function", "ambiguous_function"}:
+        kind = "function_selection"
+        instructions = [
+            "Use exactly one function name from the visible_function_catalog for each call.",
+            "If the previous function name is misspelled, correct it to the closest catalog function only when the user request supports it.",
+            "Do not invent wrapper names such as call, params, tool, or function.",
+        ]
+    elif "literal_preservation_suspect" in codes:
+        kind = "literal_preservation"
+        instructions = [
+            "For identifier, callback, function, handler, or method arguments, copy the exact token from the user request.",
+            "Do not paraphrase identifiers into descriptive phrases.",
+            "Keep all unrelated arguments unchanged.",
+        ]
+    elif codes & {"missing_required_argument", "unexpected_argument", "type_mismatch", "nested_type_mismatch"}:
+        kind = "argument_schema"
+        instructions = [
+            "Repair only the named argument schema errors.",
+            "Use parameter names exactly as written in the visible function catalog.",
+            "Preserve array/object nesting required by the schema.",
+        ]
+    else:
+        kind = "generic_schema"
+        instructions = [
+            "Repair only the validator errors.",
+            "Preserve valid calls and valid arguments.",
+            "Return only the repaired call list.",
+        ]
+    return {"kind": kind, "instructions": instructions}
+
+
 def build_schema_only_repair_prompt(
     *,
     user_request: str,
@@ -1222,11 +1297,12 @@ def build_schema_only_repair_prompt(
 ) -> str:
     """Build a paper-safe repair prompt from schema and validator errors only."""
     payload = {
+        "repair_profile": schema_repair_profile(validation),
         "user_request": user_request,
         "visible_function_catalog": functions,
         "previous_model_output": model_output,
         "parsed_call_plan": calls,
-        "validator_errors": validation.get("errors", []),
+        "validator_errors": validation.get("repairable_errors") or validation.get("errors", []),
     }
     text = canonical_json(payload)
     forbidden = ("possible_answer", "expected_answer", "expected_calls", "ground_truth")
@@ -1235,11 +1311,11 @@ def build_schema_only_repair_prompt(
         raise ValueError("schema-only repair prompt received forbidden answer-key material")
     return (
         "SYSTEM:\n"
-        "Repair this PTI call plan using only the user request, visible function catalog, "
+        "Repair this PTI call plan step by step using only the user request, visible function catalog, "
         "previous model output, parsed call plan, and validator errors. Do not use or infer any answer key.\n\n"
         "VISIBLE FUNCTION CATALOG / USER REQUEST / VALIDATOR ERRORS:\n"
         f"{text}\n\n"
-        "Return only the repaired function call list. Use no explanation."
+        "Apply the repair_profile instructions exactly. Return only the repaired function call list. Use no explanation."
     )
 
 

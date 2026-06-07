@@ -19,6 +19,7 @@ WRAPPER_KEYS = {
     "action_input",
     "arguments",
     "args",
+    "call",
     "calls",
     "function",
     "function_call",
@@ -161,6 +162,9 @@ def actual_call_name(actual: dict[str, Any] | CanonicalToolCall) -> str:
     if isinstance(actual, CanonicalToolCall):
         return actual.name
     actual = normalize_wrapper_keys(actual)
+    call = actual.get("call")
+    if isinstance(call, dict):
+        actual = normalize_wrapper_keys(call)
     function = actual.get("function")
     if isinstance(function, dict):
         value = function.get("name")
@@ -183,6 +187,9 @@ def actual_call_arguments(actual: dict[str, Any] | CanonicalToolCall) -> dict[st
     if isinstance(actual, CanonicalToolCall):
         return dict(actual.arguments)
     actual = normalize_wrapper_keys(actual)
+    call = actual.get("call")
+    if isinstance(call, dict):
+        actual = normalize_wrapper_keys(call)
     arguments = (
         actual.get("arguments")
         or actual.get("args")
@@ -239,6 +246,8 @@ def coerce_call_object(value: Any, *, source_format: str = "json") -> list[Canon
         return coerce_call_object(value["plan"], source_format="plan")
     if "function_call" in value:
         return coerce_call_object(value["function_call"], source_format="function_call")
+    if "call" in value and isinstance(value["call"], dict):
+        return coerce_call_object(value["call"], source_format="call")
     if "action" in value:
         arguments = value.get("action_input") or value.get("parameters") or value.get("arguments") or value.get("args")
         call = _canonical_call(

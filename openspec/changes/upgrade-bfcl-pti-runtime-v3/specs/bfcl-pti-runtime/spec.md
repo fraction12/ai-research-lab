@@ -43,6 +43,32 @@ The BFCL PTI runtime SHALL build repair prompts from the user request, visible c
 - **WHEN** a repair prompt is built
 - **THEN** it does not include `possible_answer`, `expected_answer`, `expected_calls`, `ground_truth`, or official expected calls
 
+#### Scenario: Repair prompt targets a failure class
+- **WHEN** visible-schema validation reports a repairable missing-call, extra-call, function-selection, literal-preservation, or argument-schema error
+- **THEN** the repair prompt includes a failure-class-specific repair profile that tells the model what to preserve and what to change without answer-key data
+
+### Requirement: Canonicalize Recoverable Wrapper Dialects Before Repair
+The BFCL PTI runtime SHALL canonicalize recoverable model output wrapper dialects before asking the model to repair.
+
+#### Scenario: Java-style call wrapper is parseable
+- **WHEN** model output uses a wrapper such as `{"call":{"function":"name","parameters":{...}}}`
+- **THEN** the runtime extracts the inner function and parameters into PTI IR without triggering model repair for the wrapper alone
+
+#### Scenario: Close schema function typo is uniquely recoverable
+- **WHEN** the model emits a misspelled function name that has exactly one close match in the visible function catalog
+- **THEN** validation canonicalizes the call to the visible catalog function and records the fuzzy schema normalization
+
+### Requirement: Repair Literal And Count Errors Step By Step
+The BFCL PTI runtime SHALL repair count and literal errors with targeted instructions.
+
+#### Scenario: Exact identifier was paraphrased
+- **WHEN** validation reports a literal-preservation diagnostic for a callback/function/identifier argument
+- **THEN** repair is allowed and the prompt instructs the model to copy the exact token from the user request
+
+#### Scenario: High-confidence extra call is detected
+- **WHEN** the user request provides a high-confidence maximum call count and the model emits more calls than that count
+- **THEN** validation reports a repairable extra-call diagnostic and the prompt instructs the model to remove only unsupported helper, duplicate, or unrequested calls
+
 ### Requirement: Gate BFCL Model-Loop Repair On Schema Validation
 The BFCL PTI model loop SHALL trigger repair from schema-validator errors rather than BFCL scorer failures.
 

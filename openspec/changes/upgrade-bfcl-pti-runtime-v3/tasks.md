@@ -19,6 +19,8 @@
 - [x] Add PTI v3 metadata to control packets.
 - [x] Wire schema-only validator into the active BFCL model-loop repair gate.
 - [x] Disable BFCL scorer-triggered model repair so repair triggers do not depend on expected calls.
+- [x] Add parser-tolerant canonicalization for recoverable wrapper dialects before repair.
+- [x] Add class-targeted repair profiles for missing-call, extra-call, function-selection, literal-preservation, and argument-schema errors.
 
 ## 4. Smokes
 
@@ -26,3 +28,5 @@
 - [x] Run OpenSpec validation.
 - [x] Run DushyantPC unit smoke.
 - [x] Run DushyantPC targeted model smoke for weak categories.
+- [ ] Run DushyantPC micro-smokes for each repair class.
+- [ ] Run DushyantPC final 15-case mixed smoke.
