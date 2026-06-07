@@ -4,22 +4,22 @@ This folder is a copied source bundle for the KV capsule / programmatic tool-int
 
 ## Start Here
 
-- `research/02-quality-gated-stateful-kv-reuse/paper-publication-plan-2026-06-07.md`
-- `research/02-quality-gated-stateful-kv-reuse/paper-defense-memo-2026-06-04.md`
-- `research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/selected-cohort-findings.md`
-- `research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/selected-cohort-summary.json`
-- `research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-findings.md`
-- `research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-summary.json`
-- `research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/bfcl-primary-50-v5-summary.md`
+- `research__02-quality-gated-stateful-kv-reuse__paper-publication-plan-2026-06-07.md`
+- `research__02-quality-gated-stateful-kv-reuse__paper-defense-memo-2026-06-04.md`
+- `research__02-quality-gated-stateful-kv-reuse__experiments__paper-grade-code-mode-kv-capsule-evaluation-2026-06-05__selected-cohort-findings.md`
+- `research__02-quality-gated-stateful-kv-reuse__experiments__paper-grade-code-mode-kv-capsule-evaluation-2026-06-05__selected-cohort-summary.json`
+- `research__02-quality-gated-stateful-kv-reuse__experiments__paper-grade-code-mode-kv-capsule-evaluation-2026-06-05__repeated-work-speed-findings.md`
+- `research__02-quality-gated-stateful-kv-reuse__experiments__paper-grade-code-mode-kv-capsule-evaluation-2026-06-05__repeated-work-speed-summary.json`
+- `research__02-quality-gated-stateful-kv-reuse__experiments__nonhandmade-code-mode-kv-agent-benchmark-2026-06-05__bfcl-primary-50-v5-summary.md`
 
 ## Key Code
 
-- `research/01-ssd-native-inference-current/benchmarks/code_mode_kv_capsule_agent_harness.py`
-- `research/01-ssd-native-inference-current/benchmarks/code_mode_kv_capsule_model_loop_runner.py`
-- `research/01-ssd-native-inference-current/benchmarks/bfcl_code_mode_kv_adapter.py`
-- `research/01-ssd-native-inference-current/benchmarks/paper_campaign_selected_cohort.py`
-- `research/01-ssd-native-inference-current/benchmarks/paper_campaign_repeated_work_speed.py`
-- `research/01-ssd-native-inference-current/tests/`
+- `research__01-ssd-native-inference-current__benchmarks__code_mode_kv_capsule_agent_harness.py`
+- `research__01-ssd-native-inference-current__benchmarks__code_mode_kv_capsule_model_loop_runner.py`
+- `research__01-ssd-native-inference-current__benchmarks__bfcl_code_mode_kv_adapter.py`
+- `research__01-ssd-native-inference-current__benchmarks__paper_campaign_selected_cohort.py`
+- `research__01-ssd-native-inference-current__benchmarks__paper_campaign_repeated_work_speed.py`
+- files beginning with `research__01-ssd-native-inference-current__tests__`
 
 ## What This Supports
 
