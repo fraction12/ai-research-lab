@@ -1,0 +1,10 @@
+{
+  "generated_utc": "2026-06-07T00:36:51Z",
+  "host": "DushyantPC",
+  "packet": "C:\\ai\\paper\\research\\01-ssd-native-inference-current\\benchmarks\\paper-grade-code-mode-kv-capsule-evaluation-2026-06-05\\raw\\bfcl-paper-selected-cohort-v1-control-packet.jsonl",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "reconstructed_codex_records": 100,
+  "reconstructed_kv_records": 100,
+  "records_path": "C:\\ai\\paper\\research\\01-ssd-native-inference-current\\benchmarks\\paper-grade-code-mode-kv-capsule-evaluation-2026-06-05\\raw\\repeated-work-speed\\bfcl-repeated-work-speed-v1-speed-records.jsonl",
+  "summary_path": "C:\\ai\\paper\\research\\01-ssd-native-inference-current\\benchmarks\\paper-grade-code-mode-kv-capsule-evaluation-2026-06-05\\raw\\repeated-work-speed\\bfcl-repeated-work-speed-v1-speed-summary.json"
+}
