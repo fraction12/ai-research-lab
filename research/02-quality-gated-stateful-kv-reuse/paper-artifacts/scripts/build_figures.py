@@ -274,8 +274,14 @@ def build_codex_failures(plt) -> None:
     ax.invert_yaxis()
     ax.set_xlim(0, 100)
     ax.set_xlabel("Share of cases in audited failure sample (%)")
-    ax.set_title("Natural Codex/Ollama pass/fail by BFCL category")
-    ax.legend(loc="lower right", frameon=False, ncols=2)
+    ax.set_title("Natural Codex/Ollama pass/fail by BFCL category", pad=18)
+    ax.legend(
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.01),
+        frameon=False,
+        ncols=2,
+        borderaxespad=0,
+    )
     apply_grid(ax)
     for yi, p, t in zip(y, passed, totals, strict=True):
         ax.text(101.5, yi, f"{p}/{t}", va="center", ha="left", fontsize=9, color=INK)
@@ -305,8 +311,14 @@ def build_codex_failures_mobile(plt) -> None:
     ax.invert_yaxis()
     ax.set_xlim(0, 100)
     ax.set_xlabel("Share of audited category sample (%)")
-    ax.set_title("Natural baseline pass/fail")
-    ax.legend(loc="lower right", frameon=False, ncols=2)
+    ax.set_title("Natural baseline pass/fail", pad=18)
+    ax.legend(
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.01),
+        frameon=False,
+        ncols=2,
+        borderaxespad=0,
+    )
     apply_grid(ax)
     for yi, p, t in zip(y, passed, totals, strict=True):
         ax.text(101.5, yi, f"{p}/{t}", va="center", ha="left", fontsize=9, color=INK)
