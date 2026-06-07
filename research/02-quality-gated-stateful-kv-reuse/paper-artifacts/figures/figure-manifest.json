@@ -1,0 +1,55 @@
+{
+  "generated_by": "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/paper-artifacts/scripts/build_figures.py",
+  "outputs": [
+    "figure-01-control-ladder-mobile.svg",
+    "figure-01-control-ladder.pdf",
+    "figure-01-control-ladder.svg",
+    "figure-02-latency-mobile.svg",
+    "figure-02-latency.pdf",
+    "figure-02-latency.svg",
+    "figure-03-codex-failures-mobile.svg",
+    "figure-03-codex-failures.pdf",
+    "figure-03-codex-failures.svg",
+    "figure-04-visible-input-tokens-mobile.svg",
+    "figure-04-visible-input-tokens.pdf",
+    "figure-04-visible-input-tokens.svg",
+    "figure-05-wall-time-mobile.svg",
+    "figure-05-wall-time.pdf",
+    "figure-05-wall-time.svg",
+    "figure-06-output-tokens-mobile.svg",
+    "figure-06-output-tokens.pdf",
+    "figure-06-output-tokens.svg",
+    "figure-manifest.json"
+  ],
+  "source_artifacts": [
+    "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/selected-cohort-summary.json",
+    "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-summary.json",
+    "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-findings.md"
+  ],
+  "figures": {
+    "figure-01-control-ladder": {
+      "source": "selected-cohort-summary.json",
+      "claim_boundary": "Mechanism/control evidence only; not a speedup claim."
+    },
+    "figure-02-latency": {
+      "source": "selected-cohort-summary.json",
+      "claim_boundary": "Reports committed run means; no replicated uncertainty interval."
+    },
+    "figure-03-codex-failures": {
+      "source": "repeated-work-speed-findings.md",
+      "claim_boundary": "Diagnostic category breakdown; not causal compaction evidence."
+    },
+    "figure-04-visible-input-tokens": {
+      "source": "repeated-work-speed-summary.json",
+      "claim_boundary": "Uses route-reported cumulative visible-input telemetry."
+    },
+    "figure-05-wall-time": {
+      "source": "repeated-work-speed-summary.json",
+      "claim_boundary": "Practical runtime comparison; not prompt-identical mechanism comparison."
+    },
+    "figure-06-output-tokens": {
+      "source": "repeated-work-speed-summary.json",
+      "claim_boundary": "Harness burden comparison assuming comparable task success."
+    }
+  }
+}
