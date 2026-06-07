@@ -67,3 +67,48 @@ The run required a KV-only resume after the original controller passed `--case-l
 ## Next Step
 
 For paper-grade speed claims, first run a natural chained Codex session with the normal verified compaction profile. If it produces auditable `context_compacted` events during the actual BFCL workload, compare that result against this KV run. If natural compaction still does not trigger, report that directly and keep any forced-threshold run as a separate stress-test result.
+
+## Natural Chained Codex Follow-Up
+
+Generated: 2026-06-07 05:11:07 UTC
+
+The natural chained Codex-only follow-up completed:
+
+- Run label: `bfcl-repeated-work-codex-natural-chained-v1`
+- Runtime: `codex-cli+ollama`
+- Profile: `gemma4-ollama-compact`
+- Model profile: `gemma4:12b`
+- Records: `100 / 100`
+- Codex pass: `86 / 100`
+- Codex cumulative wall time: `11,813,816 ms` (`196.9 min`)
+- Codex reported visible input tokens: `245,774,883`
+- Codex reported output tokens: `9,068,626`
+- Run stdout compaction markers: `0`
+- Codex session log `type:compacted` records: `89`
+- Exact `context_compacted` hits in `.codex/sessions`: `89`
+- Summary-text hits: `180`
+
+This corrects the earlier run-artifact-only read. The BFCL stdout artifacts did not contain compaction markers, but the Codex session JSONL did. Therefore this follow-up is a valid natural Codex text-summary compaction baseline for the tested route.
+
+The paper-safe label is:
+
+- `codex_ollama_regular_tools_natural_text_compaction`
+
+The result is not a pure prompt-identical mechanism comparison against KV capsules. It is a practical Codex/Ollama runtime baseline: regular visible tool prompts plus Codex's natural text-summary compaction behavior.
+
+Failure breakdown:
+
+- `java`: `14 / 17`
+- `javascript`: `0 / 1`
+- `multiple`: `21 / 25`
+- `parallel`: `13 / 14`
+- `parallel_multiple`: `13 / 17`
+- `simple`: `25 / 26`
+
+The `14` failed cases mostly produced parseable tool calls but missed exact BFCL scoring through wrong arguments, duplicate calls, extra calls, or missing parallel calls. One failed case parsed zero calls. This looks primarily like model/tool-call accuracy under the Codex text-compacted route, not parser collapse.
+
+Updated interpretation:
+
+> On the selected 100-case BFCL repeated-work stream, the existing KV capsule + Code Mode result remains the quality leader at `100 / 100`, while the natural Codex/Ollama regular-tool text-compaction follow-up completed at `86 / 100` with `89` auditable compaction events in the Codex session log.
+
+The next audit should inspect whether the Codex compaction summaries helped, hurt, or contaminated later BFCL tasks, because the summaries include prior task outputs and arguments.

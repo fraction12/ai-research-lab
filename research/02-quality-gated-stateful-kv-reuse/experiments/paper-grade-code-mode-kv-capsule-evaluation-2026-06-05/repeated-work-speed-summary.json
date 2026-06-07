@@ -5,6 +5,7 @@
   "record_count": 200,
   "source_labels": {
     "codex": "bfcl-repeated-work-speed-v1",
+    "codex_natural_chained": "bfcl-repeated-work-codex-natural-chained-v1",
     "kv": "bfcl-repeated-work-speed-v1-kv-resume"
   },
   "systems": {
@@ -16,6 +17,18 @@
       "pass_count": 87,
       "record_count": 100,
       "visible_input_tokens": 243088507
+    },
+    "codex_ollama_regular_tools_natural_text_compaction": {
+      "break_even_at_task": null,
+      "compaction_events_seen": 89,
+      "compaction_event_source": "Codex session JSONL under C:\\Users\\Dushyant\\.codex\\sessions; run stdout artifacts contained 0 markers",
+      "cumulative_wall_ms": 11813816.230300173,
+      "output_tokens": 9068626,
+      "pass_count": 86,
+      "record_count": 100,
+      "run_label": "bfcl-repeated-work-codex-natural-chained-v1",
+      "session_summary_text_hits": 180,
+      "visible_input_tokens": 245774883
     },
     "kv_capsule_code_mode": {
       "break_even_at_task": null,

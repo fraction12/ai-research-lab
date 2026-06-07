@@ -85,6 +85,24 @@ The primary follow-up Codex baseline must be run as a natural chained-session va
 
 A forced-threshold Codex run is allowed only as a separately labeled stress test. It must not replace the natural chained-session baseline in the main paper claim.
 
+### Natural Chained Follow-Up Result
+
+The natural chained Codex-only follow-up completed and satisfied the compaction evidence requirement:
+
+- Run label: `bfcl-repeated-work-codex-natural-chained-v1`
+- Profile: `gemma4-ollama-compact`
+- Codex/Ollama result: `86 / 100`
+- Run stdout compaction markers: `0`
+- Codex session log `type:compacted` records: `89`
+- Exact `context_compacted` hits in `.codex/sessions`: `89`
+- Session summary-text hits: `180`
+- Cumulative wall time: `11,813,816 ms`
+- Reported visible input token telemetry: `245,774,883`
+
+This run should be labeled `codex_ollama_regular_tools_natural_text_compaction`. The compaction evidence was not present in the per-task stdout artifacts; it was present in Codex's session JSONL. Therefore future audits must inspect both run artifacts and Codex session logs before concluding that compaction did or did not occur.
+
+This is a practical Codex/Ollama runtime baseline, not a prompt-identical mechanism comparison. The compaction summaries include prior BFCL task outputs and arguments, so the next analysis should classify whether those summaries improved continuity, introduced contamination, or contributed to later exact-match misses.
+
 If Codex/Ollama cannot expose the exact Gemma 4 quantization and GPU-offload profile used by the KV harness, use the closest same-weight route available and label the run as an operational harness comparison, not a pure model-identical mechanism comparison. The preferred setup is same model family, same quantization, same GPU offload profile, same sampling parameters.
 
 The compaction baseline must be strong enough that a reviewer would not call it a strawman. It must include:
