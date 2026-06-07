@@ -46,11 +46,15 @@ CONTROL_IDS = list(harness.CONTROL_IDS)
 NEGATIVE_CONTROLS = {"code_mode_fresh_tail_only", "code_mode_wrong_capsule_negative"}
 
 BFCL_CATEGORY_FILES = {
+    "simple_python": "BFCL_v4_simple_python.json",
+    "simple_java": "BFCL_v4_simple_java.json",
+    "simple_javascript": "BFCL_v4_simple_javascript.json",
     "simple": "BFCL_v3_simple.json",
     "multiple": "BFCL_v3_multiple.json",
     "parallel": "BFCL_v3_parallel.json",
     "parallel_multiple": "BFCL_v3_parallel_multiple.json",
     "irrelevance": "BFCL_v3_irrelevance.json",
+    "format_sensitivity": "BFCL_v4_format_sensitivity.json",
     "exec_simple": "BFCL_v3_exec_simple.json",
     "exec_multiple": "BFCL_v3_exec_multiple.json",
     "exec_parallel": "BFCL_v3_exec_parallel.json",
@@ -67,13 +71,17 @@ BFCL_CATEGORY_FILES = {
     "live_relevance": "BFCL_v3_live_relevance.json",
     "live_irrelevance": "BFCL_v3_live_irrelevance.json",
     "multi_turn_base": "BFCL_v3_multi_turn_base.json",
-    "multi_turn_composite": "BFCL_v3_multi_turn_composite.json",
     "multi_turn_long_context": "BFCL_v3_multi_turn_long_context.json",
     "multi_turn_miss_func": "BFCL_v3_multi_turn_miss_func.json",
     "multi_turn_miss_param": "BFCL_v3_multi_turn_miss_param.json",
+    "web_search": "BFCL_v4_web_search.json",
+    "memory": "BFCL_v4_memory.json",
 }
 INITIAL_CATEGORY_FILES = BFCL_CATEGORY_FILES
 DEFAULT_COMPATIBILITY_CATEGORIES = [
+    "simple_python",
+    "simple_java",
+    "simple_javascript",
     "simple",
     "multiple",
     "parallel",
@@ -101,7 +109,6 @@ DEFAULT_COMPATIBILITY_CATEGORIES = [
 ]
 MULTI_TURN_CATEGORIES = {
     "multi_turn_base",
-    "multi_turn_composite",
     "multi_turn_long_context",
     "multi_turn_miss_func",
     "multi_turn_miss_param",
@@ -470,18 +477,20 @@ def bfcl_tool_entries(case: BFCLCase) -> list[dict[str, Any]]:
 
 def source_provenance(case: BFCLCase) -> dict[str, Any]:
     row_id = str(case.source_row.get("id") or f"{case.category}_{case.source_row_index}")
+    source_file = BFCL_CATEGORY_FILES[case.category]
+    release = "BFCL_v4" if source_file.startswith("BFCL_v4") else "BFCL_v3"
     return {
         "benchmark_id": "BFCL",
-        "benchmark_release": "BFCL_v3",
+        "benchmark_release": release,
         "leaderboard_checkpoint": BFCL_LEADERBOARD_CHECKPOINT,
         "dataset_revision": BFCL_DATASET_REVISION,
         "dataset_url": f"https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard/tree/{BFCL_DATASET_REVISION}",
         "eval_package": BFCL_EVAL_PACKAGE,
         "license_id": "apache-2.0",
         "source_category": case.category,
-        "source_file": BFCL_CATEGORY_FILES[case.category],
+        "source_file": source_file,
         "source_answer_file": (
-            f"possible_answer/{BFCL_CATEGORY_FILES[case.category]}" if case.answer_row is not None else None
+            f"possible_answer/{source_file}" if case.answer_row is not None else None
         ),
         "source_row_id": row_id,
         "source_row_index": case.source_row_index,
