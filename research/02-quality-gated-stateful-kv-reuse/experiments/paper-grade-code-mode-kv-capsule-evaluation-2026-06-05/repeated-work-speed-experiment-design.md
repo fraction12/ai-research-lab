@@ -63,6 +63,26 @@ Use the verified DushyantPC Codex profile as the baseline starting point:
 
 The baseline has already passed a compaction viability smoke test: Codex emitted `context_compacted`, retained `BLUE-CAPSULE-77`, retained the allowed `weather.lookup` tool, retained the `finance.quote` prohibition, and answered correctly from compacted context across subsequent turns. The speed benchmark must rerun and log this kind of compaction evidence for the actual BFCL workload; the smoke test alone is not paper evidence.
 
+### Baseline A Follow-Up After First Run
+
+The first 100-case repeated-work run did not satisfy the compaction-baseline contract:
+
+- Run label: `bfcl-repeated-work-speed-v1`
+- Codex/Ollama result: `87 / 100`
+- Codex compaction events observed: `0`
+- KV + Code Mode result: `100 / 100`
+
+This invalidates the phrase "real Codex auto-compaction baseline" for that run. It remains a useful operational comparison against the tested Codex/Ollama regular-tool route, but it cannot support a claim against Codex compaction.
+
+The follow-up Codex baseline must be run as a compaction-forcing validation:
+
+- Use a new run label, e.g. `bfcl-repeated-work-codex-forced-compaction-v1`.
+- Run Codex only; reuse the existing KV result for comparison unless the benchmark design changes.
+- Keep the BFCL tasks in a continuing Codex thread through `resume --last` or an equivalent single-thread route.
+- Use a forced/budgeted Codex profile with a lower `model_auto_compact_token_limit` than the original `18000` threshold.
+- Accept the run as Baseline A only if the actual BFCL artifacts contain `context_compacted` or an equivalent Codex compaction marker.
+- If the run still logs zero compaction events, report "Codex auto-compaction did not trigger under the tested BFCL stream" and do not use it as a compaction baseline.
+
 If Codex/Ollama cannot expose the exact Gemma 4 quantization and GPU-offload profile used by the KV harness, use the closest same-weight route available and label the run as an operational harness comparison, not a pure model-identical mechanism comparison. The preferred setup is same model family, same quantization, same GPU offload profile, same sampling parameters.
 
 The compaction baseline must be strong enough that a reviewer would not call it a strawman. It must include:

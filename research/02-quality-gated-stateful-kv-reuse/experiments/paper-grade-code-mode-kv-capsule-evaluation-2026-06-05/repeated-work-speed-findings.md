@@ -33,6 +33,25 @@ The clean paper-safe claim is:
 
 > On the selected 100-case BFCL repeated-work stream, the KV capsule + Code Mode harness completed all tasks correctly with far lower visible prompt burden and lower cumulative wall time than the tested Codex/Ollama regular-tool baseline.
 
+## Compaction Baseline Correction
+
+The Codex/Ollama arm must not be described as a successful real-compaction baseline.
+
+Although the controller used the `gemma4-ollama-compact` Codex profile and the profile had previously emitted `context_compacted` in pressure testing, the actual BFCL repeated-work run logged `0` compaction events. The run created one Codex prompt/result pair per BFCL case and did not produce auditable evidence that the Codex context window filled and compacted during the benchmark.
+
+Therefore the completed result is best labeled:
+
+- `codex_ollama_regular_tools_attempted_compaction_no_events`
+
+It is evidence against the tested Codex/Ollama repeated-task route as executed. It is not evidence against a true single-thread Codex auto-compaction baseline.
+
+The required follow-up is a detached Codex-only baseline that:
+
+- keeps the BFCL stream in one continuing Codex thread;
+- uses a forced/budgeted auto-compaction threshold low enough to require compaction;
+- records `context_compacted` or equivalent markers during the actual BFCL workload;
+- is rejected as a compaction baseline if no compaction markers appear.
+
 ## Caveats
 
 Do not claim this as a definitive win over real compaction yet.

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import platform
 import subprocess
@@ -15,10 +16,10 @@ BENCHMARKS_DIR = Path(__file__).resolve().parent
 EXPERIMENT_ID = "paper-grade-code-mode-kv-capsule-evaluation-2026-06-05"
 RAW_DIR = BENCHMARKS_DIR / EXPERIMENT_ID / "raw"
 OUT_DIR = RAW_DIR / "repeated-work-speed"
-RUN_LABEL = "bfcl-repeated-work-speed-v1"
-TASK_NAME = "BFCLRepeatedWorkSpeedV1"
-EXPECTED_CASES = 100
-STALE_SECONDS = 30 * 60
+DEFAULT_RUN_LABEL = "bfcl-repeated-work-speed-v1"
+DEFAULT_TASK_NAME = "BFCLRepeatedWorkSpeedV1"
+DEFAULT_EXPECTED_CASES = 100
+DEFAULT_STALE_SECONDS = 30 * 60
 
 
 def now_utc() -> str:
@@ -150,23 +151,34 @@ def preferred_summary_path(out_dir: Path, run_label: str) -> Path:
     return max(summaries, key=lambda path: path.stat().st_mtime)
 
 
+def parse_args() -> argparse.Namespace:
+    ap = argparse.ArgumentParser(description="Probe a repeated-work speed run.")
+    ap.add_argument("--out-dir", type=Path, default=OUT_DIR)
+    ap.add_argument("--run-label", default=DEFAULT_RUN_LABEL)
+    ap.add_argument("--task-name", default=DEFAULT_TASK_NAME)
+    ap.add_argument("--expected-cases", type=int, default=DEFAULT_EXPECTED_CASES)
+    ap.add_argument("--stale-seconds", type=int, default=DEFAULT_STALE_SECONDS)
+    return ap.parse_args()
+
+
 def main() -> int:
-    record_paths = speed_record_paths(OUT_DIR, RUN_LABEL)
-    summary_path = preferred_summary_path(OUT_DIR, RUN_LABEL)
-    run_info_path = OUT_DIR / f"{RUN_LABEL}-run-info.json"
-    kv_paths = kv_record_paths(OUT_DIR, RUN_LABEL)
-    task = task_status(TASK_NAME)
-    codex_stdout_paths = sorted(OUT_DIR.glob(f"{RUN_LABEL}-codex-*.stdout.jsonl"))
-    codex_stderr_paths = sorted(OUT_DIR.glob(f"{RUN_LABEL}-codex-*.stderr.txt"))
-    prompt_paths = sorted((OUT_DIR / f"{RUN_LABEL}-codex-prompts").glob("*.txt"))
+    args = parse_args()
+    record_paths = speed_record_paths(args.out_dir, args.run_label)
+    summary_path = preferred_summary_path(args.out_dir, args.run_label)
+    run_info_path = args.out_dir / f"{args.run_label}-run-info.json"
+    kv_paths = kv_record_paths(args.out_dir, args.run_label)
+    task = task_status(args.task_name)
+    codex_stdout_paths = sorted(args.out_dir.glob(f"{args.run_label}-codex-*.stdout.jsonl"))
+    codex_stderr_paths = sorted(args.out_dir.glob(f"{args.run_label}-codex-*.stderr.txt"))
+    prompt_paths = sorted((args.out_dir / f"{args.run_label}-codex-prompts").glob("*.txt"))
     activity = newest(codex_stdout_paths + codex_stderr_paths + kv_paths + record_paths + [summary_path, run_info_path])
     summary = read_json(summary_path)
     status: dict[str, Any] = {
         "checked_utc": now_utc(),
-        "run_label": RUN_LABEL,
-        "task_name": TASK_NAME,
-        "out_dir": str(OUT_DIR),
-        "expected_cases": EXPECTED_CASES,
+        "run_label": args.run_label,
+        "task_name": args.task_name,
+        "out_dir": str(args.out_dir),
+        "expected_cases": args.expected_cases,
         "task": {"status": task.get("status"), "last_result": task.get("last_result"), "exit_code": task.get("exit_code")},
         "gpu": gpu_status().get("parsed"),
         "processes_exit_code": process_status().get("exit_code"),
@@ -198,7 +210,7 @@ def main() -> int:
                 "codex_compaction_events_seen": int(codex.get("compaction_events_seen") or 0),
             }
         )
-        if not codex and len(codex_stdout_paths) >= EXPECTED_CASES and kv_pass >= EXPECTED_CASES:
+        if not codex and len(codex_stdout_paths) >= args.expected_cases and kv_pass >= args.expected_cases:
             status["status"] = "completed_resume_summary_only"
             status["message"] = (
                 "BFCL repeated-work speed run completed after a KV-only resume; "
@@ -206,14 +218,14 @@ def main() -> int:
             )
             print(json.dumps(status, indent=2))
             return 0
-        if codex_pass < EXPECTED_CASES or kv_pass < EXPECTED_CASES:
+        if codex_pass < args.expected_cases or kv_pass < args.expected_cases:
             status["status"] = "completed_with_quality_gap"
             status["message"] = "BFCL repeated-work speed run completed but at least one arm missed the pass-count target."
         print(json.dumps(status, indent=2))
         return 0
 
     task_running = task.get("status") == "Running"
-    fresh = bool(activity.get("exists")) and float(activity.get("age_seconds", STALE_SECONDS + 1)) < STALE_SECONDS
+    fresh = bool(activity.get("exists")) and float(activity.get("age_seconds", args.stale_seconds + 1)) < args.stale_seconds
     if task_running and fresh:
         status.update({"action": "none", "status": "healthy_running"})
         print(json.dumps(status, indent=2))

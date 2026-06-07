@@ -218,3 +218,42 @@ Before the full run, smoke both paths:
 - Combined controller smoke: `--systems codex,kv --case-limit 1`
 
 The full speed run should remove `--case-limit` only after the smokes produce scored records for both systems and the Codex run logs compaction evidence once the repeated-work stream grows enough to trigger the verified profile threshold.
+
+### Completed Repeated-Work Run
+
+The first 100-case repeated-work run completed via Codex-first execution plus KV-only resume:
+
+- Run label: `bfcl-repeated-work-speed-v1`
+- Final commit: `7f63a53`
+- KV + Code Mode: `100 / 100`, `14.2 min`
+- Codex/Ollama regular-tool route: `87 / 100`, `192.0 min`
+- Codex compaction events in actual BFCL run: `0`
+
+This run must be cited carefully. It is not a valid real-compaction baseline because Codex did not emit compaction markers during the BFCL workload. Treat it as an operational comparison against the tested Codex/Ollama regular-tool route as executed.
+
+### Forced Codex Compaction Follow-Up
+
+Run a Codex-only follow-up before making any claim against real Codex compaction:
+
+```powershell
+cd C:\ai\paper
+$raw = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/raw"
+$cache = "research/01-ssd-native-inference-current/benchmarks/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/cache"
+$packet = "$raw\bfcl-paper-selected-cohort-v1-control-packet.jsonl"
+$codex = "C:\Users\Dushyant\AppData\Roaming\npm\node_modules\@openai\codex\bin\codex.js"
+
+python research/01-ssd-native-inference-current/benchmarks/paper_campaign_repeated_work_speed.py `
+  --packet "$packet" `
+  --out-dir "$raw\repeated-work-speed" `
+  --cache-dir "$cache" `
+  --systems codex `
+  --run-label bfcl-repeated-work-codex-forced-compaction-v1 `
+  --codex-bin "$codex" `
+  --codex-profile gemma4-ollama-compact-forced `
+  --model-profile gemma4-12b
+```
+
+Acceptance rule:
+
+- If BFCL artifacts contain `context_compacted` or equivalent Codex compaction markers, this can be analyzed as the forced Codex compaction baseline.
+- If compaction events remain `0`, the result is a failed compaction-trigger attempt and must not be used as Baseline A.
