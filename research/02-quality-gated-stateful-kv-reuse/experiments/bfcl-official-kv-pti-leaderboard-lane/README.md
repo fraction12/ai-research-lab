@@ -22,6 +22,40 @@ This lane is separate from the paper-selected 100-case cohort. Do not mix these 
 
 BFCL's evaluator expects known model keys and handlers. Our runtime is a custom inference harness: Gemma 4 with stable BFCL function catalogs loaded into restored llama.cpp KV/sequence state, plus a compact programmatic tool interface. For a public leaderboard entry, we must disclose that runtime and may need BFCL maintainer acceptance or a small custom handler overlay so the evaluator can decode our pre-generated prompt-mode outputs.
 
+## PTI Run-Readiness Boundary
+
+The active PTI lane is a compiler-style harness, not an answer-key repair system.
+
+Allowed model-facing repair inputs:
+
+- user request
+- visible compact function signatures
+- visible schema constraints
+- previous model output
+- parser errors
+- schema-validator diagnostics
+
+Forbidden model-facing repair inputs:
+
+- `possible_answer`
+- `expected_answer`
+- `expected_calls`
+- `ground_truth`
+- category labels used as hints
+- scorer misses or official evaluator answer-key details
+
+Before a full `1390` non-live candidate rerun, the lane must pass:
+
+- DushyantPC unit and micro-smokes
+- weak-category 15-case restored-KV smoke at `13/15` or better
+- `irrelevance 3/3`
+- no weak category below `2/3`
+- no unrecovered empty repairs
+- no preserved-call damage
+- targeted 50-case restored-KV smoke plus official partial evaluator pass
+
+The 2026-06-07 PTI v4 smoke did **not** pass this gate: it scored `10/15`, with `parallel_multiple` at `1/3`. The full non-live rerun remains blocked.
+
 ## Setup
 
 ```bash

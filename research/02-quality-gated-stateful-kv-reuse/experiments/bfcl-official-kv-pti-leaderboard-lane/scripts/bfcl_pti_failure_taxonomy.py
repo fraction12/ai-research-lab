@@ -54,6 +54,31 @@ def repair_damaged(record: dict[str, Any]) -> bool:
     return False
 
 
+def score_failure_owner(record: dict[str, Any]) -> str | None:
+    quality = record.get("quality") if isinstance(record.get("quality"), dict) else {}
+    score = quality.get("bfcl_score") if isinstance(quality.get("bfcl_score"), dict) else {}
+    if not score:
+        return None
+    expected_count = score.get("expected_count")
+    parsed_count = score.get("parsed_count")
+    matched_count = score.get("matched_count")
+    if parsed_count == 0 and expected_count:
+        return "model_format_or_empty_output"
+    if isinstance(expected_count, int) and isinstance(parsed_count, int) and parsed_count != expected_count:
+        return "model_call_count"
+    missing = score.get("missing") if isinstance(score.get("missing"), list) else []
+    extra = score.get("extra") if isinstance(score.get("extra"), list) else []
+    if missing and extra:
+        missing_names = {str(item.get("name")) for item in missing if isinstance(item, dict)}
+        extra_names = {str(item.get("name")) for item in extra if isinstance(item, dict)}
+        if missing_names == extra_names:
+            return "model_argument_shape"
+        return "model_semantic_function_choice"
+    if missing and matched_count == 0:
+        return "model_semantic_function_choice"
+    return None
+
+
 def classify_owner(record: dict[str, Any]) -> str:
     if repair_damaged(record):
         return "harness_repair_damage"
@@ -78,6 +103,9 @@ def classify_owner(record: dict[str, Any]) -> str:
     ]
     if parse_statuses and all(status in {"invalid", "empty", "none"} or "parse" in status for status in parse_statuses):
         return "harness_parsing_or_model_format"
+    score_owner = score_failure_owner(record)
+    if score_owner:
+        return score_owner
     return "unknown"
 
 

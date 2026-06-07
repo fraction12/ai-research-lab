@@ -1,0 +1,80 @@
+{
+  "by_category": {
+    "irrelevance": {
+      "passed": 3,
+      "total": 3
+    },
+    "parallel": {
+      "failed": 1,
+      "passed": 2,
+      "total": 3
+    },
+    "parallel_multiple": {
+      "failed": 2,
+      "passed": 1,
+      "total": 3
+    },
+    "simple_java": {
+      "failed": 1,
+      "passed": 2,
+      "total": 3
+    },
+    "simple_javascript": {
+      "failed": 1,
+      "passed": 2,
+      "total": 3
+    }
+  },
+  "failed": 5,
+  "failures": [
+    {
+      "case_id": "bfcl:parallel:parallel_2",
+      "category": "parallel",
+      "likely_owner": "model_call_count",
+      "repair_damaged_preserved_call": false,
+      "schema_codes": []
+    },
+    {
+      "case_id": "bfcl:parallel_multiple:parallel_multiple_0",
+      "category": "parallel_multiple",
+      "likely_owner": "model_argument_shape",
+      "repair_damaged_preserved_call": false,
+      "schema_codes": []
+    },
+    {
+      "case_id": "bfcl:parallel_multiple:parallel_multiple_2",
+      "category": "parallel_multiple",
+      "likely_owner": "model_call_count",
+      "repair_damaged_preserved_call": false,
+      "schema_codes": []
+    },
+    {
+      "case_id": "bfcl:simple_java:java_1",
+      "category": "simple_java",
+      "likely_owner": "model_argument_shape",
+      "repair_damaged_preserved_call": false,
+      "schema_codes": []
+    },
+    {
+      "case_id": "bfcl:simple_javascript:javascript_2",
+      "category": "simple_javascript",
+      "likely_owner": "model_format_or_empty_output",
+      "repair_damaged_preserved_call": false,
+      "schema_codes": []
+    }
+  ],
+  "likely_owner_counts": {
+    "model_argument_shape": 2,
+    "model_call_count": 2,
+    "model_format_or_empty_output": 1
+  },
+  "no_cheat_boundary": {
+    "does_not_emit_expected_calls": true,
+    "does_not_read_possible_answer": true,
+    "not_model_facing": true,
+    "post_hoc_only": true
+  },
+  "passed": 10,
+  "record_count": 15,
+  "taxonomy_version": "bfcl_pti_no_cheat_failure_taxonomy_v1"
+}
