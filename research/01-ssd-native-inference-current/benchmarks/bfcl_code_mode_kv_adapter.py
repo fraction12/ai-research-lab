@@ -32,7 +32,8 @@ import code_mode_tool_surface as tool_surface  # noqa: E402
 ADAPTER_VERSION = "bfcl_code_mode_kv_adapter_v1"
 TRANSFORM_VERSION = "bfcl_code_mode_kv_transform_v1"
 SCORER_VERSION = "bfcl_expected_call_scorer_v1"
-PROMPT_PROTOCOL_VERSION = "bfcl_programmatic_tool_interface_v2"
+PROMPT_PROTOCOL_VERSION = "bfcl_programmatic_tool_interface_v3"
+PTI_SCHEMA_VALIDATOR_VERSION = "bfcl_pti_schema_validator_v3"
 EXPERIMENT_ID = "nonhandmade-code-mode-kv-agent-benchmark-2026-06-05"
 BFCL_LEADERBOARD_CHECKPOINT = "f7cf735"
 BFCL_DATASET_REVISION = "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda"
@@ -402,6 +403,7 @@ def stable_prefix(case: BFCLCase, *, code_mode: bool) -> str:
         "Use function names and parameter names exactly as written in the catalog.\n"
         "Do not invent functions, parameters, or values that are not supported by the user request and schema.\n"
         "Omit optional/default parameters unless the user request clearly specifies them."
+        "\nPTI v3 repair boundary: if a validator asks for repair, use only the user request, catalog, prior output, and schema errors."
     )
 
 
@@ -580,13 +582,16 @@ def control_packet(case: BFCLCase, control_id: str) -> dict[str, Any]:
         },
         "pti_runtime": {
             "runtime_version": PROMPT_PROTOCOL_VERSION,
-            "schema_validator_version": "bfcl_pti_schema_validator_v1",
+            "schema_validator_version": PTI_SCHEMA_VALIDATOR_VERSION,
+            "repair_prompt_version": "bfcl_pti_schema_only_repair_prompt_v1",
             "inference_allowed_inputs": [
                 "source_user_request",
                 "visible_function_catalog_schema",
                 "model_output",
                 "parser_decoder_errors",
                 "schema_validator_errors",
+                "user_request_literal_diagnostics",
+                "user_request_operation_count_diagnostics",
             ],
             "inference_disallowed_inputs": [
                 "possible_answer",
@@ -827,6 +832,31 @@ def _function_catalog_by_name(functions: list[dict[str, Any]]) -> dict[str, dict
     return {str(function.get("name")): function for function in functions if function.get("name")}
 
 
+def _resolve_catalog_function(
+    catalog: dict[str, dict[str, Any]], emitted_name: str
+) -> tuple[str | None, dict[str, Any] | None, list[str], dict[str, Any] | None]:
+    if emitted_name in catalog:
+        return emitted_name, catalog[emitted_name], [], None
+    suffix_matches = [
+        name for name in catalog if name.rsplit(".", 1)[-1] == emitted_name or name.rsplit(":", 1)[-1] == emitted_name
+    ]
+    if len(suffix_matches) == 1:
+        name = suffix_matches[0]
+        return name, catalog[name], ["function_suffix_match"], None
+    if len(suffix_matches) > 1:
+        return (
+            None,
+            None,
+            [],
+            {
+                "code": "ambiguous_function",
+                "function": emitted_name,
+                "candidates": suffix_matches,
+            },
+        )
+    return None, None, [], {"code": "unknown_function", "function": emitted_name}
+
+
 def _parameter_schema(function: dict[str, Any]) -> tuple[dict[str, dict[str, Any]], set[str]]:
     parameters = function.get("parameters") if isinstance(function.get("parameters"), dict) else {}
     properties = parameters.get("properties") if isinstance(parameters.get("properties"), dict) else {}
@@ -880,8 +910,144 @@ def _value_matches_schema_type(value: Any, expected_type: str | None) -> bool:
     return True
 
 
+def _validate_value_against_schema(
+    value: Any,
+    schema: dict[str, Any],
+    *,
+    path: str,
+    call_index: int,
+    function: str,
+) -> list[dict[str, Any]]:
+    expected_type = _schema_type(schema)
+    errors: list[dict[str, Any]] = []
+    if not _value_matches_schema_type(value, expected_type):
+        errors.append(
+            {
+                "code": "type_mismatch" if "." not in path else "nested_type_mismatch",
+                "call_index": call_index,
+                "function": function,
+                "argument": path,
+                "expected_type": expected_type,
+                "actual_type": type(value).__name__,
+            }
+        )
+        return errors
+    if value is None:
+        return errors
+    if expected_type == "object" and isinstance(value, dict):
+        properties = schema.get("properties") if isinstance(schema.get("properties"), dict) else {}
+        for key, child in value.items():
+            child_schema = properties.get(str(key))
+            if isinstance(child_schema, dict):
+                errors.extend(
+                    _validate_value_against_schema(
+                        child,
+                        child_schema,
+                        path=f"{path}.{key}",
+                        call_index=call_index,
+                        function=function,
+                    )
+                )
+    if expected_type == "array" and isinstance(value, list):
+        item_schema = schema.get("items") if isinstance(schema.get("items"), dict) else None
+        if item_schema:
+            for index, child in enumerate(value):
+                errors.extend(
+                    _validate_value_against_schema(
+                        child,
+                        item_schema,
+                        path=f"{path}[{index}]",
+                        call_index=call_index,
+                        function=function,
+                    )
+                )
+    return errors
+
+
+def _identifier_like_schema(argument: str, schema: dict[str, Any]) -> bool:
+    haystack = f"{argument} {schema.get('description', '')} {schema.get('title', '')}".lower()
+    return any(token in haystack for token in ("callback", "function", "identifier", "handler", "method"))
+
+
+def _exact_identifier_tokens(text: str) -> set[str]:
+    tokens = set(re.findall(r"\b[A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)*\b", text))
+    boring = {
+        "a",
+        "an",
+        "and",
+        "as",
+        "callback",
+        "call",
+        "function",
+        "handler",
+        "method",
+        "the",
+        "to",
+        "use",
+        "with",
+    }
+    return {token for token in tokens if token.lower() not in boring and (re.search(r"[A-Z_$]", token) or "." in token)}
+
+
+def _literal_preservation_errors(
+    *,
+    argument: str,
+    value: Any,
+    schema: dict[str, Any],
+    user_request: str,
+    call_index: int,
+    function: str,
+) -> list[dict[str, Any]]:
+    if not isinstance(value, str) or not _identifier_like_schema(argument, schema):
+        return []
+    candidates = _exact_identifier_tokens(user_request)
+    enum_values = schema.get("enum") if isinstance(schema.get("enum"), list) else []
+    candidates.update(str(item) for item in enum_values if isinstance(item, str))
+    if not candidates or value in candidates:
+        return []
+    value_words = set(re.findall(r"[A-Za-z0-9_$]+", value))
+    for candidate in sorted(candidates, key=len, reverse=True):
+        if candidate not in value and candidate not in value_words:
+            return [
+                {
+                    "code": "literal_preservation_suspect",
+                    "call_index": call_index,
+                    "function": function,
+                    "argument": argument,
+                    "candidate_literal": candidate,
+                    "actual_value": value,
+                }
+            ]
+    return []
+
+
+def infer_minimum_call_count(user_request: str, functions: list[dict[str, Any]]) -> int | None:
+    """Best-effort generic operation-count diagnostic from request text only."""
+    text = " ".join(user_request.strip().split())
+    if not text:
+        return None
+    explicit = re.search(r"\b(?:exactly|all|both|these)?\s*(\d+)\s+(?:independent\s+)?(?:calls|operations|tasks|requests|items)\b", text, re.I)
+    if explicit:
+        return max(1, int(explicit.group(1)))
+    if re.search(r"\b(both|respectively)\b", text, re.I):
+        return 2
+    # Useful for BFCL parallel-style requests: "draw a rectangle and a circle"
+    object_pair = re.search(
+        r"\b(?:a|an|the)\s+([A-Za-z][A-Za-z0-9_-]*)\s+(?:and|plus)\s+(?:a|an|the)\s+([A-Za-z][A-Za-z0-9_-]*)\b",
+        text,
+        re.I,
+    )
+    if object_pair and object_pair.group(1).lower() != object_pair.group(2).lower():
+        return 2
+    if len(functions) == 1:
+        function_name = str(functions[0].get("name", "")).rsplit(".", 1)[-1].lower()
+        if function_name and len(re.findall(rf"\b{re.escape(function_name)}\b", text.lower())) > 1:
+            return 2
+    return None
+
+
 def validate_pti_calls_against_catalog(
-    functions: list[dict[str, Any]], calls: list[dict[str, Any]]
+    functions: list[dict[str, Any]], calls: list[dict[str, Any]], *, user_request: str = ""
 ) -> dict[str, Any]:
     """Validate parsed PTI calls against visible function schema only.
 
@@ -890,12 +1056,25 @@ def validate_pti_calls_against_catalog(
     """
     catalog = _function_catalog_by_name(functions)
     errors: list[dict[str, Any]] = []
+    canonical_calls: list[dict[str, Any]] = []
     for call_index, call in enumerate(calls):
-        name = actual_call_name(call)
+        source_name = actual_call_name(call)
         arguments = actual_call_arguments(call)
-        function = catalog.get(name)
+        name, function, normalizations, resolution_error = _resolve_catalog_function(catalog, source_name)
+        if resolution_error is not None:
+            errors.append({"call_index": call_index, **resolution_error})
+            continue
+        assert name is not None
+        assert function is not None
+        canonical_calls.append(
+            {
+                "name": name,
+                "source_name": source_name,
+                "arguments": arguments,
+                "normalizations": normalizations,
+            }
+        )
         if function is None:
-            errors.append({"code": "unknown_function", "call_index": call_index, "function": name})
             continue
         properties, required = _parameter_schema(function)
         for key in sorted(required):
@@ -911,34 +1090,80 @@ def validate_pti_calls_against_catalog(
         for key, value in arguments.items():
             schema = properties.get(str(key))
             if schema is None:
+                case_style_hint = "camelCase_parameter_expected" if any(re.search(r"[a-z][A-Z]", item) for item in properties) else None
                 errors.append(
                     {
                         "code": "unexpected_argument",
                         "call_index": call_index,
                         "function": name,
                         "argument": str(key),
+                        **({"hint": case_style_hint} if case_style_hint else {}),
                     }
                 )
                 continue
-            expected_type = _schema_type(schema)
-            if not _value_matches_schema_type(value, expected_type):
-                errors.append(
-                    {
-                        "code": "type_mismatch",
-                        "call_index": call_index,
-                        "function": name,
-                        "argument": str(key),
-                        "expected_type": expected_type,
-                        "actual_type": type(value).__name__,
-                    }
+            errors.extend(
+                _validate_value_against_schema(value, schema, path=str(key), call_index=call_index, function=name)
+            )
+            errors.extend(
+                _literal_preservation_errors(
+                    argument=str(key),
+                    value=value,
+                    schema=schema,
+                    user_request=user_request,
+                    call_index=call_index,
+                    function=name,
                 )
+            )
+    minimum_call_count = infer_minimum_call_count(user_request, functions)
+    if minimum_call_count is not None and len(canonical_calls) < minimum_call_count:
+        errors.append(
+            {
+                "code": "likely_call_count_mismatch",
+                "expected_min_calls": minimum_call_count,
+                "actual_calls": len(canonical_calls),
+                "evidence": "user_request_only",
+            }
+        )
     return {
-        "validator_version": "bfcl_pti_schema_validator_v1",
+        "validator_version": PTI_SCHEMA_VALIDATOR_VERSION,
         "valid": not errors,
-        "call_count": len(calls),
+        "call_count": len(canonical_calls),
         "error_count": len(errors),
         "errors": errors,
+        "canonical_calls": canonical_calls,
+        "minimum_call_count": minimum_call_count,
     }
+
+
+def build_schema_only_repair_prompt(
+    *,
+    user_request: str,
+    functions: list[dict[str, Any]],
+    model_output: str,
+    calls: list[dict[str, Any]],
+    validation: dict[str, Any],
+) -> str:
+    """Build a paper-safe repair prompt from schema and validator errors only."""
+    payload = {
+        "user_request": user_request,
+        "visible_function_catalog": functions,
+        "previous_model_output": model_output,
+        "parsed_call_plan": calls,
+        "validator_errors": validation.get("errors", []),
+    }
+    text = canonical_json(payload)
+    forbidden = ("possible_answer", "expected_answer", "expected_calls", "ground_truth")
+    lowered = text.lower()
+    if any(token in lowered for token in forbidden):
+        raise ValueError("schema-only repair prompt received forbidden answer-key material")
+    return (
+        "SYSTEM:\n"
+        "Repair this PTI call plan using only the user request, visible function catalog, "
+        "previous model output, parsed call plan, and validator errors. Do not use or infer any answer key.\n\n"
+        "VISIBLE FUNCTION CATALOG / USER REQUEST / VALIDATOR ERRORS:\n"
+        f"{text}\n\n"
+        "Return only the repaired function call list. Use no explanation."
+    )
 
 
 def materialize_cases(

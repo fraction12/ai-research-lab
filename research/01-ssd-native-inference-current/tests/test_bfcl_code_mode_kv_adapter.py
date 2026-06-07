@@ -447,16 +447,21 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertEqual(adapter.actual_call_name(truncated_doubled_quote_wrapper[0]), "calculate_average")
         self.assertEqual(adapter.actual_call_arguments(truncated_doubled_quote_wrapper[0])["gradeDict"]["science"], 75)
 
-    def test_stable_prefix_contains_pti_v2_contract(self) -> None:
+    def test_stable_prefix_contains_pti_v3_contract(self) -> None:
         case = adapter.materialize_cases(source_dir=self.make_source_dir(), categories=["simple"], per_category=1)[0]
         prefix = adapter.stable_prefix(case, code_mode=True)
 
-        self.assertIn("PTI protocol version = bfcl_programmatic_tool_interface_v2", prefix)
+        self.assertIn("PTI protocol version = bfcl_programmatic_tool_interface_v3", prefix)
         self.assertIn("If no provided function can satisfy the user request, output an empty call list", prefix)
         self.assertIn("Count the independent operations requested by the user before emitting calls", prefix)
         self.assertIn("Do not emit helper, search, validation, explanation, or planning calls", prefix)
         self.assertIn("Use function names and parameter names exactly as written in the catalog", prefix)
         self.assertIn("Omit optional/default parameters unless the user request clearly specifies them", prefix)
+        self.assertIn("PTI v3 repair boundary", prefix)
+
+        packet = adapter.control_packet(case, "code_mode_full_visible")
+        self.assertEqual(packet["pti_runtime"]["schema_validator_version"], "bfcl_pti_schema_validator_v3")
+        self.assertEqual(packet["pti_runtime"]["repair_prompt_version"], "bfcl_pti_schema_only_repair_prompt_v1")
 
     def test_schema_validator_uses_visible_catalog_without_expected_answers(self) -> None:
         functions = [
@@ -497,6 +502,136 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertIn("missing_required_argument", codes)
         self.assertIn("unexpected_argument", codes)
         self.assertIn("type_mismatch", codes)
+
+    def test_pti_v3_canonicalizes_schema_referenced_function_names(self) -> None:
+        functions = [
+            {"name": "GorillaFileSystem.mkdir", "parameters": {"type": "dict", "properties": {}}},
+            {"name": "GorillaFileSystem.mv", "parameters": {"type": "dict", "properties": {}}},
+        ]
+
+        valid = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "mkdir", "arguments": {}}],
+            user_request="Make a temp directory.",
+        )
+        self.assertTrue(valid["valid"])
+        self.assertEqual(valid["canonical_calls"][0]["name"], "GorillaFileSystem.mkdir")
+        self.assertEqual(valid["canonical_calls"][0]["source_name"], "mkdir")
+        self.assertIn("function_suffix_match", valid["canonical_calls"][0]["normalizations"])
+
+        ambiguous = adapter.validate_pti_calls_against_catalog(
+            [
+                {"name": "A.lookup", "parameters": {"type": "dict", "properties": {}}},
+                {"name": "B.lookup", "parameters": {"type": "dict", "properties": {}}},
+            ],
+            [{"name": "lookup", "arguments": {}}],
+            user_request="Run lookup.",
+        )
+        self.assertFalse(ambiguous["valid"])
+        self.assertIn("ambiguous_function", {error["code"] for error in ambiguous["errors"]})
+
+    def test_pti_v3_reports_call_count_without_expected_answers(self) -> None:
+        functions = [
+            {
+                "name": "draw_shape",
+                "description": "Draw one shape.",
+                "parameters": {"type": "dict", "properties": {"shape": {"type": "string"}}},
+            }
+        ]
+
+        result = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "draw_shape", "arguments": {"shape": "rectangle"}}],
+            user_request="Draw a rectangle and a circle.",
+        )
+        self.assertFalse(result["valid"])
+        mismatch = [error for error in result["errors"] if error["code"] == "likely_call_count_mismatch"]
+        self.assertEqual(mismatch[0]["expected_min_calls"], 2)
+        self.assertNotIn("expected_calls", json.dumps(result))
+        self.assertNotIn("possible_answer", json.dumps(result))
+
+    def test_pti_v3_reports_identifier_literal_paraphrase(self) -> None:
+        functions = [
+            {
+                "name": "register_callback",
+                "description": "Register a callback function.",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "callbackName": {
+                            "type": "string",
+                            "description": "Exact callback function identifier.",
+                        }
+                    },
+                    "required": ["callbackName"],
+                },
+            }
+        ]
+
+        result = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "register_callback", "arguments": {"callbackName": "processing function"}}],
+            user_request="Register processFunction as the callback.",
+        )
+        self.assertFalse(result["valid"])
+        literal_errors = [error for error in result["errors"] if error["code"] == "literal_preservation_suspect"]
+        self.assertEqual(literal_errors[0]["candidate_literal"], "processFunction")
+
+    def test_pti_v3_validates_nested_schema_shapes(self) -> None:
+        functions = [
+            {
+                "name": "search_properties",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "budget": {
+                            "type": "object",
+                            "properties": {
+                                "min": {"type": "integer"},
+                                "max": {"type": "integer"},
+                            },
+                        },
+                        "tags": {"type": "array", "items": {"type": "string"}},
+                    },
+                },
+            }
+        ]
+
+        result = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "search_properties", "arguments": {"budget": {"min": "300000"}, "tags": "villa"}}],
+            user_request="Find villa properties between 300000 and 400000.",
+        )
+        self.assertFalse(result["valid"])
+        codes = {error["code"] for error in result["errors"]}
+        self.assertIn("nested_type_mismatch", codes)
+        self.assertIn("type_mismatch", codes)
+
+    def test_pti_v3_repair_prompt_is_schema_only(self) -> None:
+        functions = [
+            {
+                "name": "draw_shape",
+                "parameters": {"type": "dict", "properties": {"shape": {"type": "string"}}},
+            }
+        ]
+        validation = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "draw_shape", "arguments": {"shape": "rectangle"}}],
+            user_request="Draw a rectangle and a circle.",
+        )
+        prompt = adapter.build_schema_only_repair_prompt(
+            user_request="Draw a rectangle and a circle.",
+            functions=functions,
+            model_output='{"calls":[{"name":"draw_shape","arguments":{"shape":"rectangle"}}]}',
+            calls=validation["canonical_calls"],
+            validation=validation,
+        )
+
+        self.assertIn("VISIBLE FUNCTION CATALOG", prompt)
+        self.assertIn("VALIDATOR ERRORS", prompt)
+        forbidden = ["possible_answer", "expected_answer", "expected_calls", "ground_truth"]
+        for token in forbidden:
+            self.assertNotIn(token, prompt)
 
     def test_tool_surface_runtime_normalizes_dialects_without_expected_answers(self) -> None:
         samples = [
