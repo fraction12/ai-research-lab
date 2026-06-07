@@ -127,16 +127,21 @@ def newest(paths: list[Path]) -> dict[str, Any]:
     return info
 
 
+def kv_record_paths(out_dir: Path, run_label: str) -> list[Path]:
+    """Return KV model-loop record files for original and resumed KV arms."""
+    return sorted(out_dir.glob(f"{run_label}-kv*-model-loop-records.jsonl"))
+
+
 def main() -> int:
     records_path = OUT_DIR / f"{RUN_LABEL}-speed-records.jsonl"
     summary_path = OUT_DIR / f"{RUN_LABEL}-speed-summary.json"
     run_info_path = OUT_DIR / f"{RUN_LABEL}-run-info.json"
-    kv_records_path = OUT_DIR / f"{RUN_LABEL}-kv-model-loop-records.jsonl"
+    kv_paths = kv_record_paths(OUT_DIR, RUN_LABEL)
     task = task_status(TASK_NAME)
     codex_stdout_paths = sorted(OUT_DIR.glob(f"{RUN_LABEL}-codex-*.stdout.jsonl"))
     codex_stderr_paths = sorted(OUT_DIR.glob(f"{RUN_LABEL}-codex-*.stderr.txt"))
     prompt_paths = sorted((OUT_DIR / f"{RUN_LABEL}-codex-prompts").glob("*.txt"))
-    activity = newest(codex_stdout_paths + codex_stderr_paths + [kv_records_path, records_path, summary_path, run_info_path])
+    activity = newest(codex_stdout_paths + codex_stderr_paths + kv_paths + [records_path, summary_path, run_info_path])
     summary = read_json(summary_path)
     status: dict[str, Any] = {
         "checked_utc": now_utc(),
@@ -150,7 +155,8 @@ def main() -> int:
         "codex_prompt_count": len(prompt_paths),
         "codex_stdout_count": len(codex_stdout_paths),
         "codex_stderr_count": len(codex_stderr_paths),
-        "kv_record_count": jsonl_count(kv_records_path),
+        "kv_record_count": sum(jsonl_count(path) for path in kv_paths),
+        "kv_record_files": [str(path) for path in kv_paths],
         "speed_record_count": jsonl_count(records_path),
         "summary": file_info(summary_path),
         "run_info": file_info(run_info_path),
