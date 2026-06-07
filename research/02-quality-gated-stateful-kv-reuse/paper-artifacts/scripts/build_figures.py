@@ -42,7 +42,7 @@ INITIAL_OFFICIAL_BFCL = [
 ]
 
 BFCL_LEADERBOARD_REFERENCES = [
-    ("Our KV Capsule + PTI\ninitial local run", 69.88, "custom local harness"),
+    ("Gemma 4 20B +\nKV Capsule + PTI", 69.88, "custom local harness"),
     ("Gemma-3-12b-it\nPrompt", 79.44, "official BFCL"),
     ("Granite-20b\nFC", 82.35, "official BFCL"),
     ("Gemma-3-27b-it\nPrompt", 87.17, "official BFCL"),
