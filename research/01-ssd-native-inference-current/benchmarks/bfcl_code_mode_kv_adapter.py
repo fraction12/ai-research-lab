@@ -33,8 +33,8 @@ import code_mode_tool_surface as tool_surface  # noqa: E402
 ADAPTER_VERSION = "bfcl_code_mode_kv_adapter_v1"
 TRANSFORM_VERSION = "bfcl_code_mode_kv_transform_v1"
 SCORER_VERSION = "bfcl_expected_call_scorer_v1"
-PROMPT_PROTOCOL_VERSION = "bfcl_programmatic_tool_interface_v3"
-PTI_SCHEMA_VALIDATOR_VERSION = "bfcl_pti_schema_validator_v3"
+PROMPT_PROTOCOL_VERSION = "bfcl_programmatic_tool_interface_v4"
+PTI_SCHEMA_VALIDATOR_VERSION = "bfcl_pti_schema_validator_v4"
 PTI_SCHEMA_BLOCKING_ERROR_CODES = {
     "ambiguous_function",
     "missing_required_argument",
@@ -381,6 +381,66 @@ def function_catalog_text(functions: list[dict[str, Any]]) -> str:
     return canonical_json(functions)
 
 
+def _schema_placeholder(schema: dict[str, Any]) -> Any:
+    schema_type = _schema_type(schema)
+    if schema_type == "object":
+        properties = schema.get("properties") if isinstance(schema.get("properties"), dict) else {}
+        return {str(key): _schema_placeholder(value) for key, value in properties.items() if isinstance(value, dict)}
+    if schema_type == "array":
+        item_schema = schema.get("items") if isinstance(schema.get("items"), dict) else {}
+        return [_schema_placeholder(item_schema)] if item_schema else ["<item>"]
+    return f"<{schema_type or 'value'}>"
+
+
+def _schema_summary(schema: dict[str, Any]) -> str:
+    schema_type = _schema_type(schema) or "any"
+    if schema_type == "array":
+        item_schema = schema.get("items") if isinstance(schema.get("items"), dict) else {}
+        return f"array[{_schema_summary(item_schema)}]" if item_schema else "array"
+    if schema_type == "object":
+        properties = schema.get("properties") if isinstance(schema.get("properties"), dict) else {}
+        if not properties:
+            return "object"
+        keys = ",".join(str(key) for key in sorted(properties)[:6])
+        suffix = ",..." if len(properties) > 6 else ""
+        return f"object{{{keys}{suffix}}}"
+    enum_values = schema.get("enum") if isinstance(schema.get("enum"), list) else []
+    enum_strings = [str(item) for item in enum_values]
+    if enum_strings:
+        return f"{schema_type} enum[{'|'.join(enum_strings)}]"
+    return schema_type
+
+
+def compact_function_catalog_text(functions: list[dict[str, Any]]) -> str:
+    """Render model-facing BFCL schemas compactly with placeholders only."""
+
+    lines: list[str] = []
+    for function in functions:
+        name = str(function.get("name", ""))
+        description = " ".join(str(function.get("description", "")).split())
+        properties, required = _parameter_schema(function)
+        parts = []
+        placeholder: dict[str, Any] = {}
+        for key in sorted(properties, key=lambda item: (item not in required, item)):
+            schema = properties[key]
+            status = "required" if key in required else "optional"
+            summary = _schema_summary(schema)
+            if " enum[" in summary:
+                summary_base, enum_suffix = summary.split(" enum[", 1)
+                summary = f"{summary_base} {status} enum[{enum_suffix}"
+            else:
+                summary = f"{summary} {status}"
+            parts.append(f"{key}: {summary}")
+            placeholder[key] = _schema_placeholder(schema)
+        signature = f"{name}({', '.join(parts)})"
+        lines.append(f"- {signature}")
+        if description:
+            lines.append(f"  description: {description}")
+        if placeholder:
+            lines.append(f"  shape: {canonical_json(placeholder)}")
+    return "\n".join(lines)
+
+
 def compact_function_evidence(functions: list[dict[str, Any]]) -> str:
     entries = []
     for function in functions:
@@ -403,10 +463,9 @@ def stable_prefix(case: BFCLCase, *, code_mode: bool) -> str:
         "BENCHMARK:\n"
         "benchmark_id = BFCL\n"
         f"benchmark_checkpoint = {BFCL_LEADERBOARD_CHECKPOINT}\n"
-        f"dataset_revision = {BFCL_DATASET_REVISION}\n"
-        f"category = {case.category}\n\n"
-        "TOOL/FUNCTION CATALOG:\n"
-        f"{function_catalog_text(case.functions)}\n\n"
+        f"dataset_revision = {BFCL_DATASET_REVISION}\n\n"
+        "TOOL/FUNCTION CATALOG (COMPACT FUNCTION SIGNATURES):\n"
+        f"{compact_function_catalog_text(case.functions)}\n\n"
         "OUTPUT CONTRACT:\n"
         f"PTI protocol version = {PROMPT_PROTOCOL_VERSION}\n"
         f"{contract}\n"
@@ -417,9 +476,14 @@ def stable_prefix(case: BFCLCase, *, code_mode: bool) -> str:
         "Use function names and parameter names exactly as written in the catalog.\n"
         "Do not invent functions, parameters, or values that are not supported by the user request and schema.\n"
         "Omit optional/default parameters unless the user request clearly specifies them.\n"
-        "Before final output, check every argument against the visible schema: numbers are unquoted numbers, "
-        "booleans are unquoted true/false, arrays stay arrays, objects stay objects, and enum values are copied exactly."
-        "\nPTI v3 repair boundary: if a validator asks for repair, use only the user request, catalog, prior output, and schema errors."
+        "\nPTI PRE-SUBMIT CHECKLIST:\n"
+        "1. Every function name exists in the compact function signatures.\n"
+        "2. Call count matches the independent operations requested by the user.\n"
+        "3. Required arguments are present; optional/default arguments are omitted unless requested.\n"
+        "4. Argument names, primitive types, arrays, and objects match the visible schema.\n"
+        "5. Enum and identifier-like values are copied exactly from visible options or request/schema tokens.\n"
+        "6. Final output is only the complete function call list, with no extra text.\n"
+        "\nPTI v4 repair boundary: if a validator asks for repair, use only the user request, catalog, prior output, and schema errors."
     )
 
 
@@ -599,7 +663,7 @@ def control_packet(case: BFCLCase, control_id: str) -> dict[str, Any]:
         "pti_runtime": {
             "runtime_version": PROMPT_PROTOCOL_VERSION,
             "schema_validator_version": PTI_SCHEMA_VALIDATOR_VERSION,
-            "repair_prompt_version": "bfcl_pti_schema_only_repair_prompt_v1",
+            "repair_prompt_version": "bfcl_pti_schema_only_stepwise_repair_prompt_v4",
             "inference_allowed_inputs": [
                 "source_user_request",
                 "visible_function_catalog_schema",
@@ -1245,6 +1309,81 @@ def schema_validation_repair_required(validation: dict[str, Any]) -> bool:
     return bool(validation.get("repair_required"))
 
 
+def _value_summary(value: Any) -> str:
+    if value is None:
+        return "none"
+    text = repr(value)
+    return text if len(text) <= 120 else text[:117] + "..."
+
+
+def _visible_constraint_for_error(error: dict[str, Any], catalog_names: list[str]) -> str:
+    code = str(error.get("code"))
+    if code == "missing_required_argument":
+        return f"visible schema declares required argument `{error.get('argument')}`"
+    if code in {"type_mismatch", "nested_type_mismatch", "type_normalization_required"}:
+        return f"visible schema type for `{error.get('argument')}` is `{error.get('expected_type')}`"
+    if code == "unexpected_argument":
+        return "argument is not declared in the visible function schema"
+    if code == "enum_literal_mismatch":
+        return "visible enum options are " + canonical_json(error.get("visible_enum_options", []))
+    if code == "literal_preservation_suspect":
+        return f"copy exact visible identifier token `{error.get('candidate_literal')}`"
+    if code == "unknown_function":
+        return "visible catalog functions are " + canonical_json(catalog_names)
+    if code == "ambiguous_function":
+        return "ambiguous function suffix; visible candidates are " + canonical_json(error.get("candidates", []))
+    if code in {"likely_call_count_mismatch", "likely_extra_call_count"}:
+        count = error.get("expected_min_calls", error.get("expected_max_calls"))
+        return f"user request visibly implies {count} independent call(s)"
+    if code == "function_choice_low_request_support":
+        return "function choice must be supported by visible function names/descriptions and user request"
+    return "repair must use only visible request/catalog/schema constraints"
+
+
+def _repair_instruction_for_error(error: dict[str, Any]) -> str:
+    code = str(error.get("code"))
+    if code == "missing_required_argument":
+        return "Add the named required argument using only a value supported by the user request and schema."
+    if code == "type_normalization_required":
+        return "Re-emit the visible value using the declared schema type instead of a quoted string."
+    if code in {"type_mismatch", "nested_type_mismatch"}:
+        return "Change only the named argument path so its value shape matches the visible schema."
+    if code == "unexpected_argument":
+        return "Remove or rename the argument only if the visible schema contains the intended parameter name."
+    if code == "enum_literal_mismatch":
+        return "Copy one visible enum option exactly; do not paraphrase or change casing."
+    if code == "literal_preservation_suspect":
+        return "Copy the exact identifier-like token from the request or schema; do not paraphrase."
+    if code in {"unknown_function", "ambiguous_function", "function_choice_low_request_support"}:
+        return "Choose function names only from the visible catalog when the user request supports them."
+    if code in {"likely_call_count_mismatch", "likely_extra_call_count"}:
+        return "Return exactly the independent operations visibly requested; preserve schema-valid calls."
+    return "Repair only the named compiler diagnostic."
+
+
+def enrich_schema_diagnostics(errors: list[dict[str, Any]], *, catalog_names: list[str]) -> list[dict[str, Any]]:
+    enriched = []
+    for index, error in enumerate(errors):
+        item = dict(error)
+        item.setdefault("error_id", f"PTI-{index + 1:04d}")
+        item.setdefault("argument_path", str(item.get("argument", "")))
+        if "actual_value" in item:
+            observed = f"{item.get('actual_type', type(item['actual_value']).__name__)} {_value_summary(item['actual_value'])}"
+        elif "actual_type" in item:
+            observed = str(item.get("actual_type"))
+        elif "actual_calls" in item:
+            observed = f"{item.get('actual_calls')} call(s)"
+        elif "function" in item:
+            observed = str(item.get("function"))
+        else:
+            observed = "not applicable"
+        item.setdefault("observed_value_summary", observed)
+        item.setdefault("visible_constraint", _visible_constraint_for_error(item, catalog_names))
+        item.setdefault("repair_instruction", _repair_instruction_for_error(item))
+        enriched.append(item)
+    return enriched
+
+
 def validate_pti_calls_against_catalog(
     functions: list[dict[str, Any]], calls: list[dict[str, Any]], *, user_request: str = ""
 ) -> dict[str, Any]:
@@ -1339,6 +1478,7 @@ def validate_pti_calls_against_catalog(
                     "confidence": minimum_call_count_detail["confidence"],
                 }
             )
+    errors = enrich_schema_diagnostics(errors, catalog_names=sorted(catalog))
     blocking_errors = schema_validation_blocking_errors(errors)
     repairable_errors = schema_validation_repairable_errors(errors)
     return {
@@ -1532,6 +1672,60 @@ def schema_repair_profile(validation: dict[str, Any]) -> dict[str, Any]:
     return {"kind": kind, "instructions": instructions}
 
 
+def schema_repair_stage(validation: dict[str, Any]) -> str:
+    errors = list(validation.get("repairable_errors") or validation.get("errors") or [])
+    codes = {str(error.get("code")) for error in errors}
+    structural_codes = {
+        "ambiguous_function",
+        "enum_literal_mismatch",
+        "literal_preservation_suspect",
+        "missing_required_argument",
+        "nested_type_mismatch",
+        "type_mismatch",
+        "type_normalization_required",
+        "unexpected_argument",
+        "unknown_function",
+    }
+    if codes & structural_codes:
+        return "structural"
+    if codes & {"function_choice_low_request_support", "likely_call_count_mismatch", "likely_extra_call_count"}:
+        return "plan"
+    return "schema"
+
+
+def audit_repair_preservation(
+    original_calls: list[dict[str, Any]],
+    repaired_calls: list[dict[str, Any]],
+    slot_plan: list[dict[str, Any]],
+) -> dict[str, Any]:
+    preserved_slots = [
+        item
+        for item in slot_plan
+        if item.get("status") == "preserve" and isinstance(item.get("call_index"), int)
+    ]
+    damaged: list[dict[str, Any]] = []
+    for slot in preserved_slots:
+        index = int(slot["call_index"])
+        original = original_calls[index] if index < len(original_calls) else None
+        repaired = repaired_calls[index] if index < len(repaired_calls) else None
+        if normalize_value(original) != normalize_value(repaired):
+            damaged.append(
+                {
+                    "call_index": index,
+                    "original_call": original,
+                    "repaired_call": repaired,
+                    "visible_schema_reason": slot.get("validator_errors") or None,
+                }
+            )
+    return {
+        "audit_version": "bfcl_pti_repair_preservation_audit_v1",
+        "preserved_slot_count": len(preserved_slots),
+        "damaged_preserved_call_count": len(damaged),
+        "damaged_preserved_calls": damaged,
+        "run_readiness_blocking": bool(damaged),
+    }
+
+
 def build_schema_only_repair_prompt(
     *,
     user_request: str,
@@ -1541,14 +1735,24 @@ def build_schema_only_repair_prompt(
     validation: dict[str, Any],
 ) -> str:
     """Build a paper-safe repair prompt from schema and validator errors only."""
+    repair_stage = schema_repair_stage(validation)
+    if repair_stage == "structural":
+        stage_instruction = "Fix structural schema errors first: parse shape, function names, required fields, types, enums, and exact literals."
+    elif repair_stage == "plan":
+        stage_instruction = "Reconsider the call plan only after preserving schema-valid calls: function choice and request-derived call count."
+    else:
+        stage_instruction = "Repair the listed schema diagnostics while preserving valid calls."
     payload = {
+        "repair_stage": repair_stage,
+        "stage_instruction": stage_instruction,
         "repair_profile": schema_repair_profile(validation),
         "slot_repair_plan": validation.get("slot_repair_plan", []),
         "user_request": user_request,
-        "visible_function_catalog": functions,
+        "visible_function_catalog": compact_function_catalog_text(functions),
         "previous_model_output": model_output,
         "parsed_call_plan": calls,
         "validator_errors": validation.get("repairable_errors") or validation.get("errors", []),
+        "final_output_contract": "Return only the complete final function call list. Do not return a patch fragment or explanation.",
     }
     text = canonical_json(payload)
     forbidden = ("possible_answer", "expected_answer", "expected_calls", "ground_truth")
@@ -1561,8 +1765,12 @@ def build_schema_only_repair_prompt(
         "previous model output, parsed call plan, and validator errors. Do not use or infer any answer key.\n"
         "The previous output may be malformed or incomplete. Start a fresh complete replacement answer now; "
         "do not continue, close, or patch the previous text.\n\n"
+        f"REPAIR STAGE: {repair_stage}\n"
+        f"{stage_instruction}\n\n"
         "VISIBLE FUNCTION CATALOG / USER REQUEST / VALIDATOR ERRORS:\n"
         f"{text}\n\n"
+        "FINAL OUTPUT CONTRACT:\n"
+        "Return only the complete final function call list. Do not return a patch fragment. Do not explain.\n"
         "Apply the repair_profile instructions exactly. Return only the repaired function call list. Use no explanation."
         " Preserve every call marked status=preserve in slot_repair_plan unless the repair_profile explicitly says to remove an extra call."
     )

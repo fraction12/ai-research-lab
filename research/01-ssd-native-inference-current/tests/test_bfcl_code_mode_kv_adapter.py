@@ -453,21 +453,25 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertEqual(adapter.actual_call_name(truncated_doubled_quote_wrapper[0]), "calculate_average")
         self.assertEqual(adapter.actual_call_arguments(truncated_doubled_quote_wrapper[0])["gradeDict"]["science"], 75)
 
-    def test_stable_prefix_contains_pti_v3_contract(self) -> None:
+    def test_stable_prefix_contains_pti_v4_contract(self) -> None:
         case = adapter.materialize_cases(source_dir=self.make_source_dir(), categories=["simple"], per_category=1)[0]
         prefix = adapter.stable_prefix(case, code_mode=True)
 
-        self.assertIn("PTI protocol version = bfcl_programmatic_tool_interface_v3", prefix)
+        self.assertIn("PTI protocol version = bfcl_programmatic_tool_interface_v4", prefix)
+        self.assertIn("COMPACT FUNCTION SIGNATURES", prefix)
+        self.assertIn("PTI PRE-SUBMIT CHECKLIST", prefix)
         self.assertIn("If no provided function can satisfy the user request, output an empty call list", prefix)
         self.assertIn("Count the independent operations requested by the user before emitting calls", prefix)
         self.assertIn("Do not emit helper, search, validation, explanation, or planning calls", prefix)
         self.assertIn("Use function names and parameter names exactly as written in the catalog", prefix)
         self.assertIn("Omit optional/default parameters unless the user request clearly specifies them", prefix)
-        self.assertIn("PTI v3 repair boundary", prefix)
+        self.assertIn("PTI v4 repair boundary", prefix)
+        self.assertNotIn("possible_answer", prefix)
+        self.assertNotIn("expected_calls", prefix)
 
         packet = adapter.control_packet(case, "code_mode_full_visible")
-        self.assertEqual(packet["pti_runtime"]["schema_validator_version"], "bfcl_pti_schema_validator_v3")
-        self.assertEqual(packet["pti_runtime"]["repair_prompt_version"], "bfcl_pti_schema_only_repair_prompt_v1")
+        self.assertEqual(packet["pti_runtime"]["schema_validator_version"], "bfcl_pti_schema_validator_v4")
+        self.assertEqual(packet["pti_runtime"]["repair_prompt_version"], "bfcl_pti_schema_only_stepwise_repair_prompt_v4")
 
     def test_schema_validator_uses_visible_catalog_without_expected_answers(self) -> None:
         functions = [
@@ -508,6 +512,79 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertIn("missing_required_argument", codes)
         self.assertIn("unexpected_argument", codes)
         self.assertIn("type_normalization_required", codes)
+
+    def test_pti_v4_renders_compact_schema_with_placeholders_only(self) -> None:
+        functions = [
+            {
+                "name": "create_ticket",
+                "description": "Create a support ticket.",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "priority": {"type": "string", "enum": ["low", "medium", "high"]},
+                        "metadata": {
+                            "type": "object",
+                            "properties": {
+                                "tags": {"type": "array", "items": {"type": "string"}},
+                            },
+                        },
+                    },
+                    "required": ["priority"],
+                },
+            }
+        ]
+
+        rendered = adapter.compact_function_catalog_text(functions)
+
+        self.assertIn("create_ticket(priority: string required enum[low|medium|high]", rendered)
+        self.assertIn("metadata: object{tags} optional", rendered)
+        self.assertIn('"priority":"<string>"', rendered)
+        self.assertIn('"metadata":{"tags":["<string>"]}', rendered)
+        self.assertNotIn("possible_answer", rendered)
+        self.assertNotIn("ground_truth", rendered)
+
+    def test_pti_v4_diagnostics_include_visible_constraints_and_repair_instructions(self) -> None:
+        functions = [
+            {
+                "name": "search_properties",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "budget": {
+                            "type": "object",
+                            "properties": {
+                                "min": {"type": "integer"},
+                                "max": {"type": "integer"},
+                            },
+                        },
+                        "tags": {"type": "array", "items": {"type": "string"}},
+                    },
+                    "required": ["budget"],
+                },
+            }
+        ]
+
+        result = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "search_properties", "arguments": {"tags": "villa"}}],
+            user_request="Find villa properties.",
+        )
+
+        self.assertFalse(result["valid"])
+        for error in result["errors"]:
+            self.assertIn("error_id", error)
+            self.assertIn("argument_path", error)
+            self.assertIn("visible_constraint", error)
+            self.assertIn("observed_value_summary", error)
+            self.assertIn("repair_instruction", error)
+        missing = [error for error in result["errors"] if error["code"] == "missing_required_argument"][0]
+        self.assertEqual(missing["argument_path"], "budget")
+        self.assertIn("required argument", missing["visible_constraint"])
+        type_error = [error for error in result["errors"] if error["code"] == "type_mismatch"][0]
+        self.assertEqual(type_error["argument_path"], "tags")
+        self.assertIn("array", type_error["visible_constraint"])
+        self.assertNotIn("expected_calls", json.dumps(result))
+        self.assertNotIn("possible_answer", json.dumps(result))
 
     def test_pti_v3_canonicalizes_schema_referenced_function_names(self) -> None:
         functions = [
@@ -829,6 +906,8 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
 
         self.assertIn("VISIBLE FUNCTION CATALOG", prompt)
         self.assertIn("VALIDATOR ERRORS", prompt)
+        self.assertIn("REPAIR STAGE", prompt)
+        self.assertIn("FINAL OUTPUT CONTRACT", prompt)
         self.assertIn("repair_profile", prompt)
         self.assertIn("missing_call", prompt)
         self.assertIn("Preserve every already valid call", prompt)
@@ -869,6 +948,60 @@ class BFCLCodeModeKVAdapterTests(unittest.TestCase):
         self.assertIn("slot_repair_plan", prompt)
         self.assertIn('"status":"preserve"', prompt)
         self.assertIn("Preserve every call marked status=preserve", prompt)
+
+    def test_pti_v4_stepwise_repair_prioritizes_structural_before_plan(self) -> None:
+        functions = [
+            {
+                "name": "spotify.play",
+                "description": "Play one song.",
+                "parameters": {
+                    "type": "dict",
+                    "properties": {
+                        "artist": {"type": "string"},
+                        "duration": {"type": "integer"},
+                    },
+                    "required": ["artist", "duration"],
+                },
+            }
+        ]
+        validation = adapter.validate_pti_calls_against_catalog(
+            functions,
+            [{"name": "spotify.play", "arguments": {"artist": "Taylor Swift", "duration": "20"}}],
+            user_request="Play two songs.",
+        )
+
+        self.assertEqual(adapter.schema_repair_stage(validation), "structural")
+        prompt = adapter.build_schema_only_repair_prompt(
+            user_request="Play two songs.",
+            functions=functions,
+            model_output='[{"name":"spotify.play","arguments":{"artist":"Taylor Swift","duration":"20"}}]',
+            calls=validation["canonical_calls"],
+            validation=validation,
+        )
+
+        self.assertIn('"repair_stage":"structural"', prompt)
+        self.assertIn("Fix structural schema errors first", prompt)
+
+    def test_pti_v4_repair_damage_audit_flags_preserved_slot_changes(self) -> None:
+        original_calls = [
+            {"name": "spotify.play", "arguments": {"artist": "Taylor Swift", "duration": 20}},
+            {"name": "spotify.play", "arguments": {"artist": "Maroon 5", "duration": 15}},
+        ]
+        repaired_calls = [
+            {"name": "spotify.play", "arguments": {"artist": "Taylor Swift", "duration": 20}},
+            {"name": "spotify.play", "arguments": {"artist": "Coldplay", "duration": 15}},
+        ]
+        slot_plan = [
+            {"call_index": 0, "status": "preserve"},
+            {"call_index": 1, "status": "preserve"},
+        ]
+
+        audit = adapter.audit_repair_preservation(original_calls, repaired_calls, slot_plan)
+
+        self.assertEqual(audit["preserved_slot_count"], 2)
+        self.assertEqual(audit["damaged_preserved_call_count"], 1)
+        self.assertTrue(audit["run_readiness_blocking"])
+        self.assertEqual(audit["damaged_preserved_calls"][0]["call_index"], 1)
 
     def test_pti_v3_flags_high_confidence_schema_only_function_choice(self) -> None:
         functions = [

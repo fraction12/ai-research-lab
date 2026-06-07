@@ -79,7 +79,7 @@ BFCL_SCORER_REPAIR_PROMPT = (
     '{"tool_calls":[{"function_name":"exact.available.function.name","arguments":{"arg":"value"}}]}. '
     "Use the user request and BFCL function catalog; do not write host result text or prose."
 )
-BFCL_SCHEMA_REPAIR_PROMPT_VERSION = "bfcl_schema_only_active_repair_gate_v1"
+BFCL_SCHEMA_REPAIR_PROMPT_VERSION = "bfcl_schema_only_stepwise_repair_gate_v4"
 BFCL_EMPTY_REPAIR_RETRY_PROMPT = (
     "\n\nSYSTEM:\n"
     "Your previous BFCL repair response was empty or could not be parsed as a function-call list. "
@@ -805,6 +805,8 @@ def run_model_loop(
     repair_count = 0
     empty_repair_retry_count = 0
     last_bfcl_repair_step = False
+    pending_bfcl_repair_original_calls: list[dict[str, Any]] | None = None
+    pending_bfcl_repair_slot_plan: list[dict[str, Any]] | None = None
     channel_markers_observed = False
 
     for step_index in range(args.max_steps):
@@ -924,6 +926,14 @@ def run_model_loop(
         if is_bfcl_row(row) and row["control_id"] not in NEGATIVE_CONTROLS:
             schema_validation = validate_bfcl_action_schema(row, action)
             step_record["bfcl_schema_validation"] = schema_validation
+            if pending_bfcl_repair_original_calls is not None and pending_bfcl_repair_slot_plan is not None:
+                step_record["repair_damage_audit"] = bfcl_adapter.audit_repair_preservation(
+                    pending_bfcl_repair_original_calls,
+                    list(schema_validation.get("canonical_calls", [])),
+                    pending_bfcl_repair_slot_plan,
+                )
+                pending_bfcl_repair_original_calls = None
+                pending_bfcl_repair_slot_plan = None
             if should_repair_bfcl_action_schema(schema_validation):
                 if repair_count < args.max_repairs:
                     repair_prompt = build_bfcl_schema_repair_prompt(row, action, gen["response"])
@@ -945,8 +955,11 @@ def run_model_loop(
                     step_record["repair_trace"] = {
                         "validator_errors": schema_validation.get("repairable_errors", []),
                         "repair_profile": bfcl_adapter.schema_repair_profile(schema_validation),
+                        "repair_stage": bfcl_adapter.schema_repair_stage(schema_validation),
                         "slot_repair_plan": schema_validation.get("slot_repair_plan", []),
                     }
+                    pending_bfcl_repair_original_calls = list(schema_validation.get("canonical_calls", []))
+                    pending_bfcl_repair_slot_plan = list(schema_validation.get("slot_repair_plan", []))
                     step_records.append(step_record)
                     last_bfcl_repair_step = True
                     continue
