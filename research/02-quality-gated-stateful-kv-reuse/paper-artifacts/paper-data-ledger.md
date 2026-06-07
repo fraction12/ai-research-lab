@@ -1,0 +1,50 @@
+# Paper Data Ledger
+
+Date: 2026-06-07
+
+Purpose: canonical evidence ledger for the KV capsule / programmatic tool-interface paper. Every paper-facing result must trace to a source file in this ledger before it appears in prose, figures, or tables.
+
+Terminology note: older run labels and code paths use `code_mode`. Paper-facing prose should call this a `programmatic tool interface` unless quoting a run label or file name.
+
+## Source Aliases
+
+- S1 selected cohort summary: `research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/selected-cohort-summary.json`
+- S2 selected cohort findings: `research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/selected-cohort-findings.md`
+- S3 repeated-work summary: `research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-summary.json`
+- S4 repeated-work findings: `research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-findings.md`
+- S5 BFCL primary-50 summary: `research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/bfcl-primary-50-v5-summary.md`
+- S6 BFCL primary experiment summary: `research/02-quality-gated-stateful-kv-reuse/experiments/nonhandmade-code-mode-kv-agent-benchmark-2026-06-05/summary.json`
+- S7 30-case programmatic-interface summary: `research/02-quality-gated-stateful-kv-reuse/experiments/code-mode-kv-capsule-agent-harness-2026-06-05/summary.json`
+- S8 30-case programmatic-interface design note: `research/02-quality-gated-stateful-kv-reuse/docs/code-mode-kv-capsule-agent-harness-experiment-2026-06-05.md`
+- S9 Family 2 structured-retrieval gate: `research/02-quality-gated-stateful-kv-reuse/experiments/kv-capsule-family2-structured-retrieval-gate-2026-06-04/summary.json`
+- S10 Family 2 30-case sequence-file scale: `research/02-quality-gated-stateful-kv-reuse/experiments/tail-only-kv-capsule-family2-structured-retrieval-scale-2026-06-04/summary.json`
+- S11 publication plan: `research/02-quality-gated-stateful-kv-reuse/paper-publication-plan-2026-06-07.md`
+- S12 NotebookLM bundle README: `notebooklm-paper-bundle/README.md`
+- S13 NotebookLM bundle index: `notebooklm-paper-bundle/FILE_INDEX.txt`
+
+## Primary Evidence Rows
+
+| ID | Evidence block | Source file(s) | Run label / cohort | Metric / result | Supports | Does not support |
+| --- | --- | --- | --- | --- | --- | --- |
+| E1 | Selected 100-case control ladder | S1; S2 | `bfcl-paper-selected-cohort-v1` | 100 cases, 700 records. `code_mode_full_visible`: 100/100. `code_mode_native_live_append`: 100/100. `code_mode_restored_kv_capsule`: 100/100. Restored KV failures: 0. Native/restored hash parity: 100/100. Fresh-tail leaks: 0. Wrong-capsule leaks: 0. | Restored KV state preserved native live-append behavior on the selected BFCL-derived cohort under strict controls. | Broad speedup; broad BFCL leaderboard result; proof that hidden state improves all task categories; prompt-identical comparison to Codex. |
+| E2 | Selected cohort direct visible baseline | S1; S2 | `bfcl-paper-selected-cohort-v1` | `direct_full_visible_tools`: 91/100. Direct tool gaps: 9. Mean total latency: 8179.8 ms. | The programmatic tool-interface full-visible lane can outperform direct visible tool schemas on this selected cohort. | Programmatic tool interface alone caused all runtime gains; direct tools always fail; official BFCL leaderboard claim. |
+| E3 | Selected cohort compact visible evidence baseline | S1; S2 | `bfcl-paper-selected-cohort-v1` | `compact_visible_evidence_code_mode`: 19/100. Mean total latency: 9434.8 ms. | The restored hidden-state result is not explained by compact visible evidence alone. | All summaries are weak; text compaction is useless in general; compact evidence cannot help other tasks. |
+| E4 | Selected cohort timing boundary | S1; S2 | `bfcl-paper-selected-cohort-v1` | Mean total latency: full visible 6766.7 ms, native live append 6782.7 ms, restored KV 8513.8 ms. Median total latency: full visible 6252.9 ms, native live append 6253.5 ms, restored KV 8042.3 ms. | The selected cohort supports semantic preservation, not an implementation-level speed claim. | Restored KV is faster than native append in the selected-cohort implementation. |
+| E5 | Repeated-work KV runtime lane | S3; S4 | `bfcl-repeated-work-speed-v1-kv-resume` | `kv_capsule_code_mode`: 100/100 pass, 853,498.991 ms cumulative wall, 3,900 visible input tokens, 6,267 output tokens, 0 compaction events. | A KV-capsule runtime can complete repeated stable-context selected-cohort work with very low visible prompt burden. | General coding-agent superiority; all local-agent tasks; isolated causal effect of the programmatic interface alone. |
+| E6 | Natural Codex/Ollama text-compaction runtime lane | S3; S4 | `bfcl-repeated-work-codex-natural-chained-v1` | `codex_ollama_regular_tools_natural_text_compaction`: 86/100 pass, 11,813,816.230 ms cumulative wall, 245,774,883 reported visible input tokens, 9,068,626 output tokens, 89 Codex session compaction events, 180 summary-text hits. Compaction evidence source: Codex session JSONL under `C:\Users\Dushyant\.codex\sessions`; per-task stdout had 0 markers. | The tested Codex/Ollama regular-tool text-compaction harness was less accurate, slower, and much heavier in reported visible input burden on this repeated-work stream. | Prompt-identical KV-vs-compaction mechanism comparison; proof that all Codex compaction is worse; exact clean per-task token accounting. |
+| E7 | Earlier attempted Codex compaction lane | S3; S4 | `bfcl-repeated-work-speed-v1` | `codex_ollama_regular_tools_compaction`: 87/100 pass, 11,521,047.862 ms cumulative wall, 243,088,507 visible input tokens, 0 compaction events seen in the BFCL workload. | Documents an attempted baseline and why the natural chained follow-up was needed. | A valid natural text-compaction baseline; evidence against compaction as a mechanism. |
+| E8 | Natural Codex failure breakdown | S4 | `bfcl-repeated-work-codex-natural-chained-v1` | Failure/pass by category: java 14/17, javascript 0/1, multiple 21/25, parallel 13/14, parallel_multiple 13/17, simple 25/26. Findings note 14 failures mostly produced parseable calls with wrong args, duplicates, extra calls, or missing parallel calls; one parsed zero calls. | Codex failures were mostly tool-call accuracy failures under the tested text-compacted route, not simple parser collapse. | Causal proof that compaction summaries caused each failure; broad language/category diagnosis. |
+| E9 | BFCL primary-50 support run | S5; S6 | `bfcl-primary-50-tool-surface-v5` | 50 cases, 350 records. Direct visible 34/50. Programmatic-interface full visible 37/50. Native live append 35/50. Restored KV 35/50. Fresh tail 0/50. Wrong capsule 0/50. Compact visible evidence 11/50. Native append and restored KV had zero case-level disagreements. | Supporting evidence that restored KV can match native live append on a nonhandmade BFCL-derived cohort and that negative controls stayed closed. | Headline result; speedup; official BFCL leaderboard comparability; selected 100-case repeated-work comparison. |
+| E10 | 30-case custom programmatic-interface harness | S7; S8 | `thirty-case-v9` | Full visible 30/30, native live append 30/30, restored KV 30/30, fresh-tail answer leaks 0, wrong-capsule answer leaks 0, live/restored generated-token hash parity 30/30. Direct visible tools: 19/30 gate and 23/30 answer. Compact visible evidence: 11/30. | Background evidence that motivated the 100-case paper cohort and validates the control ladder on a controlled fixture suite. | Final paper headline; nonhandmade benchmark evidence; broad external validity. |
+| E11 | Early Family 2 structured retrieval gate | S9 | `kv-capsule-family2-structured-retrieval-gate-2026-06-04` | 5 fabricated structured-retrieval cases. Full visible 5/5, fresh tail 0/5, live append 5/5, restored capsule 5/5. | Low-level mechanism sanity: sequence-state restoration can preserve hidden prefix facts in a narrow fabricated setting. | Agent benchmark claim; BFCL claim; speed claim; broad hidden-state reliability. |
+| E12 | 30-case Family 2 sequence-file scale | S10 | `tail-only-kv-capsule-family2-structured-retrieval-scale-2026-06-04` | 30 cases. Full visible 30/30, fresh tail 0/30, live append 30/30, restored capsule 30/30. Live/restored hash parity partial: 12/30 generated-token matches. | Semantic continuation via official sequence-file route scaled beyond the 5-case gate; hash parity warning helps define the boundary. | Deterministic byte/token identity in all cases; agent-tool-use result; speed claim. |
+| E13 | Publication plan and claim discipline | S11 | Planning artifact | Defines target claim, publication path, required artifacts, and source-backed artifact order. | Keeps paper drafting aligned with the frozen evidence set and venue/reproducibility expectations. | Experimental result by itself. |
+| E14 | NotebookLM flattened source bundle | S12; S13 | `660ecf2 Flatten NotebookLM paper bundle` | 427 files directly inside `notebooklm-paper-bundle/`, 0 nested files. Filenames preserve original paths using `__`. | Convenience ingestion bundle for review/synthesis in NotebookLM. | Replacement for canonical source paths; proof of result correctness. |
+
+## Source Coverage Review
+
+- Every metric above has a local source file.
+- Primary paper numbers should cite E1, E5, and E6 first.
+- E9 through E12 are supporting/background evidence and should not be promoted over the selected 100-case cohort.
+- Any prose using the internal phrase `Code Mode` should either quote a run label/file name or replace it with `programmatic tool interface`.
+- Any speed claim must separate E4 from E5/E6: the selected-cohort mechanism run was not faster for restored KV, while the repeated-work system run was much faster cumulatively.
