@@ -6,7 +6,7 @@ Files:
 
 - `main.tex` - paper draft converted from the paper-site draft and tightened around the arXiv claim frame.
 - `references.bib` - bibliography for current cited work.
-- `figures/` - PDF figures copied from `paper-artifacts/figures/`.
+- `figures/` - only the PDF figures included by `main.tex`: `figure-01-control-ladder.pdf`, `figure-04-visible-input-tokens.pdf`, `figure-05-wall-time.pdf`, `figure-07-initial-official-bfcl.pdf`, and `figure-08-bfcl-reference-comparison.pdf`.
 
 Build target:
 
@@ -14,7 +14,7 @@ Build target:
 latexmk -pdf main.tex
 ```
 
-Local build status: `texlive` was installed through Homebrew on 2026-06-16. `latexmk` and `pdflatex` are on PATH, and `main.tex` compiles to `main.pdf`.
+Local build status: `texlive` was installed through Homebrew on 2026-06-16. `latexmk` and `pdflatex` are on PATH, and `main.tex` compiles to `main.pdf` from a clean copy of this package.
 
 Provenance:
 
