@@ -85,7 +85,7 @@ The selected-cohort mechanism run uses seven controls: full visible PTI, native 
 
 \subsection{Restored KV Preserves Native Prefix Behavior}
 
-Restored KV Capsule matched both full visible PTI and native live append at 100/100. Native/restored hash parity was also 100/100, supporting the claim that restored hidden state preserved the useful stable-prefix behavior for these cases. Table~\ref{tab:mechanism} summarizes the positive mechanism lanes.
+Restored KV Capsule matched both full visible PTI and native live append at 100/100. The harness also recorded 100/100 native/restored output-hash parity: for every selected case, the restored-capsule lane produced the same hashed output as the native live-append comparator. This supports the claim that restored hidden state preserved the useful stable-prefix behavior for these cases. It should not be read as a claim about bit-identical internal KV tensors. Table~\ref{tab:mechanism} summarizes the positive mechanism lanes.
 
 \begin{table}[h]
 \centering

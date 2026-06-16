@@ -52,7 +52,7 @@ Goal: turn the current arXiv draft from a working technical draft into a clean, 
 - [x] Put the control-ladder result before repeated-work claims, since it establishes mechanism credibility.
 - [x] Make "semantic preservation, not speed" impossible to miss in the restored-KV mechanism subsection.
 - [x] Add a small negative-control table or sentence with exact leak counts: fresh-tail 0, wrong-capsule 0.
-- [ ] Recheck whether "native/restored hash parity was 100/100" is fully supported and explain what hash parity means.
+- [x] Recheck whether "native/restored hash parity was 100/100" is fully supported and explain what hash parity means.
 - [x] Ensure direct visible tools 91/100 and compact visible evidence 19/100 are framed as ablations, not universal baselines.
 - [x] Make the repeated-work table caption explicitly say route-reported telemetry is not clean per-task accounting.
 - [x] Consider moving "245,774,883 visible input tokens" out of abstract/body prose and into table only, because it looks suspicious without context.
