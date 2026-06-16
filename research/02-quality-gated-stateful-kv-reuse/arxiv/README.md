@@ -2,6 +2,8 @@
 
 This directory contains the first arXiv-facing source draft for the attention-state reuse paper.
 
+Repository snapshot tag: `arxiv-v1.0`.
+
 Files:
 
 - `main.tex` - paper draft converted from the paper-site draft and tightened around the arXiv claim frame.
