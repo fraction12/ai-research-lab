@@ -34,7 +34,7 @@ Goal: turn the current arXiv draft from a working technical draft into a clean, 
 
 - [x] Separate "serving KV reuse" from "agent memory" more sharply.
 - [x] Add a one-sentence gap after each related-work paragraph explaining what this paper does differently.
-- [ ] Check whether vLLM/SGLang citations are enough for prefix/KV reuse, or whether LMCache/CacheBlend-style work should be cited if already in the repo's research harvest.
+- [x] Check whether vLLM/SGLang citations are enough for prefix/KV reuse, or whether LMCache/CacheBlend-style work should be cited if already in the repo's research harvest.
 - [x] Keep BFCL/ToolLLM/Gorilla framing as evaluation context, not benchmark novelty.
 - [x] Avoid claiming prior memory systems cannot preserve useful information; say they preserve it as visible text, which is a different representation.
 
