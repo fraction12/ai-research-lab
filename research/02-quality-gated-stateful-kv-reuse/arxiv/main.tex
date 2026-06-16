@@ -181,7 +181,21 @@ The initial full non-live evaluator check scored 69.88\% on BFCL's leaderboard-s
 
 \section{Artifacts and Data Availability}
 
-All paper-facing artifacts, analysis scripts, figure manifests, and arXiv sources are available in the public repository at \url{https://github.com/fraction12/ai-research-lab}. The selected-cohort mechanism results are under \path{research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/}, including \path{selected-cohort-summary.json} and \path{selected-cohort-findings.md}. The repeated-work comparison is in the same directory, including \path{repeated-work-speed-summary.json} and \path{repeated-work-speed-findings.md}. The BFCL calibration artifacts are under \path{research/02-quality-gated-stateful-kv-reuse/experiments/bfcl-official-kv-pti-leaderboard-lane/}, including \path{official-evaluator-summary-2026-06-07.md}, \path{official-context-burden-summary-2026-06-07.md}, and \path{official-latency-derivation-2026-06-07.md}. Figure provenance is recorded in \path{research/02-quality-gated-stateful-kv-reuse/paper-artifacts/figures/figure-manifest.json}, and the exact LaTeX source for this draft is under \path{research/02-quality-gated-stateful-kv-reuse/arxiv/}.
+All paper-facing artifacts, analysis scripts, figure manifests, and arXiv sources are available in the public repository:
+\begin{center}
+\url{https://github.com/fraction12/ai-research-lab}
+\end{center}
+
+The reproducibility map is:
+\begin{itemize}[leftmargin=*]
+  \item The selected-cohort mechanism directory contains the summary table and findings memo for the control ladder.
+  \item The repeated-work comparison artifacts contain the speed summary and failure analysis used for the practical systems comparison.
+  \item The BFCL calibration directory contains the official-evaluator summary, context-burden summary, and latency derivation.
+  \item The paper-artifacts directory contains the figure manifest and scripts used to regenerate the plots.
+  \item The arXiv directory contains the exact LaTeX source, bibliography, compiled figures, and compiled PDF.
+\end{itemize}
+
+These files live under the paper track, \texttt{research/02-quality-gated-stateful-kv-reuse/}. Exact filenames and relative paths are listed in the repository README and artifact manifests.
 
 \bibliographystyle{plain}
 \bibliography{references}
