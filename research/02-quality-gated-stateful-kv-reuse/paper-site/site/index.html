@@ -3,616 +3,136 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Attention-State Reuse for Local Tool-Using Agents</title>
+  <title>Quality-Gated Attention-State Reuse for Local Tool-Using Agents</title>
   <style>
     :root {
-      --paper: #ffffff;
-      --ink: #171717;
-      --muted: #555555;
-      --line: #bdbdbd;
-      --soft-line: #e5e5e5;
-      --panel: #fafafa;
-      --code: #f2f2f2;
-      --primary: #1f4e79;
-      --mid: #808080;
-      --inverse: #b23b30;
-      --inverse-soft: #e2aaa4;
+      color-scheme: light;
+      --ink: #151515;
+      --muted: #5f6368;
+      --line: #d9d9d9;
+      --bg: #f6f6f4;
+      --panel: #ffffff;
     }
+
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html,
     body {
+      height: 100%;
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      line-height: 1.58;
     }
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      border-bottom: 1px solid var(--line);
-      background: rgba(247, 243, 235, 0.94);
-      backdrop-filter: blur(10px);
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-    .topbar-inner {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 10px 24px;
+
+    header {
+      min-height: 64px;
       display: flex;
-      gap: 18px;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
     }
-    .brand { font-weight: 720; font-size: 14px; letter-spacing: 0; }
-    nav { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
-    nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
-    nav a:hover { color: var(--ink); }
-    main {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 46px 24px 90px;
-    }
-    .paper-header {
-      max-width: 900px;
-      margin: 0 auto 42px;
-      text-align: center;
-      border-bottom: 1.5px solid var(--ink);
-      padding-bottom: 28px;
-    }
-    .eyebrow {
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: .08em;
-      margin-bottom: 16px;
-    }
+
     h1 {
-      font-size: clamp(34px, 5.2vw, 54px);
-      line-height: 1.06;
-      margin: 0 0 18px;
-      font-weight: 760;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 650;
       letter-spacing: 0;
     }
-    .subtitle {
-      max-width: 760px;
-      margin: 0 auto;
-      font-size: 19px;
-      color: #303636;
-    }
+
     .meta {
-      margin-top: 22px;
+      margin-top: 3px;
       color: var(--muted);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 13px;
+      font-size: 12px;
     }
-    section {
-      max-width: 900px;
-      margin: 0 auto 48px;
-      scroll-margin-top: 132px;
-    }
-    h2 {
-      font-size: 27px;
-      line-height: 1.18;
-      margin: 0 0 16px;
-      border-top: 1px solid var(--line);
-      padding-top: 28px;
-    }
-    h3 {
-      font-size: 19px;
-      margin: 28px 0 10px;
-      line-height: 1.25;
-    }
-    p { margin: 0 0 14px; }
-    .abstract {
-      font-size: 17px;
-      border-top: 1px solid var(--ink);
-      border-bottom: 1px solid var(--ink);
-      padding: 18px 0;
-    }
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin: 28px 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    .kpi {
-      border: 1px solid var(--soft-line);
-      background: var(--panel);
-      padding: 14px 16px;
-    }
-    .kpi b { display: block; font-size: 26px; line-height: 1.05; margin-bottom: 6px; }
-    .kpi span { color: var(--muted); font-size: 12px; line-height: 1.3; display: block; }
-    .system-diagram {
-      margin: 24px 0 10px;
-      border: 1px solid var(--line);
-      padding: 18px;
-      background: #fff;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    .diagram-row {
-      display: grid;
-      grid-template-columns: 1fr 52px 1fr 52px 1fr;
-      gap: 10px;
-      align-items: stretch;
-    }
-    .diagram-box {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      padding: 13px 14px;
-      min-height: 104px;
-    }
-    .diagram-box b { display: block; margin-bottom: 7px; font-size: 14px; }
-    .diagram-box span { display: block; color: var(--muted); font-size: 12px; line-height: 1.35; }
-    .diagram-arrow {
+
+    .actions {
       display: flex;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .button {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary);
-      font-size: 28px;
-      font-weight: 700;
-    }
-    .rq {
-      border-left: 3px solid var(--primary);
-      padding-left: 14px;
-      margin: 24px 0 28px;
-    }
-    .rq h3 { margin-top: 0; }
-    .rq-question {
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-    .figure {
-      margin: 28px 0 38px;
-      padding: 0;
-      border-top: 1px solid var(--ink);
-      border-bottom: 1px solid var(--line);
-      background: #fff;
-      overflow-x: auto;
-    }
-    .figure-head {
-      padding: 10px 0 8px;
-      border-bottom: 1px solid var(--soft-line);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 13px;
-      line-height: 1.45;
-    }
-    .figure-head b { color: var(--ink); }
-    .figure-body { padding: 12px 0 6px; }
-    .figure-note {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 12px;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    .caption {
-      margin: 8px 0 10px;
-      color: var(--muted);
-      font-size: 13px;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    .chart, .paper-chart { width: 100%; height: auto; display: block; }
-    .paper-figure-img { width: 100%; height: auto; display: block; }
-    .compact-chart { min-width: 460px; max-width: 560px; margin: 0 auto; }
-    .small-multiples {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      align-items: start;
-    }
-    .small-multiples .paper-chart { min-width: 0; }
-    .chart-title, .chart-panel-title, .value, .ylabel, .legend, .donut-label, .tick, .tick-left, .axis-label {
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      letter-spacing: 0;
-    }
-    .chart-title { font-size: 18px; font-weight: 720; fill: var(--ink); }
-    .chart-panel-title { font-size: 13px; font-weight: 700; fill: var(--ink); }
-    .ylabel { font-size: 12px; text-anchor: end; fill: #222; }
-    .value { font-size: 12px; fill: #222; }
-    .axis { stroke: #333; stroke-width: 1; }
-    .gridline { stroke: #e6e6e6; stroke-width: 1; }
-    .tick { font-size: 11px; fill: #555; text-anchor: middle; }
-    .tick-left { font-size: 11px; fill: #555; text-anchor: end; }
-    .axis-label { font-size: 11px; fill: #555; text-anchor: middle; }
-    .rotated { transform: rotate(-90deg); transform-origin: 14px center; }
-    .bar { opacity: .94; }
-    .bar-fill { fill: var(--mid); }
-    .bar-fill.primary { fill: var(--primary); }
-    .bar-fill.mid { fill: var(--mid); }
-    .bar-fill.inverse { fill: var(--inverse); }
-    .muted-fill { fill: var(--inverse-soft); }
-    .slice { stroke: var(--paper); stroke-width: 2; }
-    .donut-total { font: 720 30px ui-sans-serif, system-ui; text-anchor: middle; fill: var(--ink); }
-    .donut-label { font-size: 12px; text-anchor: middle; fill: var(--muted); }
-    .legend { font-size: 13px; fill: #303636; }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 18px 0 24px;
-      background: #fff;
+      min-height: 36px;
+      padding: 0 13px;
       border: 1px solid var(--line);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 13px;
-    }
-    th, td {
-      border-bottom: 1px solid var(--line);
-      padding: 9px 10px;
-      text-align: left;
-      vertical-align: top;
-    }
-    th { background: #f3f3f3; font-weight: 720; }
-    tr:last-child td { border-bottom: 0; }
-    code {
-      background: var(--code);
-      border-radius: 4px;
-      padding: 1px 4px;
-      font-size: .92em;
-    }
-    .callout {
-      border-left: 3px solid var(--primary);
-      background: var(--panel);
-      padding: 15px 18px;
-      margin: 20px 0;
-      border-radius: 0 6px 6px 0;
-    }
-    .warning { border-left-color: var(--inverse); }
-    .provenance {
-      border: 1px solid var(--soft-line);
-      background: var(--panel);
-      padding: 14px 16px;
-      margin: 20px 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .provenance b { color: var(--ink); }
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items: start;
-    }
-    .source-list {
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .source-list li { margin-bottom: 8px; }
-    .cite {
-      color: var(--primary);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: .88em;
-      font-weight: 650;
+      border-radius: 6px;
+      background: #fafafa;
       text-decoration: none;
-      white-space: nowrap;
-    }
-    .cite:hover { text-decoration: underline; }
-    footer {
-      max-width: 900px;
-      margin: 60px auto 0;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 13px;
+      font-weight: 600;
     }
-    @media (max-width: 760px) {
-      .topbar-inner { align-items: flex-start; flex-direction: column; }
-      nav { justify-content: flex-start; }
-      main { padding: 30px 16px 70px; }
-      .paper-header { text-align: left; }
-      .kpi-grid { grid-template-columns: 1fr 1fr; }
-      .diagram-row { grid-template-columns: 1fr; }
-      .diagram-arrow { transform: rotate(90deg); min-height: 28px; }
-      .two-col { grid-template-columns: 1fr; }
-      .small-multiples { grid-template-columns: 1fr; }
-      .chart, .paper-chart { min-width: 0; }
-      .paper-figure-img { min-width: 0; }
-      .small-multiples .paper-chart { min-width: 560px; }
+
+    main {
+      height: calc(100% - 64px);
+      padding: 0;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #ffffff;
+    }
+
+    .fallback {
+      padding: 24px;
+      font-size: 15px;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+        min-height: 112px;
+      }
+
+      main {
+        height: calc(100% - 112px);
+      }
+
+      .actions {
+        width: 100%;
+      }
+
+      .button {
+        flex: 1;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">Attention-State Reuse</div>
-      <nav>
-        <a href="#abstract">Abstract</a>
-        <a href="#intro">Intro</a>
-        <a href="#related-work">Related Work</a>
-        <a href="#method">Method</a>
-        <a href="#results">Results</a>
-        <a href="#discussion">Discussion</a>
-        <a href="#figures">Figures</a>
-        <a href="#calibration">Calibration</a>
-        <a href="#limitations">Limitations</a>
-        <a href="#artifacts">Artifacts</a>
-        <a href="#references">References</a>
-      </nav>
+  <header>
+    <div>
+      <h1>Quality-Gated Attention-State Reuse for Local Tool-Using Agents</h1>
+      <div class="meta">Final arXiv v1 snapshot PDF</div>
     </div>
-  </div>
+    <nav class="actions" aria-label="PDF actions">
+      <a class="button" href="paper.pdf">Open PDF</a>
+      <a class="button" href="paper.pdf" download>Download</a>
+    </nav>
+  </header>
   <main>
-    <header class="paper-header">
-      <div class="eyebrow">Systems · Local tool-using agents</div>
-      <h1>Attention-State Reuse for Local Tool-Using Agents</h1>
-      <p class="subtitle">KV Capsules and PTI preserve stable tool-context state for repeated local-agent workloads.</p>
-      <div class="meta">Dushyant Garg · Local Gemma 4 12B experiments · BFCL-derived selected cohort · 2026-06-07</div>
-    </header>
-
-    <section id="abstract">
-      <h2>Abstract</h2>
-      <div class="abstract">
-        Local tool-using agents repeatedly expose stable context to the model: tool schemas, runtime rules, interface contracts, and task protocols. Text compaction preserves continuity by writing summaries back into the prompt; attention-state reuse preserves a different object, the model's computed key/value state after reading a stable prefix. We evaluate <strong>KV Capsules</strong>, saved and restored KV/sequence state for a validated stable prefix, paired with <strong>PTI</strong>, a constrained structured local tool interface. On a selected 100-case BFCL-derived control ladder with a local Gemma 4 12B model, restored KV matched native live append at <code>100/100</code> with zero fresh-tail or wrong-capsule leaks; compact visible evidence solved <code>19/100</code>, and direct visible tools solved <code>91/100</code>. On a repeated-work stream, KV Capsule + PTI achieved <code>100/100</code> with <code>3,900</code> cumulative new visible tail/control tokens after state restore and <code>853,499 ms</code> cumulative wall time, compared with <code>86/100</code>, <code>245,774,883</code> cumulative reported visible input tokens, and <code>11,813,816 ms</code> cumulative wall time for the tested text-threaded local-agent baseline using the same model family. These results support a narrow systems claim: for the tested repeated local tool-use workloads, stable context can be preserved as reusable hidden state rather than repeatedly replayed or summarized as visible text.
+    <iframe src="paper.pdf" title="Final paper PDF">
+      <div class="fallback">
+        This browser cannot display the PDF inline. <a href="paper.pdf">Open the PDF directly.</a>
       </div>
-    </section>
-
-    <section id="intro">
-      <h2>1. Introduction</h2>
-      <p>Local tool-using agents often carry stable context as visible text across many tasks. This context includes tool schemas, runtime rules, output contracts, and environment instructions. Tool-use benchmarks such as BFCL, ToolLLM, and Gorilla show that the exact representation of tool APIs and function-call contracts matters for reliability [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>,<a class="cite" href="https://arxiv.org/abs/2307.16789" target="_blank" rel="noreferrer">4</a>,<a class="cite" href="https://arxiv.org/abs/2305.15334" target="_blank" rel="noreferrer">5</a>]. When this context becomes too large, some practical runtimes, including the tested Codex/Ollama route, compact it into natural-language summaries. This makes the representation portable, but it also changes the object being reused.</p>
-      <p>Attention-state reuse is a different systems primitive. When a transformer processes a stable prefix, it constructs key/value state used by attention. Serving systems such as vLLM and SGLang already exploit KV-cache structure for efficient serving, paging, and shared-prefix reuse [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>]. If a local runtime can save, quality-gate, and restore that state, repeated agent work can be structured as continuation from validated state rather than repeated interpretation of stable text.</p>
-      <p>We test that premise with two runtime pieces. The first is a <strong>KV Capsule</strong>: a saved, quality-gated KV/sequence state after the model reads a stable tool/context prefix. The second is a constrained structured local tool interface, which we call <strong>PTI</strong>. PTI exposes a compact execution surface, letting the model emit structured calls while the stable interface rules live in the preserved prefix state. This differs from memory systems such as MemGPT and Reflexion, which reintroduce stored information as visible text or verbal feedback rather than restoring the model's computed prefix state [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>].</p>
-      <p>The evaluation uses BFCL-derived tasks [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>] with a Gemma 4 12B model blob installed through Ollama and executed for the KV lanes via a llama.cpp CUDA sequence-file route [<a class="cite" href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noreferrer">8</a>]. The goal is not to compare against hosted frontier systems. The goal is to isolate whether runtime state and tool-interface design can make a local model function better and more reliably on repeated tool-use work.</p>
-      <p>Our contributions are:</p>
-      <ul>
-        <li>A quality-gated control ladder for testing whether restored KV state preserves stable tool/context knowledge.</li>
-        <li>A constrained structured tool-interface harness that separates local tool execution from repeated natural-language schema replay.</li>
-        <li>BFCL-derived results showing restored KV Capsule behavior matching native live append under negative controls.</li>
-        <li>A repeated-work systems comparison showing large practical gains in pass rate, visible input burden, and cumulative wall time for KV Capsule + PTI on the tested local route.</li>
-      </ul>
-    </section>
-
-    <section id="related-work">
-      <h2>2. Related Work</h2>
-      <p>Prior work has studied KV-cache efficiency for serving, tool-use evaluation for function calling, and text-based memory for long-running agents. This work connects these threads by evaluating whether restored attention state can preserve tool-use behavior while reducing repeated visible-context replay in local agents.</p>
-
-      <h3>KV Cache Reuse and Prefix Sharing</h3>
-      <p>LLM serving systems have treated key/value state as a central efficiency object. vLLM introduced PagedAttention and block-level KV-cache management to improve serving throughput under variable-length requests [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>]. SGLang later used RadixAttention to reuse KV cache across shared prefixes in structured language-model programs [<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>]. These systems motivate KV state as reusable computation, but their primary target is serving efficiency and shared-prefix scheduling. KV Capsules use the same broad insight in a different role: the restored state is evaluated as a reusable local-agent substrate for repeated tool-use tasks, with negative controls that test whether the task tail alone or an irrelevant capsule can solve the selected cases.</p>
-
-      <h3>Tool-Use Evaluation</h3>
-      <p>Tool-use and function-calling benchmarks evaluate whether models can select functions, construct valid arguments, and handle single-turn, parallel, multi-call, and multi-turn settings. BFCL provides a benchmark family for function calling and agentic evaluation [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>]. ToolLLM builds a tool-use framework around real-world APIs, instruction generation, and solution-path annotation [<a class="cite" href="https://arxiv.org/abs/2307.16789" target="_blank" rel="noreferrer">4</a>]. Gorilla and APIBench study API-call generation and retrieval over large API collections [<a class="cite" href="https://arxiv.org/abs/2305.15334" target="_blank" rel="noreferrer">5</a>]. This work does not propose a new benchmark or claim an official leaderboard result. It uses BFCL-derived tasks to test a systems question: whether a local runtime that restores attention state and exposes tools through PTI preserves tool-use behavior better than visible-text alternatives on the tested cohort.</p>
-
-      <h3>Agent Memory and Context Compaction</h3>
-      <p>Long-running agent systems usually maintain continuity by writing information back into text. MemGPT frames agent memory as an operating-system-like hierarchy that moves information between constrained context and external storage [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>]. Reflexion stores verbal feedback from prior attempts and reintroduces it as context for later agent behavior [<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>]. Retrieval-augmented and summarization-based agents follow a similar representational pattern: memory is recovered as visible text. KV Capsules target a different representation. Instead of summarizing stable context and replaying it, the runtime restores the model's computed attention state after reading the stable prefix, then appends only the fresh task tail.</p>
-
-      <h3>Local LLM Inference Systems</h3>
-      <p>Local inference stacks such as llama.cpp make it practical to run capable models outside hosted APIs, but repeated agent workloads still pay for visible context replay, tool schemas, validation text, summaries, retries, and prefill-like overhead [<a class="cite" href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noreferrer">8</a>]. General serving systems reduce memory waste and improve throughput, while local runtimes expose state-management choices that are not normally available to users of hosted chat products. This work studies one such choice: treating validated prefix state as reusable local execution state for repeated tool-use tasks.</p>
-    </section>
-
-    <section id="claim">
-      <h2>Main Claim</h2>
-      <p><strong>Thesis:</strong> repeated local-agent work can be improved by reusing validated attention state for stable context instead of re-sending or summarizing that context as visible text. Prior serving work establishes that KV state can be managed and reused as a systems object [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>], while agent-memory work shows the practical need for continuity across long interactions [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>]. If the runtime preserves stable context as a KV Capsule and exposes tools through PTI, the same local model can resume work with far less visible text and less repeated visible schema/rule replay.</p>
-      <p>This is a systems property, not a general model leaderboard claim. The evaluation asks whether KV Capsule + PTI improves the reliability of repeated local tool-use work compared with the tested text-threaded Codex/Ollama route and selected-cohort ablations on a local Gemma 4 12B setup.</p>
-      <div class="callout">
-        <p><strong>Primary repeated-work result:</strong> on the selected 100-case stream, KV Capsule + PTI achieved <code>100/100</code>, while the tested text-threaded local-agent baseline achieved <code>86/100</code> with <code>89</code> audited compaction events.</p>
-      </div>
-      <div class="callout warning">
-        <p><strong>Boundary:</strong> this is not a hosted-model comparison, not a prompt-identical KV-vs-compaction mechanism comparison, not an official BFCL leaderboard result, and not a proof that restored KV is inherently faster in every setting.</p>
-      </div>
-    </section>
-
-    <section id="method">
-      <h2>Method</h2>
-      <h3>Systems Setup</h3>
-      <p>The experiments run on a local Gemma 4 12B model. The question is not whether local models beat hosted frontier agents. The question is whether the runtime contract around a local model can make repeated tool-use work more reliable by preserving stable attention state and reducing the amount of visible tool/context text that must be replayed. This positions the experiment between local inference systems [<a class="cite" href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noreferrer">8</a>], KV-cache serving work [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>], and function-calling evaluation [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>,<a class="cite" href="https://arxiv.org/abs/2307.16789" target="_blank" rel="noreferrer">4</a>,<a class="cite" href="https://arxiv.org/abs/2305.15334" target="_blank" rel="noreferrer">5</a>].</p>
-      <h3>Stable Prefix, Capsule, Tail</h3>
-      <p>The system builds a stable prefix containing the tool/function catalog, output contract, interface rules, and stable task protocol. The local model evaluates that prefix once. The harness saves the llama.cpp sequence/KV state as a KV Capsule. Later it restores the capsule and appends only the volatile task tail. The capsule is therefore not a summary of the prefix. It is the model's computed attention state after reading the prefix, closer to KV-cache reuse in serving systems [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>] than to text-memory approaches that externalize continuity as summaries or reflections [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>].</p>
-      <div class="figure">
-        <div class="figure-head"><b>Figure 1.</b> Runtime mechanism. A stable prefix is evaluated once, saved as a KV Capsule, and restored for fresh task tails under PTI.</div>
-        <div class="figure-body">
-          <div class="system-diagram" role="img" aria-label="KV Capsule and PTI runtime diagram">
-            <div class="diagram-row">
-              <div class="diagram-box"><b>Stable prefix</b><span>Tool catalog, runtime rules, PTI contract, output schema, and task protocol.</span></div>
-              <div class="diagram-arrow">→</div>
-              <div class="diagram-box"><b>KV Capsule</b><span>Saved llama.cpp sequence/KV state after the local Gemma 4 12B model processes the stable prefix.</span></div>
-              <div class="diagram-arrow">→</div>
-              <div class="diagram-box"><b>Task tail + PTI</b><span>Fresh BFCL-derived task tail appended after restore; model emits structured local tool-call plans.</span></div>
-            </div>
-          </div>
-        </div>
-        <p class="caption">The experiment tests whether restoring the hidden prefix state preserves behaviour relative to native live append, while negative controls test whether the tail alone or an irrelevant capsule can solve the task.</p>
-      </div>
-      <h3>Constrained Structured Tool Interface</h3>
-      <p>PTI is the name used in this runtime for a constrained structured local tool interface. It gives the model a compact contract for emitting tool/function-call plans after capsule restore, without replaying the full stable tool/interface schema as fresh visible text. This design is motivated by function-calling benchmarks that expose tool selection, argument construction, and multi-call composition as distinct reliability problems [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>,<a class="cite" href="https://arxiv.org/abs/2307.16789" target="_blank" rel="noreferrer">4</a>,<a class="cite" href="https://arxiv.org/abs/2305.15334" target="_blank" rel="noreferrer">5</a>]. PTI is narrower than arbitrary programmatic tool calling: it is a controlled execution surface built for deterministic local-agent evaluation.</p>
-      <h3>Control Ladder</h3>
-      <table><thead><tr><th>Control</th><th>Purpose</th></tr></thead><tbody><tr><td>Full visible PTI</td><td>Positive control with stable context visible.</td></tr>
-<tr><td>Native live append</td><td>Reads prefix, then appends task tail without save/restore.</td></tr>
-<tr><td>Restored KV capsule</td><td>Restores saved hidden state, then appends task tail.</td></tr>
-<tr><td>Fresh tail negative</td><td>Tests whether the tail alone leaks the answer.</td></tr>
-<tr><td>Wrong capsule negative</td><td>Tests whether irrelevant hidden state can solve the task.</td></tr>
-<tr><td>Direct visible tools</td><td>Regular visible tool-schema baseline.</td></tr>
-<tr><td>Compact visible evidence</td><td>Visible summary baseline, separate from hidden-state reuse.</td></tr></tbody></table>
-    </section>
-
-    <section id="results">
-      <h2>Results</h2>
-
-      <div class="rq">
-        <h3>RQ1: Does restored KV preserve native prefix behaviour?</h3>
-        <p class="rq-question">Comparison: full visible PTI, native live append, and restored KV Capsule on the same selected 100-case cohort.</p>
-        <p>Restored KV Capsule matched both full visible PTI and native live append at <code>100/100</code>. Native/restored hash parity was also <code>100/100</code>, supporting the claim that restored hidden state preserved the useful stable-prefix behaviour for these cases. This adapts KV-cache reuse from a serving-efficiency concern [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>] into a behavioural preservation test for tool-use tasks.</p>
-        <table><thead><tr><th>Lane</th><th>Role</th><th>Tasks</th><th>Pass count</th><th>Mean latency per task</th><th>Median latency per task</th></tr></thead><tbody><tr><td>Full visible PTI</td><td>Positive reference</td><td>100</td><td>100/100</td><td>6,766.7 ms</td><td>6,252.9 ms</td></tr>
-<tr><td>Native live append</td><td>Live prefix+tail comparator</td><td>100</td><td>100/100</td><td>6,782.7 ms</td><td>6,253.5 ms</td></tr>
-<tr><td>Restored KV Capsule</td><td>Saved prefix-state restore</td><td>100</td><td>100/100</td><td>8,513.8 ms</td><td>8,042.3 ms</td></tr></tbody></table>
-      </div>
-
-      <div class="rq">
-        <h3>RQ2: Are task tails actually prefix-dependent?</h3>
-        <p class="rq-question">Comparison: fresh-tail and wrong-capsule negative controls.</p>
-        <p>Both negative controls stayed closed with zero leaks. The fresh-tail lane shows that task tails alone did not contain enough visible information to solve the selected cases. The wrong-capsule lane shows that irrelevant hidden state did not substitute for the correct stable prefix.</p>
-        <table><thead><tr><th>Lane</th><th>Negative-control purpose</th><th>Observed leaks</th><th>Interpretation</th></tr></thead><tbody><tr><td>Fresh tail only</td><td>Tail without stable prefix state</td><td>0/100</td><td>The tail alone did not solve selected cases.</td></tr>
-<tr><td>Wrong capsule</td><td>Tail with irrelevant hidden state</td><td>0/100</td><td>The correct restored prefix state mattered.</td></tr></tbody></table>
-      </div>
-
-      <div class="rq">
-        <h3>RQ3: Does PTI help relative to direct visible tools?</h3>
-        <p class="rq-question">Comparison: full visible PTI versus direct visible tool schemas.</p>
-        <p>Full visible PTI passed <code>100/100</code>, while direct visible tools passed <code>91/100</code>. This does not establish universal PTI superiority, but it shows that interface shape affected reliability on the selected cohort, consistent with prior tool-use evaluations where API representation and call construction are central failure modes [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>,<a class="cite" href="https://arxiv.org/abs/2307.16789" target="_blank" rel="noreferrer">4</a>,<a class="cite" href="https://arxiv.org/abs/2305.15334" target="_blank" rel="noreferrer">5</a>].</p>
-        <table><thead><tr><th>Lane</th><th>Tool-interface representation</th><th>Tasks</th><th>Pass count</th><th>Mean latency per task</th><th>Median latency per task</th></tr></thead><tbody><tr><td>Full visible PTI</td><td>Structured local tool interface</td><td>100</td><td>100/100</td><td>6,766.7 ms</td><td>6,252.9 ms</td></tr>
-<tr><td>Direct visible tools</td><td>Visible tool schemas</td><td>100</td><td>91/100</td><td>8,179.8 ms</td><td>6,979.3 ms</td></tr></tbody></table>
-      </div>
-
-      <div class="rq">
-        <h3>RQ4: Does compact visible evidence explain the restored-state result?</h3>
-        <p class="rq-question">Comparison: restored KV Capsule versus compact visible evidence under the PTI contract.</p>
-        <p>Compact visible evidence passed <code>19/100</code>, far below restored KV Capsule at <code>100/100</code>. A compact visible representation did not reproduce the behaviour obtained from restored hidden state. This result distinguishes the capsule mechanism from text-memory and reflection-style approaches that preserve continuity by writing information back into the prompt [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>].</p>
-        <table><thead><tr><th>Lane</th><th>Representation reused</th><th>Tasks</th><th>Pass count</th><th>Interpretation</th></tr></thead><tbody><tr><td>Restored KV Capsule</td><td>Hidden prefix state</td><td>100</td><td>100/100</td><td>Preserved selected-cohort behaviour.</td></tr>
-<tr><td>Compact visible evidence</td><td>Visible compact evidence</td><td>100</td><td>19/100</td><td>Did not explain the restored-state result.</td></tr></tbody></table>
-      </div>
-
-      <div class="rq">
-        <h3>RQ5: Does the runtime help repeated local-agent work?</h3>
-        <p class="rq-question">Comparison: KV Capsule + PTI versus tested text-threaded local route.</p>
-        <p>On the repeated-work stream, KV Capsule + PTI had the best pass rate, smallest new visible input burden after restore, and lowest cumulative wall time among the reported system lanes. The small KV input number does not mean the model had only <code>3,900</code> tokens of useful context. The stable prefix was already represented by restored hidden KV state; the reported visible count is only the fresh task-tail/control text appended after each restore. The text-threaded baseline compacted the conversation during the run; its token field is cumulative reported visible-input telemetry from the local-agent route. The comparison is a practical local-agent runtime result: same local model family, different runtime contracts, and a local-inference setting where repeated prefill and transcript growth are material systems costs [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>,<a class="cite" href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noreferrer">8</a>].</p>
-        <table><thead><tr><th>System</th><th>Tasks</th><th>Pass count</th><th>Runtime representation of stable context</th><th>Cumulative wall time</th><th>Cumulative reported visible input</th><th>Cumulative output tokens</th><th>Audited compaction events</th></tr></thead><tbody><tr><td>KV Capsule + PTI</td><td>100</td><td>100/100</td><td>Restored hidden prefix state</td><td>853,499 ms</td><td>3,900</td><td>6,267</td><td>0</td></tr>
-<tr><td>Text-threaded local-agent baseline</td><td>100</td><td>86/100</td><td>Text thread with natural compaction</td><td>11,813,816 ms</td><td>245,774,883</td><td>9,068,626</td><td>89</td></tr>
-<tr><td>Text-threaded baseline without observed compaction</td><td>100</td><td>87/100</td><td>Text thread without observed compaction events</td><td>11,521,048 ms</td><td>243,088,507</td><td>8,170,400</td><td>0</td></tr></tbody></table>
-      </div>
-
-    </section>
-
-    <section id="discussion">
-      <h2>Discussion</h2>
-      <h3>Why Attention Preservation Matters</h3>
-      <p>The selected-cohort result is primarily a mechanism result, not a general benchmark result. Restored KV matched native live append while the fresh-tail and wrong-capsule controls stayed closed. That pattern supports the mechanism claim: the successful tail response depended on the stable prefix state, and the saved capsule preserved that state well enough for the tested tasks. Unlike PagedAttention or RadixAttention, which optimize serving and shared-prefix execution [<a class="cite" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noreferrer">1</a>,<a class="cite" href="https://arxiv.org/abs/2312.07104" target="_blank" rel="noreferrer">2</a>], this experiment asks whether restored KV state preserves task behaviour in a local tool-use harness.</p>
-      <p>This is a different primitive from text compaction. A summary may preserve useful facts, but it is not the model's computed state after reading the original prefix. KV Capsules expose a local-runtime option that is not normally available to users of hosted chat products: treat the model's computed prefix state as reusable execution state. That differs from memory architectures that rehydrate context as text, such as MemGPT and Reflexion [<a class="cite" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noreferrer">6</a>,<a class="cite" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">7</a>].</p>
-      <h3>Why PTI Matters</h3>
-      <p>KV Capsules alone are not the full story. If the tool interface remains a sprawling natural-language schema that must be interpreted differently every turn, state reuse has less to preserve. PTI gives the model a stable, structured local contract. In the selected cohort, full visible PTI passed <code>100/100</code>, while direct visible tools passed <code>91/100</code>. That does not prove PTI is universally superior, but it does show that interface shape materially affected reliability on this selected cohort, which is consistent with tool-use benchmark findings around function selection and argument construction [<a class="cite" href="https://openreview.net/forum?id=2GmDdhBdDk" target="_blank" rel="noreferrer">3</a>,<a class="cite" href="https://arxiv.org/abs/2307.16789" target="_blank" rel="noreferrer">4</a>,<a class="cite" href="https://arxiv.org/abs/2305.15334" target="_blank" rel="noreferrer">5</a>].</p>
-      <h3>Where The Speed Claim Lives</h3>
-      <p>The mechanism run does not show restored KV is intrinsically faster; restored KV was slower than full visible and native live append on mean total latency. The speed result appears in repeated work. When stable context would otherwise be carried through many turns, KV Capsule + PTI reduced the repeated visible contract to small task tails and avoided repeated natural-language compaction.</p>
-      <h3>How To Read The Baseline</h3>
-      <p>The text-threaded baseline is a practical local-agent route, not a prompt-identical scientific control. It is included because real agent systems have overhead: tool surfaces, summaries, logs, validation, and retries. The comparison is therefore narrow: under the tested local repeated-work route, KV Capsule + PTI compared favorably to the tested natural text-compaction route.</p>
-    </section>
-
-    <section id="figures">
-      <h2>Additional Figures</h2>
-      <div class="figure">
-        <div class="figure-head"><b>Figure 2.</b> Control-ladder outcome on the selected 100-case cohort. Positive lanes are shown as pass rate; negative controls are shown separately as leak count.</div>
-        <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-01-control-ladder-mobile.svg?v=1781616694" /><img class="paper-figure-img" src="figures/figure-01-control-ladder.svg?v=1781616694" alt="Matplotlib chart showing selected-cohort positive lane pass rates and negative-control leak counts." loading="lazy" /></picture>
-        </div>
-        <p class="caption">The restored-KV lane matches both full-visible and native-live controls on all selected cases; fresh-tail and wrong-capsule controls produce zero leaks. This supports prefix dependence and restored-state preservation, not a speed claim.</p>
-      </div>
-      <div class="figure">
-        <div class="figure-head"><b>Figure 3.</b> Selected-cohort latency boundary for positive/comparison lanes. Lower is better; this experiment supports semantic preservation, not a speedup claim for restored KV.</div>
-        <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-02-latency-mobile.svg?v=1781616694" /><img class="paper-figure-img" src="figures/figure-02-latency.svg?v=1781616694" alt="Matplotlib horizontal bar chart of selected-cohort mean total latency for positive and comparison lanes." loading="lazy" /></picture>
-        </div>
-        <p class="figure-note">No error bars are drawn: this figure reports mean latency from a deterministic run summary, not repeated-run confidence intervals.</p>
-        <p class="caption">Restored KV is correct but slower than full-visible and native-live append in this mechanism run. Fresh-tail and wrong-capsule negative-control latency lanes are omitted from this chart; their leak counts are reported in RQ2.</p>
-      </div>
-      <div class="figure">
-        <div class="figure-head"><b>Figure 4.</b> Text-threaded baseline failure distribution by BFCL category. Pass and fail proportions are shown on a common 0-100% scale, with counts printed at right.</div>
-        <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-03-codex-failures-mobile.svg?v=1781616694" /><img class="paper-figure-img" src="figures/figure-03-codex-failures.svg?v=1781616694" alt="Matplotlib stacked horizontal bar chart showing text-threaded baseline pass and fail proportions by BFCL category." loading="lazy" /></picture>
-        </div>
-        <p class="caption">Most baseline failures were parseable but incorrect calls; one failure parsed zero calls. This is diagnostic, not causal evidence that compaction summaries caused the failures.</p>
-      </div>
-      <div class="figure">
-        <div class="figure-head"><b>Figure 5.</b> Repeated-work visible input burden. Log scale is used because the runtime gap is several orders of magnitude.</div>
-        <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-04-visible-input-tokens-mobile.svg?v=1781616694" /><img class="paper-figure-img" src="figures/figure-04-visible-input-tokens.svg?v=1781616694" alt="Matplotlib log-scale horizontal bar chart of reported visible input tokens." loading="lazy" /></picture>
-        </div>
-        <p class="caption">The baseline telemetry is cumulative reported burden, not clean per-task token accounting.</p>
-      </div>
-      <div class="figure">
-        <div class="figure-head"><b>Figure 6.</b> Repeated-work cumulative wall time. Lower is better.</div>
-        <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-05-wall-time-mobile.svg?v=1781616695" /><img class="paper-figure-img" src="figures/figure-05-wall-time.svg?v=1781616695" alt="Matplotlib log-scale horizontal bar chart of repeated-work cumulative wall time." loading="lazy" /></picture>
-        </div>
-        <p class="caption">KV completed the stream in 14.2 minutes versus 3.28 hours for the natural text-compaction lane.</p>
-      </div>
-      <div class="figure">
-        <div class="figure-head"><b>Figure 7.</b> Repeated-work output-token burden. Lower means fewer emitted tokens, but this is not quality-normalized efficiency because lane success differs.</div>
-        <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-06-output-tokens-mobile.svg?v=1781616695" /><img class="paper-figure-img" src="figures/figure-06-output-tokens.svg?v=1781616695" alt="Matplotlib log-scale horizontal bar chart of repeated-work output-token burden." loading="lazy" /></picture>
-        </div>
-        <p class="caption">Output-token telemetry shows the practical burden difference between the compact KV harness and text-threaded local-agent routes.</p>
-      </div>
-      <div class="figure">
-        <div class="figure-head"><b>Figure 8.</b> Initial full BFCL non-live official-evaluator check. Category accuracies are shown for the first exported prediction run; the dashed line marks BFCL Non-Live AST Acc.</div>
-        <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-07-initial-official-bfcl-mobile.svg?v=1781616694" /><img class="paper-figure-img" src="figures/figure-07-initial-official-bfcl.svg?v=1781616694" alt="Matplotlib horizontal bar chart showing initial official BFCL non-live category accuracies and 69.88 percent BFCL Non-Live AST Acc." loading="lazy" /></picture>
-        </div>
-        <p class="caption">This chart records the first local official-evaluator calibration result. BFCL-style Non-Live AST Acc is <code>69.88%</code>; scoreable generated-record accuracy including irrelevance is <code>969/1390</code> (<code>69.71%</code>). It should be replaced by the newer full official run once that run is scored.</p>
-      </div>
-      <div class="figure">
-        <div class="figure-head"><b>Figure 9.</b> BFCL V4 Non-Live AST reference comparison. Higher is better.</div>
-        <div class="figure-body">
-          <picture><source media="(max-width: 760px)" srcset="figures/figure-08-bfcl-reference-comparison-mobile.svg?v=1781616694" /><img class="paper-figure-img" src="figures/figure-08-bfcl-reference-comparison.svg?v=1781616694" alt="Matplotlib horizontal bar chart comparing initial KV Capsule PTI run with official BFCL non-live AST reference rows." loading="lazy" /></picture>
-        </div>
-        <p class="caption">This is a non-live-only comparison against public BFCL rows. It should not be read as overall leaderboard rank, hosted-model cost comparison, or evidence about live/multi-turn BFCL categories.</p>
-      </div>
-    </section>
-
-    <section id="calibration">
-      <h2>Calibration Appendix</h2>
-      <p>The following BFCL non-live results are included to calibrate the export/evaluator path for the disclosed runtime. They are not part of the main selected-cohort mechanism claim, are not a public leaderboard submission, and should be superseded by a newer full official run once scored.</p>
-      <h3>Initial Full BFCL Non-Live Check</h3>
-      <p>The initial full non-live evaluator check scored <code>69.88%</code> on BFCL's leaderboard-style <strong>Non-Live AST Acc</strong> calculation. That score is an unweighted average over the non-live AST groups: simple, multiple, parallel, and parallel-multiple. The scoreable generated-record count across all seven local non-live files was <code>969/1390</code>, or <code>69.71%</code>, with irrelevance reported separately at <code>57.08%</code>.</p>
-      <table><thead><tr><th>Category</th><th>Correct</th><th>Total</th><th>Accuracy</th></tr></thead><tbody><tr><td>simple_python</td><td>324</td><td>400</td><td>81.00%</td></tr>
-<tr><td>simple_java</td><td>42</td><td>100</td><td>42.00%</td></tr>
-<tr><td>simple_javascript</td><td>33</td><td>50</td><td>66.00%</td></tr>
-<tr><td>multiple</td><td>171</td><td>200</td><td>85.50%</td></tr>
-<tr><td>parallel</td><td>133</td><td>200</td><td>66.50%</td></tr>
-<tr><td>parallel_multiple</td><td>129</td><td>200</td><td>64.50%</td></tr>
-<tr><td>irrelevance</td><td>137</td><td>240</td><td>57.08%</td></tr>
-<tr><td>BFCL Non-Live AST aggregate</td><td>unweighted</td><td>4 groups</td><td>69.88%</td></tr>
-<tr><td>scoreable generated-record count</td><td>969</td><td>1390</td><td>69.71%</td></tr></tbody></table>
-      <h3>BFCL Non-Live Reference Comparison</h3>
-      <p>The public BFCL table includes several metrics [<a class="cite" href="https://gorilla.cs.berkeley.edu/data_overall.csv" target="_blank" rel="noreferrer">9</a>]. <strong>Overall Acc</strong> averages across live, multi-turn, memory, web-search, relevance, irrelevance, and other categories. <strong>Non-Live AST Acc</strong> is the offline function-call slice that matches the current evaluation scope. The comparison below therefore uses non-live AST only and does not claim overall BFCL rank.</p>
-      <table><thead><tr><th>Model or system</th><th>Organization / disclosure</th><th>Overall Acc</th><th>Non-Live AST Acc</th><th>Visible input / context burden</th><th>Reported cost</th><th>Reported mean latency</th></tr></thead><tbody><tr><td>Gemma 4 12B + KV Capsule + PTI initial local run</td><td>Custom local prompt-mode harness</td><td>N/A</td><td>69.88%</td><td>45,332 fresh visible task-tail tokens after restore; 32.6 mean</td><td>No API spend recorded</td><td>13.0 s measured mean; 12.6 s amortized mean</td></tr>
-<tr><td>Gemma-3-12b-it (Prompt)</td><td>Google</td><td>30.43%</td><td>79.44%</td><td>Not reported by BFCL table</td><td>$10.77</td><td>11.10 s mean</td></tr>
-<tr><td>Gemma-3-27b-it (Prompt)</td><td>Google</td><td>29.47%</td><td>87.17%</td><td>Not reported by BFCL table</td><td>$11.82</td><td>10.88 s mean</td></tr>
-<tr><td>Granite-20b-FunctionCalling (FC)</td><td>IBM</td><td>23.23%</td><td>82.35%</td><td>Not reported by BFCL table</td><td>$5.23</td><td>3.20 s mean</td></tr>
-<tr><td>Llama-3.3-70B-Instruct (FC)</td><td>Meta</td><td>31.90%</td><td>88.02%</td><td>Not reported by BFCL table</td><td>$29.54</td><td>26.11 s mean</td></tr>
-<tr><td>Llama-4-Maverick-17B-128E-Instruct-FP8 (FC)</td><td>Meta</td><td>37.29%</td><td>88.65%</td><td>Not reported by BFCL table</td><td>$18.25</td><td>18.43 s mean</td></tr>
-<tr><td>Qwen3-8B (Prompt)</td><td>Qwen</td><td>40.43%</td><td>88.56%</td><td>Not reported by BFCL table</td><td>$63.95</td><td>54.17 s mean</td></tr>
-<tr><td>Qwen3-32B (Prompt)</td><td>Qwen</td><td>46.78%</td><td>90.27%</td><td>Not reported by BFCL table</td><td>$199.47</td><td>167.54 s mean</td></tr></tbody></table>
-      <p>The official BFCL cost and latency columns are shown for public leaderboard rows. The public table does not report token/context-burden telemetry for those rows. The visible-input cell for our local harness uses the matching initial official BFCL run records, not the separate repeated-work stream: across <code>1390</code> generated records, the restored-KV route exposed <code>45,332</code> fresh task-tail tokens after restore, or <code>32.6</code> mean visible task-tail tokens per record. The same official-run packet records <code>159,883</code> stable-prefix tokens represented by the per-case capsule and <code>205,215</code> full-prompt-equivalent tokens. Our BFCL run was local pre-generated inference, so there is no measured API spend to report. The table's latency cells are calibration measurements, not hosted BFCL serving metrics.</p>
-    </section>
-
-    <section id="limitations">
-      <h2>Limitations</h2>
-      <ul>
-        <li>The evaluation is scoped to local Gemma 4 12B experiments.</li>
-        <li>The text-threaded baseline is a practical runtime comparison, not a prompt-identical mechanism comparison.</li>
-        <li>The selected cohort is quality-gated and BFCL-derived; it is not an official BFCL leaderboard submission.</li>
-        <li>The initial full BFCL non-live check was scored by the official evaluator locally, but it is included only as calibration and not as a public leaderboard result.</li>
-        <li>The BFCL reference comparison uses <code>Non-Live AST Acc</code> only. It does not compare overall BFCL rank, live tasks, multi-turn tasks, memory, web search, or hosted-provider serving quality.</li>
-        <li>The initial local run has measured wall-clock metadata, but no measured dollar cost. Hosted BFCL cost fields should not be compared directly with local GPU wall time.</li>
-        <li>PTI is a structured local tool interface for agent runtimes, not full arbitrary programmatic tool calling.</li>
-        <li>Baseline visible-input telemetry is cumulative reported burden, not clean per-task accounting.</li>
-        <li>The selected-cohort mechanism run does not show restored KV is faster than native append.</li>
-        <li>Fresh-tail and wrong-capsule controls test leakage and prefix dependence only on this selected cohort; they do not establish general safety of hidden-state reuse.</li>
-        <li>The <code>89</code> compaction events are supported by tracked summary artifacts, but the raw Windows Codex session JSONL is not present in this checkout.</li>
-        <li>The compaction baseline is diagnostic for practical repeated-work overhead, not a causal analysis of which individual summaries helped or hurt.</li>
-      </ul>
-    </section>
-
-    <section id="artifacts">
-      <h2>Artifacts and Data Availability</h2>
-      <p>All paper-facing artifacts, analysis scripts, figure manifests, and arXiv sources are available in the public repository at <a href="https://github.com/fraction12/ai-research-lab">github.com/fraction12/ai-research-lab</a>. The selected-cohort mechanism results are under <code>research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/</code>, including <code>selected-cohort-summary.json</code> and <code>selected-cohort-findings.md</code>. The repeated-work comparison is in the same directory, including <code>repeated-work-speed-summary.json</code> and <code>repeated-work-speed-findings.md</code>. The BFCL calibration artifacts are under <code>research/02-quality-gated-stateful-kv-reuse/experiments/bfcl-official-kv-pti-leaderboard-lane/</code>, including <code>official-evaluator-summary-2026-06-07.md</code>, <code>official-context-burden-summary-2026-06-07.md</code>, and <code>official-latency-derivation-2026-06-07.md</code>. Figure provenance is recorded in <code>research/02-quality-gated-stateful-kv-reuse/paper-artifacts/figures/figure-manifest.json</code>, and the exact LaTeX source for this draft is under <code>research/02-quality-gated-stateful-kv-reuse/arxiv/</code>.</p>
-    </section>
-
-    <section id="references">
-      <h2>References</h2>
-      <ol class="source-list">
-        <li id="ref-1">W. Kwon et al. <a href="https://arxiv.org/abs/2309.06180">Efficient Memory Management for Large Language Model Serving with PagedAttention</a>. arXiv:2309.06180, 2023.</li>
-        <li id="ref-2">L. Zheng et al. <a href="https://arxiv.org/abs/2312.07104">SGLang: Efficient Execution of Structured Language Model Programs</a>. arXiv:2312.07104, 2023.</li>
-        <li id="ref-3">Berkeley Function Calling Leaderboard authors. <a href="https://openreview.net/forum?id=2GmDdhBdDk">The Berkeley Function Calling Leaderboard (BFCL): From Tool Use to Agentic Evaluation of Large Language Models</a>. OpenReview, 2025.</li>
-        <li id="ref-4">Y. Qin et al. <a href="https://arxiv.org/abs/2307.16789">ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs</a>. arXiv:2307.16789, 2023.</li>
-        <li id="ref-5">S. Patil et al. <a href="https://arxiv.org/abs/2305.15334">Gorilla: Large Language Model Connected with Massive APIs</a>. arXiv:2305.15334, 2023.</li>
-        <li id="ref-6">C. Packer et al. <a href="https://arxiv.org/abs/2310.08560">MemGPT: Towards LLMs as Operating Systems</a>. arXiv:2310.08560, 2023.</li>
-        <li id="ref-7">N. Shinn et al. <a href="https://arxiv.org/abs/2303.11366">Reflexion: Language Agents with Verbal Reinforcement Learning</a>. arXiv:2303.11366, 2023.</li>
-        <li id="ref-8">G. Gerganov. <a href="https://github.com/ggml-org/llama.cpp">llama.cpp: LLM inference in C/C++</a>. Open-source local inference runtime.</li>
-        <li id="ref-9">Berkeley Function Calling Leaderboard. <a href="https://gorilla.cs.berkeley.edu/leaderboard">Official leaderboard</a> and <a href="https://gorilla.cs.berkeley.edu/data_overall.csv">public data_overall.csv</a>. Accessed 2026-06-07.</li>
-      </ol>
-    </section>
+    </iframe>
   </main>
 </body>
 </html>
