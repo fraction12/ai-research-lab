@@ -31,7 +31,9 @@
     "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/selected-cohort-summary.json",
     "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-summary.json",
     "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/paper-grade-code-mode-kv-capsule-evaluation-2026-06-05/repeated-work-speed-findings.md",
-    "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/bfcl-official-kv-pti-leaderboard-lane/official-evaluator-summary-2026-06-07.md"
+    "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/bfcl-official-kv-pti-leaderboard-lane/official-evaluator-summary-2026-06-07.md",
+    "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/bfcl-official-kv-pti-leaderboard-lane/official-context-burden-summary-2026-06-07.md",
+    "/Volumes/MacSSD/Projects/ai-research-lab/research/02-quality-gated-stateful-kv-reuse/experiments/bfcl-official-kv-pti-leaderboard-lane/official-latency-derivation-2026-06-07.md"
   ],
   "figures": {
     "figure-01-control-ladder": {
@@ -56,7 +58,7 @@
     },
     "figure-06-output-tokens": {
       "source": "repeated-work-speed-summary.json",
-      "claim_boundary": "Harness burden comparison assuming comparable task success."
+      "claim_boundary": "Output-token burden telemetry only; success differs across lanes."
     },
     "figure-07-initial-official-bfcl": {
       "source": "official-evaluator-summary-2026-06-07.md",

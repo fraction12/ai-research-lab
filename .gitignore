@@ -4,6 +4,13 @@ node_modules/
 .venv-bfcl/
 __pycache__/
 *.pyc
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
 dist/
 build/
 .env

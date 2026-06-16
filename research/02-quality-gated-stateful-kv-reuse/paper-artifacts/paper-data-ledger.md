@@ -21,6 +21,9 @@ Terminology note: older run labels and code paths use `code_mode`. Paper-facing 
 - S11 publication plan: `research/02-quality-gated-stateful-kv-reuse/paper-publication-plan-2026-06-07.md`
 - S12 NotebookLM bundle README: `notebooklm-paper-bundle/README.md`
 - S13 NotebookLM bundle index: `notebooklm-paper-bundle/FILE_INDEX.txt`
+- S14 official BFCL evaluator summary: `research/02-quality-gated-stateful-kv-reuse/experiments/bfcl-official-kv-pti-leaderboard-lane/official-evaluator-summary-2026-06-07.md`
+- S15 official BFCL context-burden summary: `research/02-quality-gated-stateful-kv-reuse/experiments/bfcl-official-kv-pti-leaderboard-lane/official-context-burden-summary-2026-06-07.md`
+- S16 official BFCL latency derivation: `research/02-quality-gated-stateful-kv-reuse/experiments/bfcl-official-kv-pti-leaderboard-lane/official-latency-derivation-2026-06-07.md`
 
 ## Primary Evidence Rows
 
@@ -40,11 +43,13 @@ Terminology note: older run labels and code paths use `code_mode`. Paper-facing 
 | E12 | 30-case Family 2 sequence-file scale | S10 | `tail-only-kv-capsule-family2-structured-retrieval-scale-2026-06-04` | 30 cases. Full visible 30/30, fresh tail 0/30, live append 30/30, restored capsule 30/30. Live/restored hash parity partial: 12/30 generated-token matches. | Semantic continuation via official sequence-file route scaled beyond the 5-case gate; hash parity warning helps define the boundary. | Deterministic byte/token identity in all cases; agent-tool-use result; speed claim. |
 | E13 | Publication plan and claim discipline | S11 | Planning artifact | Defines target claim, publication path, required artifacts, and source-backed artifact order. | Keeps paper drafting aligned with the frozen evidence set and venue/reproducibility expectations. | Experimental result by itself. |
 | E14 | NotebookLM flattened source bundle | S12; S13 | `660ecf2 Flatten NotebookLM paper bundle` | 427 files directly inside `notebooklm-paper-bundle/`, 0 nested files. Filenames preserve original paths using `__`. | Convenience ingestion bundle for review/synthesis in NotebookLM. | Replacement for canonical source paths; proof of result correctness. |
+| E15 | Initial official BFCL non-live calibration | S14; S15; S16 | `bfcl-official-full-nonlive-kv-pti-per-case-v1` | Official local evaluator: BFCL Non-Live AST Acc 69.88%; 969/1390 scoreable generated records correct. Context-burden telemetry: 45,332 fresh visible task-tail tokens after restore, 159,883 stable-prefix capsule tokens, 205,215 full-prompt-equivalent tokens across 1,390 records. Latency table values: 13.0 s measured mean and 12.6 s amortized mean from raw model-loop records on DushyantPC. | Initial calibration against BFCL official evaluator and paper-site BFCL reference table provenance. | Public leaderboard submission; overall BFCL rank; hosted-provider cost comparison; raw-row re-audit without the Windows model-loop JSONL. |
 
 ## Source Coverage Review
 
 - Every metric above has a local source file.
 - Primary paper numbers should cite E1, E5, and E6 first.
+- BFCL reference-table calibration should cite E15 and keep it separate from the selected-cohort and repeated-work streams.
 - E9 through E12 are supporting/background evidence and should not be promoted over the selected 100-case cohort.
 - Any prose using the internal phrase `Code Mode` should either quote a run label/file name or replace it with `programmatic tool interface`.
 - Any speed claim must separate E4 from E5/E6: the selected-cohort mechanism run was not faster for restored KV, while the repeated-work system run was much faster cumulatively.

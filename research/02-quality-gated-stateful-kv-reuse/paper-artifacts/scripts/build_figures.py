@@ -294,7 +294,7 @@ def build_codex_failures(plt) -> None:
     ax.set_yticks(y, labels)
     ax.invert_yaxis()
     ax.set_xlim(0, 100)
-    ax.set_xlabel("Share of cases in audited failure sample (%)")
+    ax.set_xlabel("Share of audited category sample (%)")
     ax.set_title("Natural Codex/Ollama pass/fail by BFCL category", pad=18)
     ax.legend(
         loc="lower center",
@@ -356,7 +356,7 @@ def build_initial_official_bfcl(plt) -> None:
     fig, ax = plt.subplots(figsize=(8.2, 4.05))
     colors = [BLUE if rate >= 70 else GRAY for rate in rates]
     ax.barh(y, rates, color=colors, height=0.58)
-    ax.axvline(69.88, color=VERMILLION, linewidth=1.2, linestyle="--", label="non-live overall: 69.88%")
+    ax.axvline(69.88, color=VERMILLION, linewidth=1.2, linestyle="--", label="BFCL Non-Live AST Acc: 69.88%")
     ax.set_yticks(y, labels)
     ax.invert_yaxis()
     ax.set_xlim(0, 105)
@@ -386,7 +386,7 @@ def build_initial_official_bfcl_mobile(plt) -> None:
     fig, ax = plt.subplots(figsize=(5.4, 5.4))
     colors = [BLUE if rate >= 70 else GRAY for rate in rates]
     ax.barh(y, rates, color=colors, height=0.58)
-    ax.axvline(69.88, color=VERMILLION, linewidth=1.2, linestyle="--", label="overall 69.88%")
+    ax.axvline(69.88, color=VERMILLION, linewidth=1.2, linestyle="--", label="Non-Live AST Acc 69.88%")
     ax.set_yticks(y, labels)
     ax.invert_yaxis()
     ax.set_xlim(0, 105)
@@ -591,6 +591,8 @@ def main() -> None:
             str(EXPERIMENT / "repeated-work-speed-summary.json"),
             str(EXPERIMENT / "repeated-work-speed-findings.md"),
             str(TRACK / "experiments" / "bfcl-official-kv-pti-leaderboard-lane" / "official-evaluator-summary-2026-06-07.md"),
+            str(TRACK / "experiments" / "bfcl-official-kv-pti-leaderboard-lane" / "official-context-burden-summary-2026-06-07.md"),
+            str(TRACK / "experiments" / "bfcl-official-kv-pti-leaderboard-lane" / "official-latency-derivation-2026-06-07.md"),
         ],
         "figures": {
             "figure-01-control-ladder": {
@@ -615,7 +617,7 @@ def main() -> None:
             },
             "figure-06-output-tokens": {
                 "source": "repeated-work-speed-summary.json",
-                "claim_boundary": "Harness burden comparison assuming comparable task success.",
+                "claim_boundary": "Output-token burden telemetry only; success differs across lanes.",
             },
             "figure-07-initial-official-bfcl": {
                 "source": "official-evaluator-summary-2026-06-07.md",
